@@ -18,7 +18,7 @@
                                     <a href="patients.php"><i class="ik ik-user"></i><span>Patients</span></a>  
                                 </div>
                                 <div class="nav-item">
-                                    <a href="#"><i class="ik ik-file-text"></i><span>Appointmets</span> <span class="badge badge-success"></span></a>
+                                    <a href="appointments.php"><i class="ik ik-file-text"></i><span>Appointmets</span> <span class="badge badge-success"></span></a>
                                 </div>
                                 <div class="nav-item">
                                     <a href="#"><i class="ik ik-phone-forwarded"></i><span>Call Center</span> <span class="badge badge-success"></span></a>

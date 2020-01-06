@@ -1,4 +1,3 @@
-console.log(patient_details);
 const loadPatientDetails = details => {
     $('#uname').html(details.firstName + ' ' + details.surname);
     $('#uemailId').html(details.email);
@@ -20,6 +19,11 @@ const loadPatientDetails = details => {
     $('#occupation').val(details.occupation);
     $('#refferedId').val(details.referredby).trigger('change');
     $('#ecostrata').val(details.economicStrata).trigger('change');
-
+    $('#patientId').val(details.patientId);
+    //for open profile pictire in edit mode
+    var src = "upload/patients/" + details.patientId + ".jpg";
+    console.log(src);
+    $('#userJpg').attr("src", src);
+    $('#userPic').attr("src", src);
 };
 loadPatientDetails(patient_details);
