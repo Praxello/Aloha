@@ -1,4 +1,5 @@
 var appointments = new Map();
+var u_patientId = null;
 const getAllAppointments = () => {
     $.ajax({
         url: url + 'getAllAppointments.php',
@@ -48,6 +49,7 @@ getAllAppointments();
 
 const editPatient = (patientId) => {
     patientId = patientId.toString();
+    u_patientId = patientId;
     $('#tData').hide();
     $('#editProfile').load('prescription.php');
 };
