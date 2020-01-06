@@ -456,7 +456,7 @@
                         aria-labelledby="fullwindowModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-header" style="background-color: aliceblue;">
                                     <h5 class="modal-title" id="fullwindowModalLabel"><strong>Diet History</strong></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                             aria-hidden="true">&times;</span></button>
@@ -468,7 +468,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="card">
-                                                    <div class="card-header">
+                                                    <div class="card-header" style="background-color: aliceblue;">
                                                         <h3><strong>Information Details</strong></h3>
                                                     </div>
                                                     <div class="card-body">
@@ -564,7 +564,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="card">
-                                                    <div class="card-header">
+                                                    <div class="card-header" style="background-color: aliceblue;">
                                                         <h3><strong>Information</strong></h3>
                                                     </div>
                                                     <div class="card-body">                                                        
@@ -709,7 +709,7 @@
                                         </div>
                                     </div>
                                         <div class="card">
-                                            <div class="card-header">
+                                            <div class="card-header" style="background-color: aliceblue;">
                                                 <h3 class="d-block w-100"><strong>Information<small
                                                             class="float-right">Date: 01/01/2020</strong></small></h3>
                                             </div>
