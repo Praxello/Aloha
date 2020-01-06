@@ -458,7 +458,7 @@
                         aria-labelledby="fullwindowModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-header" style="background-color: aliceblue;">
                                     <h5 class="modal-title" id="fullwindowModalLabel"><strong>Medical Profile</strong></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                             aria-hidden="true">&times;</span></button>
@@ -473,7 +473,7 @@
                                                     <div class="card-body">
                                                         <div class="row">
                                                             <div class="col-sm-12 col-xl-12 mb-30">
-                                                                <h4 class="sub-title"><strong>Diet Pattern</strong></h4>
+                                                                <h4 class="sub-title" style="background-color: aliceblue;"><strong>Diet Pattern</strong></h4>
                                                                 <div class="checkbox-fade fade-in-success">
                                                                     <label>
                                                                         <input type="checkbox" value="">
@@ -672,8 +672,8 @@
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="card">
-                                                    <div class="card-header">
+                                                <div class="card" >
+                                                    <div class="card-header" style="background-color: aliceblue;">
                                                         <h5><strong>Obstetics History</strong></h5>
                                                     </div>
                                                     <div class="card-body">
