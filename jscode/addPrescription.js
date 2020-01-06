@@ -31,18 +31,19 @@ function savePrescription() {
         remarks: $('#remark').val(),
         complaints: $('#complaintsId').val(),
         diagnosis: $('#diagnosis').val(),
-        patientId: 1,
+        patientId: u_patientId,
         doctorId: 1
     };
+    console.log(prescriptionData);
     prescriptionData = JSON.stringify(prescriptionData);
-    $.ajax({
-        url: url + 'addPrescription.php',
-        type: 'POST',
-        data: { postdata: prescriptionData },
-        dataType: 'json',
-        success: function(response) {
-            alert(response.Message);
-        }
-    });
+    // $.ajax({
+    //     url: url + 'addPrescription.php',
+    //     type: 'POST',
+    //     data: { postdata: prescriptionData },
+    //     dataType: 'json',
+    //     success: function(response) {
+    //         alert(response.Message);
+    //     }
+    // });
 
 }
