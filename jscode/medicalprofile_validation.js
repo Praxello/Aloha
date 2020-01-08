@@ -1,6 +1,7 @@
 $(function() {
         var jvalidate = $("#medicalprofile").validate
         ({
+        
             ignore: [],
             rules: {
                 year1: {
