@@ -7,7 +7,7 @@
                         <i class="ik ik-edit bg-blue"></i>
                         <div class="d-inline">
                             <h5>Prescription</h5>
-                            <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                            <span id="patientName"></span>
                         </div>
                     </div>
                 </div>
@@ -26,6 +26,7 @@
         </div>
 
         <div class="row">
+            
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
@@ -116,7 +117,7 @@
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive">
-                            <table id="prescriptionTbl" class="table table-striped table-bordered nowrap" style="overflow-y: scroll; max-height: 250px; display:block;">
+                            <table id="prescriptionTbl" class="table table-striped table-bordered nowrap" style="overflow-y: scroll; max-height: 350px; display:block;">
                                 <thead>
                                     <tr>
                                         <th style="width: 10%;">Type</th>
@@ -151,25 +152,34 @@
                     <div class="col-md-4">
 
                         <div class="form-group">
-
+                        <label for="input">Remarks</label>
                             <textarea name="remark" id="remark" cols="3" rows="3" class="form-control"></textarea>
 
                         </div>
                     </div>
-
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <div class="form-group">
+                        <label for="input">Enter Days</label>
+                            <input type="text" id="vdate" class="form-control" oninput="setDate(this.value);">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                        <label for="input">Next Visit Date</label>
                             <input type="date" id="nextVisitDate" class="form-control">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="margin-top: 26px;">
+                    
                         <button type="button" class="btn  btn-success" onclick="savePrescription()">Save</button>
                         <button type="button" class="btn  btn-default" onclick="goback()">Cancel</button>
                     </div>
                 </div>
             </div>
         </div>
-
+<hr>
+<h5>Previous Prescriptions</h5>
+<div id="prevData"></div>
     </div>
 </div>
 
@@ -184,12 +194,20 @@
             source: complaints
         }
     });
-
+//for come to main page appointments
     function goback() {
         $('#editProfile').empty();
         $('#tData').show();
     }
+    //set date in datepicker
+    function setDate(param){
+        param= parseInt(param);
+        var date = moment().add(param,'d').toDate();
+        var birthDate = moment(date).format('YYYY-MM-DD');
+        $('#nextVisitDate').val(birthDate);
+    }
 </script>
 <script src="jscode/getAllPrescriptiondata.js"></script>
 <script src="jscode/prescription-table.js"></script>
+<script src="jscode/check-prescription.js"></script>
 <script src="jscode/addPrescription.js"></script>

@@ -5,11 +5,11 @@ include "../connection.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
+$medication = null;
 extract($_POST);
-if(isset($_POST['doctorId'])){
-$sql = "SELECT pdas.appointmentId,pdas.appointmentDate,pdas.scheduledBy,pdas.patientId,pm.firstName,pm.surname,um.username 
-FROM patient_doctor_appointment_scheduling pdas INNER JOIN patient_master pm ON pm.patientId = pdas.patientId 
-INNER JOIN user_master um ON um.userId = pdas.doctorId WHERE pdas.doctorId = $doctorId  ORDER BY pdas.appointmentDate DESC";
+if(isset($_POST['patientId']) && isset($_POST['visitDate'])){
+$sql = "SELECT * FROM patient_medication pm INNER JOIN patient_prescription_medicine ppm ON ppm.patientId = pm.patientId
+WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate' AND ppm.visitDate = '$visitDate'";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -19,15 +19,15 @@ if ($jobQuery != null) {
         }
         
         $response = array(
-            'Message' => "All Appointment Data Fetched successfully",
+            'Message' => "All medication Data Fetched successfully",
             "Data" => $records,
             'Responsecode' => 200
         );
     } else {
         $response = array(
-            'Message' => "No user present/ Invalid username or password",
+            'Message' => "no data found",
             "Data" => $records,
-            'Responsecode' => 401
+            'Responsecode' => 202
         );
     }
 }else{
