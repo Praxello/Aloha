@@ -1,37 +1,41 @@
 var appointments = new Map();
 var u_patientId = null;
-const getAllAppointments = () => {
+const getAllAppointments = (doctorId) => {
     $.ajax({
         url: url + 'getAllAppointments.php',
         type: 'POST',
         dataType: 'json',
+        data: { doctorId: doctorId },
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
                     appointments.set(response.Data[i].appointmentId, response.Data[i]);
                 }
-                listAppointments(appointments);
+                var today = getToday();
+                listAppointments(appointments, today);
             }
         }
     });
 };
 
-const listAppointments = appointments => {
+const listAppointments = (appointments, today) => {
     $('#aTable').dataTable().fnDestroy();
     $('#aptData').empty();
     var tblData = '';
     for (let k of appointments.keys()) {
         let patient = appointments.get(k);
-        tblData += '<tr><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
-        tblData += '<td>' + patient.firstName + ' ' + patient.surname + '</td>';
-        tblData += '<td>' + patient.username + '</td>';
-        tblData += '<td>' + patient.scheduledBy + '</td>';
-        tblData += '<td>' + getDate(patient.appointmentDate) + '</td>';
-        tblData += '<td><div class="table-actions">';
-        tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2"></i></a>';
-        tblData += '<a href="#" class="list-delete" onclick="removeProduct(' + (k) + ')" title="Active/Inactive product"><i class="ik ik-check-circle"></i></a>';
-        tblData += '</div></td></tr>';
+        if (patient.appointmentDate == today) {
+            tblData += '<tr><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
+            tblData += '<td>' + patient.firstName + ' ' + patient.surname + '</td>';
+            tblData += '<td>' + patient.username + '</td>';
+            tblData += '<td>' + patient.scheduledBy + '</td>';
+            tblData += '<td>' + getDate(patient.appointmentDate) + '</td>';
+            tblData += '<td><div class="table-actions">';
+            tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="medication"><i class="ik ik-edit"></i></a>';
+            tblData += '</div></td></tr>';
+        }
+
     }
     $('#aptData').html(tblData);
     $('#aTable').dataTable({
@@ -45,11 +49,27 @@ const listAppointments = appointments => {
         destroy: true
     });
 };
-getAllAppointments();
+getAllAppointments(data.userId);
 
 const editPatient = (patientId) => {
     patientId = patientId.toString();
     u_patientId = patientId;
+    $(".wrapper").toggleClass("right-sidebar-expand");
     $('#tData').hide();
     $('#editProfile').load('prescription.php');
 };
+
+function getToday() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+    return today;
+}
+
+function fetch(today) {
+    var search_date = moment(today).format('YYYY-MM-DD');
+    listAppointments(appointments, search_date);
+}

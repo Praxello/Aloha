@@ -820,8 +820,8 @@
                                         </div>
                                     </div>
 
-                                <div class="container-fluid">
-                                <div class="row mt-20"> 
+                                    <div class="container-fluid">
+                                    <div class="row mt-20"> 
                                     <div class="col-md-12">
                                         <div class="card">                                         
                                             <div class="card-body">                                               

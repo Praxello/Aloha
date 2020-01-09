@@ -1,5 +1,9 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<?php
+session_start();
+if (isset($_SESSION['userId'])) {
+?>
+    <!doctype html>
+    <html class="no-js" lang="en">
 
     <head>
         <meta charset="utf-8">
@@ -30,20 +34,19 @@
         <link rel="stylesheet" href="plugins/bootstrap-tagsinput/dist/tagsinput.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
+        <link rel="stylesheet" href="dist/css/loader.css">
     </head>
 
     <body>
         <div class="wrapper">
-
-
             <div class="page-wrap">
-                <?php include 'header.php';?>
-                <?php include 'sidebar.php';?>
+                <?php include 'header.php'; ?>
+                <?php include 'sidebar.php'; ?>
                 <div id="editProfile"></div>
                 <div class="main-content" id="tData">
-                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#demoModal">Take an appointment</button>
+                    <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#demoModal">Take an appointment</button>
                     <div class="container-fluid">
-                   
+
                         <div class="card">
                             <div class="card-header row">
                                 <div class="col col-sm-3">
@@ -62,46 +65,10 @@
                                 </div>
                                 <div class="col col-sm-6">
                                     <div class="card-search with-adv-search dropdown">
-                                        <form action="">
-                                            <input type="text" class="form-control global_filter" id="global_filter" placeholder="Search.." required>
-                                            <button type="submit" class="btn btn-icon"><i class="ik ik-search"></i></button>
-                                            <button type="button" id="adv_wrap_toggler" class="adv-btn ik ik-chevron-down dropdown-toggle" data-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                            <div class="adv-search-wrap dropdown-menu dropdown-menu-right" aria-labelledby="adv_wrap_toggler">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control column_filter" id="col0_filter" placeholder="Name" data-column="0">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control column_filter" id="col1_filter" placeholder="Position" data-column="1">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control column_filter" id="col2_filter" placeholder="Office" data-column="2">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control column_filter" id="col3_filter" placeholder="Age" data-column="3">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control column_filter" id="col4_filter" placeholder="Start date" data-column="4">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control column_filter" id="col5_filter" placeholder="Salary" data-column="5">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <button class="btn btn-theme">Search</button>
-                                            </div>
-                                        </form>
+                                        <div class="form-group">
+                                            <label for="birthDate">Appointments search</label>
+                                            <input id="dropper-max-year" class="form-control" type="text" name="birthDate" placeholder="select date" onchange="fetch(this.value);"/>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col col-sm-3">
@@ -116,7 +83,7 @@
                                 <table id="aTable" class="table">
                                     <thead>
                                         <tr>
-                                           
+
                                             <th class="nosort">Patient Profile</th>
                                             <th>Patient Name</th>
                                             <th>Doctor</th>
@@ -126,15 +93,16 @@
                                         </tr>
                                     </thead>
                                     <tbody id="aptData">
-                                       
-                                        
-                                        
+
+
+
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div id="loader"></div>
                 <footer class="footer">
                     <div class="w-100 clearfix">
                         <span class="text-center text-sm-left d-md-inline-block">Copyright © 2020 Praxello Solutions All Rights Reserved.</span>
@@ -156,7 +124,7 @@
         <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
         <script src="plugins/datedropper/datedropper.min.js"></script>
         <script src="js/form-picker.js"></script>
-       
+
         <script src="plugins/moment/moment.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
         <script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
@@ -168,14 +136,24 @@
         <script src="plugins/select2/dist/js/select2.min.js"></script>
         <!-- <script src="plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script> -->
         <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
-       <script src="jscode/apis.js"></script>
-       <script src="jscode/getDateFormat.js"></script>
-       <script src="jscode/appointments.js"></script>
-       <script src="jscode/getMedicines.js"></script>
-       <script src="jscode/getMedicineTypes.js"></script>
-       <script src="jscode/getMedicineDosage.js"></script>
-       <script src="jscode/getComplaints.js"></script>
-       <script src="jscode/getAllDiagnosis.js"></script>
+        <script>
+            const data = {
+                userId: <?php echo $_SESSION['userId']; ?>
+            };
+        </script>
+         <script src="jscode/loader.js"></script>
+        <script src="jscode/apis.js"></script>
+        <script src="jscode/getDateFormat.js"></script>
+        <script src="jscode/appointments.js"></script>
+        <script src="jscode/getMedicines.js"></script>
+        <script src="jscode/getMedicineTypes.js"></script>
+        <script src="jscode/getMedicineDosage.js"></script>
+        <script src="jscode/getComplaints.js"></script>
+        <script src="jscode/getAllDiagnosis.js"></script>
     </body>
-
-</html>
+    </html>
+<?php
+} else {
+    header('Location:index.php');
+}
+?>

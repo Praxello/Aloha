@@ -32,18 +32,30 @@ function savePrescription() {
         complaints: $('#complaintsId').val(),
         diagnosis: $('#diagnosis').val(),
         patientId: u_patientId,
-        doctorId: 1
+        doctorId: data.userId,
+        nextvisit: $('#nextVisitDate').val(),
+        vdate: '2019-01-03'
     };
     console.log(prescriptionData);
     prescriptionData = JSON.stringify(prescriptionData);
-    // $.ajax({
-    //     url: url + 'addPrescription.php',
-    //     type: 'POST',
-    //     data: { postdata: prescriptionData },
-    //     dataType: 'json',
-    //     success: function(response) {
-    //         alert(response.Message);
-    //     }
-    // });
+    $.ajax({
+        url: url + 'addPrescription.php',
+        type: 'POST',
+        data: { postdata: prescriptionData },
+        dataType: 'json',
+        success: function(response) {
+            console.log(response);
+            if (response.Responsecode == 200) {
+                alert(response.Message);
+                window.open('prescription-print.php?patientId=' + response.patientId + '&doctorId=' + response.doctorId + '&visitDate=' + response.vdate);
+            } else {
+                alert(response.Message);
+            }
+        }
+    });
 
+}
+
+function print_prscription(patientId, doctorId, visitDate) {
+    window.open('prescription-print.php?patientId=' + patientId + '&doctorId=' + doctorId + '&visitDate=' + visitDate);
 }
