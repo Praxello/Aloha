@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-sm-12 col-md-12 col-xl-12 col-12 ">                       
+                            <div class="col-sm-12">                       
                                 <div class="card">
                                     <div class="card-header">
                                         <h3><strong>Today's Invoice</strong></h3>

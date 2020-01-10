@@ -64,7 +64,7 @@
                                                                     <select  class="form-control select2" id="productCategory" name="category" placeholder="Category">
                                                                         <option value="0">Fever</option>
                                                                         <option value="1">Cold</option>
-                                                                        <option value="1">Cough</option>
+                                                                        <option value="2">Cough</option>
                                                                     </select>
                                                                 </div>
                                                             </div>                                                                                                        
