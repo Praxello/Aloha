@@ -17,8 +17,8 @@
         
         <link rel="stylesheet" href=" plugins/bootstrap/dist/css/bootstrap.min.css">
         <!-- <link rel="stylesheet" href=" plugins/fontawesome-free/css/all.min.css"> -->
-        <!-- <link rel="stylesheet" href=" plugins/ionicons/dist/css/ionicons.min.css"> -->
-        <!-- <link rel="stylesheet" href=" plugins/icon-kit/dist/css/iconkit.min.css"> -->
+        <link rel="stylesheet" href=" plugins/ionicons/dist/css/ionicons.min.css">
+        <link rel="stylesheet" href=" plugins/icon-kit/dist/css/iconkit.min.css">
         <!-- <link rel="stylesheet" href=" plugins/perfect-scrollbar/css/perfect-scrollbar.css"> -->
         <link rel="stylesheet" href=" plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href=" dist/css/theme.min.css">
@@ -31,43 +31,15 @@
         <![endif]-->
 
         <div class="wrapper">       
-            <div class="page-wrap">            
+            <div class="">            
                 <div class="main-content">
-                    <div class="container-fluid">
-                        <div class="page-header">
-                            <div class="row align-items-end">
-                                <div class="col-lg-8">
-                                    <div class="page-header-title">
-                                        <i class="ik ik-inbox bg-blue"></i>
-                                        <div class="d-inline">
-                                            <h5>Invoice </h5>
-                                            <span>Invoice Detail</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <nav class="breadcrumb-container" aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            <li class="breadcrumb-item">
-                                                <a href=" index.html"><i class="ik ik-home"></i></a>
-                                            </li>
-                                            <li class="breadcrumb-item">
-                                                <a href="#">Invoice</a>
-                                            </li>
-                                            <li class="breadcrumb-item active" aria-current="page">Today's Invoice</li>
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="container-fluid" >
 
                         <div class="row">
-                            <div class="col-sm-12">                       
+                            <div class="col-sm-12" style="margin-top: 50px;">                       
                                 <div class="card">
-                                    <div class="card-header">
-                                        <h3><strong>Today's Invoice</strong></h3>
-                                    </div>
-                                    <div class="card-body">
+                                  
+                                    <div class="card-body" style="background: aliceblue;">
                                         <div class="dt-responsive">
                                             <div class="row">
                                                 <div class="col-sm-6">                                                 
@@ -199,10 +171,10 @@
                                           
                                             <div class="row">
                                                 <div class="col-sm-6"> 
-                                                    <label for="total"><strong>Total</strong></label>
+                                                    <label for="total"><strong>Total :</strong></label>
                                                 </div> 
                                                 <div class="col-sm-4"> 
-                                                    <label for="received"><strong>Received</strong></label>
+                                                    <label for="received"><strong>Received :</strong></label>
                                                 </div> 
 
                                                 <div class="col-sm-2"></div>
@@ -210,7 +182,8 @@
                                             </div>
 
                                                 <div class="row">
-                                                    <div class="col-sm-12"> 
+                                                       <!-- <div class="col-sm-3"></div> -->
+                                                    <div class="col-sm-6"> 
                                                         <div class="form-group" style="text-align: center;">
                                                           
                                                             <select class="form-control select2">
@@ -223,6 +196,7 @@
                                                             </select>
                                                         </div>
                                                     </div>
+                                                              <div class="col-sm-6"></div>
                                                 </div>
 
                                             <table id="scr-vtr-dynamic"
@@ -296,23 +270,23 @@
                                                 class="form-control" name="g"
                                                 id="g">
                                         </div> 
-                                        <div class="col-sm-4"> 
+                                        <div class="col-sm-4 mt-15"> 
                                             <label for="total"><strong>Total:</strong></label>
                                         </div> 
                                         <div class="col-sm-4"></div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-sm-4">
+                                        <div class="row ">
+                                            <div class="col-sm-4 form-group">
                                                 <label for=""><strong>Discount %</strong></label> 
                                                 <input type="text" placeholder=""
                                                 class="form-control" name="g"
                                                 id="g">
                                         </div> 
-                                        <div class="col-sm-8" style="margin-top: 30px;">
-                                            <label for=""></label> 
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Make Payment</button>
-                                                <button type="button" class="btn btn-primary">Accept Payment</button>
+                                        <div class="col-sm-8 template-demo">
+                                          
+                                                <button type="button" class="btn btn-primary "
+                                                    data-dismiss="modal"><i class="ik ik-pocket"></i>Make Payment</button>
+                                                <button type="button" class="btn btn-primary"><i class="ik ik-pocket"></i>Accept Payment</button>
                                             
                                         </div>
                                        
