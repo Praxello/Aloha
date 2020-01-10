@@ -82,72 +82,55 @@
                                         
                                                 <div class="col-md-12">
                                                 <div class="card">
-                                                    <div class="card-header">  Details                             
+                                                    <!-- <div class="card-header">  Details                             
                                                       
                                             
-                                                    </div>
+                                                    </div> -->
                                                     <div class="card-body">
                                             <div class="col-md-12">
 
                                                 <div class="row">                                                        
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-1">
                                                                 <div class="form-group">
                                                                     <label for="patientId"><b>Patient Id :</b></label>
                                                                    <label for="patientId" name="patientId" id="patientId">1</label>
                                                                 </div>
                                                             </div>
 
-                                                             <div class="col-md-3">
+                                                             <div class="col-md-2">
                                                                 <div class="form-group">
-                                                                    <label for=""><b>First Name:</b></label>
+                                                                    <label for=""><b>Name:</b></label>
                                                                    <label name="fname" id="fname">Tanaya</label>
                                                                 </div>
                                                             </div>
 
-                                                             <div class="col-md-3">
-                                                                <div class="form-group">
-                                                                    <label for=""><b>Middle Name:</b></label>
-                                                                   <label name="mname" id="mname">Raj</label>
-                                                                </div>
-                                                            </div>
-
-                                                             <div class="col-md-3">
-                                                                <div class="form-group">
-                                                                    <label for=""><b>Last Name:</b></label>
-                                                                   <label name="lname">Sonawane</label>
-                                                                </div>
-                                                            </div>
-                                                    </div>
-
-                                                    <div class="row">
-
-                                                             <div class="col-md-3">
+                                                            <div class="col-md-2">
                                                                 <div class="form-group">
                                                                     <label for=""><b>Mobile :</b></label>
                                                                    <label name="mobile">9069599499</label>
                                                                 </div>
                                                             </div>
-                                                             <div class="col-md-3">
+
+                                                            <div class="col-md-2">
                                                                 <div class="form-group">
                                                                     <label for=""><b>Email :</b></label>
                                                                    <label name="email">gsggj@gmail.com</label>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-2">
                                                                 <div class="form-group">
                                                                     <label for=""><b>City :</b></label>
                                                                    <label name="city">Nashik</label>
                                                                 </div>
                                                             </div>
-                                                             <div class="col-md-3">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
                                                                     <label for=""><b>Address :</b></label>
-                                                                   <label name="address">Nashik</label>
+                                                                   <label name="city">Nashik</label>
                                                                 </div>
                                                             </div>
+                                                    </div>
 
-
-                                                </div>
 
                                     
 
@@ -299,17 +282,19 @@
                                             <div class="col-md-12">
                                     <div class="form-group">
 
-                                                 <div class="form-group row">
-                                                <label for="receiptId" class="col-sm-3 col-form-label">Receipt Id:</label>
-                                                <div class="col-sm-3">
-                                                 <b>201</b>
-                                                </div>
+                                                 <div class=" row">
+                                                 <div class="form-group col-md-4">
+                                                                    <label for="receiptId"><b>Receipt Id :</b></label>
+                                                                   <label for="receiptId" name="receiptId" id="receiptId">1</label>
+                                                                </div>
 
-                                                <label for="received" class="col-sm-3 col-form-label">Received:</label>
-                                                <div class="col-sm-3">
-                                                
-                                                       <b>2000.0</b>
+                                                                <div class="form-group col-md-4">
+                                                                    <label for="received"><b>Received :</b></label>
+                                                                   <label for="received" name="received" id="received">2000</label>
+                                                                </div>
                                                 </div>
+            
+                                               
                                             </div>
 
                                               <div class="form-group row">
@@ -413,11 +398,7 @@
                                     </div>
                                      
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary"  id="b1">Save changes</button>
-                                    </div>
+                                   
                                 </div>
                                
                             </div>
