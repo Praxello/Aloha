@@ -464,6 +464,30 @@
                                     </div>
 
                                     <div class="container-fluid">
+<<<<<<< HEAD
+                                    <div class="row mt-20"> 
+                                    <div class="col-md-12">
+                                        <div class="card">                                         
+                                            <div class="card-body">                                               
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <h5><strong>Family History In Blood Relation</strong></h5>             
+                                                        <form class="form-inline repeater">
+                                                            <div data-repeater-list="group-a">
+                                                                <div data-repeater-item class="d-flex mb-2">
+                                                                    <label class="sr-only" for="inlineFormInputGroup1">Users</label>
+                                                                    <div class="form-group mb-2 mr-sm-2 mb-sm-0">                                                            
+                                                                        <input type="text" class="form-control" id="mdiseases" name="mdiseases" placeholder="Major Diseases">
+                                                                    </div>
+                                                                    <div class="form-group mb-2 mr-sm-2 mb-sm-0">
+                                                                        <input type="email" class="form-control" id="wmater" name="wmater" placeholder="Whom Mater">
+                                                                    </div>
+                                                                    <div class="form-group mb-2 mr-sm-2 mb-sm-0">
+                                                                        <input type="tel" class="form-control" id="odiseases" name="odiseases" placeholder="Other Diseases">
+                                                                    </div>
+                                                                     <div class="form-group mb-2 mr-sm-2 mb-sm-0">
+                                                                        <input type="tel" class="form-control" id="whommater" name="whommater" placeholder="Whom Mater">
+=======
                                         <div class="row mt-20">
                                             <div class="col-md-12">
                                                 <div class="card">
@@ -505,6 +529,7 @@
                                                                                 class="btn btn-danger btn-icon ml-2"><i
                                                                                     class="ik ik-trash-2"></i></button>
                                                                         </div>
+>>>>>>> 906c5400113bca08e9ab6ab0cb5a4aaa6de6d8c3
                                                                     </div>
                                                                     <button data-repeater-create type="button"
                                                                         class="btn btn-success btn-icon ml-2 mb-2"><i

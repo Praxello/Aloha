@@ -16,9 +16,15 @@ if (isset($_POST['postdata'])) {
     $diagnosis        = mysqli_escape_string($conn, $someArray["diagnosis"]);
     $patientId        = $someArray["patientId"];
     $doctorId         = $someArray["doctorId"];
+    $nextVisitDate    = $someArray["nextvisit"];
     $visitDate        = date('Y-m-d');
     $medicinesDetails = $someArray["medicinesDetails"];
-    $sql              = "INSERT INTO patient_medication(patientId, visitDate,nextVisitDate,complaint,advice,diagnosis,doctorId) VALUES ($patientId,'$visitDate','$visitDate','$complaints','$remarks','$diagnosis',$doctorId)";
+    
+    //for update the details
+    mysqli_query($conn,"DELETE FROM patient_medication WHERE patientId = $patientId AND visitDate='$visitDate'");
+    mysqli_query($conn,"DELETE FROM patient_prescription_medicine WHERE patientId = $patientId AND visitDate='$visitDate'");
+
+    $sql              = "INSERT INTO patient_medication(patientId, visitDate,nextVisitDate,complaint,advice,diagnosis,doctorId) VALUES ($patientId,'$visitDate','$nextVisitDate','$complaints','$remarks','$diagnosis',$doctorId)";
     $query            = mysqli_query($conn, $sql);
     if ($query == 1) {
         $last_id = mysqli_insert_id($conn);
@@ -38,7 +44,9 @@ if (isset($_POST['postdata'])) {
             if ($rowsAffected == 1) {
                 $response = array(
                     'Message' => "Prescription saved successfully",
-                    "Data" => $records,
+                    'patientId'=>$patientId,
+                    'doctorId'=>$doctorId,
+                    'vdate'=>$visitDate,
                     'Responsecode' => 200
                 );
             } else {

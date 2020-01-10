@@ -3,7 +3,7 @@ function loadMedicine(id) {
     var dropDownList = '';
     for (let k of medicines.keys()) {
         var data = medicines.get(k);
-        dropDownList += "<option value=" + k + ">" + data.name + "</option>";
+        dropDownList += "<option>" + data.name + "</option>";
     }
     $('#medicineId' + id).html(dropDownList);
 }
