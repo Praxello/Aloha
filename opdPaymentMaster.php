@@ -302,13 +302,13 @@
                                                  <div class="form-group row">
                                                 <label for="receiptId" class="col-sm-3 col-form-label">Receipt Id:</label>
                                                 <div class="col-sm-3">
-                                                 <h6><b>201</b></h6>
+                                                 <b>201</b>
                                                 </div>
 
                                                 <label for="received" class="col-sm-3 col-form-label">Received:</label>
                                                 <div class="col-sm-3">
                                                 
-                                                       <h6><b>2000.0</b></h6>
+                                                       <b>2000.0</b>
                                                 </div>
                                             </div>
 
