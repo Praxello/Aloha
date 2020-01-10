@@ -1,7 +1,5 @@
 $(function() {
-        var jvalidate = $("#medicalprofile").validate
-        ({
-        
+        var jvalidate = $("#medicalprofileform").validate ({
             ignore: [],
             rules: {
                 year1: {
@@ -70,7 +68,7 @@ $(function() {
                 },
                 m8: {
                     number: true
-                },
+                }
                 
             },
             messages: {
@@ -140,7 +138,7 @@ $(function() {
                 },
                 m8: {
                     number: "Kindly enter valid number"
-                },
+                }
                 
 
             }
