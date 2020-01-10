@@ -46,7 +46,7 @@ if(!isset($_SESSION['userId'])){
                                 <a href="index.php"><img src="medical.jpeg" alt="" style="width: 100%"></a>
                             </div>
                             <div class="alert bg-danger alert-danger text-white message" role="alert" style="display: none;">
-                                Please Enter Correct mobile number or password
+                               Choose Correct User or password
                             </div>
                             <h3>Sign In to Aloha</h3>
                             <p>Happy to see you again!</p>
@@ -101,12 +101,13 @@ if(!isset($_SESSION['userId'])){
         <script src="jscode/getBranches.js"></script>
         <script src="jscode/getUsers.js"></script>
         <script src="jscode/login.js"></script>
+        <script src="jscode/loadUsers.js"></script>
         <script src="jscode/authentication.js"></script>
     </body>
 
 </html>
 <?php
 }else{
-    header('Location:products.php');
+    header('Location:appointments.php');
 }
 ?>

@@ -1,0 +1,44 @@
+<?php
+header('Access-Control-Allow-Origin: *');
+header('Content-Type: application/json');
+include "../connection.php";
+mysqli_set_charset($conn, 'utf8');
+$response = null;
+$records  = null;
+extract($_POST);
+if (isset($_POST['paymentId']) && isset($_POST['received']) && isset($_POST['pending']) && isset($_POST['receivedBy']) && isset($_POST['paymentMode'])) {
+    $sql   = "UPDATE opd_patient_payment_master SET pending = pending-$received,received=$received WHERE paymentId = $paymentId";
+    $query = mysqli_query($conn, $sql);
+    $paymentDate = date('Y-m-d');
+    $rowsAffected = mysqli_affected_rows($conn);
+    if ($rowsAffected == 1) {
+        $sql   = "INSERT INTO opd_payment_transaction_master(paymentId,oldValue,newValue,amount,paymentMode,paymentDate,receivedBy) VALUES
+        ($paymentId,$pending,$received,$received,'$paymentMode','$paymentDate','$receivedBy')";
+        $query = mysqli_query($conn, $sql);
+        $rowsAffected = mysqli_affected_rows($conn);
+        if ($rowsAffected  == 1) {
+            $response = array(
+                'Message' => "Payment Marked Successfull",
+                'Responsecode' => 200
+            );
+        }else{
+        $response = array(
+            'Message' => "Appointment Booked Successfull",
+            'Responsecode' => 200
+        );
+    }  
+    } else {
+        $response = array(
+            'Message' => mysqli_error($conn) . " failed",
+            'Responsecode' => 500
+        );
+    }
+} else {
+    $response = array(
+        "Message" => "Parameters missing",
+        "Responsecode" => 403
+    );
+}
+mysqli_close($conn);
+print json_encode($response);
+?>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset($_SESSION['branchId'])){
+    ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -19,7 +23,7 @@
         <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
         <link rel="stylesheet" href="plugins/perfect-scrollbar/css/perfect-scrollbar.css">
         <link rel="stylesheet" href="plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-       
+        <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
         <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
         <link rel="stylesheet" href="plugins/weather-icons/css/weather-icons.min.css">
         <link rel="stylesheet" href="plugins/c3/c3.min.css">
@@ -144,10 +148,18 @@
 
             </div>
         </div>
+      
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>
             window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
         </script>
+         <script>
+       var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>'
+};
+       </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -160,18 +172,31 @@
         <script src="js/form-picker.js"></script>
         <script src="plugins/moment/moment.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="plugins/select2/dist/js/select2.min.js"></script>
         <script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
         <script src="plugins/d3/dist/d3.min.js"></script>
         <script src="plugins/c3/c3.min.js"></script>
         <script src="js/tables.js"></script>
-       
+     
+         <?php include 'add_patient.php';?>
+       <?php include 'take-appointment.php';?>
+       <?php include 'opd-payments.php';?>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
        <script src="jscode/apis.js"></script>
        <script src="jscode/getDateFormat.js"></script>
        <script src="jscode/getAge.js"></script>
        <script src="jscode/patients.js"></script>
-       <?php include 'add_patient.php';?>
+       <script src="jscode/getUsers.js"></script>
+       <script src="jscode/loadUsers.js"></script>
+       <script src="jscode/branchUsers.js"></script>
+       <script src="jscode/getPayments.js"></script>
     </body>
 
 </html>
+<?php
+}else{
+header('Location:index.php');
+}
+?>
+ 

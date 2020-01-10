@@ -5,6 +5,7 @@ function getUsers() {
         url: url + 'getAllUsers.php',
         type: 'POST',
         dataType: 'json',
+        async: false,
         success: function(response) {
             if (response.Responsecode == 200) {
                 if (response.Data != null) {
@@ -13,8 +14,6 @@ function getUsers() {
                         users.set(response.Data[i].userId, response.Data[i]);
                     }
                 }
-                console.log(users);
-
             }
         }
     });

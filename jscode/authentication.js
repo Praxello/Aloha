@@ -13,7 +13,7 @@ $('#signin').on('submit', function(event) {
         success: function(response) {
             console.log(response);
             if (response.Responsecode == 200) {
-                window.location.href = 'createSession.php?userId=' + loginData.userId;
+                window.location.href = 'createSession.php?userId=' + loginData.userId + '&branchId=' + loginData.branchId + '&username=' + response.Data.username;
             } else {
                 $('.message').show();
             }
