@@ -7,13 +7,17 @@ $response = null;
 $records  = null;
 extract($_POST);
 if (isset($_POST['paymentId']) && isset($_POST['received']) && isset($_POST['pending']) && isset($_POST['receivedBy']) && isset($_POST['paymentMode'])) {
+    
+    $paymentDetails = isset($_POST['paymentDetails']) ? $_POST['paymentDetails']:'NULL';
+    $paymentDetails = mysqli_escape_string($conn,$paymentDetails);
+    
     $sql   = "UPDATE opd_patient_payment_master SET pending = pending-$received,received=$received WHERE paymentId = $paymentId";
     $query = mysqli_query($conn, $sql);
     $paymentDate = date('Y-m-d');
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-        $sql   = "INSERT INTO opd_payment_transaction_master(paymentId,oldValue,newValue,amount,paymentMode,paymentDate,receivedBy) VALUES
-        ($paymentId,$pending,$received,$received,'$paymentMode','$paymentDate','$receivedBy')";
+        $sql   = "INSERT INTO opd_payment_transaction_master(paymentId,oldValue,newValue,amount,paymentMode,paymentModeDetail,paymentDate,receivedBy) VALUES
+        ($paymentId,$pending,$received,$received,'$paymentMode','$paymentDetails','$paymentDate','$receivedBy')";
         $query = mysqli_query($conn, $sql);
         $rowsAffected = mysqli_affected_rows($conn);
         if ($rowsAffected  == 1) {

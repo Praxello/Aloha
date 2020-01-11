@@ -163,7 +163,7 @@
                                                 <label for="paymentMode" class="col-sm-3 col-form-label"><b>Payment Mode :</b></label>
                                                 <div class="col-sm-7">
 
-                                                    <select class="form-control" id="paymentMode">
+                                                    <select class="form-control" id="paymentMode" onchange="checkPaymentMode(this.value)">
                                                         <option>Cash</option>
                                                         <option>Cheque</option>
                                                         <option>Card</option>
@@ -175,7 +175,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
+                                            <div class="form-group row" style="display: none;" id="paymentD">
                                                 <label for="paymentDetails" class="col-sm-3 col-form-label"><b>Payment Details:</b> </label>
                                                 <div class="col-sm-7">
                                                     <input type="text" class="form-control" id="paymentDetails" placeholder="100.0">

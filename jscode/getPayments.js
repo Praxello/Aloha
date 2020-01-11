@@ -57,7 +57,6 @@ const makePayment = paymentId => {
     paymentId = paymentId.toString();
     let payment = payments.get(paymentId);
     sendPaymentId = paymentId;
-    console.log(payment);
     $('#receiptId').html(paymentId);
     $('#received').html(payment.received);
     $('#billamount').val(payment.originalAmt);
@@ -69,7 +68,6 @@ const makePayment = paymentId => {
 const showPatientInfo = patientId => {
     patientId = patientId.toString();
     let details = patients.get(patientId);
-    console.log(details);
     $('#pid').html(details.patientId);
     $('#pname').html(details.firstName + ' ' + details.middleName + ' ' + details.surname);
     $('#pmobile').html(details.mobile1);
@@ -84,7 +82,41 @@ const recievePayment = () => {
         paymentId: sendPaymentId,
         pending: $('#pendingAmt').val(),
         receivedBy: data.username,
-        received: $('#amount').val()
+        received: $('#amount').val(),
+        paymentDetails: $('#paymentDetails').val()
     };
-    console.log(details);
+    $.ajax({
+        url: url + 'updateOpdPayment.php',
+        type: 'POST',
+        data: details,
+        dataType: 'json',
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: response.Message,
+                    button: false,
+                    timer: 1500
+                });
+
+            } else {
+                swal({
+                    position: 'top-end',
+                    icon: 'warning',
+                    title: response.Message,
+                    button: false,
+                    timer: 1500
+                });
+            }
+        }
+    });
 };
+
+function checkPaymentMode(mode) {
+    if (mode == 'Cash') {
+        $('#paymentD').hide();
+    } else {
+        $('#paymentD').show();
+    }
+}
