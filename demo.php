@@ -16,7 +16,7 @@ $html = '<!DOCTYPE html>
 	table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
-  margin-left: 125px;
+
 }
 th, td {
   padding: 5px;
@@ -24,15 +24,15 @@ th, td {
 }
 </style>
 <body>
-	<div style="margin-left: 144px;">
+	<div style="">
       <img src="img/medical.jpg" class="rounded-circle" width="80" />
 
 </div>
 	
-	<div style="margin-top: -100px;margin-left: 282px;">
+	<div style="margin-top: -100px;margin-left: 94px;">
 		<p><b>S.NO.46,Vartak Pride,D.P.Road,KarveNagar,Pune 411004</b></p>
 	</div>
-	<div style="margin-left: 258px;">
+	<div style="margin-left: 94px;">
 		<img src="img/web.jpg" height="32px;"><p style="margin-left: 33px;margin-top: -26px;">www.aloha.com</p>
 	</div>
 
@@ -47,14 +47,14 @@ th, td {
 
 	<p><h1 style="margin-left: 358px;">Receipt</h1></p>
 
-	<p style="margin-left: 146px;"><b>Receipt No : </b>Pune/19-20/008</p>
+	<p style=""><b>Receipt No : </b>Pune/19-20/008</p>
 	<p style="margin-top: -33px;margin-left: 541px;"><b>Date:</b> fri-10 Jan 2020</p>
-	<p style="margin-left: 143px;"><b>Patient Name :</b> Rohan Khatu</p>
+	<p style=""><b>Patient Name :</b> Rohan Khatu</p>
 	 <p style="margin-top: -33px;margin-left: 369px;"><b>Reg No. :</b> 2</p>
 	 <p style="margin-top: -35px;margin-left: 492px;"><b>Cell No:</b>9000000000</p>
 	<hr>
 	<p ><h3 style="margin-left: 340px;">Receipt Details</h3></p>
-	<table style="width:30%">
+	<table style="width:50%">
   <tr>
     <th style="font-weight: normal;">CARDIOLOGIST</th>
     <td>1500.0</td>
