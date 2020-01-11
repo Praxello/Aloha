@@ -24,37 +24,36 @@ th, td {
 }
 </style>
 <body>
-	<div style="">
-      <img src="img/medical.jpg" class="rounded-circle" width="80" />
 
+    <table width="100%" border=0 width=1000 style="border-collapse:collapse;">
+<tr>
+<td width="15%">
+<img src="img/medical.jpg" width="120" >
+</td>
+<td width="50%">
+<p style="text-align:center; font-weight:bold; margin-bottom:0px; margin-top:4px;">S.NO.46,Vartak Pride,D.P.Road,KarveNagar,Maharashtra, Pune 411004</p>
+<p > <img src="img/web.jpg" height="32px;" >www.aloha.com  <img src="img/mobile.jpg" height= 32px; style="margin-left: 40px">9087878787 <img src="img/landline.jpg" height="32px" style="margin-left: 40px">020-25449102</p>
+
+
+
+
+</td>
+</tr>
+</table>
 </div>
-	
-	<div style="margin-top: -100px;margin-left: 94px;">
-		<p><b>S.NO.46,Vartak Pride,D.P.Road,KarveNagar,Pune 411004</b></p>
-	</div>
-	<div style="margin-left: 94px;">
-		<img src="img/web.jpg" height="32px;"><p style="margin-left: 33px;margin-top: -26px;">www.aloha.com</p>
-	</div>
 
-	<div style="margin-left: 405px; margin-top: -37px">
-		<img src="img/mobile.jpg" height= 32px;><p style="margin-left: 27px;margin-top: -30px;">9087878787</p>
-	</div>
-
-	<div style="margin-left: 530px; margin-top: -37px">
-		<img src="img/landline.jpg" height="32px" style="margin-top: -5px;"><p style="margin-left: 38px;margin-top: -32px;">020-25449102</p>
-	</div>
 	<hr style="margin-top: 35px;">
 
-	<p><h1 style="margin-left: 358px;">Receipt</h1></p>
+	<p><h1 style="margin-left: 300px;">Receipt</h1></p>
 
-	<p style=""><b>Receipt No : </b>Pune/19-20/008</p>
-	<p style="margin-top: -33px;margin-left: 541px;"><b>Date:</b> fri-10 Jan 2020</p>
-	<p style=""><b>Patient Name :</b> Rohan Khatu</p>
-	 <p style="margin-top: -33px;margin-left: 369px;"><b>Reg No. :</b> 2</p>
-	 <p style="margin-top: -35px;margin-left: 492px;"><b>Cell No:</b>9000000000</p>
-	<hr>
-	<p ><h3 style="margin-left: 340px;">Receipt Details</h3></p>
-	<table style="width:50%">
+	<p style=""><b>Receipt No : </b>Pune/19-20/008 <b style="margin-left :350px">Date:</b> fri-10 Jan 2020</p>
+
+	<p style=""><b>Patient Name :</b> Rohan Khatu <b style="margin-left :100px">Reg No. :</b> 2  <b style="margin-left :170px">Cell No:</b>9000000000   </p>
+	
+
+  
+	<p ><h3 style="margin-left: 300px;">Receipt Details</h3></p>
+	<table style="width:100%">
   <tr>
     <th style="font-weight: normal;">CARDIOLOGIST</th>
     <td>1500.0</td>
@@ -68,9 +67,9 @@ th, td {
     <td>3000.0.0</td>
   </tr>
 </table>
-
-<p><h3 style="margin-left: 340px;">Payment History</h3></p>
-	<table style="width:30%">
+<br>
+<p><h3 style="margin-left: 300px; margin-top :"15px">Payment History</h3></p>
+	<table style="width:80%; margin-left :40px">
   <tr>
     <th>Payment Mode</th>
    <th>Amount</th>
@@ -81,8 +80,8 @@ th, td {
   </tr>
  
 </table>
-
-<p style="margin-left: 120px;margin-top: 35px;"><b>LDR Clinic</b></p>
+<br>
+<p style="margin-top: 35px;"><b>LDR Clinic</b></p>
 
 </body>
 </html>';

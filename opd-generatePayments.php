@@ -8,7 +8,18 @@
             <div class="modal-body">
 
             <div class="container-fluid" >
-
+<div class="row">
+<div class="card">
+<div class="card-body" style="background: aliceblue;">
+<div class="form-group" style="text-align: center;">
+                                  
+                                  <select class="form-control select2"  id="paymentFor" style="width:100%;">
+                                      
+                                  </select>
+                              </div>
+</div>
+</div>
+</div>
 <div class="row">
     <div class="col-sm-12" style="margin-top: 50px;">                       
         <div class="card">

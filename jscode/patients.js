@@ -77,5 +77,10 @@ function acceptPayment(patientId) {
     console.log(patientId);
     //paymentDetails(patientId);
     loadTest();
+    $('#paymentFor').html(list);
+    $("#paymentFor").select2({
+        placeholder: 'Select Doctor for payment',
+        allowClear: true
+    });
     $('#opd-payment-generate').modal('show');
 }
