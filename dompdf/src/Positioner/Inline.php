@@ -45,7 +45,7 @@ class Inline extends AbstractPositioner
         // End debugging
 
         if (!$p)
-            throw new Exception("No block-level parent found.  Not good.");
+            throw new Exception("No block-level parent found Not good.");
 
         $f = $this->_frame;
 

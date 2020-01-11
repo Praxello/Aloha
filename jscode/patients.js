@@ -76,5 +76,6 @@ function acceptPayment(patientId) {
     patientId_ap = patientId;
     console.log(patientId);
     //paymentDetails(patientId);
+    loadTest();
     $('#opd-payment-generate').modal('show');
 }

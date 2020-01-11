@@ -5,7 +5,6 @@ function loadUsers(branchId) {
         if (user.branchId == branchId)
             dropdownList += '<option value="' + user.userId + '">' + user.username + '</option>';
     }
-    console.log(dropdownList);
     $('#userId').html(dropdownList);
     $("#userId").select2({
         placeholder: 'Select User',

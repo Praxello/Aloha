@@ -80,87 +80,43 @@
 
                         <div class="row">
                                <!-- <div class="col-sm-3"></div> -->
-                            <div class="col-sm-6"> 
+                            <div class="col-sm-10"> 
                                 <div class="form-group" style="text-align: center;">
                                   
-                                    <select class="form-control select2" id="test">
+                                    <select class="form-control select2"  id="test" style="width:100%;">
                                         
                                     </select>
                                 </div>
                             </div>
-                                      <div class="col-sm-6"></div>
+                            <div class="col-sm-2"> 
+                                <div class="form-group" style="text-align: center;">
+                                <button type="button" class="btn btn-icon btn-success" style="float: right;" onclick="addrow()"><i class="ik ik-plus"></i></button>
+                                   
+                                </div>
+                            </div>
+                                     
                         </div>
 
-                    <table id="scr-vtr-dynamic"
-                           class="table table-striped table-bordered nowrap">
+                    <table id="presTable"
+                           class="table table-bordered nowrap">
                         <thead>
                         <tr>
-                            <th>Bill Id</th>
-                            <th>Doctor</th>
-                            <th>Bill Particular</th>
-                            <th>Total</th>
-                            <th>Pending</th>
-                            
+                            <th>Fees Type</th>
+                            <th>Amount</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Tokyo</td>
-                            <td>63</td>
-                            <td>2011/07/25</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Ashton Cox</td>
-                            <td>Junior Technical Author</td>
-                            <td>San Francisco</td>
-                            <td>66</td>
-                            <td>2009/01/12</td>
-                            
-                        </tr>
-                        <tr>
-                            <td>Cedric Kelly</td>
-                            <td>Senior Javascript Developer</td>
-                            <td>Edinburgh</td>
-                            <td>22</td>
-                            <td>2012/03/29</td>                                                    
-                        </tr>                                                
-                        <tr>
-                            <td>Jena Gaines</td>
-                            <td>Office Manager</td>
-                            <td>London</td>
-                            <td>30</td>
-                            <td>2008/12/19</td>                                                   
-                        </tr>                                                
+                        <tbody id="presTableBody">
+                                                                    
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <th>Bill Id</th>
-                        <th>Doctor</th>
-                        <th>Bill Particular</th>
-                        <th>Total</th>
-                        <th>Pending</th>
-                      
-                    </tr>
-                    </tfoot>
                 </table>
                    
                 <div class="row">
                     <div class="col-sm-4">
                         <label for=""><strong>Discount</strong></label> 
                         <input type="text" placeholder=""
-                        class="form-control" name="g"
-                        id="g">
+                        class="form-control" name="discountAmount"
+                        id="discountAmount">
                 </div> 
                 <div class="col-sm-4 mt-15"> 
                     <label for="total"><strong>Total:</strong></label>
@@ -171,8 +127,8 @@
                     <div class="col-sm-4 form-group">
                         <label for=""><strong>Discount %</strong></label> 
                         <input type="text" placeholder=""
-                        class="form-control" name="g"
-                        id="g">
+                        class="form-control" name="discountPer"
+                        id="discountPer">
                 </div> 
                 <div class="col-sm-8 template-demo">
                   

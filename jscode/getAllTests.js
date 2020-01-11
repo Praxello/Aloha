@@ -13,7 +13,6 @@ function getTest() {
                         test.set(response.Data[i].testId, response.Data[i]);
                     }
                 }
-                console.log(test);
             }
         }
     });
