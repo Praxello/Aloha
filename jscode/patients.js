@@ -1,5 +1,6 @@
 var patients = new Map();
 var patient_details = {};
+var patientId_ap = null;
 const getAllPatients = () => {
     $.ajax({
         url: url + 'getAllPatients.php',
@@ -33,7 +34,9 @@ const listPatients = patients => {
         tblData += '<td>' + getDate(patient.nextVisitDate) + '</td>';
         tblData += '<td><div class="table-actions">';
         tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2"></i></a>';
-        tblData += '<a href="#" class="list-delete" onclick="removeProduct(' + (k) + ')" title="Active/Inactive product"><i class="ik ik-check-circle"></i></a>';
+        tblData += '<a href="#" class="list-delete" onclick="takeAppointment(' + (k) + ')" title="Take appointment"><i class="ik ik-check-circle"></i></a>';
+        tblData += '<a href="#"  onclick="opdPayment(' + (k) + ')" title="Opd Payment"><i class="ik ik-edit"></i></a>';
+        tblData += '<a href="#"  onclick="acceptPayment(' + (k) + ')" title="Generate Payment"><i class="ik ik-edit"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#patientData').html(tblData);
@@ -56,3 +59,28 @@ const editPatient = (patientId) => {
     $('#tData').hide();
     $('#editProfile').load('edit_patient_profile.php');
 };
+
+function takeAppointment(patientId) {
+    patientId_ap = patientId;
+    $('#appointment').modal('show');
+}
+
+function opdPayment(patientId) {
+    patientId_ap = patientId;
+    console.log(patientId);
+    paymentDetails(patientId);
+    $('#opd-payment').modal('show');
+}
+
+function acceptPayment(patientId) {
+    patientId_ap = patientId;
+    console.log(patientId);
+    //paymentDetails(patientId);
+    loadTest();
+    $('#paymentFor').html(list);
+    $("#paymentFor").select2({
+        placeholder: 'Select Doctor for payment',
+        allowClear: true
+    });
+    $('#opd-payment-generate').modal('show');
+}

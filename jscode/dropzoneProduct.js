@@ -4,7 +4,7 @@ $(".dropzone").dropzone({
         thisDropzone = this;
         var link = url + 'getImages.php';
         $.post('apis/getImages.php', {
-            productId: uproductId
+            patientId: $('#patientId').val()
         }, function(response) {
             if (response.Data != null) {
                 $.each(response.Data, function(key, value) {
@@ -14,7 +14,7 @@ $(".dropzone").dropzone({
                         size: value.size
                     };
                     thisDropzone.emit("addedfile", mockFile);
-                    thisDropzone.createThumbnailFromUrl(mockFile, "apis/upload/productImages/" + value.name);
+                    thisDropzone.createThumbnailFromUrl(mockFile, "patientDocs/" + value.name);
 
                 });
             }
@@ -30,7 +30,7 @@ $(".dropzone").dropzone({
             data: {
                 name: name,
                 request: 2,
-                productId: uproductId
+                productId: $('#patientId').val()
             },
             sucess: function(data) {
                 console.log('success: ' + data);

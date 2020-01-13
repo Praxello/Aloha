@@ -1,8 +1,6 @@
 $('#patientform').on('submit', function(e) {
     e.preventDefault();
-    console.log('hello');
     var returnVal = $("#patientform").valid();
-    console.log(returnVal);
     if (returnVal) {
         var birthDate = moment($('#dropper-max-year').val()).format('YYYY-MM-DD');
         var fData = new FormData(this);
@@ -16,7 +14,6 @@ $('#patientform').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
                     swal({
                         position: 'top-end',
