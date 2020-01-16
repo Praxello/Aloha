@@ -38,7 +38,7 @@ const listpaymentdetails = payments => {
         tblData += '<td>' + payment.pending.toLocaleString() + '</td>';
         tblData += '<td>' + getDate(payment.visitDate) + '</td>';
         tblData += '<td>';
-        tblData += '<a href="#" onclick="makePayment(' + k + ')" title="Edit product details"><i class="ik ik-edit-2"></i></a>';
+        tblData += '<a href="#" onclick="makePayment(' + k + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue" ></i></a>';
         tblData += '</td></tr>';
     }
     $('#opdPaymentData').html(tblData);

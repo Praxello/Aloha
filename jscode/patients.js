@@ -32,11 +32,11 @@ const listPatients = patients => {
         tblData += '<td>' + patient.address + ' ' + patient.city + '</td>';
         tblData += '<td>' + getDate(patient.lastVisitDate) + '</td>';
         tblData += '<td>' + getDate(patient.nextVisitDate) + '</td>';
-        tblData += '<td><div class="table-actions">';
-        tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2"></i></a>';
-        tblData += '<a href="#" class="list-delete" onclick="takeAppointment(' + (k) + ')" title="Take appointment"><i class="ik ik-check-circle"></i></a>';
-        tblData += '<a href="#"  onclick="opdPayment(' + (k) + ')" title="Opd Payment"><i class="ik ik-pocket"></i></a>';
-        tblData += '<a href="#"  onclick="acceptPayment(' + (k) + ')" title="Generate Payment"><i class="ik ik-plus-square"></i></a>';
+        tblData += '<td><div class="table-actions" style="text-align: left;">';
+        tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" class="list-delete" onclick="takeAppointment(' + (k) + ')" title="Take appointment"><i class="ik ik-check-circle text-yellow"></i></a>';
+        tblData += '<a href="#"  onclick="opdPayment(' + (k) + ')" title="Opd Payment"><i class="ik ik-pocket text-green"></i></a>';
+        tblData += '<a href="#"  onclick="acceptPayment(' + (k) + ')" title="Generate Payment"><i class="ik ik-plus-square text-purple"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#patientData').html(tblData);

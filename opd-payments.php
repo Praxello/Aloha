@@ -27,7 +27,7 @@
                                     <!-- <div class="card-header">  Details                             
 
                                                     </div> -->
-                                    <div class="card-body">
+                                    <div class="card-body" style="background-color: aliceblue;">
                                         <div class="col-md-12 tbl">
 
                                             <div class="row">
@@ -84,11 +84,11 @@
                             <div class="col-md-8">
                                 <div class="card">
 
-                                    <div class="card-body">
+                                    <div class="card-body" >
                                         <div class="col-md-12 tbl">
 
                                             <table id="opdPayment" class="table">
-                                                <thead>
+                                                <thead style="background-color: aliceblue; color: darkblack">
                                                     <tr>
                                                         <th><b>Payment Id</b></td>
                                                             <th><b>Doctor</b></th>
