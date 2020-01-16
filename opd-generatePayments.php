@@ -1,3 +1,12 @@
+<Style>
+   
+   @media only screen and (max-width: 600px) {
+     .tbl {
+       overflow-x:auto;
+     }
+   }
+   </Style>
+
 <div class="modal fade full-window-modal" id="opd-payment-generate" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -85,8 +94,57 @@
                                                         <label for="received"><strong>Received :</strong></label>
                                                     </div> 
 
-                                                    <div class="col-sm-2"></div>                                                    
-                                                </div>
+                    <table id="presTable"
+                           class="table table-bordered nowrap tbl">
+                        <thead>
+                        <tr>
+                            <th>Fees Type</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody id="presTableBody">
+                                                                    
+                    </tbody>
+                </table>
+                   
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for=""><strong>Discount</strong></label> 
+                        <input type="text" placeholder=""
+                        class="form-control" name="discountAmount"
+                        id="discountAmount">
+                </div> 
+                <div class="col-sm-4 mt-15"> 
+                    <label for="total"><strong>Total:</strong></label>
+                </div> 
+                <div class="col-sm-4"></div>
+                </div>
+                <div class="row ">
+                    <div class="col-sm-4 form-group">
+                        <label for=""><strong>Discount %</strong></label> 
+                        <input type="text" placeholder=""
+                        class="form-control" name="discountPer"
+                        id="discountPer">
+                </div> 
+                <div class="col-sm-8 template-demo">
+                  
+                        <button type="button" class="btn btn-primary "
+                            data-dismiss="modal"><i class="ik ik-pocket"></i>Make Payment</button>
+                        <button type="button" class="btn btn-primary"><i class="ik ik-pocket"></i>Accept Payment</button>
+                    
+                </div>
+               
+            </div>
+               
+            </div>
+            </div>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>
 
                                                 <div class="row">
                                                     <!-- <div class="col-sm-3"></div> -->
