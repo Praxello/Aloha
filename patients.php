@@ -195,6 +195,7 @@ username:'<?php echo $_SESSION['username'];?>'
        <script src="jscode/getAllTests.js"></script>
        <script src="jscode/loadTest.js"></script>
        <script src="jscode/prescribeTestTable.js"></script>
+       <script src="jscode/getPreviousPayments.js"></script>
     </body>
 
 </html>
