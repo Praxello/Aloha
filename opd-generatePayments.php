@@ -6,13 +6,13 @@
                 <button type="button" class="close " data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <div class="container-fluid">
+                <div class="container-fluid" >
                     <div class="row">
                         <div class="card">
                             <div class="row">
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-6">
-                                    <div class="card-body" style="background: aliceblue;margin-bottom :10px">
+                                    <div class="card-body" style="background: aliceblue;">
                                         <div class="form-group" style="text-align: center;">                                  
                                             <select class="form-control select2"  id="paymentFor" style="width:100%;">
                                             </select>
