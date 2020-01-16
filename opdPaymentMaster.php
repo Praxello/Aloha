@@ -33,6 +33,15 @@
     font-size: 14px;
 
 }
+
+
+   
+   @media only screen and (max-width: 600px) {
+     .tbl {
+       overflow-x:auto;
+     }
+   }
+  
 </style>
 <body>
   
@@ -149,7 +158,7 @@
                                                 <div class="card">
                                              
                                     <div class="card-body">
-                                 <div class="col-md-12">
+                                 <div class="col-md-12 tbl">
                                     <div class="form-group">
                                                
                                   <table id="data_table" class="table table-responsive">

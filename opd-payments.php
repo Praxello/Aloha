@@ -1,3 +1,13 @@
+
+<Style>
+   
+   @media only screen and (max-width: 600px) {
+     .tbl {
+       overflow-x:auto;
+     }
+   }
+   </Style>
+
 <div class="modal fade full-window-modal" id="opd-payment" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -18,7 +28,7 @@
 
                                                     </div> -->
                                     <div class="card-body">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 tbl">
 
                                             <div class="row">
                                                 <div class="col-md-1">
@@ -75,7 +85,7 @@
                                 <div class="card">
 
                                     <div class="card-body">
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 tbl">
 
                                             <table id="opdPayment" class="table">
                                                 <thead>

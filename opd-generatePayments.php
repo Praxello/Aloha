@@ -1,3 +1,12 @@
+<Style>
+   
+   @media only screen and (max-width: 600px) {
+     .tbl {
+       overflow-x:auto;
+     }
+   }
+   </Style>
+
 <div class="modal fade full-window-modal" id="opd-payment-generate" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -20,7 +29,7 @@
 </div>
 </div>
 </div>
-<div class="row">
+<div class="row tbl">
     <div class="col-sm-12" style="margin-top: 50px;">                       
         <div class="card">
           
@@ -89,7 +98,7 @@
                         
                     </div>
 
-                        <div class="row">
+                        <div class="row tbl">
                                <!-- <div class="col-sm-3"></div> -->
                             <div class="col-sm-10"> 
                                 <div class="form-group" style="text-align: center;">
@@ -109,7 +118,7 @@
                         </div>
 
                     <table id="presTable"
-                           class="table table-bordered nowrap">
+                           class="table table-bordered nowrap tbl">
                         <thead>
                         <tr>
                             <th>Fees Type</th>

@@ -33,7 +33,14 @@ if(isset($_SESSION['branchId'])){
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
     </head>
-
+<Style>
+   
+@media only screen and (max-width: 600px) {
+  .tbl {
+    overflow-x:auto;
+  }
+}
+</Style>
     <body>
         <div class="wrapper">
 
@@ -42,11 +49,13 @@ if(isset($_SESSION['branchId'])){
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
                 <div id="editProfile"></div>
-                <div class="main-content" id="tData">
+                <div class="main-content template-demo " id="tData">
+                
                 <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#demoModal">Add New Patient</button>
                     <div class="container-fluid">
                    
                         <div class="card">
+                        
                             <div class="card-header row">
                                 <div class="col col-sm-3">
                                     <div class="card-options d-inline-block">
@@ -61,6 +70,7 @@ if(isset($_SESSION['branchId'])){
                                             </div>
                                         </div>
                                     </div>
+                             
                                 </div>
                                 <div class="col col-sm-6">
                                     <div class="card-search with-adv-search dropdown">
@@ -114,7 +124,9 @@ if(isset($_SESSION['branchId'])){
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body c">
+                            <!-- <div style="overflow-x:auto;"> -->
+                            <div class="dt-responsive tbl" >
                                 <table id="pTable" class="table">
                                     <thead>
                                         <tr>
@@ -135,7 +147,9 @@ if(isset($_SESSION['branchId'])){
                                         
                                     </tbody>
                                 </table>
+                                    </div>
                             </div>
+                            <!-- <div> -->
                         </div>
                     </div>
                 </div>
