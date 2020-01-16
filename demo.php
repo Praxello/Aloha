@@ -34,9 +34,6 @@ th, td {
 <p style="text-align:center; font-weight:bold; margin-bottom:0px; margin-top:4px;">S.NO.46,Vartak Pride,D.P.Road,KarveNagar,Maharashtra, Pune 411004</p>
 <p > <img src="img/web.jpg" height="32px;" >www.aloha.com  <img src="img/mobile.jpg" height= 32px; style="margin-left: 40px">9087878787 <img src="img/landline.jpg" height="32px" style="margin-left: 40px">020-25449102</p>
 
-
-
-
 </td>
 </tr>
 </table>

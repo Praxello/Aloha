@@ -67,15 +67,13 @@ function takeAppointment(patientId) {
 
 function opdPayment(patientId) {
     patientId_ap = patientId;
-    console.log(patientId);
     paymentDetails(patientId);
     $('#opd-payment').modal('show');
 }
 
 function acceptPayment(patientId) {
     patientId_ap = patientId;
-    console.log(patientId);
-    //paymentDetails(patientId);
+    getPreviousPayments(patientId);
     loadTest();
     $('#paymentFor').html(list);
     $("#paymentFor").select2({

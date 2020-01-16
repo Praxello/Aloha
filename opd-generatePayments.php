@@ -23,7 +23,7 @@
                                 <div class="col-sm-6">
                                     <div class="card-body" style="background: aliceblue;">
                                         <div class="form-group" style="text-align: center;">                                  
-                                            <select class="form-control select2"  id="paymentFor" style="width:100%;">
+                                            <select class="form-control select2"  id="paymentFor" style="width:100%;" onchange="getSelectedText()">
                                             </select>
                                         </div>
                                     </div>
@@ -47,32 +47,21 @@
                                                             <th>Doctor</th>
                                                             <th>Bill Particular</th>
                                                             <th>Total</th>
-                                                            <th>Pending</th>                                                    
+                                                            <th>Pending</th>  
+                                                            <th></th>                                                  
                                                         </tr>
                                                     </thead>
                                                     <tbody id="tbPayment">                                                                 
-                                                        <tr>
-                                                            <td>Bradley Greer</td>
-                                                            <td>Software Engineer</td>
-                                                            <td>London</td>
-                                                            <td>41</td>
-                                                            <td>2012/10/13</td>                                                   
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Dai Rios</td>
-                                                            <td>Personnel Lead</td>
-                                                            <td>Edinburgh</td>
-                                                            <td>35</td>
-                                                            <td>2012/09/26</td>                                                  
-                                                        </tr>
+                                                        
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
-                                                            <th>Bill Id</th>
-                                                            <th>Doctor</th>
-                                                            <th>Bill Particular</th>
+                                                            <th></th>
+                                                            <th></th>
                                                             <th>Total</th>
-                                                            <th>Pending</th>                                                 
+                                                            <th id="totalP"></th>
+                                                            <th></th> 
+                                                            <th></th>                                                
                                                         </tr>
                                                     </tfoot>
                                                 </table>                                              
@@ -92,7 +81,7 @@
                                                         <h6><strong>For:</strong></h6>
                                                     </div> 
                                                     <div class="col-sm-8"> 
-                                                        <h6><strong>DR. RITUPARNA SHINDE</strong></h6>
+                                                        <h6><strong id="dName"></strong></h6>
                                                     </div> 
                                                     <div class="col-sm-2"></div>
                                                 </div>
@@ -175,12 +164,12 @@
                                                 <div class="row">                                                   
                                                    <div class="col-sm-12">
                                                         <table id="presTable"
-                                                        class="table table-bordered nowrap">
+                                                        class="table nowrap">
                                                             <thead>
                                                                 <tr>
                                                                     <th>Fees Type</th>
                                                                     <th>Amount</th>
-                                                                    <th>Action</th>
+                                                                    <th></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody id="presTableBody">                                                                                                
@@ -190,30 +179,36 @@
                                                 </div>
                    
                                                 <div class="row">
-                                                    <div class="col-sm-1">
-                                                        <label for=""><strong>Discount:</strong></label> 
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                        <label for=""><strong>Discount in Rs</strong></label> 
+                                                        <input type="text" placeholder="100.00" class="form-control" name="dAmt" id="dAmt" oninput="calculateAmt(this.value)">
+                                                        </div>
+
                                                     </div>
-                                                    <div class="col-sm-2">
-                                                        <input type="text" placeholder=""
-                                                        class="form-control" name="discountAmount"
-                                                        id="discountAmount">
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                        <label for=""><strong>Percentage</strong></label> 
+                                                        <input type="text"  class="form-control"  id="pAmt" readonly>
+                                                        </div>
+
                                                     </div>
-                                                    
-                                                    <div class="col-sm-3"> 
-                                                        <label for="total"><strong>Discount%:</strong></label>
-                                                    </div> 
-                                                    <div class="col-sm-3">
-                                                        <label for="total"><strong>Total:</strong></label>
+                                                    <div class="col-sm-4">
+                                                        <div class="form-group">
+                                                        <label for=""><strong>Total</strong></label> 
+                                                        <input type="text" placeholder="" class="form-control"  id="tAmt" readonly>
+                                                        </div>
+
                                                     </div>
-                                                    <div class="col-sm-3"></div>
+                                                   
                                                 </div>
-                                                <div class="row ">
-                                                    <div class="col-sm-4"></div>                                                                                                         
-                                                    <div class="col-sm-8 template-demo">                                                
+                                                <div class="row">
+                                                    <div class="col-sm-4 template-demo">                                                
                                                         <button type="button" class="btn btn-primary "
                                                             data-dismiss="modal"><i class="ik ik-pocket"></i>Make Payment</button>
                                                         <button type="button" class="btn btn-primary"><i class="ik ik-pocket"></i>Accept Payment</button>                                                    
-                                                    </div>                                            
+                                                    </div>  
+                                                    <div class="col-sm-8"></div>                                          
                                                 </div>              
                                             </div>
                                         </div>
