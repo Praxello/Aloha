@@ -1,15 +1,14 @@
-$('#presentillnessform').on('submit', function(e) {
+$('#diethistoryform').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-    var returnVal = $("#presentillnessform").valid();
+    var returnVal = $("#diethistoryform").valid();
     if (returnVal) {
     
         var fData = new FormData(this);
-        // console.log(fData);
-        // fData.serialize();
+
 
         $.ajax({
-            url: url + 'insertpresentIllness.php',
+            url: url + 'insertDietHistory.php',
             type: 'POST',
             data: fData,
             cache: false,

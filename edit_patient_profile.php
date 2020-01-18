@@ -53,7 +53,7 @@
                         <hr>
                         <div class="map-box">
                             <div class="card-body template-demo">
-                                <button type="button" class="btn btn-primary"><i class="ik ik-star"></i>Pay Fees</button>
+                                <button type="button" class="btn btn-primary" onClick="payfees()"><i class="ik ik-star"></i>Pay Fees</button>
                                 <button type="button" class="btn btn-success"><i class="ik ik-check-circle"></i>All OPD Payments</button>
                                 <button type="button" class="btn btn-secondary"><i class="ik ik-clipboard"></i>Payment History</button>
                                 <button type="button" class="btn btn-dark"><i class="ik ik-edit-2"></i>Documents</button>
@@ -412,3 +412,8 @@
 <script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="jscode/uploadProfile.js"></script>
+<script>
+    function payfees(){
+        alert("hi");
+    }
+</script>

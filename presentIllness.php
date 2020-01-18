@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="modal-body">
 
-        <form id="presentillnessform" method="POST">
+        <form id="presentillnessform" method="POST" class="forms-sample" enctype="multipart/form-data">
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -159,7 +159,7 @@
                                             <div class="form-group row">
                                                 <label for="temp" class="col-sm-2 col-form-label">Temp:</label>
                                                 <div class="col-sm-4">
-                                                    <input type="text" class="form-control" id="temp" placeholder="temp" name="temp">
+                                                    <input type="text" class="form-control" id="temperature" placeholder="temperature" name="temperature">
                                                 </div>
 
                                                 <label for="fbs" class="col-sm-2 col-form-label">FBS:</label>
@@ -201,14 +201,14 @@
 
                                                 <label for="goal wt" class="col-sm-2 col-form-label">Goal Wt:</label>
                                                 <div class="col-sm-4">
-                                                    <input type="text" class="form-control" id="goalwt" placeholder="Goal wt" name="goalwt">
+                                                    <input type="text" class="form-control" id="goalweight" placeholder="Goal wt" name="goalweight">
                                                 </div>
                                             </div>
 
                                               <div class="form-group row">
                                                 <label for="waist/hip" class="col-sm-2 col-form-label" id="waisthip"><b>Waist/Hip:</b></label>
                                                 <div class="col-sm-4">
-                                                    <label></label>
+                                                    <label name="waitHipRatio" id="waitHipRatio"></label>
                                                 </div>
                                             </div>
                                                                  
@@ -472,7 +472,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary"  id="b1">Save changes</button>
+                                        <button type="submit" class="btn btn-primary"  value="Submit">Save changes</button>
                                     </div>
                                 </div>
                                
@@ -489,100 +489,18 @@
 
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
         <script>window.jQuery || document.write('<script src="../../src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
         <script src="plugins/screenfull/dist/screenfull.js"></script>
         <script src="dist/js/theme.min.js"></script>
-
+        <script src="jscode/apis.js"></script>
         <script src="js/jquery.validate.js"></script>
         <script src="jscode/presentillness_validation.js"></script>
         <script src="jscode/presentillness.js"></script>
-                    <!-- <script src="jscode/addPatient.js"></script> -->
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <!-- <script>
-              $('#b1').on('click',function(e){
-                //   console.log('in');
-                var j = $('#presentillnessform').valid();
-                if(j){
-                    console.log('success');
-                }else{
-                    console.log('error');
-                }
-              });
-
-
-            function preillness(){
-                // var obj = {
-                //     cheifcomplaint : document.getElementById('cheifcomplaint').value,
-                //     history : document.getElementById('history').value,
-                //     bp : document.getElementById('bp').value,
-                //     waist : document.getElementById('waist').value,
-                //     pules : document.getElementById('pules').value,
-                //     hip : document.getElementById('hip').value,
-                //     spo2 : document.getElementById('spo2').value,
-                //     hb1c : document.getElementById('hb1c').value,
-                //     temp : document.getElementById('temp').value,
-                //     fbs : document.getElementById('fbs').value,
-                //     weight : document.getElementById('weight').value,
-                //     ppbs : document.getElementById('ppbs').value,
-
-                //     height : document.getElementById('height').value,
-                //     gfr : document.getElementById('gfr').value,
-                //     bmi : document.getElementById('bmi').value,
-                //     goalwt : document.getElementById('goalwt').value,
-                //     waisthip : document.getElementById('waisthip').value,
-                //     chest : document.getElementById('chest').value,
-                //     addedSound : document.getElementById('addedSound').value,
-                //     wheezeRhonchi : document.getElementById('wheezeRhonchi').value,
-                //     dyspnoea : document.getElementById('dyspnoea').value,
-                //     conciousness : document.getElementById('conciousness').value,
-
-                //     umnreflex : document.getElementById('umnreflex').value,
-                //     lmnreflex : document.getElementById('lmnreflex').value,
-                //     reflexes : document.getElementById('reflexes').value,
-                //     s1s2heard : document.getElementById('s1s2heard').value,
-                //     murmur : document.getElementById('murmur').value,
-
-                //     oralMucosa : document.getElementById('oralMucosa').value,
-                //     scalp : document.getElementById('scalp').value,
-                //     nodules : document.getElementById('nodules').value,
-                //     eyes : document.getElementById('eyes').value,
-
-                //     raynaud : document.getElementById('raynaud').value,
-                //     telangiectasia : document.getElementById('telangiectasia').value,
-                //     photosensivity : document.getElementById('photosensivity').value,
-                //     rash : document.getElementById('rash').value,
-                //     site : document.getElementById('site').value,
-                //     type : document.getElementById('type').value,
-                //     itching : document.getElementById('itching').value,
-
-                // };
-                console.log(obj);
-                alert("File Added Successfully...!")
-               $.ajax({
-        // url: 'stud.php',
-        type: 'POST',
-        data:obj,
-        beforeSend:function(){
-        alert('ok');
-        },
-        success: function(response) {
-            alert(response);
-           var a =  JSON.parse(response);
-           alert(a.code);
-            $('#presentillnessform').trigger('reset');
-        },
-        complete:function(){
-            alert('hello');
-        }
-    });
-            }
-
-
-             
-        </script> -->
+          
 </body>
 
 </html>

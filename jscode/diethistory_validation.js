@@ -6,10 +6,10 @@ $(function() {
                 number:true,
                 required : true
             },
-            mage: {
+            metabolicAge : {
                 number:true
             },
-            vfat: {
+            viceral : {
                 number :true              
             },
             chest:{
@@ -24,17 +24,17 @@ $(function() {
                 number:true
             },
 
-            rthigh:{
+            thighR:{
                 number:true
             },
-            lthigh:{
+            thighL:{
                 number:true
             },
 
-            whipratio:{
+            waistRatio:{
                 number:true
             },
-            fmember:{
+            noFamilyMembers:{
                 number:true
             },
             dm:{
@@ -43,29 +43,29 @@ $(function() {
             htn:{
                 number:true
             },
-            vveins:{
+            vericose:{
                 number:true
             },
-            imenses:{
+            irregularMenses:{
                 number:true
             },
-            thyroiddisorder:{
+            thyroid:{
                 number:true
             },
        
-            jpain:{
+            joint:{
                 number:true
             },
             constipation:{
                 number:true
             },
-            edema:{
+            pedalEndema:{
                 number:true
             },
             pcod:{
                 number:true
             },
-            backache:{
+            backAche:{
                 number:true
             },
             acidity:{
@@ -74,19 +74,19 @@ $(function() {
             gases:{
                 number:true
             },
-            hdisease:{
+            heartDisease :{
                 number:true
             },
-            dislipidemia:{
+            Dislipidemia:{
                 number:true
             },
-            breathlessness:{
+            breathlessness :{
                 number:true
             },
             bloating:{
                 number:true
             },
-            like:{
+            likes:{
                 number:true
             },
             dislike:{
@@ -113,10 +113,10 @@ $(function() {
                 number : "Enter Only Number",
                 required : "required"
             },
-            mage: {
+            metabolicAge : {
                 number: "Enter Only Number"
             },
-            vfat: {
+            viceral : {
                 number : "Enter Only Number"              
             },
             chest:{
@@ -131,17 +131,17 @@ $(function() {
                 number:"Enter Valid Number"
             },
 
-            rthigh:{
+            thighR:{
                 number:"Enter Valid Number"
             },
-            lthigh:{
+            thighL:{
                 number:"Enter Valid Number"
             },
 
-            whipratio:{
+            waistRatio:{
                 number:"Enter Valid Number"
             },
-            fmember:{
+            noFamilyMembers:{
                 number:"Enter Valid Number"
             },
             dm:{
@@ -150,29 +150,29 @@ $(function() {
             htn:{
                 number:"Enter Valid Number"
             },
-            vveins:{
+            vericose:{
                 number:"Enter Valid Number"
             },
-            imenses:{
+            irregularMenses:{
                 number:"Enter Valid Number"
             },
-            thyroiddisorder:{
+            thyroid:{
                 number:"Enter Valid Number"
             },
        
-            jpain:{
+            joint:{
                 number:"Enter Valid Number"
             },
             constipation:{
                 number:"Enter Valid Number"
             },
-            edema:{
+            pedalEndema:{
                 number:"Enter Valid Number"
             },
-            pcod:{
+            pcod :{
                 number:"Enter Valid Number"
             },
-            backache:{
+            backAche:{
                 number:"Enter Valid Number"
             },
             acidity:{
@@ -181,19 +181,19 @@ $(function() {
             gases:{
                 number:"Enter Valid Number"
             },
-            hdisease:{
+            heartDisease :{
                 number:"Enter Valid Number"
             },
-            dislipidemia:{
+            Dislipidemia:{
                 number:"Enter Valid Number"
             },
-            breathlessness:{
+            breathlessness :{
                 number:"Enter Valid Number"
             },
             bloating:{
                 number:"Enter Valid Number"
             },
-            like:{
+            likes:{
                 number:"Enter Valid Number"
             },
             dislike:{
