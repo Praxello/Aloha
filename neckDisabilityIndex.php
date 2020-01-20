@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="card-body template-demo">
 
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#fullwindowModal">Questionnaire</button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#fullwindowModal">Neck Disability Index</button>
                                 </div>
                             </div>
 
@@ -71,37 +71,16 @@
                                     <h5 class="modal-title" id="fullwindowModalLabel"><strong>Neck Disability Index</strong></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 </div>
-                                <form id="diethistoryform" method="POST" class="forms-sample" enctype="multipart/form-data">
+                     <form id="neckForm" method="POST" class="forms-sample" enctype="multipart/form-data">
                                 <div class="modal-body">
 
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="card">
-                                                    <!-- <div class="card-header" style="background-color: aliceblue;">
-                                                        <h3><strong>History</strong></h3>
-                                                    </div> -->
+                                                   
                                                     <div class="card-body">
-                                                        <form class="forms-sample">
-                                                            <div class="form-group row">
-                                                                <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Patients Name:</label>
-                                                                <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="exampleInputUsername2" placeholder="Name">
-                                                                </div>
-
-
-                                                                <label for="exampleInputUsername2" class="col-sm-1 col-form-label">file:</label>
-                                                                <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="exampleInputUsername2" placeholder="file">
-                                                                </div>
-
-                                                                <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Date:</label>
-                                                                <div class="col-sm-3">
-                                                                    <input type="date" class="form-control" id="exampleInputUsername2" placeholder="Date">
-                                                                </div>
-                                                            </div>
-                                                            
-                                                            <hr>
+                                                       
                                                             <div class="row">
                                                                 
                                                                     <div class="form-group forms-sample  col-sm-3">
@@ -109,47 +88,47 @@
 
                                                                         <div class="checkbox-fade fade-in-success " >
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="painIntensity-1" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>The pain comes and goes and is very mild.</span>
+                                                                                <span>I have no pain at the moment.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="painIntensity-2" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>The pain is mild and does not vary much.</span>
+                                                                                <span>The pain is very mild at the moment.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox"  value="painIntensity-3" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>The pain comes and goes and is moderate.</span>
+                                                                                <span>The pain is moderate at the moment.</span>
                                                                             </label><br>
 
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="painIntensity-4" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>The pain is moderate and does not vary much.</span>
+                                                                                <span>The pain is fairly severe at the moment.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox"  value="painIntensity-5" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>The pain comes and goes and is severe.</span>
+                                                                                <span>The pain is very severe at the moment..</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox"  value="painIntensity-6" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>The pain is severe and does not vary much.</span>
+                                                                                <span>The pain is the worst imaginable at the moment.</span>
                                                                             </label><br>
                                                                         </div>                                                                          
                                                                     </div>
@@ -159,46 +138,46 @@
 
                                                                         <div class="checkbox-fade fade-in-success " >
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="personalCare-1" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>I do not have to change my way of washing or dressing in order to avoid pain.</span>
+                                                                                <span>I can look after myself normally without causing extra pain.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="personalCare-2" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>I do not normally change my way of washing or dressing even though it causes some pain.</span>
+                                                                                <span>I can look after myself normally,but it causes extra pain.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="personalCare-3" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>Washing and dressing increases the pain but I manage not to change my way of doing it.</span>
+                                                                                <span>It is painful to look after myself,and I am slow and careful.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="personalCare-4" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>Washing and dressing increases the pain and I find it necessary to change my way of doing it. </span>.</span>
+                                                                                <span>I need some help but manage most of my personal care.</span>.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="personalCare-5" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>Bacause of the pain I am unable to do some washing and dressing without help.</span>
+                                                                                <span>I need help every day in most aspects of self-care.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="personalCare-6" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>Bacause of the pain I am unable to do any washing and dressing without help.</span>
+                                                                                <span>I do not get dressed.I wash with difficulty and stay in bed.</span>
                                                                             </label><br>
                                                                         </div>                                                                          
                                                                     </div>  
@@ -208,99 +187,101 @@
 
                                                                         <div class="checkbox-fade fade-in-success " >
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="lifting-1" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>I can lift heavy weights without extra pain.</span>
+                                                                                <span>I can lift heavy weights without causing extra pain.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="lifting-2" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>I can lift heavy weights,but it causes extra pain.</span>
+                                                                                <span>I can lift heavy weights,but it gives me extra pain.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="lifting-3" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>Pain prevents me from lifting heavy weights off the floor.</span>
+                                                                                <span>Pain prevents me from lifting heavy weights off the floor but I can 
+                                                                                manage if items are conveniently positioned.ie.on a table.</span>
                                                                             </label><br>
 
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="lifting-4" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>Pain prevents me from lifting heavy weights off the floor,but I can manage if they are conveniently positioned.e.g.on a table</span>
+                                                                                <span>Pain prevents me from lifting heavy weights,but I can light</span>
+                                                                               <span  > weights if they are conveniently positioned.</span>
                                                                                 
                                                                             </label><br>
 
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="lifting-5" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>Pain prevents me from lifting heavy weight,but I can Manage light to medium weights if they are conveniently positioned.</span>
+                                                                                <span>I can lift only very light weights.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="lifting-6" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>I can only lift very light weights at the most.</span>
+                                                                                <span>I cannot lift or carry anything at all.</span>
                                                                             </label><br>
                                                                         </div>                                                                          
                                                                     </div>  
                                                                     <div class="form-group  col-sm-3">
-                                                                        <label for="exampleInputUsername1"><b>SECTION 4 - Walking</b></label><br>
+                                                                        <label for="exampleInputUsername1"><b>SECTION 4 - Work</b></label><br>
 
                                                                         <div class="checkbox-fade fade-in-success " >
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="work-1" name="work">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>I have no pain an Walking.</span>
+                                                                                <span>I can do as much work as i want.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="work-2" name="work">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>I have some pain on Walking but it does not increases with distance.</span>
+                                                                                <span>I can only do my usual work,but no more.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="work-3" name="work">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>I cannot walk more than one mile without increasing pain.</span>
+                                                                                <span>I can do most of my usual work,but no more.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="work-4" name="work">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>I cannot walk more than 1/2 mile without increasing pain.</span>
-                                                                            </label><br>
-
-                                                                            <label>
-                                                                                <input type="checkbox" value="">
-                                                                                <span class="cr">
-                                                                                    <i class="cr-icon ik ik-check txt-success"></i>
-                                                                                </span>
-                                                                                <span>I cannot walk more than 1/4 mile without increasing pain.</span>
+                                                                                <span>I can't do my usual work.</span>
                                                                             </label><br>
 
                                                                             <label>
-                                                                                <input type="checkbox" value="">
+                                                                                <input type="checkbox" value="work-5" name="work">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
-                                                                                <span>I can't walk at all without increasing pain.</span>
+                                                                                <span>I can hardly do any work at all.</span>
+                                                                            </label><br>
+
+                                                                            <label>
+                                                                                <input type="checkbox" value="work-6" name="work">
+                                                                                <span class="cr">
+                                                                                    <i class="cr-icon ik ik-check txt-success"></i>
+                                                                                </span>
+                                                                                <span>I can't do any work at all.</span>
                                                                             </label><br>
                                                                         </div>                                                                          
                                                                     </div>  
@@ -311,101 +292,101 @@
                                                                 <div class="row">
                                                                
                                                                         <div class="form-group forms-sample col-sm-3">
-                                                                            <label for="exampleInputUsername1"><b>SECTION 5 - SITTING</b></label><br>
+                                                                            <label for="exampleInputUsername1"><b>SECTION 5 - HEADACHES</b></label><br>
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="headaches-1" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I can sit in any chair as long as I like.</span>
+                                                                                    <span>I have no headaches at all.A21</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="headaches-2" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I can sit only in my favorite chair as long as I like.</span>
+                                                                                    <span>I have slight headaches that come infrequently.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="headaches-3" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Pain prevents me from sitting more thsn one hour.</span>
+                                                                                    <span>I have moderate headaches that come infrequently.</span>
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="headaches-4" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Pain prevents me from sitting more thsn 1/2 hour.</span>
+                                                                                    <span>I have moderate headaches that come frequently.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="headaches-5" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Pain prevents me from sitting more thsn 10 minutes.</span>
+                                                                                    <span>I have servere headaches that come frequently.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="headaches-6" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I avoid sitting because it increases pain straight away.</span>
+                                                                                    <span>I have headaches almost all the time.</span>
                                                                                 </label><br>
                                                                             </div>                                                                          
                                                                         </div>
 
                                                                         <div class="form-group  col-sm-3">
-                                                                            <label for="exampleInputUsername1"><b>SECTION 6 - STANDING</b></label><br>
+                                                                            <label for="exampleInputUsername1"><b>SECTION 6 - CONCENTRATION</b></label><br>
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="concentration-1" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I can stand as long as I want without pain.</span>
+                                                                                    <span>I can concentrate fully without difficulty.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="concentration-2" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I have some pain on standing but it does not increase with time.</span>
+                                                                                    <span>I can concentrate fully slight difficulty.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="concentration-3" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I cannot stand for longer than one hour without increasing pain.</span>
+                                                                                    <span>I have a fair degree of difficulty concentrating.</span>
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="concentration-4" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I cannot stand for longer than 1/2 hour without increasing pain.</span>
+                                                                                    <span>I have a lot of difficulty concentrating.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="concentration-5" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I cannot stand for longer than 10 minutes without increasing pain</span>
+                                                                                    <span>I have a great deal of difficulty concentrating.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="concentration-6" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I avoid standing because it increases the pain immediately.</span>
+                                                                                    <span>I can't concentrating at all.</span>
                                                                                 </label><br>
                                                                             </div>                                                                          
                                                                         </div>
@@ -415,97 +396,97 @@
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="sleeping-1" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I get no pain in bed.</span>
+                                                                                    <span>I have no trouble sleeping.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="sleeping-2" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I get pain in bed but it does not prevent me from sleeping well.</span>
+                                                                                    <span>My sleep is slightly disturbed for less than 1 hour.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="sleeping-3" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Because of pain my normal night's sleep is reduced by less than 1/4.</span>
+                                                                                    <span>My sleep is mildly disturbed for upto 1-2 hour.</span>
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="sleeping-4" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Because of pain my normal night's sleep is reduced by less than 1/2.</span>
+                                                                                    <span>My sleep is moderately disturbed for upto 2-3 hour.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="sleeping-5" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Because of pain my normal night's sleep is reduced by less than 3/4.</span>
+                                                                                    <span>My sleep is greatly disturbed for upto 3-5 hour.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="sleeping-6" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Pain prevents me from sleeping at all.</span>
+                                                                                    <span>My sleep is completely disturbed for upto 5-7 hour.</span>
                                                                                 </label><br>
                                                                             </div>                                                                          
                                                                         </div>
 
                                                                         <div class="form-group  col-sm-3">
-                                                                            <label for="exampleInputUsername1"><b>SECTION 8 - Social Life</b></label><br>
+                                                                            <label for="exampleInputUsername1"><b>SECTION 8 - DRIVING</b></label><br>
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="driving-1" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>My social life is normal and gives me no pain.</span>
+                                                                                    <span>I can drive my car without neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="driving-2" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>My social life is normal but increases the degree of my pain.</span>
+                                                                                    <span>I can drive as long as I want with slight neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="driving-3" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Pain has no significant effect on my social life apsrt from limiting my more energetic iterests.e.g dancing. etc.</span>
+                                                                                    <span>I can drive as long as I want with moderate neck pain.</span>
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="driving-4" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Pain has restricted my social life,and I do not go out very often.</span>
+                                                                                    <span>I can't drive as long as I want because of moderate neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="driving-5" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Pain has restricted my social life to my home.</span>
+                                                                                    <span>I can hardly drive at all because of severe neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="driving-6" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I have hardly any social life because of the pain.</span>
+                                                                                    <span>I can't drive my care at all because of neck pain.</span>
                                                                                 </label><br>
                                                                             </div>                                                                          
                                                                         </div>
@@ -515,130 +496,121 @@
                                                                 <div class="row">
                                                                    
                                                                         <div class="form-group forms-sample col-sm-3">
-                                                                            <label for="exampleInputUsername1"><b>SECTION 9 - TRAVEL</b></label><br>
+                                                                            <label for="exampleInputUsername1"><b>SECTION 9 - READING</b></label><br>
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="reading-1" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I get no pain while traveling.</span>
+                                                                                    <span>I can read as much as I want with no neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="reading-2" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I get some pain while traveling,but none of my usual forms of travel make it any worse.</span>
+                                                                                    <span>I can read as much as I want with slight neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="reading-3" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I get extra pain while traveling,but it does not compets me to seek alternative forms of travel.</span>
+                                                                                    <span>I can read as much as I want with moderate neck pain.</span>
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="reading-4" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>I get extra pain while traveling,which compets me to seek alternative forms of travel.</span>
+                                                                                    <span>I can't read as much as I want because of severe neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="reading-5" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Pain restricts all forms of travel.</span>
+                                                                                    <span>I can't read as much as I want because of severe neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="reading-6" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>Pain prevents all forms of travel except that done lying down.</span>
+                                                                                    <span>I can't read at all.</span>
                                                                                 </label><br>
                                                                             </div>                                                                          
                                                                         </div>
                                                                       
 
                                                                         <div class="form-group forms-sample col-sm-3">
-                                                                            <label for="exampleInputUsername1"><b>SECTION 10 - CHANGING DEGREE OF PAIN</b></label><br>
+                                                                            <label for="exampleInputUsername1"><b>SECTION 10 - RECREATION</b></label><br>
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="recreation-1"  name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>My pain is rapidly getting better.</span>
+                                                                                    <span>I have no neck pain during all recreational activities.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="recreation-2" name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>My pain fluctuates but overall is definitely getting better.</span>
+                                                                                    <span>I have some neck pain with all recreational activities.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="recreation-3" name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>My pain seems to be getting better but improvement is slow at present.</span>
+                                                                                    <span>I have some neck pain with a few recreational activities.</span>
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="recreation-4" name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>My pain is neither getting better nor worse.</span>
+                                                                                    <span>I have neck pain with most recreational activities.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="recreation-5" name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>My pain is gradually worsening.</span>
+                                                                                    <span>I can hardly do recreational activities due to neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="">
+                                                                                    <input type="checkbox" value="recreation-6" name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
-                                                                                    <span>My pain is rapidly worsening.</span>
+                                                                                    <span>I can't do any recreational activities due to neck pain.</span>
                                                                                 </label><br>
                                                                             </div>                                                                          
                                                                         </div>
                                                                  </div>
                                                                 
                                                          </div>
-                                                          <!-- <div class="modal-footer">
+                                                         </div>
+                                                          <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                             <button type="submit" class="btn btn-primary" value="submit">Save changes</button>
-                                                        </div> -->
+                                                        </div>
                                                        
-                                                    </div>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                               
-                                   
-                                      
-                                           
-
-                              
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" value="submit">Save changes</button>
-                                </div>
-                                </form>
+                               </form>
                                 </div>
                             </div>
                         </div>
@@ -660,26 +632,10 @@
     <script src="dist/js/theme.min.js"></script>
     <script src="jscode/apis.js"></script>
         <script src="js/jquery.validate.js"></script>
-        <script src="jscode/diethistory_validation.js"></script>
-        <script src="jscode/diet_History.js"></script>
+ 
+        <script src="jscode/neckDisability.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function(b, o, i, l, e, r) {
-            b.GoogleAnalyticsObject = l;
-            b[l] || (b[l] =
-                function() {
-                    (b[l].q = b[l].q || []).push(arguments)
-                });
-            b[l].l = +new Date;
-            e = o.createElement(i);
-            r = o.getElementsByTagName(i)[0];
-            e.src = 'https://www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e, r)
-        }(window, document, 'script', 'ga'));
-        ga('create', 'UA-XXXXX-X', 'auto');
-        ga('send', 'pageview');
-    </script>
+  
 </body>
 
 </html>
