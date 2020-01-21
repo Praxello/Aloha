@@ -49,5 +49,26 @@ const showBackPain = backPain => {
 const editBack = (lbackpId) => {
     lbackpId = lbackpId.toString();
     back_details = backPain.get(lbackpId);
+    fill_back(back_details);
 
 };
+
+// function fill_back(backDetails) {
+//     var json,obj,values,i;
+//     json = backDetails.painIntensity;
+//     if (json != null) {
+//         obj = JSON.parse(json);
+//         values = Object.keys(obj).map(function(key) { return obj[key]; });
+//         console.log(values);
+//          i = 0;
+//         $.each($("input[name='painIntensity']"), function() {
+//             if (values[i] == 1) {
+//                 $(this).attr("checked", true);
+//             } else {
+//                 $(this).attr("checked", false);
+//             }
+//             i++;
+//         });
+//     }
+//     $('#backPain').modal('show');
+// }

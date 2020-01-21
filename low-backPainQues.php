@@ -23,7 +23,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="painIntensity-A" name="painIntensity">
+                                                        <input type="checkbox" value="1" name="painIntensity">
                                                         <span class="cr">
                                                       <i class="cr-icon ik ik-check txt-success"></i>
                                                         </span>
@@ -31,7 +31,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="painIntensity-B" name="painIntensity">
+                                                        <input type="checkbox" value="1" name="painIntensity">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -39,7 +39,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="painIntensity-C" name="painIntensity">
+                                                        <input type="checkbox" value="1" name="painIntensity">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -48,7 +48,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="painIntensity-D" name="painIntensity">
+                                                        <input type="checkbox" value="1" name="painIntensity">
                                                         <span class="cr">
                                                                                      <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -56,7 +56,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="painIntensity-E" name="painIntensity">
+                                                        <input type="checkbox" value="1" name="painIntensity">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -64,7 +64,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="painIntensity-F" name="painIntensity">
+                                                        <input type="checkbox" value="1" name="painIntensity">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -80,7 +80,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="personalCare-A" name="personalCare">
+                                                        <input type="checkbox" value="1" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -88,7 +88,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="personalCare-B" name="personalCare">
+                                                        <input type="checkbox" value="1" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -96,7 +96,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="personalCare-C" name="personalCare">
+                                                        <input type="checkbox" value="1" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -104,7 +104,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="personalCare-D" name="personalCare">
+                                                        <input type="checkbox" value="1" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -112,7 +112,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="personalCare-E" name="personalCare">
+                                                        <input type="checkbox" value="1" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -120,7 +120,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="personalCare-F" name="personalCare">
+                                                        <input type="checkbox" value="1" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -136,7 +136,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="lifting-A" name="lifting">
+                                                        <input type="checkbox" value="1" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -144,7 +144,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="lifting-B" name="lifting">
+                                                        <input type="checkbox" value="1" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -152,7 +152,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="lifting-C" name="lifting">
+                                                        <input type="checkbox" value="1" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -161,7 +161,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="lifting-D" name="lifting">
+                                                        <input type="checkbox" value="1" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -171,7 +171,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="lifting-E" name="lifting">
+                                                        <input type="checkbox" value="1" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -179,7 +179,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="lifting-F" name="lifting">
+                                                        <input type="checkbox" value="1" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -194,7 +194,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="walking-A" name="walking">
+                                                        <input type="checkbox" value="1" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -202,7 +202,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="walking-B" name="walking">
+                                                        <input type="checkbox" value="1" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -210,7 +210,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="walking-C" name="walking">
+                                                        <input type="checkbox" value="1" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -218,7 +218,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="walking-D" name="walking">
+                                                        <input type="checkbox" value="1" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -227,7 +227,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="walking-E" name="walking">
+                                                        <input type="checkbox" value="1" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -236,7 +236,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="walking-F" name="walking">
+                                                        <input type="checkbox" value="1" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -256,7 +256,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="sitting-A" name="sitting">
+                                                        <input type="checkbox" value="1" name="sitting">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -264,7 +264,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="sitting-B" name="sitting">
+                                                        <input type="checkbox" value="1" name="sitting">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -272,7 +272,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="sitting-C" name="sitting">
+                                                        <input type="checkbox" value="1" name="sitting">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -281,7 +281,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="sitting-D" name="sitting">
+                                                        <input type="checkbox" value="1" name="sitting">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -289,7 +289,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="sitting-E" name="sitting">
+                                                        <input type="checkbox" value="1" name="sitting">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -297,7 +297,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="sitting-F" name="sitting">
+                                                        <input type="checkbox" value="1" name="sitting">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -313,7 +313,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="standing-A" name="standing">
+                                                        <input type="checkbox" value="1" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -321,7 +321,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="standing-B" name="standing">
+                                                        <input type="checkbox" value="1" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -329,7 +329,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="standing-C" name="standing">
+                                                        <input type="checkbox" value="1" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -338,7 +338,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="standing-D" name="standing">
+                                                        <input type="checkbox" value="1" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -346,7 +346,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="standing-E" name="standing">
+                                                        <input type="checkbox" value="1" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -354,7 +354,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="standing-F" name="standing">
+                                                        <input type="checkbox" value="1" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -370,7 +370,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="sleeping-A" name="sleeping">
+                                                        <input type="checkbox" value="1" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -378,7 +378,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="sleeping-B" name="sleeping">
+                                                        <input type="checkbox" value="1" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -386,7 +386,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="sleeping-C" name="sleeping">
+                                                        <input type="checkbox" value="1" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -395,7 +395,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="sleeping-D" name="sleeping">
+                                                        <input type="checkbox" value="1" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -403,7 +403,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="sleeping-E" name="sleeping">
+                                                        <input type="checkbox" value="1" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -411,7 +411,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="sleeping-F" name="sleeping">
+                                                        <input type="checkbox" value="1" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -427,7 +427,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="socialLife-A" name="socialLife">
+                                                        <input type="checkbox" value="1" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -435,7 +435,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="socialLife-B" name="socialLife">
+                                                        <input type="checkbox" value="1" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -443,7 +443,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="socialLife-C" name="socialLife">
+                                                        <input type="checkbox" value="1" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -452,7 +452,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="socialLife-D" name="socialLife">
+                                                        <input type="checkbox" value="1" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -460,7 +460,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="socialLife-E" name="socialLife">
+                                                        <input type="checkbox" value="1" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -468,7 +468,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="socialLife-F" name="socialLife">
+                                                        <input type="checkbox" value="1" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -488,7 +488,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="travel-A" name="travel">
+                                                        <input type="checkbox" value="1" name="travel">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -496,7 +496,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="travel-B" name="travel">
+                                                        <input type="checkbox" value="1" name="travel">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -504,7 +504,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="travel-C" name="travel">
+                                                        <input type="checkbox" value="1" name="travel">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -513,7 +513,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="travel-D" name="travel">
+                                                        <input type="checkbox" value="1" name="travel">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -521,7 +521,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="travel-E" name="travel">
+                                                        <input type="checkbox" value="1" name="travel">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -529,7 +529,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="travel-F" name="travel">
+                                                        <input type="checkbox" value="1" name="travel">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -545,7 +545,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="pain-A" name="changingDegreeOfPain">
+                                                        <input type="checkbox" value="1" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -553,7 +553,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="pain-B" name="changingDegreeOfPain">
+                                                        <input type="checkbox" value="1" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -561,7 +561,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="pain-C" name="changingDegreeOfPain">
+                                                        <input type="checkbox" value="1" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -570,7 +570,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="pain-D" name="changingDegreeOfPain">
+                                                        <input type="checkbox" value="1" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -578,7 +578,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="pain-E" name="changingDegreeOfPain">
+                                                        <input type="checkbox" value="1" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -586,7 +586,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="pain-F" name="changingDegreeOfPain">
+                                                        <input type="checkbox" value="1" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>

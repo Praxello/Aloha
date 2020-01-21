@@ -53,12 +53,13 @@ const editneck = (neckId) => {
 };
 
 function fill_neck(details) {
-    var json = details.painIntensity;
+    var json,obj,values,i;
+    json = details.painIntensity;
     if (json != null) {
-        var obj = JSON.parse(json);
-        var values = Object.keys(obj).map(function(key) { return obj[key]; });
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
         console.log(values);
-        var i = 0;
+         i = 0;
         $.each($("input[name='painIntensity']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -68,6 +69,151 @@ function fill_neck(details) {
             i++;
         });
     }
+
+    json = details.personalCare;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='personalCare']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.lifting;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='lifting']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.work;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='work']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.headaches;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='headaches']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.concentration;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='concentration']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.sleeping;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='sleeping']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.driving;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='driving']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.reading;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='reading']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.recreation;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='recreation']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
 
     $('#neckDis').modal('show');
 }
