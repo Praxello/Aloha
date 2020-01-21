@@ -29,3 +29,4 @@ const loadPatientDetails = details => {
 loadPatientDetails(patient_details);
 getLumbarSpine(patient_details.patientId);
 getNeckDisblity(patient_details.patientId);
+getLowBackPain(patient_details.patientId);

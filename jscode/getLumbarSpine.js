@@ -14,8 +14,9 @@ const getLumbarSpine = (patientId) => {
                 for (var i = 0; i < count; i++) {
                     spines.set(response.Data[i].lsAId, response.Data[i]);
                 }
-                showLumbarSpine(spines);
+               
             }
+            showLumbarSpine(spines);
         }
     });
 };
@@ -27,17 +28,7 @@ const showLumbarSpine = spines => {
     for (let k of spines.keys()) {
         let spine = spines.get(k);
 
-        tblData += '<tr><td>' + spine.lsAId + '</td>';
-        tblData += '<td>' + spine.funDisabilityScore + '</td>';
-        tblData += '<td>' + spine.vasScore + '</td>';
-        tblData += '<td>' + spine.presentSince + '</td>';
-        tblData += '<td>' + spine.symptomsAtOnset + '</td>';
-        tblData += '<td>' + spine.aggravatingFactor + '</td>';
-        tblData += '<td>' + spine.relivingFactor + '</td>';
-        tblData += '<td>' + spine.prevTreatments + '</td>';
-        tblData += '<td>' + spine.recentsurgery + '</td>';
-        tblData += '<td>' + spine.momentLoss + '</td>';
-        tblData += '<td>' + spine.testMovement + '</td>';
+        tblData += '<tr><td>' + spine.visitDate + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editLumbarSpine(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '</div></td></tr>';
@@ -48,7 +39,7 @@ const showLumbarSpine = spines => {
         retrieve: true,
         bPaginate: $('tbody tr').length > 10,
         order: [],
-        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7] }],
+        columnDefs: [{ orderable: false, targets: [0, 1] }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true
