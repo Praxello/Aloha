@@ -14,7 +14,7 @@ const getLumbarSpine = (patientId) => {
                 for (var i = 0; i < count; i++) {
                     spines.set(response.Data[i].lsAId, response.Data[i]);
                 }
-               
+
             }
             showLumbarSpine(spines);
         }
@@ -51,4 +51,31 @@ const editLumbarSpine = (spineId) => {
     spineId = spineId.toString();
     spine_details = spines.get(spineId);
     console.log(spine_details);
+    fill_lumbar(spine_details);
 };
+
+function fill_lumbar(details) {
+    if (details.funDisabilityScore != null) {
+        $('#funDisabilityScore').val(details.funDisabilityScore);
+    }
+    if (details.vasScore != null) {
+        $('#vasScore').val(details.vasScore);
+    }
+    // var json;
+    // json = details.painIntensity;
+    // if (json != null) {
+    //     var obj = JSON.parse(json);
+    //     var values = Object.keys(obj).map(function(key) { return obj[key]; });
+    //     console.log(values);
+    //     var i = 0;
+    //     $.each($("input[name='painIntensity']"), function() {
+    //         if (values[i] == 1) {
+    //             $(this).attr("checked", true);
+    //         } else {
+    //             $(this).attr("checked", false);
+    //         }
+    //         i++;
+    //     });
+    // }
+    $('#fullwindowModal2').modal('show');
+}

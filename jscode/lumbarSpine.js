@@ -9,7 +9,7 @@ $('#lumbarSpineForm').on('submit', function(e) {
         var ob = getAgg();
         var relfactorObj = getRelivingFactor();
         var presentSinceObj = getpresentSince();
-        presentSinceObj['s'] = $('#presentSince').val();
+        presentSinceObj.s = $('#presentSince1').val();
 
         var symObj = getsymptomsAtOnset();
         symObj['s1'] = $('#symptomsAtOnset').val();
