@@ -43,15 +43,14 @@ if(isset($_SESSION['branchId'])){
 </Style>
     <body>
         <div class="wrapper">
-
+        
 
             <div class="page-wrap">
-                <?php include 'header.php';?>
+            <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
-                <div id="editProfile"></div>
                 <div class="main-content template-demo " id="tData">
                 
-                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#demoModal">Add New Patient</button>
+                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#fullwindowModal">Add Lumbar Spine Assessment</button>
                     <div class="container-fluid">
                    
                         <div class="card">
@@ -127,28 +126,35 @@ if(isset($_SESSION['branchId'])){
                             <div class="card-body c">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
-                                <table id="pTable" class="table">
+                                <table id="sTable" class="table">
                                     <thead>
                                         <tr>
                                            
-                                            <th class="nosort">Avatar</th>
+                                            <th>Id</th>
                                             <th>Name</th>
-                                            <th>Age</th>
-                                            <th>Contact Number</th>
-                                            <th>Address</th>
-                                            <th>Last Visit</th>
-                                            <th>Next Visit</th>
-                                            <th>Action</th>
+                                            <th>Functional Score</th>
+                                            <th>VAS Score</th>
+                                            <th>Present Since</th>
+                                            <th>Symptoms at onset</th>
+                                         
+                                            <th>Aggravating Factor</th>
+                                            <th>Reliving Factor</th>
+                                            <th>Previous Treatments</th>
+                                            <th>Recent Surgery</th>
+                                            <th>Movement Loss</th>
+                                            <th>Test Movements</th>
+                                            <th>Action<th>  
+                        
                                         </tr>
                                     </thead>
-                                    <tbody id="patientData">
+                                    <tbody id="spineData">
                                        
                                         
                                         
                                     </tbody>
                                 </table>
-                                    </div>
-                            </div>
+                             </div>
+                        </div>
                             <!-- <div> -->
                         </div>
                     </div>
@@ -167,13 +173,7 @@ if(isset($_SESSION['branchId'])){
         <script>
             window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
         </script>
-         <script>
-       var data = {
-userId:<?php echo $_SESSION['userId'];?>,
-branchId:<?php echo $_SESSION['branchId'];?>,
-username:'<?php echo $_SESSION['username'];?>'
-};
-       </script>
+       
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -190,24 +190,15 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
         <script src="plugins/d3/dist/d3.min.js"></script>
         <script src="plugins/c3/c3.min.js"></script>
-        <script src="js/tables.js"></script>
+        <!-- <script src="js/tables.js"></script> -->
      
          <?php include 'lumbarSpineAssessment.php';?>
    
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
        <script src="jscode/apis.js"></script>
-       <script src="jscode/getDateFormat.js"></script>
-       <script src="jscode/getAge.js"></script>
-       <script src="jscode/patients.js"></script>
-       <script src="jscode/getUsers.js"></script>
-       <script src="jscode/loadUsers.js"></script>
-       <script src="jscode/branchUsers.js"></script>
-       <script src="jscode/getPayments.js"></script>
-       <script src="jscode/getAllTests.js"></script>
-       <script src="jscode/loadTest.js"></script>
-       <script src="jscode/prescribeTestTable.js"></script>
-       <script src="jscode/getPreviousPayments.js"></script>
+       <script src="jscode/getLumbarSpine.js"></script>
+   
     </body>
 
 </html>

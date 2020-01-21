@@ -4,8 +4,8 @@ $('#lumbarSpineForm').on('submit', function(e) {
     var returnVal = $("#lumbarSpineForm").valid();
     if (returnVal) {
     
-         var momentLoss =  storeTblValues();
-         console.log(momentLoss);                                                                                                    
+        //  var momentLoss =  storeTblValues();
+        //  console.log(momentLoss);                                                                                                    
         var ob = getAgg();
         var relfactorObj = getRelivingFactor();
         var presentSinceObj = getpresentSince();
@@ -440,25 +440,25 @@ const getlateralshift = () =>{
     return lshift ;
 }
 
-function storeTblValues() {
-    var TableData = [];
+// function storeTblValues() {
+//     var TableData = [];
 
-    $('#momentLoss tr').each(function(row, tr) {
-        var maj = $(tr).find('td:eq(0) input').val();
-        var mod = $(tr).find('td:eq(1) input').val();
-        var min = $(tr).find('td:eq(2) input').val();
-        var nil = $(tr).find('td:eq(3) input').val();
-        var pain =$(tr).find('td:eq(4) input').val();
+//     $('#momentLoss tr').each(function(row, tr) {
+//         var maj = $(tr).find('td:eq(0) input').val();
+//         var mod = $(tr).find('td:eq(1) input').val();
+//         var min = $(tr).find('td:eq(2) input').val();
+//         var nil = $(tr).find('td:eq(3) input').val();
+//         var pain =$(tr).find('td:eq(4) input').val();
 
-        TableData[row] = {
-            "maj": maj,
-            "mod": mod,
-            "min": min,
-            "nil": nil,
-            "pain": pain
+//         TableData[row] = {
+//             "maj": maj,
+//             "mod": mod,
+//             "min": min,
+//             "nil": nil,
+//             "pain": pain
 
-        };
-    });
-    TableData.shift();
-    return TableData;
-}
+//         };
+//     });
+//     TableData.shift();
+//     return TableData;
+// }
