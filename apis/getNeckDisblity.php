@@ -7,7 +7,7 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['patientId'])){
-$sql = "SELECT * FROM lumbar_spine_assessment WHERE patientId = $patientId";
+$sql = "SELECT * FROM neck_disability_index WHERE patientId = $patientId";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

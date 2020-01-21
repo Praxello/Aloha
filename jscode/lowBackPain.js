@@ -87,7 +87,9 @@ const getpainIntensity = () => {
         if (this.checked) {
             flag = 1;
             painObj[value] = flag;
+
         } else {
+
             painObj[value] = flag;
         }
 
