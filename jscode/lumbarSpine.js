@@ -7,33 +7,36 @@ $('#lumbarSpineForm').on('submit', function(e) {
         //  var momentLoss =  storeTblValues();
         //  console.log(momentLoss);                                                                                                    
         var ob = getAgg();
+        ob.otherA=$('#aggravatingFactor1').val();
         var relfactorObj = getRelivingFactor();
+        relfactorObj.otherR =$('#relivingFactor1').val();
         var presentSinceObj = getpresentSince();
         presentSinceObj.s = $('#presentSince1').val();
 
         var symObj = getsymptomsAtOnset();
-        symObj['s1'] = $('#symptomsAtOnset').val();
+        symObj.s1 = $('#symptomsAtOnset1').val();
 
         var conObj = getconsym();
-        conObj['s2'] = $('#constantSymptoms').val();
+        conObj.s2= $('#constantSymptoms1').val();
         var insymObj = getinterSymptoms();
-        insymObj['s3'] = $('#interSymptoms').val();
+        insymObj.s3 = $('#interSymptoms1').val();
         var symtObj = getspecSymptoms();
         var blrObj = getbladder();
         var mediObj = getmedications();
-        mediObj['other'] = $('#medications').val();
+        mediObj.other = $('#medications1').val();
         var genObj = getGeneralHealth();
-        genObj['GHealth'] = $('#GeneralHealth').val();
+        genObj.GHealth = $('#GeneralHealth1').val();
         var imgObj = getimaging();
-        imgObj['imaging'] = $('#imaging').val();
+        imgObj.imaging = $('#imaging1').val();
         var recObj = getrecentsurgery();
-        recObj['surgery'] = $('#recentsurgery').val();
+        recObj.surgery = $('#recentsurgery1').val();
         var nigObj = getnightPain();
-        nigObj['nPain'] = $('#nightPain').val();
+        nigObj.nPain = $('#nightPain1').val();
         var accObj = getaccidents();
-        accObj['acc'] = $('#accidents').val();
+        accObj.acc = $('#accidents1').val();
         var waitObj = getweightLoss();
-        waitObj['weight'] = $('#weightLoss').val();
+        waitObj.weight = $('#weightLoss1').val();
+        waitObj.other1 = $('#weightLoss2').val();
         var setObj = getsitting();
         var larObj = getlordosis();
         var lshift = getlateralshift();
@@ -52,6 +55,7 @@ $('#lumbarSpineForm').on('submit', function(e) {
         var motorObj = $('#motorDeficit').val();
         var sensoryObj = $('#sensoryDeficit').val();
 
+      
 
         // fData.append('aggravatingFactor',ob);
 

@@ -87,7 +87,7 @@
 
                                                                 <label for="symptomsAtOnset" class="col-sm-1 col-form-label">Symptoms at onset:</label>
                                                                 <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="symptomsAtOnset" name="symptomsAtOnset" placeholder="0-10">
+                                                                    <input type="text" class="form-control" id="symptomsAtOnset1" name="symptomsAtOnset1" placeholder="0-10">
                                                                 </div>
                                                                 <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success check"  >
@@ -120,7 +120,7 @@
                                                             <div class="form-group row">
                                                                 <label for="constantSymptoms" class="col-sm-1 col-form-label">Constant Symptoms:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="constantSymptoms" name="constantSymptoms" placeholder="100">
+                                                                    <input type="text" class="form-control" id="constantSymptoms1" name="constantSymptoms1" placeholder="100">
                                                                 </div>
                                                              
                                                                     <div class="col-sm-2">
@@ -152,26 +152,26 @@
 
                                                                 <label for="interSymptoms" class="col-sm-1 col-form-label">Intermittent Symptoms:</label>
                                                                 <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="interSymptoms" name="interSymptoms" placeholder="0-10">
+                                                                    <input type="text" class="form-control" id="interSymptoms1" name="interSymptoms1" placeholder="0-10">
                                                                 </div>
                                                                 <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success check"  >
                                                                         <label>
-                                                                            <input type="checkbox"  value="back" name="constantSymptoms">
+                                                                            <input type="checkbox"  value="back" name="interSymptoms">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>back</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="thigh" name="constantSymptoms">
+                                                                            <input type="checkbox" value="thigh" name="interSymptoms">
                                                                             <span class="cr">
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>thigh</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="leg" name="constantSymptoms">
+                                                                            <input type="checkbox" value="leg" name="interSymptoms">
                                                                             <span class="cr">
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
@@ -253,7 +253,7 @@
                                                                     <!-- <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Other:</label> -->
                                                                     <span class="col-sm-1 ">Other</span>
                                                                     <div class="col-sm-3 ">
-                                                                        <input type="text" class="form-control" id="aggravatingFactor" name="aggravatingFactor" placeholder="100">
+                                                                        <input type="text" class="form-control" id="aggravatingFactor1" name="aggravatingFactor1" placeholder="100">
                                                                     </div>
                                                            
 
@@ -330,7 +330,7 @@
                                                                     <!-- <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Other:</label> -->
                                                                     <span class="col-sm-1 ">Other</span>
                                                                     <div class="col-sm-3 ">
-                                                                        <input type="text" class="form-control"id="relivingFactor" name="relivingFactor" placeholder="100">
+                                                                        <input type="text" class="form-control" id="relivingFactor1" name="relivingFactor1" placeholder="100">
                                                                     </div>
                                                            
 
@@ -463,14 +463,14 @@
                                                                     <!-- <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Other:</label> -->
                                                                     <span class="col-sm-1 mb-13">Other</span>
                                                                     <div class="col-sm-6 ">
-                                                                        <input type="text" class="form-control" id="medications" name="medications" placeholder="Good">
+                                                                        <input type="text" class="form-control" id="medications1" name="medications1" placeholder="Good">
                                                                     </div>
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label for="GeneralHealth" class="col-sm-1 col-form-label">General Health:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="GeneralHealth" placeholder="100">
+                                                                    <input type="text" class="form-control" id="GeneralHealth1"  name="GeneralHealth1" placeholder="100">
                                                                 </div>
                                                              
                                                                     <div class="col-sm-2">
@@ -502,7 +502,7 @@
 
                                                                 <label for="imaging" class="col-sm-1 col-form-label">Imaging:</label>
                                                                 <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="imaging" name="imaging" placeholder="0-10">
+                                                                    <input type="text" class="form-control" id="imaging1" name="imaging1" placeholder="0-10">
                                                                 </div>
                                                                 <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success check" >
@@ -530,7 +530,7 @@
                                                             <div class="form-group row">
                                                                 <label for="recentsurgery" class="col-sm-1 col-form-label">Recent or major surgery:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="recentsurgery" name="recentsurgery" placeholder="No">
+                                                                    <input type="text" class="form-control" id="recentsurgery1" name="recentsurgery1" placeholder="No">
                                                                 </div>
                                                              
                                                                     <div class="col-sm-2">
@@ -556,7 +556,7 @@
 
                                                                 <label for="nightPain" class="col-sm-1 col-form-label">Night Pain:</label>
                                                                 <div class="col-sm-1">
-                                                                    <input type="text" class="form-control" id="nightPain" name="nightPain" placeholder="No">
+                                                                    <input type="text" class="form-control" id="nightPain1" name="nightPain1" placeholder="No">
                                                                 </div>
                                                                 <div class="col-sm-2">
                                                                     <div class="checkbox-fade fade-in-success check" >
@@ -584,7 +584,7 @@
                                                             <div class="form-group row">
                                                                 <label for="accidents" class="col-sm-1 col-form-label">Accidents:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="accidents" name="accidents" placeholder="No">
+                                                                    <input type="text" class="form-control" id="accidents1" name="accidents1" placeholder="No">
                                                                 </div>
                                                              
                                                                     <div class="col-sm-2">
@@ -610,7 +610,7 @@
 
                                                                 <label for="weightLoss" class="col-sm-1 col-form-label">Unexplained weight loss:</label>
                                                                 <div class="col-sm-1">
-                                                                    <input type="text" class="form-control" id="weightLoss" name="weightLoss" placeholder="No">
+                                                                    <input type="text" class="form-control" id="weightLoss1" name="weightLoss1" placeholder="No">
                                                                 </div>
                                                                 <div class="col-sm-2 c">
                                                                     <div class="checkbox-fade fade-in-success">
@@ -633,7 +633,7 @@
                                                                 </div>
                                                                 <span class="d">Other</span>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control"  id="weightLoss" name="weightLoss" placeholder="Yes">
+                                                                    <input type="text" class="form-control"  id="weightLoss2" name="weightLoss2" placeholder="Yes">
                                                                 </div>
 
                                                             </div>
@@ -738,7 +738,7 @@
                                                         <div class="form-group row">
                                                             <label for="motorDeficit" class="col-sm-1 col-form-label">Motor Deficit:</label>
                                                             <div class="col-sm-3">
-                                                                <input type="text" class="form-control" id="motorDeficit" name="motorDeficit                                                                            " placeholder="0-10">
+                                                                <input type="text" class="form-control" id="motorDeficit" name="motorDeficit" placeholder="0-10">
                                                             </div>
                                                             <label for="sensoryDeficit" class="col-sm-1 col-form-label">Senscry Deficit:</label>
                                                             <div class="col-sm-3">
