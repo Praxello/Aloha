@@ -49,18 +49,19 @@ const editneck = (neckId) => {
     neckId = neckId.toString();
     neck_details = neckDisiblity.get(neckId);
     console.log(neck_details);
+    global_date = neck_details.visitDate;
     fill_neck(neck_details);
 };
 
 function fill_neck(details) {
-    var json,obj,values,i;
+    var json, obj, values, i;
     json = details.painIntensity;
     if (json != null) {
         obj = JSON.parse(json);
         values = Object.keys(obj).map(function(key) { return obj[key]; });
         console.log(values);
-         i = 0;
-        $.each($("input[name='painIntensity']"), function() {
+        i = 0;
+        $.each($("input[name='painIntensity1']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -71,12 +72,13 @@ function fill_neck(details) {
     }
 
     json = details.personalCare;
+    console.log(json);
     if (json != null) {
         obj = JSON.parse(json);
         values = Object.keys(obj).map(function(key) { return obj[key]; });
         console.log(values);
-         i = 0;
-        $.each($("input[name='personalCare']"), function() {
+        i = 0;
+        $.each($("input[name='personalCare1']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -91,8 +93,8 @@ function fill_neck(details) {
         obj = JSON.parse(json);
         values = Object.keys(obj).map(function(key) { return obj[key]; });
         console.log(values);
-         i = 0;
-        $.each($("input[name='lifting']"), function() {
+        i = 0;
+        $.each($("input[name='lifting1']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -107,8 +109,8 @@ function fill_neck(details) {
         obj = JSON.parse(json);
         values = Object.keys(obj).map(function(key) { return obj[key]; });
         console.log(values);
-         i = 0;
-        $.each($("input[name='work']"), function() {
+        i = 0;
+        $.each($("input[name='work1']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -123,8 +125,8 @@ function fill_neck(details) {
         obj = JSON.parse(json);
         values = Object.keys(obj).map(function(key) { return obj[key]; });
         console.log(values);
-         i = 0;
-        $.each($("input[name='headaches']"), function() {
+        i = 0;
+        $.each($("input[name='headaches1']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -139,8 +141,8 @@ function fill_neck(details) {
         obj = JSON.parse(json);
         values = Object.keys(obj).map(function(key) { return obj[key]; });
         console.log(values);
-         i = 0;
-        $.each($("input[name='concentration']"), function() {
+        i = 0;
+        $.each($("input[name='concentration1']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -155,8 +157,8 @@ function fill_neck(details) {
         obj = JSON.parse(json);
         values = Object.keys(obj).map(function(key) { return obj[key]; });
         console.log(values);
-         i = 0;
-        $.each($("input[name='sleeping']"), function() {
+        i = 0;
+        $.each($("input[name='sleeping1']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -171,8 +173,8 @@ function fill_neck(details) {
         obj = JSON.parse(json);
         values = Object.keys(obj).map(function(key) { return obj[key]; });
         console.log(values);
-         i = 0;
-        $.each($("input[name='driving']"), function() {
+        i = 0;
+        $.each($("input[name='driving1']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -187,8 +189,8 @@ function fill_neck(details) {
         obj = JSON.parse(json);
         values = Object.keys(obj).map(function(key) { return obj[key]; });
         console.log(values);
-         i = 0;
-        $.each($("input[name='reading']"), function() {
+        i = 0;
+        $.each($("input[name='reading1']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -203,8 +205,8 @@ function fill_neck(details) {
         obj = JSON.parse(json);
         values = Object.keys(obj).map(function(key) { return obj[key]; });
         console.log(values);
-         i = 0;
-        $.each($("input[name='recreation']"), function() {
+        i = 0;
+        $.each($("input[name='recreation1']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -213,7 +215,6 @@ function fill_neck(details) {
             i++;
         });
     }
-
 
     $('#neckDis').modal('show');
 }

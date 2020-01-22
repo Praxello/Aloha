@@ -1,6 +1,8 @@
 var patients = new Map();
 var patient_details = {};
 var patientId_ap = null;
+var global_patientId = null; //for lumbar neck,and back pain
+var global_date = moment().format('YYYY-MM-DD');
 const getAllPatients = () => {
     $.ajax({
         url: url + 'getAllPatients.php',
@@ -57,6 +59,7 @@ getAllPatients();
 const editPatient = (patientId) => {
     patientId = patientId.toString();
     patient_details = patients.get(patientId);
+    global_patientId = patientId;
     $('#tData').hide();
     $('#editProfile').load('edit_patient_profile.php');
 };

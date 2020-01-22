@@ -37,6 +37,8 @@ $('#backPainForm').on('submit', function(e) {
             url: url + 'insertBackPainQues.php',
             type: 'POST',
             data: {
+                patientId: global_patientId,
+                visitDate: global_date,
                 painIntensity: painObj,
                 personalCare: perObj,
                 lifting: liftObj,

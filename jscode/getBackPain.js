@@ -49,8 +49,8 @@ const showBackPain = backPain => {
 const editBack = (lbackpId) => {
     lbackpId = lbackpId.toString();
     back_details = backPain.get(lbackpId);
+    global_date = back_details.visitDate;
     fill_back(back_details);
-
 };
 
 // function fill_back(backDetails) {
