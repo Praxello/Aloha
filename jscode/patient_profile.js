@@ -22,7 +22,6 @@ const loadPatientDetails = details => {
     $('#patientId').val(details.patientId);
     //for open profile pictire in edit mode
     var src = "upload/patients/" + details.patientId + ".jpg";
-    console.log(src);
     $('#userJpg').attr("src", src);
     $('#userPic').attr("src", src);
 };

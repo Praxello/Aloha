@@ -22,21 +22,21 @@
 
                                                                         <div class="checkbox-fade fade-in-success " >
                                                                             <label>
-                                                                                <input type="checkbox" value="painIntensity-1" name="painIntensity">
+                                                                                <input type="checkbox" value="1" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>I have no pain at the moment.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="painIntensity-2" name="painIntensity">
+                                                                                <input type="checkbox" value="1" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>The pain is very mild at the moment.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox"  value="painIntensity-3" name="painIntensity">
+                                                                                <input type="checkbox"  value="1" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -44,21 +44,21 @@
                                                                             </label><br>
 
                                                                             <label>
-                                                                                <input type="checkbox" value="painIntensity-4" name="painIntensity">
+                                                                                <input type="checkbox" value="1" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>The pain is fairly severe at the moment.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox"  value="painIntensity-5" name="painIntensity">
+                                                                                <input type="checkbox"  value="1" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>The pain is very severe at the moment..</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox"  value="painIntensity-6" name="painIntensity">
+                                                                                <input type="checkbox"  value="1" name="painIntensity">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>

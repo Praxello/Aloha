@@ -8,7 +8,6 @@ const getNeckDisblity = (patientId) => {
         dataType: 'json',
         data: { patientId: patientId },
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
@@ -50,4 +49,25 @@ const editneck = (neckId) => {
     neckId = neckId.toString();
     neck_details = neckDisiblity.get(neckId);
     console.log(neck_details);
+    fill_neck(neck_details);
 };
+
+function fill_neck(details) {
+    var json = details.painIntensity;
+    if (json != null) {
+        var obj = JSON.parse(json);
+        var values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+        var i = 0;
+        $.each($("input[name='painIntensity']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    $('#neckDis').modal('show');
+}
