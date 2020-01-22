@@ -334,7 +334,7 @@
                                         </div>
                                         <div class="col-md-4">
 
-                                        </div>
+                                        </div>                                                          
 
                                         <h5>Select Default Option</h5>
                                                     <hr>
@@ -429,19 +429,8 @@
                                     <thead>
                                          <tr>
                                            
-                                            <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Functional Score</th>
-                                            <th>VAS Score</th>
-                                            <th>Present Since</th>
-                                            <th>Symptoms at onset</th>
-                                         
-                                            <th>Aggravating Factor</th>
-                                            <th>Reliving Factor</th>
-                                            <th>Previous Treatments</th>
-                                            <th>Recent Surgery</th>
-                                            <th>Movement Loss</th>
-                                            <th>Test Movements</th>
+                                           
+                                            <th>Visit Date</th>
                                             <th>Action</th>                        
                                         </tr>
                                     </thead>
@@ -503,27 +492,19 @@
                             <div class="card-body c">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
-                                <table id="sTable" class="table">
+                                <table id="bTable" class="table">
                                     <thead>
                                      
                                         <tr>
                                            
-                                            <th>Id</th>
+                                            <th>Visit Date</th>
                                             
-                                            <th>Pain Intensity </th>
-                                            <th>Personal Care</th>
-                                            <th>Lifting</th>
-                                            <th>Work</th>
-                                            <th>Headaches</th>
-                                            <th>Concentration</th>
-                                            <th>Sleeping</th>
-                                            <th>Driving </th>
-                                            <th>Reading </th>
-                                            <th>Recreation</th>
+                                          
+                                           
                                             <th>Action</th>                        
                                         </tr>
                                     </thead>
-                                    <tbody id="spineData">
+                                    <tbody id="backData">
                                        
                                         
                                         
@@ -546,6 +527,7 @@
 </div>
 <script src="jscode/getLumbarSpine.js"></script>
 <script src="jscode/getneckDisblity.js"></script>
+<script src="jscode/getBackPain.js"></script>
 <script src="jscode/patient_profile.js"></script>
 <script type="text/javascript" src="js/dropzone.js"></script>
 <script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
@@ -555,3 +537,4 @@
 <?php include 'lumbar-spin-assesment.php';?>
 <?php include 'neck-disability.php';?>
 <?php include 'low-backPainQues.php';?>
+

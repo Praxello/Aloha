@@ -6,6 +6,9 @@ $('#neckForm').on('submit', function(e) {
 
 
         var painObj = getpainIntensity_1();
+
+        console.log(painObj);
+        
         var perObj = getpersonalCare_1();
         var liftObj = getlifting_1();
         var workObj = getwork();
@@ -16,7 +19,7 @@ $('#neckForm').on('submit', function(e) {
         var readObj = getreading();
         var recObj = getrecreation();
 
-        console.log(painObj);
+   
 
 
         painObj = JSON.stringify(painObj);
@@ -84,10 +87,12 @@ const getpainIntensity_1 = () => {
         if (this.checked) {
             flag = 1;
             painObj[value] = flag;
+            // Object.assign(painObj,flag)
         } else {
             painObj[value] = flag;
+            // Object.assign(painObj,flag)
         }
-
+        console.log(painObj);
     });
     return painObj;
 }

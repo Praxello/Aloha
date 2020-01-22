@@ -194,19 +194,19 @@ const getsleeping = () => {
 }
 
 const getsocialLife = () => {
-    var sleepObj = {};
-    $.each($("input[name='sleeping']"), function() {
+    var socialObj = {};
+    $.each($("input[name='socialLife']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
             flag = 1;
-            sleepObj[value] = flag;
+            socialObj[value] = flag;
         } else {
-            sleepObj[value] = flag;
+            socialObj[value] = flag;
         }
 
     });
-    return sleepObj;
+    return socialObj;
 }
 
 const gettravel = () => {
