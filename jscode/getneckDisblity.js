@@ -53,7 +53,8 @@ const editneck = (neckId) => {
 };
 
 function fill_neck(details) {
-    var json = details.painIntensity;
+    var json;
+    json = details.painIntensity;
     if (json != null) {
         var obj = JSON.parse(json);
         var values = Object.keys(obj).map(function(key) { return obj[key]; });
@@ -68,6 +69,5 @@ function fill_neck(details) {
             i++;
         });
     }
-
     $('#neckDis').modal('show');
 }
