@@ -46,10 +46,10 @@
 
                                                                 <label for="presentSince" class="col-sm-1 col-form-label">Present Since:</label>
                                                                 <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="presentSince" name="presentSince" placeholder="0-10">
+                                                                    <input type="text" class="form-control" id="presentSince1" name="presentSince1" placeholder="0-10">
                                                                 </div>
                                                                 <div class="col-sm-3">
-                                                                    <div class="checkbox-fade fade-in-success check"  id="presentSince" name="presentSince">
+                                                                    <div class="checkbox-fade fade-in-success check">
                                                                         <label>
                                                                             <input type="checkbox" value="Improving" name="presentSince">
                                                                             <span class="cr">
