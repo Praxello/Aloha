@@ -72,42 +72,42 @@
 
                                                                         <div class="checkbox-fade fade-in-success " >
                                                                             <label>
-                                                                                <input type="checkbox" value="personalCare-1" name="personalCare">
+                                                                                <input type="checkbox" value="1" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>I can look after myself normally without causing extra pain.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="personalCare-2" name="personalCare">
+                                                                                <input type="checkbox" value="1" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>I can look after myself normally,but it causes extra pain.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="personalCare-3" name="personalCare">
+                                                                                <input type="checkbox" value="1" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>It is painful to look after myself,and I am slow and careful.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="personalCare-4" name="personalCare">
+                                                                                <input type="checkbox" value="1" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>I need some help but manage most of my personal care.</span>.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="personalCare-5" name="personalCare">
+                                                                                <input type="checkbox" value="1" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>I need help every day in most aspects of self-care.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="personalCare-6" name="personalCare">
+                                                                                <input type="checkbox" value="1" name="personalCare">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -121,21 +121,21 @@
 
                                                                         <div class="checkbox-fade fade-in-success " >
                                                                             <label>
-                                                                                <input type="checkbox" value="lifting-1" name="lifting">
+                                                                                <input type="checkbox" value="1" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>I can lift heavy weights without causing extra pain.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="lifting-2" name="lifting">
+                                                                                <input type="checkbox" value="1" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>I can lift heavy weights,but it gives me extra pain.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="lifting-3" name="lifting">
+                                                                                <input type="checkbox" value="1" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -144,7 +144,7 @@
                                                                             </label><br>
 
                                                                             <label>
-                                                                                <input type="checkbox" value="lifting-4" name="lifting">
+                                                                                <input type="checkbox" value="1" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -154,14 +154,14 @@
                                                                             </label><br>
 
                                                                             <label>
-                                                                                <input type="checkbox" value="lifting-5" name="lifting">
+                                                                                <input type="checkbox" value="1" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>I can lift only very light weights.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="lifting-6" name="lifting">
+                                                                                <input type="checkbox" value="1" name="lifting">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -174,28 +174,28 @@
 
                                                                         <div class="checkbox-fade fade-in-success " >
                                                                             <label>
-                                                                                <input type="checkbox" value="work-1" name="work">
+                                                                                <input type="checkbox" value="1" name="work">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>I can do as much work as i want.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="work-2" name="work">
+                                                                                <input type="checkbox" value="1" name="work">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>I can only do my usual work,but no more.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="work-3" name="work">
+                                                                                <input type="checkbox" value="1" name="work">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>I can do most of my usual work,but no more.</span>
                                                                             </label><br>
                                                                             <label>
-                                                                                <input type="checkbox" value="work-4" name="work">
+                                                                                <input type="checkbox" value="1" name="work">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -203,7 +203,7 @@
                                                                             </label><br>
 
                                                                             <label>
-                                                                                <input type="checkbox" value="work-5" name="work">
+                                                                                <input type="checkbox" value="1" name="work">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -211,7 +211,7 @@
                                                                             </label><br>
 
                                                                             <label>
-                                                                                <input type="checkbox" value="work-6" name="work">
+                                                                                <input type="checkbox" value="1" name="work">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -230,21 +230,21 @@
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="headaches-1" name="headaches">
+                                                                                    <input type="checkbox" value="1" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I have no headaches at all.A21</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="headaches-2" name="headaches">
+                                                                                    <input type="checkbox" value="1" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I have slight headaches that come infrequently.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="headaches-3" name="headaches">
+                                                                                    <input type="checkbox" value="1" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -252,21 +252,21 @@
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="headaches-4" name="headaches">
+                                                                                    <input type="checkbox" value="1" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I have moderate headaches that come frequently.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="headaches-5" name="headaches">
+                                                                                    <input type="checkbox" value="1" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I have servere headaches that come frequently.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="headaches-6" name="headaches">
+                                                                                    <input type="checkbox" value="1" name="headaches">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -280,21 +280,21 @@
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="concentration-1" name="concentration">
+                                                                                    <input type="checkbox" value="1" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I can concentrate fully without difficulty.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="concentration-2" name="concentration">
+                                                                                    <input type="checkbox" value="1" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I can concentrate fully slight difficulty.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="concentration-3" name="concentration">
+                                                                                    <input type="checkbox" value="1" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -302,21 +302,21 @@
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="concentration-4" name="concentration">
+                                                                                    <input type="checkbox" value="1" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I have a lot of difficulty concentrating.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="concentration-5" name="concentration">
+                                                                                    <input type="checkbox" value="1" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I have a great deal of difficulty concentrating.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="concentration-6" name="concentration">
+                                                                                    <input type="checkbox" value="1" name="concentration">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -330,21 +330,21 @@
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="sleeping-1" name="sleeping">
+                                                                                    <input type="checkbox" value="1" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I have no trouble sleeping.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="sleeping-2" name="sleeping">
+                                                                                    <input type="checkbox" value="1" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>My sleep is slightly disturbed for less than 1 hour.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="sleeping-3" name="sleeping">
+                                                                                    <input type="checkbox" value="1" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -352,21 +352,21 @@
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="sleeping-4" name="sleeping">
+                                                                                    <input type="checkbox" value="1" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>My sleep is moderately disturbed for upto 2-3 hour.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="sleeping-5" name="sleeping">
+                                                                                    <input type="checkbox" value="1" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>My sleep is greatly disturbed for upto 3-5 hour.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="sleeping-6" name="sleeping">
+                                                                                    <input type="checkbox" value="1" name="sleeping">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -380,21 +380,21 @@
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="driving-1" name="driving">
+                                                                                    <input type="checkbox" value="1" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I can drive my car without neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="driving-2" name="driving">
+                                                                                    <input type="checkbox" value="1" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I can drive as long as I want with slight neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="driving-3" name="driving">
+                                                                                    <input type="checkbox" value="1" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -402,21 +402,21 @@
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="driving-4" name="driving">
+                                                                                    <input type="checkbox" value="1" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I can't drive as long as I want because of moderate neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="driving-5" name="driving">
+                                                                                    <input type="checkbox" value="1" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I can hardly drive at all because of severe neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="driving-6" name="driving">
+                                                                                    <input type="checkbox" value="1" name="driving">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -434,21 +434,21 @@
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="reading-1" name="reading">
+                                                                                    <input type="checkbox" value="1" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I can read as much as I want with no neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="reading-2" name="reading">
+                                                                                    <input type="checkbox" value="1" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I can read as much as I want with slight neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="reading-3" name="reading">
+                                                                                    <input type="checkbox" value="1" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -456,21 +456,21 @@
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="reading-4" name="reading">
+                                                                                    <input type="checkbox" value="1" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I can't read as much as I want because of severe neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="reading-5" name="reading">
+                                                                                    <input type="checkbox" value="1" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I can't read as much as I want because of severe neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="reading-6" name="reading">
+                                                                                    <input type="checkbox" value="1" name="reading">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -485,21 +485,21 @@
     
                                                                             <div class="checkbox-fade fade-in-success " >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="recreation-1"  name="recreation">
+                                                                                    <input type="checkbox" value="1"  name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I have no neck pain during all recreational activities.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="recreation-2" name="recreation">
+                                                                                    <input type="checkbox" value="1" name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I have some neck pain with all recreational activities.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="recreation-3" name="recreation">
+                                                                                    <input type="checkbox" value="1" name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -507,21 +507,21 @@
                                                                                 </label><br>
     
                                                                                 <label>
-                                                                                    <input type="checkbox" value="recreation-4" name="recreation">
+                                                                                    <input type="checkbox" value="1" name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I have neck pain with most recreational activities.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="recreation-5" name="recreation">
+                                                                                    <input type="checkbox" value="1" name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>I can hardly do recreational activities due to neck pain.</span>
                                                                                 </label><br>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="recreation-6" name="recreation">
+                                                                                    <input type="checkbox" value="1" name="recreation">
                                                                                     <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
