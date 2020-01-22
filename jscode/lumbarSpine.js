@@ -3,15 +3,9 @@ $('#lumbarSpineForm').on('submit', function(e) {
     e.preventDefault();
     var returnVal = $("#lumbarSpineForm").valid();
     if (returnVal) {
-<<<<<<< HEAD
 
-        var momentLoss = storeTblValues();
-        console.log(momentLoss);
-=======
-    
         //  var momentLoss =  storeTblValues();
         //  console.log(momentLoss);                                                                                                    
->>>>>>> 78774cbb3050a8968596739866bca9cfe66b059b
         var ob = getAgg();
         var relfactorObj = getRelivingFactor();
         var presentSinceObj = getpresentSince();
@@ -449,21 +443,12 @@ const getlateralshift = () => {
 // function storeTblValues() {
 //     var TableData = [];
 
-<<<<<<< HEAD
-    $('#momentLoss tr').each(function(row, tr) {
-        var maj = $(tr).find('td:eq(0) input').val();
-        var mod = $(tr).find('td:eq(1) input').val();
-        var min = $(tr).find('td:eq(2) input').val();
-        var nil = $(tr).find('td:eq(3) input').val();
-        var pain = $(tr).find('td:eq(4) input').val();
-=======
 //     $('#momentLoss tr').each(function(row, tr) {
 //         var maj = $(tr).find('td:eq(0) input').val();
 //         var mod = $(tr).find('td:eq(1) input').val();
 //         var min = $(tr).find('td:eq(2) input').val();
 //         var nil = $(tr).find('td:eq(3) input').val();
 //         var pain =$(tr).find('td:eq(4) input').val();
->>>>>>> 78774cbb3050a8968596739866bca9cfe66b059b
 
 //         TableData[row] = {
 //             "maj": maj,

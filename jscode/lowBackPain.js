@@ -3,58 +3,58 @@ $('#backPainForm').on('submit', function(e) {
     e.preventDefault();
     var returnVal = $("#backPainForm").valid();
     if (returnVal) {
-    
-                                                                                                             
+
+
         var painObj = getpainIntensity();
-        var perObj =getpersonalCare();
-        var liftObj=getlifting();
-        var walkObj=getwalking();
-        var sittObj=getsitting();
-        var standObj=getstanding();
-        var sleepObj=getsleeping();
-        var socialObj=getsocialLife();
-        var traObj=gettravel();
-        var chanObj=getchangingDegreeOfPain();
-       console.log(painObj);
-   
+        var perObj = getpersonalCare();
+        var liftObj = getlifting();
+        var walkObj = getwalking();
+        var sittObj = getsitting_1();
+        var standObj = getstanding();
+        var sleepObj = getsleeping();
+        var socialObj = getsocialLife();
+        var traObj = gettravel();
+        var chanObj = getchangingDegreeOfPain();
+        console.log(painObj);
 
-       painObj=JSON.stringify(painObj);
-       perObj=JSON.stringify(perObj);
-       liftObj=JSON.stringify(liftObj);
-       walkObj=JSON.stringify(walkObj);
-       sittObj=JSON.stringify(sittObj);
-       standObj=JSON.stringify(standObj);
-       sleepObj=JSON.stringify(sleepObj);
-       socialObj=JSON.stringify(socialObj);
-       traObj=JSON.stringify(traObj);
-       chanObj=JSON.stringify(chanObj);
-     
-     
-     
 
-    //   console.log(ob);                                                                                                                                                  
+        painObj = JSON.stringify(painObj);
+        perObj = JSON.stringify(perObj);
+        liftObj = JSON.stringify(liftObj);
+        walkObj = JSON.stringify(walkObj);
+        sittObj = JSON.stringify(sittObj);
+        standObj = JSON.stringify(standObj);
+        sleepObj = JSON.stringify(sleepObj);
+        socialObj = JSON.stringify(socialObj);
+        traObj = JSON.stringify(traObj);
+        chanObj = JSON.stringify(chanObj);
+
+
+
+
+        //   console.log(ob);                                                                                                                                                  
         $.ajax({
             url: url + 'insertBackPainQues.php',
-                type: 'POST',
-                data: {
-                    painIntensity : painObj,
-                    personalCare : perObj,
-                    lifting : liftObj,
-                    walking :walkObj,
-                    sitting : sittObj,
-                    standing : standObj,
-                    sleeping :sleepObj,
-                    socialLife : socialObj,
-                    travel :traObj,
-                    changingDegreeOfPain :chanObj
-                   
-                  
-         
+            type: 'POST',
+            data: {
+                painIntensity: painObj,
+                personalCare: perObj,
+                lifting: liftObj,
+                walking: walkObj,
+                sitting: sittObj,
+                standing: standObj,
+                sleeping: sleepObj,
+                socialLife: socialObj,
+                travel: traObj,
+                changingDegreeOfPain: chanObj
+
+
+
             },
             dataType: 'json',
             success: function(response) {
                 if (response.Responsecode == 200) {
-                   
+
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -62,7 +62,7 @@ $('#backPainForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                   
+
 
                 } else {
                     swal({
@@ -72,168 +72,168 @@ $('#backPainForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                 
+
                 }
             }
         });
     }
 });
 
-const getpainIntensity = () =>{
+const getpainIntensity = () => {
     var painObj = {};
-    $.each($("input[name='painIntensity']"), function(){
+    $.each($("input[name='painIntensity']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
             flag = 1;
             painObj[value] = flag;
-        }  else{
+        } else {
             painObj[value] = flag;
-        }         
+        }
 
     });
     return painObj;
 }
 
-const getpersonalCare = () =>{
+const getpersonalCare = () => {
     var perObj = {};
-    $.each($("input[name='personalCare']"), function(){
+    $.each($("input[name='personalCare']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
             flag = 1;
             perObj[value] = flag;
-        }  else{
+        } else {
             perObj[value] = flag;
-        }         
+        }
 
     });
     return perObj;
 }
 
-const getlifting = () =>{
+const getlifting = () => {
     var liftObj = {};
-    $.each($("input[name='lifting']"), function(){
+    $.each($("input[name='lifting']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
             flag = 1;
             liftObj[value] = flag;
-        }  else{
+        } else {
             liftObj[value] = flag;
-        }         
+        }
 
     });
     return liftObj;
 }
 
-const getwalking = () =>{
+const getwalking = () => {
     var walkObj = {};
-    $.each($("input[name='walking']"), function(){
+    $.each($("input[name='walking']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
             flag = 1;
             walkObj[value] = flag;
-        }  else{
+        } else {
             walkObj[value] = flag;
-        }         
+        }
 
     });
     return walkObj;
 }
 
-const getsitting = () =>{
+const getsitting_1 = () => {
     var sittObj = {};
-    $.each($("input[name='sitting']"), function(){
+    $.each($("input[name='sitting']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
             flag = 1;
             sittObj[value] = flag;
-        }  else{
+        } else {
             sittObj[value] = flag;
-        }         
+        }
 
     });
     return sittObj;
 }
 
-const getstanding = () =>{
+const getstanding = () => {
     var standObj = {};
-    $.each($("input[name='standing']"), function(){
+    $.each($("input[name='standing']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
             flag = 1;
             standObj[value] = flag;
-        }  else{
+        } else {
             standObj[value] = flag;
-        }         
+        }
 
     });
     return standObj;
 }
 
-const getsleeping = () =>{
+const getsleeping = () => {
     var sleepObj = {};
-    $.each($("input[name='sleeping']"), function(){
+    $.each($("input[name='sleeping']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
             flag = 1;
             sleepObj[value] = flag;
-        }  else{
+        } else {
             sleepObj[value] = flag;
-        }         
+        }
 
     });
     return sleepObj;
 }
 
-const getsocialLife = () =>{
+const getsocialLife = () => {
     var sleepObj = {};
-    $.each($("input[name='sleeping']"), function(){
+    $.each($("input[name='sleeping']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
             flag = 1;
             sleepObj[value] = flag;
-        }  else{
+        } else {
             sleepObj[value] = flag;
-        }         
+        }
 
     });
     return sleepObj;
 }
 
-const gettravel = () =>{
+const gettravel = () => {
     var traObj = {};
-    $.each($("input[name='travel']"), function(){
+    $.each($("input[name='travel']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
             flag = 1;
             traObj[value] = flag;
-        }  else{
+        } else {
             traObj[value] = flag;
-        }         
+        }
 
     });
     return traObj;
 }
 
-const getchangingDegreeOfPain = () =>{
+const getchangingDegreeOfPain = () => {
     var chanObj = {};
-    $.each($("input[name='changingDegreeOfPain']"), function(){
+    $.each($("input[name='changingDegreeOfPain']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
             flag = 1;
             chanObj[value] = flag;
-        }  else{
+        } else {
             chanObj[value] = flag;
-        }         
+        }
 
     });
     return chanObj;
