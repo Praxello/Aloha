@@ -1,24 +1,26 @@
 var spines = new Map();
 var spine_details = {};
 // var patientId_ap = null;
-const getLumbarSpine = () => {
+const getLumbarSpine = (patientId) => {
     $.ajax({
         url: url + 'getAllLumbarSpine.php',
         type: 'POST',
         dataType: 'json',
+        data: { patientId: patientId },
         success: function(response) {
+            console.log(response);
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
                     spines.set(response.Data[i].lsAId, response.Data[i]);
                 }
-                listPatients(spines);
+                showLumbarSpine(spines);
             }
         }
     });
 };
 
-const listPatients = spines => {
+const showLumbarSpine = spines => {
     $('#sTable').dataTable().fnDestroy();
     $('#spineData').empty();
     var tblData = '';
@@ -26,8 +28,7 @@ const listPatients = spines => {
         let spine = spines.get(k);
 
         tblData += '<tr><td>' + spine.lsAId + '</td>';
-        // tblData += '<td>' + patient.firstName + ' ' + patient.surname + '</td>';
-        tblData += '<td>' + spine.funDisabilityScore+ '</td>';
+        tblData += '<td>' + spine.funDisabilityScore + '</td>';
         tblData += '<td>' + spine.vasScore + '</td>';
         tblData += '<td>' + spine.presentSince + '</td>';
         tblData += '<td>' + spine.symptomsAtOnset + '</td>';
@@ -37,13 +38,8 @@ const listPatients = spines => {
         tblData += '<td>' + spine.recentsurgery + '</td>';
         tblData += '<td>' + spine.momentLoss + '</td>';
         tblData += '<td>' + spine.testMovement + '</td>';
-
-
-        // tblData += '<td><div class="table-actions" style="text-align: left;">';
-        // tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
-        // tblData += '<a href="#" class="list-delete" onclick="takeAppointment(' + (k) + ')" title="Take appointment"><i class="ik ik-check-circle text-yellow"></i></a>';
-        // tblData += '<a href="#"  onclick="opdPayment(' + (k) + ')" title="Opd Payment"><i class="ik ik-pocket text-green"></i></a>';
-        // tblData += '<a href="#"  onclick="acceptPayment(' + (k) + ')" title="Generate Payment"><i class="ik ik-plus-square text-purple"></i></a>';
+        tblData += '<td><div class="table-actions" style="text-align: left;">';
+        tblData += '<a href="#" onclick="editLumbarSpine(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#spineData').html(tblData);
@@ -58,34 +54,10 @@ const listPatients = spines => {
         destroy: true
     });
 };
-getLumbarSpine();
 
-// const editPatient = (patientId) => {
-//     patientId = patientId.toString();
-//     patient_details = patients.get(patientId);
-//     $('#tData').hide();
-//     $('#editProfile').load('edit_patient_profile.php');
-// };
 
-// function takeAppointment(patientId) {
-//     patientId_ap = patientId;
-//     $('#appointment').modal('show');
-// }
-
-// function opdPayment(patientId) {
-//     patientId_ap = patientId;
-//     paymentDetails(patientId);
-//     $('#opd-payment').modal('show');
-// }
-
-// function acceptPayment(patientId) {
-//     patientId_ap = patientId;
-//     getPreviousPayments(patientId);
-//     loadTest();
-//     $('#paymentFor').html(list);
-//     $("#paymentFor").select2({
-//         placeholder: 'Select Doctor for payment',
-//         allowClear: true
-//     });
-//     $('#opd-payment-generate').modal('show');
-// }
+const editLumbarSpine = (spineId) => {
+    spineId = spineId.toString();
+    spine_details = spines.get(spineId);
+    console.log(spine_details);
+};

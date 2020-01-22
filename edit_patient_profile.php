@@ -471,29 +471,17 @@
                             <div class="card-body c">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
-                                <table id="sTable" class="table">
+                                <table id="nTable" class="table">
                                     <thead>
                                      
                                         <tr>
                                            
-                                            <th>Id</th>
-                                            
-                                            <th>Pain Intensity </th>
-                                            <th>Personal Care</th>
-                                            <th>Lifting</th>
-                                            <th>Work</th>
-                                            <th>Headaches</th>
-                                            <th>Concentration</th>
-                                            <th>Sleeping</th>
-                                            <th>Driving </th>
-                                            <th>Reading </th>
-                                            <th>Recreation</th>
+                                            <th>Visit Date</th>
                                             <th>Action</th>                        
                                         </tr>
                                     </thead>
-                                    <tbody id="spineData">
+                                    <tbody id="neckData">
                                        
-                                        
                                         
                                     </tbody>
                                 </table>
@@ -556,20 +544,14 @@
         </div>
     </div>
 </div>
-<?php include 'lumbar-spin-assesment.php';?>
-<?php include 'neck-disability.php';?>
-<?php include 'low-backPainQues.php';?>
+<script src="jscode/getLumbarSpine.js"></script>
+<script src="jscode/getneckDisblity.js"></script>
 <script src="jscode/patient_profile.js"></script>
 <script type="text/javascript" src="js/dropzone.js"></script>
 <script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="jscode/uploadProfile.js"></script>
 
-
-
-
-<script>
-    function payfees(){
-        alert("hi");
-    }
-</script>
+<?php include 'lumbar-spin-assesment.php';?>
+<?php include 'neck-disability.php';?>
+<?php include 'low-backPainQues.php';?>

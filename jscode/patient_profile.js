@@ -27,3 +27,5 @@ const loadPatientDetails = details => {
     $('#userPic').attr("src", src);
 };
 loadPatientDetails(patient_details);
+getLumbarSpine(patient_details.patientId);
+getNeckDisblity(patient_details.patientId);
