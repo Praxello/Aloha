@@ -12,6 +12,7 @@ const getAllPatients = () => {
                 for (var i = 0; i < count; i++) {
                     patients.set(response.Data[i].patientId, response.Data[i]);
                 }
+                console.log(patients);
                 listPatients(patients);
             }
         }

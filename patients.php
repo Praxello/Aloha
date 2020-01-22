@@ -208,8 +208,8 @@ username:'<?php echo $_SESSION['username'];?>'
        <script src="jscode/getPayments.js"></script>
        <script src="jscode/getAllTests.js"></script>
        <script src="jscode/loadTest.js"></script>
-       <script src="jscode/prescribeTestTable.js"></script>
        <script src="jscode/getPreviousPayments.js"></script>
+       <script src="jscode/prescribeTestTable.js"></script>
     </body>
 
 </html>

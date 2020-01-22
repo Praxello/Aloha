@@ -5,10 +5,12 @@ include "../connection.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
+$tempMedicines = null;
+$temparray = null;
 extract($_POST);
 if(isset($_POST['patientId'])){
     $today = date('Y-m-d');
-$sql = "SELECT opm.paymentId,opm.patientId,opm.billDetails,opm.total,opm.pending,um.username FROM opd_patient_payment_master opm 
+$sql = "SELECT opm.paymentId,opm.patientId,opm.total,opm.pending,um.username FROM opd_patient_payment_master opm 
 INNER JOIN user_master um ON um.userId = opm.doctorId 
 WHERE opm.patientId = $patientId AND opm.visitDate = '$today'";
 $jobQuery = mysqli_query($conn, $sql);
@@ -16,7 +18,22 @@ if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
     if ($academicAffected > 0) {
         while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
-            $records[] = $academicResults;
+            $paymentId = $academicResults['paymentId'];
+
+            $billDetails = null;
+            $query = "SELECT fees,feesType,paymentId FROM Bill_Details pm WHERE paymentId = $paymentId";
+            $jobQuery_1 = mysqli_query($conn, $query);
+            if ($jobQuery_1 != null) {
+                $academicAffected_1 = mysqli_num_rows($jobQuery_1);
+                if ($academicAffected_1 > 0) {
+                    while ($academicResults_1 = mysqli_fetch_assoc($jobQuery_1)) {
+                        $billDetails[] = $academicResults_1;
+                    }
+                }
+            }
+            $temparray =  array("billdetails"=> $billDetails);
+            $tempMedicines =  array_merge($academicResults,$temparray);	
+            $records[] = $tempMedicines;
         }
         
         $response = array(
