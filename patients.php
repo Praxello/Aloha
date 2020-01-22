@@ -196,6 +196,8 @@ username:'<?php echo $_SESSION['username'];?>'
        <?php include 'take-appointment.php';?>
        <?php include 'opd-payments.php';?>
        <?php include 'opd-generatePayments.php';?>
+        
+     
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
        <script src="jscode/apis.js"></script>
