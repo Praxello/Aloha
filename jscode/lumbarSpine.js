@@ -7,9 +7,9 @@ $('#lumbarSpineForm').on('submit', function(e) {
         //  var momentLoss =  storeTblValues();
         //  console.log(momentLoss);                                                                                                    
         var ob = getAgg();
-        ob.otherA=$('#aggravatingFactor1').val();
+        ob.otherA = $('#aggravatingFactor1').val();
         var relfactorObj = getRelivingFactor();
-        relfactorObj.otherR =$('#relivingFactor1').val();
+        relfactorObj.otherR = $('#relivingFactor1').val();
         var presentSinceObj = getpresentSince();
         presentSinceObj.s = $('#presentSince1').val();
 
@@ -17,7 +17,7 @@ $('#lumbarSpineForm').on('submit', function(e) {
         symObj.s1 = $('#symptomsAtOnset1').val();
 
         var conObj = getconsym();
-        conObj.s2= $('#constantSymptoms1').val();
+        conObj.s2 = $('#constantSymptoms1').val();
         var insymObj = getinterSymptoms();
         insymObj.s3 = $('#interSymptoms1').val();
         var symtObj = getspecSymptoms();
@@ -55,7 +55,7 @@ $('#lumbarSpineForm').on('submit', function(e) {
         var motorObj = $('#motorDeficit').val();
         var sensoryObj = $('#sensoryDeficit').val();
 
-      
+
 
         // fData.append('aggravatingFactor',ob);
 
@@ -81,12 +81,12 @@ $('#lumbarSpineForm').on('submit', function(e) {
         derObj = JSON.stringify(derObj);
         mechObj = JSON.stringify(mechObj);
         lshift = JSON.stringify(lshift);
-
-        //   console.log(ob);                                                                                                                                                  
         $.ajax({
             url: url + 'insertLumbarSpine.php',
             type: 'POST',
             data: {
+                patientId: global_patientId,
+                visitDate: global_date,
                 factor: ob,
                 reliving: relfactorObj,
                 presentSince: presentSinceObj,
