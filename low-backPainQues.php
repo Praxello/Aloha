@@ -256,7 +256,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="sitting">
+                                                        <input type="checkbox" value="1" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -264,7 +264,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="2" name="sitting">
+                                                        <input type="checkbox" value="2" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -272,7 +272,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="3" name="sitting">
+                                                        <input type="checkbox" value="3" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -281,7 +281,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="4" name="sitting">
+                                                        <input type="checkbox" value="4" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -289,7 +289,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="5" name="sitting">
+                                                        <input type="checkbox" value="5" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -297,7 +297,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="6" name="sitting">
+                                                        <input type="checkbox" value="6" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>

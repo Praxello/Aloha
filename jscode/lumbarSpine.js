@@ -42,10 +42,10 @@ $('#lumbarSpineForm').on('submit', function(e) {
         var lshift = getlateralshift();
 
         var derObj = getderangement();
-        derObj['other'] = $('#derangement').val();
+        derObj['other'] = $('#derangement2').val();
         derObj['painlocation'] = $('#derangement1').val();
         var mechObj = getmechTherapy();
-        mechObj['therapy'] = $('#mechTherapy').val();
+        mechObj['therapy'] = $('#mechTherapy1').val();
 
         var fun = $('#funDisabilityScore').val();
         var vas = $('#vasScore').val();

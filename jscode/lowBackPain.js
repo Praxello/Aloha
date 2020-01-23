@@ -43,7 +43,7 @@ $('#backPainForm').on('submit', function(e) {
                 personalCare: perObj,
                 lifting: liftObj,
                 walking: walkObj,
-                sitting: sittObj,
+                sitting1: sittObj,
                 standing: standObj,
                 sleeping: sleepObj,
                 socialLife: socialObj,
@@ -149,7 +149,7 @@ const getwalking = () => {
 
 const getsitting_1 = () => {
     var sittObj = {};
-    $.each($("input[name='sitting']"), function() {
+    $.each($("input[name='sitting1']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
