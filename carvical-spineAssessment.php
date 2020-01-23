@@ -10,7 +10,7 @@
                                
                                 <div class="modal-body">
                                 <form id="cervicalSpineForm" method="POST" class="forms-sample" enctype="multipart/form-data">
-                                    <div     class="container-fluid">
+                                    <div   class="container-fluid">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="card">
@@ -939,6 +939,6 @@
                             </div>
                         </div>
                     </div>
-                    <script src="jscode/lumbarSpine_validation.js"></script>
+                  
 
-<script src="jscode/lumbarSpine.js"></script>
+<script src="jscode/cervicalSpineAssessment.js"></script>

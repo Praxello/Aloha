@@ -6,10 +6,18 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['cerfunDisabilityScore']) ) {
+if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['cerfunDisabilityScore']) && isset($_POST['cerVasScore']) && isset($_POST['cerPresentSymptoms']) && isset($_POST['cerPresentSince']) && isset($_POST['cerCommencedAsResult'])
+    && isset($_POST['cerSymptAtOnset']) && isset($_POST['cerConstSympt']) && isset($_POST['cerAggrFactor']) && isset($_POST['cerRelFactor']) && isset($_POST['carSymptoms'])
+    && isset($_POST['cerMedications']) && isset($_POST['cerGenHealth']) && isset($_POST['cerImaging']) && isset($_POST['cerResurgery']) && isset($_POST['cerNightPain']) &&
+    isset($_POST['cerAccidents']) && isset($_POST['cerWeightLoss']) && isset($_POST['cerSitting']) && isset($_POST['cerStanding']) && isset($_POST['protrudedHead']) &&
+     isset($_POST['cerderagement']) && isset($_POST['cerTestMovement']) && isset($_POST['cerMomentLoss'])) {
     
-    $sql = "INSERT INTO cervical_spine_assessment (patientId,visitDate,cerfunDisabilityScore) 
-     VALUES ($patientId,'$visitDate','$cerfunDisabilityScore')";
+    $sql = "INSERT INTO cervical_spine_assessment (patientId,visitDate,cerfunDisabilityScore,cerVasScore,cerPresentSymptoms,cerPresentSince,cerCommencedAsResult,cerSymptAtOnset,cerConstSympt,cerAggrFactor
+    ,cerRelFactor,carSymptoms,cerMedications,cerGenHealth,cerImaging,cerResurgery,cerNightPain,cerAccidents,cerWeightLoss,cerSitting,cerStanding,protrudedHead,cerderagement,
+    cerTestMovement,cerMomentLoss) 
+     VALUES ('$patientId','$visitDate','$cerfunDisabilityScore','$cerVasScore','$cerPresentSymptoms','$cerPresentSince','$cerCommencedAsResult','$cerSymptAtOnset','$cerConstSympt','$cerAggrFactor',
+     '$cerRelFactor','$carSymptoms','$cerMedications','$cerGenHealth','$cerImaging','$cerResurgery','$cerNightPain','$cerAccidents','$cerWeightLoss','$cerSitting','$cerStanding'
+     ,'$protrudedHead','$cerderagement','$cerTestMovement','$cerMomentLoss')";
     
     $query = mysqli_query($conn, $sql);
     
@@ -18,7 +26,7 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['ce
 
     if ($rowsAffected == 1) {
         $patientId = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT * FROM cervical_spine_assessment where  	cerSpineId = $patientId");
+        $academicQuery = mysqli_query($conn, "SELECT * FROM cervical_spine_assessment where cerSpineId = $patientId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
