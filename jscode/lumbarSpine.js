@@ -144,7 +144,7 @@ $('#lumbarSpineForm').on('submit', function(e) {
     }
 });
 
-const getAgg = () => {
+var getAgg = () => {
     var ob = {};
     $.each($("input[name='aggravatingFactor']"), function() {
         var flag = 0;
@@ -160,7 +160,7 @@ const getAgg = () => {
     return ob;
 };
 
-const getRelivingFactor = () => {
+var getRelivingFactor = () => {
     var relfactorObj = {};
     $.each($("input[name='relivingFactor']"), function() {
         var flag = 0;
@@ -176,7 +176,7 @@ const getRelivingFactor = () => {
     return relfactorObj;
 };
 
-const getpresentSince = () => {
+var getpresentSince = () => {
     var presentSinceObj = {};
     $.each($("input[name='presentSince']"), function() {
         var flag = 0;
@@ -191,7 +191,7 @@ const getpresentSince = () => {
     return presentSinceObj;
 };
 
-const getsymptomsAtOnset = () => {
+var getsymptomsAtOnset = () => {
     var symObj = {};
     $.each($("input[name='symptomsAtOnset']"), function() {
         var flag = 0;
@@ -206,7 +206,7 @@ const getsymptomsAtOnset = () => {
     return symObj;
 };
 
-const getconsym = () => {
+var getconsym = () => {
     var conObj = {};
     $.each($("input[name='constantSymptoms']"), function() {
         var flag = 0;
@@ -221,7 +221,7 @@ const getconsym = () => {
     return conObj;
 };
 
-const getinterSymptoms = () => {
+var getinterSymptoms = () => {
     var insymObj = {};
     $.each($("input[name='interSymptoms']"), function() {
         var flag = 0;
@@ -235,7 +235,7 @@ const getinterSymptoms = () => {
     });
     return insymObj;
 };
-const getspecSymptoms = () => {
+var getspecSymptoms = () => {
     var symtObj = {};
     $.each($("input[name='specSymptoms']"), function() {
         var flag = 0;
@@ -250,7 +250,7 @@ const getspecSymptoms = () => {
     return symtObj;
 };
 
-const getbladder = () => {
+var getbladder = () => {
     var blrObj = {};
     $.each($("input[name='bladder']"), function() {
         var flag = 0;
@@ -264,7 +264,7 @@ const getbladder = () => {
     });
     return blrObj;
 };
-const getmedications = () => {
+var getmedications = () => {
     var mediObj = {};
     $.each($("input[name='medications']"), function() {
         var flag = 0;
@@ -279,7 +279,7 @@ const getmedications = () => {
     return mediObj;
 };
 
-const getGeneralHealth = () => {
+var getGeneralHealth = () => {
     var genObj = {};
     $.each($("input[name='GeneralHealth']"), function() {
         var flag = 0;
@@ -294,7 +294,7 @@ const getGeneralHealth = () => {
     return genObj;
 };
 
-const getimaging = () => {
+var getimaging = () => {
     var imgObj = {};
     $.each($("input[name='imaging']"), function() {
         var flag = 0;
@@ -309,7 +309,7 @@ const getimaging = () => {
     return imgObj;
 };
 
-const getrecentsurgery = () => {
+var getrecentsurgery = () => {
     var recObj = {};
     $.each($("input[name='recentsurgery']"), function() {
         var flag = 0;
@@ -323,7 +323,7 @@ const getrecentsurgery = () => {
     });
     return recObj;
 };
-const getnightPain = () => {
+var getnightPain = () => {
     var nigObj = {};
     $.each($("input[name='nightPain']"), function() {
         var flag = 0;
@@ -338,7 +338,7 @@ const getnightPain = () => {
     return nigObj;
 };
 
-const getaccidents = () => {
+var getaccidents = () => {
     var accObj = {};
     $.each($("input[name='accidents']"), function() {
         var flag = 0;
@@ -353,7 +353,7 @@ const getaccidents = () => {
     return accObj;
 };
 
-const getweightLoss = () => {
+var getweightLoss = () => {
     var waitObj = {};
     $.each($("input[name='weightLoss']"), function() {
         var flag = 0;
@@ -368,7 +368,7 @@ const getweightLoss = () => {
     return waitObj;
 };
 
-const getsitting = () => {
+var getsitting = () => {
     var setObj = {};
     $.each($("input[name='sitting']"), function() {
         var flag = 0;
@@ -383,7 +383,7 @@ const getsitting = () => {
     return setObj;
 };
 
-const getlordosis = () => {
+var getlordosis = () => {
     var larObj = {};
     $.each($("input[name='lordosis']"), function() {
         var flag = 0;
@@ -398,7 +398,7 @@ const getlordosis = () => {
     return larObj;
 };
 
-const getderangement = () => {
+var getderangement = () => {
     var derObj = {};
     $.each($("input[name='derangement']"), function() {
         var flag = 0;
@@ -412,7 +412,7 @@ const getderangement = () => {
     });
     return derObj;
 };
-const getmechTherapy = () => {
+var getmechTherapy = () => {
     var mechObj = {};
     $.each($("input[name='mechTherapy']"), function() {
         var flag = 0;
@@ -427,7 +427,7 @@ const getmechTherapy = () => {
     return mechObj;
 };
 
-const getlateralshift = () => {
+var getlateralshift = () => {
     var lshift = {};
     $.each($("input[name='lateralshift']"), function() {
         var flag = 0;
