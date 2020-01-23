@@ -6,13 +6,12 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-$dir = '../upload/patients/';
-if (isset($_POST['painIntensity']) && isset($_POST['personalCare']) && isset($_POST['lifting']) && isset($_POST['walking']) && isset($_POST['sitting']) && isset($_POST['standing']) && isset($_POST['sleeping'])
+if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['painIntensity']) && isset($_POST['personalCare']) && isset($_POST['lifting']) && isset($_POST['walking']) && isset($_POST['sitting']) && isset($_POST['standing']) && isset($_POST['sleeping'])
     && isset($_POST['socialLife']) && isset($_POST['travel']) && isset($_POST['changingDegreeOfPain'])) {
     
-    
-    $sql = "INSERT INTO low_backpain_questionnaire(painIntensity,personalCare,lifting,walking,sitting,standing,sleeping,socialLife,travel,changingDegreeOfPain) 
-     VALUES ('$painIntensity','$personalCare','$lifting','$walking','$sitting','$standing','$sleeping','$socialLife','$travel','$changingDegreeOfPain')";
+        mysqli_query($conn,"DELETE FROM low_backpain_questionnaire WHERE patientId = $patientId AND visitDate= '$visitDate'");
+    $sql = "INSERT INTO low_backpain_questionnaire(patientId,visitDate,painIntensity,personalCare,lifting,walking,sitting,standing,sleeping,socialLife,travel,changingDegreeOfPain) 
+     VALUES ($patientId,'$visitDate','$painIntensity','$personalCare','$lifting','$walking','$sitting','$standing','$sleeping','$socialLife','$travel','$changingDegreeOfPain')";
     
     $query = mysqli_query($conn, $sql);
     

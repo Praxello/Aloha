@@ -4,11 +4,10 @@ $('#neckForm').on('submit', function(e) {
     var returnVal = $("#neckForm").valid();
     if (returnVal) {
 
-
         var painObj = getpainIntensity_1();
 
         console.log(painObj);
-        
+
         var perObj = getpersonalCare_1();
         var liftObj = getlifting_1();
         var workObj = getwork();
@@ -18,9 +17,6 @@ $('#neckForm').on('submit', function(e) {
         var driveObj = getdriving();
         var readObj = getreading();
         var recObj = getrecreation();
-
-   
-
 
         painObj = JSON.stringify(painObj);
         perObj = JSON.stringify(perObj);
@@ -34,11 +30,15 @@ $('#neckForm').on('submit', function(e) {
         recObj = JSON.stringify(recObj);
 
 
-        //   console.log(ob);                                                                                                                                                  
+        console.log(global_patientId);
+        console.log(global_date);
+
         $.ajax({
             url: url + 'insertNeckDisability.php',
             type: 'POST',
             data: {
+                patientId: global_patientId,
+                visitDate: global_date,
                 painIntensity: painObj,
                 personalCare: perObj,
                 lifting: liftObj,
@@ -81,7 +81,7 @@ $('#neckForm').on('submit', function(e) {
 
 const getpainIntensity_1 = () => {
     var painObj = {};
-    $.each($("input[name='painIntensity']"), function() {
+    $.each($("input[name='painIntensity1']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
@@ -99,7 +99,7 @@ const getpainIntensity_1 = () => {
 
 const getpersonalCare_1 = () => {
     var perObj = {};
-    $.each($("input[name='personalCare']"), function() {
+    $.each($("input[name='personalCare1']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
@@ -115,7 +115,7 @@ const getpersonalCare_1 = () => {
 
 const getlifting_1 = () => {
     var liftObj = {};
-    $.each($("input[name='lifting']"), function() {
+    $.each($("input[name='lifting1']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
@@ -131,7 +131,7 @@ const getlifting_1 = () => {
 
 const getwork = () => {
     var workObj = {};
-    $.each($("input[name='work']"), function() {
+    $.each($("input[name='work1']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
@@ -147,7 +147,7 @@ const getwork = () => {
 
 const getheadaches = () => {
     var headObj = {};
-    $.each($("input[name='headaches']"), function() {
+    $.each($("input[name='headaches1']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
@@ -163,7 +163,7 @@ const getheadaches = () => {
 
 const getconcentration = () => {
     var conObj = {};
-    $.each($("input[name='concentration']"), function() {
+    $.each($("input[name='concentration1']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
@@ -179,7 +179,7 @@ const getconcentration = () => {
 
 const getsleeping_1 = () => {
     var sleepObj = {};
-    $.each($("input[name='sleeping']"), function() {
+    $.each($("input[name='sleeping1']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
@@ -194,7 +194,7 @@ const getsleeping_1 = () => {
 }
 const getdriving = () => {
     var driveObj = {};
-    $.each($("input[name='driving']"), function() {
+    $.each($("input[name='driving1']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
@@ -209,7 +209,7 @@ const getdriving = () => {
 }
 const getreading = () => {
     var readObj = {};
-    $.each($("input[name='reading']"), function() {
+    $.each($("input[name='reading1']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {
@@ -225,7 +225,7 @@ const getreading = () => {
 
 const getrecreation = () => {
     var recObj = {};
-    $.each($("input[name='recreation']"), function() {
+    $.each($("input[name='recreation1']"), function() {
         var flag = 0;
         var value = $(this).val();
         if (this.checked) {

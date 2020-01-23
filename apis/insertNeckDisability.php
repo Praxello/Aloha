@@ -6,13 +6,12 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-$dir = '../upload/patients/';
-if (isset($_POST['painIntensity']) && isset($_POST['personalCare']) && isset($_POST['lifting']) && isset($_POST['work']) && isset($_POST['headaches']) && 
+if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['painIntensity']) && isset($_POST['personalCare']) && isset($_POST['lifting']) && isset($_POST['work']) && isset($_POST['headaches']) && 
 isset($_POST['concentration']) && isset($_POST['sleeping']) && isset($_POST['driving']) && isset($_POST['reading']) && isset($_POST['recreation'])) {
     
-    
-    $sql = "INSERT INTO neck_disability_index(painIntensity,personalCare,lifting,work,headaches,concentration,sleeping,driving,reading,recreation) 
-     VALUES ('$painIntensity','$personalCare','$lifting','$work','$headaches','$concentration','$sleeping','$driving','$reading','$recreation')";
+    mysqli_query($conn,"DELETE FROM neck_disability_index WHERE patientId = $patientId AND visitDate= '$visitDate'");
+    $sql = "INSERT INTO neck_disability_index(patientId,visitDate,painIntensity,personalCare,lifting,work,headaches,concentration,sleeping,driving,reading,recreation) 
+     VALUES ($patientId,'$visitDate','$painIntensity','$personalCare','$lifting','$work','$headaches','$concentration','$sleeping','$driving','$reading','$recreation')";
     
     $query = mysqli_query($conn, $sql);
     
