@@ -1,10 +1,7 @@
 $('#backPainForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
     var returnVal = $("#backPainForm").valid();
     if (returnVal) {
-
-
         var painObj = getpainIntensity();
         var perObj = getpersonalCare();
         var liftObj = getlifting();
@@ -15,8 +12,6 @@ $('#backPainForm').on('submit', function(e) {
         var socialObj = getsocialLife();
         var traObj = gettravel();
         var chanObj = getchangingDegreeOfPain();
-        console.log(painObj);
-
 
         painObj = JSON.stringify(painObj);
         perObj = JSON.stringify(perObj);
@@ -28,11 +23,6 @@ $('#backPainForm').on('submit', function(e) {
         socialObj = JSON.stringify(socialObj);
         traObj = JSON.stringify(traObj);
         chanObj = JSON.stringify(chanObj);
-
-
-
-
-        //   console.log(ob);                                                                                                                                                  
         $.ajax({
             url: url + 'insertBackPainQues.php',
             type: 'POST',
@@ -49,9 +39,6 @@ $('#backPainForm').on('submit', function(e) {
                 socialLife: socialObj,
                 travel: traObj,
                 changingDegreeOfPain: chanObj
-
-
-
             },
             dataType: 'json',
             success: function(response) {
@@ -64,8 +51,10 @@ $('#backPainForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-
-
+                    $('#backPainForm').trigger('reset');
+                    $('#backPain').modal('hide');
+                    backPain.set(response.Data.lbackpId, response.Data);
+                    showBackPain(backPain);
                 } else {
                     swal({
                         position: 'top-end',
@@ -97,7 +86,7 @@ const getpainIntensity = () => {
 
     });
     return painObj;
-}
+};
 
 const getpersonalCare = () => {
     var perObj = {};
@@ -113,7 +102,7 @@ const getpersonalCare = () => {
 
     });
     return perObj;
-}
+};
 
 const getlifting = () => {
     var liftObj = {};
@@ -129,7 +118,7 @@ const getlifting = () => {
 
     });
     return liftObj;
-}
+};
 
 const getwalking = () => {
     var walkObj = {};
@@ -145,7 +134,7 @@ const getwalking = () => {
 
     });
     return walkObj;
-}
+};
 
 const getsitting_1 = () => {
     var sittObj = {};
@@ -161,7 +150,7 @@ const getsitting_1 = () => {
 
     });
     return sittObj;
-}
+};
 
 const getstanding = () => {
     var standObj = {};
@@ -177,7 +166,7 @@ const getstanding = () => {
 
     });
     return standObj;
-}
+};
 
 const getsleeping = () => {
     var sleepObj = {};
@@ -193,8 +182,7 @@ const getsleeping = () => {
 
     });
     return sleepObj;
-}
-
+};
 const getsocialLife = () => {
     var socialObj = {};
     $.each($("input[name='socialLife']"), function() {
@@ -209,7 +197,7 @@ const getsocialLife = () => {
 
     });
     return socialObj;
-}
+};
 
 const gettravel = () => {
     var traObj = {};
@@ -225,7 +213,7 @@ const gettravel = () => {
 
     });
     return traObj;
-}
+};
 
 const getchangingDegreeOfPain = () => {
     var chanObj = {};
@@ -241,4 +229,4 @@ const getchangingDegreeOfPain = () => {
 
     });
     return chanObj;
-}
+};

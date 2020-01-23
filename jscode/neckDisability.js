@@ -1,13 +1,8 @@
 $('#neckForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
     var returnVal = $("#neckForm").valid();
     if (returnVal) {
-
         var painObj = getpainIntensity_1();
-
-        console.log(painObj);
-
         var perObj = getpersonalCare_1();
         var liftObj = getlifting_1();
         var workObj = getwork();
@@ -28,10 +23,6 @@ $('#neckForm').on('submit', function(e) {
         driveObj = JSON.stringify(driveObj);
         readObj = JSON.stringify(readObj);
         recObj = JSON.stringify(recObj);
-
-
-        console.log(global_patientId);
-        console.log(global_date);
 
         $.ajax({
             url: url + 'insertNeckDisability.php',
@@ -62,7 +53,10 @@ $('#neckForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-
+                    $('#neckDis').modal('hide');
+                    neckDisiblity.set(response.Data.ndisabilityId, response.Data);
+                    $('#neckForm').trigger('reset');
+                    showNeckDisiblity(neckDisiblity);
 
                 } else {
                     swal({
@@ -92,10 +86,9 @@ const getpainIntensity_1 = () => {
             painObj[value] = flag;
             // Object.assign(painObj,flag)
         }
-        console.log(painObj);
     });
     return painObj;
-}
+};
 
 const getpersonalCare_1 = () => {
     var perObj = {};
@@ -111,7 +104,7 @@ const getpersonalCare_1 = () => {
 
     });
     return perObj;
-}
+};
 
 const getlifting_1 = () => {
     var liftObj = {};
@@ -127,7 +120,7 @@ const getlifting_1 = () => {
 
     });
     return liftObj;
-}
+};
 
 const getwork = () => {
     var workObj = {};
@@ -143,7 +136,7 @@ const getwork = () => {
 
     });
     return workObj;
-}
+};
 
 const getheadaches = () => {
     var headObj = {};
@@ -159,7 +152,7 @@ const getheadaches = () => {
 
     });
     return headObj;
-}
+};
 
 const getconcentration = () => {
     var conObj = {};
@@ -175,7 +168,7 @@ const getconcentration = () => {
 
     });
     return conObj;
-}
+};
 
 const getsleeping_1 = () => {
     var sleepObj = {};
@@ -191,7 +184,7 @@ const getsleeping_1 = () => {
 
     });
     return sleepObj;
-}
+};
 const getdriving = () => {
     var driveObj = {};
     $.each($("input[name='driving1']"), function() {
@@ -206,7 +199,7 @@ const getdriving = () => {
 
     });
     return driveObj;
-}
+};
 const getreading = () => {
     var readObj = {};
     $.each($("input[name='reading1']"), function() {
@@ -221,7 +214,7 @@ const getreading = () => {
 
     });
     return readObj;
-}
+};
 
 const getrecreation = () => {
     var recObj = {};
@@ -237,4 +230,4 @@ const getrecreation = () => {
 
     });
     return recObj;
-}
+};

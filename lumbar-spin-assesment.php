@@ -760,7 +760,7 @@
                                                                     <th scope="col">Pain</th>
                                                                   </tr>
                                                                 </thead>
-                                                                <tbody>
+                                                                <tbody id="momentData">
                                                                   <tr>
                                                                     <th scope="row">Flexion</th>
                                                                     <td><input type="text" class="form-control" id="maj" placeholder=""></td>
@@ -821,7 +821,7 @@
                                                                        
                                                                        </tr>
                                                                      </thead>
-                                                                     <tbody>
+                                                                     <tbody id="tMovementData">
                                                                        <tr>
                                                                          <th scope="row">Rep EIL</th>
                                                                          <td><input type="text" class="form-control"   placeholder=""></td>

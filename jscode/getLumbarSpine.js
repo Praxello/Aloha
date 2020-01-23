@@ -6,9 +6,10 @@ const getLumbarSpine = (patientId) => {
         url: url + 'getAllLumbarSpine.php',
         type: 'POST',
         dataType: 'json',
-        data: { patientId: patientId },
+        data: {
+            patientId: patientId
+        },
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
@@ -28,7 +29,7 @@ const showLumbarSpine = spines => {
     for (let k of spines.keys()) {
         let spine = spines.get(k);
 
-        tblData += '<tr><td>' + spine.visitDate + '</td>';
+        tblData += '<tr><td>' + getDate(spine.visitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editLumbarSpine(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '</div></td></tr>';
@@ -39,13 +40,15 @@ const showLumbarSpine = spines => {
         retrieve: true,
         bPaginate: $('tbody tr').length > 10,
         order: [],
-        columnDefs: [{ orderable: false, targets: [0, 1] }],
+        columnDefs: [{
+            orderable: false,
+            targets: [0, 1]
+        }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true
     });
 };
-
 
 const editLumbarSpine = (spineId) => {
     spineId = spineId.toString();
@@ -77,7 +80,7 @@ function fill_lumbar(details) {
         $('#sensoryDeficit').val(details.sensoryDeficit);
     }
 
-    var json,obj,values,i;
+    var json, obj, values, i;
 
     json = details.presentSince;
     if (json != null) {
@@ -85,9 +88,10 @@ function fill_lumbar(details) {
         if (obj.s != null) {
             $('#presentSince1').val(obj.s);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='presentSince']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -104,9 +108,10 @@ function fill_lumbar(details) {
         if (obj.s1 != null) {
             $('#symptomsAtOnset1').val(obj.s1);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='symptomsAtOnset']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -117,17 +122,16 @@ function fill_lumbar(details) {
         });
     }
 
-    
-
     json = details.constantSymptoms;
     if (json != null) {
         obj = JSON.parse(json);
         if (obj.s2 != null) {
             $('#constantSymptoms1').val(obj.s2);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='constantSymptoms']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -138,16 +142,16 @@ function fill_lumbar(details) {
         });
     }
 
-
     json = details.interSymptoms;
     if (json != null) {
         obj = JSON.parse(json);
         if (obj.s3 != null) {
             $('#interSymptoms1').val(obj.s3);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='interSymptoms']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -164,9 +168,10 @@ function fill_lumbar(details) {
         if (obj.otherA != null) {
             $('#aggravatingFactor1').val(obj.otherA);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='aggravatingFactor']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -183,9 +188,10 @@ function fill_lumbar(details) {
         if (obj.otherR != null) {
             $('#relivingFactor1').val(obj.otherR);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='relivingFactor']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -199,10 +205,11 @@ function fill_lumbar(details) {
     json = details.specSymptoms;
     if (json != null) {
         obj = JSON.parse(json);
-       
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='specSymptoms']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -216,10 +223,11 @@ function fill_lumbar(details) {
     json = details.bladder;
     if (json != null) {
         obj = JSON.parse(json);
-       
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='bladder']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -230,16 +238,16 @@ function fill_lumbar(details) {
         });
     }
 
-    
     json = details.medications;
     if (json != null) {
         obj = JSON.parse(json);
         if (obj.other != null) {
             $('#medications1').val(obj.other);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='medications']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -256,9 +264,10 @@ function fill_lumbar(details) {
         if (obj.GHealth != null) {
             $('#GeneralHealth1').val(obj.GHealth);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='GeneralHealth']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -268,8 +277,6 @@ function fill_lumbar(details) {
             i++;
         });
     }
-    
-
 
     json = details.imaging;
     if (json != null) {
@@ -277,9 +284,10 @@ function fill_lumbar(details) {
         if (obj.imaging != null) {
             $('#imaging1').val(obj.imaging);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='imaging']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -296,9 +304,10 @@ function fill_lumbar(details) {
         if (obj.surgery != null) {
             $('#recentsurgery1').val(obj.surgery);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='recentsurgery']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -315,9 +324,10 @@ function fill_lumbar(details) {
         if (obj.nPain != null) {
             $('#nightPain1').val(obj.nPain);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='nightPain']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -334,9 +344,10 @@ function fill_lumbar(details) {
         if (obj.acc != null) {
             $('#accidents1').val(obj.acc);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='accidents']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -356,9 +367,10 @@ function fill_lumbar(details) {
         if (obj.weight != null) {
             $('#weightLoss1').val(obj.weight);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='weightLoss']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -371,10 +383,11 @@ function fill_lumbar(details) {
 
     json = details.sitting;
     if (json != null) {
-     
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='sitting']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -387,10 +400,11 @@ function fill_lumbar(details) {
 
     json = details.lordosis;
     if (json != null) {
-     
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='lordosis']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -402,10 +416,11 @@ function fill_lumbar(details) {
     }
     json = details.lateralshift;
     if (json != null) {
-     
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='lateralshift']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -425,9 +440,10 @@ function fill_lumbar(details) {
         if (obj.other != null) {
             $('#derangement2').val(obj.other);
         }
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='derangement']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -444,10 +460,11 @@ function fill_lumbar(details) {
         if (obj.therapy != null) {
             $('#mechTherapy1').val(obj.therapy);
         }
-        
-         values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='mechTherapy']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -456,6 +473,41 @@ function fill_lumbar(details) {
             }
             i++;
         });
+    }
+    var content = '',
+        m, count;
+    json = details.moveMentLoss;
+    if (json != null) {
+
+        obj = JSON.parse(json);
+        count = Object.keys(obj).length;
+        var arr = ['Flexion', 'Extension', 'Side Gliding R', 'Side Gliding L'];
+        for (var j = 0; j < count; j++) {
+            content += '<tr>';
+            content += ' <th scope="row">' + arr[j] + '</th>';
+            content += '<td><input type="text" class="form-control" id="maj" value="' + obj[j].maj + '"></td>';
+            content += '<td><input type="text" class="form-control" id="mod" value="' + obj[j].mod + '"></td>';
+            content += '<td><input type="text" class="form-control" id="min" value="' + obj[j].min + '"></td>';
+            content += '<td><input type="text" class="form-control" id="nil" value="' + obj[j].nil + '"></td>';
+            content += '<td><input type="text" class="form-control" id="pain" value="' + obj[j].pain + '"></td>';
+            content += '</tr>';
+        }
+        $('#momentData').html(content);
+
+    }
+    json = details.testMovement;
+    if (json != null) {
+        content = '';
+        obj = JSON.parse(json);
+        content += '<tr>';
+        content += ' <th scope="row">Rep EIL</th>';
+        content += '<td><input type="text" class="form-control" id="maj" value="' + obj[0]['During-test'] + '"></td>';
+        content += '<td><input type="text" class="form-control" id="mod" value="' + obj[0]['after-test'] + '"></td>';
+        content += '<td><input type="text" class="form-control" id="min" value="' + obj[0]['m-rom-u'] + '"></td>';
+        content += '<td><input type="text" class="form-control" id="nil" value="' + obj[0]['m-rom-d'] + '"></td>';
+        content += '<td><input type="text" class="form-control" id="pain" value="' + obj[0]['m-noefect'] + '"></td>';
+        content += '</tr>';
+        $('#tMovementData').html(content);
     }
     $('#fullwindowModal2').modal('show');
 }
