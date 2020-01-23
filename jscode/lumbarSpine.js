@@ -4,8 +4,8 @@ $('#lumbarSpineForm').on('submit', function(e) {
     var returnVal = $("#lumbarSpineForm").valid();
     if (returnVal) {
 
-        //  var momentLoss =  storeTblValues();
-        //  console.log(momentLoss);                                                                                                    
+        var momentLoss = storemomentLoss();
+        var testMovement = storeTest();
         var ob = getAgg();
         ob.otherA = $('#aggravatingFactor1').val();
         var relfactorObj = getRelivingFactor();
@@ -81,12 +81,17 @@ $('#lumbarSpineForm').on('submit', function(e) {
         derObj = JSON.stringify(derObj);
         mechObj = JSON.stringify(mechObj);
         lshift = JSON.stringify(lshift);
+        momentLoss = JSON.stringify(Object.assign({}, momentLoss));
+        testMovement = JSON.stringify(Object.assign({}, testMovement));
+        console.log(momentLoss);
         $.ajax({
             url: url + 'insertLumbarSpine.php',
             type: 'POST',
             data: {
                 patientId: global_patientId,
                 visitDate: global_date,
+                moveMentLoss: momentLoss,
+                testMovement: testMovement,
                 factor: ob,
                 reliving: relfactorObj,
                 presentSince: presentSinceObj,
@@ -204,7 +209,7 @@ const getsymptomsAtOnset = () => {
         }
     });
     return symObj;
-}
+};
 
 const getconsym = () => {
     var conObj = {};
@@ -219,7 +224,7 @@ const getconsym = () => {
         }
     });
     return conObj;
-}
+};
 
 const getinterSymptoms = () => {
     var insymObj = {};
@@ -234,7 +239,7 @@ const getinterSymptoms = () => {
         }
     });
     return insymObj;
-}
+};
 const getspecSymptoms = () => {
     var symtObj = {};
     $.each($("input[name='specSymptoms']"), function() {
@@ -248,7 +253,7 @@ const getspecSymptoms = () => {
         }
     });
     return symtObj;
-}
+};
 
 
 const getbladder = () => {
@@ -264,7 +269,7 @@ const getbladder = () => {
         }
     });
     return blrObj;
-}
+};
 const getmedications = () => {
     var mediObj = {};
     $.each($("input[name='medications']"), function() {
@@ -278,7 +283,7 @@ const getmedications = () => {
         }
     });
     return mediObj;
-}
+};
 
 const getGeneralHealth = () => {
     var genObj = {};
@@ -293,7 +298,7 @@ const getGeneralHealth = () => {
         }
     });
     return genObj;
-}
+};
 
 const getimaging = () => {
     var imgObj = {};
@@ -308,7 +313,7 @@ const getimaging = () => {
         }
     });
     return imgObj;
-}
+};
 
 const getrecentsurgery = () => {
     var recObj = {};
@@ -323,7 +328,7 @@ const getrecentsurgery = () => {
         }
     });
     return recObj;
-}
+};
 const getnightPain = () => {
     var nigObj = {};
     $.each($("input[name='nightPain']"), function() {
@@ -337,7 +342,7 @@ const getnightPain = () => {
         }
     });
     return nigObj;
-}
+};
 
 const getaccidents = () => {
     var accObj = {};
@@ -352,7 +357,7 @@ const getaccidents = () => {
         }
     });
     return accObj;
-}
+};
 
 const getweightLoss = () => {
     var waitObj = {};
@@ -367,7 +372,7 @@ const getweightLoss = () => {
         }
     });
     return waitObj;
-}
+};
 
 const getsitting = () => {
     var setObj = {};
@@ -382,7 +387,7 @@ const getsitting = () => {
         }
     });
     return setObj;
-}
+};
 
 const getlordosis = () => {
     var larObj = {};
@@ -397,7 +402,7 @@ const getlordosis = () => {
         }
     });
     return larObj;
-}
+};
 
 const getderangement = () => {
     var derObj = {};
@@ -412,8 +417,7 @@ const getderangement = () => {
         }
     });
     return derObj;
-}
-
+};
 const getmechTherapy = () => {
     var mechObj = {};
     $.each($("input[name='mechTherapy']"), function() {
@@ -427,7 +431,7 @@ const getmechTherapy = () => {
         }
     });
     return mechObj;
-}
+};
 
 const getlateralshift = () => {
     var lshift = {};
@@ -442,27 +446,49 @@ const getlateralshift = () => {
         }
     });
     return lshift;
+};
+
+function storemomentLoss() {
+    var TableData = [];
+
+    $('#momentLoss tr').each(function(row, tr) {
+        var maj = $(tr).find('td:eq(0) input').val();
+        var mod = $(tr).find('td:eq(1) input').val();
+        var min = $(tr).find('td:eq(2) input').val();
+        var nil = $(tr).find('td:eq(3) input').val();
+        var pain = $(tr).find('td:eq(4) input').val();
+
+        TableData[row] = {
+            "maj": maj,
+            "mod": mod,
+            "min": min,
+            "nil": nil,
+            "pain": pain
+        };
+    });
+    TableData.shift();
+    return TableData;
 }
 
-// function storeTblValues() {
-//     var TableData = [];
+function storeTest() {
+    var TableData = [];
 
-//     $('#momentLoss tr').each(function(row, tr) {
-//         var maj = $(tr).find('td:eq(0) input').val();
-//         var mod = $(tr).find('td:eq(1) input').val();
-//         var min = $(tr).find('td:eq(2) input').val();
-//         var nil = $(tr).find('td:eq(3) input').val();
-//         var pain =$(tr).find('td:eq(4) input').val();
+    $('#testMovement tr').each(function(row, tr) {
+        var maj = $(tr).find('td:eq(0) input').val();
+        var mod = $(tr).find('td:eq(1) input').val();
+        var min = $(tr).find('td:eq(2) input').val();
+        var nil = $(tr).find('td:eq(3) input').val();
+        var pain = $(tr).find('td:eq(4) input').val();
 
-//         TableData[row] = {
-//             "maj": maj,
-//             "mod": mod,
-//             "min": min,
-//             "nil": nil,
-//             "pain": pain
-
-//         };
-//     });
-//     TableData.shift();
-//     return TableData;
-// }
+        TableData[row] = {
+            "During-test": maj,
+            "after-test": mod,
+            "m-rom-u": min,
+            "m-rom-d": nil,
+            "m-noefect": pain
+        };
+    });
+    TableData.shift();
+    TableData.shift();
+    return TableData;
+}

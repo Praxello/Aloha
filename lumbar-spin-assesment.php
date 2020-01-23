@@ -815,7 +815,7 @@
                                                                          <th>
                                                                              <div colspan="3"><i class="ik ik-arrow-up"></i>Rom</div> 
                                                                          </th>  
-                                                                         <th> <i class="ik ik-arrow-up"></i>Rom</th>
+                                                                         <th> <i class="ik ik-arrow-down"></i>Rom</th>
                                                                          <th>No Effect</th></th>
                                                                          </thead>
                                                                        
@@ -824,11 +824,11 @@
                                                                      <tbody>
                                                                        <tr>
                                                                          <th scope="row">Rep EIL</th>
-                                                                         <td><input type="text" class="form-control" id="testMovement" name="testMovement" placeholder=""></td>
-                                                                         <td><input type="text" class="form-control" id="testMovement" placeholder=""></td>
-                                                                         <td><input type="text" class="form-control" id="testMovement" placeholder=""></td>
-                                                                         <td><input type="text" class="form-control" id="testMovement" placeholder=""></td>
-                                                                         <td><input type="text" class="form-control" id="testMovement" placeholder=""></td>
+                                                                         <td><input type="text" class="form-control"   placeholder=""></td>
+                                                                         <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                         <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                         <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                         <td><input type="text" class="form-control"  placeholder=""></td>
                                                                             </tr> 
                                                                            
                                                                      </tbody>

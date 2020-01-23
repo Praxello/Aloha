@@ -11,14 +11,14 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['fa
    isset($_POST['imaging']) && isset($_POST['recentsurgery']) && isset($_POST['nightPain']) && isset($_POST['accidents']) && isset($_POST['weightLoss']) && isset($_POST['sitting'])
    && isset($_POST['lordosis']) && isset($_POST['derangement']) && isset($_POST['mechTherapy']) && isset($_POST['funDisabilityScore']) && isset($_POST['vasScore']) &&
     isset($_POST['presentSymptoms']) && isset($_POST['commencedAsResult']) && isset($_POST['prevTreatments']) && isset($_POST['motorDeficit']) && isset($_POST['sensoryDeficit'])
-    && isset($_POST['lateralshift'])) {
+    && isset($_POST['lateralshift']) && isset($_POST['moveMentLoss']) && isset($_POST['testMovement'])) {
     
     $sql = "INSERT INTO lumbar_spine_assessment (patientId,visitDate,aggravatingFactor,relivingFactor,presentSince,symptomsAtOnset,constantSymptoms,interSymptoms,specSymptoms,bladder,medications,
     GeneralHealth,imaging,recentsurgery,nightPain,accidents,weightLoss,sitting,lordosis,derangement,mechTherapy,funDisabilityScore,vasScore,presentSymptoms,commencedAsResult,
-    prevTreatments,motorDeficit,sensoryDeficit,lateralshift) 
+    prevTreatments,motorDeficit,moveMentLoss,testMovement,sensoryDeficit,lateralshift) 
      VALUES ($patientId,'$visitDate','$factor','$reliving','$presentSince','$symptomsAtOnset','$constantSymptoms','$interSymptoms','$specSymptoms','$bladder','$medications','$GeneralHealth','$imaging'
      ,'$recentsurgery','$nightPain','$accidents','$weightLoss','$sitting','$lordosis','$derangement','$mechTherapy','$funDisabilityScore','$vasScore','$presentSymptoms',
-     '$commencedAsResult','$prevTreatments','$motorDeficit','$sensoryDeficit','$lateralshift')";
+     '$commencedAsResult','$prevTreatments','$motorDeficit','$moveMentLoss','$testMovement','$sensoryDeficit','$lateralshift')";
     
     $query = mysqli_query($conn, $sql);
     
