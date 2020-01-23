@@ -866,7 +866,7 @@
                                                                     </div>
                                                                         <span class="col-sm-1 ">Other:</span>
                                                                         <div class="col-sm-3 ">
-                                                                        <input type="text" class="form-control" id="derangement" name="derangement" placeholder="100">
+                                                                        <input type="text" class="form-control" id="derangement2" name="derangement2" placeholder="100">
                                                                         </div>
                                                                        <label for="other" class="col-sm-2 col-form-label">Derangement:  Pain Location</label>
                                                                         <div class="col-sm-3">
@@ -878,7 +878,7 @@
                                                                 <div class="form-group row">
                                                                     <label for="mechTherapy" class="col-sm-2   col-form-label">Mechanical Therappy: </label>
                                                                     <div class="col-sm-2 ">
-                                                                        <input type="text" class="form-control" id="mechTherapy" placeholder="No">
+                                                                        <input type="text" class="form-control" id="mechTherapy1" name="mechTherapy1" placeholder="No">
                                                                     </div>
                                                                  
                                                                         <div class="col-sm-2 c">

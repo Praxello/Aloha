@@ -50,11 +50,15 @@ const editBack = (lbackpId) => {
     lbackpId = lbackpId.toString();
     back_details = backPain.get(lbackpId);
     global_date = back_details.visitDate;
+ 
     fill_back(back_details);
 };
 
 function fill_back(back) {
+    console.log(back);
+
     var json,obj,values,i;
+
     json = back.painIntensity;
     if (json != null) {
         obj = JSON.parse(json);
@@ -70,5 +74,153 @@ function fill_back(back) {
             i++;
         });
     }
+
+    json = back.personalCare;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='personalCare']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = back.lifting;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='lifting']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = back.walking;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='walking']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = back.sitting;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='sitting']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = back.standing;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='standing']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = back.sleeping;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='sleeping']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = back.socialLife;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='socialLife']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    
+    json = back.travel;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='travel']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+  
+
+    json = back.changingDegreeOfPain;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='changingDegreeOfPain']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
     $('#backPain').modal('show');
 }
