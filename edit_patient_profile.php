@@ -569,6 +569,7 @@
 <script src="jscode/getLumbarSpine.js"></script>
 <script src="jscode/getneckDisblity.js"></script>
 <script src="jscode/getBackPain.js"></script>
+<script src="jscode/getCervicalSpine.js"></script>
 <script src="jscode/patient_profile.js"></script>
 <script type="text/javascript" src="js/dropzone.js"></script>
 <script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
