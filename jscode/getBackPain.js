@@ -29,7 +29,7 @@ const showBackPain = backPain => {
 
         tblData += '<tr><td>' + neck.visitDate + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editBack(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="editBack(' + (k) + ')" title="Edit products back"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#backData').html(tblData);
@@ -38,7 +38,7 @@ const showBackPain = backPain => {
         retrieve: true,
         bPaginate: $('tbody tr').length > 10,
         order: [],
-        columnDefs: [{ orderable: false, targets: [0, 1] }],
+        columnDefs: [{ orderable: false, targets: [0, 1] }],                                                                                                                                                        
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true
@@ -53,22 +53,22 @@ const editBack = (lbackpId) => {
 
 };
 
-// function fill_back(backDetails) {
-//     var json,obj,values,i;
-//     json = backDetails.painIntensity;
-//     if (json != null) {
-//         obj = JSON.parse(json);
-//         values = Object.keys(obj).map(function(key) { return obj[key]; });
-//         console.log(values);
-//          i = 0;
-//         $.each($("input[name='painIntensity']"), function() {
-//             if (values[i] == 1) {
-//                 $(this).attr("checked", true);
-//             } else {
-//                 $(this).attr("checked", false);
-//             }
-//             i++;
-//         });
-//     }
-//     $('#backPain').modal('show');
-// }
+function fill_back(back) {
+    var json,obj,values,i;
+    json = back.painIntensity;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) { return obj[key]; });
+        console.log(values);
+         i = 0;
+        $.each($("input[name='painIntensity']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+    $('#backPain').modal('show');
+}
