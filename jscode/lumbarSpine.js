@@ -149,7 +149,7 @@ $('#lumbarSpineForm').on('submit', function(e) {
     }
 });
 
-const getAgg = () => {
+var getAgg = () => {
     var ob = {};
     $.each($("input[name='aggravatingFactor']"), function() {
         var flag = 0;

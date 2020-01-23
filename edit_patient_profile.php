@@ -98,7 +98,9 @@
                             <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#ques" role="tab" aria-controls="pills-setting" aria-selected="false">Back Pain Questions</a>
                         </li>
 
-
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#cervical" role="tab" aria-controls="pills-setting" aria-selected="false">Cervical Spine Assessment</a>
+                        </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade " id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
@@ -516,6 +518,45 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="tab-pane fade" id="cervical" role="tabpanel" aria-labelledby="pills-profile-tab">
+                               
+                               <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;" data-toggle="modal" data-target="#cervicalSpine">Cervical Spine Assessment</button>
+                                   <div class="container-fluid">
+                                  
+                                       <div class="card"> 
+                                       
+                                          
+                                           <div class="card-body c">
+                                           <!-- <div style="overflow-x:auto;"> -->
+                                           <div class="dt-responsive tbl" >
+                                               <table id="cTable" class="table">
+                                                   <thead>
+                                                    
+                                                       <tr>
+                                                          
+                                                           <th>Visit Date</th>
+                                                           
+                                                         
+                                                          
+                                                           <th>Action</th>                        
+                                                       </tr>
+                                                   </thead>
+                                                   <tbody id="carvicalData">
+                                                      
+                                                       
+                                                       
+                                                   </tbody>
+                                               </table>
+                                            </div>
+                                       </div>
+                                           <!-- <div> -->
+                                       </div>
+                                   </div>
+                               </div>
+
+
                      </div>
 
 
@@ -537,4 +578,5 @@
 <?php include 'lumbar-spin-assesment.php';?>
 <?php include 'neck-disability.php';?>
 <?php include 'low-backPainQues.php';?>
+<?php include 'carvical-spineAssessment.php';?>
 
