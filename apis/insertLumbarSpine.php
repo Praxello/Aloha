@@ -13,6 +13,8 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['fa
     isset($_POST['presentSymptoms']) && isset($_POST['commencedAsResult']) && isset($_POST['prevTreatments']) && isset($_POST['motorDeficit']) && isset($_POST['sensoryDeficit'])
     && isset($_POST['lateralshift']) && isset($_POST['moveMentLoss']) && isset($_POST['testMovement'])) {
     
+
+        mysqli_query($conn,"DELETE FROM lumbar_spine_assessment WHERE patientId = $patientId AND visitDate= '$visitDate'");
     $sql = "INSERT INTO lumbar_spine_assessment (patientId,visitDate,aggravatingFactor,relivingFactor,presentSince,symptomsAtOnset,constantSymptoms,interSymptoms,specSymptoms,bladder,medications,
     GeneralHealth,imaging,recentsurgery,nightPain,accidents,weightLoss,sitting,lordosis,derangement,mechTherapy,funDisabilityScore,vasScore,presentSymptoms,commencedAsResult,
     prevTreatments,motorDeficit,moveMentLoss,testMovement,sensoryDeficit,lateralshift) 
@@ -37,7 +39,7 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['fa
         }
         $response = array(
             'Message' => "Added Successfull",
-            "Data" => $sql,
+            "Data" => $records,
             'Responsecode' => 200
         );
         
@@ -45,7 +47,7 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['fa
         $response = array(
             'Message' => mysqli_error($conn) . " failed",
             'Responsecode' => 500,
-            "Data" => $sql
+            "Data" => $records
         );
     }
 } else {

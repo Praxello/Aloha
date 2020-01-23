@@ -6,9 +6,10 @@ const getLowBackPain = (patientId) => {
         url: url + 'getBackPainQues.php',
         type: 'POST',
         dataType: 'json',
-        data: { patientId: patientId },
+        data: {
+            patientId: patientId
+        },
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
@@ -27,7 +28,7 @@ const showBackPain = backPain => {
     for (let k of backPain.keys()) {
         let neck = backPain.get(k);
 
-        tblData += '<tr><td>' + neck.visitDate + '</td>';
+        tblData += '<tr><td>' + getDate(neck.visitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editBack(' + (k) + ')" title="Edit products back"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '</div></td></tr>';
@@ -38,33 +39,33 @@ const showBackPain = backPain => {
         retrieve: true,
         bPaginate: $('tbody tr').length > 10,
         order: [],
-        columnDefs: [{ orderable: false, targets: [0, 1] }],                                                                                                                                                        
+        columnDefs: [{
+            orderable: false,
+            targets: [0, 1]
+        }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true
     });
 };
 
-
 const editBack = (lbackpId) => {
     lbackpId = lbackpId.toString();
     back_details = backPain.get(lbackpId);
     global_date = back_details.visitDate;
- 
+
     fill_back(back_details);
 };
 
 function fill_back(back) {
-    console.log(back);
-
-    var json,obj,values,i;
-
+    var json, obj, values, i;
     json = back.painIntensity;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='painIntensity']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -78,9 +79,10 @@ function fill_back(back) {
     json = back.personalCare;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='personalCare']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -94,9 +96,10 @@ function fill_back(back) {
     json = back.lifting;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='lifting']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -110,9 +113,10 @@ function fill_back(back) {
     json = back.walking;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='walking']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -126,9 +130,10 @@ function fill_back(back) {
     json = back.sitting;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='sitting']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -142,9 +147,10 @@ function fill_back(back) {
     json = back.standing;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='standing']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -158,9 +164,10 @@ function fill_back(back) {
     json = back.sleeping;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='sleeping']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -174,9 +181,10 @@ function fill_back(back) {
     json = back.socialLife;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='socialLife']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -187,13 +195,13 @@ function fill_back(back) {
         });
     }
 
-    
     json = back.travel;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='travel']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -204,14 +212,13 @@ function fill_back(back) {
         });
     }
 
-  
-
     json = back.changingDegreeOfPain;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
-         i = 0;
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
         $.each($("input[name='changingDegreeOfPain']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
@@ -221,6 +228,5 @@ function fill_back(back) {
             i++;
         });
     }
-
     $('#backPain').modal('show');
 }

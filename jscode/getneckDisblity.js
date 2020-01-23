@@ -6,7 +6,9 @@ const getNeckDisblity = (patientId) => {
         url: url + 'getNeckDisblity.php',
         type: 'POST',
         dataType: 'json',
-        data: { patientId: patientId },
+        data: {
+            patientId: patientId
+        },
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
@@ -26,7 +28,7 @@ const showNeckDisiblity = neckDisiblity => {
     for (let k of neckDisiblity.keys()) {
         let neck = neckDisiblity.get(k);
 
-        tblData += '<tr><td>' + neck.visitDate + '</td>';
+        tblData += '<tr><td>' + getDate(neck.visitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editneck(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '</div></td></tr>';
@@ -37,18 +39,19 @@ const showNeckDisiblity = neckDisiblity => {
         retrieve: true,
         bPaginate: $('tbody tr').length > 10,
         order: [],
-        columnDefs: [{ orderable: false, targets: [0, 1] }],
+        columnDefs: [{
+            orderable: false,
+            targets: [0, 1]
+        }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true
     });
 };
 
-
 const editneck = (neckId) => {
     neckId = neckId.toString();
     neck_details = neckDisiblity.get(neckId);
-    console.log(neck_details);
     global_date = neck_details.visitDate;
     fill_neck(neck_details);
 };
@@ -58,8 +61,9 @@ function fill_neck(details) {
     json = details.painIntensity;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
         i = 0;
         $.each($("input[name='painIntensity1']"), function() {
             if (values[i] == 1) {
@@ -72,11 +76,11 @@ function fill_neck(details) {
     }
 
     json = details.personalCare;
-    console.log(json);
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
         i = 0;
         $.each($("input[name='personalCare1']"), function() {
             if (values[i] == 1) {
@@ -91,8 +95,9 @@ function fill_neck(details) {
     json = details.lifting;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
         i = 0;
         $.each($("input[name='lifting1']"), function() {
             if (values[i] == 1) {
@@ -107,8 +112,9 @@ function fill_neck(details) {
     json = details.work;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
         i = 0;
         $.each($("input[name='work1']"), function() {
             if (values[i] == 1) {
@@ -123,8 +129,9 @@ function fill_neck(details) {
     json = details.headaches;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
         i = 0;
         $.each($("input[name='headaches1']"), function() {
             if (values[i] == 1) {
@@ -139,8 +146,9 @@ function fill_neck(details) {
     json = details.concentration;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
         i = 0;
         $.each($("input[name='concentration1']"), function() {
             if (values[i] == 1) {
@@ -155,8 +163,9 @@ function fill_neck(details) {
     json = details.sleeping;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
         i = 0;
         $.each($("input[name='sleeping1']"), function() {
             if (values[i] == 1) {
@@ -171,8 +180,9 @@ function fill_neck(details) {
     json = details.driving;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
         i = 0;
         $.each($("input[name='driving1']"), function() {
             if (values[i] == 1) {
@@ -187,8 +197,9 @@ function fill_neck(details) {
     json = details.reading;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
         i = 0;
         $.each($("input[name='reading1']"), function() {
             if (values[i] == 1) {
@@ -203,8 +214,9 @@ function fill_neck(details) {
     json = details.recreation;
     if (json != null) {
         obj = JSON.parse(json);
-        values = Object.keys(obj).map(function(key) { return obj[key]; });
-        console.log(values);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
         i = 0;
         $.each($("input[name='recreation1']"), function() {
             if (values[i] == 1) {

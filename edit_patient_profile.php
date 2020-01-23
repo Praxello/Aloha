@@ -414,7 +414,7 @@
                         </div>
 
 
-                    <div class="tab-pane fade" id="fullwindowModal1" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="tab-pane fade" id="fullwindowModal1" role="tabpanel" aria-labelledby="pills-profile-tab">
                                
                 <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;" data-toggle="modal" data-target="#fullwindowModal2">Add Lumbar Spine Assessment</button>
                     <div class="container-fluid">
@@ -422,7 +422,7 @@
                         <div class="card"> 
                         
                          
-                            <div class="card-body c">
+                            <div class="card-body">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
                                 <table id="sTable" class="table">

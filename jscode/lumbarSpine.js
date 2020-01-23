@@ -1,5 +1,4 @@
 $('#lumbarSpineForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
     var returnVal = $("#lumbarSpineForm").valid();
     if (returnVal) {
@@ -55,11 +54,7 @@ $('#lumbarSpineForm').on('submit', function(e) {
         var motorObj = $('#motorDeficit').val();
         var sensoryObj = $('#sensoryDeficit').val();
 
-
-
         // fData.append('aggravatingFactor',ob);
-
-
 
         ob = JSON.stringify(ob);
         relfactorObj = JSON.stringify(relfactorObj);
@@ -83,7 +78,6 @@ $('#lumbarSpineForm').on('submit', function(e) {
         lshift = JSON.stringify(lshift);
         momentLoss = JSON.stringify(Object.assign({}, momentLoss));
         testMovement = JSON.stringify(Object.assign({}, testMovement));
-        console.log(momentLoss);
         $.ajax({
             url: url + 'insertLumbarSpine.php',
             type: 'POST',
@@ -119,7 +113,6 @@ $('#lumbarSpineForm').on('submit', function(e) {
                 motorDeficit: motorObj,
                 sensoryDeficit: sensoryObj,
                 lateralshift: lshift
-
             },
             dataType: 'json',
             success: function(response) {
@@ -132,8 +125,10 @@ $('#lumbarSpineForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-
-
+                    spines.set(response.Data.lsAId, response.Data);
+                    $('#fullwindowModal2').modal('hide');
+                    $('#lumbarSpineForm').trigger('reset');
+                    showLumbarSpine(spines);
                 } else {
                     swal({
                         position: 'top-end',
@@ -163,7 +158,7 @@ const getAgg = () => {
 
     });
     return ob;
-}
+};
 
 const getRelivingFactor = () => {
     var relfactorObj = {};
@@ -179,7 +174,7 @@ const getRelivingFactor = () => {
 
     });
     return relfactorObj;
-}
+};
 
 const getpresentSince = () => {
     var presentSinceObj = {};
@@ -194,7 +189,7 @@ const getpresentSince = () => {
         }
     });
     return presentSinceObj;
-}
+};
 
 const getsymptomsAtOnset = () => {
     var symObj = {};
@@ -254,7 +249,6 @@ const getspecSymptoms = () => {
     });
     return symtObj;
 };
-
 
 const getbladder = () => {
     var blrObj = {};
