@@ -527,7 +527,7 @@
                                   
                                        <div class="card"> 
                                        
-                                          
+                                    
                                            <div class="card-body c">
                                            <!-- <div style="overflow-x:auto;"> -->
                                            <div class="dt-responsive tbl" >

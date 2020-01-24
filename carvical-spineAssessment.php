@@ -23,7 +23,7 @@
                                                             <div class="form-group row">
                                                                 <label for="functionScore" class="col-sm-1 col-form-label">Functional Disability Score:</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" class="form-control" id="cerfunDisabilityScore" name="cerfunDisabilityScore" placeholder="100">
+                                                                    <input type="text" class="form-control" id="cerFunDisabilityScore" name="cerFunDisabilityScore" placeholder="100">
                                                                 </div>
 
 
@@ -164,7 +164,7 @@
                                                                     </div>
 
 
-                                                                <label for="interSymptoms" class="col-sm-1 col-form-label">Disturbed Sleep:</label>
+                                                                <label for="" class="col-sm-1 col-form-label">Disturbed Sleep:</label>
                                                                 <div class="col-sm-3">
                                                                     <input type="text" class="form-control" id="disturbedSleep1" name="disturbedSleep1" placeholder="0-10">
                                                                 </div>

@@ -11,7 +11,7 @@ $('#cervicalSpineForm').on('submit', function(e) {
         var cerComObj = $('#cerCommencedAsResult').val();
   
         var cerPresObj =getcerPresentSince();
-        cerPresObj.p1 = $('#cerPresentSince').val();
+        cerPresObj.p1 = $('#cerPresentSince1').val();
 
         var symObj1= getcerSymptAtOnset();
         symObj1.p2 =$('#cerSymptAtOnset1').val(); 
@@ -20,13 +20,13 @@ $('#cervicalSpineForm').on('submit', function(e) {
         constObj.p3 =$('#cerConstSympt1').val();
 
         var disObj = getdisturbedSleep();
-        disObj.p4 = $('#disturbedSleep').val();
+        disObj.p4 = $('#disturbedSleep1').val();
 
         var agObj = getcerAggrFactor();
-         agObj =$('#cerAggrFactor1').val();
+         agObj.ag1 =$('#cerAggrFactor1').val();
 
          var reObj =getcerRelFactor();
-         reObj = $('#cerRelFactor1').val();
+         reObj.rf1 = $('#cerRelFactor1').val();
         
          var syreObj=getcarSymptoms();
 
@@ -51,7 +51,7 @@ $('#cervicalSpineForm').on('submit', function(e) {
 
          var wtObj =getcerWeightLoss();
          wtObj.wOther =$('#cerWeightLoss2').val();
-         wtObj.wt = $('#cerWeightLoss1').val;
+         wtObj.wt = $('#cerWeightLoss1').val();
 
          var csitObj =getcerSitting();
          var standObj =getcerStanding();
@@ -133,7 +133,8 @@ $('#cervicalSpineForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-
+                    $('#cervicalSpine').modal('hide');
+                    $('#cervicalSpineForm').trigger('reset');
 
                 } else {
                     swal({

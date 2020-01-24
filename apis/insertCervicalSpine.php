@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['cerfunDisabilityScore']) && isset($_POST['cerVasScore']) && isset($_POST['cerPresentSymptoms']) && isset($_POST['cerPresentSince']) && isset($_POST['cerCommencedAsResult'])
+if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['cerFunDisabilityScore']) && isset($_POST['cerVasScore']) && isset($_POST['cerPresentSymptoms']) && isset($_POST['cerPresentSince']) && isset($_POST['cerCommencedAsResult'])
     && isset($_POST['cerSymptAtOnset']) && isset($_POST['cerConstSympt']) && isset($_POST['cerAggrFactor']) && isset($_POST['cerRelFactor']) && isset($_POST['carSymptoms'])
     && isset($_POST['cerMedications']) && isset($_POST['cerGenHealth']) && isset($_POST['cerImaging']) && isset($_POST['cerResurgery']) && isset($_POST['cerNightPain']) &&
     isset($_POST['cerAccidents']) && isset($_POST['cerWeightLoss']) && isset($_POST['cerSitting']) && isset($_POST['cerStanding']) && isset($_POST['protrudedHead']) &&

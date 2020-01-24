@@ -2,6 +2,7 @@ var cervicals = new Map();
 var cervical_details = {};
 // var patientId_ap = null;
 const getCervicalSpine = (patientId) => {
+    console.log('hello');
     $.ajax({
         url: url + 'getAllCervicalSpine.php',
         type: 'POST',
@@ -31,9 +32,9 @@ const showCervicalSpine = cervicals => {
     for (let k of cervicals.keys()) {
         let cervical = cervicals.get(k);
 console.log(cervical.visitDate);
-        tblData += '<tr><td>' + getDate(cervical.visitDate) + '</td>';
+        tblData += '<tr><td>' + cervical.visitDate + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editCervicalSpine(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="editCervicalSpine(' + (k) + ')" title="Edit patients details"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#carvicalData').html(tblData);
@@ -53,49 +54,42 @@ console.log(cervical.visitDate);
 };
 
 const editCervicalSpine = (cerSpineId) => {
-    console.log(cerSpineId);
+    console.log('cerSpineId');
     cerSpineId = cerSpineId.toString();
     cervical_details = cervicals.get(cerSpineId);
-   
+   console.log(cervical_details);
     fill_Cervical(cervical_details);
 };
 
 function fill_Cervical(details) {
-    if (details.cerfunDisabilityScore != null) {
-        $('#cerfunDisabilityScore').val(details.cerfunDisabilityScore);
-    }
+   
     if (details.cerVasScore != null) {
         $('#cerVasScore').val(details.cerVasScore);
     }
-    if (details.presentSymptoms != null) {
-        $('#presentSymptoms').val(details.presentSymptoms);
+    if(details.cerPresentSymptoms != null){
+        $('#cerPresentSymptoms').val(details.cerPresentSymptoms);
     }
-    if (details.commencedAsResult != null) {
-        $('#commencedAsResult').val(details.commencedAsResult);
+    if(details.cerFunDisabilityScore != null){
+        $('#cerFunDisabilityScore').val(details.cerFunDisabilityScore);
     }
-    if (details.prevTreatments != null) {
-        $('#prevTreatments').val(details.prevTreatments);
-    }
-    if (details.motorDeficit != null) {
-        $('#motorDeficit').val(details.motorDeficit);
-    }
-    if (details.sensoryDeficit != null) {
-        $('#sensoryDeficit').val(details.sensoryDeficit);
+
+    if(details.cerCommencedAsResult != null){
+        $('#cerCommencedAsResult').val(details.cerCommencedAsResult);
     }
 
     var json, obj, values, i;
 
-    json = details.presentSince;
+    json = details.cerPresentSince;
     if (json != null) {
         obj = JSON.parse(json);
-        if (obj.s != null) {
-            $('#presentSince1').val(obj.s);
+        if (obj.p1 != null) {
+            $('#cerPresentSince1').val(obj.p1);
         }
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
         i = 0;
-        $.each($("input[name='presentSince']"), function() {
+        $.each($("input[name='cerPresentSince']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -105,17 +99,17 @@ function fill_Cervical(details) {
         });
     }
 
-    json = details.symptomsAtOnset;
+    json = details.cerConstSympt;
     if (json != null) {
         obj = JSON.parse(json);
-        if (obj.s1 != null) {
-            $('#symptomsAtOnset1').val(obj.s1);
+        if (obj.p3 != null) {
+            $('#cerConstSympt1').val(obj.p3);
         }
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
         i = 0;
-        $.each($("input[name='symptomsAtOnset']"), function() {
+        $.each($("input[name='cerConstSympt']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -125,17 +119,17 @@ function fill_Cervical(details) {
         });
     }
 
-    json = details.constantSymptoms;
+    json = details.cerSymptAtOnset;
     if (json != null) {
         obj = JSON.parse(json);
-        if (obj.s2 != null) {
-            $('#constantSymptoms1').val(obj.s2);
+        if (obj.p2 != null) {
+            $('#cerSymptAtOnset1').val(obj.p2);
         }
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
         i = 0;
-        $.each($("input[name='constantSymptoms']"), function() {
+        $.each($("input[name='cerSymptAtOnset']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -145,17 +139,17 @@ function fill_Cervical(details) {
         });
     }
 
-    json = details.interSymptoms;
+    json = details.disturbedSleep;
     if (json != null) {
         obj = JSON.parse(json);
-        if (obj.s3 != null) {
-            $('#interSymptoms1').val(obj.s3);
+        if (obj.p4 != null) {
+            $('#disturbedSleep1').val(obj.p4);
         }
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
         i = 0;
-        $.each($("input[name='interSymptoms']"), function() {
+        $.each($("input[name='disturbedSleep']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -165,17 +159,17 @@ function fill_Cervical(details) {
         });
     }
 
-    json = details.aggravatingFactor;
+    json = details.cerAggrFactor;
     if (json != null) {
         obj = JSON.parse(json);
-        if (obj.otherA != null) {
-            $('#aggravatingFactor1').val(obj.otherA);
+        if (obj.ag1 != null) {
+            $('#cerAggrFactor1').val(obj.ag1);
         }
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
         i = 0;
-        $.each($("input[name='aggravatingFactor']"), function() {
+        $.each($("input[name='cerAggrFactor']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -185,17 +179,212 @@ function fill_Cervical(details) {
         });
     }
 
-    json = details.relivingFactor;
+
+    
+
+  
+    json = details.cerGenHealth;
     if (json != null) {
         obj = JSON.parse(json);
-        if (obj.otherR != null) {
-            $('#relivingFactor1').val(obj.otherR);
+
+        if (obj.p6 != null) {
+            $('#cerGenHealth1').val(obj.p6);
+        }
+      
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='cerGenHealth']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.cerImaging;
+    if (json != null) {
+        obj = JSON.parse(json);
+
+        if (obj.p7 != null) {
+            $('#cerImaging1').val(obj.p7);
+        }
+      
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='cerImaging']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    
+    json = details.cerResurgery;
+    if (json != null) {
+        obj = JSON.parse(json);
+
+        if (obj.p8 != null) {
+            $('#cerResurgery1').val(obj.p8);
+        }
+      
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='cerResurgery']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.cerNightPain;
+    if (json != null) {
+        obj = JSON.parse(json);
+
+        if (obj.p9 != null) {
+            $('#cerNightPain1').val(obj.p9);
+        }
+      
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='cerNightPain']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.cerAccidents;
+    if (json != null) {
+        obj = JSON.parse(json);
+
+        if (obj.p10 != null) {
+            $('#cerAccidents1').val(obj.p10);
+        }
+      
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='cerAccidents']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    
+    json = details.cerWeightLoss;
+    if (json != null) {
+        obj = JSON.parse(json);
+
+        if (obj.wt != null) {
+            $('#cerWeightLoss1').val(obj.wt);
+        }
+        if (obj.wOther != null) {
+            $('#cerWeightLoss2').val(obj.wOther);
+        }
+      
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='cerWeightLoss']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.cerSitting;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='cerSitting']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+   
+    json = details.cerStanding;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='cerStanding']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.protrudedHead;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='protrudedHead']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+    json = details.cerderagement;
+    if (json != null) {
+        obj = JSON.parse(json);
+
+        if (obj.d2 != null) {
+            $('#cerderagement2').val(obj.p10);
+        }
+        if (obj.d1 != null) {
+            $('#cerderagement1').val(obj.p10);
         }
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
         i = 0;
-        $.each($("input[name='relivingFactor']"), function() {
+        $.each($("input[name='cerderagement']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {
@@ -205,312 +394,40 @@ function fill_Cervical(details) {
         });
     }
 
-    json = details.specSymptoms;
-    if (json != null) {
-        obj = JSON.parse(json);
-
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='specSymptoms']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.bladder;
-    if (json != null) {
-        obj = JSON.parse(json);
-
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='bladder']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.medications;
-    if (json != null) {
-        obj = JSON.parse(json);
-        if (obj.other != null) {
-            $('#medications1').val(obj.other);
-        }
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='medications']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.GeneralHealth;
-    if (json != null) {
-        obj = JSON.parse(json);
-        if (obj.GHealth != null) {
-            $('#GeneralHealth1').val(obj.GHealth);
-        }
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='GeneralHealth']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.imaging;
-    if (json != null) {
-        obj = JSON.parse(json);
-        if (obj.imaging != null) {
-            $('#imaging1').val(obj.imaging);
-        }
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='imaging']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.recentsurgery;
-    if (json != null) {
-        obj = JSON.parse(json);
-        if (obj.surgery != null) {
-            $('#recentsurgery1').val(obj.surgery);
-        }
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='recentsurgery']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.nightPain;
-    if (json != null) {
-        obj = JSON.parse(json);
-        if (obj.nPain != null) {
-            $('#nightPain1').val(obj.nPain);
-        }
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='nightPain']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.accidents;
-    if (json != null) {
-        obj = JSON.parse(json);
-        if (obj.acc != null) {
-            $('#accidents1').val(obj.acc);
-        }
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='accidents']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.weightLoss;
-    if (json != null) {
-        obj = JSON.parse(json);
-        if (obj.other1 != null) {
-            $('#weightLoss2').val(obj.other1);
-        }
-        if (obj.weight != null) {
-            $('#weightLoss1').val(obj.weight);
-        }
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='weightLoss']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.sitting;
-    if (json != null) {
-
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='sitting']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.lordosis;
-    if (json != null) {
-
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='lordosis']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-    json = details.lateralshift;
-    if (json != null) {
-
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='lateralshift']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.derangement;
-    if (json != null) {
-        obj = JSON.parse(json);
-        if (obj.painlocation != null) {
-            $('#derangement1').val(obj.painlocation);
-        }
-        if (obj.other != null) {
-            $('#derangement2').val(obj.other);
-        }
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='derangement']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
-
-    json = details.mechTherapy;
-    if (json != null) {
-        obj = JSON.parse(json);
-        if (obj.therapy != null) {
-            $('#mechTherapy1').val(obj.therapy);
-        }
-
-        values = Object.keys(obj).map(function(key) {
-            return obj[key];
-        });
-        i = 0;
-        $.each($("input[name='mechTherapy']"), function() {
-            if (values[i] == 1) {
-                $(this).attr("checked", true);
-            } else {
-                $(this).attr("checked", false);
-            }
-            i++;
-        });
-    }
     var content = '',
-        m, count;
-    json = details.moveMentLoss;
-    if (json != null) {
+    m, count;
+json = details.cerMomentLoss;
+if (json != null) {
 
-        obj = JSON.parse(json);
-        count = Object.keys(obj).length;
-        var arr = ['Flexion', 'Extension', 'Side Gliding R', 'Side Gliding L'];
-        for (var j = 0; j < count; j++) {
-            content += '<tr>';
-            content += ' <th scope="row">' + arr[j] + '</th>';
-            content += '<td><input type="text" class="form-control" id="maj" value="' + obj[j].maj + '"></td>';
-            content += '<td><input type="text" class="form-control" id="mod" value="' + obj[j].mod + '"></td>';
-            content += '<td><input type="text" class="form-control" id="min" value="' + obj[j].min + '"></td>';
-            content += '<td><input type="text" class="form-control" id="nil" value="' + obj[j].nil + '"></td>';
-            content += '<td><input type="text" class="form-control" id="pain" value="' + obj[j].pain + '"></td>';
-            content += '</tr>';
-        }
-        $('#momentData').html(content);
-
-    }
-    json = details.testMovement;
-    if (json != null) {
-        content = '';
-        obj = JSON.parse(json);
+    obj = JSON.parse(json);
+    count = Object.keys(obj).length;
+    var arr = ['Flexion', 'Extension', 'Side Gliding R', 'Side Gliding L' , 'Protrusion' ,'Retraction','Rotation R','Rotation L'];
+    for (var j = 0; j < count; j++) {
         content += '<tr>';
-        content += ' <th scope="row">Rep EIL</th>';
-        content += '<td><input type="text" class="form-control" id="maj" value="' + obj[0]['During-test'] + '"></td>';
-        content += '<td><input type="text" class="form-control" id="mod" value="' + obj[0]['after-test'] + '"></td>';
-        content += '<td><input type="text" class="form-control" id="min" value="' + obj[0]['m-rom-u'] + '"></td>';
-        content += '<td><input type="text" class="form-control" id="nil" value="' + obj[0]['m-rom-d'] + '"></td>';
-        content += '<td><input type="text" class="form-control" id="pain" value="' + obj[0]['m-noefect'] + '"></td>';
+        content += ' <th scope="row">' + arr[j] + '</th>';
+        content += '<td><input type="text" class="form-control" id="maj" value="' + obj[j].maj + '"></td>';
+        content += '<td><input type="text" class="form-control" id="mod" value="' + obj[j].mod + '"></td>';
+        content += '<td><input type="text" class="form-control" id="min" value="' + obj[j].min + '"></td>';
+        content += '<td><input type="text" class="form-control" id="nil" value="' + obj[j].nil + '"></td>';
+        content += '<td><input type="text" class="form-control" id="pain" value="' + obj[j].pain + '"></td>';
         content += '</tr>';
-        $('#tMovementData').html(content);
     }
-    $('#fullwindowModal2').modal('show');
+    $('#cerMomentLoss').html(content);
+
+}
+json = details.cerTestMovement;
+if (json != null) {
+    content = '';
+    obj = JSON.parse(json);
+    content += '<tr>';
+    content += ' <th scope="row">Rep EIL</th>';
+    content += '<td><input type="text" class="form-control" id="maj" value="' + obj[0]['During-test'] + '"></td>';
+    content += '<td><input type="text" class="form-control" id="mod" value="' + obj[0]['after-test'] + '"></td>';
+    content += '<td><input type="text" class="form-control" id="min" value="' + obj[0]['m-rom-u'] + '"></td>';
+    content += '<td><input type="text" class="form-control" id="nil" value="' + obj[0]['m-rom-d'] + '"></td>';
+    content += '<td><input type="text" class="form-control" id="pain" value="' + obj[0]['m-noefect'] + '"></td>';
+    content += '</tr>';
+    $('#cerTestMovement').html(content);
+}
+    $('#cervicalSpine').modal('show');
 }
