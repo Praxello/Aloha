@@ -31,7 +31,7 @@ const showLumbarSpine = spines => {
 
         tblData += '<tr><td>' + getDate(spine.visitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editLumbarSpine(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="editLumbarSpine(' + (k) + ')" title="Edit product details"><i class="ik ik-edit text-blue"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#spineData').html(tblData);

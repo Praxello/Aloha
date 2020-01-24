@@ -5,7 +5,7 @@ $('#cervicalSpineForm').on('submit', function(e) {
     if (returnVal) {
 
 
-        var fun = $('#cerfunDisabilityScore').val();
+        var fun = $('#cerFunDisabilityScore').val();
         var carVas = $('#cerVasScore').val();
         var pres = $('#cerPresentSymptoms').val();
         var cerComObj = $('#cerCommencedAsResult').val();
@@ -94,7 +94,7 @@ $('#cervicalSpineForm').on('submit', function(e) {
                 patientId: global_patientId,
                 visitDate: global_date,
           
-                cerfunDisabilityScore: fun,
+                cerFunDisabilityScore: fun,
                 cerVasScore : carVas,
                 cerPresentSymptoms : pres,
                 cerPresentSince :cerPresObj,
