@@ -12,6 +12,7 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['ce
     isset($_POST['cerAccidents']) && isset($_POST['cerWeightLoss']) && isset($_POST['cerSitting']) && isset($_POST['cerStanding']) && isset($_POST['protrudedHead']) &&
      isset($_POST['cerderagement']) && isset($_POST['cerTestMovement']) && isset($_POST['cerMomentLoss'])) {
     
+        mysqli_query($conn, "DELETE FROM cervical_spine_assessment WHERE patientId = $patientId AND visitDate= '$visitDate'");
     $sql = "INSERT INTO cervical_spine_assessment (patientId,visitDate,cerfunDisabilityScore,cerVasScore,cerPresentSymptoms,cerPresentSince,cerCommencedAsResult,cerSymptAtOnset,cerConstSympt,cerAggrFactor
     ,cerRelFactor,carSymptoms,cerMedications,cerGenHealth,cerImaging,cerResurgery,cerNightPain,cerAccidents,cerWeightLoss,cerSitting,cerStanding,protrudedHead,cerderagement,
     cerTestMovement,cerMomentLoss) 

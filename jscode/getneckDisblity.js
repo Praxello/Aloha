@@ -30,7 +30,7 @@ const showNeckDisiblity = neckDisiblity => {
 
         tblData += '<tr><td>' + getDate(neck.visitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editneck(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="editneck(' + (k) + ')" title="Edit patients details"><i class="ik ik-edit text-blue"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#neckData').html(tblData);

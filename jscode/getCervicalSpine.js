@@ -34,7 +34,7 @@ const showCervicalSpine = cervicals => {
 console.log(cervical.visitDate);
         tblData += '<tr><td>' + cervical.visitDate + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editCervicalSpine(' + (k) + ')" title="Edit patients details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="editCervicalSpine(' + (k) + ')" title="Edit patients details"><i class="ik ik-edit text-blue"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#carvicalData').html(tblData);

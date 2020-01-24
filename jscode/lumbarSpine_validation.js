@@ -1,20 +1,20 @@
 $(function() {
-    var msg={
-                  number: "enter valid number" 
-            };
+    // var msg={
+    //               number: "enter valid number" 
+    //         };
     var jvalidate = $("#lumbarSpineForm").validate({
         ignore: [],
         rules: {
-            funDisabilityScore : {
-                number:true
-            },
-            vasScore: {
+            // funDisabilityScore : {
+            //     // number:true
+            // },
+            // vasScore: {
                
-                number:true
-            },
-            presentSymptoms :{
-                number:true
-            }
+            //     // number:true
+            // },
+            // presentSymptoms :{
+            //     // number:true
+            // }
             
 
       
@@ -22,12 +22,12 @@ $(function() {
         },
         messages: {
             
-            funDisabilityScore : {
-                number: "enter valid number"
+            // funDisabilityScore : {
+            //     // number: "enter valid number"
               
-            },
-            vasScore : msg,
-            presentSymptoms :msg
+            // },
+            // vasScore : msg,
+            // presentSymptoms :msg
         }
     });
 });
