@@ -1,3 +1,21 @@
+<style>
+    .error{
+        color:red;
+    }
+   
+    @media only screen and (max-width: 600px) {
+        .check {
+            margin-top: 8px;
+        }
+     
+       
+    }
+
+    
+  
+    
+
+</style>
  <div class="modal fade full-window-modal" id="fullwindowModal2" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -802,7 +820,7 @@
 
                                                               <span><b> TEST MOVEMENT:</b></span>
                                                               <div class="form-group row">
-                                                                 <table class="table table-bordered" id="testMovement">
+                                                                 <table class="table table-bordered tbl" id="testMovement">
                                                                      <thead>
                                                                        <tr>
                                                                          <th scope="col"></th>

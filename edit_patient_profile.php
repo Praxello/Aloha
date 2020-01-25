@@ -1,3 +1,5 @@
+
+
 <link rel="stylesheet" href="dist/css/dropzone.css">
 <link rel="stylesheet" href="dist/css/style.css">
 <div class="main-content">
@@ -6,11 +8,22 @@
             <div class="row align-items-end">
                 <div class="col-lg-8">
                     <div class="page-header-title">
-                        <i class="ik ik-file-text bg-blue"></i>
+                          <i class="rounded-circle" ><img src="img/user.jpg" style="height: 82px;margin-top: 38px;" class="rounded-circle"  height="50px" id="userPic" /></i>
                         <div class="d-inline">
-                            <h5>Patient Profile</h5>
+                        <h5 class="card-title" id="uname">John Doe</h5>
+                        <p class="card-subtitle" id="ucity">Front End Developer</p>
+                    
+               
                         </div>
                     </div>
+                    <div style="margin-left : 55px">
+                    <i class="ik ik-user"></i> <font  id="uage">254</font>                  
+                        <i class="ik ik-image"></i> <font id="ugender">54</font> 
+                     
+                        <h6 id="uphone">(123) 456 7890</h6>
+                        </div>  
+                        
+                         
                 </div>
                 <div class="col-lg-4">
                     <nav class="breadcrumb-container" aria-label="breadcrumb">
@@ -28,7 +41,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-lg-4 col-md-5">
                 <div class="card">
                     <div class="card-body">
@@ -62,8 +75,8 @@
                             </div>
                             <hr>
 
-                            <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.886539092!2d77.49085452149588!3d12.953959988118836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C+Karnataka!5e0!3m2!1sen!2sin!4v1542005497600" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-                        </div>
+                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248849.886539092!2d77.49085452149588!3d12.953959988118836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C+Karnataka!5e0!3m2!1sen!2sin!4v1542005497600" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+                        <!-- </div>
                         <small class="text-muted d-block pt-30">Social Profile</small>
                         <br/>
                         <button class="btn btn-icon btn-facebook"><i class="fab fa-facebook-f"></i></button>
@@ -71,10 +84,10 @@
                         <button class="btn btn-icon btn-instagram"><i class="fab fa-instagram"></i></button>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-8 col-md-7">
+            </div> -->
+            <div class="col-lg-12 col-md-7">
                 <div class="card">
-                    <ul class="nav nav-pills custom-pills" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills custom-pills t1" id="pills-tab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="pills-timeline-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-timeline" aria-selected="true">Profile</a>
                         </li>
@@ -418,7 +431,7 @@
 
                 <div class="tab-pane fade" id="fullwindowModal1" role="tabpanel" aria-labelledby="pills-profile-tab">
                                
-                <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;" data-toggle="modal" data-target="#fullwindowModal2">Add Lumbar Spine Assessment</button>
+                <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#fullwindowModal2">Add Lumbar Spine Assessment</button>
                     <div class="container-fluid">
                    
                         <div class="card"> 
@@ -453,7 +466,7 @@
 
                     <div class="tab-pane fade" id="neck" role="tabpanel" aria-labelledby="pills-profile-tab">
                                
-                <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;" data-toggle="modal" data-target="#neckDis">Neck Disability Index</button>
+                <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#neckDis"> Add Neck Disability Index</button>
                     <div class="container-fluid">
                    
                         <div class="card"> 
@@ -485,7 +498,7 @@
 
                    <div class="tab-pane fade" id="ques" role="tabpanel" aria-labelledby="pills-profile-tab">
                                
-                <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;" data-toggle="modal" data-target="#backPain">Back Pain Question</button>
+                <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#backPain"> Add Back Pain Question</button>
                     <div class="container-fluid">
                    
                         <div class="card"> 
@@ -522,7 +535,7 @@
 
                 <div class="tab-pane fade" id="cervical" role="tabpanel" aria-labelledby="pills-profile-tab">
                                
-                               <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;" data-toggle="modal" data-target="#cervicalSpine">Cervical Spine Assessment</button>
+                               <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#cervicalSpine">Add Cervical Spine Assessment</button>
                                    <div class="container-fluid">
                                   
                                        <div class="card"> 
