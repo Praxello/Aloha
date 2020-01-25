@@ -33,7 +33,7 @@
                                     <a href="#"><i class="ik ik-database"></i><span>Data Master</span> <span class="badge badge-success"></span></a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="#"><i class="ik ik-menu"></i><span>Package Master</span> <span class="badge badge-success"></span></a>
+                                    <a href="package-master.php"><i class="ik ik-menu"></i><span>Package Master</span> <span class="badge badge-success"></span></a>
                                 </div>
                                 <div class="nav-item">
                                     <a href="#"><i class="ik ik-user-plus"></i><span>Quick Diagnostic Test</span> <span class="badge badge-success"></span></a>

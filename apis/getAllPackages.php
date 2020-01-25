@@ -5,9 +5,8 @@ include "../connection.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
-extract($_POST);
-if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
-    $sql = "SELECT *,st.name AS stateName,ct.name AS cityName FROM call_center cc INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state LEFT JOIN cities ct ON ct.id = ccp.city WHERE ccp.mobile NOT IN(SELECT mobile1 FROM patient_master)";
+
+$sql = "SELECT * FROM package_master";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -17,13 +16,13 @@ if ($jobQuery != null) {
         }
         
         $response = array(
-            'Message' => "All calls Data Fetched successfully",
+            'Message' => "All Package data Fetched successfully",
             "Data" => $records,
             'Responsecode' => 200
         );
     } else {
         $response = array(
-            'Message' => "No user present/ Invalid username or password",
+            'Message' => "No data present",
             "Data" => $records,
             'Responsecode' => 401
         );
@@ -33,12 +32,6 @@ if ($jobQuery != null) {
         'Message' => "Please Logout and login again",
         "Data" => $records,
         'Responsecode' => 300
-    ); 
-}
-}else{
-    $response = array(
-        'Message' => "Parameter Missing",
-        'Responsecode' => 404
     ); 
 }
 mysqli_close($conn);

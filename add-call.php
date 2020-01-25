@@ -201,7 +201,7 @@
                                 <div class="form-group">
                                 <div class="checkbox-fade fade-in-success">
                                                         <label>
-                                                            <input type="checkbox" name="followup" id="followup" value="1">
+                                                            <input type="checkbox" name="folowupNeeded" id="folowupNeeded" value="1">
                                                             <span class="cr">
                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                             </span>
@@ -217,7 +217,7 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                               
+                               <input type="hidden" id="clientId" name="clientId">
                             </div>
                         </div>
 

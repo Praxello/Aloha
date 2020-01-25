@@ -1,16 +1,11 @@
-$('#callForm').on('submit', function(e) {
+$('#packageForm').on('submit', function(e) {
     e.preventDefault();
-    var returnVal = $("#callForm").valid();
+    var returnVal = $("#packageForm").valid();
     if (returnVal) {
-        var fdata = new FormData(this);
-        var folloDate = $('#follwupdate').val();
-        folloDate = moment(folloDate).format("YYYY-MM-DD HH:mm:ss");
-        fdata.append('follwupdate', folloDate);
-        fdata.append('attendedBy', data.userId);
         $.ajax({
-            url: url + 'addCallcenter.php',
+            url: url + 'addPackage.php',
             type: 'POST',
-            data: fdata,
+            data: new FormData(this),
             cache: false,
             contentType: false,
             processData: false,
@@ -24,11 +19,11 @@ $('#callForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    $('#callForm').trigger('reset');
-                    $('#fullwindowModal').modal('hide');
-                    calls.set(response.Data.callId, response.Data);
-                    console.log(calls);
-                    listCalls(calls);
+                    $('#packageForm').trigger('reset');
+                    $('#demoModal').modal('hide');
+                    packages.set(response.Data.packageId, response.Data);
+                    listPackages(packages);
+
                 } else {
                     swal({
                         position: 'top-end',

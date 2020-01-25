@@ -37,12 +37,12 @@ const listCalls = calls => {
         tblData += '<td>' + call.email + '</td>';
         tblData += '<td>' + getAge(call.dateOfBirth) + '</td>';
         tblData += '<td>' + call.mobile + '</td>';
-        tblData += '<td>' + call.city + ' ' + call.state + '</td>';
+        tblData += '<td>' + call.stateName + ' ' + call.cityName + '</td>';
         tblData += '<td>' + getDate(call.appointmentDate) + '</td>';
         tblData += badge;
         tblData += '<td>' + getDate(call.folowupNeededDateTime) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editCall(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="editCall(' + (k) + ')" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#callData').html(tblData);
@@ -210,7 +210,7 @@ function renameCall(callId) {
     up_callId = callId;
     let call = existCall.get(callId);
     clientId = call.clientId;
-    fill_data(call);
+    fill_search_data(call);
 }
 
 function newCall() {
@@ -260,4 +260,30 @@ function absentList() {
             }
         });
     }
+}
+
+function fill_search_data(call) {
+    console.log(call);
+    $('#firstName').val(call.firstName);
+    $('#middleName').val(call.middleName);
+    $('#lastName').val(call.lastName);
+    $('#birthdate').val(call.dateOfBirth);
+    $('#gender').val(call.gender).trigger('change');
+    $('#emailId').val(call.email);
+    $('#mobile').val(call.mobile);
+    $('#landline').val(call.landline);
+    $('#country').val(call.country).trigger('change');
+    $('#state').val(call.state).trigger('change');
+    $('#city').val(call.city).trigger('change');
+    $('#zipcode').val(call.pincode);
+    $('#nearbyarea').val(call.nearByArea);
+    $('#reference').val(call.reference).trigger('change');
+    $('#branchId').val(call.branchId).trigger('change');
+    $('#desease').val(call.disease);
+    $('#appointmentDate').val(call.appointmentDate);
+    $('#remarks').val(call.remarks);
+    $('#userId').val(call.doctorId).trigger('change');
+    $('#follwupdate').val(call.folowupNeededDateTime);
+    $('#clientId').val(call.clientId);
+    $('#fullwindowModal').modal('show');
 }
