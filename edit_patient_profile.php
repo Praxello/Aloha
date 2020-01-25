@@ -8,19 +8,19 @@
             <div class="row align-items-end">
                 <div class="col-lg-8">
                     <div class="page-header-title">
-                          <i class="rounded-circle" ><img src="img/user.jpg" style="height: 82px;margin-top: 38px;" class="rounded-circle"  height="50px" id="userPic" /></i>
+                          <i class="rounded-circle" style="margin-right: 50px"><img src="img/user.jpg" style="height: 82px;margin-top: 38px;" class="rounded-circle"  height="50px" id="userPic" /></i>
                         <div class="d-inline">
-                        <h5 class="card-title" id="uname">John Doe</h5>
+                        <h5 class="card-title" id="uname" >John Doe</h5>
                         <p class="card-subtitle" id="ucity">Front End Developer</p>
                     
                
                         </div>
                     </div>
                     <div style="margin-left : 55px">
-                    <i class="ik ik-user"></i> <font  id="uage">254</font>                  
-                        <i class="ik ik-image"></i> <font id="ugender">54</font> 
+                    <i class="ik ik-user" style="color: blueviolet;"></i> <font  id="uage">254</font>                  
+                        <i class="ik ik-image" style="color: chocolate;"> </i> <font id="ugender">54</font> 
                      
-                        <h6 id="uphone">(123) 456 7890</h6>
+                        <i class="rounded-circle" ><h6 id="uphone"  style="margin-left: 36px">(123) 456 7890</h6></i>
                         </div>  
                         
                          
