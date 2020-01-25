@@ -64,24 +64,24 @@ function fetchPrescriptiondata($patientId,$visitDate)
 }
 function doctor_details($doctorId){
         include 'connection.php';
-        $output = '';
-        $sql    = "SELECT * FROM user_master um WHERE um.userId = $doctorId";
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0) {
-            $row = mysqli_fetch_array($result);
-            global $sign;$sign = $row['username'];
-            $output .= '<td>
-            <h1 class="heading"><strong>
-      <div style="color: #0087C3;font-size: 20px;font-family: SourceSansPro;text-align:right;">'.$row['username'].'</div></strong></h1>
-            <h2 class="heading">
-                  <div style="color: #555555;font-family: Arial, sans-serif;font-size: 14px;font-family: SourceSansPro;text-align:right;">
-                    '.$row['sign'].'<br/>
-                    Mobile no. '.$row['mobile'].'
-                    </div>
-                    
+    $output = '';
+    $sql = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pt.weight,pt.surname,pt.birthDate,pt.address,pt.mobile1,pt.firstVisitDate,pt.gender,pom.pulse ,pom.bp,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age FROM patient_medication pm INNER JOIN patient_master pt inner join patient_onassessment_master pom ON pt.patientId = pm.patientId
+      WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_array($result);
+        global $advice;
+        $advice = $row['advice'];
+        $output .= ' <tr > <p>  <div style="margin-bottom:15px"><b>Name:&nbsp;&nbsp;</b>'.$row['firstName'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                <b>Reg.No:</b>&nbsp;&nbsp;1  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                 <b>Cell No:</b>&nbsp;&nbsp;'.$row['mobile1'].' 
+                 <b style="margin-left:200px">   Date:&nbsp;&nbsp;'.$row['firstVisitDate'].'</b></p></p>
+                  <div ><p><b>Age :</b>&nbsp;&nbsp;'.$row['birthDate'].' &nbsp;&nbsp;&nbsp;&nbsp;
+                <b>&nbsp;&nbsp;&nbsp;&nbsp;Weight:</b>&nbsp;&nbsp;'.$row['weight'].' &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                <b>BP:</b>'.$row['bp'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+                 <b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pulse:</b> '.$row['pulse'].' &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<b>BMI:</b>23.08</div> 
+</tr>';
 
-            </h2>
-</td>';
         }
         return $output;
 }

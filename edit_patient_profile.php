@@ -164,19 +164,22 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="fname">First Name</label>
-                                                <input type="text" placeholder="Johnathan" class="form-control" name="fname" id="fname">
+                                                <input type="text" placeholder="Johnathan" class="form-control"   name="fname" id="fname" 
+                                                 onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="mname">Middle Name</label>
-                                                <input type="text" placeholder="Kemya" class="form-control" name="mname" id="mname">
+                                                <input type="text" placeholder="Kemya" class="form-control" name="mname" id="mname"
+                                                onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="lname">Last Name</label>
-                                                <input type="text" placeholder="Doe" class="form-control" name="lname" id="lname">
+                                                <input type="text" placeholder="Doe" class="form-control" name="lname" id="lname"
+                                                onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                             </div>
                                         </div>
                                     </div>
@@ -184,7 +187,8 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="mobile1">Contact Number</label>
-                                                <input type="text" placeholder="9112458963" class="form-control" name="mobile1" id="mobile1">
+                                                <input type="text" placeholder="9112458963" class="form-control" name="mobile1" id="mobile1" ng-pattern="/^[0-9]*$/"
+                                onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -200,7 +204,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h5>Marriage Details</h5>
+                                    <h5>Personal Details</h5>
                                     <hr>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -251,8 +255,7 @@
                                         </div>
                                     </div>
 
-                                    <h5>Marriage Details</h5>
-                                    <hr>
+                                   
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -326,7 +329,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="cdate">Consulting Date</label>
-                                                <input type="text" placeholder="Pune" class="form-control" name="cdate" id="cdate">
+                                                <input type="date" placeholder="Pune" class="form-control" name="cdate" id="cdate">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -338,13 +341,13 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="fvisitdate">First Visit Date</label>
-                                                <input type="text" class="form-control" name="fvisitdate" id="fvisitdate">
+                                                <input type="date" class="form-control" name="fvisitdate" id="fvisitdate">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="lvisitdate">Last Visit Date</label>
-                                                <input type="text" placeholder="Pune" class="form-control" name="lvisitdate" id="lvisitdate">
+                                                <input type="date" placeholder="Pune" class="form-control" name="lvisitdate" id="lvisitdate">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -594,3 +597,9 @@
 <?php include 'low-backPainQues.php';?>
 <?php include 'carvical-spineAssessment.php';?>
 
+<script>
+      $("#input").change(function(){
+        var key = event.keyCode;
+  return ((key >= 65 && key <= 90) || key == 8);
+  });
+  </script>

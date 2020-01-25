@@ -16,13 +16,15 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="firstName">First Name</label>
-                                                                    <input type="text" id="firstName" name="firstName" class="form-control"  placeholder="First Name">
+                                                                    <input type="text" id="firstName" name="firstName" class="form-control"  placeholder="First Name"
+                                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="middleName">Middle Name</label>
-                                                                    <input type="text" id="middleName" name="middleName" class="form-control"  placeholder="Middle Name">
+                                                                    <input type="text" id="middleName" name="middleName" class="form-control"  placeholder="Middle Name"
+                                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -30,7 +32,8 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="surname">Last Name</label>
-                                                                    <input type="text" id="surname" name="surname" class="form-control"  placeholder="Last Name">
+                                                                    <input type="text" id="surname" name="surname" class="form-control"  placeholder="Last Name"
+                                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -63,7 +66,8 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="mobile1">Mobile</label>
-                                                                    <input type="text" class="form-control" id="mobile1" name="mobile1" placeholder="Mobile no">
+                                                                    <input type="text" class="form-control" id="mobile1" name="mobile1" placeholder="Mobile no"
+                                                                    ng-pattern="/^[0-9]*$/" onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
                                                                 </div>
                                                             </div> 
                                                             </div> 
@@ -92,3 +96,4 @@
                     <script src="js/jquery.validate.js"></script>
                     <script src="jscode/patient_validation.js"></script>
                     <script src="jscode/addPatient.js"></script>
+                  

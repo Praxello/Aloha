@@ -36,7 +36,7 @@ const listPatients = patients => {
         tblData += '<td>' + getDate(patient.lastVisitDate) + '</td>';
         tblData += '<td>' + getDate(patient.nextVisitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="Edit product details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="Edit patients details"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '<a href="#" class="list-delete" onclick="takeAppointment(' + (k) + ')" title="Take appointment"><i class="ik ik-check-circle text-yellow"></i></a>';
         tblData += '<a href="#"  onclick="opdPayment(' + (k) + ')" title="Opd Payment"><i class="ik ik-pocket text-green"></i></a>';
         tblData += '<a href="#"  onclick="acceptPayment(' + (k) + ')" title="Generate Payment"><i class="ik ik-plus-square text-purple"></i></a>';
