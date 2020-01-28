@@ -191,7 +191,7 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="plugins/d3/dist/d3.min.js"></script>
         <script src="plugins/c3/c3.min.js"></script>
         <script src="js/tables.js"></script>
-     
+        <script src="jscode/apis.js"></script>
          <?php include 'add_patient.php';?>
        <?php include 'take-appointment.php';?>
        <?php include 'opd-payments.php';?>
@@ -200,7 +200,7 @@ username:'<?php echo $_SESSION['username'];?>'
      
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-       <script src="jscode/apis.js"></script>
+   
        <script src="jscode/getDateFormat.js"></script>
        <script src="jscode/getAge.js"></script>
        <script src="jscode/patients.js"></script>

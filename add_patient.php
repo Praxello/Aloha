@@ -126,8 +126,8 @@
                                                                 <div class="form-group">
                                                                     <label for="country">Country</label>
                                                  
-                                                                    <select  class="form-control select2" id="country" name="country" placeholder="country">
-                                                                        <option value="India">India</option>
+                                                                    <select  class="form-control select2" id="country" name="country" placeholder="country" onchange="loadStates(this.value);">
+                                                                      
                                                                      
                                                                     </select>
                                                                 </div>
@@ -135,10 +135,8 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="state">State</label> 
-                                                                    <select  class="form-control select2" id="state" name="state" placeholder="state">
-                                                                        <option value="Maharashtra">Maharashtra</option>
-                                                                        <option value="Gujarat">Gujarat</option>
-                                                                        <option value="Aasam">Aasam</option>
+                                                                    <select  class="form-control select2" id="state" name="state" placeholder="state" onchange="loadCities(this.value);">
+                                                                      
                                                                     </select>
                                                                 </div>
                                                             </div> 
@@ -177,4 +175,4 @@
                     <script src="jscode/patient_validation.js"></script>
                     <script src="jscode/addPatient.js"></script>
                     <script src="jscode/getReffName.js"></script>
-                  
+                    <script src="jscode/getcscRefName.js"></script>

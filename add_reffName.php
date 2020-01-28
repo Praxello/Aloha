@@ -1,56 +1,10 @@
-<!doctype html>
-<html class="no-js" lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Modals | ThemeKit - Admin Template</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
-
-    <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
-    <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
-    <link rel="stylesheet" href="plugins/perfect-scrollbar/css/perfect-scrollbar.css">
-    <link rel="stylesheet" href="dist/css/theme.min.css">
-    <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
-</head>
 <style>
     .error{
         color:red;
     }
 </style>
-<body>
-
-    <div class="wrapper">
-
-        <div class="page-wrap">
-
-            <div class="main-content">
-                <div class="container-fluid">
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3>Modals</h3>
-                                </div>
-                                <div class="card-body template-demo">
-
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Add New Referring Doctor</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -58,14 +12,14 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 </div>
                                 <div class="modal-body">                                       
-                                                <form class="forms-sample" id="addRefNameForm" method="POST" enctype="multipart/form-data">
+                                     <form class="forms-sample" id="addRefNameForm" method="POST" enctype="multipart/form-data">
                                             <div class="row">
                                                     <div class="col-md-8">
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="gender">Category / Group</label>
-                                                                    <select  class="form-control select2" id="gender" name="gender" placeholder="Gender">
+                                                                    <select  class="form-control select2" id="gender1" name="gender1" placeholder="Gender">
                                                                     
                                                                         <option value="Item1">Item1</option>
                                                                         <option value="Item2">Item2</option>
@@ -87,7 +41,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="email">Email</label>
-                                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                                                    <input type="email" class="form-control" id="refemail" name="refemail" placeholder="Email">
                                                                 </div>
                                                             </div> 
                                                             
@@ -97,7 +51,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="address">Mobile No.</label>
-                                                                    <input type="text" class="form-control" id="mobile1" name="mobile1" placeholder="Mobile No">
+                                                                    <input type="text" class="form-control" id="refmo" name="refmo" placeholder="Mobile No">
                                                                 </div>
                                                             </div> 
     
@@ -130,12 +84,12 @@
                             
                                                                         <div class="row text-center justify-content-md-center">
                                                                             <div class="form-group">
-                                                                                <input type="file" name="profilePic" id="profilePic" class="form-control" onchange="loadFile(event)">
+                                                                                <input type="file" name="imgPic" id="imgPic" class="form-control" onchange="loadFile(event)">
                                                                             </div>
                                                                         </div>
                                                                
                             
-                                                                    <button class="btn btn-success" type="submit">Choose photo</button>
+                                                                    <!-- <button class="btn btn-success" type="submit">Choose photo</button> -->
                                                                 
                                                            
                                                         <!-- </form> -->
@@ -157,31 +111,11 @@
                                 </div>
                             </div>
                         </div>                        
-                    </div>
-                </div>
-                 
-                </div>
-            </div>
+</div>
 
-        </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="../../src/js/vendor/jquery-3.3.1.min.js"><\/script>')
-    </script>
-    <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
-    <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-    <script src="plugins/screenfull/dist/screenfull.js"></script>
-    <script src="dist/js/theme.min.js"></script>
-    <script src="jscode/apis.js"></script>
-        <script src="js/jquery.validate.js"></script>
   
-        <script src="jscode/referringMaster.js"></script>
-        <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
+  
+                    <script src="jscode/referringMaster.js"></script>
+                 
 
-    
-</body>
-
-</html>

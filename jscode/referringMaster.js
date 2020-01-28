@@ -1,11 +1,11 @@
 $('#addRefNameForm').on('submit', function(e) {
-    // console.log(e);
+    console.log(e);
     e.preventDefault();
     var returnVal = $("#addRefNameForm").valid();
     if (returnVal) {
     
         var fData = new FormData(this);
-     
+
 
         $.ajax({
             url: url + 'insertReferringMaster.php',
@@ -24,8 +24,12 @@ $('#addRefNameForm').on('submit', function(e) {
                         title: response.Message,
                         button: false,
                         timer: 1500
+
                     });
-                   
+                    $('#addRefNameForm').trigger('reset');
+                    $('#exampleModal').modal('hide');
+                    refName.set(response.Data.refferId, response.Data);
+                    loadReffName(refName);
 
                 } else {
                     swal({
@@ -35,7 +39,7 @@ $('#addRefNameForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    // alert(response.Message);
+                   
                 }
             }
         });

@@ -238,16 +238,24 @@
                                                 <input type="text" placeholder="Enginner" class="form-control" name="occupation" id="occupation">
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                                 <div class="form-group">
                                                 <label for="referredby">Referred By</label>
-                                                <select id="referredby" name="referredby" class="form-control">
-                                                 
-                                                </select>
-                                               
+                                                <select id="referredby" name="referredby" class="form-control"></select>
                                               </div>
+                                              
                                         </div> 
-                                    </div>
+
+                                        <div class="col-md-1">
+                                        <div class="form-group">
+                                              <button class="btn btn-success"  style="margin-top:30px" type="button" data-toggle="modal" data-target="#exampleModal">+</button>  </div>
+                                        </div>
+                             </div>
+                                       
+                                              
+                                              
+                                           
+                                    
 
                                    
                                                       <h5>Contact Details:</h5>
@@ -293,8 +301,8 @@
                                                                 <div class="form-group">
                                                                     <label for="country">Country</label>
                                                  
-                                                                    <select  class="form-control select2" id="country" name="country" placeholder="country">
-                                                                        <option value="India">India</option>
+                                                                    <select  class="form-control select2" id="country" name="country"  onchange="loadCities(this.value);" placeholder="country">
+                                                                      
                                                                      
                                                                     </select>
                                                                 </div>
@@ -302,17 +310,16 @@
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
                                                                     <label for="state">State</label> 
-                                                                    <select  class="form-control select2" id="state" name="state" placeholder="state">
-                                                                        <option value="Maharashtra">Maharashtra</option>
-                                                                        <option value="Gujarat">Gujarat</option>
-                                                                        <option value="Aasam">Aasam</option>
+                                                                    <select  class="form-control select2" id="state" name="state" placeholder="state" onchange="loadStates(this.value);">
+                                                                       
                                                                     </select>
                                                                 </div>
                                                             </div> 
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
                                                                     <label for="city">City</label>
-                                                                    <input type="text" class="form-control" id="city" name="city" placeholder="city">
+                                                                    <select  class="form-control select2" id="city" name="city" placeholder="city"></select>
+                                                       
                                                                 </div>
                                                             </div>  
                                                             <div class="col-md-3">
@@ -541,14 +548,23 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 <script src="jscode/cancel-appointment.js"></script>
+=======
+>>>>>>> a9527c24ba2c436623a47d9c30b3abb2bb2086bb
 <script src="jscode/patient_profile.js"></script>
 
 <script src="jscode/getReffName.js"></script>
 <script src="jscode/updatePatientsJs.js"></script>
+
+<script src="jscode/getcscRefName.js"></script>
 <script type="text/javascript" src="js/dropzone.js"></script>
 <script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="jscode/uploadProfile.js"></script>
+<<<<<<< HEAD
 
+=======
+<?php include 'add_reffName.php';?>
+>>>>>>> a9527c24ba2c436623a47d9c30b3abb2bb2086bb
 
