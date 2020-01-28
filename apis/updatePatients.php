@@ -7,8 +7,8 @@ $response = null;
 $records  = null;
 extract($_POST);
 $dir = '../upload/patients/';
-if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birthDate']) && isset($_POST['mobile1']) && isset($_POST['address']) && isset($_POST['gender'])
- && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode'])) {
+if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birthDate']) && isset($_POST['mobile1']) && isset($_POST['address']) && isset($_POST['gender'])
+ && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode']) && isset($_POST['remarks'])) {
     
     $middleName     = isset($_POST['middleName']) ? $_POST['middleName'] : 'NULL';
     $height         = isset($_POST['height']) ? $_POST['height'] : 'NULL';
@@ -34,17 +34,16 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
     $lifestyle      = isset($_POST['lifestyle']) ? $_POST['lifestyle'] : 'NULL';
     $urban          = isset($_POST['urban']) ? $_POST['urban'] : 'NULL';
     $economicStrata = isset($_POST['economicStrata']) ? $_POST['economicStrata'] : 'NULL';
-    $remarks = isset($_POST['remarks']) ? $_POST['remarks'] : 'NULL';
     
     $address = mysqli_real_escape_string($conn, $address);
     
-    $sql = "INSERT INTO patient_master (firstName,middleName,surname,gender,height,weight,birthDate,religion ,allergy,email,mobile1,mobile2,
-     landline,city,address,referredby,firstVisitDate,lastVisitDate,nextVisitDate,smoking,alcohol,tobacco,HTN,diabetes, 
-     cholestrol,history,occupation,lifestyle,urban,economicStrata,country,state,maritalstatus,pincode,remarks) 
-     VALUES ('$firstName', '$middleName', '$surname', '$gender', '$height', '$weight', '$birthDate', '$religion', '$allergy',
-      '$email', '$mobile1', '$mobile2', '$landline', '$city', '$address', '$referredby', '$firstVisitDate', '$lastVisitDate', '$nextVisitDate',
-       '$smoking', '$alcohol', '$tobacco', '$HTN', '$diabetes', '$cholestrol', '$history', '$occupation', '$lifestyle', '$urban', '$economicStrata','$country','$state',
-       '$maritalstatus','$pincode','$remarks')";
+    $sql = "UPDATE  patient_master SET patientId='$patientId',firstName='$firstName',middleName='$middleName',surname='$surname',gender='$gender',height='$height',
+    weight='$weight',birthDate='$birthDate',religion='$religion',allergy='$allergy',email='$email',mobile1='$mobile1',mobile2='$mobile2',
+     landline='$landline',city='$city',address='$address',referredby='$referredby',firstVisitDate='$firstVisitDate',lastVisitDate='$lastVisitDate',
+     nextVisitDate='$nextVisitDate',smoking='$smoking',alcohol='$alcohol',tobacco='$tobacco',HTN='$HTN',diabetes='$diabetes', 
+     cholestrol='$cholestrol',history='$history',occupation='$occupation',lifestyle='$lifestyle',urban='$urban',economicStrata='$economicStrata',
+     country='$country',state='$state',maritalstatus='$maritalstatus',pincode='$pincode',remarks='$remarks'";
+  
     
     $query = mysqli_query($conn, $sql);
     
@@ -66,7 +65,7 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
             }
         }
         $response = array(
-            'Message' => "Patient Added Successfull",
+            'Message' => "Update Patient Successfull",
             "Data" => $records,
             'Responsecode' => 200
         );

@@ -31,8 +31,8 @@ const listAppointments = (appointments, today) => {
             tblData += '<td>' + patient.username + '</td>';
             tblData += '<td>' + patient.scheduledBy + '</td>';
             tblData += '<td>' + getDate(patient.appointmentDate) + '</td>';
-            tblData += '<td><div class="table-actions">';
-            tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="medication"><i class="ik ik-edit"></i></a>';
+            tblData += '<td ><div class="table-actions" style="text-align : left" >';
+            tblData += '<a href="#"  onclick="editPatient(' + (k) + ')" title="medication"><i class="ik ik-edit" style="color: blue;"></i></a>';
             tblData += '</div></td></tr>';
         }
 
