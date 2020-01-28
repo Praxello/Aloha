@@ -159,207 +159,292 @@
 
                                 <form class="form-horizontal" id="epatientDetails" method="POST" enctype="multipart/form-data">
                                     <h5>Basic Details</h5>
-                                    <hr>
+                                  
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="fname">First Name</label>
-                                                <input type="text" placeholder="Johnathan" class="form-control"   name="fname" id="fname" 
+                                                <input type="text" placeholder="Johnathan" class="form-control"   name="firstName" id="firstName" 
                                                  onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="mname">Middle Name</label>
-                                                <input type="text" placeholder="Kemya" class="form-control" name="mname" id="mname"
+                                                <input type="text" placeholder="Kemya" class="form-control" name="middleName" id="middleName"
                                                 onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="lname">Last Name</label>
-                                                <input type="text" placeholder="Doe" class="form-control" name="lname" id="lname"
+                                                <input type="text" placeholder="Doe" class="form-control" name="surname" id="surname"
                                                 onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="mobile1">Contact Number</label>
-                                                <input type="text" placeholder="9112458963" class="form-control" name="mobile1" id="mobile1" ng-pattern="/^[0-9]*$/"
-                                onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="emailId">Email</label>
-                                                <input type="email" placeholder="johnathan@admin.com" class="form-control" name="emailId" id="emailId">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="landline">Landline</label>
-                                                <input type="text" placeholder="123 456 7890" class="form-control" name="landline" id="landline">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h5>Personal Details</h5>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="mstatus">Marital Status</label>
-                                                <select name="mstatus" id="mstatus" class="form-control">
-                                                    <option value="1">Single</option>
-                                                    <option value="2">Married</option>
-                                                    <option value="3">Divorced</option>
+                                                <label for="maritalstatus">Marital Status</label>
+                                                <select name="maritalstatus" id="maritalstatus1" class="form-control">
+                                                    <option value="Single">Single</option>
+                                                    <option value="Married">Married</option>
+                                                    <option value="Divorced">Divorced</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="gender">Gender</label>
                                                 <select name="gender" id="gender" class="form-control">
-                                                    <option value="1">Male</option>
-                                                    <option value="2">Female</option>
-                                                    <option value="3">Other</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                    <option value="Other">Other</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="bdate">Birth Date</label>
-                                                <input type="text" placeholder="123 456 7890" class="form-control" name="bdate" id="bdate">
+                                                <input type="text" placeholder="123 456 7890" class="form-control" name="birthDate" id="birthDate">
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="religion">Religion</label>
+                                                <select name="religion" id="religion" class="form-control">
+                                                    <option value="Hindu">Hindu</option>
+                                                    <option value="Muslim">Muslim</option>
+                                                    <option value="Sikh">Sikh</option>
+                                                    <option value="Jain">Jain</option>
+                                                    <option value="none">None of the Above</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div> 
+
+                                
+                                    <h5>Medical Details</h5>
+                                
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="height">Height (in cm)</label>
                                                 <input type="text" placeholder="165" class="form-control" name="height" id="height">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="weight">Weight (in KG)</label>
                                                 <input type="text" placeholder="65" class="form-control" name="weight" id="weight">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="occupation">Occupation</label>
                                                 <input type="text" placeholder="Enginner" class="form-control" name="occupation" id="occupation">
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                                                <div class="form-group">
+                                                <label for="referredby">Referred By</label>
+                                                <select id="referredby" name="referredby" class="form-control">
+                                                 
+                                                </select>
+                                               
+                                              </div>
+                                        </div> 
                                     </div>
 
                                    
+                                                      <h5>Contact Details:</h5>
+
+                                                     <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label for="address">Mobile No.</label>
+                                                                    <input type="text" class="form-control" id="mobile1" name="mobile1" placeholder="Mobile No"
+                                                                    ng-pattern="/^[0-9]*$/"
+                                                      onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
+                                                                </div>
+                                                            </div> 
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label for="email">Email</label>
+                                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                                                </div>
+                                                            </div> 
+                                                            <div class="col-md-3">
+                                                          <div class="form-group">
+                                                <label for="landline">Landline</label>
+                                                <input type="text" placeholder="123 456 7890" class="form-control" name="landline" id="landline">
+                                                            </div>
+                                                         </div>
+                                                       
+
+                                                            <div class="col-md-3">
+                                                     <div class="form-group">
+                                                <label for="economicStrata ">Economic Strata</label>
+                                                <select name="economicStrata" id="economicStrata" class="form-control">
+                                                    <option value="Low">Low</option>
+                                                    <option value="Medium">Medium</option>
+                                                    <option value="High">High</option>
+                                                </select>
+                                            </div>
+                                        </div> 
+                                                                                                                             
+                                                     </div>                                                                                               
+                                                   
+                                                     <div class="row">
+                                                     <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label for="country">Country</label>
+                                                 
+                                                                    <select  class="form-control select2" id="country" name="country" placeholder="country">
+                                                                        <option value="India">India</option>
+                                                                     
+                                                                    </select>
+                                                                </div>
+                                                            </div> 
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label for="state">State</label> 
+                                                                    <select  class="form-control select2" id="state" name="state" placeholder="state">
+                                                                        <option value="Maharashtra">Maharashtra</option>
+                                                                        <option value="Gujarat">Gujarat</option>
+                                                                        <option value="Aasam">Aasam</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div> 
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label for="city">City</label>
+                                                                    <input type="text" class="form-control" id="city" name="city" placeholder="city">
+                                                                </div>
+                                                            </div>  
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label for="pincode">Pincode</label>
+                                                                    <input type="text" class="form-control" id="pincode" name="pincode" placeholder="pincode">
+                                                                </div>
+                                                            </div> 
+                                                           
+                                                    
+                                                     </div> 
+
                                     <div class="row">
+                                
+
                                         <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="refferedId">Reffered By</label>
-                                                <select name="refferedId" id="refferedId" class="form-control">
-                                                    <option value="1">Male</option>
-                                                    <option value="2">Female</option>
-                                                    <option value="3">Other</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="ecostrata">Economic Strata</label>
-                                                <select name="ecostrata" id="ecostrata" class="form-control">
-                                                    <option value="1">Male</option>
-                                                    <option value="2">Female</option>
-                                                    <option value="3">Other</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="occupation">Occupation</label>
-                                                <input type="text" placeholder="Enginner" class="form-control" name="occupation" id="occupation">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="address">Address</label>
-                                        <textarea name="address" name="address" rows="3" class="form-control"></textarea>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="city">City</label>
-                                                <input type="text" placeholder="Pune" class="form-control" name="city" id="city">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="pincode">Pin code</label>
-                                                <input type="text" placeholder="411005" class="form-control" name="pincode" id="pincode">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="religin">Religion</label>
-                                                <select name="religin" id="religin" class="form-control">
-                                                    <option value="1">Hindu</option>
-                                                    <option value="2">Muslim</option>
-                                                    <option value="3">Other</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                              <div class="form-group">
+                                                  <label for="address">Address</label>
+                                                     <textarea class="form-control" id="address1" name="address"  rows="1"></textarea>
+                                         </div>
+
+                                         </div>
+                                      
+                                
+                                         <div class="col-md-8">
+                                         <h6>Select Default Option</h6>
+                                                    
+                                                    <div class="col-sm-12 col-xl-12 mb-30">
+                                                        <div class="checkbox-fade fade-in-success">
+                                                            <label>
+                                                                <input type="checkbox" value="1" name="alcohol" id="alcohol">
+                                                                <span class="cr">
+                                                                    <i class="cr-icon ik ik-check txt-success"></i>
+                                                                </span>
+                                                                <span>Alcohol</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox-fade fade-in-success">
+                                                            <label>
+                                                                <input type="checkbox" value="1" name="tobacco" id="tobacco">
+                                                                <span class="cr">
+                                                                    <i class="cr-icon ik ik-check txt-success"></i>
+                                                                </span>
+                                                                <span>Tobacco</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox-fade fade-in-success">
+                                                            <label>
+                                                                <input type="checkbox" value="1" name="diabetes" id="diabetes">
+                                                                <span class="cr">
+                                                                    <i class="cr-icon ik ik-check txt-success"></i>
+                                                                </span>
+                                                                <span>Diabetes</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox-fade fade-in-success">
+                                                            <label>
+                                                                <input type="checkbox" value="1" name="smoking" id="smoking">
+                                                                <span class="cr">
+                                                                    <i class="cr-icon ik ik-check txt-success"></i>
+                                                                </span>
+                                                                <span>Smoking</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox-fade fade-in-success">
+                                                            <label>
+                                                                <input type="checkbox" value="1" name="HTN" id="HTN">
+                                                                <span class="cr">
+                                                                    <i class="cr-icon ik ik-check txt-success"></i>
+                                                                </span>
+                                                                <span>HTN</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox-fade fade-in-success">
+                                                            <label>
+                                                                <input type="checkbox" value="1" name="cholestrol" id="cholestrol">
+                                                                <span class="cr">
+                                                                    <i class="cr-icon ik ik-check txt-success"></i>
+                                                                </span>
+                                                                <span>Cholesterol</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="checkbox-fade fade-in-success">
+                                                            <label>
+                                                                <input type="checkbox" value="1" name="hardDrink" id="hardDrink">
+                                                                <span class="cr">
+                                                                    <i class="cr-icon ik ik-check txt-success"></i>
+                                                                </span>
+                                                                <span>Hard Drink</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>          
+                                         </div>
 
                                     </div>
+                                   
+                                 
                                     <h5>Appointment Details</h5>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="appDoctor">Appointment For</label>
-                                                <select name="appDoctor" id="appDoctor" class="form-control">
-                                                    <option value="1">Hindu</option>
-                                                    <option value="2">Muslim</option>
-                                                    <option value="3">Other</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="cdate">Consulting Date</label>
-                                                <input type="date" placeholder="Pune" class="form-control" name="cdate" id="cdate">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-
-                                        </div>
-
-                                    </div>
+                                
+                                 
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="fvisitdate">First Visit Date</label>
-                                                <input type="date" class="form-control" name="fvisitdate" id="fvisitdate">
+                                                <input type="date" class="form-control" name="firstVisitDate" id="firstVisitDate">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="lvisitdate">Last Visit Date</label>
-                                                <input type="date" placeholder="Pune" class="form-control" name="lvisitdate" id="lvisitdate">
+                                                <input type="date" placeholder="Pune" class="form-control" name="lastVisitDate" id="lastVisitDate">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
 
                                         </div>                                                          
 
-                                        <h5>Select Default Option</h5>
-                                                    <hr>
-                                             <div class="col-sm-12 col-xl-12 mb-30">
+                                        <!-- <h5>Select Default Option</h5>
+                                                    
+                                        <div class="col-sm-12 col-xl-12 mb-30">
                                             <div class="checkbox-fade fade-in-success">
                                                 <label>
-                                                    <input type="checkbox" value="1">
+                                                    <input type="checkbox" value="1" name="alcohol" id="alcohol">
                                                     <span class="cr">
                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                     </span>
@@ -368,7 +453,7 @@
                                             </div>
                                             <div class="checkbox-fade fade-in-success">
                                                 <label>
-                                                    <input type="checkbox" value="1">
+                                                    <input type="checkbox" value="1" name="tobacco" id="tobacco">
                                                     <span class="cr">
                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                     </span>
@@ -377,7 +462,7 @@
                                             </div>
                                             <div class="checkbox-fade fade-in-success">
                                                 <label>
-                                                    <input type="checkbox" value="1">
+                                                    <input type="checkbox" value="1" name="diabetes" id="diabetes">
                                                     <span class="cr">
                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                     </span>
@@ -386,7 +471,7 @@
                                             </div>
                                             <div class="checkbox-fade fade-in-success">
                                                 <label>
-                                                    <input type="checkbox" value="1">
+                                                    <input type="checkbox" value="1" name="smoking" id="smoking">
                                                     <span class="cr">
                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                     </span>
@@ -395,7 +480,7 @@
                                             </div>
                                             <div class="checkbox-fade fade-in-success">
                                                 <label>
-                                                    <input type="checkbox" value="1">
+                                                    <input type="checkbox" value="1" name="HTN" id="HTN">
                                                     <span class="cr">
                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                     </span>
@@ -404,7 +489,7 @@
                                             </div>
                                             <div class="checkbox-fade fade-in-success">
                                                 <label>
-                                                    <input type="checkbox" value="1">
+                                                    <input type="checkbox" value="1" name="cholestrol" id="cholestrol">
                                                     <span class="cr">
                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                     </span>
@@ -413,18 +498,18 @@
                                             </div>
                                             <div class="checkbox-fade fade-in-success">
                                                 <label>
-                                                    <input type="checkbox" value="1">
+                                                    <input type="checkbox" value="1" name="hardDrink" id="hardDrink">
                                                     <span class="cr">
                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                     </span>
                                                     <span>Hard Drink</span>
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="form-group">
                                         <label for="remarks">Remark</label>
-                                        <textarea name="remarks" id="remarks" rows="3" class="form-control"></textarea>
+                                        <textarea name="remarks" id="remarks" rows="1" class="form-control col-md-4"></textarea>
                                     </div>
                                     <button class="btn btn-success" type="submit">Update Profile</button>
                                 </form>
@@ -587,6 +672,9 @@
 <script src="jscode/getBackPain.js"></script>
 <script src="jscode/getCervicalSpine.js"></script>
 <script src="jscode/patient_profile.js"></script>
+
+<script src="jscode/getReffName.js"></script>
+<script src="jscode/updatePatientsJs.js"></script>
 <script type="text/javascript" src="js/dropzone.js"></script>
 <script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
 <script src="jscode/loadFile.js"></script>
@@ -597,9 +685,3 @@
 <?php include 'low-backPainQues.php';?>
 <?php include 'carvical-spineAssessment.php';?>
 
-<script>
-      $("#input").change(function(){
-        var key = event.keyCode;
-  return ((key >= 65 && key <= 90) || key == 8);
-  });
-  </script>

@@ -23,8 +23,19 @@ $(function() {
                 },
                 address: {
                     required: true
-
                 },
+                height :{
+                    required :true
+                },
+                occupation :{
+                    required :true
+                },
+                referredby:{
+                    required :true
+                },
+                weight:{
+                required :true
+            }
 
             },
             messages: {
@@ -50,6 +61,21 @@ $(function() {
                     required: "Please enter full address detail with landmark"
 
                 },
+                height:{
+                    required: "Please enter height"
+                },
+                occupation:{
+                    required: "Please enter occupation"
+                },
+                referredby:{
+                    required: "Please enter name of referredby"
+                },
+        
+                weight:{
+                    required: "Please enter weight"
+                }
+        
+        
 
             }
         });
