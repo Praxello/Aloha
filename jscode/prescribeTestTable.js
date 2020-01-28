@@ -84,9 +84,9 @@ function storeDetails() {
 function GeneratePayment() {
     var details = {
         billDetails: storeDetails(),
-        amount: $('#tAmt').val(),
+        amount: parseFloat($('#tAmt').val()),
         originalAmt: originalAmt,
-        discount: $('#dAmt').val(),
+        discount: parseFloat($('#dAmt').val()),
         doctorId: $('#paymentFor').val(),
         patientId: patientId_ap
     };
@@ -97,6 +97,16 @@ function GeneratePayment() {
         data: { postdata: details },
         dataType: 'json',
         success: function(response) {
+            swal({
+                position: 'top-end',
+                icon: 'success',
+                title: response.Message,
+                button: false,
+                timer: 1500
+            });
+            if (response.Responsecode == 200) {
+                prevTransactions.set(response.Data.paymentId, response.Data);
+            }
             list_transactions(prevTransactions);
         }
     });

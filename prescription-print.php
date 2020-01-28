@@ -38,50 +38,46 @@ function fetchPrescriptiondata($patientId,$visitDate)
 {
     include 'connection.php';
     $output = '';
-    $sql    = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pt.surname,pt.birthDate,pt.address,pt.mobile1,pt.gender,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age
-        FROM patient_medication pm INNER JOIN patient_master pt ON pt.patientId = pm.patientId WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate'";
+    $sql    = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pt.weight,pt.surname,pt.birthDate,pt.address,pt.mobile1,pt.firstVisitDate,pt.gender,pom.pulse ,pom.bp,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age
+        FROM patient_medication pm INNER JOIN patient_master pt inner join patient_onassessment_master pom ON pt.patientId = pm.patientId WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
         global $advice;
         $advice = $row['advice'];
-        $output .= '<tr>
-                            <td style="width:120mm;font-size:15px;font-family: SourceSansPro;">
-                                    Mr/Ms:<strong>' . ucfirst($row['firstName']) . ' ' . ucfirst($row['surname']) . '
-                                    </strong><br />
-                                    Contact:<label>' . $row['mobile1'] . '</label><br />
-                                    Address:<label>' . $row['address'] . '</label><br />
-                            </td>
-                                <td style="font-size:13px;font-family: SourceSansPro;">
-                                Sex: ' . $row['gender'] . '<br/>
-                                Age: ' . $row['age'] . '<br/>
-                                Next Visit Date: ' . $row['nextVisitDate'] . '<br/>
-                                </td>
-
-                    </tr>';
+        $output .= ' <tr > <p>  <div style="margin-bottom:15px"><b>Name:&nbsp;&nbsp;</b>'.$row['firstName'].' '.$row['surname'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+         <b>Reg.No:</b>&nbsp;&nbsp;'.$patientId.'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+         <b>Cell No:</b>&nbsp;&nbsp;'.$row['mobile1'].' 
+         <b style="margin-left:200px">   Date:&nbsp;&nbsp;'.$row['firstVisitDate'].'</b></p></p>
+    <div ><p><b>Age :</b>&nbsp;&nbsp;'.$row['age'].' &nbsp;&nbsp;&nbsp;&nbsp;
+    <b>&nbsp;&nbsp;&nbsp;&nbsp;Weight:</b>&nbsp;&nbsp;'.$row['weight'].' &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+    <b>BP:</b>'.$row['bp'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+  <b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pulse:</b> '.$row['pulse'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<b>BMI:</b>23.08</div> 
+</tr>';
     }
+   
     return $output;
 }
 function doctor_details($doctorId){
         include 'connection.php';
-    $output = '';
-    $sql = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pt.weight,pt.surname,pt.birthDate,pt.address,pt.mobile1,pt.firstVisitDate,pt.gender,pom.pulse ,pom.bp,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age FROM patient_medication pm INNER JOIN patient_master pt inner join patient_onassessment_master pom ON pt.patientId = pm.patientId
-      WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate'";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_array($result);
-        global $advice;
-        $advice = $row['advice'];
-        $output .= ' <tr > <p>  <div style="margin-bottom:15px"><b>Name:&nbsp;&nbsp;</b>'.$row['firstName'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                <b>Reg.No:</b>&nbsp;&nbsp;1  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                 <b>Cell No:</b>&nbsp;&nbsp;'.$row['mobile1'].' 
-                 <b style="margin-left:200px">   Date:&nbsp;&nbsp;'.$row['firstVisitDate'].'</b></p></p>
-                  <div ><p><b>Age :</b>&nbsp;&nbsp;'.$row['birthDate'].' &nbsp;&nbsp;&nbsp;&nbsp;
-                <b>&nbsp;&nbsp;&nbsp;&nbsp;Weight:</b>&nbsp;&nbsp;'.$row['weight'].' &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
-                <b>BP:</b>'.$row['bp'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-                 <b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pulse:</b> '.$row['pulse'].' &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<b>BMI:</b>23.08</div> 
-</tr>';
+        $output = '';
+        $sql    = "SELECT * FROM user_master um WHERE um.userId = $doctorId";
+        $result = mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_array($result);
+            global $sign;$sign = $row['username'];
+            $output .= '<td>
+            <h1 class="heading"><strong>
+      <div style="color: #0087C3;font-size: 20px;font-family: SourceSansPro;text-align:right;">'.$row['username'].'</div></strong></h1>
+            <h2 class="heading">
+                  <div style="color: #555555;font-family: Arial, sans-serif;font-size: 14px;font-family: SourceSansPro;text-align:right;">
+                    '.$row['sign'].'<br/>
+                    Mobile no. '.$row['mobile'].'
+                    </div>
+                    
 
+            </h2>
+</td>';
         }
         return $output;
 }
@@ -247,9 +243,11 @@ $html = '<!DOCTYPE html>
 
     </style>
     </head>
+    
     <div id="wrapper">
             <table class="heading" style="width:100%;">
                     <tr>
+                    
                             <td style="width:35mm;">
                 <img src="medical.jpeg" width="100px" height="130px"/>
                             </td>
@@ -264,7 +262,9 @@ $html = '<!DOCTYPE html>
                     </tr>
         </table>
                 <table  style="width:100%;padding:0;">
+              
                     <tr>
+                 
                             <td style="width:35mm;">
                             </td>
                                 <td style="font-size:18px;font-family: SourceSansPro;font-weight:bold;text-align:center;">
@@ -274,10 +274,10 @@ $html = '<!DOCTYPE html>
                                 </td>
 
                     </tr>
-            </table>
-        <table  style="width:100%;padding:0;">
                     ' . fetchPrescriptiondata($_GET['patientId'],$vidate) . '
+                   
             </table>
+      
 
 
             <div id="content">
@@ -330,6 +330,5 @@ $dompdf->render();
 $dompdf->stream("dompdf_out.pdf", array(
     "Attachment" => false
 ));
-
 exit(0);
 ?>

@@ -5,6 +5,7 @@
                 <h5 class="modal-title" id="fullwindowModalLabel"><strong>Generate Payment</strong></h5>
                 <button type="button" class="close " data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
+            <form id="paymentForm">
             <div class="modal-body">
                 <div class="container-fluid" >
                     <div class="row">
@@ -15,7 +16,7 @@
                                     <div class="card-body" style="background: aliceblue; margin-bottom: 10px;">
                                         <div class="form-group" style="text-align: center;">
                                           
-                                            <select class="form-control select2"  id="paymentFor" style="width:100%;" onchange="getSelectedText()">
+                                            <select class="form-control select2"  id="paymentFor" name="paymentFor" style="width:100%;" onchange="getSelectedText()">
                                             </select>
                                         </div>
                                     </div>
@@ -164,6 +165,7 @@
                     </div>
                 </div>
             </div>
+</form>
         </div>
            
         </div>

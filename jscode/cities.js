@@ -129,6 +129,7 @@ function loadReferences() {
     $("#reference").select2({
         placeholder: 'Select Reference',
         allowClear: true,
+        tags: true,
         dropdownParent: $('#fullwindowModal') //for serach in modal
     });
 }

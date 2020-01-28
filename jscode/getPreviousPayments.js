@@ -27,6 +27,7 @@ function list_transactions(prevTransactions) {
     var tblData = '',
         total = 0,
         pendingTotal = 0;
+    console.log(prevTransactions);
     for (let k of prevTransactions.keys()) {
         let data = prevTransactions.get(k);
         total = total + parseFloat(data.total);
