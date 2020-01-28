@@ -247,16 +247,24 @@
                                                 <input type="text" placeholder="Enginner" class="form-control" name="occupation" id="occupation">
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                                                 <div class="form-group">
                                                 <label for="referredby">Referred By</label>
-                                                <select id="referredby" name="referredby" class="form-control">
-                                                 
-                                                </select>
-                                               
+                                                <select id="referredby" name="referredby" class="form-control"></select>
                                               </div>
+                                              
                                         </div> 
-                                    </div>
+
+                                        <div class="col-md-1">
+                                        <div class="form-group">
+                                              <button class="btn btn-success"  style="margin-top:30px" type="button" data-toggle="modal" data-target="#exampleModal">+</button>  </div>
+                                        </div>
+                             </div>
+                                       
+                                              
+                                              
+                                           
+                                    
 
                                    
                                                       <h5>Contact Details:</h5>
@@ -684,4 +692,5 @@
 <?php include 'neck-disability.php';?>
 <?php include 'low-backPainQues.php';?>
 <?php include 'carvical-spineAssessment.php';?>
+<?php include 'add_reffName.php';?>
 
