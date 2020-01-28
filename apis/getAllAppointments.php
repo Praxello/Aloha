@@ -7,9 +7,10 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['doctorId'])){
-$sql = "SELECT pdas.appointmentId,pdas.appointmentDate,pdas.scheduledBy,pdas.patientId,pm.firstName,pm.surname,um.username 
+$sql = "SELECT pdas.appointmentId,pdas.appointmentDate,pdas.scheduledBy,pdas.patientId,pm.firstName,pm.surname,um.username,rm.doctorName
 FROM patient_doctor_appointment_scheduling pdas INNER JOIN patient_master pm ON pm.patientId = pdas.patientId 
-INNER JOIN user_master um ON um.userId = pdas.doctorId WHERE pdas.doctorId = $doctorId  ORDER BY pdas.appointmentDate DESC";
+INNER JOIN user_master um ON um.userId = pdas.doctorId LEFT JOIN referring_master rm ON pm.referredby = rm.refferId
+WHERE pdas.doctorId = $doctorId  ORDER BY pdas.appointmentDate DESC";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

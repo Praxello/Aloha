@@ -1,7 +1,7 @@
 var cervicals = new Map();
 var cervical_details = {};
 // var patientId_ap = null;
-const getCervicalSpine = (patientId) => {
+var getCervicalSpine = (patientId) => {
     console.log('hello');
     $.ajax({
         url: url + 'getAllCervicalSpine.php',
@@ -24,15 +24,15 @@ const getCervicalSpine = (patientId) => {
     });
 };
 
-const showCervicalSpine = cervicals => {
+var showCervicalSpine = cervicals => {
     console.log(cervicals);
     $('#cTable').dataTable().fnDestroy();
     $('#carvicalData').empty();
     var tblData = '';
     for (let k of cervicals.keys()) {
         let cervical = cervicals.get(k);
-console.log(cervical.visitDate);
-        tblData += '<tr><td>' + cervical.visitDate + '</td>';
+        console.log(cervical.visitDate);
+        tblData += '<tr><td>' + getDate(cervical.visitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editCervicalSpine(' + (k) + ')" title="Edit patients details"><i class="ik ik-edit text-blue"></i></a>';
         tblData += '</div></td></tr>';
@@ -53,27 +53,27 @@ console.log(cervical.visitDate);
     });
 };
 
-const editCervicalSpine = (cerSpineId) => {
+var editCervicalSpine = (cerSpineId) => {
     console.log('cerSpineId');
     cerSpineId = cerSpineId.toString();
     cervical_details = cervicals.get(cerSpineId);
-   console.log(cervical_details);
+    console.log(cervical_details);
     fill_Cervical(cervical_details);
 };
 
 function fill_Cervical(details) {
-   
+
     if (details.cerVasScore != null) {
         $('#cerVasScore').val(details.cerVasScore);
     }
-    if(details.cerPresentSymptoms != null){
+    if (details.cerPresentSymptoms != null) {
         $('#cerPresentSymptoms').val(details.cerPresentSymptoms);
     }
-    if(details.cerFunDisabilityScore != null){
+    if (details.cerFunDisabilityScore != null) {
         $('#cerFunDisabilityScore').val(details.cerFunDisabilityScore);
     }
 
-    if(details.cerCommencedAsResult != null){
+    if (details.cerCommencedAsResult != null) {
         $('#cerCommencedAsResult').val(details.cerCommencedAsResult);
     }
 
@@ -180,9 +180,9 @@ function fill_Cervical(details) {
     }
 
 
-    
 
-  
+
+
     json = details.cerGenHealth;
     if (json != null) {
         obj = JSON.parse(json);
@@ -190,7 +190,7 @@ function fill_Cervical(details) {
         if (obj.p6 != null) {
             $('#cerGenHealth1').val(obj.p6);
         }
-      
+
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
@@ -212,7 +212,7 @@ function fill_Cervical(details) {
         if (obj.p7 != null) {
             $('#cerImaging1').val(obj.p7);
         }
-      
+
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
@@ -227,7 +227,7 @@ function fill_Cervical(details) {
         });
     }
 
-    
+
     json = details.cerResurgery;
     if (json != null) {
         obj = JSON.parse(json);
@@ -235,7 +235,7 @@ function fill_Cervical(details) {
         if (obj.p8 != null) {
             $('#cerResurgery1').val(obj.p8);
         }
-      
+
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
@@ -257,7 +257,7 @@ function fill_Cervical(details) {
         if (obj.p9 != null) {
             $('#cerNightPain1').val(obj.p9);
         }
-      
+
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
@@ -279,7 +279,7 @@ function fill_Cervical(details) {
         if (obj.p10 != null) {
             $('#cerAccidents1').val(obj.p10);
         }
-      
+
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
@@ -294,7 +294,7 @@ function fill_Cervical(details) {
         });
     }
 
-    
+
     json = details.cerWeightLoss;
     if (json != null) {
         obj = JSON.parse(json);
@@ -305,7 +305,7 @@ function fill_Cervical(details) {
         if (obj.wOther != null) {
             $('#cerWeightLoss2').val(obj.wOther);
         }
-      
+
         values = Object.keys(obj).map(function(key) {
             return obj[key];
         });
@@ -336,7 +336,7 @@ function fill_Cervical(details) {
             i++;
         });
     }
-   
+
     json = details.cerStanding;
     if (json != null) {
         obj = JSON.parse(json);
@@ -395,39 +395,39 @@ function fill_Cervical(details) {
     }
 
     var content = '',
-    m, count;
-json = details.cerMomentLoss;
-if (json != null) {
+        m, count;
+    json = details.cerMomentLoss;
+    if (json != null) {
 
-    obj = JSON.parse(json);
-    count = Object.keys(obj).length;
-    var arr = ['Flexion', 'Extension', 'Side Gliding R', 'Side Gliding L' , 'Protrusion' ,'Retraction','Rotation R','Rotation L'];
-    for (var j = 0; j < count; j++) {
-        content += '<tr>';
-        content += ' <th scope="row">' + arr[j] + '</th>';
-        content += '<td><input type="text" class="form-control" id="maj" value="' + obj[j].maj + '"></td>';
-        content += '<td><input type="text" class="form-control" id="mod" value="' + obj[j].mod + '"></td>';
-        content += '<td><input type="text" class="form-control" id="min" value="' + obj[j].min + '"></td>';
-        content += '<td><input type="text" class="form-control" id="nil" value="' + obj[j].nil + '"></td>';
-        content += '<td><input type="text" class="form-control" id="pain" value="' + obj[j].pain + '"></td>';
-        content += '</tr>';
+        obj = JSON.parse(json);
+        count = Object.keys(obj).length;
+        var arr = ['Flexion', 'Extension', 'Side Gliding R', 'Side Gliding L', 'Protrusion', 'Retraction', 'Rotation R', 'Rotation L'];
+        for (var j = 0; j < count; j++) {
+            content += '<tr>';
+            content += ' <th scope="row">' + arr[j] + '</th>';
+            content += '<td><input type="text" class="form-control" id="maj" value="' + obj[j].maj + '"></td>';
+            content += '<td><input type="text" class="form-control" id="mod" value="' + obj[j].mod + '"></td>';
+            content += '<td><input type="text" class="form-control" id="min" value="' + obj[j].min + '"></td>';
+            content += '<td><input type="text" class="form-control" id="nil" value="' + obj[j].nil + '"></td>';
+            content += '<td><input type="text" class="form-control" id="pain" value="' + obj[j].pain + '"></td>';
+            content += '</tr>';
+        }
+        $('#cerMomentLoss').html(content);
+
     }
-    $('#cerMomentLoss').html(content);
-
-}
-json = details.cerTestMovement;
-if (json != null) {
-    content = '';
-    obj = JSON.parse(json);
-    content += '<tr>';
-    content += ' <th scope="row">Rep EIL</th>';
-    content += '<td><input type="text" class="form-control" id="maj" value="' + obj[0]['During-test'] + '"></td>';
-    content += '<td><input type="text" class="form-control" id="mod" value="' + obj[0]['after-test'] + '"></td>';
-    content += '<td><input type="text" class="form-control" id="min" value="' + obj[0]['m-rom-u'] + '"></td>';
-    content += '<td><input type="text" class="form-control" id="nil" value="' + obj[0]['m-rom-d'] + '"></td>';
-    content += '<td><input type="text" class="form-control" id="pain" value="' + obj[0]['m-noefect'] + '"></td>';
-    content += '</tr>';
-    $('#cerTestMovement').html(content);
-}
+    json = details.cerTestMovement;
+    if (json != null) {
+        content = '';
+        obj = JSON.parse(json);
+        content += '<tr>';
+        content += ' <th scope="row">Rep EIL</th>';
+        content += '<td><input type="text" class="form-control" id="maj" value="' + obj[0]['During-test'] + '"></td>';
+        content += '<td><input type="text" class="form-control" id="mod" value="' + obj[0]['after-test'] + '"></td>';
+        content += '<td><input type="text" class="form-control" id="min" value="' + obj[0]['m-rom-u'] + '"></td>';
+        content += '<td><input type="text" class="form-control" id="nil" value="' + obj[0]['m-rom-d'] + '"></td>';
+        content += '<td><input type="text" class="form-control" id="pain" value="' + obj[0]['m-noefect'] + '"></td>';
+        content += '</tr>';
+        $('#cerTestMovement').html(content);
+    }
     $('#cervicalSpine').modal('show');
 }

@@ -781,37 +781,37 @@
                                                                 <tbody id="momentData">
                                                                   <tr>
                                                                     <th scope="row">Flexion</th>
-                                                                    <td><input type="text" class="form-control" id="maj" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="mod" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="min" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="nil" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="pain" placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
                                                                   </tr>
                                                                   <tr>
                                                                     <th scope="row">Extension</th>
-                                                                    <td><input type="text" class="form-control" id="maj" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="mod" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="min" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="nil" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="pain" placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
                                                                   </tr>
                                                                   </tr>
                                                                   <tr>
                                                                     <th scope="row">Side Gliding R</th>
-                                                                    <td><input type="text" class="form-control" id="maj" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="mod" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="min" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="nil" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="pain" placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
                                                                   </tr>
                                                                   </tr>
                                                                   <tr>
                                                                     <th scope="row">Side Gliding L</th>
-                                                                    <td><input type="text" class="form-control" id="maj" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="mod" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="min" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="nil" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" id="pain" placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
                                                                   </tr>
                                                                   </tr>
                                                                 </tbody>
@@ -938,6 +938,6 @@
                             </div>
                         </div>
                     </div>
-                    <script src="jscode/lumbarSpine_validation.js"></script>
+<script src="jscode/lumbarSpine_validation.js"></script>
 
 <script src="jscode/lumbarSpine.js"></script>

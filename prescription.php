@@ -180,7 +180,7 @@
 <hr>
 <h5>Previous Prescriptions</h5>
 <div id="prevData"></div>
-    </div>
+</div>
 </div>
 
 <script>

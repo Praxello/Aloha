@@ -1,7 +1,7 @@
 var spines = new Map();
 var spine_details = {};
 // var patientId_ap = null;
-const getLumbarSpine = (patientId) => {
+var getLumbarSpine = (patientId) => {
     $.ajax({
         url: url + 'getAllLumbarSpine.php',
         type: 'POST',
@@ -17,12 +17,13 @@ const getLumbarSpine = (patientId) => {
                 }
 
             }
+            console.log(spines);
             showLumbarSpine(spines);
         }
     });
 };
 
-const showLumbarSpine = spines => {
+var showLumbarSpine = spines => {
     $('#sTable').dataTable().fnDestroy();
     $('#spineData').empty();
     var tblData = '';
@@ -50,10 +51,9 @@ const showLumbarSpine = spines => {
     });
 };
 
-const editLumbarSpine = (spineId) => {
+var editLumbarSpine = (spineId) => {
     spineId = spineId.toString();
     spine_details = spines.get(spineId);
-    console.log(spine_details);
     fill_lumbar(spine_details);
 };
 

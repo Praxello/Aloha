@@ -1,5 +1,8 @@
 var appointments = new Map();
 var u_patientId = null;
+var global_patientId = null; //for lumbar neck,and back pain
+var global_date = moment().format('YYYY-MM-DD');
+$('#dropper-max-year').val(moment().format('YYYY-MM-DD'));
 const getAllAppointments = (doctorId) => {
     $.ajax({
         url: url + 'getAllAppointments.php',
@@ -22,13 +25,15 @@ const getAllAppointments = (doctorId) => {
 const listAppointments = (appointments, today) => {
     $('#aTable').dataTable().fnDestroy();
     $('#aptData').empty();
-    var tblData = '';
+    var tblData = '',
+        i = 0;
     for (let k of appointments.keys()) {
         let patient = appointments.get(k);
         if (patient.appointmentDate == today) {
+            i++;
             tblData += '<tr><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
             tblData += '<td>' + patient.firstName + ' ' + patient.surname + '</td>';
-            tblData += '<td>' + patient.username + '</td>';
+            tblData += '<td>' + patient.doctorName + '</td>';
             tblData += '<td>' + patient.scheduledBy + '</td>';
             tblData += '<td>' + getDate(patient.appointmentDate) + '</td>';
             tblData += '<td><div class="table-actions">';
@@ -37,6 +42,7 @@ const listAppointments = (appointments, today) => {
         }
 
     }
+    $('#totalPatient').html(i);
     $('#aptData').html(tblData);
     $('#aTable').dataTable({
         searching: true,
@@ -54,9 +60,11 @@ getAllAppointments(data.userId);
 const editPatient = (patientId) => {
     patientId = patientId.toString();
     u_patientId = patientId;
-    $(".wrapper").toggleClass("right-sidebar-expand");
+    global_patientId = patientId;
+    let patient = appointments.get(patientId);
+    // $(".wrapper").toggleClass("right-sidebar-expand");
     $('#tData').hide();
-    $('#editProfile').load('prescription.php');
+    $('#editProfile').load('edit-prescription.php');
 };
 
 function getToday() {

@@ -1,7 +1,7 @@
 var backPain = new Map();
 var back_details = {};
 // var patientId_ap = null;
-const getLowBackPain = (patientId) => {
+var getLowBackPain = (patientId) => {
     $.ajax({
         url: url + 'getBackPainQues.php',
         type: 'POST',
@@ -21,7 +21,7 @@ const getLowBackPain = (patientId) => {
     });
 };
 
-const showBackPain = backPain => {
+var showBackPain = backPain => {
     $('#bTable').dataTable().fnDestroy();
     $('#backData').empty();
     var tblData = '';
@@ -49,11 +49,10 @@ const showBackPain = backPain => {
     });
 };
 
-const editBack = (lbackpId) => {
+var editBack = (lbackpId) => {
     lbackpId = lbackpId.toString();
     back_details = backPain.get(lbackpId);
     global_date = back_details.visitDate;
-
     fill_back(back_details);
 };
 
