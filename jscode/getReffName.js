@@ -27,7 +27,6 @@ function  loadReffName(refName) {
     var dropDownList = '';
     for (let k of refName.keys()) {
         var data = refName.get(k);
-        console.log(data);
         dropDownList += "<option value="+k+">" + data.doctorName + " " + data.address + "</option>";
     }
    
@@ -42,3 +41,4 @@ function  loadReffName(refName) {
 //     $('#referredby').html(dropDownList);
 // }
 getReffName();
+

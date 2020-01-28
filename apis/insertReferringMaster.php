@@ -11,7 +11,7 @@ if ( isset($_POST['Name'])) {
     
  
     $sql = "INSERT INTO referring_master(doctorName,email,mobile1,birthDate,address) 
-     VALUES ('$Name','$email','$mobile1','$birthDate','$address')";
+     VALUES ('$Name','$refemail','$refmo','$birthDate','$address')";
     
     $query = mysqli_query($conn, $sql);
     

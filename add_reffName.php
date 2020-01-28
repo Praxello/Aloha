@@ -19,7 +19,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="gender">Category / Group</label>
-                                                                    <select  class="form-control select2" id="gender" name="gender" placeholder="Gender">
+                                                                    <select  class="form-control select2" id="gender1" name="gender1" placeholder="Gender">
                                                                     
                                                                         <option value="Item1">Item1</option>
                                                                         <option value="Item2">Item2</option>
@@ -41,7 +41,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="email">Email</label>
-                                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                                                    <input type="email" class="form-control" id="refemail" name="refemail" placeholder="Email">
                                                                 </div>
                                                             </div> 
                                                             
@@ -51,7 +51,7 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="address">Mobile No.</label>
-                                                                    <input type="text" class="form-control" id="mobile1" name="mobile1" placeholder="Mobile No">
+                                                                    <input type="text" class="form-control" id="refmo" name="refmo" placeholder="Mobile No">
                                                                 </div>
                                                             </div> 
     

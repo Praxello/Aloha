@@ -310,8 +310,8 @@
                                                                 <div class="form-group">
                                                                     <label for="country">Country</label>
                                                  
-                                                                    <select  class="form-control select2" id="country" name="country" placeholder="country">
-                                                                        <option value="India">India</option>
+                                                                    <select  class="form-control select2" id="country" name="country"  onchange="loadCities(this.value);" placeholder="country">
+                                                                      
                                                                      
                                                                     </select>
                                                                 </div>
@@ -319,17 +319,16 @@
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
                                                                     <label for="state">State</label> 
-                                                                    <select  class="form-control select2" id="state" name="state" placeholder="state">
-                                                                        <option value="Maharashtra">Maharashtra</option>
-                                                                        <option value="Gujarat">Gujarat</option>
-                                                                        <option value="Aasam">Aasam</option>
+                                                                    <select  class="form-control select2" id="state" name="state" placeholder="state" onchange="loadStates(this.value);">
+                                                                       
                                                                     </select>
                                                                 </div>
                                                             </div> 
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
                                                                     <label for="city">City</label>
-                                                                    <input type="text" class="form-control" id="city" name="city" placeholder="city">
+                                                                    <select  class="form-control select2" id="city" name="city" placeholder="city"></select>
+                                                       
                                                                 </div>
                                                             </div>  
                                                             <div class="col-md-3">
@@ -675,22 +674,15 @@
         </div>
     </div>
 </div>
-<script src="jscode/getLumbarSpine.js"></script>
-<script src="jscode/getneckDisblity.js"></script>
-<script src="jscode/getBackPain.js"></script>
-<script src="jscode/getCervicalSpine.js"></script>
 <script src="jscode/patient_profile.js"></script>
 
 <script src="jscode/getReffName.js"></script>
 <script src="jscode/updatePatientsJs.js"></script>
+
+<script src="jscode/getcscRefName.js"></script>
 <script type="text/javascript" src="js/dropzone.js"></script>
 <script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="jscode/uploadProfile.js"></script>
-
-<?php include 'lumbar-spin-assesment.php';?>
-<?php include 'neck-disability.php';?>
-<?php include 'low-backPainQues.php';?>
-<?php include 'carvical-spineAssessment.php';?>
 <?php include 'add_reffName.php';?>
 
