@@ -73,7 +73,7 @@ $('#neckForm').on('submit', function(e) {
     }
 });
 
-const getpainIntensity_1 = () => {
+var getpainIntensity_1 = () => {
     var painObj = {};
     $.each($("input[name='painIntensity1']"), function() {
         var flag = 0;
@@ -90,7 +90,7 @@ const getpainIntensity_1 = () => {
     return painObj;
 };
 
-const getpersonalCare_1 = () => {
+var getpersonalCare_1 = () => {
     var perObj = {};
     $.each($("input[name='personalCare1']"), function() {
         var flag = 0;
@@ -106,7 +106,7 @@ const getpersonalCare_1 = () => {
     return perObj;
 };
 
-const getlifting_1 = () => {
+var getlifting_1 = () => {
     var liftObj = {};
     $.each($("input[name='lifting1']"), function() {
         var flag = 0;
@@ -122,7 +122,7 @@ const getlifting_1 = () => {
     return liftObj;
 };
 
-const getwork = () => {
+var getwork = () => {
     var workObj = {};
     $.each($("input[name='work1']"), function() {
         var flag = 0;
@@ -138,7 +138,7 @@ const getwork = () => {
     return workObj;
 };
 
-const getheadaches = () => {
+var getheadaches = () => {
     var headObj = {};
     $.each($("input[name='headaches1']"), function() {
         var flag = 0;
@@ -154,7 +154,7 @@ const getheadaches = () => {
     return headObj;
 };
 
-const getconcentration = () => {
+var getconcentration = () => {
     var conObj = {};
     $.each($("input[name='concentration1']"), function() {
         var flag = 0;
@@ -170,7 +170,7 @@ const getconcentration = () => {
     return conObj;
 };
 
-const getsleeping_1 = () => {
+var getsleeping_1 = () => {
     var sleepObj = {};
     $.each($("input[name='sleeping1']"), function() {
         var flag = 0;
@@ -185,7 +185,7 @@ const getsleeping_1 = () => {
     });
     return sleepObj;
 };
-const getdriving = () => {
+var getdriving = () => {
     var driveObj = {};
     $.each($("input[name='driving1']"), function() {
         var flag = 0;
@@ -200,7 +200,7 @@ const getdriving = () => {
     });
     return driveObj;
 };
-const getreading = () => {
+var getreading = () => {
     var readObj = {};
     $.each($("input[name='reading1']"), function() {
         var flag = 0;
@@ -216,7 +216,7 @@ const getreading = () => {
     return readObj;
 };
 
-const getrecreation = () => {
+var getrecreation = () => {
     var recObj = {};
     $.each($("input[name='recreation1']"), function() {
         var flag = 0;

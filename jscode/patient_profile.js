@@ -21,20 +21,20 @@ const loadPatientDetails = details => {
     $('#nextVisitDate').val(details.nextVisitDate);
     $('#firstVisitDate').val(details.firstVisitDate);
 
-   if(details.alcohol == 1)
-        $('#alcohol').attr("checked",true);
-    if(details.tobacco == 1)
-    $('#tobacco').attr("checked",true);
-    if(details.diabetes == 1)
-    $('#diabetes').attr("checked",true);
-    if(details.smoking == 1)
-    $('#smoking').attr("checked",true);
-    if(details.HTN == 1)
-    $('#HTN').attr("checked",true);
-    if(details.cholestrol == 1)
-    $('#cholestrol').attr("checked",true);
+    if (details.alcohol == 1)
+        $('#alcohol').attr("checked", true);
+    if (details.tobacco == 1)
+        $('#tobacco').attr("checked", true);
+    if (details.diabetes == 1)
+        $('#diabetes').attr("checked", true);
+    if (details.smoking == 1)
+        $('#smoking').attr("checked", true);
+    if (details.HTN == 1)
+        $('#HTN').attr("checked", true);
+    if (details.cholestrol == 1)
+        $('#cholestrol').attr("checked", true);
 
-    $('#mobile1').val(details.mobile1);                         
+    $('#mobile1').val(details.mobile1);
     $('#email').val(details.email);
     $('#landline').val(details.landline);
     $('#gender').val(details.gender);
@@ -52,3 +52,4 @@ const loadPatientDetails = details => {
     $('#userPic').attr("src", src);
 };
 loadPatientDetails(patient_details);
+getPatientAppointments(patient_details.patientId);
