@@ -100,19 +100,10 @@
                         <li class="nav-item">
                             <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#current-month" role="tab" aria-controls="pills-setting" aria-selected="false">Profile Picture</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#fullwindowModal1" role="tab" aria-controls="pills-setting" aria-selected="false">Lumbar Spine Assessment</a>
-                        </li>
-
-                          <li class="nav-item">
-                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#neck" role="tab" aria-controls="pills-setting" aria-selected="false">Neck Disability</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#ques" role="tab" aria-controls="pills-setting" aria-selected="false">Back Pain Questions</a>
-                        </li>
+                       
 
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#cervical" role="tab" aria-controls="pills-setting" aria-selected="false">Cervical Spine Assessment</a>
+                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#cervical" role="tab" aria-controls="pills-setting" aria-selected="false">Cancel Appointments</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
@@ -516,138 +507,21 @@
                             </div>
                         </div>
 
-
-                <div class="tab-pane fade" id="fullwindowModal1" role="tabpanel" aria-labelledby="pills-profile-tab">
-                               
-                <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#fullwindowModal2">Add Lumbar Spine Assessment</button>
-                    <div class="container-fluid">
-                   
-                        <div class="card"> 
-                        
-                         
-                            <div class="card-body">
-                            <!-- <div style="overflow-x:auto;"> -->
-                            <div class="dt-responsive tbl" >
-                                <table id="sTable" class="table">
-                                    <thead>
-                                         <tr>
-                                           
-                                           
-                                            <th>Visit Date</th>
-                                            <th>Action</th>                        
-                                        </tr>
-                                    </thead>
-                                    <tbody id="spineData">
-                                       
-                                        
-                                        
-                                    </tbody>
-                                </table>
-                             </div>
-                        </div>
-                            <!-- <div> -->
-                        </div>
-                    </div>
-                </div>
-
-
-
-                    <div class="tab-pane fade" id="neck" role="tabpanel" aria-labelledby="pills-profile-tab">
-                               
-                <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#neckDis"> Add Neck Disability Index</button>
-                    <div class="container-fluid">
-                   
-                        <div class="card"> 
-                        
-                           
-                            <div class="card-body c">
-                            <!-- <div style="overflow-x:auto;"> -->
-                            <div class="dt-responsive tbl" >
-                                <table id="nTable" class="table">
-                                    <thead>
-                                     
-                                        <tr>
-                                           
-                                            <th>Visit Date</th>
-                                            <th>Action</th>                        
-                                        </tr>
-                                    </thead>
-                                    <tbody id="neckData">
-                                       
-                                        
-                                    </tbody>
-                                </table>
-                             </div>
-                        </div>
-                            <!-- <div> -->
-                        </div>
-                    </div>
-                </div>
-
-                   <div class="tab-pane fade" id="ques" role="tabpanel" aria-labelledby="pills-profile-tab">
-                               
-                <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#backPain"> Add Back Pain Question</button>
-                    <div class="container-fluid">
-                   
-                        <div class="card"> 
-                        
-                           
-                            <div class="card-body c">
-                            <!-- <div style="overflow-x:auto;"> -->
-                            <div class="dt-responsive tbl" >
-                                <table id="bTable" class="table">
-                                    <thead>
-                                     
-                                        <tr>
-                                           
-                                            <th>Visit Date</th>
-                                            
-                                          
-                                           
-                                            <th>Action</th>                        
-                                        </tr>
-                                    </thead>
-                                    <tbody id="backData">
-                                       
-                                        
-                                        
-                                    </tbody>
-                                </table>
-                             </div>
-                        </div>
-                            <!-- <div> -->
-                        </div>
-                    </div>
-                </div>
-
-
                 <div class="tab-pane fade" id="cervical" role="tabpanel" aria-labelledby="pills-profile-tab">
-                               
-                               <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#cervicalSpine">Add Cervical Spine Assessment</button>
                                    <div class="container-fluid">
-                                  
                                        <div class="card"> 
-                                       
-                                    
                                            <div class="card-body c">
-                                           <!-- <div style="overflow-x:auto;"> -->
-                                           <div class="dt-responsive tbl" >
-                                               <table id="cTable" class="table">
+                                           <div class="dt-responsive tbl">
+                                               <table id="cApp" class="table">
                                                    <thead>
-                                                    
                                                        <tr>
-                                                          
-                                                           <th>Visit Date</th>
-                                                           
-                                                         
-                                                          
+                                                           <th>Appointment Date</th>
+                                                           <th>Doctor Name</th>
+                                                           <th>Scheduled By</th>
                                                            <th>Action</th>                        
                                                        </tr>
                                                    </thead>
-                                                   <tbody id="carvicalData">
-                                                      
-                                                       
-                                                       
+                                                   <tbody id="cAppData">
                                                    </tbody>
                                                </table>
                                             </div>
@@ -667,10 +541,7 @@
         </div>
     </div>
 </div>
-<script src="jscode/getLumbarSpine.js"></script>
-<script src="jscode/getneckDisblity.js"></script>
-<script src="jscode/getBackPain.js"></script>
-<script src="jscode/getCervicalSpine.js"></script>
+<script src="jscode/cancel-appointment.js"></script>
 <script src="jscode/patient_profile.js"></script>
 
 <script src="jscode/getReffName.js"></script>
@@ -680,8 +551,4 @@
 <script src="jscode/loadFile.js"></script>
 <script src="jscode/uploadProfile.js"></script>
 
-<?php include 'lumbar-spin-assesment.php';?>
-<?php include 'neck-disability.php';?>
-<?php include 'low-backPainQues.php';?>
-<?php include 'carvical-spineAssessment.php';?>
 
