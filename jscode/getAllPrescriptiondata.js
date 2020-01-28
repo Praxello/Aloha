@@ -26,3 +26,27 @@ function loadMedicineDosage(id) {
     $('#evining' + id).html(dropDownList);
     $('#night' + id).html(dropDownList);
 }
+
+var getWitals = (patientId, today) => {
+    $.ajax({
+        url: url + 'getPatientWitals.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+            patientId: patientId,
+            visitDate: today
+        },
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                $('#bp').val(response.Data.bp);
+                $('#pulse').val(response.Data.pulse);
+                $('#height').val(response.Data.height);
+                $('#weight').val(response.Data.weight);
+                $('#west').val(response.Data.waist);
+                $('#hip').val(response.Data.hip);
+                $('#temp').val(response.Data.temperature);
+                $('#spo2').val(response.Data.spo2);
+            }
+        }
+    });
+};

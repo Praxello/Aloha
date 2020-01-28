@@ -97,3 +97,4 @@ function fill_prev(response) {
         $('#prevData').append(tblData);
     }
 }
+getWitals(u_patientId, global_date);

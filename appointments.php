@@ -44,64 +44,52 @@ if (isset($_SESSION['userId'])) {
                 <?php include 'sidebar.php'; ?>
                 <div id="editProfile"></div>
                 <div class="main-content" id="tData">
-                    <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#demoModal">Take an appointment</button>
                     <div class="container-fluid">
 
                         <div class="card">
                             <div class="card-header row">
                                 <div class="col col-sm-3">
-                                    <div class="card-options d-inline-block">
-                                        <a href="#"><i class="ik ik-inbox"></i></a>
-                                        <a href="#"><i class="ik ik-plus"></i></a>
-                                        <a href="#"><i class="ik ik-rotate-cw"></i></a>
-                                        <div class="dropdown d-inline-block">
-                                            <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ik ik-more-horizontal"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="moreDropdown">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">More Action</a>
-                                            </div>
+                                <div class="card-search with-adv-search dropdown">
+                                        <div class="form-group">
+                                            <label for="birthDate">Appointment Date</label>
+                                            <input id="dropper-max-year" class="form-control" type="text"  placeholder="select date" onchange="fetch(this.value);"/>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col col-sm-6">
-                                    <div class="card-search with-adv-search dropdown">
-                                        <div class="form-group">
-                                            <label for="birthDate">Appointments search</label>
-                                            <input id="dropper-max-year" class="form-control" type="text" name="birthDate" placeholder="select date" onchange="fetch(this.value);"/>
-                                        </div>
-                                    </div>
+                                <div class="col col-sm-2">
+                                <strong>Total Patients:<span id="totalPatient"></span></strong>
+                                   
+                                </div>
+                                <div class="col col-sm-2">
+                                <strong>New Patients:<span id="newPatients"></span></strong>
+                                </div>
+                                <div class="col col-sm-2">
+                                <strong>Consulted:<span id="consulted"></span></strong>
                                 </div>
                                 <div class="col col-sm-3">
-                                    <div class="card-options text-right">
-                                        <span class="mr-5" id="top">1 - 50 of 2,500</span>
-                                        <a href="#"><i class="ik ik-chevron-left"></i></a>
-                                        <a href="#"><i class="ik ik-chevron-right"></i></a>
-                                    </div>
-                                </div>
+                                   
+                                   </div>
                             </div>
                             <div class="card-body">
                                 <table id="aTable" class="table">
                                     <thead>
                                         <tr>
-
-                                            <th class="nosort">Patient Profile</th>
+                                            <th class="nosort">Profile</th>
                                             <th>Patient Name</th>
-                                            <th>Doctor</th>
-                                            <th>Scheduled by</th>
-                                            <th>Appointment Date</th>
-                                            <th>Action</th>
+                                            <th>Reffered by</th>
+                                            <th>Fees status</th>
+                                            <th>Patient Type</th>
+                                            <th class="nosort">#</th>
                                         </tr>
                                     </thead>
                                     <tbody id="aptData">
-
-
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
+                
                 <div id="loader"></div>
                 <footer class="footer">
                     <div class="w-100 clearfix">

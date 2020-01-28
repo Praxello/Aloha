@@ -56,7 +56,7 @@
 
                     
 
-                    <div class="modal fade full-window-modal" id="fullwindowModal" tabindex="-1" role="dialog"
+                    <div class="modal fade full-window-modal" id="presentIllness" tabindex="-1" role="dialog"
                         aria-labelledby="fullwindowModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="modal-body">
 
-        <form id="presentillnessform" method="POST" class="forms-sample" enctype="multipart/form-data">
+                             <form id="presentillnessform" method="POST" class="forms-sample" enctype="multipart/form-data">
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-md-6">
@@ -475,10 +475,10 @@
                                         <button type="submit" class="btn btn-primary"  value="Submit">Save changes</button>
                                     </div>
                                 </div>
-                               
+                                </form>
                             </div>
                         </div>
-                        </form>
+                        
                     </div>
                 </div>
               

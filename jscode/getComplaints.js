@@ -13,8 +13,6 @@ function getComplaints() {
                         complaints.push(response.Data[i].complaint);
                     }
                 }
-                console.log(complaints);
-
             }
         }
     });

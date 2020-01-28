@@ -1,7 +1,7 @@
 var neckDisiblity = new Map();
 var neck_details = {};
 // var patientId_ap = null;
-const getNeckDisblity = (patientId) => {
+var getNeckDisblity = (patientId) => {
     $.ajax({
         url: url + 'getNeckDisblity.php',
         type: 'POST',
@@ -21,7 +21,7 @@ const getNeckDisblity = (patientId) => {
     });
 };
 
-const showNeckDisiblity = neckDisiblity => {
+var showNeckDisiblity = neckDisiblity => {
     $('#nTable').dataTable().fnDestroy();
     $('#neckData').empty();
     var tblData = '';
@@ -49,7 +49,7 @@ const showNeckDisiblity = neckDisiblity => {
     });
 };
 
-const editneck = (neckId) => {
+var editneck = (neckId) => {
     neckId = neckId.toString();
     neck_details = neckDisiblity.get(neckId);
     global_date = neck_details.visitDate;

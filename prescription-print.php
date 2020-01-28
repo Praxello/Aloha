@@ -309,8 +309,6 @@ $html = '<!DOCTYPE html>
                                 </tr>
                                 </table>
 
-
-
             </div>
             <footer style="text-align:center;padding-left:400px;"><strong>'.$sign.'</strong></footer>
 
