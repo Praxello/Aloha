@@ -263,7 +263,6 @@ function absentList() {
 }
 
 function fill_search_data(call) {
-    console.log(call);
     $('#firstName').val(call.firstName);
     $('#middleName').val(call.middleName);
     $('#lastName').val(call.lastName);

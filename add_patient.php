@@ -90,7 +90,7 @@
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
                                                                     <label for="referredby">Referred By</label>
-                                                                    <select id="referredby" name="referredby" class="form-control"></select>
+                                                                    <select id="referredby" name="referredby" class="form-control" style="width: 100%;"></select>
                                                                 </div>
                                                             </div> 
                                                       </div> 
