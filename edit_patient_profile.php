@@ -548,10 +548,7 @@
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 <script src="jscode/cancel-appointment.js"></script>
-=======
->>>>>>> a9527c24ba2c436623a47d9c30b3abb2bb2086bb
 <script src="jscode/patient_profile.js"></script>
 
 <script src="jscode/getReffName.js"></script>
@@ -562,9 +559,5 @@
 <script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="jscode/uploadProfile.js"></script>
-<<<<<<< HEAD
-
-=======
 <?php include 'add_reffName.php';?>
->>>>>>> a9527c24ba2c436623a47d9c30b3abb2bb2086bb
 
