@@ -124,12 +124,12 @@
                                                      <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
-                                                                    <label for="country">Country</label>
+                                                                <label for="country">Country</label>
                                                  
-                                                                    <select  class="form-control select2" id="country" name="country" placeholder="country" onchange="loadStates(this.value);">
-                                                                      
-                                                                     
-                                                                    </select>
+                                                 <select  class="form-control select2" id="country" name="country" onchange="loadStates(this.value);" placeholder="country">
+                                                   
+                                                  
+                                                 </select>
                                                                 </div>
                                                             </div> 
                                                             <div class="col-md-4">

@@ -310,7 +310,7 @@
                                                                 <div class="form-group">
                                                                     <label for="country">Country</label>
                                                  
-                                                                    <select  class="form-control select2" id="country" name="country"  onchange="loadCities(this.value);" placeholder="country">
+                                                                    <select  class="form-control select2" id="country" name="country" onchange="loadStates(this.value);" placeholder="country">
                                                                       
                                                                      
                                                                     </select>
@@ -319,7 +319,7 @@
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
                                                                     <label for="state">State</label> 
-                                                                    <select  class="form-control select2" id="state" name="state" placeholder="state" onchange="loadStates(this.value);">
+                                                                    <select  class="form-control select2" id="state" name="state" placeholder="state" onchange="loadCities(this.value);">
                                                                        
                                                                     </select>
                                                                 </div>
