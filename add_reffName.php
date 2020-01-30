@@ -50,14 +50,15 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="address">Mobile No.</label>
-                                        <input type="text" class="form-control" id="refmo" name="refmo" placeholder="Mobile No">
+                                        <input type="text" class="form-control" id="refmo" name="refmo" placeholder="Mobile No"
+                                        ng-pattern="/^[0-9]*$/" onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="birthDate">Birth Date</label>
-                                        <input id="dropper-max-year" class="form-control" type="date" name="birthDate" placeholder="Max Yr 2020" />
+                                        <input id="birthDate1" class="form-control" type="date" name="birthDate1" placeholder="Max Yr 2020" />
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +98,7 @@
                 <div class="modal-footer">
 
                     <input type="submit" class="btn btn-primary mr-2" value="Submit">
-                    <button class="btn btn-light" id="cButton" data-dismiss="modal">Cancel</button>
+                    <button class="btn btn-light"  data-dismiss="modal">Cancel</button>
                 </div>
 
             </div>

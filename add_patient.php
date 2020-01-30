@@ -51,7 +51,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="birthDate">Birth Date</label>
-                                                                    <input id="dropper-max-year" class="form-control" type="text" name="birthDate" placeholder="Max Yr 2020" />
+                                                                    <input id="dropper-max-year" class="form-control" type="date" name="birthDate" placeholder="Max Yr 2020" />
                                                                 </div>
                                                             </div> 
                                                             <div class="col-md-4">
@@ -69,46 +69,55 @@
                                                         <h5>Medical Details:</h5                                                                                >
                                                      <div class="row">                                                                                            
                                                          
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="mobile1">Height</label>
-                                                                    <input type="text" class="form-control" id="height" name="height" placeholder="height">
+                                                                    <input type="text" class="form-control" id="height" name="height" placeholder="height" >
                                                                 </div>
                                                             </div> 
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="weight">Weight</label>
                                                                     <input type="text" class="form-control" id="weight" name="weight" placeholder="weight">
                                                                 </div>
                                                             </div> 
-                                                            <div class="col-md-3">
+                                                            <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="occupation">occupation</label>
                                                                     <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation">
                                                                 </div>
                                                             </div> 
-                                                            <div class="col-md-3">
+                                                           
+                                                      </div> 
+                                                      <div class="row">
+                                                      <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="referredby">Referred By</label>
                                                                     <select id="referredby" name="referredby" class="form-control" style="width: 100%;"></select>
                                                                 </div>
                                                             </div> 
-                                                      </div> 
 
-                                                       
+                                                            <div class="col-md-1">
+                                        <div class="form-group">
+                                              <button class="btn btn-success"  style="margin-top:30px" type="button" data-toggle="modal" data-target="#exampleModal">+</button>  </div>
+                                        </div>
+                                                    </div>
+
+                                           
                                                       <h5>Contact Details:</h5>
 
                                                      <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="address">Mobile No.</label>
-                                                                    <input type="text" class="form-control" id="mobile1" name="mobile1" placeholder="Mobile No">
+                                                                    <input type="text" class="form-control" id="mobile1" name="mobile1" placeholder="Mobile No"
+                                                                    ng-pattern="/^[0-9]*$/" onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
                                                                 </div>
                                                             </div> 
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="email">Email</label>
-                                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                                                                  <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                                                                 </div>
                                                             </div> 
                                                             <div class="col-md-4">
@@ -122,32 +131,35 @@
                                                      </div>                                                                                               
                                                    
                                                      <div class="row">
-                                                            <div class="col-md-4">
+                                                     <div class="col-md-4">
                                                                 <div class="form-group">
-                                                                <label for="country">Country</label>
+                                                                    <label for="country">Country</label>
                                                  
-                                                 <select  class="form-control select2" id="country" name="country" onchange="loadStates(this.value);" placeholder="country">
-                                                   
-                                                  
-                                                 </select>
+                                                                    <select  class="form-control select2" id="country" name="country" style="width: 100%;" onchange="loadStates(this.value);" placeholder="country"  >
+                                                                      
+                                                                     
+                                                                    </select>
                                                                 </div>
                                                             </div> 
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="state">State</label> 
                                                                     <select  class="form-control select2" id="state" name="state" placeholder="state" onchange="loadCities(this.value);">
-                                                                      
+                                                                       
                                                                     </select>
                                                                 </div>
                                                             </div> 
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="city">City</label>
-                                                                    <input type="text" class="form-control" id="city" name="city" placeholder="city">
+                                                                    <select  class="form-control select2" id="city" name="city" placeholder="city"></select>
+                                                       
                                                                 </div>
                                                             </div>  
-                                                                   
-                                                     </div> 
+                                                          
+                                                           
+                                                    
+                                                     </div>  
 
                                                      <div class="row">
                                              
@@ -163,7 +175,7 @@
                                         <div class="modal-footer">
                                             
                                             <input type="submit" class="btn btn-primary mr-2" value="Submit">
-                                            <button class="btn btn-light" id="cButton" data-dismiss="modal">Cancel</button> 
+                                            <button class="btn btn-light" id="cButton"  data-dismiss="modal">Cancel</button> 
                                         </div>
                                     </form>
                                     </div>
@@ -175,4 +187,5 @@
                     <script src="jscode/patient_validation.js"></script>
                     <script src="jscode/addPatient.js"></script>
                     <script src="jscode/getReffName.js"></script>
-                    <script src="jscode/getcscRefName.js"></script>
+                    <script src="jscode/getCountryStateCity.js"></script>
+                    <?php include 'add_reffName.php';?>

@@ -6,12 +6,11 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-$dir = '../upload/referringImage/';
-if ( isset($_POST['Name'])) {
+if (isset($_POST['username']) && isset($_POST['password'])) {
     
- 
-    $sql = "INSERT INTO referring_master(doctorName,email,mobile1,birthDate,address) 
-     VALUES ('$Name','$refemail','$refmo','$birthDate1','$address')";
+    
+    $sql = "INSERT INTO user_master(username,password,mobile,addharId,usertype,designation,address,firmName,sign) 
+     VALUES ('$username','$password','$mobile','$addharId','$usertype','$designation','$address','$firmName','$sign')";
     
     $query = mysqli_query($conn, $sql);
     
@@ -19,14 +18,8 @@ if ( isset($_POST['Name'])) {
     
     
     if ($rowsAffected == 1) {
-        $refferId     = $conn->insert_id;
-        if (isset($_FILES["imgPic"]["type"])) {
-            $imgname    = $_FILES["imgPic"]["name"];
-            $sourcePath = $_FILES['imgPic']['tmp_name']; // Storing source path of the file in a variable
-            $targetPath = $dir . $refferId . ".jpg"; // Target path where file is to be stored
-            move_uploaded_file($sourcePath, $targetPath); // Moving Uploaded file
-        }
-        $academicQuery = mysqli_query($conn, "SELECT * FROM referring_master where  refferId  = $refferId");
+        $userId  = $conn->insert_id;
+        $academicQuery = mysqli_query($conn, "SELECT * FROM user_master where userId = $userId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
@@ -35,7 +28,7 @@ if ( isset($_POST['Name'])) {
             }
         }
         $response = array(
-            'Message' => "Added Successfull",
+            'Message' => "User Added Successfull",
             "Data" => $records,
             'Responsecode' => 200
         );

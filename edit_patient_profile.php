@@ -179,7 +179,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="maritalstatus">Marital Status</label>
-                                                <select name="maritalstatus" id="maritalstatus1" class="form-control">
+                                                <select name="maritalstatus" id="maritalstatus" class="form-control">
                                                     <option value="Single">Single</option>
                                                     <option value="Married">Married</option>
                                                     <option value="Divorced">Divorced</option>
@@ -404,7 +404,7 @@
                                                         </div>
                                                         <div class="checkbox-fade fade-in-success">
                                                             <label>
-                                                                <input type="checkbox" value="1" name="hardDrink" id="hardDrink">
+                                                                <input type="checkbox" value="1" name="hardDrink" id="p">
                                                                 <span class="cr">
                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                 </span>
@@ -437,73 +437,6 @@
 
                                         </div>                                                          
 
-                                        <!-- <h5>Select Default Option</h5>
-                                                    
-                                        <div class="col-sm-12 col-xl-12 mb-30">
-                                            <div class="checkbox-fade fade-in-success">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="alcohol" id="alcohol">
-                                                    <span class="cr">
-                                                        <i class="cr-icon ik ik-check txt-success"></i>
-                                                    </span>
-                                                    <span>Alcohol</span>
-                                                </label>
-                                            </div>
-                                            <div class="checkbox-fade fade-in-success">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="tobacco" id="tobacco">
-                                                    <span class="cr">
-                                                        <i class="cr-icon ik ik-check txt-success"></i>
-                                                    </span>
-                                                    <span>Tobacco</span>
-                                                </label>
-                                            </div>
-                                            <div class="checkbox-fade fade-in-success">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="diabetes" id="diabetes">
-                                                    <span class="cr">
-                                                        <i class="cr-icon ik ik-check txt-success"></i>
-                                                    </span>
-                                                    <span>Diabetes</span>
-                                                </label>
-                                            </div>
-                                            <div class="checkbox-fade fade-in-success">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="smoking" id="smoking">
-                                                    <span class="cr">
-                                                        <i class="cr-icon ik ik-check txt-success"></i>
-                                                    </span>
-                                                    <span>Smoking</span>
-                                                </label>
-                                            </div>
-                                            <div class="checkbox-fade fade-in-success">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="HTN" id="HTN">
-                                                    <span class="cr">
-                                                        <i class="cr-icon ik ik-check txt-success"></i>
-                                                    </span>
-                                                    <span>HTN</span>
-                                                </label>
-                                            </div>
-                                            <div class="checkbox-fade fade-in-success">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="cholestrol" id="cholestrol">
-                                                    <span class="cr">
-                                                        <i class="cr-icon ik ik-check txt-success"></i>
-                                                    </span>
-                                                    <span>Cholesterol</span>
-                                                </label>
-                                            </div>
-                                            <div class="checkbox-fade fade-in-success">
-                                                <label>
-                                                    <input type="checkbox" value="1" name="hardDrink" id="hardDrink">
-                                                    <span class="cr">
-                                                        <i class="cr-icon ik ik-check txt-success"></i>
-                                                    </span>
-                                                    <span>Hard Drink</span>
-                                                </label>
-                                            </div>
-                                        </div> -->
                                     </div>
                                     <div class="form-group">
                                         <label for="remarks">Remark</label>

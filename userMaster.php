@@ -1,7 +1,7 @@
-<?php
+ <?php
 session_start();
 if(isset($_SESSION['branchId'])){
-    ?>
+    ?>  
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -48,10 +48,10 @@ if(isset($_SESSION['branchId'])){
             <div class="page-wrap">
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
-                <div id="editProfile"></div>
-                <div class="main-content template-demo " id="tData">
+                <div id="editUserNew"></div>
+                <div class="main-content template-demo " id="newUser">
                 
-                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#demoModal">Add New Patient</button>
+                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#userModal">Add New User</button>
                     <div class="container-fluid">
                    
                         <div class="card">
@@ -72,7 +72,7 @@ if(isset($_SESSION['branchId'])){
                                     </div>
                              
                                 </div>
-                                <div class="col col-sm-6">
+                                <!-- <div class="col col-sm-6">
                                     <div class="card-search with-adv-search dropdown">
                                         <form action="">
                                             <input type="text" class="form-control global_filter" id="global_filter" placeholder="Search.." required>
@@ -115,33 +115,32 @@ if(isset($_SESSION['branchId'])){
                                             </div>
                                         </form>
                                     </div>
-                                </div>
-                                <div class="col col-sm-3">
+                                </div> -->
+                                <!-- <div class="col col-sm-3">
                                     <div class="card-options text-right">
                                         <span class="mr-5" id="top">1 - 50 of 2,500</span>
                                         <a href="#"><i class="ik ik-chevron-left"></i></a>
                                         <a href="#"><i class="ik ik-chevron-right"></i></a>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="card-body c">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
-                                <table id="pTable" class="table">
+                                <table id="uTable" class="table">
                                     <thead>
                                         <tr>
                                            
-                                            <th class="nosort">Avatar</th>
-                                            <th>Name</th>
-                                            <th>Age</th>
-                                            <th>Contact Number</th>
+                                            <th >Id</th>
+                                            <th>User Name</th>
+                                            <th>Mobile</th>
+                                            <th>Addhar Id</th>
+                                            <th>Designation</th>
                                             <th>Address</th>
-                                            <th>Last Visit</th>
-                                            <th>Next Visit</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="patientData">
+                                    <tbody id="userData">
                                        
                                         
                                         
@@ -168,12 +167,12 @@ if(isset($_SESSION['branchId'])){
             window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
         </script>
          <script>
-       var data = {
+      var data = {
 userId:<?php echo $_SESSION['userId'];?>,
 branchId:<?php echo $_SESSION['branchId'];?>,
 username:'<?php echo $_SESSION['username'];?>'
 };
-       </script>
+      </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -192,27 +191,13 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="plugins/c3/c3.min.js"></script>
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
-         <?php include 'add_patient.php';?>
-       <?php include 'take-appointment.php';?>
-       <?php include 'opd-payments.php';?>
-       <?php include 'opd-generatePayments.php';?>
-        
      
+        <?php include 'add_NewUser.php';?>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-   
-       <script src="jscode/getDateFormat.js"></script>
-       <script src="jscode/getAge.js"></script>
-       <script src="jscode/patients.js"></script>
-       <script src="jscode/getUsers.js"></script>
-       <script src="jscode/loadUsers.js"></script>
-       <script src="jscode/branchUsers.js"></script>
-       <script src="jscode/getPayments.js"></script>
-       <script src="jscode/getAllTests.js"></script>
-       <script src="jscode/loadFile.js"></script>
-       <script src="jscode/loadTest.js"></script>
-       <script src="jscode/getPreviousPayments.js"></script>
-       <script src="jscode/prescribeTestTable.js"></script>
+      
+        <script src="jscode/getUserMaster.js"></script>
+    
     </body>
 
 </html>

@@ -40,11 +40,11 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
     
     $sql = "INSERT INTO patient_master (firstName,middleName,surname,gender,height,weight,birthDate,religion ,allergy,email,mobile1,mobile2,
      landline,city,address,referredby,firstVisitDate,lastVisitDate,nextVisitDate,smoking,alcohol,tobacco,HTN,diabetes, 
-     cholestrol,history,occupation,lifestyle,urban,economicStrata,country,state,maritalstatus,pincode,remarks) 
+     cholestrol,history,occupation,lifestyle,urban,economicStrata,country,state,maritalstatus,pincode,remarks,hardDrink) 
      VALUES ('$firstName', '$middleName', '$surname', '$gender', '$height', '$weight', '$birthDate', '$religion', '$allergy',
       '$email', '$mobile1', '$mobile2', '$landline', '$city', '$address', '$referredby', '$firstVisitDate', '$lastVisitDate', '$nextVisitDate',
        '$smoking', '$alcohol', '$tobacco', '$HTN', '$diabetes', '$cholestrol', '$history', '$occupation', '$lifestyle', '$urban', '$economicStrata','$country','$state',
-       '$maritalstatus','$pincode','$remarks')";
+       '$maritalstatus','$pincode','$remarks','$hardDrink')";
     
     $query = mysqli_query($conn, $sql);
     
@@ -55,6 +55,12 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
             $imgname    = $_FILES["imgname"]["name"];
             $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable
             $targetPath = $dir . $patientId . ".jpg"; // Target path where file is to be stored
+            move_uploaded_file($sourcePath, $targetPath); // Moving Uploaded file
+        }
+        if (isset($_FILES["imgPic"]["type"])) {
+            $imgname    = $_FILES["imgPic"]["name"];
+            $sourcePath = $_FILES['imgPic']['tmp_name']; // Storing source path of the file in a variable
+            $targetPath = $dir . $refferId . ".jpg"; // Target path where file is to be stored
             move_uploaded_file($sourcePath, $targetPath); // Moving Uploaded file
         }
         $academicQuery = mysqli_query($conn, "SELECT * FROM patient_master where patientId = $patientId");
@@ -68,19 +74,22 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
         $response = array(
             'Message' => "Patient Added Successfull",
             "Data" => $records,
+            "sql" => $sql,
             'Responsecode' => 200
         );
         
     } else {
         $response = array(
             'Message' => mysqli_error($conn) . " failed",
-            'Responsecode' => 500
+            'Responsecode' => 500,
+            "sql" => $sql
         );
     }
 } else {
     $response = array(
         "Message" => "Parameters missing",
         "Responsecode" => 403
+       
     );
 }
 mysqli_close($conn);

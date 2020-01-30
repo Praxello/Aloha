@@ -50,6 +50,12 @@
                                 <div class="nav-item">
                                     <a href="#"><i class="ik ik-menu"></i><span>Expenses</span> <span class="badge badge-success"></span></a>
                                 </div>
+                                <div class="nav-item">
+                                    <a href="branchMaster.php"><i class="ik ik-menu"></i><span>Branch Master</span> <span class="badge badge-success"></span></a>
+                                </div>
+                                <div class="nav-item">
+                                    <a href="userMaster.php"><i class="ik ik-user"></i><span>User Master</span> <span class="badge badge-success"></span></a>
+                                </div>
                             </nav>
                         </div>
                     </div>

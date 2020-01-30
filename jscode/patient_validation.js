@@ -25,16 +25,20 @@ $(function() {
                     required: true
                 },
                 height :{
-                    required :true
+                    required :true,
+                    number : true
                 },
                 occupation :{
                     required :true
+                
                 },
                 referredby:{
                     required :true
+               
                 },
                 weight:{
-                required :true
+                required :true,
+                number :true
             }
 
             },
@@ -62,7 +66,8 @@ $(function() {
 
                 },
                 height:{
-                    required: "Please enter height"
+                    required: "Please enter height",
+                    number: "enter valid number"
                 },
                 occupation:{
                     required: "Please enter occupation"
@@ -72,7 +77,8 @@ $(function() {
                 },
         
                 weight:{
-                    required: "Please enter weight"
+                    required: "Please enter weight",
+                    number: "enter valid number"
                 }
         
         

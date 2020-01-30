@@ -23,11 +23,9 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                <div class="card">
-                                    <!-- <div class="card-header">  Details                             
-
-                                                    </div> -->
-                                    <div class="card-body" style="background-color: aliceblue;">
+                                <div class="card" style="margin-bottom: 11px;">
+                               
+                                    <div class="card-body" style="background-color: aliceblue;padding-bottom: 0px;">
                                         <div class="col-md-12 tbl">
 
                                             <div class="row">

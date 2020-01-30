@@ -12,7 +12,9 @@ const loadPatientDetails = details => {
     $('#surname').val(details.surname);
     $('#maritalstatus').val(details.maritalstatus).trigger('change');;
     $('#religion').val(details.religion);
-    $('#country').val(details.country);
+    // $('#country').val(details.country);
+    
+	$('#country option:selected').text()
     $('#state').val(details.state);
     $('#city').val(details.city);
     $('#pincode').val(details.pincode);
@@ -33,7 +35,9 @@ const loadPatientDetails = details => {
         $('#HTN').attr("checked", true);
     if (details.cholestrol == 1)
         $('#cholestrol').attr("checked", true);
-
+       
+     if (details. hardDrink == 1)
+        $('#hardDrink').attr("checked", true);
     $('#mobile1').val(details.mobile1);
     $('#email').val(details.email);
     $('#landline').val(details.landline);

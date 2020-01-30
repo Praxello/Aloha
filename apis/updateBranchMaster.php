@@ -6,27 +6,21 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-$dir = '../upload/referringImage/';
-if ( isset($_POST['Name'])) {
+
+if (isset($_POST['branchId']) && isset($_POST['branchName']) ) {
     
- 
-    $sql = "INSERT INTO referring_master(doctorName,email,mobile1,birthDate,address) 
-     VALUES ('$Name','$refemail','$refmo','$birthDate1','$address')";
+
+    
+    $sql = "UPDATE hospital_branch_master SET branchId='$branchId',branchName='$branchName'";
+  
     
     $query = mysqli_query($conn, $sql);
     
     $rowsAffected = mysqli_affected_rows($conn);
-    
-    
     if ($rowsAffected == 1) {
-        $refferId     = $conn->insert_id;
-        if (isset($_FILES["imgPic"]["type"])) {
-            $imgname    = $_FILES["imgPic"]["name"];
-            $sourcePath = $_FILES['imgPic']['tmp_name']; // Storing source path of the file in a variable
-            $targetPath = $dir . $refferId . ".jpg"; // Target path where file is to be stored
-            move_uploaded_file($sourcePath, $targetPath); // Moving Uploaded file
-        }
-        $academicQuery = mysqli_query($conn, "SELECT * FROM referring_master where  refferId  = $refferId");
+        $branchId = $conn->insert_id;
+     
+        $academicQuery = mysqli_query($conn, "SELECT * FROM hospital_branch_master where branchId = $branchId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
@@ -35,8 +29,9 @@ if ( isset($_POST['Name'])) {
             }
         }
         $response = array(
-            'Message' => "Added Successfull",
+            'Message' => "Update Branch Successfull",
             "Data" => $records,
+            "sql" => $sql,
             'Responsecode' => 200
         );
         
@@ -44,14 +39,13 @@ if ( isset($_POST['Name'])) {
         $response = array(
             'Message' => mysqli_error($conn) . " failed",
             'Responsecode' => 500,
-            "Data" => $records
+            "sql" => $sql
         );
     }
 } else {
     $response = array(
         "Message" => "Parameters missing",
         "Responsecode" => 403
-        
     );
 }
 mysqli_close($conn);
