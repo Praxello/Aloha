@@ -6,20 +6,15 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if(isset($_POST['doctorId'])){
-$sql = "SELECT pdas.appointmentId,pdas.appointmentDate,pdas.scheduledBy,pdas.patientId,pm.firstName,pm.surname,um.username,
-rm.doctorName,pm.firstVisitDate,pdas.doctorId
-FROM patient_doctor_appointment_scheduling pdas INNER JOIN patient_master pm ON pm.patientId = pdas.patientId 
-INNER JOIN user_master um ON um.userId = pdas.doctorId LEFT JOIN referring_master rm ON pm.referredby = rm.refferId
-WHERE pdas.doctorId = $doctorId  ORDER BY pdas.appointmentDate DESC";
+if(isset($_POST['doctorId']) && isset($_POST['patientId']) && isset($_POST['visitDate'])){
+$sql = "SELECT opm.received  fees FROM opd_patient_payment_master opm WHERE opm.patientId = $patientId 
+AND opm.doctorId = $doctorId AND opm.visitDate = '$visitDate'";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
     if ($academicAffected > 0) {
-        while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
-            $records[] = $academicResults;
-        }
-        
+        $academicResults = mysqli_fetch_assoc($jobQuery);
+            $records = $academicResults;
         $response = array(
             'Message' => "All Appointment Data Fetched successfully",
             "Data" => $records,

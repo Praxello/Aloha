@@ -56,6 +56,7 @@ function fetch_previous_prescription(u_patientId) {
 }
 
 function fill_prev(response) {
+    console.log(response);
     var count = response.length;
     for (var i = 0; i < count; i++) {
         var tblData = '',
@@ -63,6 +64,14 @@ function fill_prev(response) {
         tblData += '<div class="card">';
         tblData += '<div class="card-header"><h3 class="d-block w-100"> ' + getDate(response[i].visitDate) + '</h3></div>';
         tblData += '<div class="card-body">';
+        tblData += '<div class="row invoice-info">';
+        tblData += '<div class="col-sm-6">';
+        tblData += '<div>Branch:';
+        tblData += response[i].branchName;
+        tblData += '</div> </div> <div class="col-sm-6">';
+        tblData += '<div>Doctor:';
+        tblData += response[i].username;
+        tblData += '</div> </div> </div>';
         tblData += '<div class="row invoice-info">';
         tblData += '<div class="col-sm-6 invoice-col">';
         tblData += '<div class="alert alert-secondary mt-20">Complaints:';

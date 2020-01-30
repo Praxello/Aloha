@@ -76,6 +76,7 @@ if (isset($_SESSION['userId'])) {
                                         <tr>
                                             <th class="nosort">Profile</th>
                                             <th>Patient Name</th>
+                                            <th>is consulted</th>
                                             <th>Reffered by</th>
                                             <th>Fees status</th>
                                             <th>Patient Type</th>
