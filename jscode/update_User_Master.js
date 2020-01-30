@@ -5,8 +5,8 @@ $('#userMasterForm').on('submit', function(e) {
     if (returnVal) {
         var fData = new FormData(this);
         console.log(fData);
-            // fData.append('userId', $('#userId').val());
-            //  console.log(userId);
+        fData.append('userId',userId_np);
+   
    
 
         $.ajax({
@@ -27,7 +27,10 @@ $('#userMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                   
+                    $('#editUserNew').empty();
+                    $('#newUser').show();
+                    users.set(response.Data.userId, response.Data);
+                    listUsers(users);
 
                 } else {
                     swal({

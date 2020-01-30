@@ -7,14 +7,12 @@ $response = null;
 $records  = null;
 extract($_POST);
 
-if (isset($_POST['userId']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['mobile']) && isset($_POST['addharId']) && isset($_POST['usertype'])
-    && isset($_POST['designation']) && isset($_POST['address']) && isset($_POST['firmName'])) {
+if (isset($_POST['feesId']) && isset($_POST['feesType']) && isset($_POST['fee'])) {
     
 
-    $address = mysqli_real_escape_string($conn, $address);
+
     
-    $sql = "UPDATE  user_master SET username='$username',password='$password',mobile='$mobile',addharId='$addharId',usertype ='$usertype',designation = '$designation',
-    address='$address',firmName = '$firmName' WHERE userId='$userId'";
+    $sql = "UPDATE doctor_fees_master SET feesType='$feesType',fee = '$fee' WHERE feesId='$feesId'";
   
     
     $query = mysqli_query($conn, $sql);
@@ -22,8 +20,7 @@ if (isset($_POST['userId']) && isset($_POST['username']) && isset($_POST['passwo
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
    
-     
-        $academicQuery = mysqli_query($conn, "SELECT * FROM user_master where userId = $userId");
+        $academicQuery = mysqli_query($conn, "SELECT * FROM doctor_fees_master where feesId = $feesId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {

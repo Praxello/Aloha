@@ -404,7 +404,7 @@
                                                         </div>
                                                         <div class="checkbox-fade fade-in-success">
                                                             <label>
-                                                                <input type="checkbox" value="1" name="hardDrink" id="p">
+                                                                <input type="checkbox" value="1" name="hardDrink" id="hardDrink">
                                                                 <span class="cr">
                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                 </span>

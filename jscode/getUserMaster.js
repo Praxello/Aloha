@@ -1,6 +1,6 @@
 var users = new Map();
 var user_details = {};
-
+var  userId_np = null;
 var global_date = moment().format('YYYY-MM-DD');
 const getAllUsers = () => {
     $.ajax({
@@ -57,7 +57,7 @@ getAllUsers();
 const editUser = (userId) => {
     userId = userId.toString();
     user_details = users.get(userId);
-    global_userId = userId;
+    userId_np= userId;
     $('#newUser').hide();
     $('#editUserNew').load('edit_user_profile.php');
 

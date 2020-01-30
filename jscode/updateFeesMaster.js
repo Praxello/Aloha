@@ -1,17 +1,15 @@
-$('#epatientDetails').on('submit', function(e) {
+$('#feesMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-    var returnVal = $("#epatientDetails").valid();
-    if (returnVal) {
-    
+   
         var fData = new FormData(this);
-      
-        fData.append('patientId',patientId_ap );
-    
+        console.log(fData);
+        fData.append('feesId',feesId_np);
+   
    
 
         $.ajax({
-            url: url + 'updatePatients.php',
+            url: url + 'update_FeesMaster.php',
             type: 'POST',
             data: fData,
             cache: false,
@@ -28,10 +26,10 @@ $('#epatientDetails').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    $('#editProfile').empty();
-                    $('#tData').show();
-                    patients.set(response.Data.patientId, response.Data);
-                    listPatients(patients);
+                    $('#editfeesNew').empty();
+                    $('#newFees').show();
+                    feess.set(response.Data.feesId, response.Data);
+                    listFees(feess);
 
                 } else {
                     swal({
@@ -45,5 +43,5 @@ $('#epatientDetails').on('submit', function(e) {
                 }
             }
         });
-    }
+    
 });

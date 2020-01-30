@@ -1,6 +1,6 @@
 <style>
-    .error{
-        color:red;
+    .error {
+        color: red;
     }
 </style>
 
@@ -17,8 +17,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="username">User Name</label>
-                                <input type="text" id="username" name="username" class="form-control" placeholder="User Name"
-                                 onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
+                                <input type="text" id="username" name="username" class="form-control" placeholder="User Name" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -30,8 +29,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="longitude">Mobile Number </label>
-                                <input type="text" id="mobile" name="mobile" class="form-control" placeholder="mobile"  ng-pattern="/^[0-9]*$/"
-                              onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
+                                <input type="text" id="mobile" name="mobile" class="form-control" placeholder="mobile" ng-pattern="/^[0-9]*$/" onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
 
                             </div>
                         </div>
@@ -41,8 +39,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="usertype">Aadhar Number</label>
-                                <input type="text" id="addharId" name="addharId" class="form-control" placeholder="Aadhar Number" ng-pattern="/^[0-9]*$/"
-                                onkeypress="return event.charCode >= 48 && event.charCode <= 57" >
+                                <input type="text" id="addharId" name="addharId" class="form-control" placeholder="Aadhar Number" ng-pattern="/^[0-9]*$/" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -63,9 +60,11 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="address">Address</label>
-                                <textarea id="address" class="form-control" type="text" name="address" placeholder="address" ></textarea>
-                                
+                                <label for="branchName">Branch Name </label>
+                                <select class="form-control select2" id="branchName" name="branchName" placeholder="Branch Name">
+                                    <option value="Pune">Pune</option>
+                                    <option value="mumbai">Mumbai</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -74,29 +73,43 @@
                                 <input id="firmName" class="form-control" type="text" name="firmName" placeholder="firm Name" />
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="fax">sign </label>
-                                <input type="text" class="form-control" id="sign" name="sign" placeholder="sign">
+                        <div class="col-sm-4" style="margin-top: 33px;">
+                        <label for="firmName">Active</label>
+                            <div class="checkbox-fade fade-in-success check">
+                                <label>
+                                    <input type="checkbox" value="active" name="active">
+                                    <span class="cr">
+                                      <i class="cr-icon ik ik-check txt-success"></i>
+                                      </span>
+                                    <span>Yes</span>
+                                </label>
+                            </div>
+
+                        </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <textarea id="address" class="form-control" type="text" name="address" placeholder="address"></textarea>
+
+                                </div>
                             </div>
                         </div>
+                        </div>
 
-                    </div>
+                        <div class="modal-footer">
 
-                  
-                    
-
-                <div class="modal-footer">
-
-                    <input type="submit" class="btn btn-primary mr-2" value="Submit">
-                    <button class="btn btn-light" id="cButton" data-dismiss="modal">Cancel</button>
-                </div>
+                            <input type="submit" class="btn btn-primary mr-2" value="Submit">
+                            <button class="btn btn-light" id="cButton" data-dismiss="modal">Cancel</button>
+                        </div>
                 </form>
+              
             </div>
         </div>
     </div>
-</div>
 
-<script src="jscode/insertUserMaster.js"></script>
-<script src="js/jquery.validate.js"></script>
-<script src="jscode/userMaster_validation.js"></script>
+    <script src="jscode/insertUserMaster.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="jscode/userMaster_validation.js"></script>

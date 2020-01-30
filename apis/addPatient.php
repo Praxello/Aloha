@@ -8,7 +8,7 @@ $records  = null;
 extract($_POST);
 $dir = '../upload/patients/';
 if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birthDate']) && isset($_POST['mobile1']) && isset($_POST['address']) && isset($_POST['gender'])
- && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode'])) {
+ && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode']) ) {
     
     $middleName     = isset($_POST['middleName']) ? $_POST['middleName'] : 'NULL';
     $height         = isset($_POST['height']) ? $_POST['height'] : 'NULL';
@@ -40,11 +40,11 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
     
     $sql = "INSERT INTO patient_master (firstName,middleName,surname,gender,height,weight,birthDate,religion ,allergy,email,mobile1,mobile2,
      landline,city,address,referredby,firstVisitDate,lastVisitDate,nextVisitDate,smoking,alcohol,tobacco,HTN,diabetes, 
-     cholestrol,history,occupation,lifestyle,urban,economicStrata,country,state,maritalstatus,pincode,remarks,hardDrink) 
+     cholestrol,history,occupation,lifestyle,urban,economicStrata,country,state,maritalstatus,pincode,remarks) 
      VALUES ('$firstName', '$middleName', '$surname', '$gender', '$height', '$weight', '$birthDate', '$religion', '$allergy',
       '$email', '$mobile1', '$mobile2', '$landline', '$city', '$address', '$referredby', '$firstVisitDate', '$lastVisitDate', '$nextVisitDate',
        '$smoking', '$alcohol', '$tobacco', '$HTN', '$diabetes', '$cholestrol', '$history', '$occupation', '$lifestyle', '$urban', '$economicStrata','$country','$state',
-       '$maritalstatus','$pincode','$remarks','$hardDrink')";
+       '$maritalstatus','$pincode','$remarks')";
     
     $query = mysqli_query($conn, $sql);
     

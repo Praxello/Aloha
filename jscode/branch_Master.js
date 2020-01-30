@@ -1,6 +1,6 @@
 var branches = new Map();
 var branch_details = {};
-
+var branchId_ap = null;
 var global_date = moment().format('YYYY-MM-DD');
 const getAllBranches = () => {
     $.ajax({
@@ -56,7 +56,8 @@ getAllBranches();
 const editBranch = (branchId) => {
     branchId = branchId.toString();
     branch_details = branches.get(branchId);
-    global_branchId = branchId;
+    branchId_ap= branchId;
+    console.log(branchId_ap);
     $('#newData').hide();
     $('#editbranchNew').load('edit_Branch_Profile.php');
  

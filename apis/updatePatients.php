@@ -49,7 +49,7 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
     
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-        $patientId = $conn->insert_id;
+    
         if (isset($_FILES["imgname"]["type"])) {
             $imgname    = $_FILES["imgname"]["name"];
             $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable
