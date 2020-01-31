@@ -36,21 +36,18 @@ function billDetails()
     include 'connection.php';
     $paymentId = 1;
     $output    = '';
-    $sql       = "SELECT opm.patientId,opm.billDetails,opm.total,opm.pending
-FROM opd_patient_payment_master opm
+    $sql       = "SELECT opm.patientId,opm.total,opm.pending
+FROM opd_patient_payment_master opm LEFT JOIN Bill_Details BD ON BD.paymentId = opm.paymentId
 WHERE opm.paymentId =  $paymentId";
     $jobQuery  = mysqli_query($conn, $sql);
     if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
-            $academicResults = mysqli_fetch_assoc($jobQuery);
-            $str             = explode(';', $academicResults['billDetails']);
-            for ($i = 0; $i < count($str); $i++) {
-                $output .= '
-        <tr>
-          <th style="font-weight: normal;">' . $str[$i] . '</th>
-        </tr>';
+            while($academicResults = mysqli_fetch_assoc($jobQuery)){
+                
             }
+            // $str             = explode(';', $academicResults['billDetails']);
+          
             $output .= '<tr>
     <th>Payable Amount:' . number_format($academicResults['total'],2) . '</th>
    

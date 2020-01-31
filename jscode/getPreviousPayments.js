@@ -7,7 +7,6 @@ function getPreviousPayments(patientId) {
         data: { patientId: patientId },
         dataType: 'json',
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
                 if (response.Data != null) {
                     var n = response.Data.length;
@@ -27,13 +26,14 @@ function list_transactions(prevTransactions) {
     var tblData = '',
         total = 0,
         pendingTotal = 0;
-    console.log(prevTransactions);
     for (let k of prevTransactions.keys()) {
         let data = prevTransactions.get(k);
         total = total + parseFloat(data.total);
         pendingTotal = pendingTotal + parseFloat(data.pending);
-        tblData += '<tr><td>' + data.paymentId + '</td>';
+        tblData += '<tr><td>' + data.recieptId + '</td>';
         tblData += '<td>' + data.username + '</td>';
+        tblData += '<td>' + data.originalAmt + '</td>';
+        tblData += '<td>' + data.discount + '</td>';
         tblData += '<td>' + data.total + '</td>';
         tblData += '<td>' + data.pending + '</td>';
         tblData += '<td><div class="table-actions">';

@@ -36,8 +36,10 @@
                                                 <table id="scr-vtr-dynamic" class="table table-striped table-bordered nowrap" id="tPayment">
                                                     <thead>
                                                         <tr>
-                                                            <th>Bill Id</th>
+                                                            <th>reciept Id</th>
                                                             <th>Doctor</th>
+                                                            <th>Original Amount</th>
+                                                            <th>Discount</th>
                                                             <th>Total</th>
                                                             <th>Pending</th>  
                                                             <th></th>                                                  
@@ -48,6 +50,8 @@
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
+                                                            <th></th>
+                                                            <th></th>
                                                             <th></th>
                                                             <th>Total</th>
                                                             <th id="totalP"></th>
@@ -129,7 +133,11 @@
                                               
                    
                                                 <div class="row mb-15">
-                                                    <div class="col-sm-4">
+                                                <div class="col-sm-3">
+                                                        <label for=""><strong>Discount Type</strong></label> 
+                                                      <select name="discountType" id="discountType" style="width: 100%;" onchange="setDiscount(this.value)"></select>
+                                                    </div>
+                                                    <div class="col-sm-3">
                                                         <label for=""><strong>Discount:</strong></label> 
                                                         <input type="text" placeholder="100.00"
                                                         class="form-control" 
@@ -137,11 +145,11 @@
                                                     </div>
                                                     
                                                     
-                                                    <div class="col-sm-4"> 
+                                                    <div class="col-sm-3"> 
                                                         <label for="total"><strong>Percentage:</strong></label>
                                                         <input type="text"  class="form-control"  id="pAmt" readonly>
                                                     </div> 
-                                                    <div class="col-sm-4">
+                                                    <div class="col-sm-3">
                                                         <label for="total"><strong>Total:</strong></label>
                                                         <input type="text" placeholder="" class="form-control"  id="tAmt" readonly>
                                                     </div>
@@ -151,8 +159,8 @@
                                                     
                                                     <div class="col-sm-8 template-demo">                                                
                                                         <button type="button" class="btn btn-primary "
-                                                           onclick="GeneratePayment()"><i class="ik ik-pocket"></i>Make Payment</button>
-                                                        <button type="button" class="btn btn-primary"><i class="ik ik-pocket"></i>Accept Payment</button>                                                    
+                                                           onclick="GeneratePayment()"><i class="ik ik-pocket"></i>Generate Payment</button>
+                                                        <!-- <button type="button" class="btn btn-primary"><i class="ik ik-pocket"></i>Accept Payment</button>                                                     -->
                                                     </div> 
                                                     <div class="col-sm-4"></div>                                       
                                                 </div>               
@@ -169,3 +177,4 @@
         </div>
            
         </div>
+        <script src="jscode/payment-validation.js"></script>

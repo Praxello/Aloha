@@ -6,10 +6,8 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if(isset($_POST['patientId'])){
-$sql = "SELECT opp.paymentId,opp.originalAmt,opp.total,opp.discount,opp.received,opp.pending,opp.visitDate,um.username 
-FROM opd_patient_payment_master opp
-INNER JOIN user_master um ON um.userId = opp.doctorId WHERE opp.patientId  = $patientId ORDER BY opp.visitDate DESC ";
+if(isset($_POST['branchId'])){
+$sql = "SELECT * FROM DiscountMaster WHERE branchId = $branchId";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -19,7 +17,7 @@ if ($jobQuery != null) {
         }
         
         $response = array(
-            'Message' => "All fees Fetched successfully",
+            'Message' => "All discounts Fetched successfully",
             "Data" => $records,
             'Responsecode' => 200
         );
@@ -32,16 +30,15 @@ if ($jobQuery != null) {
     }
 }else{
     $response = array(
-        'Message' => mysqli_error($conn)."Please Logout and login again",
+        'Message' => "Please Logout and login again",
         "Data" => $records,
-        'Sql'=>$sql,
         'Responsecode' => 300
     ); 
 }
 }else{
     $response = array(
-        'Message' => "Parameter Missing",
-        'Responsecode' => 405
+        'Message' => "Parameter missing",
+        'Responsecode' => 404
     );  
 }
 mysqli_close($conn);

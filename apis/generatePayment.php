@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "getLastId.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -15,11 +16,14 @@ if (isset($_POST['postdata'])) {
     $discount    = $someArray["discount"];
     $patientId   = $someArray["patientId"];
     $doctorId    = $someArray["doctorId"];
+    $userId      = $someArray["userId"];
+    $branchId    = $someArray["branchId"];
     $visitDate   = date('Y-m-d');
     $billDetails = $someArray["billDetails"];
-    
+    $recieptId = getLastId($branchId)+1;
 
-    $sql         = "INSERT INTO opd_patient_payment_master(patientId, doctorId,originalAmt,total,discount,received,pending,visitDate)VALUES ($patientId,$doctorId,$originalAmt,$amount,$discount,0,$amount,'$visitDate')";
+    $sql         = "INSERT INTO opd_patient_payment_master(recieptId,branchId,patientId, doctorId,originalAmt,total,discount,received,pending,visitDate,createdBy)
+    VALUES ($recieptId,$branchId,$patientId,$doctorId,$originalAmt,$amount,$discount,0,$amount,'$visitDate',$userId)";
     $query       = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
@@ -32,7 +36,10 @@ if (isset($_POST['postdata'])) {
             $query       = mysqli_query($conn, $sql);
            
         }
-        $sql      = "SELECT * FROM opd_patient_payment_master WHERE paymentId = $tId";
+        $sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.doctorId FROM opd_patient_payment_master opm 
+        INNER JOIN user_master um ON um.userId = opm.doctorId 
+        WHERE opm.paymentId = $tId";
+        // $sql      = "SELECT * FROM opd_patient_payment_master WHERE paymentId = $tId";
         $jobQuery = mysqli_query($conn, $sql);
         if ($jobQuery != null) {
             $academicAffected = mysqli_num_rows($jobQuery);
@@ -40,7 +47,7 @@ if (isset($_POST['postdata'])) {
                 $academicResults = mysqli_fetch_assoc($jobQuery);
                 $records       = $academicResults;
                 $response        = array(
-                    'Message' => "All Users Fetched successfully",
+                    'Message' => "Payment generated successfully",
                     "Data" => $records,
                     'Responsecode' => 200
                 );

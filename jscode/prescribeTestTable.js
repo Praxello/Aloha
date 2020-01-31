@@ -2,6 +2,9 @@ var rowhtml, rowid = 0;
 var uniqueTest = new Set();
 var tAmt = 0.00;
 var originalAmt = 0.00;
+var discounts = new Map();
+var totalDiscount = 0;
+getDiscounts(data.branchId);
 
 function addrow() {
     var T = $('#test').val();
@@ -53,14 +56,35 @@ function getSelectedText() {
 }
 
 function calculateAmt(amount) {
-    if (amount == '') {
-        $('#tAmt').val(tAmt);
+    var total, formula;
+    if (totalDiscount > 0) {
+        if (amount == '') {
+            $('#tAmt').val(tAmt);
+            $('#pAmt').val('');
+        } else {
+            if (amount > totalDiscount) {
+                swal('can not exceed discount more than ' + totalDiscount);
+                $('#dAmt').val(totalDiscount);
+                $('#tAmt').val(tAmt - totalDiscount);
+            } else {
+                amount = parseFloat(amount);
+                total = parseFloat($('#tAmt').val());
+                formula = (100 * amount) / total;
+                $('#pAmt').val(formula.toFixed(2));
+                $('#tAmt').val(tAmt - amount);
+            }
+        }
     } else {
-        amount = parseFloat(amount);
-        var total = parseFloat($('#tAmt').val());
-        var formula = (100 * amount) / total;
-        $('#pAmt').val(formula.toFixed(2));
-        $('#tAmt').val(tAmt - amount);
+        if (amount == '') {
+            $('#tAmt').val(tAmt);
+            $('#pAmt').val('');
+        } else {
+            amount = parseFloat(amount);
+            total = parseFloat($('#tAmt').val());
+            formula = (100 * amount) / total;
+            $('#pAmt').val(formula.toFixed(2));
+            $('#tAmt').val(tAmt - amount);
+        }
     }
 }
 
@@ -82,42 +106,78 @@ function storeDetails() {
 }
 
 function GeneratePayment() {
-    var details = {
-        billDetails: storeDetails(),
-        amount: parseFloat($('#tAmt').val()),
-        originalAmt: originalAmt,
-        discount: parseFloat($('#dAmt').val()),
-        doctorId: $('#paymentFor').val(),
-        patientId: patientId_ap
-    };
-    details = JSON.stringify(details);
-    $.ajax({
-        url: url + 'generatePayment.php',
-        type: 'POST',
-        data: { postdata: details },
-        dataType: 'json',
-        success: function(response) {
+    var jvalid = $('#paymentForm').valid();
+    if (jvalid) {
+        var len = $('#presTable tr').length;
+        console.log(len);
+        if (len > 2) {
+            var discount = parseFloat($('#dAmt').val());
+            if (discount == '') {
+                discount = 0;
+            }
+            var details = {
+                userId: data.userId,
+                branchId: data.branchId,
+                billDetails: storeDetails(),
+                amount: parseFloat($('#tAmt').val()),
+                originalAmt: originalAmt,
+                discount: discount,
+                doctorId: $('#paymentFor').val(),
+                patientId: patientId_ap
+            };
+            details = JSON.stringify(details);
+            console.log(details);
+            $.ajax({
+                url: url + 'generatePayment.php',
+                type: 'POST',
+                data: { postdata: details },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.Responsecode == 200) {
+                        swal({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: response.Message,
+                            button: false,
+                            timer: 1500
+                        });
+                        prevTransactions.set(response.Data.paymentId, response.Data);
+                        list_transactions(prevTransactions);
+                        uniqueTest.clear();
+                        $('#presTableBody').empty();
+                        $('#fTotal').empty();
+                    } else {
+                        swal({
+                            position: 'top-end',
+                            icon: 'warning',
+                            title: response.Message,
+                            button: true
+
+                        });
+                    }
+
+                }
+            });
+        } else {
             swal({
                 position: 'top-end',
-                icon: 'success',
-                title: response.Message,
+                icon: 'warning',
+                title: 'Add Test first',
                 button: false,
                 timer: 1500
             });
-            if (response.Responsecode == 200) {
-                prevTransactions.set(response.Data.paymentId, response.Data);
-            }
-            list_transactions(prevTransactions);
         }
-    });
+    }
 }
 
 function attach_data(paymentId) {
     paymentId = paymentId.toString();
     let data = prevTransactions.get(paymentId);
+    console.log(data);
     var rowhtml = '',
         rowid = 0,
         T = 0;
+    tAmt = 0;
     if (data.billdetails != null) {
         var count = data.billdetails.length;
         for (var i = 0; i < count; i++) {
@@ -138,7 +198,56 @@ function attach_data(paymentId) {
         }
         originalAmt = tAmt;
         $("#presTableBody").html(rowhtml);
+        $('#dAmt').val(data.discount);
         $('#fTotal').html(tAmt.toLocaleString());
         $('#tAmt').val(tAmt.toLocaleString());
+        $('#paymentFor').val(data.doctorId).trigger('change');
+    }
+}
+
+
+function getDiscounts(branchId) {
+    $.ajax({
+        url: url + 'getDiscounts.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { branchId: branchId },
+        success: function(response) {
+            console.log(response);
+            if (response.Responsecode == 200) {
+                if (response.Data != null) {
+                    var n = response.Data.length;
+                    for (var i = 0; i < n; i++) {
+                        discounts.set(response.Data[i].discountId, response.Data[i]);
+                    }
+                }
+            }
+            mapDiscounts(discounts);
+        }
+    });
+}
+
+
+function mapDiscounts(discounts) {
+    var dropdownList = '<option></option>';
+    for (let k of discounts.keys()) {
+        let discount = discounts.get(k);
+        dropdownList += '<option value="' + k + '">' + discount.discountType + '</option>';
+    }
+    $('#discountType').html(dropdownList);
+    $("#discountType").select2({
+        placeholder: 'Select discount type',
+        allowClear: true
+    });
+}
+
+function setDiscount(Id) {
+    if (Id == "") {
+
+    } else {
+        Id = Id.toString();
+        let discount = discounts.get(Id);
+        totalDiscount = parseFloat(discount.discount);
+        console.log(totalDiscount);
     }
 }
