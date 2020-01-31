@@ -7,7 +7,7 @@ $response = null;
 $records  = null;
 extract($_POST);
 $dir = '../upload/patients/';
-if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birthDate']) && isset($_POST['mobile1']) && isset($_POST['address']) && isset($_POST['gender'])
+if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birthDate']) && isset($_POST['address']) && isset($_POST['gender'])
  && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode']) && isset($_POST['remarks'])) {
     
     $middleName     = isset($_POST['middleName']) ? $_POST['middleName'] : 'NULL';
@@ -37,12 +37,12 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
     
     $address = mysqli_real_escape_string($conn, $address);
     
-    $sql = "UPDATE  patient_master SET patientId='$patientId',firstName='$firstName',middleName='$middleName',surname='$surname',gender='$gender',height='$height',
-    weight='$weight',birthDate='$birthDate',religion='$religion',allergy='$allergy',email='$email',mobile1='$mobile1',mobile2='$mobile2',
+    $sql = "UPDATE  patient_master SET firstName='$firstName',middleName='$middleName',surname='$surname',gender='$gender',height='$height',
+    weight='$weight',birthDate='$birthDate',religion='$religion',allergy='$allergy',email='$email',mobile2='$mobile2',
      landline='$landline',city='$city',address='$address',referredby='$referredby',firstVisitDate='$firstVisitDate',lastVisitDate='$lastVisitDate',
      nextVisitDate='$nextVisitDate',smoking='$smoking',alcohol='$alcohol',tobacco='$tobacco',HTN='$HTN',diabetes='$diabetes', 
      cholestrol='$cholestrol',history='$history',occupation='$occupation',lifestyle='$lifestyle',urban='$urban',economicStrata='$economicStrata',
-     country='$country',state='$state',maritalstatus='$maritalstatus',pincode='$pincode',remarks='$remarks'";
+     country='$country',state='$state',maritalstatus='$maritalstatus',pincode='$pincode',remarks='$remarks' WHERE patientId='$patientId'";
   
     
     $query = mysqli_query($conn, $sql);
