@@ -14,8 +14,6 @@ function getBranch() {
                         branch.set(response.Data[i].branchId, response.Data[i].branchName);
                     }
                 }
-                console.log(branch);
-
             }
         }
     });

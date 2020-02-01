@@ -63,6 +63,7 @@ const makePayment = paymentId => {
     $('#discount').val(payment.discount);
     $('#pendingAmt').val(payment.pending);
     $('#amount').val(payment.pending);
+    $('#prButton').show();
 };
 
 const showPatientInfo = patientId => {
@@ -118,5 +119,12 @@ function checkPaymentMode(mode) {
         $('#paymentD').hide();
     } else {
         $('#paymentD').show();
+    }
+}
+
+function printReciept() {
+    if (sendPaymentId != null) {
+        var url = 'apis/payment-reciept.php?paymentId=' + sendPaymentId;
+        window.open(url, '_blank');
     }
 }

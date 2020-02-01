@@ -40,8 +40,8 @@ const listPackages = packages => {
         tblData += '<td>' + package.details + '</td>';
         tblData += badge;
         tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" class="ik edit"  onclick="editPackage(' + (k) + ')" title="View Package Details"><i class="ik ik-plus-square text-purple"></i></a>';
-        tblData += '<a href="#" class="ik edit"  onclick="inactivate(' + (k) + ')" title="View Package Details"><i class="ik ik-plus-square text-purple"></i></a>';
+        tblData += '<a href="#" class="ik edit"  onclick="editPackage(' + (k) + ')" title="View Package Details"><i class="ik ik-edit text-purple"></i></a>';
+        tblData += '<a href="#" class="ik edit"  onclick="inactivate(' + (k) + ')" title="Active/inactive package"><i class="ik ik-trash text-danger"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#packageData').html(tblData);
@@ -61,7 +61,6 @@ const editPackage = packageId => {
     packageId = packageId.toString();
     packageId_u = packageId;
     let package = packages.get(packageId);
-    console.log(package);
     $('#package').hide();
     $('#loadPackage').load('edit-package.php');
 };

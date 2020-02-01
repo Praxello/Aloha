@@ -71,6 +71,7 @@ if (isset($_SESSION['userId'])) {
                                    </div>
                             </div>
                             <div class="card-body">
+                            <div class="dt-responsive">
                                 <table id="aTable" class="table">
                                     <thead>
                                         <tr>
@@ -86,6 +87,7 @@ if (isset($_SESSION['userId'])) {
                                     <tbody id="aptData">
                                     </tbody>
                                 </table>
+                            </div>
                             </div>
                         </div>
                     </div>

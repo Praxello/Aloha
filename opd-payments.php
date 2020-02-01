@@ -221,7 +221,7 @@
                                                 </div>
                                                 <div class="col-md-4 template-demo">
 
-                                                    <button type="button" class="btn btn-primary"><i class="ik ik-printer"></i>Print</button>
+                                                    <button type="button" class="btn btn-primary" onclick="printReciept()" style="display: none;" id="prButton"><i class="ik ik-printer"></i>Print</button>
 
                                                 </div>
                                             </div>

@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
         <link rel="stylesheet" href="plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="plugins/perfect-scrollbar/css/perfect-scrollbar.css">
+        <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
@@ -103,8 +104,6 @@
                 </footer>
             </div>
         </div>
-
-
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script>
             window.jQuery || document.write('<script src="../../src/js/vendor/jquery-3.3.1.min.js"><\/script>')
@@ -117,9 +116,12 @@
         <script src="plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
         <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="plugins/select2/dist/js/select2.min.js"></script>
         <script src="plugins/screenfull/dist/screenfull.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="jscode/apis.js"></script>
+        <script src="jscode/getBranches.js"></script>
+        <script src="jscode/getAllTests.js"></script>
         <script src="jscode/package-master.js"></script>
         <?php include 'addPackage.php';?>
     </body>

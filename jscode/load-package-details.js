@@ -1,8 +1,9 @@
 var package_branches = new Map();
+var package_tests = new Map();
+loadTest();
 
 function show_details(packageId) {
     let package = packages.get(packageId);
-    console.log(package);
     $('#pName').html(package.title);
     $('#packageName').val(package.title);
     $('#pCost').html(parseFloat(package.cost).toLocaleString());
@@ -17,18 +18,198 @@ function show_details(packageId) {
 }
 show_details(packageId_u);
 show_package_barnch(packageId_u);
+show_package_test(packageId_u);
 
 function show_package_barnch(packageId) {
     $.ajax({
-        url: url + 'addPackage-branchMapping.php',
+        url: url + 'list-packageBranches.php',
         type: 'POST',
         data: { packageId: packageId },
         dataType: 'json',
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
-                package_branches.set(response.Data[i].mapId, response.Data[i]);
+                var n = response.Data.length;
+                for (var i = 0; i < n; i++) {
+                    package_branches.set(response.Data[i].mapId, response.Data[i]);
+                }
             }
+            list_package_branches(package_branches);
+        }
+    });
+}
+
+function list_package_branches(package_branches) {
+    $('#branchPackage').dataTable().fnDestroy();
+    $('#branchData').empty();
+    var tblData = '';
+    for (let k of package_branches.keys()) {
+        let data = package_branches.get(k);
+        tblData += '<tr><td>' + data.branchName + '</td>';
+        tblData += '<td>' + data.packageDiscount + '</td>';
+        tblData += '<td><div class="table-actions">';
+        tblData += '<a href="#" onclick="removeBranchPackage(' + k + ')" title="Edit Transaction"><i class="ik ik-trash"></i></a>';
+        tblData += '</div></td></tr>';
+    }
+    $('#branchData').html(tblData);
+    $('#branchPackage').dataTable({
+        searching: true,
+        retrieve: true,
+        bPaginate: $('tbody tr').length > 10,
+        order: [],
+        columnDefs: [{ orderable: false, targets: [0, 1, 2] }],
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf'],
+        destroy: true
+    });
+}
+
+function editpackdetails(Id) {
+    console.log(Id);
+}
+
+function addPackagetoBranch() {
+    const details = {
+        branchId: $('#branchId').val(),
+        packageDiscount: $('#packageDiscount').val(),
+        packageId: packageId_u
+    };
+    $.ajax({
+        url: url + 'addPackage-branchMapping.php',
+        type: 'POST',
+        data: details,
+        dataType: 'json',
+        success: function(response) {
+            console.log(response);
+            swal({
+                position: 'top-end',
+                icon: 'success',
+                title: response.Message,
+                button: false,
+                timer: 1500
+            });
+            if (response.Responsecode == 200) {
+                package_branches.set(response.Data.mapId, response.Data);
+            }
+            list_package_branches(package_branches);
+        }
+    });
+}
+
+function show_package_test(packageId) {
+    $.ajax({
+        url: url + 'list-packageTest.php',
+        type: 'POST',
+        data: { packageId: packageId },
+        dataType: 'json',
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                var n = response.Data.length;
+                for (var i = 0; i < n; i++) {
+                    package_tests.set(response.Data[i].itemId, response.Data[i]);
+                }
+            }
+            list_package_test(package_tests);
+        }
+    });
+}
+
+function list_package_test(package_tests) {
+    $('#packageTest').dataTable().fnDestroy();
+    $('#packageTestData').empty();
+    var tblData = '';
+    for (let k of package_tests.keys()) {
+        let data = package_tests.get(k);
+        tblData += '<tr><td>' + data.testName + '</td>';
+        tblData += '<td>' + data.fees + '</td>';
+        tblData += '<td>' + data.quota + '</td>';
+        tblData += '<td><div class="table-actions">';
+        tblData += '<a href="#" onclick="removeTest(' + k + ')" title="Remove Test"><i class="ik ik-trash"></i></a>';
+        tblData += '</div></td></tr>';
+    }
+    $('#packageTestData').html(tblData);
+    $('#packageTest').dataTable({
+        searching: true,
+        retrieve: true,
+        bPaginate: $('tbody tr').length > 10,
+        order: [],
+        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3] }],
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf'],
+        destroy: true
+    });
+}
+
+function addTest() {
+    const details = {
+        testId: $('#test').val(),
+        quota: $('#packageQuota').val(),
+        packageId: packageId_u
+    };
+    $.ajax({
+        url: url + 'addPackage-test.php',
+        type: 'POST',
+        data: details,
+        dataType: 'json',
+        success: function(response) {
+            swal({
+                position: 'top-end',
+                icon: 'success',
+                title: response.Message,
+                button: false,
+                timer: 1500
+            });
+            if (response.Responsecode == 200) {
+                package_tests.set(response.Data.itemId, response.Data);
+                $('#test').val('').trigger('change');
+                $('#packageQuota').val('');
+            }
+            list_package_test(package_tests);
+        }
+    });
+}
+
+function removeTest(testId) {
+    testId = testId.toString();
+    $.ajax({
+        url: url + 'removePackageTest.php',
+        type: 'POST',
+        data: { itemId: testId },
+        dataType: 'json',
+        success: function(response) {
+            swal({
+                position: 'top-end',
+                icon: 'success',
+                title: response.Message,
+                button: false,
+                timer: 1500
+            });
+            if (response.Responsecode == 200) {
+                package_tests.delete(testId);
+            }
+            list_package_test(package_tests);
+        }
+    });
+}
+
+function removeBranchPackage(mapId) {
+    mapId = mapId.toString();
+    $.ajax({
+        url: url + 'removePackageBranch.php',
+        type: 'POST',
+        data: { mapId: mapId },
+        dataType: 'json',
+        success: function(response) {
+            swal({
+                position: 'top-end',
+                icon: 'success',
+                title: response.Message,
+                button: false,
+                timer: 1500
+            });
+            if (response.Responsecode == 200) {
+                package_branches.delete(mapId);
+            }
+            list_package_branches(package_branches);
         }
     });
 }
