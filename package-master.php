@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset($_SESSION['branchId'])){
+    ?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -127,3 +131,8 @@
     </body>
 
 </html>
+<?php
+}else{
+header('Location:index.php');
+}
+?>

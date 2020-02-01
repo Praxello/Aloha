@@ -1,6 +1,9 @@
 var payments = new Map();
 var sendPaymentId = null;
-const paymentDetails = patientId => {
+var editPaymentDetails = null;
+var paymentDetails = patientId => {
+    $('#opdPayment').dataTable().fnDestroy();
+    $('#opdPaymentData').empty();
     $.ajax({
         url: url + 'getPaymentDetails.php',
         type: 'POST',
@@ -13,7 +16,6 @@ const paymentDetails = patientId => {
                     for (var i = 0; i < n; i++) {
                         payments.set(response.Data[i].paymentId, response.Data[i]);
                     }
-
                 }
             }
             showPatientInfo(patientId);
@@ -22,7 +24,7 @@ const paymentDetails = patientId => {
     });
 };
 
-const listpaymentdetails = payments => {
+var listpaymentdetails = payments => {
     $('#opdPayment').dataTable().fnDestroy();
     $('#opdPaymentData').empty();
     var tblData = '';
@@ -30,33 +32,36 @@ const listpaymentdetails = payments => {
         let payment = payments.get(k);
         tblData += '<tr><td>' + payment.paymentId + '</td>';
         tblData += '<td>' + payment.username + '</td>';
-        tblData += '<td>' + payment.billDetails + '</td>';
         tblData += '<td>' + payment.originalAmt.toLocaleString() + '</td>';
         tblData += '<td>' + payment.total.toLocaleString() + '</td>';
         tblData += '<td>' + payment.discount.toLocaleString() + '</td>';
         tblData += '<td>' + payment.received.toLocaleString() + '</td>';
         tblData += '<td>' + payment.pending.toLocaleString() + '</td>';
         tblData += '<td>' + getDate(payment.visitDate) + '</td>';
-        tblData += '<td>';
-        tblData += '<a href="#" onclick="makePayment(' + k + ')" title="Edit payments details"><i class="ik ik-edit-2 text-blue" ></i></a>';
-        tblData += '</td></tr>';
+        if (payment.pending > 0) {
+            tblData += '<td><a href="#" onclick="makePayment(' + k + ')" title="Edit payments details"><i class="ik ik-edit-2 text-blue" ></i></a></td>';
+        } else {
+            tblData += '<td></td>';
+        }
+        tblData += '</tr>';
     }
     $('#opdPaymentData').html(tblData);
     $('#opdPayment').DataTable({
         searching: true,
         retrieve: true,
-        bPaginate: $('tbody tr').length > 10,
+        bPaginate: $('#opdPayment tbody tr').length > 10,
         order: [],
-        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] }],
+        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7, 8] }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true
     });
 };
-const makePayment = paymentId => {
+var makePayment = paymentId => {
     paymentId = paymentId.toString();
     let payment = payments.get(paymentId);
     sendPaymentId = paymentId;
+    editPaymentDetails = payment;
     $('#receiptId').html(paymentId);
     $('#received').html(payment.received);
     $('#billamount').val(payment.originalAmt);
@@ -66,7 +71,7 @@ const makePayment = paymentId => {
     $('#prButton').show();
 };
 
-const showPatientInfo = patientId => {
+var showPatientInfo = patientId => {
     patientId = patientId.toString();
     let details = patients.get(patientId);
     $('#pid').html(details.patientId);
@@ -77,7 +82,7 @@ const showPatientInfo = patientId => {
     $('#paddress').html(details.address);
 };
 
-const recievePayment = () => {
+var recievePayment = () => {
     const details = {
         paymentMode: $('#paymentMode').val(),
         paymentId: sendPaymentId,
@@ -100,7 +105,10 @@ const recievePayment = () => {
                     button: false,
                     timer: 1500
                 });
-
+                editPaymentDetails.pending = editPaymentDetails.pending - details.received;
+                payments.set(editPaymentDetails.paymentId, editPaymentDetails);
+                listpaymentdetails(payments);
+                $('#makePayment').trigger('reset');
             } else {
                 swal({
                     position: 'top-end',
@@ -126,5 +134,16 @@ function printReciept() {
     if (sendPaymentId != null) {
         var url = 'apis/payment-reciept.php?paymentId=' + sendPaymentId;
         window.open(url, '_blank');
+    }
+}
+
+function check(input) {
+    var amount = parseFloat(document.getElementById("amount").value);
+    var pendingAmt = parseFloat(document.getElementById("pendingAmt").value);
+    if (amount <= pendingAmt) {
+        $('.errorMsg').html('');
+    } else {
+        input.value = pendingAmt;
+        $('.errorMsg').html('<font color="red" style="margin-left: 148px;">Can not exceed amount limit ' + pendingAmt + '</font>');
     }
 }

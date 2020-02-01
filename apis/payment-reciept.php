@@ -74,7 +74,8 @@ function paymentHistory($paymentId)
 {
     include '../connection.php';
     $output    = '';
-    $sql       = "SELECT opm.amount,opm.paymentMode,opm.paymentDate  FROM opd_payment_transaction_master opm WHERE opm.paymentId = $paymentId";
+    $sql       = "SELECT opm.amount,opm.paymentMode,DATE_FORMAT(opm.paymentDate,'%d %b %Y') paymentDate
+     FROM opd_payment_transaction_master opm WHERE opm.paymentId = $paymentId";
     $jobQuery  = mysqli_query($conn, $sql);
     if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
@@ -99,10 +100,11 @@ function paymentHistory($paymentId)
     }
     return $output;
 }
-$html = '<!DOCTYPE html>
+$html = '<link rel="stylesheet" href="style.css"><!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Payment Reciept</title>
+    <link rel="icon" href="../img/medical.jpg" type="image/x-icon" />
 </head>
 <style type="text/css">
     table, th, td {
@@ -120,11 +122,11 @@ th, td {
     <table width="100%" border=0 width=1000 style="border-collapse:collapse;">
 <tr>
 <td width="15%">
-<img src="img/medical.jpg" width="120" >
+<img src="../img/medical.jpg" width="120" >
 </td>
 <td width="50%">
 <p style="text-align:center; font-weight:bold; margin-bottom:0px; margin-top:4px;">S.NO.46,Vartak Pride,D.P.Road,KarveNagar,Maharashtra, Pune 411004</p>
-<p > <img src="img/web.jpg" height="32px;" >www.aloha.com  <img src="img/mobile.jpg" height= 32px; style="margin-left: 40px">9087878787 <img src="img/landline.jpg" height="32px" style="margin-left: 40px">020-25449102</p>
+<p > <img src="../img/web.jpg" height="32px;" >www.aloha.com  <img src="../img/mobile.jpg" height= 32px; style="margin-left: 40px">9087878787 <img src="../img/landline.jpg" height="32px" style="margin-left: 40px">020-25449102</p>
 
 </td>
 </tr>
