@@ -44,17 +44,17 @@
                             <hr>
                             <form id="addPackageDetails">
                             <div class="row">
-                                <div class="col-md-6 col-6"> <strong>Select Test</strong>
+                                <div class="col-md-6 col-6"> <strong>Select procedures</strong>
                                     <br>
                                  <select name="test" id="test" class="form-control" style="width: 100%;"></select>
                                 </div>
-                                <div class="col-md-3 col-6"> <strong>Package Quota</strong>
+                                <div class="col-md-3 col-6"> <strong>Package quota</strong>
                                     <br>
                                   <input type="number" class="form-control" id="packageQuota" name="packageQuota">
                                 </div>
                                 <div class="col-md-3 col-6">
                                     <br>
-                                   <button class="btn btn-success" type="button" onclick="addTest()">Add Test</button>
+                                   <button class="btn btn-success" type="button" onclick="addTest()">Add procedures</button>
                                 </div>
                                 
                             </div>
