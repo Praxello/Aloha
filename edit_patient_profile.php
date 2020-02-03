@@ -5,21 +5,22 @@
     <div class="container-fluid">
         <div class="page-header">
             <div class="row align-items-end">
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <div class="page-header-title">
                           <i class="rounded-circle" style="margin-right: 50px"><img src="img/user.jpg" style="height: 82px;margin-top: 38px;" class="rounded-circle"  height="50px" id="userPic" /></i>
                         <div class="d-inline">
-                        <h5 class="card-title" id="uname" >John Doe</h5>
-                        <p class="card-subtitle" id="ucity">Front End Developer</p>
+                     
                     
                
                         </div>
                     </div>
-                    <div style="margin-left : 55px">
+                    <div style="margin-left: 140px;">
+                    <h5 class="card-title" id="uname" >John Doe</h5>
+                        <p class="card-subtitle" id="ucity">Front End Developer</p>
                     <i class="ik ik-user" style="color: blueviolet;"></i> <font  id="uage">254</font>                  
                         <i class="ik ik-image" style="color: chocolate;"> </i> <font id="ugender">54</font> 
                      
-                        <i class="rounded-circle" ><h6 id="uphone"  style="margin-left: 36px">(123) 456 7890</h6></i>
+                        <i class="rounded-circle" ><h6 id="uphone" >(123) 456 7890</h6></i>
                         </div>  
                         
                          
@@ -27,7 +28,7 @@
                 <div class="col-lg-4">
                     <nav class="breadcrumb-container" aria-label="breadcrumb">
                                         <button type="button" class="btn btn-primary" onclick="goback();">Back</button>
-                              
+                  
                     </nav>
                 </div>
                 
@@ -51,11 +52,11 @@
                        
 
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#cervical" role="tab" aria-controls="pills-setting" aria-selected="false">Cancel Appointments</a>
+                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#cervical" role="tab" aria-controls="pills-setting" aria-selected="false">Appointments</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade " id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
+                        <div class="tab-pane fade " id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">    
                             <form id="uploadProfile" method="POST" enctype="multipart/form-data">
                                 <div class="card-body">
                                     <div class="profiletimeline mt-0">
@@ -183,7 +184,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="occupation">Occupation</label>
-                                                <input type="text" placeholder="Enginner" class="form-control" name="occupation" id="occupation">
+                                                <input type="text" placeholder="Enginner" class="form-control" name="occupation" id="occupation"   onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32' >
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -211,7 +212,7 @@
                                                      <div class="row">
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label for="address">Mobile No.</label>
+                                                                    <label for="mobile1">Mobile No.</label>
                                                                     <input type="text" class="form-control" id="mobile1" name="mobile1" placeholder="Mobile No"
                                                                     ng-pattern="/^[0-9]*$/"
                                                       onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
@@ -273,7 +274,8 @@
                                                             <div class="col-md-3">
                                                                 <div class="form-group">
                                                                     <label for="pincode">Pincode</label>
-                                                                    <input type="text" class="form-control" id="pincode" name="pincode" placeholder="pincode">
+                                                                    <input type="text" class="form-control" id="pincode" name="pincode" placeholder="pincode"   ng-pattern="/^[0-9]*$/"
+                                                      onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                                                                 </div>
                                                             </div> 
                                                            

@@ -38,7 +38,7 @@ $html = '
                     therapist / technisian / other staff for the treatment results. I assure completed co-operation to the doctor / therapist during the course of the treatment. 
                      Along with following the prescibed treatment / excercise, leading to an improved proper lifestyle.</p></span><p>
             
-            <p style="font-size: 22px; margin-left:10px">I also agree to use my treatment reports for CR & D & QC Study purposes for the betterment and humankind.</p>
+            <p style="font-size: 22px; margin-left:10px">I also agree to use my treatment reports for R & D Study purposes for the betterment and humankind.</p>
             <p style="font-size: 22px; margin-left:10px">Signature of Patient:<input type="text" style="margin-top:20px"></p>    
                   
                 <h3><center><b>PATIENT ATTENDANT CONSENT</b></center></h3>
@@ -48,7 +48,9 @@ $html = '
                     to undergo 3D Spinal Decompression Mobilization & Correction therapy / program. We will not hold any doctor / therapist / staff of the hospital / medicle centre regarding the treatment regarding the treatment results.</p>
                  
                  </p>
-                 
+                 <p style="font-size: 17px; margin-left:10px"> The Doctor at  <input type="text" style="margin-top:20px" >centre have Explained myself and My Relatives in detail the Nature of the said Treatment and is                     
+                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; & myself ready to undergo the said Rx.           
+             </p>
             
                  <p style="font-size: 22px; margin-left:10px">Relation to Patient:<input type="text" style="margin-top:20px"></p>
                

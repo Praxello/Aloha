@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="productTitle">Doctor Name</label>
+                                <label for="">Doctor Name</label>
                                 <select class="form-control" id="userId" name="userId" style="width: 100%">
                                 </select>
                             </div>
@@ -19,7 +19,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="date">Consulting Date</label>
-                                <input type="text" placeholder="min year 2020" class="form-control" name="date" id="dropper-min-year" required>
+                                <input type="date"  class="form-control" name="date" id="dropper-min-year" required>
                             </div>
                         </div>
                     </div>

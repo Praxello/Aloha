@@ -61,9 +61,8 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="branchName">Branch Name </label>
-                                <select class="form-control select2" id="branchName" name="branchName" placeholder="Branch Name">
-                                    <option value="Pune">Pune</option>
-                                    <option value="mumbai">Mumbai</option>
+                                <select class="form-control" id="branchName" name="branchName" style="width: 100%;" placeholder="Branch Name">
+                                 
                                 </select>
                             </div>
                         </div>
@@ -113,3 +112,4 @@
     <script src="jscode/insertUserMaster.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="jscode/userMaster_validation.js"></script>
+    <script src="jscode/getBranch.js"></script>

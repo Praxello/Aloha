@@ -59,6 +59,9 @@
                                 <div class="nav-item">
                                     <a href="feesMaster.php"><i class="ik ik-user"></i><span>Fees Master</span> <span class="badge badge-success"></span></a>
                                 </div>
+                                <div class="nav-item">
+                                    <a href="testMaster.php"><i class="ik ik-user"></i><span>Test Master</span> <span class="badge badge-success"></span></a>
+                                </div>
                             </nav>
                         </div>
                     </div>

@@ -23,7 +23,7 @@
                                                             <div class="form-group row">
                                                                 <label for="functionScore" class="col-sm-1 col-form-label">Functional Disability Score:</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" class="form-control" id="cerFunDisabilityScore" name="cerFunDisabilityScore" placeholder="100">
+                                                                    <input type="text" class="form-control" id="cerFunDisabilityScore" name="cerFunDisabilityScore" placeholder="">
                                                                 </div>
 
 
@@ -40,7 +40,7 @@
                                                             <div class="form-group row">
                                                                 <label for="presentSymptoms" class="col-sm-1 col-form-label">Present Symptoms:</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" class="form-control" id="cerPresentSymptoms"  name="cerPresentSymptoms" placeholder="100">
+                                                                    <input type="text" class="form-control" id="cerPresentSymptoms"  name="cerPresentSymptoms" placeholder="">
                                                                 </div>
 
 
@@ -79,7 +79,7 @@
                                                             <div class="form-group row">
                                                                 <label for="commencedAsResult" class="col-sm-1 col-form-label">Commenced as a result of:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="cerCommencedAsResult" name="cerCommencedAsResult" placeholder="100">
+                                                                    <input type="text" class="form-control" id="cerCommencedAsResult" name="cerCommencedAsResult" placeholder="">
                                                                 </div>
                                                                 <div class="col-sm-2 ">
                                                                 <label>Or no apparent reason</label></div>
@@ -127,7 +127,7 @@
                                                             <div class="form-group row">
                                                                 <label for="constantSymptoms" class="col-sm-1 col-form-label">Constant Symptoms:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="cerConstSympt1" name="cerConstSympt1" placeholder="100">
+                                                                    <input type="text" class="form-control" id="cerConstSympt1" name="cerConstSympt1" placeholder="">
                                                                 </div>
                                                              
                                                                     <div class="col-sm-2">
@@ -255,7 +255,7 @@
                                                                     <!-- <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Other:</label> -->
                                                                     <span class="col-sm-1 ">Other</span>
                                                                     <div class="col-sm-3 ">
-                                                                        <input type="text" class="form-control" id="cerAggrFactor1" name="cerAggrFactor1" placeholder="100">
+                                                                        <input type="text" class="form-control" id="cerAggrFactor1" name="cerAggrFactor1" placeholder="">
                                                                     </div>
                                                            
 
@@ -326,7 +326,7 @@
                                                                     <!-- <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Other:</label> -->
                                                                     <span class="col-sm-1 ">Other</span>
                                                                     <div class="col-sm-3 ">
-                                                                        <input type="text" class="form-control" id="cerRelFactor1" name="cerRelFactor1" placeholder="100">
+                                                                        <input type="text" class="form-control" id="cerRelFactor1" name="cerRelFactor1" placeholder="">
                                                                     </div>
                                                            
 
@@ -336,7 +336,7 @@
                                                             <!-- <div class="form-group row">
                                                                 <label for="prevTreatments" class="col-sm-1 col-form-label">Previous Treatments:</label>
                                                                 <div class="col-sm-4 ">
-                                                                    <input type="text" class="form-control" id="prevTreatments" name="prevTreatments" placeholder="100">
+                                                                    <input type="text" class="form-control" id="prevTreatments" name="prevTreatments" placeholder="">
                                                                 </div>
                                                                 <div class="col-sm-7 "></div>
 
@@ -473,7 +473,7 @@
                                                             <div class="form-group row">
                                                                 <label for="GeneralHealth" class="col-sm-1 col-form-label">General Health:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="cerGenHealth1"  name="cerGenHealth1" placeholder="100">
+                                                                    <input type="text" class="form-control" id="cerGenHealth1"  name="cerGenHealth1" placeholder="">
                                                                 </div>
                                                              
                                                                     <div class="col-sm-2">
@@ -885,11 +885,11 @@
                                                                     </div>
                                                                         <span class="col-sm-1 ">Other:</span>
                                                                         <div class="col-sm-3 ">
-                                                                        <input type="text" class="form-control" id="cerderagement2" name="cerderagement2" placeholder="100">
+                                                                        <input type="text" class="form-control" id="cerderagement2" name="cerderagement2" placeholder="">
                                                                         </div>
                                                                        <label for="other" class="col-sm-2 col-form-label">Derangement:  Pain Location</label>
                                                                         <div class="col-sm-3">
-                                                                            <input type="text" class="form-control" id="cerderagement1" name="cerderagement1" placeholder="0-10">
+                                                                            <input type="text" class="form-control" id="cerderagement1" name="cerderagement1" placeholder="">
                                                                         </div>
                                                                 </div>
 

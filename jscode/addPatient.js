@@ -22,9 +22,15 @@ $('#patientform').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
+                    $('#patientform').trigger('reset');
+                    $('#maritalstatus').empty();
+                    $('#country').empty();
+                    $('#state').empty();
+                    $('#city').empty();
                     $('#cButton').click();
                     patients.set(response.Data.patientId, response.Data);
                     listPatients(patients);
+                 
 
                 } else {
                     swal({
