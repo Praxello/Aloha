@@ -35,10 +35,10 @@ function addrow() {
     rowhtml += '<input type="text" class="form-control" id="duration' + rowid + '" name="duration' + rowid + '"/>';
     rowhtml += '</td>';
     rowhtml += '<td>';
-    rowhtml += '<input type="text" class="form-control" id="inst' + rowid + '" name="inst' + rowid + '"/>';
-    rowhtml += '</td>';
+    rowhtml += '<select  class="form-control" id="inst' + rowid + '" name="inst' + rowid + '" style="width:100%;">';
+    rowhtml += '</select></td>';
     rowhtml += '<td>';
-    rowhtml += '<button type="button" class="btn btn-icon btn-danger" onclick="deleterow(' + rowid + ')" ><i class="ik ik-minus"></i></button>';
+    rowhtml += '<button type="button" class="btn btn-icon btn-danger" onclick="deleterow(' + rowid + ')" title="Remove Medicine"><i class="ik ik-minus"></i></button>';
     rowhtml += '</td>';
     rowhtml += '</tr>';
 
@@ -46,11 +46,32 @@ function addrow() {
     loadMedicine(rowid);
     loadMedicineTypes(rowid);
     loadMedicineDosage(rowid);
-    $("#typeId" + rowid).select2({});
-    $("#medicineId" + rowid).select2({});
-    $("#morning" + rowid).select2({});
-    $("#evining" + rowid).select2({});
-    $("#night" + rowid).select2({});
+    loadInstructions(rowid);
+    $("#typeId" + rowid).select2({
+        placeholder: 'select type of medicine',
+        allowClear: true
+    });
+    $("#medicineId" + rowid).select2({
+        placeholder: 'select medicine',
+        allowClear: true
+    });
+    $("#morning" + rowid).select2({
+        placeholder: 'select from list',
+        allowClear: true
+    });
+    $("#evining" + rowid).select2({
+        placeholder: 'select from list',
+        allowClear: true
+    });
+    $("#night" + rowid).select2({
+        placeholder: 'select from list',
+        allowClear: true
+    });
+    $("#inst" + rowid).select2({
+        placeholder: 'select instruction',
+        allowClear: true,
+        tags: true
+    });
 }
 
 function deleterow(id) {

@@ -54,10 +54,8 @@ var showCervicalSpine = cervicals => {
 };
 
 var editCervicalSpine = (cerSpineId) => {
-    console.log('cerSpineId');
     cerSpineId = cerSpineId.toString();
     cervical_details = cervicals.get(cerSpineId);
-    console.log(cervical_details);
     fill_Cervical(cervical_details);
 };
 
@@ -398,7 +396,6 @@ function fill_Cervical(details) {
         m, count;
     json = details.cerMomentLoss;
     if (json != null) {
-
         obj = JSON.parse(json);
         count = Object.keys(obj).length;
         var arr = ['Flexion', 'Extension', 'Side Gliding R', 'Side Gliding L', 'Protrusion', 'Retraction', 'Rotation R', 'Rotation L'];
@@ -417,17 +414,22 @@ function fill_Cervical(details) {
     }
     json = details.cerTestMovement;
     if (json != null) {
-        content = '';
-        obj = JSON.parse(json);
-        content += '<tr>';
-        content += ' <th scope="row">Rep EIL</th>';
-        content += '<td><input type="text" class="form-control" id="maj" value="' + obj[0]['During-test'] + '"></td>';
-        content += '<td><input type="text" class="form-control" id="mod" value="' + obj[0]['after-test'] + '"></td>';
-        content += '<td><input type="text" class="form-control" id="min" value="' + obj[0]['m-rom-u'] + '"></td>';
-        content += '<td><input type="text" class="form-control" id="nil" value="' + obj[0]['m-rom-d'] + '"></td>';
-        content += '<td><input type="text" class="form-control" id="pain" value="' + obj[0]['m-noefect'] + '"></td>';
-        content += '</tr>';
-        $('#cerTestMovement').html(content);
+        if (json.hasOwnProperty('During-test')) {
+            console.log("vikas" + json);
+        } else {
+            content = '';
+            obj = JSON.parse(json);
+            console.log(obj);
+            content += '<tr>';
+            content += ' <th scope="row">Rep EIL</th>';
+            content += '<td><input type="text" class="form-control" id="maj" value="' + obj['During-test'] + '"></td>';
+            content += '<td><input type="text" class="form-control" id="mod" value="' + obj['after-test'] + '"></td>';
+            content += '<td><input type="text" class="form-control" id="min" value="' + obj['m-rom-u'] + '"></td>';
+            content += '<td><input type="text" class="form-control" id="nil" value="' + obj['m-rom-d'] + '"></td>';
+            content += '<td><input type="text" class="form-control" id="pain" value="' + obj['m-noefect'] + '"></td>';
+            content += '</tr>';
+            $('#cerTestMovement').html(content);
+        }
     }
     $('#cervicalSpine').modal('show');
 }

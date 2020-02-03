@@ -136,6 +136,7 @@
                                                 <div class="col-sm-3">
                                                         <label for=""><strong>Discount Type</strong></label> 
                                                       <select name="discountType" id="discountType" style="width: 100%;" onchange="setDiscount(this.value)"></select>
+                                                      <strong id="maxDiscount"></strong>
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label for=""><strong>Discount:</strong></label> 

@@ -34,6 +34,7 @@ if(isset($_SESSION['branchId'])){
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="dist/css/loader.css">
     </head>
 <Style>
    
@@ -87,6 +88,7 @@ if(isset($_SESSION['branchId'])){
                         </div>
                     </div>
                 </div>
+                <div id="loader"></div>
                 <footer class="footer">
                     <div class="w-100 clearfix">
                         <span class="text-center text-sm-left d-md-inline-block">Copyright © 2020 Praxello Solutions All Rights Reserved.</span>
@@ -130,11 +132,9 @@ username:'<?php echo $_SESSION['username'];?>'
        <?php include 'take-appointment.php';?>
        <?php include 'opd-payments.php';?>
        <?php include 'opd-generatePayments.php';?>
-        
-     
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-   
+        <script src="jscode/loader.js"></script>
        <script src="jscode/getDateFormat.js"></script>
        <script src="jscode/getAge.js"></script>
        <script src="jscode/patients.js"></script>

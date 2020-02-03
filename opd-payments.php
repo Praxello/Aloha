@@ -32,40 +32,40 @@
                                                 <div class="col-md-1">
                                                     <div class="form-group">
                                                         <label><b>Patient Id :</b></label>
-                                                        <label  id="pid"></label>
+                                                        <span  id="pid"></span>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for=""><b>Name:</b></label>
-                                                        <label id="pname"></label>
+                                                        <span id="pname"></span>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for=""><b>Mobile :</b></label>
-                                                        <label name="pmobile"></label>
+                                                        <span id="pmobile"></span>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for=""><b>Email :</b></label>
-                                                        <label name="pemail"></label>
+                                                        <span id="pemail"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for=""><b>City :</b></label>
-                                                        <label name="pcity"></label>
+                                                        <span id="pcity"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label for=""><b>Address :</b></label>
-                                                        <label name="paddress"></label>
+                                                        <span id="paddress"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,14 +187,14 @@
                                             <div class="form-group row" style="display: none;" id="paymentD">
                                                 <label for="paymentDetails" class="col-sm-3 col-form-label"><b>Payment Details:</b> </label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control" id="paymentDetails" placeholder="100.0">
+                                                    <input type="text" class="form-control" id="paymentDetails">
                                                     <!-- <h6><b>201</b></h6> -->
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="amount" class="col-sm-3 col-form-label"><b>Amount:</b></label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control" id="amount" oninput="check(this);" placeholder="100.0">
+                                                    <input type="number" class="form-control" id="amount" oninput="check(this);" placeholder="100.0">
 
                                                 </div>
                                                 <div class="errorMsg"></div>

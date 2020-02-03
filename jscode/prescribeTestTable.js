@@ -248,6 +248,6 @@ function setDiscount(Id) {
         Id = Id.toString();
         let discount = discounts.get(Id);
         totalDiscount = parseFloat(discount.discount);
-        console.log(totalDiscount);
+        $('#maxDiscount').html('Maximum discount ' + totalDiscount);
     }
 }

@@ -137,6 +137,7 @@ if (isset($_SESSION['userId'])) {
         <script src="jscode/getDateFormat.js"></script>
         <script src="jscode/appointments.js"></script>
         <script src="jscode/getMedicines.js"></script>
+        <script src="jscode/getInstructions.js"></script>
         <script src="jscode/getMedicineTypes.js"></script>
         <script src="jscode/getMedicineDosage.js"></script>
         <script src="jscode/getComplaints.js"></script>

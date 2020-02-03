@@ -38,12 +38,13 @@ var listpaymentdetails = payments => {
         tblData += '<td>' + payment.received.toLocaleString() + '</td>';
         tblData += '<td>' + payment.pending.toLocaleString() + '</td>';
         tblData += '<td>' + getDate(payment.visitDate) + '</td>';
+        tblData += '<td><div class="table-actions" style="text-align: left;">';
         if (payment.pending > 0) {
-            tblData += '<td><a href="#" onclick="makePayment(' + k + ')" title="Edit payments details"><i class="ik ik-edit-2 text-blue" ></i></a></td>';
+            tblData += '<a href="#" onclick="makePayment(' + k + ')" title="Edit payment details"><i class="ik ik-edit-2 text-blue" ></i></a>';
         } else {
-            tblData += '<td></td>';
+            tblData += '';
         }
-        tblData += '</tr>';
+        tblData += '<a href="#" onclick="printRecieptTbl(' + k + ')" title="Download payment receipt"><i class="fa fa-download text-blue" ></i></a></td></div></tr>';
     }
     $('#opdPaymentData').html(tblData);
     $('#opdPayment').DataTable({
@@ -74,6 +75,7 @@ var makePayment = paymentId => {
 var showPatientInfo = patientId => {
     patientId = patientId.toString();
     let details = patients.get(patientId);
+    console.log(details);
     $('#pid').html(details.patientId);
     $('#pname').html(details.firstName + ' ' + details.middleName + ' ' + details.surname);
     $('#pmobile').html(details.mobile1);
@@ -130,10 +132,15 @@ function checkPaymentMode(mode) {
     }
 }
 
-function printReciept() {
+function printRecieptTbl(Id) {
+    var link = url + 'payment-reciept.php?paymentId=' + Id;
+    window.open(link, '_blank');
+}
+
+function printReciept(sendPaymentId) {
     if (sendPaymentId != null) {
-        var url = 'apis/payment-reciept.php?paymentId=' + sendPaymentId;
-        window.open(url, '_blank');
+        var link = url + 'payment-reciept.php?paymentId=' + sendPaymentId;
+        window.open(link, '_blank');
     }
 }
 

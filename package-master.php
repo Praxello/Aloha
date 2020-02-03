@@ -26,6 +26,7 @@ if(isset($_SESSION['branchId'])){
         <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="dist/css/loader.css">
     </head>
 
     <body>
@@ -99,7 +100,7 @@ if(isset($_SESSION['branchId'])){
                         </div>
                     </div>
                 </div>
-             
+                <div id="loader"></div>
                 <footer class="footer">
                     <div class="w-100 clearfix">
                         <span class="text-center text-sm-left d-md-inline-block">Copyright © 2018 ThemeKit v2.0. All Rights Reserved.</span>
@@ -124,6 +125,7 @@ if(isset($_SESSION['branchId'])){
         <script src="plugins/screenfull/dist/screenfull.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="jscode/apis.js"></script>
+        <script src="jscode/loader.js"></script>
         <script src="jscode/getBranches.js"></script>
         <script src="jscode/getAllTests.js"></script>
         <script src="jscode/package-master.js"></script>
