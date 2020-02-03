@@ -3,12 +3,13 @@
     color: red;
 }
 </style>
-  <div class="modal fade" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+
+ <div class="modal fade full-window-modal" id="demoModal" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="demoModalLabel">Patient details:</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="b"><span aria-hidden="true">&times;</span></button>
                                     </div>
                                     <div class="modal-body">                                       
                                                     <form class="forms-sample" id="patientform" method="POST" enctype="multipart/form-data">
@@ -66,7 +67,7 @@
                                                         </div>   
 
                                                        
-                                                        <h5>Medical Details:</h5                                                                                >
+                                                                                                                    
                                                      <div class="row">                                                                                            
                                                          
                                                             <div class="col-md-4">
@@ -156,8 +157,7 @@
                                                        
                                                                 </div>
                                                             </div>  
-                                                          
-                                                           
+            
                                                     
                                                      </div>  
 
@@ -170,12 +170,13 @@
                                                                 </div>
                                                             </div> 
                                                     </div>
+                                            </div>
                                                                                    
                                       
                                         <div class="modal-footer">
                                             
                                             <input type="submit" class="btn btn-primary mr-2" value="Submit">
-                                            <button class="btn btn-light" id="cButton"  data-dismiss="modal">Cancel</button> 
+                                            <button class="btn btn-light" id="cButton" onclick="fun()" data-dismiss="modal">Cancel</button> 
                                         </div>
                                     </form>
                                     </div>
@@ -189,3 +190,10 @@
                     <script src="jscode/getReffName.js"></script>
                     <script src="jscode/getCountryStateCity.js"></script>
                     <?php include 'add_reffName.php';?>
+                    <script>
+                        $('#cButton').on('click'){
+                      
+                            $('#patientform').trigger('reset');
+                        
+                    }
+                    </script>

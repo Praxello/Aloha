@@ -65,7 +65,7 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
             }
         }
         $response = array(
-            'Message' => "Update Patient Successfull",
+            'Message' => "Update Patients Successfull",
             "Data" => $records,
             'Responsecode' => 200
         );

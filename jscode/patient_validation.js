@@ -39,6 +39,15 @@ $(function() {
                 weight:{
                 required :true,
                 number :true
+            },
+            country :{
+                required : true
+            },
+            state :{
+                required : true
+            },
+            city :{
+                required : true
             }
 
             },
@@ -79,9 +88,18 @@ $(function() {
                 weight:{
                     required: "Please enter weight",
                     number: "enter valid number"
+                },
+                country:{
+                    required: "Please select Country"
+                  
+                },
+                state :{
+                    required: "Please select State"
+                },
+        
+                city :{
+                    required: "Please select City"
                 }
-        
-        
 
             }
         });
