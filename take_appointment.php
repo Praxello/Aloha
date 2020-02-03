@@ -72,7 +72,7 @@
                                                                 <div class="form-group">
                                                                     <label for="date">Consulting Date</label>
                                                                     
-                                                                        <input type="text" placeholder="min year 2020"
+                                                                        <input type="text" placeholder=""
                                                                             class="form-control" name="date"
                                                                             id="dropper-min-year">                                                                                                                                 
                                                                 </div>

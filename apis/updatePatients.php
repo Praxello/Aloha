@@ -11,12 +11,13 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
  && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode']) && isset($_POST['remarks'])) {
     
     $middleName     = isset($_POST['middleName']) ? $_POST['middleName'] : 'NULL';
-    $height         = isset($_POST['height']) ? $_POST['height'] : 'NULL';
+ 
     $weight         = isset($_POST['weight']) ? $_POST['weight'] : 'NULL';
     $religion       = isset($_POST['religion']) ? $_POST['religion'] : 'NULL';
     $allergy        = isset($_POST['allergy']) ? $_POST['allergy'] : 'NULL';
     $email          = isset($_POST['email']) ? $_POST['email'] : 'NULL';
     $mobile2        = isset($_POST['mobile2']) ? $_POST['mobile2'] : 'NULL';
+    $mobile1        = isset($_POST['mobile1']) ? $_POST['mobile1'] : 'NULL';
     $landline       = isset($_POST['landline']) ? $_POST['landline'] : 'NULL';
     $city           = isset($_POST['city']) ? $_POST['city'] : 'NULL';
     $referredby     = isset($_POST['referredby']) ? $_POST['referredby'] : 'NULL';
@@ -31,17 +32,16 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
     $cholestrol     = isset($_POST['cholestrol']) ? $_POST['cholestrol'] : 'NULL';
     $history        = isset($_POST['history']) ? $_POST['history'] : 'NULL';
     $occupation     = isset($_POST['occupation']) ? $_POST['occupation'] : 'NULL';
-    $lifestyle      = isset($_POST['lifestyle']) ? $_POST['lifestyle'] : 'NULL';
-    $urban          = isset($_POST['urban']) ? $_POST['urban'] : 'NULL';
+  
     $economicStrata = isset($_POST['economicStrata']) ? $_POST['economicStrata'] : 'NULL';
     
     $address = mysqli_real_escape_string($conn, $address);
     
     $sql = "UPDATE  patient_master SET firstName='$firstName',middleName='$middleName',surname='$surname',gender='$gender',height='$height',
-    weight='$weight',birthDate='$birthDate',religion='$religion',allergy='$allergy',email='$email',mobile2='$mobile2',
+    weight='$weight',birthDate='$birthDate',religion='$religion',allergy='$allergy',email='$email',
      landline='$landline',city='$city',address='$address',referredby='$referredby',firstVisitDate='$firstVisitDate',lastVisitDate='$lastVisitDate',
      nextVisitDate='$nextVisitDate',smoking='$smoking',alcohol='$alcohol',tobacco='$tobacco',HTN='$HTN',diabetes='$diabetes', 
-     cholestrol='$cholestrol',history='$history',occupation='$occupation',lifestyle='$lifestyle',urban='$urban',economicStrata='$economicStrata',
+     cholestrol='$cholestrol',history='$history',occupation='$occupation',economicStrata='$economicStrata',
      country='$country',state='$state',maritalstatus='$maritalstatus',pincode='$pincode',remarks='$remarks' WHERE patientId='$patientId'";
   
     

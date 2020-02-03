@@ -9,7 +9,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="demoModalLabel">Patient details:</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick="b"><span aria-hidden="true">&times;</span></button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ><span aria-hidden="true">&times;</span></button>
                                     </div>
                                     <div class="modal-body">                                       
                                                     <form class="forms-sample" id="patientform" method="POST" enctype="multipart/form-data">
@@ -49,21 +49,20 @@
                                                                     </select>
                                                                 </div>
                                                             </div>  
+
                                                             <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label for="birthDate">Birth Date</label>
-                                                                    <input id="dropper-max-year" class="form-control" type="date" name="birthDate" placeholder="Max Yr 2020" />
-                                                                </div>
-                                                            </div> 
-                                                            <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                    <label for="maritalstatus">Marital Status</label>
-                                                                    <select  class="form-control select2" id="maritalstatus" name="maritalstatus" placeholder="Marital Status">
-                                                                        <option value="Single">Single</option>
-                                                                        <option value="Married">Married</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Enter Age</label>
+                                                <input type="number" class="form-control" name="age" id="age" onchange="getBirthDay(this.value)" placeholder="Age">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="">Date of Birth</label>
+                                                <input type="date" class="form-control" name="birthdate" id="birthdate">
+                                            </div>
+                                        </div>
+                                                         
                                                         </div>   
 
                                                        
@@ -73,25 +72,35 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="mobile1">Height</label>
-                                                                    <input type="text" class="form-control" id="height" name="height" placeholder="height" >
+                                                                    <input type="text" class="form-control" id="height" name="height" placeholder="Height in cm" >
                                                                 </div>
                                                             </div> 
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="weight">Weight</label>
-                                                                    <input type="text" class="form-control" id="weight" name="weight" placeholder="weight">
+                                                                    <input type="text" class="form-control" id="weight" name="weight" placeholder="Weight in kg">
                                                                 </div>
                                                             </div> 
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
-                                                                    <label for="occupation">occupation</label>
+                                                                    <label for="occupation">Occupation</label>
                                                                     <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation">
                                                                 </div>
                                                             </div> 
                                                            
                                                       </div> 
                                                       <div class="row">
-                                                      <div class="col-md-6">
+                                                          
+                                                      <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label for="maritalstatus">Marital Status</label>
+                                                                    <select  class="form-control select2" id="maritalstatus" name="maritalstatus" placeholder="Marital Status">
+                                                                        <option value="Single">Single</option>
+                                                                        <option value="Married">Married</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                      <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="referredby">Referred By</label>
                                                                     <select id="referredby" name="referredby" class="form-control" style="width: 100%;"></select>
@@ -166,7 +175,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="address">Address</label>
-                                                                        <textarea class="form-control" id="address" name="address"  rows="1"></textarea>
+                                                                        <textarea class="form-control" id="address" name="address"  rows="1" placeholder="Address"></textarea>
                                                                 </div>
                                                             </div> 
                                                     </div>
@@ -176,7 +185,7 @@
                                         <div class="modal-footer">
                                             
                                             <input type="submit" class="btn btn-primary mr-2" value="Submit">
-                                            <button class="btn btn-light" id="cButton" onclick="fun()" data-dismiss="modal">Cancel</button> 
+                                            <button class="btn btn-light" id="cButton" data-dismiss="modal">Cancel</button> 
                                         </div>
                                     </form>
                                     </div>
@@ -190,10 +199,4 @@
                     <script src="jscode/getReffName.js"></script>
                     <script src="jscode/getCountryStateCity.js"></script>
                     <?php include 'add_reffName.php';?>
-                    <script>
-                        $('#cButton').on('click'){
-                      
-                            $('#patientform').trigger('reset');
-                        
-                    }
-                    </script>
+                  
