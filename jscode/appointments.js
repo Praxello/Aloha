@@ -82,7 +82,7 @@ const editPatient = (patientId) => {
     let patient = appointments.get(patientId);
     // $(".wrapper").toggleClass("right-sidebar-expand");
     $('#tData').hide();
-    $('#editProfile').load('edit-prescription.php');
+    $('#editProfile').load('edit-prescription-2.php');
 };
 
 function getToday() {
