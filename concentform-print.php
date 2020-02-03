@@ -72,7 +72,7 @@ $dompdf->render();
 
 /* Output the generated PDF to Browser */
 // $dompdf->stream();
-$dompdf->stream("dompdf_out.pdf", array(
+$dompdf->stream("concent-form.pdf", array(
     "Attachment" => false
 ));
 

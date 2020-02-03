@@ -3,6 +3,7 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
 mysqli_set_charset($conn, 'utf8');
+date_default_timezone_set('Asia/Kolkata');
 $response = null;
 $records  = null;
 extract($_POST);
@@ -20,8 +21,8 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
     $landline       = isset($_POST['landline']) ? $_POST['landline'] : 'NULL';
     $city           = isset($_POST['city']) ? $_POST['city'] : 'NULL';
     $referredby     = isset($_POST['referredby']) ? $_POST['referredby'] : 'NULL';
-    $firstVisitDate = isset($_POST['firstVisitDate']) ? $_POST['firstVisitDate'] : 'NULL';
-    $lastVisitDate  = isset($_POST['lastVisitDate']) ? $_POST['lastVisitDate'] : 'NULL';
+    $firstVisitDate = date('Y-m-d');
+    $lastVisitDate  = date('Y-m-d');
     $nextVisitDate  = isset($_POST['nextVisitDate']) ? $_POST['nextVisitDate'] : 'NULL';
     $smoking        = isset($_POST['smoking']) ? $_POST['smoking'] : 'NULL';
     $alcohol        = isset($_POST['alcohol']) ? $_POST['alcohol'] : 'NULL';

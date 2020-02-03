@@ -6,7 +6,6 @@ $('#take-appointment').on('submit', function(e) {
         patientId: patientId_ap,
         scheduledBy: data.username
     };
-    console.log(fData);
     $.ajax({
         url: url + 'addAppointment.php',
         type: 'POST',
@@ -21,7 +20,7 @@ $('#take-appointment').on('submit', function(e) {
                     button: false,
                     timer: 1500
                 });
-                $('#appointment').modal('hide');
+
             } else {
                 swal({
                     position: 'top-end',
@@ -31,6 +30,9 @@ $('#take-appointment').on('submit', function(e) {
                     timer: 1500
                 });
             }
+            $('#appointment').modal('hide');
+            $('#take-appointment').trigger('reset');
+            $('#userId').val('').trigger('change');
         }
     });
 });

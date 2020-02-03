@@ -31,7 +31,7 @@ if (isset($_POST['patientId']) && isset($_POST['appointmentDate']) && isset($_PO
         
     } else {
         $response = array(
-            'Message' => mysqli_error($conn) . " failed",
+            'Message' => "Appointment is already book",
             'Responsecode' => 500
         );
     }
