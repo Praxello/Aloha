@@ -1,4 +1,5 @@
 function mapBranches() {
+    console.log(branch);
     var dropdownList = '<option></option>';
     for (let k of branch.keys()) {
         dropdownList += '<option value="' + k + '">' + branch.get(k) + '</option>';

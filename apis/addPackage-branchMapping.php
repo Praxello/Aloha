@@ -6,16 +6,15 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['patientId']) && isset($_POST['appointmentDate']) && isset($_POST['userId']) && isset($_POST['scheduledBy'])) {
-    $sql   = "INSERT INTO patient_doctor_appointment_scheduling(patientId,appointmentDate,doctorId,scheduledBy) 
-     VALUES ($patientId,'$appointmentDate',$userId,'$scheduledBy')";
+if (isset($_POST['packageId']) && isset($_POST['packageDiscount']) && isset($_POST['branchId'])) {
+    $sql = "INSERT INTO package_branch_mapping(packageId,branchId,packageDiscount) VALUES($packageId,$branchId,'$packageDiscount')";
     $query = mysqli_query($conn, $sql);
-    
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-        $appointmentId = $conn->insert_id;
-        
-        $academicQuery = mysqli_query($conn, "SELECT * FROM patient_doctor_appointment_scheduling where appointmentId = $appointmentId");
+        $packageId = $conn->insert_id;
+        $sql = "SELECT pbm.mapId,pbm.packageId,pbm.branchId,pbm.packageDiscount,bm.branchName FROM package_branch_mapping pbm  
+        INNER JOIN hospital_branch_master bm ON bm.branchId = pbm.branchId WHERE pbm.mapId= $packageId";
+        $academicQuery = mysqli_query($conn, $sql);
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
@@ -24,14 +23,14 @@ if (isset($_POST['patientId']) && isset($_POST['appointmentDate']) && isset($_PO
             }
         }
         $response = array(
-            'Message' => "Appointment Booked Successfull",
+            'Message' => "Package mapped successfull",
             "Data" => $records,
             'Responsecode' => 200
         );
         
     } else {
         $response = array(
-            'Message' => "Appointment is already book",
+            'Message' => mysqli_error($conn) . " failed",
             'Responsecode' => 500
         );
     }
@@ -43,4 +42,4 @@ if (isset($_POST['patientId']) && isset($_POST['appointmentDate']) && isset($_PO
 }
 mysqli_close($conn);
 print json_encode($response);
-?>
+?> 

@@ -48,15 +48,15 @@ if(!isset($_SESSION['userId'])){
                             <div class="alert bg-danger alert-danger text-white message" role="alert" style="display: none;">
                                Choose Correct User or password
                             </div>
-                            <h3>Sign In to Aloha</h3>
-                            <p>Happy to see you again!</p>
+                            <!-- <h3>Sign In to Spine 360</h3> -->
+                            <!-- <p>Happy to see you again!</p> -->
                             <form id="signin">
                             <div class="form-group">
-                            <select class="form-control" id="branchId"  style="width:100%;" onchange="loadUsers(this.value);"></select>
+                            <select class="form-control" id="branchId"  style="width:100%;" onchange="loadUsers(this.value);" required></select>
                            
                             </div>
                                 <div class="form-group">
-                                <select class="form-control" id="userId"  style="width:100%;"></select>
+                                <select class="form-control" id="userId"  style="width:100%;" required></select>
                                     
                                 </div>
                                 <div class="form-group">

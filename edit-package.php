@@ -4,7 +4,6 @@
     }
 </style>
 <div class="container-fluid">
-
     <button class="btn btn-primary" type="button" onclick="goback()" style="float: right;">Back</button>
     <div class="row">
 
@@ -43,19 +42,35 @@
                                 </div>
                             </div>
                             <hr>
+                            <form id="addPackageDetails">
+                            <div class="row">
+                                <div class="col-md-6 col-6"> <strong>Select procedures</strong>
+                                    <br>
+                                 <select name="test" id="test" class="form-control" style="width: 100%;"></select>
+                                </div>
+                                <div class="col-md-3 col-6"> <strong>Package quota</strong>
+                                    <br>
+                                  <input type="number" class="form-control" id="packageQuota" name="packageQuota">
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <br>
+                                   <button class="btn btn-success" type="button" onclick="addTest()">Add procedures</button>
+                                </div>
+                                
+                            </div>
+                        </form>
+                        <hr>
                             <div class="dt-responsive tbl">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" id="packageTest">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Package</th>
+                                            <th>Test</th>
                                             <th>Cost</th>
-                                            <th>Package Details</th>
-                                            <th>Status</th>
-                                            <th class="nosort"> Action</th>
+                                            <th>Quota</th>
+                                            <th class="nosort">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="packageTestData">
 
                                     </tbody>
                                 </table>
@@ -64,10 +79,11 @@
                     </div>
                     <div class="tab-pane fade" id="last-month" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <div class="card-body">
+                        <form id="addpackagebranch">
                             <div class="row">
                                 <div class="col-md-3 col-6"> <strong>Select Branch</strong>
                                     <br>
-                                 <select name="branchId" id="branchId" class="form-control"></select>
+                                 <select name="branchId" id="branchId" class="form-control" style="width: 100%;"></select>
                                 </div>
                                 <div class="col-md-3 col-6"> <strong>Package Discount</strong>
                                     <br>
@@ -75,24 +91,22 @@
                                 </div>
                                 <div class="col-md-3 col-6"> <strong>Details</strong>
                                     <br>
-                                   <button class="btn btn-success" type="button">Add Branch</button>
+                                   <button class="btn btn-success" type="button" onclick="addPackagetoBranch()">Add Branch</button>
                                 </div>
                                 
                             </div>
+                        </form>
                             <hr>
                             <div class="dt-responsive tbl">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" id="branchPackage">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>Package</th>
-                                            <th>Cost</th>
-                                            <th>Package Details</th>
-                                            <th>Status</th>
+                                            <th>Branch</th>
+                                            <th>Package Discount</th>
                                             <th class="nosort"> Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody id="branchData">
 
                                     </tbody>
                                 </table>
@@ -101,10 +115,10 @@
                     </div>
                     <div class="tab-pane fade" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
                         <div class="card-body">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" id="updatePackage">
                                 <div class="form-group">
                                     <label for="example-name">Package Title</label>
-                                    <input type="text" placeholder="Johnathan Doe" class="form-control" name="packageName" id="packageName">
+                                    <input type="text" placeholder="Johnathan Doe" class="form-control" name="packageTitle" id="packageName">
                                 </div>
                                 <div class="form-group">
                                     <label for="example-email">Package Cost</label>
@@ -138,15 +152,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <button class="btn btn-success" type="submit">Update Package Details</button>
+                            </form>
                         </div>
-                        <button class="btn btn-success" type="submit">Update Package Details</button>
-                        <hr>
-                        </form>
-                    </div>
+                      
+                   
+                </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 </div>
+<script src="jscode/loadTest.js"></script>
+<script src="jscode/login.js"></script>
 <script src="jscode/load-package-details.js"></script>
+<script src="jscode/updatePackage.js"></script>

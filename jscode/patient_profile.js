@@ -1,4 +1,4 @@
-const loadPatientDetails = details => {
+var loadPatientDetails = details => {
     $('#uname').html(details.firstName + ' ' + details.surname);
     $('#uemailId').html(details.email);
     $('#uphone').html(details.mobile1);
@@ -13,8 +13,8 @@ const loadPatientDetails = details => {
     $('#maritalstatus').val(details.maritalstatus).trigger('change');;
     $('#religion').val(details.religion);
     // $('#country').val(details.country);
-    
-	$('#country option:selected').text()
+
+    $('#country option:selected').text()
     $('#state').val(details.state);
     $('#city').val(details.city);
     $('#pincode').val(details.pincode);
@@ -35,8 +35,8 @@ const loadPatientDetails = details => {
         $('#HTN').attr("checked", true);
     if (details.cholestrol == 1)
         $('#cholestrol').attr("checked", true);
-       
-     if (details. hardDrink == 1)
+
+    if (details.hardDrink == 1)
         $('#hardDrink').attr("checked", true);
     $('#mobile1').val(details.mobile1);
     $('#email').val(details.email);

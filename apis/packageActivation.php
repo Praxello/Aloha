@@ -5,24 +5,23 @@ include "../connection.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
+extract($_POST);
+if(isset($_POST['packageId'])){
+$sql = "UPDATE  package_master SET isActive = CASE WHEN isActive = 1 THEN  isActive = 0 WHEN 
+isActive = 0 THEN  isActive = 0 END WHERE packageId= $packageId";
 
-$sql = "SELECT * FROM package_master ORDER BY packageId DESC";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
-    $academicAffected = mysqli_num_rows($jobQuery);
-    if ($academicAffected > 0) {
-        while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
-            $records[] = $academicResults;
-        }
-        
+    $academicAffected = mysqli_affected_rows($conn);
+    if ($academicAffected ==1) {
         $response = array(
-            'Message' => "All Package data Fetched successfully",
+            'Message' => "Package is activated successfully",
             "Data" => $records,
             'Responsecode' => 200
         );
     } else {
         $response = array(
-            'Message' => "No data present",
+            'Message' => "No user present/ Invalid username or password",
             "Data" => $records,
             'Responsecode' => 401
         );
@@ -33,6 +32,12 @@ if ($jobQuery != null) {
         "Data" => $records,
         'Responsecode' => 300
     ); 
+}
+}else{
+    $response = array(
+        'Message' => "Parameter missing",
+        'Responsecode' => 404
+    );  
 }
 mysqli_close($conn);
 exit(json_encode($response));

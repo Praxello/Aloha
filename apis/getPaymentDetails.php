@@ -7,9 +7,9 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['patientId'])){
-$sql = "SELECT opp.paymentId,opp.billDetails,opp.originalAmt,opp.total,opp.discount,opp.received,opp.pending,opp.visitDate,um.username 
+$sql = "SELECT opp.paymentId,opp.originalAmt,opp.total,opp.discount,opp.received,opp.pending,opp.visitDate,um.username 
 FROM opd_patient_payment_master opp
-INNER JOIN user_master um ON um.userId = opp.doctorId WHERE opp.patientId = 1 = $patientId";
+INNER JOIN user_master um ON um.userId = opp.doctorId WHERE opp.patientId  = $patientId ORDER BY opp.visitDate DESC ";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -32,8 +32,9 @@ if ($jobQuery != null) {
     }
 }else{
     $response = array(
-        'Message' => "Please Logout and login again",
+        'Message' => mysqli_error($conn)."Please Logout and login again",
         "Data" => $records,
+        'Sql'=>$sql,
         'Responsecode' => 300
     ); 
 }

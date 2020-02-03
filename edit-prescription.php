@@ -42,11 +42,11 @@
                         <li class="nav-item">
                             <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#ques" role="tab" aria-controls="pills-setting" aria-selected="false">Back Pain Questions</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                                             <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#last-month" role="tab" aria-controls="pills-profile" aria-selected="false">Present Illness</a>
-                                        </li>
+                                        </li> -->
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false">Letters</a>
+                                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false">Concent form</a>
                                         </li>
                                     </ul>
                                     <div class="tab-content" id="pills-tabContent">
@@ -208,86 +208,89 @@
 <div id="prevData"></div>
                                         </div>
                                         <div class="tab-pane fade" id="last-month" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-md-3 col-6"> <strong>Full Name</strong>
-                                                        <br>
-                                                        <p class="text-muted">Johnathan Deo</p>
-                                                    </div>
-                                                    <div class="col-md-3 col-6"> <strong>Mobile</strong>
-                                                        <br>
-                                                        <p class="text-muted">(123) 456 7890</p>
-                                                    </div>
-                                                    <div class="col-md-3 col-6"> <strong>Email</strong>
-                                                        <br>
-                                                        <p class="text-muted">johnathan@admin.com</p>
-                                                    </div>
-                                                    <div class="col-md-3 col-6"> <strong>Location</strong>
-                                                        <br>
-                                                        <p class="text-muted">London</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                                <p class="mt-30">Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus.
-                                                    Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
-                                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                                                    scrambled it to make a type specimen book. It has survived not only five centuries </p>
-                                                <p>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                                                <h4 class="mt-30">Skill Set</h4>
-                                                <hr>
-                                                <h6 class="mt-30">Wordpress <span class="pull-right">80%</span></h6>
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%;"> <span class="sr-only">50% Complete</span> </div>
-                                                </div>
-                                                <h6 class="mt-30">HTML 5 <span class="pull-right">90%</span></h6>
-                                                <div class="progress  progress-sm">
-                                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%;"> <span class="sr-only">50% Complete</span> </div>
-                                                </div>
-                                                <h6 class="mt-30">jQuery <span class="pull-right">50%</span></h6>
-                                                <div class="progress  progress-sm">
-                                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%;"> <span class="sr-only">50% Complete</span> </div>
-                                                </div>
-                                                <h6 class="mt-30">Photoshop <span class="pull-right">70%</span></h6>
-                                                <div class="progress  progress-sm">
-                                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%;"> <span class="sr-only">50% Complete</span> </div>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                         <div class="tab-pane fade" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
                                             <div class="card-body">
-                                                <form class="form-horizontal">
-                                                    <div class="form-group">
-                                                        <label for="example-name">Full Name</label>
-                                                        <input type="text" placeholder="Johnathan Doe" class="form-control" name="example-name" id="example-name">
+                                            <div class="container-fluid">
+                                        <div class="jumbotron">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header" style="background-color: aliceblue;">
+                                                        <h3><strong>CONSENT FORM</strong></h3>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="example-email">Email</label>
-                                                        <input type="email" placeholder="johnathan@admin.com" class="form-control" name="example-email" id="example-email">
+                                                    <div class="card-body">
+                                                        <div class="row"> 
+                                                            <div class="col-md-12">
+                                                            <article > I <div class="example-container">
+                                                                <mat-form-field>
+                                                                  <input matInput placeholder="Input">
+                                                                </mat-form-field> </div>am a patient of <input type="text" name="" id="">since <input type="text" name="" id=""> .I have appraoached Lokmanya Hospitals for the treament of the same.</article>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="example-password">Password</label>
-                                                        <input type="password" value="password" class="form-control" name="example-password" id="example-password">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <article>I am aware that my complaints is lifestyle based / degenerative in nature that has accumulated over time due to a wrong lifestyle / posture / age factors, etc.
+                                                            The doctor / therapist has examined me and expained about problems and treatment options.</article>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="example-phone">Phone No</label>
-                                                        <input type="text" placeholder="123 456 7890" id="example-phone" name="example-phone" class="form-control">
+                                                
+                                                            <article>I am aware that non-surgical and / or complementory and alternative methods require its own course of times as they offer progressive wellness and relief. <br>
+                                                                I have been explained clearly and properly by the doctors / staff of the therapeutic centre, about the treatment options, indications ad contra-indications. <br><br> </article>
+                                                       
+                                                    
+                                                            <article>I shall abstain from physical and mental stress. I was explained and am aware from counseling that non-invasive, alternative and holistic treatment aproaches  <br>
+                                                                 offered has a success rae of 80-90%. I am  aware and agree that there are chances that  i may not get benefit from the therapy due to any underlying anatomical / <br>
+                                                                  physiological / lifestyle / medical conditions.</article>
+                                                       
+                                                    
+                                                            <article>I agree with good conscience to undergo the therapy / program offered. I will not hold responsible doctor / <br>
+                                                            therapist / technisian / other staff for the treatment results. I assure completed co-operation to the doctor / therapist during the course of the treatment. <br>
+                                                             Along with following the prescibed treatment / excercise, leading to an improved proper lifestyle. </article>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="example-message">Message</label>
-                                                        <textarea name="example-message" name="example-message" rows="5" class="form-control"></textarea>
+
+
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="example-country">Select Country</label>
-                                                        <select name="example-message" id="example-message" class="form-control">
-                                                            <option>London</option>
-                                                            <option>India</option>
-                                                            <option>Usa</option>
-                                                            <option>Canada</option>
-                                                            <option>Thailand</option>
-                                                        </select>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                        <div class="card">
+                                                                <div class="card-header" style="background-color: aliceblue;">
+                                                        <h3><strong>PATIENT ATTENDANT CONSENT</strong></h3>
                                                     </div>
-                                                    <button class="btn btn-success" type="submit">Update Profile</button>
-                                                </form>
+                                                    <div class="card-body">
+                                                            <div class="row"> 
+                                                                <div class="col-md-12">
+                                                                <article> I <input type="text" name="" id="">am a relative / friend to the patient<input type="text" name="" id="" class="md-form">We have been explained about the therapy and agree for<input type="text" name="" id=""> 
+                                                                    to undergo 3D Spinal Decompression Mobilization & Correction therapy / program. We will not hold any doctor / therapist / staff of the hospital / medicle centre regarding the treatment regarding the treatment results.
+                                                                
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label for="">Relation to Patient:</label>
+                                                                    <input type="text" name="" id="">
+                                                                </div>
+                                                           </div>
+                                                           <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label for="">Signature of Attendant:</label>
+                                                                    <input type="text" name="" id="">
+                                                                </div>
+                                                           </div>
+                                                        </article>
+                                                            </div>
+                                                        </div>
+
+                                                </div>
+                                            </div>
+
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-secondary" onclick="downloadForm();"><i class="fa fa-download"></i>Download concent form</button>
+                                    <button type="submit" class="btn btn-primary" value="submit">Save changes</button>
+                                    </div>
                                             </div>
                                         </div>
                                         <div class="tab-pane fade" id="fullwindowModal1" role="tabpanel" aria-labelledby="pills-profile-tab">
@@ -396,7 +399,6 @@
                                   
                                        <div class="card"> 
                                        
-                                          
                                            <div class="card-body c">
                                            <!-- <div style="overflow-x:auto;"> -->
                                            <div class="dt-responsive tbl" >
@@ -420,7 +422,6 @@
                                                </table>
                                             </div>
                                        </div>
-                                           <!-- <div> -->
                                        </div>
                                    </div>
                                </div>
@@ -453,6 +454,9 @@
         var date = moment().add(param,'d').toDate();
         var birthDate = moment(date).format('YYYY-MM-DD');
         $('#nextVisitDate').val(birthDate);
+    }
+    function downloadForm(){
+        window.open('concentform-print.php','_blank');
     }
 </script>
  <script src="js/jquery.validate.js"></script>

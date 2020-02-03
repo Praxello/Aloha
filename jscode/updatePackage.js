@@ -1,15 +1,14 @@
-$('#take-appointment').on('submit', function(e) {
+$('#updatePackage').on('submit', function(e) {
     e.preventDefault();
-    var fData = {
-        appointmentDate: moment($('#dropper-min-year').val()).format('YYYY-MM-DD'),
-        userId: $('#userId').val(),
-        patientId: patientId_ap,
-        scheduledBy: data.username
-    };
+    var fdata = new FormData(this);
+    fdata.append('packageId', packageId_u);
     $.ajax({
-        url: url + 'addAppointment.php',
+        url: url + 'updatePackage.php',
         type: 'POST',
-        data: fData,
+        data: fdata,
+        cache: false,
+        contentType: false,
+        processData: false,
         dataType: 'json',
         success: function(response) {
             if (response.Responsecode == 200) {
@@ -20,7 +19,8 @@ $('#take-appointment').on('submit', function(e) {
                     button: false,
                     timer: 1500
                 });
-
+                packages.set(response.Data.packageId, response.Data);
+                listPackages(packages);
             } else {
                 swal({
                     position: 'top-end',
@@ -30,9 +30,6 @@ $('#take-appointment').on('submit', function(e) {
                     timer: 1500
                 });
             }
-            $('#appointment').modal('hide');
-            $('#take-appointment').trigger('reset');
-            $('#userId').val('').trigger('change');
         }
     });
 });

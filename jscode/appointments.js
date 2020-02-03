@@ -53,7 +53,7 @@ const listAppointments = (appointments, today) => {
             tblData += '<td>' + fees_status(patient.patientId, patient.doctorId, patient.appointmentDate) + '</td>';
             tblData += patientType;
             tblData += '<td ><div class="table-actions" style="text-align : left" >';
-            tblData += '<a href="#"  onclick="editPatient(' + (k) + ')" title="medication"><i class="ik ik-edit" style="color: blue;"></i></a>';
+            tblData += '<a href="#"  onclick="editPatient(' + (k) + ')" title="medication"><i class="fa fa-medkit" style="color: blue;"></i></a>';
             tblData += '</div></td></tr>';
         }
 

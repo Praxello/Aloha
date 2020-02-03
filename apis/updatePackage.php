@@ -6,16 +6,20 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['patientId']) && isset($_POST['appointmentDate']) && isset($_POST['userId']) && isset($_POST['scheduledBy'])) {
-    $sql   = "INSERT INTO patient_doctor_appointment_scheduling(patientId,appointmentDate,doctorId,scheduledBy) 
-     VALUES ($patientId,'$appointmentDate',$userId,'$scheduledBy')";
-    $query = mysqli_query($conn, $sql);
+if (isset($_POST['packageId']) && isset($_POST['packageTitle']) && isset($_POST['packageCost'])) {
     
+    $packageTitle = mysqli_real_escape_string($conn, $packageTitle);
+    $packageDetails = isset($_POST['packageDetails']) ? $_POST['packageDetails']:'NULL';
+    $packageDetails = mysqli_real_escape_string($conn, $packageDetails);
+    $isActive = isset($_POST['isActive']) ? $_POST['isActive']:'0';
+    
+    $sql = "UPDATE package_master SET title = '$packageTitle',details='$packageDetails',cost='$packageCost',isActive = $isActive 
+    WHERE packageId = $packageId";
+    $query = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-        $appointmentId = $conn->insert_id;
-        
-        $academicQuery = mysqli_query($conn, "SELECT * FROM patient_doctor_appointment_scheduling where appointmentId = $appointmentId");
+       
+        $academicQuery = mysqli_query($conn, "SELECT * FROM package_master where packageId = $packageId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
@@ -24,14 +28,14 @@ if (isset($_POST['patientId']) && isset($_POST['appointmentDate']) && isset($_PO
             }
         }
         $response = array(
-            'Message' => "Appointment Booked Successfull",
+            'Message' => "Package Updated Successfull",
             "Data" => $records,
             'Responsecode' => 200
         );
         
     } else {
         $response = array(
-            'Message' => "Appointment is already book",
+            'Message' => mysqli_error($conn) . " failed",
             'Responsecode' => 500
         );
     }
@@ -43,4 +47,4 @@ if (isset($_POST['patientId']) && isset($_POST['appointmentDate']) && isset($_PO
 }
 mysqli_close($conn);
 print json_encode($response);
-?>
+?> 

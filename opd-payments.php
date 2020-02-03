@@ -90,7 +90,6 @@
                                                     <tr>
                                                         <th><b>Payment Id</b></td>
                                                             <th><b>Doctor</b></th>
-                                                            <th><b>Bill</b></th>
                                                             <th><b>Orignal Amount</b></th>
                                                             <th><b>Payable Amount</b></th>
                                                             <th><b>Discount</b></th>
@@ -123,6 +122,7 @@
                                     <div class="card-header" style="background-color: aliceblue;">
 
                                     </div>
+                                    <form id="makePayment">
                                     <div class="card-body" style="background-color: aliceblue;">
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -163,6 +163,7 @@
                                                     <input type="text" class="form-control" id="pendingAmt" placeholder="100.0" readonly>
 
                                                 </div>
+                                               
                                             </div>
 
                                             <hr style="border-width: 5px ; border-top: 1px solid rgba(36, 26, 29, 0.87);">
@@ -193,9 +194,10 @@
                                             <div class="form-group row">
                                                 <label for="amount" class="col-sm-3 col-form-label"><b>Amount:</b></label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control" id="amount" placeholder="100.0">
+                                                    <input type="text" class="form-control" id="amount" oninput="check(this);" placeholder="100.0">
 
                                                 </div>
+                                                <div class="errorMsg"></div>
                                             </div>
 
                                             <div class="form-group row">
@@ -221,13 +223,14 @@
                                                 </div>
                                                 <div class="col-md-4 template-demo">
 
-                                                    <button type="button" class="btn btn-primary"><i class="ik ik-printer"></i>Print</button>
+                                                    <button type="button" class="btn btn-primary" onclick="printReciept()" style="display: none;" id="prButton"><i class="ik ik-printer"></i>Print</button>
 
                                                 </div>
                                             </div>
 
                                         </div>
                                     </div>
+                                </form>
                                 </div>
                             </div>
                            

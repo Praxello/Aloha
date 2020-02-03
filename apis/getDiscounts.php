@@ -5,8 +5,9 @@ include "../connection.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
-
-$sql = "SELECT * FROM package_master ORDER BY packageId DESC";
+extract($_POST);
+if(isset($_POST['branchId'])){
+$sql = "SELECT * FROM DiscountMaster WHERE branchId = $branchId";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -16,7 +17,7 @@ if ($jobQuery != null) {
         }
         
         $response = array(
-            'Message' => "All Package data Fetched successfully",
+            'Message' => "All discounts Fetched successfully",
             "Data" => $records,
             'Responsecode' => 200
         );
@@ -33,6 +34,12 @@ if ($jobQuery != null) {
         "Data" => $records,
         'Responsecode' => 300
     ); 
+}
+}else{
+    $response = array(
+        'Message' => "Parameter missing",
+        'Responsecode' => 404
+    );  
 }
 mysqli_close($conn);
 exit(json_encode($response));

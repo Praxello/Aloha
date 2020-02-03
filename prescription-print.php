@@ -11,11 +11,12 @@ $advice = null;
 $vidate = $_GET['visitDate'];
 $sign = null;
 
-function fetchmedicinedata($patientId,$visitDate)
+function fetchmedicinedata($patientId,$visitDate,$doctorId)
 {
     include 'connection.php';
     $output = '';
-    $sql    = "SELECT * FROM patient_prescription_medicine ppm WHERE ppm.patientId = $patientId AND ppm.visitDate = '$visitDate'";
+    $sql    = "SELECT * FROM patient_prescription_medicine ppm
+     WHERE ppm.patientId = $patientId AND ppm.visitDate = '$visitDate' AND ppm.doctorId = $doctorId";
     $result = mysqli_query($conn, $sql);
     $i      = 0;
     if (mysqli_num_rows($result) > 0) {
@@ -34,12 +35,14 @@ function fetchmedicinedata($patientId,$visitDate)
     }
     return $output;
 }
-function fetchPrescriptiondata($patientId,$visitDate)
+function fetchPrescriptiondata($patientId,$visitDate,$doctorId)
 {
     include 'connection.php';
     $output = '';
     $sql    = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pt.weight,pt.surname,pt.birthDate,pt.address,pt.mobile1,pt.firstVisitDate,pt.gender,pom.pulse ,pom.bp,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age
-        FROM patient_medication pm INNER JOIN patient_master pt inner join patient_onassessment_master pom ON pt.patientId = pm.patientId WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate'";
+    FROM patient_medication pm LEFT JOIN patient_master pt ON pt.patientId = pm.patientId
+    LEFT JOIN patient_onassessment_master pom ON pom.patientId = pm.patientId
+    WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate' AND pm.doctorId = $doctorId AND pom.visitDate = '$visitDate'";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
@@ -84,11 +87,11 @@ function doctor_details($doctorId){
 
 
 
-$html = '<!DOCTYPE html>
+$html = '<link rel="stylesheet" href="apis/style.css">
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Prescription</title>
   </head>
   <body>
     <style>
@@ -274,7 +277,7 @@ $html = '<!DOCTYPE html>
                                 </td>
 
                     </tr>
-                    ' . fetchPrescriptiondata($_GET['patientId'],$vidate) . '
+                    ' . fetchPrescriptiondata($_GET['patientId'],$vidate,$_GET['doctorId']) . '
                    
             </table>
       
@@ -296,7 +299,7 @@ $html = '<!DOCTYPE html>
                             </tr>
 
                                 
-                ' . fetchmedicinedata($_GET['patientId'],$vidate) . '
+                ' . fetchmedicinedata($_GET['patientId'],$vidate,$_GET['doctorId']) . '
 
                             </table>
 

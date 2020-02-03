@@ -8,7 +8,7 @@ if (isset($_SESSION['userId'])) {
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ThemeKit - Admin Template</title>
+        <title>Praxello solutions</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,6 +71,7 @@ if (isset($_SESSION['userId'])) {
                                    </div>
                             </div>
                             <div class="card-body">
+                            <div class="dt-responsive">
                                 <table id="aTable" class="table">
                                     <thead>
                                         <tr>
@@ -86,6 +87,7 @@ if (isset($_SESSION['userId'])) {
                                     <tbody id="aptData">
                                     </tbody>
                                 </table>
+                            </div>
                             </div>
                         </div>
                     </div>
