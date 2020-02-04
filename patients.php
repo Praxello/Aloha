@@ -45,8 +45,6 @@ if(isset($_SESSION['branchId'])){
 </Style>
     <body>
         <div class="wrapper">
-
-
             <div class="page-wrap">
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>

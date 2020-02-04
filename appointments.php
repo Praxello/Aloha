@@ -52,7 +52,7 @@ if (isset($_SESSION['userId'])) {
                                 <div class="card-search with-adv-search dropdown">
                                         <div class="form-group">
                                             <label for="birthDate">Appointment Date</label>
-                                            <input id="dropper-max-year" class="form-control" type="text"  placeholder="select date" onchange="fetch(this.value);"/>
+                                            <input id="dropper-max-year" class="form-control" type="date"  placeholder="select date" onchange="fetch(this.value);"/>
                                         </div>
                                     </div>
                                 </div>

@@ -10,7 +10,7 @@ var loadPatientDetails = details => {
     $('#firstName').val(details.firstName);
     $('#middleName').val(details.middleName);
     $('#surname').val(details.surname);
-    $('#maritalstatus').val(details.maritalstatus).trigger('change');;
+    $('#maritalstatus').val(details.maritalstatus);
     $('#religion').val(details.religion);
     // $('#country').val(details.country);
 
@@ -38,6 +38,7 @@ var loadPatientDetails = details => {
 
     if (details.hardDrink == 1)
         $('#hardDrink').attr("checked", true);
+        
     $('#mobile1').val(details.mobile1);
     $('#email').val(details.email);
     $('#landline').val(details.landline);
@@ -54,6 +55,8 @@ var loadPatientDetails = details => {
     var src = "upload/patients/" + details.patientId + ".jpg";
     $('#userJpg').attr("src", src);
     $('#userPic').attr("src", src);
+    
 };
+
 loadPatientDetails(patient_details);
 getPatientAppointments(patient_details.patientId);

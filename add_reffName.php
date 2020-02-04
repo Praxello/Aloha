@@ -17,7 +17,7 @@
                         <div class="col-md-8">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="gender">Category / Group</label>
                                         <select class="form-control select2" id="gender1" name="gender1" placeholder="Gender">
 
@@ -25,7 +25,7 @@
                                             <option value="Item2">Item2</option>
                                             <option value="Item3">Item3</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                 </div>
 
                             </div>

@@ -51,7 +51,6 @@
                             <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#current-month" role="tab" aria-controls="pills-setting" aria-selected="false">Profile Picture</a>
                         </li>
                        
-
                         <li class="nav-item">
                             <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#cervical" role="tab" aria-controls="pills-setting" aria-selected="false">Appointments</a>
                         </li>
@@ -202,12 +201,7 @@
                                         </div>
                              </div>
                                        
-                                              
-                                              
-                                           
-                                    
-
-                                   
+               
                                                       <h5>Contact Details:</h5>
 
                                                      <div class="row">
