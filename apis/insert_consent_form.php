@@ -8,7 +8,7 @@ $records  = null;
 extract($_POST);
 if (isset($_POST['pname1']) && isset($_POST['deseaseNew']) && isset($_POST['sinceDays']) && isset($_POST['relativeName']) && isset($_POST['medicalTreatment']) && isset($_POST['hospitalCenterName']) 
 && isset($_POST['treatmentName']) && isset($_POST['u_patientId'])) {
-    
+    $visitDate = date('Y-m-d');
     
     $sql = "INSERT INTO consent_form_master(patientName,deseaseNew,sinceDays,relativeName,medicalTreatment,hospitalCenterName,treatmentName,u_patientId) 
      VALUES ('$pname1','$deseaseNew','$sinceDays','$relativeName','$medicalTreatment','$hospitalCenterName','$treatmentName','$u_patientId' )";

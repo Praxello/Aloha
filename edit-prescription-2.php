@@ -65,43 +65,43 @@
                                                 <div class="col-sm-1">
                                                     <div class="form-group">
                                                         <label for="input">Pulse</label>
-                                                        <input type="text" id="pulse" class="form-control form-control-sm">
+                                                        <input type="number" id="pulse" class="form-control form-control-sm">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <div class="form-group">
                                                         <label for="input">Height</label>
-                                                        <input type="text" id="height" class="form-control form-control-sm">
+                                                        <input type="number" id="height" class="form-control form-control-sm">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <div class="form-group">
                                                         <label for="input">Weight</label>
-                                                        <input type="text" id="weight" class="form-control form-control-sm">
+                                                        <input type="number" id="weight" class="form-control form-control-sm">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <div class="form-group">
                                                         <label for="input">West</label>
-                                                        <input type="text" id="west" class="form-control form-control-sm">
+                                                        <input type="number" id="west" class="form-control form-control-sm">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <div class="form-group">
                                                         <label for="input">Hip</label>
-                                                        <input type="text" id="hip" class="form-control form-control-sm">
+                                                        <input type="number" id="hip" class="form-control form-control-sm">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <div class="form-group">
                                                         <label for="input">Temprature</label>
-                                                        <input type="text" id="temp" class="form-control form-control-sm">
+                                                        <input type="number" id="temp" class="form-control form-control-sm">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <div class="form-group">
                                                         <label for="input">SPO2</label>
-                                                        <input type="text" id="spo2" class="form-control form-control-sm">
+                                                        <input type="number" id="spo2" class="form-control form-control-sm">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4">
@@ -138,7 +138,7 @@
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-header">
-                                            <button type="button" class="btn btn-icon btn-success" style="float: right;" onclick="addrow()"><i class="ik ik-plus"></i></button>
+                                            <button type="button" class="btn btn-icon btn-success" style="float: right;" onclick="addrow()" title="Add Medicine"><i class="ik ik-plus"></i></button>
                                         </div>
                                         <div class="card-body">
                                             <div class="dt-responsive">
@@ -185,7 +185,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="input">Enter Days</label>
-                                                <input type="text" id="vdate" class="form-control" oninput="setDate(this.value);">
+                                                <input type="number" id="vdate" class="form-control" oninput="setDate(this.value);">
                                             </div>
                                             <strong id="dayOfDate" style="color:green;"></strong>
                                         </div>
@@ -436,7 +436,6 @@
         }
         $('#nextVisitDate').val(birthDate);
         $('#dayOfDate').html(moment(birthDate).format('dddd'));
-        console.log(moment().weekday());
     }
 
     function downloadForm() {

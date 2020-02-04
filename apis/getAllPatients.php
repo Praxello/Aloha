@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT * FROM patient_master";
+$sql = "SELECT *,st.name stateName,ct.name cityName FROM patient_master pm LEFT JOIN states st ON st.id = pm.state LEFT JOIN cities ct ON ct.id = pm.city";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
