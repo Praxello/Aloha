@@ -62,6 +62,7 @@ function fetchPrescriptiondata($patientId,$visitDate,$doctorId)
     <b>BP:</b>'.$row['bp'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
   <b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pulse:</b> '.$row['pulse'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<b>BMI:</b>23.08</div> 
 </tr>';
+$output .= '<tr><td>1</td><td>2</td></tr>';
     }
    
     return $output;
@@ -92,7 +93,7 @@ function doctor_details($doctorId){
 
 
 
-$html = '<link rel="stylesheet" href="apis/style.css">
+$html = '<link rel="stylesheet" href="dompdf/style.css">
 <html>
   <head>
     <meta charset="utf-8">

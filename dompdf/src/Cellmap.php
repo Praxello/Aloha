@@ -7,8 +7,6 @@
  */
 namespace Dompdf;
 
-use Dompdf\Exception;
-use Dompdf\Frame;
 use Dompdf\FrameDecorator\Table as TableFrameDecorator;
 use Dompdf\FrameDecorator\TableCell as TableCellFrameDecorator;
 
@@ -111,14 +109,14 @@ class Cellmap
     private $__row;
 
     /**
-     * Tells wether the columns' width can be modified
+     * Tells whether the columns' width can be modified
      *
      * @var bool
      */
     private $_columns_locked = false;
 
     /**
-     * Tells wether the table has table-layout:fixed
+     * Tells whether the table has table-layout:fixed
      *
      * @var bool
      */
@@ -454,7 +452,6 @@ class Cellmap
         $row["height"] = $height;
         $next_row =& $this->get_row($i + 1);
         $next_row["y"] = $row["y"] + $height;
-
     }
 
     /**
@@ -513,7 +510,6 @@ class Cellmap
             $display === "inline-table" ||
             in_array($display, TableFrameDecorator::$ROW_GROUPS)
         ) {
-
             $start_row = $this->__row;
             foreach ($frame->get_children() as $child) {
                 // Ignore all Text frames and :before/:after pseudo-selector elements.
@@ -535,7 +531,6 @@ class Cellmap
             $this->_frames[$key]["frame"] = $frame;
 
             if ($display !== "table-row" && $collapse) {
-
                 $bp = $style->get_border_properties();
 
                 // Resolve the borders
@@ -621,8 +616,14 @@ class Cellmap
             list($h, $v) = $this->_table->get_style()->border_spacing;
 
             // Border spacing is effectively a margin between cells
-            $v = $style->length_in_pt($v) / 2;
-            $h = $style->length_in_pt($h) / 2;
+            $v = $style->length_in_pt($v);
+            if (is_numeric($v)) {
+                $v = $v / 2;
+            }
+            $h = $style->length_in_pt($h);
+            if (is_numeric($h)) {
+                $h = $h / 2;
+            }
             $style->margin = "$v $h";
 
             // The additional 1/2 width gets added to the table proper
@@ -741,7 +742,7 @@ class Cellmap
 
                     $this->_cells[$r][$c] = null;
                     unset($this->_cells[$r][$c]);
-                    
+
                     // has multiple rows?
                     if (isset($this->_frames[$id]) && count($this->_frames[$id]["rows"]) > 1) {
                         // remove just the desired row, but leave the frame
@@ -797,7 +798,7 @@ class Cellmap
         $g_key = $group->get_id();
         $r_key = $last_row->get_id();
 
-        $r_rows = $this->_frames[$r_key]["rows"];
+        $r_rows = $this->_frames[$g_key]["rows"];
         $this->_frames[$g_key]["rows"] = range($this->_frames[$g_key]["rows"][0], end($r_rows));
     }
 
