@@ -42,7 +42,6 @@
                                                                 <div class="form-group">
                                                                     <label for="gender">Gender</label>
                                                                     <select  class="form-control select2" id="gender" name="gender" placeholder="Gender">
-                                                                    
                                                                         <option value="Male">Male</option>
                                                                         <option value="Female">Female</option>
                                                                         <option value="Other">Other</option>

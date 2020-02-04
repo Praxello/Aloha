@@ -28,8 +28,8 @@ $('#branchMasterForm').on('submit', function(e) {
                     });
                     $('#editbranchNew').empty();
                     $('#newData').show();
-                    users.set(response.Data.userId, response.Data);
-                    listUsers(users);
+                    // users.set(response.Data.userId, response.Data);
+                    // listUsers(users);
                     branches.set(response.Data.branchId, response.Data); 
                     listBranches(branches);
                 } else {

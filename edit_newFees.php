@@ -52,10 +52,11 @@
                                     </div>
 
                                 </div>
-
+                           
                                 <button class="btn btn-success" type="submit">Update</button>
-                                <button class="btn btn-success" type="submit">Cancel</button>
-                            </form>
+                                </form>
+                        
+                         
                         </div>
                     </div>
 
