@@ -1,12 +1,21 @@
 Dropzone.autoDiscover = false;
 $(".dropzone").dropzone({
+    maxFiles: 20,
     init: function() {
+        console.log('hello');
+        // var anchorEl = document.createElement('a');
+        // anchorEl.setAttribute('href', response);
+        // anchorEl.setAttribute('target', '_blank');
+        // anchorEl.innerHTML = "<br>Download";
+        // file.previewTemplate.appendChild(anchorEl);
+
         thisDropzone = this;
         var link = url + 'getImages.php';
         $.post('apis/getImages.php', {
             patientId: $('#patientId').val()
         }, function(response) {
             if (response.Data != null) {
+
                 $.each(response.Data, function(key, value) {
 
                     var mockFile = {

@@ -1,23 +1,25 @@
 function loadMedicine(id) {
 
-    var dropDownList = '';
+    var dropDownList = '<option></option>';
     for (let k of medicines.keys()) {
         var data = medicines.get(k);
-        dropDownList += "<option>" + data.name + "</option>";
+        dropDownList += "<option value=" + data.medicineId + ">" + data.name + "</option>";
     }
     $('#medicineId' + id).html(dropDownList);
 }
 
 function loadMedicineTypes(id) {
-    var dropDownList = '';
+    var dropDownList = '<option></option>';
     medicineTypes.forEach(medicine => {
         dropDownList += "<option>" + medicine + "</option>";
     });
     $('#typeId' + id).html(dropDownList);
 }
 
+
+
 function loadMedicineDosage(id) {
-    var dropDownList = '';
+    var dropDownList = '<option></option>';
 
     medicineDosage.forEach(dosage => {
         dropDownList += "<option>" + dosage + "</option>";
@@ -27,6 +29,13 @@ function loadMedicineDosage(id) {
     $('#night' + id).html(dropDownList);
 }
 
+function loadInstructions(id) {
+    var dropDownList = '<option></option>';
+    instructions.forEach(instruction => {
+        dropDownList += "<option>" + instruction + "</option>";
+    });
+    $('#inst' + id).html(dropDownList);
+}
 var getWitals = (patientId, today) => {
     $.ajax({
         url: url + 'getPatientWitals.php',

@@ -1,7 +1,6 @@
-
-
 <link rel="stylesheet" href="dist/css/dropzone.css">
 <link rel="stylesheet" href="dist/css/style.css">
+<!-- <link rel="stylesheet" href="js/dropzone.min.css"> -->
 <div class="main-content">
     <div class="container-fluid">
         <div class="page-header">

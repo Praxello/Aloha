@@ -162,6 +162,7 @@
                         <label for="input">Enter Days</label>
                             <input type="text" id="vdate" class="form-control" oninput="setDate(this.value);">
                         </div>
+                        <span>Monday</span>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
@@ -202,9 +203,11 @@
     //set date in datepicker
     function setDate(param){
         param= parseInt(param);
+        console.log("hey"+moment().day(param));
         var date = moment().add(param,'d').toDate();
         var birthDate = moment(date).format('YYYY-MM-DD');
         $('#nextVisitDate').val(birthDate);
+      
     }
 </script>
 <script src="jscode/getAllPrescriptiondata.js"></script>

@@ -8,7 +8,7 @@ function storeTblValues() {
         var evining = $(tr).find('td:eq(3) select').val();
         var night = $(tr).find('td:eq(4) select').val();
         var duration = $(tr).find('td:eq(5) input').val();
-        var inst = $(tr).find('td:eq(6) input').val();
+        var inst = $(tr).find('td:eq(6) select option:selected').text();
 
         TableData[row] = {
             "typeId": typeId,

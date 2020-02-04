@@ -32,6 +32,7 @@ if(isset($_SESSION['branchId'])){
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
+        <link rel="stylesheet" href="dist/css/loader.css">
     </head>
     <style>
 .error{
@@ -178,6 +179,7 @@ if(isset($_SESSION['branchId'])){
                         </div>
                     </div>
                 </div>
+                <div id="loader"></div>
                 <footer class="footer">
                     <div class="w-100 clearfix">
                         <span class="text-center text-sm-left d-md-inline-block">Copyright © 2020 Praxello Solutions All Rights Reserved.</span>
@@ -220,7 +222,7 @@ today:'<?php echo date('Y-m-d');?>'
         <script src="plugins/d3/dist/d3.min.js"></script>
         <script src="plugins/c3/c3.min.js"></script>
         <script src="js/tables.js"></script>
-    
+        <script src="jscode/loader.js"></script>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="js/jquery.validate.js"></script>
