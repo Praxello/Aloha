@@ -8,6 +8,8 @@ use Dompdf\Dompdf;
 $dompdf = new Dompdf();
 extract($_GET);
 $advice = null;
+$patientName = null;
+$nextVisitDate=null;
 $vidate = $_GET['visitDate'];
 $sign = null;
 
@@ -39,14 +41,17 @@ function fetchPrescriptiondata($patientId,$visitDate,$doctorId)
 {
     include 'connection.php';
     $output = '';
-    $sql    = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pt.weight,pt.surname,pt.birthDate,pt.address,pt.mobile1,pt.firstVisitDate,pt.gender,pom.pulse ,pom.bp,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age
+    $sql    = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pt.weight,pt.surname,pt.birthDate,pt.address,pt.mobile1,DATE_FORMAT(pt.firstVisitDate,'%d %b %Y') firstVisitDate
+    ,pt.gender,pom.pulse ,pom.bp,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age,DATE_FORMAT(pm.nextVisitDate,'%d %b %Y') nextVisitDate
     FROM patient_medication pm LEFT JOIN patient_master pt ON pt.patientId = pm.patientId
-    LEFT JOIN patient_onassessment_master pom ON pom.patientId = pm.patientId
-    WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate' AND pm.doctorId = $doctorId AND pom.visitDate = '$visitDate'";
+    LEFT JOIN patient_onassessment_master pom ON pom.patientId = pm.patientId AND pom.visitDate = pm.visitDate
+    WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate' AND pm.doctorId = $doctorId";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-        global $advice;
+        global $advice,$patientName,$nextVisitDate;
+        $nextVisitDate = $row['nextVisitDate'];
+        $patientName = $patientId.'_'.$row['firstName'].'_'.$row['surname'].'_'.$visitDate;
         $advice = $row['advice'];
         $output .= ' <tr > <p>  <div style="margin-bottom:15px"><b>Name:&nbsp;&nbsp;</b>'.$row['firstName'].' '.$row['surname'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
          <b>Reg.No:</b>&nbsp;&nbsp;'.$patientId.'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
@@ -57,6 +62,7 @@ function fetchPrescriptiondata($patientId,$visitDate,$doctorId)
     <b>BP:</b>'.$row['bp'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
   <b>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pulse:</b> '.$row['pulse'].'  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<b>BMI:</b>23.08</div> 
 </tr>';
+$output .= '<tr><td>1</td><td>2</td></tr>';
     }
    
     return $output;
@@ -87,7 +93,7 @@ function doctor_details($doctorId){
 
 
 
-$html = '<link rel="stylesheet" href="apis/style.css">
+$html = '<link rel="stylesheet" href="dompdf/style.css">
 <html>
   <head>
     <meta charset="utf-8">
@@ -310,7 +316,11 @@ $html = '<link rel="stylesheet" href="apis/style.css">
                                 <tr>
                                 <td>'. $advice.'</td>
                                 </tr>
+                                <tr>
+                                <td><strong>Next visit date:'.$nextVisitDate.'</strong></td>
+                                </tr>
                                 </table>
+                               
 
             </div>
             <footer style="text-align:center;padding-left:400px;"><strong>'.$sign.'</strong></footer>
@@ -328,7 +338,7 @@ $dompdf->render();
 
 /* Output the generated PDF to Browser */
 // $dompdf->stream();
-$dompdf->stream("dompdf_out.pdf", array(
+$dompdf->stream($patientName, array(
     "Attachment" => false
 ));
 exit(0);

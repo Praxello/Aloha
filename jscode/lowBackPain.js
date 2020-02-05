@@ -70,7 +70,7 @@ $('#backPainForm').on('submit', function(e) {
     }
 });
 
-const getpainIntensity = () => {
+var getpainIntensity = () => {
     var painObj = {};
     $.each($("input[name='painIntensity']"), function() {
         var flag = 0;
@@ -88,7 +88,7 @@ const getpainIntensity = () => {
     return painObj;
 };
 
-const getpersonalCare = () => {
+var getpersonalCare = () => {
     var perObj = {};
     $.each($("input[name='personalCare']"), function() {
         var flag = 0;
@@ -104,7 +104,7 @@ const getpersonalCare = () => {
     return perObj;
 };
 
-const getlifting = () => {
+var getlifting = () => {
     var liftObj = {};
     $.each($("input[name='lifting']"), function() {
         var flag = 0;
@@ -120,7 +120,7 @@ const getlifting = () => {
     return liftObj;
 };
 
-const getwalking = () => {
+var getwalking = () => {
     var walkObj = {};
     $.each($("input[name='walking']"), function() {
         var flag = 0;
@@ -136,7 +136,7 @@ const getwalking = () => {
     return walkObj;
 };
 
-const getsitting_1 = () => {
+var getsitting_1 = () => {
     var sittObj = {};
     $.each($("input[name='sitting1']"), function() {
         var flag = 0;
@@ -152,7 +152,7 @@ const getsitting_1 = () => {
     return sittObj;
 };
 
-const getstanding = () => {
+var getstanding = () => {
     var standObj = {};
     $.each($("input[name='standing']"), function() {
         var flag = 0;
@@ -168,7 +168,7 @@ const getstanding = () => {
     return standObj;
 };
 
-const getsleeping = () => {
+var getsleeping = () => {
     var sleepObj = {};
     $.each($("input[name='sleeping']"), function() {
         var flag = 0;
@@ -183,7 +183,7 @@ const getsleeping = () => {
     });
     return sleepObj;
 };
-const getsocialLife = () => {
+var getsocialLife = () => {
     var socialObj = {};
     $.each($("input[name='socialLife']"), function() {
         var flag = 0;
@@ -199,7 +199,7 @@ const getsocialLife = () => {
     return socialObj;
 };
 
-const gettravel = () => {
+var gettravel = () => {
     var traObj = {};
     $.each($("input[name='travel']"), function() {
         var flag = 0;
@@ -215,7 +215,7 @@ const gettravel = () => {
     return traObj;
 };
 
-const getchangingDegreeOfPain = () => {
+var getchangingDegreeOfPain = () => {
     var chanObj = {};
     $.each($("input[name='changingDegreeOfPain']"), function() {
         var flag = 0;

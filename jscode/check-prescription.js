@@ -22,6 +22,7 @@ function check_prescription(u_patientId) {
 function fill_exist_data(response) {
     var count = response.length;
     var rowId = 1;
+    $('#complaintsId').importTags(response[0].complaint);
     for (var i = 0; i < count; i++) {
         addrow();
         $("#typeId" + rowId).val(response[i].type).trigger('change');
@@ -30,12 +31,11 @@ function fill_exist_data(response) {
         $("#evining" + rowId).val(response[i].evining).trigger('change');
         $("#night" + rowId).val(response[i].night).trigger('change');
         $("#duration" + rowId).val(response[i].period);
-        $("#inst" + rowId).val(response[i].instruction);
+        $("#inst" + rowId).val(response[i].instruction).trigger('change');
         rowId++;
     }
-    $('#complaintsId').importTags(response[0].complaint);
-    $('#diagnosis').importTags(response[0].diagnosis);
     $('#nextVisitDate').val(response[0].nextVisitDate);
+    $('#diagnosis').importTags(response[0].diagnosis);
     $('#remark').val(response[0].advice);
 }
 
@@ -56,7 +56,6 @@ function fetch_previous_prescription(u_patientId) {
 }
 
 function fill_prev(response) {
-    console.log(response);
     var count = response.length;
     for (var i = 0; i < count; i++) {
         var tblData = '',

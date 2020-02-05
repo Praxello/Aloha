@@ -105,14 +105,14 @@
 
                                         </div>
 
-                                        <hr style="border-width: 5px ; border-top: 1px solid rgba(36, 26, 29, 0.87);">
+                                        <!-- <hr style="border-width: 5px ; border-top: 1px solid rgba(36, 26, 29, 0.87);">
                                         <div class="form-group row">
                                             <label for="billdetails" class="col-sm-2 col-form-label"><b>Bill Details :</b></label>
                                             <div class="col-sm-8 ">
 
                                                 <textarea class="form-control" id="billdetails" placeholder="Cobalt : 2000.0" name="billamount"></textarea>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                     </div>
                                 </div>

@@ -31,7 +31,7 @@ var listPatients = patients => {
         tblData += '<td>' + patient.firstName + ' ' + patient.surname + '</td>';
         tblData += '<td>' + getAge(patient.birthDate) + '</td>';
         tblData += '<td>' + patient.mobile1 + '</td>';
-        tblData += '<td>' + patient.address + ' ' + patient.city + '</td>';
+        tblData += '<td>' + patient.address + ' ' + patient.cityName + '</td>';
         tblData += '<td>' + getDate(patient.lastVisitDate) + '</td>';
         tblData += '<td>' + getDate(patient.nextVisitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';

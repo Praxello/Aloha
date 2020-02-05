@@ -77,10 +77,9 @@ getAllAppointments(data.userId);
 
 const editPatient = (patientId) => {
     patientId = patientId.toString();
-    u_patientId = patientId;
-    global_patientId = patientId;
     let patient = appointments.get(patientId);
-    // $(".wrapper").toggleClass("right-sidebar-expand");
+    u_patientId = patient.patientId;
+    global_patientId = patient.patientId;
     $('#tData').hide();
     $('#editProfile').load('edit-prescription-2.php');
 };

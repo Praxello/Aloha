@@ -36,7 +36,6 @@ function savePrescription() {
         nextvisit: $('#nextVisitDate').val(),
         vdate: '2019-01-03'
     };
-    console.log(prescriptionData);
     prescriptionData = JSON.stringify(prescriptionData);
     $.ajax({
         url: url + 'addPrescription.php',
@@ -44,12 +43,23 @@ function savePrescription() {
         data: { postdata: prescriptionData },
         dataType: 'json',
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
-                alert(response.Message);
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: response.Message,
+                    button: false,
+                    timer: 1500
+                });
                 window.open('prescription-print.php?patientId=' + response.patientId + '&doctorId=' + response.doctorId + '&visitDate=' + response.vdate);
             } else {
-                alert(response.Message);
+                swal({
+                    position: 'top-end',
+                    icon: 'warning',
+                    title: response.Message,
+                    button: false,
+                    timer: 1500
+                });
             }
         }
     });
