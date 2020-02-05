@@ -1,5 +1,6 @@
 var appointments = new Map();
 var u_patientId = null;
+var u_appointmentId = null;
 var global_patientId = null; //for lumbar neck,and back pain
 var global_date = moment().format('YYYY-MM-DD');
 $('#dropper-max-year').val(moment().format('YYYY-MM-DD'));
@@ -75,10 +76,11 @@ const listAppointments = (appointments, today) => {
 };
 getAllAppointments(data.userId);
 
-const editPatient = (patientId) => {
-    patientId = patientId.toString();
-    let patient = appointments.get(patientId);
+const editPatient = (appointmentId) => {
+    appointmentId = appointmentId.toString();
+    let patient = appointments.get(appointmentId);
     u_patientId = patient.patientId;
+    u_appointmentId = appointmentId;
     global_patientId = patient.patientId;
     $('#tData').hide();
     $('#editProfile').load('edit-prescription-2.php');

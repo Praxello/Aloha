@@ -15,10 +15,20 @@ if (isset($_POST['request'])) {
 if (isset($_POST['patientId'])) {
     // Upload file
     if ($request == 1) {
-            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir . $patientId.'.jpg')) {
+        $target_file = $target_dir . basename($_FILES["file"]["name"]);
+        $filename    = $_FILES['file']['name'];
+        $sql         = "INSERT INTO  patientDocs(patientId) VALUES($patientId)";
+        $query       = mysqli_query($conn, $sql);
+        
+        $rowsAffected = mysqli_affected_rows($conn);
+        if ($rowsAffected == 1) {
+            $docId     = $conn->insert_id;
+            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir . $docId.'.jpg')) {
+                $filename = $docId.'.jpg';
                 $response = array(
-                    'Message' => "Image added Successfully",
+                    'Message' => "Document added Successfully",
                     "Data" => $records,
+                    "file"=>$filename,
                     'Responsecode' => 200
                 );
             } else {
@@ -28,13 +38,22 @@ if (isset($_POST['patientId'])) {
                     'Responsecode' => 200
                 );
             }
+        } else {
+            $response = array(
+                'Message' => mysqli_error($conn)."File has error",
+                "Data" => $records,
+                'sql'=>$sql,
+                'Responsecode' => 300
+            );
+        }
     }
     
     // Remove file
     if ($request == 2) {
         $file         = $_POST['name'];
+        $docId = explode('.',$file);
         $filename     = $target_dir . $_POST['name'];
-        $sql          = "DELETE FROM  ProductImages WHERE productId=$productId AND imageId = '$file'";
+        $sql          = "DELETE FROM  patientDocs WHERE patientId=$patientId AND docId = '$docId[0]'";
         $query        = mysqli_query($conn, $sql);
         $rowsAffected = mysqli_affected_rows($conn);
         if ($rowsAffected == 1) {

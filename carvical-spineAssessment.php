@@ -736,7 +736,7 @@
 
                                                          <span><b>MOVEMENT LOSS:</b></span>
                                                          <div class="form-group row">
-                                                            <table class="table table-bordered" id="cerMomentLoss" >
+                                                            <table class="table table-bordered" >
                                                                 <thead>
                                                                   <tr>
                                                                     <th scope="col"></th>
@@ -747,7 +747,7 @@
                                                                     <th scope="col">Pain</th>
                                                                   </tr>
                                                                 </thead>
-                                                                <tbody>
+                                                                <tbody id="cerMomentLoss" >
                                                                   <tr>
                                                                     <th scope="row">Protrusion</th>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
@@ -821,7 +821,7 @@
 
                                                               <span><b> TEST MOVEMENT:</b></span>
                                                               <div class="form-group row">
-                                                                 <table class="table table-bordered" id="cerTestMovement">
+                                                                 <table class="table table-bordered" >
                                                                      <thead>
                                                                        <tr>
                                                                          <th scope="col"></th>
@@ -840,7 +840,7 @@
                                                                        
                                                                        </tr>
                                                                      </thead>
-                                                                     <tbody>
+                                                                     <tbody id="cerTestMovement">
                                                                        <tr>
                                                                          <th scope="row">Rep RET</th>
                                                                          <td><input type="text" class="form-control"   placeholder=""></td>

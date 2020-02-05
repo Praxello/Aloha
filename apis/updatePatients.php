@@ -48,7 +48,7 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
     $query = mysqli_query($conn, $sql);
     
     $rowsAffected = mysqli_affected_rows($conn);
-    if ($rowsAffected == 1) {
+    if ($query!=null) {
     
         if (isset($_FILES["imgname"]["type"])) {
             $imgname    = $_FILES["imgname"]["name"];
@@ -56,7 +56,9 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
             $targetPath = $dir . $patientId . ".jpg"; // Target path where file is to be stored
             move_uploaded_file($sourcePath, $targetPath); // Moving Uploaded file
         }
-        $academicQuery = mysqli_query($conn, "SELECT * FROM patient_master where patientId = $patientId");
+        $academicQuery = mysqli_query($conn, "SELECT *,st.name stateName,ct.name cityName 
+        FROM patient_master pm LEFT JOIN states st ON st.id = pm.state 
+        LEFT JOIN cities ct ON ct.id = pm.city where patientId = $patientId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
@@ -72,7 +74,7 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
         
     } else {
         $response = array(
-            'Message' => mysqli_error($conn) . " failed",
+            'Message' => mysqli_error($conn) ."failed",
             'Responsecode' => 500
         );
     }

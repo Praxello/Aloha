@@ -6,30 +6,39 @@ mysqli_set_charset($conn, 'utf8');
 $response    = null;
 $records     = null;
 $result      = array();
-$storeFolder = '../upload/patientDocs/';
+$storeFolder = '../upload/patientDocs';
 $ds          = DIRECTORY_SEPARATOR;
 extract($_POST);
 if (isset($_POST['patientId'])) {
-    if (file_exists($storeFolder.$patientId.'.jpg')) {
-       
-                $obj['name'] = $storeFolder.$patientId.'.jpg';
-                $obj['size'] = filesize($storeFolder.$patientId.'.jpg');
+    $academicQuery = mysqli_query($conn, "SELECT docId FROM patientDocs where patientId = $patientId");
+    if ($academicQuery != null) {
+        $academicAffected = mysqli_num_rows($academicQuery);
+        if ($academicAffected > 0) {
+            while ($academicResults = mysqli_fetch_assoc($academicQuery)) {
+                $obj['name'] = $academicResults['docId'].'.jpg';
+                $obj['size'] = filesize($storeFolder.$ds.$academicResults['docId'].'.jpg');
                 $records[]   = $obj;
-            
+            }
             $response = array(
                 'Message' => "Fetched",
                 'Data' => $records,
                 'Responsecode' => 200
             );
-            
-        }else{
+
+        } else {
             $response = array(
-                'Message' => "Fetched",
+                'Message' => "No Record Found",
                 'Data' => $records,
-                'Responsecode' => 202
+                'Responsecode' => 300
             );
-        } 
-    
+        }
+    }else {
+      $response = array(
+          'Message' => mysqli_error($conn)."No Record Found",
+          'Data' => $records,
+          'Responsecode' => 300
+      );
+    }
 } else {
     $response = array(
         'Message' => "Parameter Missing",
@@ -39,4 +48,4 @@ if (isset($_POST['patientId'])) {
 }
 mysqli_close($conn);
 exit(json_encode($response));
-?> 
+?>

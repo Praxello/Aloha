@@ -2,7 +2,6 @@ var cervicals = new Map();
 var cervical_details = {};
 // var patientId_ap = null;
 var getCervicalSpine = (patientId) => {
-    console.log('hello');
     $.ajax({
         url: url + 'getAllCervicalSpine.php',
         type: 'POST',
@@ -11,7 +10,6 @@ var getCervicalSpine = (patientId) => {
             patientId: patientId
         },
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
@@ -25,13 +23,12 @@ var getCervicalSpine = (patientId) => {
 };
 
 var showCervicalSpine = cervicals => {
-    console.log(cervicals);
+
     $('#cTable').dataTable().fnDestroy();
     $('#carvicalData').empty();
     var tblData = '';
     for (let k of cervicals.keys()) {
         let cervical = cervicals.get(k);
-        console.log(cervical.visitDate);
         tblData += '<tr><td>' + getDate(cervical.visitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editCervicalSpine(' + (k) + ')" title="Edit patients details"><i class="ik ik-edit text-blue"></i></a>';
@@ -402,11 +399,11 @@ function fill_Cervical(details) {
         for (var j = 0; j < count; j++) {
             content += '<tr>';
             content += ' <th scope="row">' + arr[j] + '</th>';
-            content += '<td><input type="text" class="form-control" id="maj" value="' + obj[j].maj + '"></td>';
-            content += '<td><input type="text" class="form-control" id="mod" value="' + obj[j].mod + '"></td>';
-            content += '<td><input type="text" class="form-control" id="min" value="' + obj[j].min + '"></td>';
-            content += '<td><input type="text" class="form-control" id="nil" value="' + obj[j].nil + '"></td>';
-            content += '<td><input type="text" class="form-control" id="pain" value="' + obj[j].pain + '"></td>';
+            content += '<td><input type="text" class="form-control"  value="' + obj[j].maj + '"></td>';
+            content += '<td><input type="text" class="form-control"  value="' + obj[j].mod + '"></td>';
+            content += '<td><input type="text" class="form-control"  value="' + obj[j].min + '"></td>';
+            content += '<td><input type="text" class="form-control"  value="' + obj[j].nil + '"></td>';
+            content += '<td><input type="text" class="form-control"  value="' + obj[j].pain + '"></td>';
             content += '</tr>';
         }
         $('#cerMomentLoss').html(content);
@@ -422,11 +419,11 @@ function fill_Cervical(details) {
             console.log(obj);
             content += '<tr>';
             content += ' <th scope="row">Rep EIL</th>';
-            content += '<td><input type="text" class="form-control" id="maj" value="' + obj['During-test'] + '"></td>';
-            content += '<td><input type="text" class="form-control" id="mod" value="' + obj['after-test'] + '"></td>';
-            content += '<td><input type="text" class="form-control" id="min" value="' + obj['m-rom-u'] + '"></td>';
-            content += '<td><input type="text" class="form-control" id="nil" value="' + obj['m-rom-d'] + '"></td>';
-            content += '<td><input type="text" class="form-control" id="pain" value="' + obj['m-noefect'] + '"></td>';
+            content += '<td><input type="text" class="form-control"  value="' + obj[0]['During-test'] + '"></td>';
+            content += '<td><input type="text" class="form-control"  value="' + obj[0]['after-test'] + '"></td>';
+            content += '<td><input type="text" class="form-control"  value="' + obj[0]['m-rom-u'] + '"></td>';
+            content += '<td><input type="text" class="form-control"  value="' + obj[0]['m-rom-d'] + '"></td>';
+            content += '<td><input type="text" class="form-control"  value="' + obj[0]['m-noefect'] + '"></td>';
             content += '</tr>';
             $('#cerTestMovement').html(content);
         }

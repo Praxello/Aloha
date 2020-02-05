@@ -13,7 +13,7 @@ if (isset($_POST['postdata'])) {
     
     $originalAmt = $someArray['originalAmt'];
     $amount      = $someArray["amount"];
-    $discount    = $someArray["discount"];
+    $discount    = isset($someArray["discount"])? $someArray["discount"]:'NULL';
     $patientId   = $someArray["patientId"];
     $doctorId    = $someArray["doctorId"];
     $userId      = $someArray["userId"];
@@ -23,7 +23,7 @@ if (isset($_POST['postdata'])) {
     $recieptId = getLastId($branchId)+1;
 
     $sql         = "INSERT INTO opd_patient_payment_master(recieptId,branchId,patientId, doctorId,originalAmt,total,discount,received,pending,visitDate,createdBy)
-    VALUES ($recieptId,$branchId,$patientId,$doctorId,$originalAmt,$amount,$discount,0,$amount,'$visitDate',$userId)";
+    VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount','$discount',0,'$amount','$visitDate',$userId)";
     $query       = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {

@@ -9,78 +9,78 @@ $('#cervicalSpineForm').on('submit', function(e) {
         var carVas = $('#cerVasScore').val();
         var pres = $('#cerPresentSymptoms').val();
         var cerComObj = $('#cerCommencedAsResult').val();
-  
-        var cerPresObj =getcerPresentSince();
+
+        var cerPresObj = getcerPresentSince();
         cerPresObj.p1 = $('#cerPresentSince1').val();
 
-        var symObj1= getcerSymptAtOnset();
-        symObj1.p2 =$('#cerSymptAtOnset1').val(); 
+        var symObj1 = getcerSymptAtOnset();
+        symObj1.p2 = $('#cerSymptAtOnset1').val();
 
         var constObj = getcerConstSympt();
-        constObj.p3 =$('#cerConstSympt1').val();
+        constObj.p3 = $('#cerConstSympt1').val();
 
         var disObj = getdisturbedSleep();
         disObj.p4 = $('#disturbedSleep1').val();
 
         var agObj = getcerAggrFactor();
-         agObj.ag1 =$('#cerAggrFactor1').val();
+        agObj.ag1 = $('#cerAggrFactor1').val();
 
-         var reObj =getcerRelFactor();
-         reObj.rf1 = $('#cerRelFactor1').val();
-        
-         var syreObj=getcarSymptoms();
+        var reObj = getcerRelFactor();
+        reObj.rf1 = $('#cerRelFactor1').val();
 
-         var medObj =getcerMedications();
-         medObj.p5 =$('#cerMedications1').val();
+        var syreObj = getcarSymptoms();
 
-         var geneObj =getcerGenHealth();
-         geneObj.p6=$('#cerGenHealth1').val();
-        
-         var imgObj =getcerImaging();
-         imgObj.p7 =$('#cerImaging1').val();
+        var medObj = getcerMedications();
+        medObj.p5 = $('#cerMedications1').val();
 
-         var surObj =getcerResurgery();
-         surObj.p8 =$('#cerResurgery1').val();
+        var geneObj = getcerGenHealth();
+        geneObj.p6 = $('#cerGenHealth1').val();
 
-         var nObj =getcerNightPain();
-         nObj.p9 =$('#cerNightPain1').val();
+        var imgObj = getcerImaging();
+        imgObj.p7 = $('#cerImaging1').val();
 
-         var acObj =getcerAccidents();
-         acObj.p10 =$('#cerAccidents1').val();
+        var surObj = getcerResurgery();
+        surObj.p8 = $('#cerResurgery1').val();
+
+        var nObj = getcerNightPain();
+        nObj.p9 = $('#cerNightPain1').val();
+
+        var acObj = getcerAccidents();
+        acObj.p10 = $('#cerAccidents1').val();
 
 
-         var wtObj =getcerWeightLoss();
-         wtObj.wOther =$('#cerWeightLoss2').val();
-         wtObj.wt = $('#cerWeightLoss1').val();
+        var wtObj = getcerWeightLoss();
+        wtObj.wOther = $('#cerWeightLoss2').val();
+        wtObj.wt = $('#cerWeightLoss1').val();
 
-         var csitObj =getcerSitting();
-         var standObj =getcerStanding();
-         var proObj =getprotrudedHead();
-         var deObj =getcerderagement();
-         deObj.d1 =$('#cerderagement1').val();
-         deObj.d2 =$('#cerderagement2').val();
+        var csitObj = getcerSitting();
+        var standObj = getcerStanding();
+        var proObj = getprotrudedHead();
+        var deObj = getcerderagement();
+        deObj.d1 = $('#cerderagement1').val();
+        deObj.d2 = $('#cerderagement2').val();
 
         cerPresObj = JSON.stringify(cerPresObj);
-        symObj1 =JSON.stringify(symObj1);
-        constObj =JSON.stringify(constObj);
-        disObj =JSON.stringify(disObj);
+        symObj1 = JSON.stringify(symObj1);
+        constObj = JSON.stringify(constObj);
+        disObj = JSON.stringify(disObj);
         agObj = JSON.stringify(agObj);
-        reObj =JSON.stringify(reObj);
+        reObj = JSON.stringify(reObj);
         syreObj = JSON.stringify(syreObj);
-        medObj =JSON.stringify(medObj);
-        geneObj =JSON.stringify(geneObj);
-        imgObj=JSON.stringify(imgObj);
-        surObj=JSON.stringify(surObj);
-        nObj=JSON.stringify(nObj);
+        medObj = JSON.stringify(medObj);
+        geneObj = JSON.stringify(geneObj);
+        imgObj = JSON.stringify(imgObj);
+        surObj = JSON.stringify(surObj);
+        nObj = JSON.stringify(nObj);
         acObj = JSON.stringify(acObj);
-        wtObj =JSON.stringify(wtObj);
-        csitObj=JSON.stringify(csitObj);
-        standObj =JSON.stringify(standObj);
-        proObj =JSON.stringify(proObj);
-        deObj =JSON.stringify(deObj);
+        wtObj = JSON.stringify(wtObj);
+        csitObj = JSON.stringify(csitObj);
+        standObj = JSON.stringify(standObj);
+        proObj = JSON.stringify(proObj);
+        deObj = JSON.stringify(deObj);
 
 
-        
+
         var momentLoss = storeMovement();
         var testMovement = storeT();
 
@@ -93,39 +93,38 @@ $('#cervicalSpineForm').on('submit', function(e) {
             data: {
                 patientId: global_patientId,
                 visitDate: global_date,
-          
+
                 cerFunDisabilityScore: fun,
-                cerVasScore : carVas,
-                cerPresentSymptoms : pres,
-                cerPresentSince :cerPresObj,
-                cerCommencedAsResult : cerComObj,
-                cerSymptAtOnset : symObj1,
-                cerConstSympt : constObj,
-                disturbedSleep : disObj,
-                cerAggrFactor : agObj,
-                cerRelFactor : reObj,
-                carSymptoms : syreObj,
-                cerMedications : medObj,
-                cerGenHealth :geneObj,
-                cerImaging :imgObj,
-                cerResurgery : surObj,
-                cerNightPain :nObj,
-                cerAccidents :acObj,
-                cerWeightLoss : wtObj,
-                cerSitting : csitObj,
-                cerStanding :standObj,
-                protrudedHead :proObj,
-                cerderagement :deObj,
+                cerVasScore: carVas,
+                cerPresentSymptoms: pres,
+                cerPresentSince: cerPresObj,
+                cerCommencedAsResult: cerComObj,
+                cerSymptAtOnset: symObj1,
+                cerConstSympt: constObj,
+                disturbedSleep: disObj,
+                cerAggrFactor: agObj,
+                cerRelFactor: reObj,
+                carSymptoms: syreObj,
+                cerMedications: medObj,
+                cerGenHealth: geneObj,
+                cerImaging: imgObj,
+                cerResurgery: surObj,
+                cerNightPain: nObj,
+                cerAccidents: acObj,
+                cerWeightLoss: wtObj,
+                cerSitting: csitObj,
+                cerStanding: standObj,
+                protrudedHead: proObj,
+                cerderagement: deObj,
                 cerMomentLoss: momentLoss,
                 cerTestMovement: testMovement
-            
-            
+
+
 
             },
             dataType: 'json',
             success: function(response) {
                 if (response.Responsecode == 200) {
-
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -133,9 +132,10 @@ $('#cervicalSpineForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
+                    cervicals.set(response.Data.cerSpineId, response.Data);
                     $('#cervicalSpine').modal('hide');
                     $('#cervicalSpineForm').trigger('reset');
-
+                    showCervicalSpine(cervicals);
                 } else {
                     swal({
                         position: 'top-end',
@@ -444,6 +444,7 @@ var getcerderagement = () => {
     });
     return deObj;
 };
+
 function storeMovement() {
     var TableData = [];
 

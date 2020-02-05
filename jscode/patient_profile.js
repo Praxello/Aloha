@@ -1,26 +1,28 @@
 var loadPatientDetails = details => {
+    console.log(details);
     $('#uname').html(details.firstName + ' ' + details.surname);
     $('#uemailId').html(details.email);
     $('#uphone').html(details.mobile1);
-    $('#uadd').html(details.address + ' ' + details.city);
-    $('#ucity').html(details.city);
+    $('#uadd').html(details.address + ' ' + details.cityName);
+    $('#ucity').html(details.cityName);
     $('#uage').html(getAge(details.birthDate));
     $('#ugender').html(details.gender);
 
     $('#firstName').val(details.firstName);
     $('#middleName').val(details.middleName);
     $('#surname').val(details.surname);
-    $('#maritalstatus').val(details.maritalstatus);
-    $('#religion').val(details.religion);
-    // $('#country').val(details.country);
+    $('#maritalstatus').val(details.maritalstatus).trigger('change');
+    $('#religion').val(details.religion).trigger('change');
 
-    $('#country option:selected').text()
-    $('#state').val(details.state);
-    $('#city').val(details.city);
+
+    $('#country').val(parseInt(details.country)).trigger('change');
+
     $('#pincode').val(details.pincode);
     $('#address1').val(details.address);
+    $('#state').val(details.state).trigger('change');
     $('#lastVisitDate').val(details.lastVisitDate);
     $('#nextVisitDate').val(details.nextVisitDate);
+    $('#city').val(details.city).trigger('change');
     $('#firstVisitDate').val(details.firstVisitDate);
 
     if (details.alcohol == 1)
@@ -38,11 +40,11 @@ var loadPatientDetails = details => {
 
     if (details.hardDrink == 1)
         $('#hardDrink').attr("checked", true);
-        
+
     $('#mobile1').val(details.mobile1);
     $('#email').val(details.email);
     $('#landline').val(details.landline);
-    $('#gender').val(details.gender);
+    $('#gender').val(details.gender).trigger('change');
     $('#birthDate').val(details.birthDate);
 
     $('#height').val(details.height);
@@ -55,7 +57,7 @@ var loadPatientDetails = details => {
     var src = "upload/patients/" + details.patientId + ".jpg";
     $('#userJpg').attr("src", src);
     $('#userPic').attr("src", src);
-    
+
 };
 
 loadPatientDetails(patient_details);

@@ -1,14 +1,15 @@
-check_prescription(u_patientId);
+check_prescription(u_patientId, u_appointmentId);
 
-function check_prescription(u_patientId) {
-    let patient = appointments.get(u_patientId);
+function check_prescription(patientId, appointmentId) {
+    let patient = appointments.get(appointmentId);
     $('#patientName').html(patient.firstName + ' ' + patient.surname);
     $.ajax({
         url: url + 'get-todayPrescription.php',
         type: 'POST',
         dataType: 'json',
-        data: { patientId: u_patientId, visitDate: patient.appointmentDate },
+        data: { patientId: patientId, visitDate: patient.appointmentDate },
         success: function(response) {
+            console.log(response);
             if (response.Responsecode == 200) {
                 fill_exist_data(response.Data);
             } else {

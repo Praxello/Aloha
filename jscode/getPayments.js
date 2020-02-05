@@ -75,7 +75,6 @@ var makePayment = paymentId => {
 var showPatientInfo = patientId => {
     patientId = patientId.toString();
     let details = patients.get(patientId);
-    console.log(details);
     $('#pid').html(details.patientId);
     $('#pname').html(details.firstName + ' ' + details.middleName + ' ' + details.surname);
     $('#pmobile').html(details.mobile1);
@@ -133,13 +132,13 @@ function checkPaymentMode(mode) {
 }
 
 function printRecieptTbl(Id) {
-    var link = url + 'payment-reciept.php?paymentId=' + Id;
+    var link = 'payment-reciept.php?paymentId=' + Id;
     window.open(link, '_blank');
 }
 
 function printReciept(sendPaymentId) {
     if (sendPaymentId != null) {
-        var link = url + 'payment-reciept.php?paymentId=' + sendPaymentId;
+        var link = 'payment-reciept.php?paymentId=' + sendPaymentId;
         window.open(link, '_blank');
     }
 }

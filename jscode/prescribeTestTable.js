@@ -109,7 +109,6 @@ function GeneratePayment() {
     var jvalid = $('#paymentForm').valid();
     if (jvalid) {
         var len = $('#presTable tr').length;
-        console.log(len);
         if (len > 2) {
             var discount = parseFloat($('#dAmt').val());
             if (discount == '') {
@@ -126,7 +125,6 @@ function GeneratePayment() {
                 patientId: patientId_ap
             };
             details = JSON.stringify(details);
-            console.log(details);
             $.ajax({
                 url: url + 'generatePayment.php',
                 type: 'POST',
@@ -146,6 +144,7 @@ function GeneratePayment() {
                         uniqueTest.clear();
                         $('#presTableBody').empty();
                         $('#fTotal').empty();
+                        // $('#opd-payment-generate').modal('hide');
                     } else {
                         swal({
                             position: 'top-end',
@@ -173,7 +172,6 @@ function GeneratePayment() {
 function attach_data(paymentId) {
     paymentId = paymentId.toString();
     let data = prevTransactions.get(paymentId);
-    console.log(data);
     var rowhtml = '',
         rowid = 0,
         T = 0;
@@ -213,7 +211,6 @@ function getDiscounts(branchId) {
         dataType: 'json',
         data: { branchId: branchId },
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
                 if (response.Data != null) {
                     var n = response.Data.length;

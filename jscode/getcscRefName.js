@@ -67,7 +67,8 @@ function loadCountries() {
     $("#country").select2({
         placeholder: 'Select Country',
         allowClear: true,
-        dropdownParent: $('#epatientDetails')
+        dropdownParent: $('#exampleModal')
+
     });
 }
 
@@ -82,7 +83,7 @@ function loadStates(countryId) {
     $("#state").select2({
         placeholder: 'Select State',
         allowClear: true,
-        dropdownParent: $('#epatientDetails')
+        dropdownParent: $('#exampleModal')
     });
 }
 
@@ -97,9 +98,7 @@ function loadCities(stateId) {
     $("#city").select2({
         placeholder: 'Select City',
         allowClear: true,
-        dropdownParent: $('#epatientDetails')
+        dropdownParent: $('#exampleModal')
+
     });
 }
-
-
-

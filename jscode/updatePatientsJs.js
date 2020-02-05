@@ -1,15 +1,9 @@
 $('#epatientDetails').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
     var returnVal = $("#epatientDetails").valid();
     if (returnVal) {
-    
         var fData = new FormData(this);
-      
-        fData.append('patientId',patientId_ap );
-    
-   
-
+        fData.append('patientId', global_patientId);
         $.ajax({
             url: url + 'updatePatients.php',
             type: 'POST',
@@ -20,7 +14,6 @@ $('#epatientDetails').on('submit', function(e) {
             dataType: 'json',
             success: function(response) {
                 if (response.Responsecode == 200) {
-                    // alert(response.Message);
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -32,7 +25,6 @@ $('#epatientDetails').on('submit', function(e) {
                     $('#tData').show();
                     patients.set(response.Data.patientId, response.Data);
                     listPatients(patients);
-
                 } else {
                     swal({
                         position: 'top-end',
@@ -41,7 +33,6 @@ $('#epatientDetails').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    // alert(response.Message);
                 }
             }
         });

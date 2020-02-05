@@ -1,29 +1,40 @@
 Dropzone.autoDiscover = false;
 $(".dropzone").dropzone({
-    maxFiles: 20,
+    maxFilesize: 2,
+    url: url + "upload.php",
+    dataType: 'json',
+    success: function(file, response) {
+        if (response.file != null) {
+            var link = 'upload/patientDocs/' + response.file;
+            var anchorEl = document.createElement('a');
+            anchorEl.setAttribute('href', link);
+            anchorEl.setAttribute('target', '_blank');
+            anchorEl.innerHTML = "Download";
+            file.previewTemplate.appendChild(anchorEl);
+        }
+    },
     init: function() {
-        console.log('hello');
-        // var anchorEl = document.createElement('a');
-        // anchorEl.setAttribute('href', response);
-        // anchorEl.setAttribute('target', '_blank');
-        // anchorEl.innerHTML = "<br>Download";
-        // file.previewTemplate.appendChild(anchorEl);
-
         thisDropzone = this;
         var link = url + 'getImages.php';
-        $.post('apis/getImages.php', {
-            patientId: $('#patientId').val()
+        $.post(link, {
+            patientId: global_patientId
         }, function(response) {
             if (response.Data != null) {
-
+                var a;
                 $.each(response.Data, function(key, value) {
-
                     var mockFile = {
                         name: value.name,
                         size: value.size
                     };
                     thisDropzone.emit("addedfile", mockFile);
-                    thisDropzone.createThumbnailFromUrl(mockFile, "patientDocs/" + value.name);
+                    thisDropzone.createThumbnailFromUrl(mockFile, "upload/patientDocs/" + value.name);
+                    thisDropzone.emit("complete", mockFile);
+
+                    a = document.createElement('a');
+                    a.setAttribute('href', "upload/patientDocs/" + value.name);
+                    a.setAttribute('target', '_blank');
+                    a.innerHTML = "Download";
+                    mockFile.previewTemplate.appendChild(a);
 
                 });
             }
@@ -39,7 +50,7 @@ $(".dropzone").dropzone({
             data: {
                 name: name,
                 request: 2,
-                productId: $('#patientId').val()
+                patientId: global_patientId
             },
             sucess: function(data) {
                 console.log('success: ' + data);
