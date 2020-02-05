@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT * FROM diagnostic_tests_master";
+$sql = "SELECT * FROM complaint_master";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -16,16 +16,14 @@ if ($jobQuery != null) {
         }
         
         $response = array(
-            'Message' => "All Tests Fetched successfully",
+            'Message' => "All Complaint Data Fetched successfully",
             "Data" => $records,
-            "sql" => $sql,
             'Responsecode' => 200
         );
     } else {
         $response = array(
-            'Message' => "No data present",
+            'Message' => "No user present/ Invalid username or password",
             "Data" => $records,
-            "sql" => $sql,
             'Responsecode' => 401
         );
     }
@@ -38,4 +36,4 @@ if ($jobQuery != null) {
 }
 mysqli_close($conn);
 exit(json_encode($response));
-?> 
+?>  

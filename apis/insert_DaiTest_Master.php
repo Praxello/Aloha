@@ -6,12 +6,10 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['pname1']) && isset($_POST['deseaseNew']) && isset($_POST['sinceDays']) && isset($_POST['relativeName']) && isset($_POST['medicalTreatment']) && isset($_POST['hospitalCenterName']) 
-&& isset($_POST['treatmentName']) && isset($_POST['u_patientId'])) {
-    $visitDate=date('y-m-d');
+if (isset($_POST['testName']) && isset($_POST['testDetails']) && isset($_POST['fees']) ) {
     
-    $sql = "INSERT INTO consent_form_master(patientName,deseaseNew,sinceDays,relativeName,medicalTreatment,hospitalCenterName,treatmentName,patientId,visitDate) 
-     VALUES ('$pname1','$deseaseNew','$sinceDays','$relativeName','$medicalTreatment','$hospitalCenterName','$treatmentName','$u_patientId','$visitDate')";
+    $sql = "INSERT INTO diagnostic_tests_master(testName,testDetails,fees) 
+     VALUES ('$testName','$testDetails','$fees')";
     
     $query = mysqli_query($conn, $sql);
     
@@ -19,8 +17,8 @@ if (isset($_POST['pname1']) && isset($_POST['deseaseNew']) && isset($_POST['sinc
     
     
     if ($rowsAffected == 1) {
-        $feesId  = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT * FROM consent_form_master where consentId = $ consentId");
+        $testId    = $conn->insert_id;
+        $academicQuery = mysqli_query($conn, "SELECT * FROM diagnostic_tests_master  where testId = $testId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
@@ -29,7 +27,7 @@ if (isset($_POST['pname1']) && isset($_POST['deseaseNew']) && isset($_POST['sinc
             }
         }
         $response = array(
-            'Message' => "Form Added Successfull",
+            'Message' => "Diagnosis Test Added Successfull",
             "Data" => $records,
             'Responsecode' => 200
         );

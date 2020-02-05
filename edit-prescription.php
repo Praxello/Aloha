@@ -510,6 +510,7 @@
 <script src="jscode/getneckDisblity.js"></script>
 <script src="jscode/getBackPain.js"></script>
 <script src="jscode/getCervicalSpine.js"></script>
+<script src="jscode/getConsentForm.js"></script>
 
 <script src="jscode/getAllPrescriptiondata.js"></script>
 <script src="jscode/prescription-table.js"></script>

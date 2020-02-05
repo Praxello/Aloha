@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 if(isset($_SESSION['branchId'])){
     ?>  
@@ -8,7 +8,7 @@ if(isset($_SESSION['branchId'])){
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ThemeKit - Admin Template</title>
+        <title>Praxello solutions </title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,6 +32,7 @@ if(isset($_SESSION['branchId'])){
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
+        <link rel="stylesheet" href="dist/css/loader.css">
     </head>
 <Style>
    
@@ -48,42 +49,40 @@ if(isset($_SESSION['branchId'])){
             <div class="page-wrap">
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
-                <div id="edittestNew"></div>
-                <div class="main-content template-demo " id="Data">
+                <div id="instrNew"></div>
+                <div class="main-content template-demo " id="itData">
                 
-                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#testModal">Add Test</button>
+                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#instModal">Add Instruction</button>
                     <div class="container-fluid">
                    
                         <div class="card">
-                        
-                          
+                 
                             <div class="card-body c">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
-                                <table id="testTable" class="table">
+                                <table id="istrtnTable" class="table">
                                     <thead>
                                         <tr>
-                                        <th>Id</th>
-                                            <th>Test Name</th>
-                                            <th>Test Details</th>
-                                            <th>Fees</th>
-                                            <th>Type</th>
-                                            
+                                         
+                                            <th>Instruction</th>
+                                            <th>Instruction Hindi</th>
+                                            <th>Instruction Marathi</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="testRecord">
+                                    <tbody id="instData">
                                        
                                         
                                         
                                     </tbody>
                                 </table>
-                          </div>
+                                    </div>
                             </div>
                             <!-- <div> -->
                         </div>
                     </div>
                 </div>
+                <div id="loader"></div>
                 <footer class="footer">
                     <div class="w-100 clearfix">
                         <span class="text-center text-sm-left d-md-inline-block">Copyright © 2020 Praxello Solutions All Rights Reserved.</span>
@@ -117,13 +116,13 @@ if(isset($_SESSION['branchId'])){
         <script src="plugins/c3/c3.min.js"></script>
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
-     
-        <?php include 'addNewTest.php';?>
-       
+        <script src="jscode/loader.js"></script>
+    
+         <?php include 'add_NewInstruction.php';?> 
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-   
-       <script src="jscode/test_Master.js"></script>
+
+       <script src="jscode/getInstruction.js"></script>
     
     </body>
 

@@ -1,18 +1,28 @@
 <style>
-    .error {
-        color: red;
+    .error{
+        color:red;
     }
 </style>
 
-<div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="demoModalLabel">Test details:</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <form class="forms-sample" id="testMasterForm" method="POST" enctype="multipart/form-data">
+<link rel="stylesheet" href="dist/css/dropzone.css">
+<link rel="stylesheet" href="dist/css/style.css">
+<div class="main-content">
+    <div class="container-fluid">
+   
+        <div class="col-lg-6 col-md-7">
+            <div class="card">
+                <ul class="nav nav-pills custom-pills t1" id="pills-tab" role="tablist">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link " id="pills-timeline-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-timeline" aria-selected="true"></a>
+                    </li>    -->
+                   
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+               
+                 
+                    <div class="tab-pane fade show active" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
+                        <div class="card-body">
+                        <form class="forms-sample" id="testMasterForm" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -50,22 +60,23 @@
                         </div>
                   
                     </div>
-
-                   
-                </div>
-
-                        <div class="modal-footer">
-
-                            <input type="submit" class="btn btn-primary mr-2" value="Submit">
-                            <button class="btn btn-light" id="cButton" data-dismiss="modal">Cancel</button>
-                        </div>
+                    
+                    
+                    <button class="btn btn-success" type="submit">Update Test</button>
                 </form>
-              
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="jscode/insert_daiTestMaster.js"></script>
+<script type="text/javascript" src="js/dropzone.js"></script>
+<script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
+<script src="jscode/edit_daiTestMaster.js"></script>
+<script src="jscode/update_Test_Master.js"></script>
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/testMaster_validation.js"></script>
-  
+

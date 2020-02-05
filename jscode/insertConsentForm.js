@@ -48,6 +48,7 @@ function demo(u_patientId){
     document.getElementById('pname1').value=p;
 }
 demo(u_patientId);
+
     function fun(){
         console.log("hii");
 
@@ -67,7 +68,7 @@ demo(u_patientId);
             url: url + 'insert_consent_form.php',
             type: 'POST',
             data: {
-                u_patientId:u_patientId,
+                u_patientId:u_patientId,  
                  pname1 :pname1,                                                                                                                                                                                
                 deseaseNew:deseaseNew,
                 sinceDays :sinceDays,

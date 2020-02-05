@@ -1,14 +1,14 @@
-$('#branchMasterForm').on('submit', function(e) {
+$('#testMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
   
-    var returnVal = $("#branchMasterForm").valid();
+    var returnVal = $("#testMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-        fData.append('branchId',branchId_ap);
-        console.log(branchId_ap);
+        fData.append('testId',testId_ap);
+        console.log(testId_ap);
         $.ajax({
-            url: url + 'updateBranchMaster.php',
+            url: url + 'updateTestMaster.php',
             type: 'POST',
             data: fData,
             cache: false,
@@ -18,7 +18,7 @@ $('#branchMasterForm').on('submit', function(e) {
             success: function(response) {
                 console.log(response);
                 if (response.Responsecode == 200) {
-                    // alert(response.Message);
+            
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -26,11 +26,11 @@ $('#branchMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    $('#editbranchNew').empty();
-                    $('#newData').show();
-                   
-                    branches.set(response.Data.branchId, response.Data); 
-                    listBranches(branches);
+                    $('#TestNew').empty();
+                    $('#testDiagnosisData').show();
+
+                  testes.set(response.Data.testId, response.Data);
+                  listTest(testes);
                 } else {
                     swal({
                         position: 'top-end',
@@ -39,7 +39,6 @@ $('#branchMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    // alert(response.Message);
                 }
             }
         });

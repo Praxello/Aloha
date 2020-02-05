@@ -1,14 +1,13 @@
 var tests = new Map();
 var test_details = {};
 
-
-var global_date = moment().format('YYYY-MM-DD');
 var getAllTests = () => {
     $.ajax({
         url: url + 'getAllTest.php',
         type: 'POST',
         dataType: 'json',
         success: function(response) {
+            console.log(response);
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
@@ -22,12 +21,12 @@ var getAllTests = () => {
 };
 
 var listTests = tests => {
-    $('#tTable').dataTable().fnDestroy();
+    $('#testTable').dataTable().fnDestroy();
     $('#testRecord').empty();
     var tblData = '';
     for (let k of tests.keys()) {
         let test = tests.get(k);
-
+        tblData += '<td>' + test.testId + '</td>';
         tblData += '<td>' + test.testName + '</td>';
         tblData += '<td>' + test.testDetails + '</td>';
         tblData += '<td>' + test.fees + '</td>';
@@ -38,12 +37,12 @@ var listTests = tests => {
         tblData += '</div></td></tr>';
     }
     $('#testRecord').html(tblData);
-    $('#tTable').dataTable({
+    $('#testTable').dataTable({
         searching: true,
         retrieve: true,
         bPaginate: $('tbody tr').length > 10,
         order: [],
-        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4] }],
+        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4,5,6] }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true

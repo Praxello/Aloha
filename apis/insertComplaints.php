@@ -6,12 +6,11 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['pname1']) && isset($_POST['deseaseNew']) && isset($_POST['sinceDays']) && isset($_POST['relativeName']) && isset($_POST['medicalTreatment']) && isset($_POST['hospitalCenterName']) 
-&& isset($_POST['treatmentName']) && isset($_POST['u_patientId'])) {
-    $visitDate=date('y-m-d');
+if (isset($_POST['complaint']) ) {
     
-    $sql = "INSERT INTO consent_form_master(patientName,deseaseNew,sinceDays,relativeName,medicalTreatment,hospitalCenterName,treatmentName,patientId,visitDate) 
-     VALUES ('$pname1','$deseaseNew','$sinceDays','$relativeName','$medicalTreatment','$hospitalCenterName','$treatmentName','$u_patientId','$visitDate')";
+    
+    $sql = "INSERT INTO complaint_master(complaint) 
+     VALUES ('$complaint')";
     
     $query = mysqli_query($conn, $sql);
     
@@ -19,8 +18,8 @@ if (isset($_POST['pname1']) && isset($_POST['deseaseNew']) && isset($_POST['sinc
     
     
     if ($rowsAffected == 1) {
-        $feesId  = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT * FROM consent_form_master where consentId = $ consentId");
+        $complaintId     = $conn->insert_id;
+        $academicQuery = mysqli_query($conn, "SELECT * FROM complaint_master where complaintId = $complaintId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
@@ -29,7 +28,7 @@ if (isset($_POST['pname1']) && isset($_POST['deseaseNew']) && isset($_POST['sinc
             }
         }
         $response = array(
-            'Message' => "Form Added Successfull",
+            'Message' => "Complaints Added Successfull",
             "Data" => $records,
             'Responsecode' => 200
         );

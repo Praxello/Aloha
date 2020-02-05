@@ -1,14 +1,14 @@
-$('#branchMasterForm').on('submit', function(e) {
+$('#complaintMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
   
-    var returnVal = $("#branchMasterForm").valid();
+    var returnVal = $("#complaintMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-        fData.append('branchId',branchId_ap);
-        console.log(branchId_ap);
+        fData.append('complaintId',complaintId_ap);
+        console.log(complaintId_ap);
         $.ajax({
-            url: url + 'updateBranchMaster.php',
+            url: url + 'updateComplaints.php',
             type: 'POST',
             data: fData,
             cache: false,
@@ -26,11 +26,10 @@ $('#branchMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    $('#editbranchNew').empty();
-                    $('#newData').show();
-                   
-                    branches.set(response.Data.branchId, response.Data); 
-                    listBranches(branches);
+                    $('#complaintNew').empty();
+                    $('#complaintsData').show();
+                    complaint.set(response.Data.complaintId, response.Data);
+                    listcomplaint(complaint);
                 } else {
                     swal({
                         position: 'top-end',
@@ -39,7 +38,6 @@ $('#branchMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    // alert(response.Message);
                 }
             }
         });

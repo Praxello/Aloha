@@ -1,14 +1,14 @@
-$('#branchMasterForm').on('submit', function(e) {
+$('#adviceMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-  
-    var returnVal = $("#branchMasterForm").valid();
+           
+    var returnVal = $("#adviceMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-        fData.append('branchId',branchId_ap);
-        console.log(branchId_ap);
+
+
         $.ajax({
-            url: url + 'updateBranchMaster.php',
+            url: url + 'insertAdvice.php',
             type: 'POST',
             data: fData,
             cache: false,
@@ -18,7 +18,7 @@ $('#branchMasterForm').on('submit', function(e) {
             success: function(response) {
                 console.log(response);
                 if (response.Responsecode == 200) {
-                    // alert(response.Message);
+                  
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -26,11 +26,11 @@ $('#branchMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    $('#editbranchNew').empty();
-                    $('#newData').show();
-                   
-                    branches.set(response.Data.branchId, response.Data); 
-                    listBranches(branches);
+                    $('#cButton').click();
+                    $('#adviceMasterForm').trigger('reset');
+                    advice.set(response.Data.adviceId, response.Data);
+                    listAdvice(advice);
+
                 } else {
                     swal({
                         position: 'top-end',
@@ -39,7 +39,7 @@ $('#branchMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    // alert(response.Message);
+               
                 }
             }
         });

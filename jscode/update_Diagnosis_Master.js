@@ -1,14 +1,14 @@
-$('#branchMasterForm').on('submit', function(e) {
+$('#diagnosisMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
   
-    var returnVal = $("#branchMasterForm").valid();
+    var returnVal = $("#diagnosisMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-        fData.append('branchId',branchId_ap);
-        console.log(branchId_ap);
+        fData.append('diagnosisId',diagnosisId_ap);
+        console.log(diagnosisId_ap);
         $.ajax({
-            url: url + 'updateBranchMaster.php',
+            url: url + 'updateDiagnosisMaster.php',
             type: 'POST',
             data: fData,
             cache: false,
@@ -26,11 +26,12 @@ $('#branchMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    $('#editbranchNew').empty();
-                    $('#newData').show();
+                    $('#editdiaNew').empty();
+                    $('#diagnosisData').show();
+
                    
-                    branches.set(response.Data.branchId, response.Data); 
-                    listBranches(branches);
+                    diagnosis.set(response.Data.diagnosisId,response.Data);
+                    listdiagnosis(diagnosis);
                 } else {
                     swal({
                         position: 'top-end',
@@ -39,7 +40,6 @@ $('#branchMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    // alert(response.Message);
                 }
             }
         });

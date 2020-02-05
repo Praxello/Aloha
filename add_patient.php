@@ -83,7 +83,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="occupation">Occupation</label>
-                                                                    <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation">
+                                                                    <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                                                 </div>
                                                             </div> 
                                                            
@@ -132,7 +132,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <label for="pincode">Pincode</label>
-                                                                    <input type="text" class="form-control" id="pincode" name="pincode" placeholder="pincode">
+                                                                    <input type="text" class="form-control" id="pincode" name="pincode" placeholder="pincode" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                                                                 </div>
                                                             </div> 
 

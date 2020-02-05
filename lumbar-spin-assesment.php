@@ -11,10 +11,6 @@
        
     }
 
-    
-  
-    
-
 </style>
  <div class="modal fade full-window-modal" id="fullwindowModal2" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -41,7 +37,7 @@
                                                             <div class="form-group row">
                                                                 <label for="functionScore" class="col-sm-1 col-form-label">Functional Disability Score:</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" class="form-control" id="funDisabilityScore" name="funDisabilityScore" placeholder="100">
+                                                                    <input type="text" class="form-control" id="funDisabilityScore" name="funDisabilityScore" placeholder="">
                                                                 </div>
 
 
@@ -58,13 +54,13 @@
                                                             <div class="form-group row">
                                                                 <label for="presentSymptoms" class="col-sm-1 col-form-label">Present Symptoms:</label>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" class="form-control" id="presentSymptoms"  name="presentSymptoms" placeholder="100">
+                                                                    <input type="text" class="form-control" id="presentSymptoms"  name="presentSymptoms" placeholder="">
                                                                 </div>
 
 
                                                                 <label for="presentSince" class="col-sm-1 col-form-label">Present Since:</label>
                                                                 <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="presentSince1" name="presentSince1" placeholder="0-10">
+                                                                    <input type="text" class="form-control" id="presentSince1" name="presentSince1" placeholder="">
                                                                 </div>
                                                                 <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success check">
@@ -97,7 +93,7 @@
                                                             <div class="form-group row">
                                                                 <label for="commencedAsResult" class="col-sm-1 col-form-label">Commenced as a result of:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="commencedAsResult" name="commencedAsResult" placeholder="100">
+                                                                    <input type="text" class="form-control" id="commencedAsResult" name="commencedAsResult" placeholder="">
                                                                 </div>
                                                                 <div class="col-sm-2 ">
                                                                 <label>Or no apparent reason</label></div>
@@ -105,7 +101,7 @@
 
                                                                 <label for="symptomsAtOnset" class="col-sm-1 col-form-label">Symptoms at onset:</label>
                                                                 <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="symptomsAtOnset1" name="symptomsAtOnset1" placeholder="0-10">
+                                                                    <input type="text" class="form-control" id="symptomsAtOnset1" name="symptomsAtOnset1" placeholder="">
                                                                 </div>
                                                                 <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success check"  >
@@ -138,7 +134,7 @@
                                                             <div class="form-group row">
                                                                 <label for="constantSymptoms" class="col-sm-1 col-form-label">Constant Symptoms:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="constantSymptoms1" name="constantSymptoms1" placeholder="100">
+                                                                    <input type="text" class="form-control" id="constantSymptoms1" name="constantSymptoms1" placeholder="">
                                                                 </div>
                                                              
                                                                     <div class="col-sm-2">
@@ -170,7 +166,7 @@
 
                                                                 <label for="interSymptoms" class="col-sm-1 col-form-label">Intermittent Symptoms:</label>
                                                                 <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="interSymptoms1" name="interSymptoms1" placeholder="0-10">
+                                                                    <input type="text" class="form-control" id="interSymptoms1" name="interSymptoms1" placeholder="">
                                                                 </div>
                                                                 <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success check"  >
@@ -271,7 +267,7 @@
                                                                     <!-- <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Other:</label> -->
                                                                     <span class="col-sm-1 ">Other</span>
                                                                     <div class="col-sm-3 ">
-                                                                        <input type="text" class="form-control" id="aggravatingFactor1" name="aggravatingFactor1" placeholder="100">
+                                                                        <input type="text" class="form-control" id="aggravatingFactor1" name="aggravatingFactor1" placeholder="">
                                                                     </div>
                                                            
 
@@ -348,7 +344,7 @@
                                                                     <!-- <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Other:</label> -->
                                                                     <span class="col-sm-1 ">Other</span>
                                                                     <div class="col-sm-3 ">
-                                                                        <input type="text" class="form-control" id="relivingFactor1" name="relivingFactor1" placeholder="100">
+                                                                        <input type="text" class="form-control" id="relivingFactor1" name="relivingFactor1" placeholder="">
                                                                     </div>
                                                            
 
@@ -358,7 +354,7 @@
                                                             <div class="form-group row">
                                                                 <label for="prevTreatments" class="col-sm-1 col-form-label">Previous Treatments:</label>
                                                                 <div class="col-sm-4 ">
-                                                                    <input type="text" class="form-control" id="prevTreatments" name="prevTreatments" placeholder="100">
+                                                                    <input type="text" class="form-control" id="prevTreatments" name="prevTreatments" placeholder="">
                                                                 </div>
                                                                 <div class="col-sm-7 "></div>
 
@@ -413,14 +409,14 @@
                                                                 <div class="col-sm-6"  >
                                                                     <div class="checkbox-fade fade-in-success" >
                                                                         <label>
-                                                                            <input type="checkbox" value="Normal" name="bladder">
+                                                                            <input type="radio" value="Normal" name="bladder">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>Normal</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="Abnormal" name="bladder">
+                                                                            <input type="radio" value="Abnormal" name="bladder">
                                                                             <span class="cr">
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
@@ -481,34 +477,34 @@
                                                                     <!-- <label for="exampleInputUsername2" class="col-sm-1 col-form-label">Other:</label> -->
                                                                     <span class="col-sm-1 mb-13">Other</span>
                                                                     <div class="col-sm-6 ">
-                                                                        <input type="text" class="form-control" id="medications1" name="medications1" placeholder="Good">
+                                                                        <input type="text" class="form-control" id="medications1" name="medications1" placeholder="">
                                                                     </div>
                                                             </div>
 
                                                             <div class="form-group row">
                                                                 <label for="GeneralHealth" class="col-sm-1 col-form-label">General Health:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="GeneralHealth1"  name="GeneralHealth1" placeholder="100">
+                                                                    <input type="text" class="form-control" id="GeneralHealth1"  name="GeneralHealth1" placeholder="">
                                                                 </div>
                                                              
                                                                     <div class="col-sm-2">
                                                                         <div class="checkbox-fade fade-in-success check" >
                                                                             <label>
-                                                                                <input type="checkbox" value="Good" name="GeneralHealth">
+                                                                                <input type="radio" value="Good" name="GeneralHealth">
                                                                                 <span class="cr" >
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>Good</span>
                                                                             </label>
                                                                             <label>
-                                                                                <input type="checkbox" value="Fair" name="GeneralHealth">
+                                                                                <input type="radio" value="Fair" name="GeneralHealth">
                                                                                 <span class="cr" >
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>Fair</span>
                                                                             </label>
                                                                             <label>
-                                                                                <input type="checkbox" value="Poor" name="GeneralHealth">
+                                                                                <input type="radio" value="Poor" name="GeneralHealth">
                                                                                 <span class="cr"  >
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -520,19 +516,19 @@
 
                                                                 <label for="imaging" class="col-sm-1 col-form-label">Imaging:</label>
                                                                 <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="imaging1" name="imaging1" placeholder="0-10">
+                                                                    <input type="text" class="form-control" id="imaging1" name="imaging1" placeholder="Yes">
                                                                 </div>
                                                                 <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success check" >
                                                                         <label>
-                                                                            <input type="checkbox" value="Yes" name="imaging">
+                                                                            <input type="radio" value="Yes" name="imaging">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>Yes</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="No" name="imaging"s >
+                                                                            <input type="radio" value="No" name="imaging"s >
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
@@ -554,14 +550,14 @@
                                                                     <div class="col-sm-2">
                                                                         <div class="checkbox-fade fade-in-success check"  >
                                                                             <label>
-                                                                                <input type="checkbox" value="Yes"  name="recentsurgery">
+                                                                                <input type="radio" value="Yes"  name="recentsurgery">
                                                                                 <span class="cr" >
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>Yes</span>
                                                                             </label>
                                                                             <label>
-                                                                                <input type="checkbox" value="No"  name="recentsurgery">
+                                                                                <input type="radio" value="No"  name="recentsurgery">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -579,14 +575,14 @@
                                                                 <div class="col-sm-2">
                                                                     <div class="checkbox-fade fade-in-success check" >
                                                                         <label>
-                                                                            <input type="checkbox" value="Yes" name="nightPain">
+                                                                            <input type="radio" value="Yes" name="nightPain">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>Yes</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="No" name="nightPain">
+                                                                            <input type="radio" value="No" name="nightPain">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
@@ -608,14 +604,14 @@
                                                                     <div class="col-sm-2">
                                                                         <div class="checkbox-fade fade-in-success check" >
                                                                             <label>
-                                                                                <input type="checkbox" value="Yes" name="accidents">
+                                                                                <input type="radio" value="Yes" name="accidents">
                                                                                 <span class="cr" >
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>Yes</span>
                                                                             </label>
                                                                             <label>
-                                                                                <input type="checkbox" value="No"  name="accidents">
+                                                                                <input type="radio" value="No"  name="accidents">
                                                                                 <span class="cr" >
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -633,14 +629,14 @@
                                                                 <div class="col-sm-2 c">
                                                                     <div class="checkbox-fade fade-in-success">
                                                                         <label>
-                                                                            <input type="checkbox" value="Yes" name="weightLoss">
+                                                                            <input type="radio" value="Yes" name="weightLoss">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>Yes</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="No" name="weightLoss">
+                                                                            <input type="radio" value="No" name="weightLoss">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
@@ -651,7 +647,7 @@
                                                                 </div>
                                                                 <span class="d">Other</span>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control"  id="weightLoss2" name="weightLoss2" placeholder="Yes">
+                                                                    <input type="text" class="form-control"  id="weightLoss2" name="weightLoss2" placeholder="">
                                                                 </div>
 
                                                             </div>
@@ -667,21 +663,21 @@
                                                             <div class="col-sm-3">
                                                                 <div class="checkbox-fade fade-in-success" >
                                                                     <label>
-                                                                        <input type="checkbox" value="Good" name="sitting">
+                                                                        <input type="radio" value="Good" name="sitting">
                                                                         <span class="cr" >
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
                                                                         <span>Good</span>
                                                                     </label>
                                                                     <label>
-                                                                        <input type="checkbox" value="Fair"  name="sitting">
+                                                                        <input type="radio" value="Fair"  name="sitting">
                                                                         <span class="cr">
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
                                                                         <span>Fair</span>
                                                                     </label>
                                                                     <label>
-                                                                        <input type="checkbox" value="poor"  name="sitting">
+                                                                        <input type="radio" value="poor"  name="sitting">
                                                                         <span class="cr">
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
@@ -756,11 +752,11 @@
                                                         <div class="form-group row">
                                                             <label for="motorDeficit" class="col-sm-1 col-form-label">Motor Deficit:</label>
                                                             <div class="col-sm-3">
-                                                                <input type="text" class="form-control" id="motorDeficit" name="motorDeficit" placeholder="0-10">
+                                                                <input type="text" class="form-control" id="motorDeficit" name="motorDeficit" placeholder="">
                                                             </div>
                                                             <label for="sensoryDeficit" class="col-sm-1 col-form-label">Senscry Deficit:</label>
                                                             <div class="col-sm-3">
-                                                                <input type="text" class="form-control" id="sensoryDeficit" name="sensoryDeficit" placeholder="0-10">
+                                                                <input type="text" class="form-control" id="sensoryDeficit" name="sensoryDeficit" placeholder="">
                                                             </div>
                                                          </div>
 
@@ -884,11 +880,11 @@
                                                                     </div>
                                                                         <span class="col-sm-1 ">Other:</span>
                                                                         <div class="col-sm-3 ">
-                                                                        <input type="text" class="form-control" id="derangement2" name="derangement2" placeholder="100">
+                                                                        <input type="text" class="form-control" id="derangement2" name="derangement2" placeholder="">
                                                                         </div>
                                                                        <label for="other" class="col-sm-2 col-form-label">Derangement:  Pain Location</label>
                                                                         <div class="col-sm-3">
-                                                                            <input type="text" class="form-control" id="derangement1" name="derangement1" placeholder="0-10">
+                                                                            <input type="text" class="form-control" id="derangement1" name="derangement1" placeholder="">
                                                                         </div>
                                                                 </div>
 
@@ -896,20 +892,20 @@
                                                                 <div class="form-group row">
                                                                     <label for="mechTherapy" class="col-sm-2   col-form-label">Mechanical Therappy: </label>
                                                                     <div class="col-sm-2 ">
-                                                                        <input type="text" class="form-control" id="mechTherapy1" name="mechTherapy1" placeholder="No">
+                                                                        <input type="text" class="form-control" id="mechTherapy1" name="mechTherapy1" placeholder="">
                                                                     </div>
                                                                  
                                                                         <div class="col-sm-2 c">
                                                                             <div class="checkbox-fade fade-in-success" >
                                                                                 <label>
-                                                                                    <input type="checkbox" value="Yes" name="mechTherapy" >
+                                                                                    <input type="radio" value="Yes" name="mechTherapy" >
                                                                                     <span class="cr" >
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
                                                                                     <span>Yes</span>
                                                                                 </label>
                                                                                 <label>
-                                                                                    <input type="checkbox" value="No" name="mechTherapy" >
+                                                                                    <input type="radio" value="No" name="mechTherapy" >
                                                                                     <span class="cr" >
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>

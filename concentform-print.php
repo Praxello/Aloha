@@ -6,6 +6,28 @@ use Dompdf\Dompdf;
 
 /* instantiate and use the dompdf class */
 $dompdf = new Dompdf();
+function patientDetails()
+{
+  $output  = '';
+    include 'connection.php';
+    $consentId = 1;
+
+ $sql   = "SELECT pm.firstName,pm.surname,cfm.patientId 
+FROM consent_form_master cfm LEFT JOIN patient_master pm ON pm.patientId = cfm.patientId
+WHERE cfm.consentId =  $consentId";
+    $jobQuery  = mysqli_query($conn, $sql);
+    if ($jobQuery != null) {
+        $academicAffected = mysqli_num_rows($jobQuery);
+        if ($academicAffected > 0) {
+            $academicResults = mysqli_fetch_assoc($jobQuery);
+            $patientName = $academicResults['firstName'].' '.$academicResults['surname'];
+            $output.='<input type="text" style="margin-top:20px">  am a patient of '.$pname1;
+            
+            }
+    }
+   return output;
+}
+
 
 $html = '
 <html>
@@ -20,7 +42,7 @@ $html = '
             
                
                    <p style="font-size: 22px; margin-left:10px">I 
-                   <input type="text" style="margin-top:20px">  am a patient of  <input type="text" style="margin-top:15px;margin-left:430px"> </p>
+                     '.patientDetails().' <input type="text" style="margin-top:15px;margin-left:430px"> </p>
                   
                 
                    <p  style="font-size: 22px; margin-left:10px"> I have appraoached Lokmanya Hospitals for the treament of the same.</p>
@@ -48,7 +70,7 @@ $html = '
                     to undergo 3D Spinal Decompression Mobilization & Correction therapy / program. We will not hold any doctor / therapist / staff of the hospital / medicle centre regarding the treatment regarding the treatment results.</p>
                  
                  </p>
-                 <p style="font-size: 17px; margin-left:10px"> The Doctor at  <input type="text" style="margin-top:20px" >centre have Explained myself and My Relatives in detail the Nature of the said Treatment and is                     
+                 <p style="font-size: 22px; margin-left:10px"> The Doctor at  <input type="text" style="margin-top:20px" >centre have Explained myself and My Relatives in detail the Nature of the said Treatment and is                     
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; & myself ready to undergo the said Rx.           
              </p>
             

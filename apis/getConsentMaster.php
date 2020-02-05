@@ -5,27 +5,27 @@ include "../connection.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
-
-$sql = "SELECT * FROM diagnostic_tests_master";
+extract($_POST);
+if(isset($_POST['patientId'])){
+   $visitDate = date('Y-m-d'); 
+$sql = "SELECT * FROM consent_form_master where patientId = $patientId and visitDate = '$visitDate'";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
     if ($academicAffected > 0) {
         while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
-            $records[] = $academicResults;
+            $records = $academicResults;
         }
         
         $response = array(
-            'Message' => "All Tests Fetched successfully",
+            'Message' => "All consent Form Data Fetched successfully",
             "Data" => $records,
-            "sql" => $sql,
             'Responsecode' => 200
         );
     } else {
         $response = array(
-            'Message' => "No data present",
+            'Message' => "No user present/ Invalid username or password",
             "Data" => $records,
-            "sql" => $sql,
             'Responsecode' => 401
         );
     }
@@ -35,6 +35,12 @@ if ($jobQuery != null) {
         "Data" => $records,
         'Responsecode' => 300
     ); 
+}
+}else{
+    $response = array(
+        'Message' => "Parameter missing",
+        'Responsecode' => 200
+    );  
 }
 mysqli_close($conn);
 exit(json_encode($response));

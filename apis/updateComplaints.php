@@ -6,46 +6,59 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['pname1']) && isset($_POST['deseaseNew']) && isset($_POST['sinceDays']) && isset($_POST['relativeName']) && isset($_POST['medicalTreatment']) && isset($_POST['hospitalCenterName']) 
-&& isset($_POST['treatmentName']) && isset($_POST['u_patientId'])) {
-    $visitDate=date('y-m-d');
+if (isset($_POST['complaintId']) && isset($_POST['complaint']) ) {
     
-    $sql = "INSERT INTO consent_form_master(patientName,deseaseNew,sinceDays,relativeName,medicalTreatment,hospitalCenterName,treatmentName,patientId,visitDate) 
-     VALUES ('$pname1','$deseaseNew','$sinceDays','$relativeName','$medicalTreatment','$hospitalCenterName','$treatmentName','$u_patientId','$visitDate')";
+    $sql = "UPDATE complaint_master SET complaint='$complaint' WHERE complaintId = $complaintId";
+  
     
     $query = mysqli_query($conn, $sql);
-    
+    if($query!=null){
     $rowsAffected = mysqli_affected_rows($conn);
-    
-    
     if ($rowsAffected == 1) {
-        $feesId  = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT * FROM consent_form_master where consentId = $ consentId");
+     $sql = "SELECT * FROM complaint_master  where complaintId = $complaintId";
+        $academicQuery = mysqli_query($conn,$sql);
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
                 $academicResults = mysqli_fetch_assoc($academicQuery);
                 $records         = $academicResults;
             }
-        }
+        
         $response = array(
-            'Message' => "Form Added Successfull",
+            'Message' => "Update Complaints Successfull",
             "Data" => $records,
+            "sql" => $sql,
             'Responsecode' => 200
         );
-        
+    }else{
+        $response = array(
+            'Message' => mysqli_error($conn),
+            "Data" => $records,
+            "sql" =>  $sql,
+            'Responsecode' => 200
+        ); 
+    }
+         
     } else {
         $response = array(
             'Message' => mysqli_error($conn) . " failed",
             'Responsecode' => 500,
-            "Data" => $records
+            "sql" => $sql
         );
     }
-} else {
+} 
+else{
+    $response = array(
+        'Message' => mysqli_error($conn) . " failed",
+        'Responsecode' => 600,
+        "sql" => $sql
+    );
+}
+}
+else {
     $response = array(
         "Message" => "Parameters missing",
         "Responsecode" => 403
-        
     );
 }
 mysqli_close($conn);
