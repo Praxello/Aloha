@@ -61,7 +61,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="branchName">Branch Name </label>
-                                <select class="form-control" id="branchName" name="branchName" style="width: 100%;" placeholder="Branch Name">
+                                <select class="form-control" id="branchId" name="branchName" style="width: 100%;" placeholder="Branch Name">
                                  
                                 </select>
                             </div>

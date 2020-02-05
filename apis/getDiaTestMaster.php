@@ -16,16 +16,14 @@ if ($jobQuery != null) {
         }
         
         $response = array(
-            'Message' => "All Tests Fetched successfully",
+            'Message' => "All diagnosis Test Data Fetched successfully",
             "Data" => $records,
-            "sql" => $sql,
             'Responsecode' => 200
         );
     } else {
         $response = array(
-            'Message' => "No data present",
+            'Message' => "No user present/ Invalid username or password",
             "Data" => $records,
-            "sql" => $sql,
             'Responsecode' => 401
         );
     }

@@ -60,7 +60,19 @@
                                     <a href="feesMaster.php"><i class="ik ik-user"></i><span>Fees Master</span> <span class="badge badge-success"></span></a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="testMaster.php"><i class="ik ik-user"></i><span>Test Master</span> <span class="badge badge-success"></span></a>
+                                    <a href="newTestMaster.php"><i class="ik ik-user"></i><span>Test Master</span> <span class="badge badge-success"></span></a>
+                                </div>
+                                <div class="nav-item">
+                                    <a href="diagnosisMaster.php"><i class="ik ik-menu"></i><span>Diagnosis Master</span> <span class="badge badge-success"></span></a>
+                                </div>
+                                <div class="nav-item">
+                                    <a href="complaintMaster.php"><i class="ik ik-menu"></i><span>Complaint Master</span> <span class="badge badge-success"></span></a>
+                                </div>
+                                <div class="nav-item">
+                                    <a href="adviceMaster.php"><i class="ik ik-user"></i><span>Advice Master</span> <span class="badge badge-success"></span></a>
+                                </div>
+                                <div class="nav-item">
+                                    <a href="instructionMaster.php"><i class="ik ik-user"></i><span>Istruction Master</span> <span class="badge badge-success"></span></a>
                                 </div>
                             </nav>
                         </div>

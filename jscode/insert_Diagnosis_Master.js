@@ -1,14 +1,14 @@
-$('#branchMasterForm').on('submit', function(e) {
+$('#diagnosisMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-  
-    var returnVal = $("#branchMasterForm").valid();
+           
+    var returnVal = $("#diagnosisMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-        fData.append('branchId',branchId_ap);
-        console.log(branchId_ap);
+
+
         $.ajax({
-            url: url + 'updateBranchMaster.php',
+            url: url + 'insertDiagnosisMaster.php',
             type: 'POST',
             data: fData,
             cache: false,
@@ -18,7 +18,7 @@ $('#branchMasterForm').on('submit', function(e) {
             success: function(response) {
                 console.log(response);
                 if (response.Responsecode == 200) {
-                    // alert(response.Message);
+                     alert(response.Message);
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -26,11 +26,11 @@ $('#branchMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    $('#editbranchNew').empty();
-                    $('#newData').show();
-                   
-                    branches.set(response.Data.branchId, response.Data); 
-                    listBranches(branches);
+                    $('#cButton').click();
+                    $('#diagnosisMasterForm').trigger('reset');
+                    diagnosis.set(response.Data.diagnosisId,response.Data);
+                    listdiagnosis(diagnosis);
+
                 } else {
                     swal({
                         position: 'top-end',
@@ -39,7 +39,7 @@ $('#branchMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    // alert(response.Message);
+               
                 }
             }
         });
