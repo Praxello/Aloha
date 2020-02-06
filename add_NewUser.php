@@ -112,4 +112,3 @@
     <script src="jscode/insertUserMaster.js"></script>
     <script src="js/jquery.validate.js"></script>
     <script src="jscode/userMaster_validation.js"></script>
-    <script src="jscode/getBranch.js"></script>
