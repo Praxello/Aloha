@@ -9,7 +9,6 @@ $(document).ready(function() {
     mapBranches();
     $("#branchId").select2({
         placeholder: 'Select branch',
-        allowClear: true,
-        // dropdownParent: $('#userModal')
+        allowClear: true
     });
 });
