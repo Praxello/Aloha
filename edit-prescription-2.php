@@ -439,7 +439,7 @@
     }
 
     function downloadForm() {
-        window.open('concentform-print.php', '_blank');
+        window.open('concentform-print.php?patientId='+u_patientId, '_blank');
     }
 </script>
 <script src="js/jquery.validate.js"></script>

@@ -8,7 +8,7 @@ $records  = null;
 extract($_POST);
 if(isset($_POST['patientId'])){
    $visitDate = date('Y-m-d'); 
-$sql = "SELECT * FROM consent_form_master where patientId = $patientId and visitDate = '$visitDate'";
+$sql = "SELECT * FROM consent_form_master where u_patientId = $patientId and visitDate = '$visitDate'";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -26,6 +26,7 @@ if ($jobQuery != null) {
         $response = array(
             'Message' => "No user present/ Invalid username or password",
             "Data" => $records,
+            'sql'=>$sql,
             'Responsecode' => 401
         );
     }
@@ -33,6 +34,7 @@ if ($jobQuery != null) {
     $response = array(
         'Message' => "Please Logout and login again",
         "Data" => $records,
+        'sql'=>$sql,
         'Responsecode' => 300
     ); 
 }
