@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="page-header">
             <div class="row align-items-end">
-                <div class="col-lg-8">
+                <div class="col-lg-3">
                     <div class="page-header-title">
                         <!-- <img src="upload/patients/12.jpg" class="avatar" alt="Upload"> -->
                         <i class="ik ik-file-text bg-blue"></i>
@@ -13,9 +13,19 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-5 form-group row" style="background-color: #64ffda;">
+                                      <label for="" class="col-sm-2 col-form-label"><b>Patients Name</b></label>
+                                      <label for="" class="col-sm-2 col-form-label">ABC</label>  
+                                      <label for="" class="col-sm-2 col-form-label"><b>Reffered by</b></label>  
+                                      <label for="" class="col-sm-3 col-form-label">SELF(ALOHA CLINIC)</label>   
+                                      <label for="" class="col-sm-2 col-form-label"><b>Fees status</b></label>  
+                                      <label for="" class="col-sm-1 col-form-label">pending</label>      
+
+                </div>
+
                 <div class="col-lg-4">
                     <nav class="breadcrumb-container" aria-label="breadcrumb">
-                        <button type="button" class="btn btn-primary" onclick="goback();">Back</button>
+                        <button type="button" class="btn btn-success" onclick="goback();"><i class="ik ik-arrow-left"></i></button>
                     </nav>
                 </div>
             </div>
@@ -115,7 +125,7 @@
                                                 <div class="col-md-6">
 
                                                     <div class="form-group">
-                                                        <label for="input">Complaints</label>
+                                                        <label for="input"><h4>Complaints</h4></label>
                                                         <input type="text" id="complaintsId" class="form-control" placeholder="Add complaints">
                                                     </div>
 
@@ -123,7 +133,7 @@
                                                 <div class="col-md-6">
 
                                                     <div class="form-group">
-                                                        <label for="input">Diagnosis</label>
+                                                        <label for="input"><h4>Diagnosis</h4></label>
                                                         <input type="text" id="diagnosis" class="form-control" placeholder="Diagnosis">
 
                                                     </div>

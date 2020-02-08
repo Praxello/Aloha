@@ -10,24 +10,25 @@
     <div class="container-fluid">
         <div class="page-header">
             <div class="row align-items-end">
-                <div class="col-lg-6">
+                <div class="col-lg-1">
                     <div class="page-header-title">
-                        <i class="rounded-circle" style="margin-right: 50px"><img src="img/user.jpg" style="height: 82px;margin-top: 38px;" class="rounded-circle"  height="50px" id="userPic" /></i>
+                        <i class="rounded-circle" style="margin-right: 50px"><img src="img/user.jpg" style="height: 82px; margin-left: 40px;" class="rounded-circle"  height="50px" id="userPic" /></i>
                         <div class="d-inline">
 
                         </div>
                     </div>
-
-                    <div style="margin-left: 140px;">
+                
+                    <!-- <div style="margin-left: 140px;">
                         <h5 class="card-title" id="uname">John Doe</h5>
                         <p class="card-subtitle" id="ucity">Front End Developer</p>
                         <i class="ik ik-user" style="color: blueviolet;"></i> <font id="uage">254</font>
                         <i class="ik ik-image" style="color: chocolate;"> </i> <font id="ugender">54</font>
 
                         <i class="rounded-circle"><h6 id="uphone" >(123) 456 7890</h6></i>
-                    </div>
+                    </div> -->
 
                 </div>
+                <div class="col-lg-1"></div>
                 <div class="it">
                     <div class="overlay"></div>
                     <div class="img-show">
@@ -35,7 +36,19 @@
                         <img src="">
                     </div>
                 </div>
-                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8 form-group row" style="background-color: #64ffda;">
+                                      <label for="" class="col-sm-2 col-form-label"  ><b>Patients Name:</b></label>
+                        
+                                     <label for="" class="col-sm-2 col-form-label"  id="uname" style="font-weight: bold;"></label> 
+
+                                      <label for="" class="col-sm-2 col-form-label" id="uage" style="font-weight: bold;"></label> 
+                                    <label for="" class="col-sm-2 col-form-label" id="ugender" style="font-weight: bold;"></label> 
+                                      <label for="" class="col-sm-2 col-form-label" id="uphone" style="font-weight: bold;"></label>  
+                                     <label for="" class="col-sm-2 col-form-label" id="ucity" style="font-weight: bold;"></label>    
+
+                </div>
+                
                 <div class="col-lg-2">
                     <nav class="breadcrumb-container" aria-label="breadcrumb">
                         <button type="button" class="btn btn-success" onclick="goback();"><i class="ik ik-arrow-left"></i></button>
