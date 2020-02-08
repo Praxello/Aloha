@@ -652,21 +652,21 @@
                                                             <div class="col-sm-3">
                                                                 <div class="checkbox-fade fade-in-success" >
                                                                     <label>
-                                                                        <input type="checkbox" value="Good" name="cerSitting">
+                                                                        <input type="radio" value="Good" name="cerSitting">
                                                                         <span class="cr" >
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
                                                                         <span>Good</span>
                                                                     </label>
                                                                     <label>
-                                                                        <input type="checkbox" value="Fair"  name="cerSitting">
+                                                                        <input type="radio" value="Fair"  name="cerSitting">
                                                                         <span class="cr">
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
                                                                         <span>Fair</span>
                                                                     </label>
                                                                     <label>
-                                                                        <input type="checkbox" value="poor"  name="cerSitting">
+                                                                        <input type="radio" value="poor"  name="cerSitting">
                                                                         <span class="cr">
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
@@ -712,14 +712,14 @@
                                                             <div class="col-sm-3">
                                                                 <div class="checkbox-fade fade-in-success" >
                                                                     <label>
-                                                                        <input type="checkbox" value="Yes"  name="protrudedHead">
+                                                                        <input type="radio" value="Yes"  name="protrudedHead">
                                                                         <span class="cr" >
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
                                                                         <span>Yes</span>
                                                                     </label>
                                                                     <label>
-                                                                        <input type="checkbox" value="No"  name="protrudedHead">
+                                                                        <input type="radio" value="No"  name="protrudedHead">
                                                                         <span class="cr" >
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>

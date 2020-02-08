@@ -147,7 +147,7 @@
                                             <div class="form-group row">
                                                 <label for="billamount" class="col-sm-3 col-form-label"><b>Bill Amount :</b></label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control" id="billamount" placeholder="2000.0" readonly>
+                                                    <input type="text" class="form-control" id="billamount" placeholder="" readonly>
 
                                                 </div>
                                             </div>
@@ -155,7 +155,7 @@
                                             <div class="form-group row">
                                                 <label for="discount" class="col-sm-3 col-form-label"><b>Discount :</b></label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control" id="discount" placeholder="100.0" readonly>
+                                                    <input type="text" class="form-control" id="discount" placeholder="" readonly>
 
                                                 </div>
                                             </div>
@@ -163,7 +163,7 @@
                                             <div class="form-group row">
                                                 <label for="pendingAmt" class="col-sm-3 col-form-label"><b>Pending Amount:</b></label>
                                                 <div class="col-sm-7">
-                                                    <input type="text" class="form-control" id="pendingAmt" placeholder="100.0" readonly>
+                                                    <input type="text" class="form-control" id="pendingAmt" placeholder="" readonly>
 
                                                 </div>
                                                
@@ -197,7 +197,7 @@
                                             <div class="form-group row">
                                                 <label for="amount" class="col-sm-3 col-form-label"><b>Amount:</b></label>
                                                 <div class="col-sm-7">
-                                                    <input type="number" class="form-control" id="amount" oninput="check(this);" placeholder="100.0">
+                                                    <input type="number" class="form-control" id="amount" oninput="check(this);" placeholder="">
 
                                                 </div>
                                                 <div class="errorMsg"></div>
@@ -224,11 +224,11 @@
                                                     <button type="button" class="btn btn-primary" onclick="recievePayment()"><i class="ik ik-pocket"></i>Make Payment</button>
 
                                                 </div>
-                                                <div class="col-md-4 template-demo">
+                                                <!-- <div class="col-md-4 template-demo">
 
                                                     <button type="button" class="btn btn-primary" onclick="printReciept()" style="display: none;" id="prButton"><i class="ik ik-printer"></i>Print</button>
 
-                                                </div>
+                                                </div> -->
                                             </div>
 
                                         </div>
