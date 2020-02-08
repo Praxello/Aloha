@@ -10,13 +10,13 @@ $storeFolder = '../upload/patientDocs';
 $ds          = DIRECTORY_SEPARATOR;
 extract($_POST);
 if (isset($_POST['patientId'])) {
-    $academicQuery = mysqli_query($conn, "SELECT docId FROM patientDocs where patientId = $patientId");
+    $academicQuery = mysqli_query($conn, "SELECT docId,extension FROM patientDocs where patientId = $patientId AND isActive = 1");
     if ($academicQuery != null) {
         $academicAffected = mysqli_num_rows($academicQuery);
         if ($academicAffected > 0) {
             while ($academicResults = mysqli_fetch_assoc($academicQuery)) {
-                $obj['name'] = $academicResults['docId'].'.jpg';
-                $obj['size'] = filesize($storeFolder.$ds.$academicResults['docId'].'.jpg');
+                $obj['name'] = $academicResults['docId'].'.'.$academicResults['extension'];
+                $obj['size'] = filesize($storeFolder.$ds.$academicResults['docId'].'.'.$academicResults['extension']);
                 $records[]   = $obj;
             }
             $response = array(

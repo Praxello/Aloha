@@ -30,7 +30,7 @@ var listpaymentdetails = payments => {
     var tblData = '';
     for (let k of payments.keys()) {
         let payment = payments.get(k);
-        tblData += '<tr><td>' + payment.paymentId + '</td>';
+        tblData += '<tr><td>' + payment.recieptId + '</td>';
         tblData += '<td>' + payment.username + '</td>';
         tblData += '<td>' + payment.originalAmt.toLocaleString() + '</td>';
         tblData += '<td>' + payment.total.toLocaleString() + '</td>';
@@ -79,7 +79,7 @@ var showPatientInfo = patientId => {
     $('#pname').html(details.firstName + ' ' + details.middleName + ' ' + details.surname);
     $('#pmobile').html(details.mobile1);
     $('#pemail').html(details.email);
-    $('#pcity').html(details.city);
+    $('#pcity').html(details.cityName);
     $('#paddress').html(details.address);
 };
 
@@ -106,6 +106,7 @@ var recievePayment = () => {
                     button: false,
                     timer: 1500
                 });
+                editPaymentDetails.received = parseFloat(editPaymentDetails.received) + parseFloat(details.received);
                 editPaymentDetails.pending = editPaymentDetails.pending - details.received;
                 payments.set(editPaymentDetails.paymentId, editPaymentDetails);
                 listpaymentdetails(payments);

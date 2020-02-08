@@ -17,16 +17,16 @@ if (isset($_POST['patientId'])) {
     if ($request == 1) {
         $target_file = $target_dir . basename($_FILES["file"]["name"]);
         $filename    = $_FILES['file']['name'];
-        $sql         = "INSERT INTO  patientDocs(patientId) VALUES($patientId)";
+        $file_parts = pathinfo($filename);
+        $extension = $file_parts['extension'];
+        $sql         = "INSERT INTO  patientDocs(patientId,extension) VALUES($patientId,'$extension')";
         $query       = mysqli_query($conn, $sql);
         
         $rowsAffected = mysqli_affected_rows($conn);
         if ($rowsAffected == 1) {
             $docId     = $conn->insert_id;
-            $file_parts = pathinfo($filename);
-            echo $file_parts['extension'];
-            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir . $docId.'.jpg')) {
-                $filename = $docId.'.jpg';
+            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir . $docId.'.'.$extension)) {
+                $filename = $docId.'.'.$extension;
                 $response = array(
                     'Message' => "Document added Successfully",
                     "Data" => $records,
@@ -55,7 +55,7 @@ if (isset($_POST['patientId'])) {
         $file         = $_POST['name'];
         $docId = explode('.',$file);
         $filename     = $target_dir . $_POST['name'];
-        $sql          = "DELETE FROM  patientDocs WHERE patientId=$patientId AND docId = '$docId[0]'";
+        $sql          = "UPDATE  patientDocs SET isActive = 0 WHERE patientId=$patientId AND docId = '$docId[0]'";
         $query        = mysqli_query($conn, $sql);
         $rowsAffected = mysqli_affected_rows($conn);
         if ($rowsAffected == 1) {
@@ -64,7 +64,6 @@ if (isset($_POST['patientId'])) {
                 'Responsecode' => 200
             );
         }
-        unlink($filename);
     }
 } else {
     $response = array(

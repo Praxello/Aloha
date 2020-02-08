@@ -88,6 +88,39 @@ function calculateAmt(amount) {
     }
 }
 
+function calculateAmt1(amount) {
+    var total, formula;
+    if (totalDiscount > 0) {
+        if (amount == '') {
+            $('#tAmt').val(tAmt);
+            $('#pAmt').val('');
+        } else {
+            if (amount > totalDiscount) {
+                swal('can not exceed discount more than ' + totalDiscount);
+                $('#dAmt').val(totalDiscount);
+                $('#tAmt').val(tAmt - totalDiscount);
+            } else {
+                amount = parseFloat(amount);
+                total = parseFloat($('#tAmt').val());
+                formula = (100 * amount) / total;
+                $('#pAmt').val(formula.toFixed(2));
+                $('#tAmt').val(tAmt - amount);
+            }
+        }
+    } else {
+        if (amount == '') {
+            $('#tAmt').val(tAmt);
+            $('#pAmt').val('');
+        } else {
+            amount = parseFloat(amount);
+            total = parseFloat($('#tAmt').val());
+            formula = (100 * amount) / total;
+            $('#pAmt').val(formula.toFixed(2));
+            $('#tAmt').val(tAmt - amount);
+        }
+    }
+}
+
 function storeDetails() {
     var TableData = [];
 
@@ -144,7 +177,7 @@ function GeneratePayment() {
                         uniqueTest.clear();
                         $('#presTableBody').empty();
                         $('#fTotal').empty();
-                        var r = confirm('Are you want to accept payment now ?');
+                        var r = confirm('Do you want to accept payment now ?');
                         if (r) {
                             $('#opd-payment-generate').modal('hide');
                             opdPayment(patientId_ap);
@@ -251,4 +284,9 @@ function setDiscount(Id) {
         totalDiscount = parseFloat(discount.discount);
         $('#maxDiscount').html('Maximum discount ' + totalDiscount);
     }
+}
+
+function openScreen() {
+    $('#opd-payment-generate').modal('hide');
+    opdPayment(patientId_ap);
 }

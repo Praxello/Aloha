@@ -66,12 +66,6 @@ function billDetails($paymentId)
 $output .= '<div class="row p-5">
 <div class="col-xs-12 ">
     <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th class="border-0 text-uppercase small font-weight-bold ">Fees Type</th>
-                <th class="border-0 text-uppercase small font-weight-bold ">Fee</th>
-            </tr>
-        </thead>
         <tbody>';
         While($academicResults = mysqli_fetch_assoc($jobQuery)){
 
@@ -118,8 +112,8 @@ function paymentHistory($paymentId)
 {
     include 'connection.php';
     $output    = '';
-    $sql       = "SELECT opm.amount,opm.paymentMode,DATE_FORMAT(opm.paymentDate,'%d %b %Y') paymentDate
-     FROM opd_payment_transaction_master opm WHERE opm.paymentId = $paymentId";
+    $sql       = "SELECT opm.amount,opm.paymentMode,DATE_FORMAT(opm.paymentDate,'%d %b %Y') paymentDate,COALESCE(opm.paymentModeDetail,'') paymentModeDetail
+    FROM opd_payment_transaction_master opm WHERE opm.paymentId = $paymentId";
     $jobQuery  = mysqli_query($conn, $sql);
     if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
@@ -141,7 +135,7 @@ $output .= ' <center>
         <tbody>';
         while($academicResults = mysqli_fetch_assoc($jobQuery)){
             $output .='<tr>
-            <td >'.$academicResults['paymentMode'].'</td>
+            <td >'.$academicResults['paymentMode'].' <small>'.$academicResults['paymentModeDetail'].'</small></td>
             <td>'.number_format($academicResults['amount'],2).'</td>
             <td>'.$academicResults['paymentDate'].'</td>
             
@@ -177,12 +171,11 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                     </div>
                    
                     <hr class="my-5">
-                    '.patientDetails($paymentId).'
                     <center>
-                        <h3>Reciept</h3>
-                    </center>
-                    
-                    <hr class="my-5">
+                    <h3>Reciept</h3>
+                </center>
+                    '.patientDetails($paymentId).'
+                 
                     '.billDetails($paymentId).'
                    '.paymentHistory($paymentId).'
                 </div>

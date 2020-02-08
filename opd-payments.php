@@ -130,12 +130,15 @@
                                                 <div class=" row">
                                                     <div class="form-group col-md-4">
                                                         <label for="receiptId"><b>Receipt Id :</b></label>
-                                                        <label for="receiptId" name="receiptId" id="receiptId">1</label>
+                                                        <label for="receiptId" name="receiptId" id="receiptId"></label>
                                                     </div>
 
+                                                    <div class="form-group col-md-4"><h6>
+                                                        <label for="received"><b>Received :</b></label></h6>
+                                                       
+                                                    </div>
                                                     <div class="form-group col-md-4">
-                                                        <label for="received"><b>Received :</b></label>
-                                                        <label for="received" name="received" id="received">2000</label>
+                                                        <strong name="received" id="received"></strong>
                                                     </div>
                                                 </div>
 
@@ -200,7 +203,7 @@
                                                 <div class="errorMsg"></div>
                                             </div>
 
-                                            <div class="form-group row">
+                                            <!-- <div class="form-group row">
 
                                                 <div class="checkbox-fade fade-in-success col">
                                                     <label>
@@ -212,7 +215,7 @@
                                                     </label>
                                                 </div>
 
-                                            </div>
+                                            </div> -->
 
                                             <div class="form-group row">
                                                 <div class="col-md-2"> </div>
