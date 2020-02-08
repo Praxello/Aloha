@@ -195,7 +195,7 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
         <script src="jscode/getBranches.js"></script>
-        <script src="jscode/login.js"></script>
+        <script src="jscode/userbranch.js"></script>
         <?php include 'add_NewUser.php';?>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
