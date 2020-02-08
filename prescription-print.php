@@ -57,37 +57,39 @@ $output .= '<div class="row">
 </div>
 </div>
 <div class="row ">
-<div class="col-xs-3 ">
-   <p class="font-weight-bold mb-4 "><strong>'.$row['firstName'].' '.$row['surname'].'</strong></p>
+<div class="col-xs-2">
+   <p class="font-weight-bold mb-4 "><strong class="text-uppercase">'.$row['firstName'].' '.$row['surname'].'</strong></p>
 </div>
-<div class="col-xs-3 ">
-   <p class="font-weight-bold mb-4 ">Reg number:<span>'.$patientId.'</span></p>
+<div class="col-xs-1">
+   <p class="font-weight-bold mb-4 ">Reg No:<span>'.$patientId.'</span></p>
 </div>
-<div class="col-xs-3 ">
-   <p class="font-weight-bold mb-4 ">Cell number:<span>'.$row['mobile1'].'</span></p>
+<div class="col-xs-3">
+   <p class="font-weight-bold mb-4 ">Cell No:<span>'.$row['mobile1'].'</span></p>
 </div>
-<div class="col-xs-3 ">
-<p class="font-weight-bold mb-4 ">Date:<span>'.$visitDate.'</span></p>
+<div class="col-xs-6">
 </div>
 </div>
 <div class="row ">
-<div class="col-xs-3 ">
+<div class="col-xs-2">
    <p class="font-weight-bold mb-4 ">Age:<span>'.$row['age'].'</span></p>
 </div>
-<div class="col-xs-3 ">
+<div class="col-xs-2">
    <p class="font-weight-bold mb-4 ">Weight:<span>'.$row['weight'].'</span></p>
 </div>
-<div class="col-xs-3 ">
+<div class="col-xs-2">
    <p class="font-weight-bold mb-4 ">BP:<span>'.$row['bp'].'</span></p>
 </div>
-<div class="col-xs-3 ">
+<div class="col-xs-2">
 <p class="font-weight-bold mb-4 ">Pulse:<span>'.$row['pulse'].'</span></p>
+</div>
+<div class="col-xs-2">
+<p class="font-weight-bold mb-4 ">BMI:<span>'.$row['pulse'].'</span></p>
 </div>
 </div>
 <hr class="my-5 ">
 <div class="row ">
 <div class="col-xs-2">
-<strong>Clinical Notes:</strong>
+<strong><u>Clinical Notes</u>:</strong>
 </div>
 <div class="col-xs-10">
 <p class="font-weight-bold mb-4 ">'.$row['complaint'].'</p>
@@ -95,7 +97,7 @@ $output .= '<div class="row">
 </div>
 <div class="row ">
 <div class="col-xs-2">
-<strong>Clinical Diagnosis:</strong>
+<strong><u>Clinical Diagnosis</u>:</strong>
 </div>
 <div class="col-xs-10">
 <p class="font-weight-bold mb-4 ">'.$row['diagnosis'].'</p>
@@ -119,10 +121,10 @@ function fetchmedicinedata($patientId,$visitDate,$doctorId)
         $output .= ' <tr>
         <td><strong>' . $row['name'] . '</strong>-' . $row['type'] . '<br><small>'.$row['genName'].'</small></td>
         <td style="width:5%;text-align:center">' . $row['morning'] . '</td>
-        <td style="width:8%;text-align:center">' . $row['evining'] . '</td>
+        <td style="width:5%;text-align:center">' . $row['evining'] . '</td>
         <td style="width:5%;text-align:center">' . $row['night'] . '</td>
         <td style="width:5%;text-align:center">' . $row['period'] . '</td>
-        <td style="width:30%;text-align:center">' . $row['instruction'] . '</td>
+        <td style="width:40%;text-align:center">' . $row['instruction'] . '</td>
     </tr>';
         }
     }
@@ -136,7 +138,7 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
         <div class="col-12 ">
                     <div class="row p-5 ">
                         <div class="col-xs-4 ">
-                        <img class="img-fluid " src="medical.jpeg" height="20% " width="10% ">
+                        <img class="img-fluid " src="medical.jpeg" height="30% " width="30% ">
                         </div>
                        '.doctor_details($doctorId).'
                     </div>
@@ -149,12 +151,12 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                             <table class="table ">
                                 <thead>
                                     <tr>
-                                        <th class="border-0 text-uppercase small font-weight-bold ">Medicine</th>
-                                        <th style="width:5%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Morning</th>
-                                        <th style="width:8%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Afternoon</th>
-                                        <th style="width:5%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Night</th>
+                                        <th class="text-uppercase small font-weight-bold ">Medicine</th>
+                                        <th style="width:10%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Morning</th>
+                                        <th style="width:10%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Afternoon</th>
+                                        <th style="width:10%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Night</th>
                                         <th style="width:5%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Days</th>
-                                        <th class="border-0 text-uppercase small font-weight-bold ">Remarks</th>
+                                        <th class="text-uppercase small font-weight-bold" style="text-align:center;">Remarks</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -176,13 +178,13 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                   <strong>Next visit date:</strong>
                   </div>
                   <div class="col-xs-8 ">
-                    <p class="font-weight-bold mb-4 ">'.$nextVisitDate.'</p>
+                    <p class="font-weight-bold mb-4 ">'.$nextVisitDate.'/ as necessary [Please confirm appointment 10 days prior]</p>
                     </div>
                  </div>
         </div>
     </div>
 
-    <footer style="text-align:center;padding-left:400px; "><strong>'.$sign.'</strong></footer>
+    <footer style="text-align:right;position:fixed;right:0;bottom:0; "><strong>'.$sign.'</strong></footer>
 </div>';
 
 $dompdf->loadHtml($html);

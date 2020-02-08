@@ -5,6 +5,8 @@
   }
 </style>
 
+<link rel="stylesheet" href="dist/css/dropzone.css">
+<link rel="stylesheet" href="dist/css/style.css">
 <link rel="stylesheet" href="dist/css/viewImage.css">
 <div class="main-content">
     <div class="container-fluid">
@@ -454,7 +456,8 @@
 </script>
 <script src="jscode/cancel-appointment.js"></script>
 <script src="jscode/patient_profile.js"></script>
-
+<script type="text/javascript" src="js/dropzone.js"></script>
+<script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
 <script src="jscode/getReffName.js"></script>
 <script src="jscode/updatePatientsJs.js"></script>
 

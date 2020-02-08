@@ -98,12 +98,12 @@ function fill_prev(response) {
         tblData += '<div class="card-body">';
         tblData += '<div class="row invoice-info">';
         tblData += '<div class="col-sm-6">';
-        tblData += '<div>Branch:';
+        tblData += '<div><h5 class="d-block w-100"> Branch:';
         tblData += response[i].branchName;
-        tblData += '</div> </div> <div class="col-sm-6">';
-        tblData += '<div>Doctor:';
+        tblData += '</h5></div> </div> <div class="col-sm-6">';
+        tblData += '<div><h5 class="d-block w-100"> Doctor:';
         tblData += response[i].username;
-        tblData += '</div> </div> </div>';
+        tblData += '</h5></div> </div> </div>';
         tblData += '<div class="row invoice-info">';
         tblData += '<div class="col-sm-6 invoice-col">';
         tblData += '<div class="alert alert-secondary mt-20">Complaints:';
