@@ -171,14 +171,14 @@
                                                                 <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success check"  >
                                                                         <label>
-                                                                            <input type="checkbox"  value="yes" name="disturbedSleep">
+                                                                            <input type="radio"  value="yes" name="disturbedSleep">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>Yes</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="No" name="disturbedSleep">
+                                                                            <input type="radio" value="No" name="disturbedSleep">
                                                                             <span class="cr">
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
@@ -510,14 +510,14 @@
                                                                 <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success check" >
                                                                         <label>
-                                                                            <input type="checkbox" value="Yes" name="cerImaging">
+                                                                            <input type="radio" value="Yes" name="cerImaging">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>Yes</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="No" name="cerImaging" >
+                                                                            <input type="radio" value="No" name="cerImaging" >
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
@@ -539,14 +539,14 @@
                                                                     <div class="col-sm-2">
                                                                         <div class="checkbox-fade fade-in-success check"  >
                                                                             <label>
-                                                                                <input type="checkbox" value="Yes"  name="cerResurgery">
+                                                                                <input type="radio" value="Yes"  name="cerResurgery">
                                                                                 <span class="cr" >
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>Yes</span>
                                                                             </label>
                                                                             <label>
-                                                                                <input type="checkbox" value="No"  name="cerResurgery">
+                                                                                <input type="radio" value="No"  name="cerResurgery">
                                                                                 <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -564,14 +564,14 @@
                                                                 <div class="col-sm-2">
                                                                     <div class="checkbox-fade fade-in-success check" >
                                                                         <label>
-                                                                            <input type="checkbox" value="Yes" name="cerNightPain">
+                                                                            <input type="radio" value="Yes" name="cerNightPain">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>Yes</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="No" name="cerNightPain">
+                                                                            <input type="radio" value="No" name="cerNightPain">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
@@ -593,14 +593,14 @@
                                                                     <div class="col-sm-2">
                                                                         <div class="checkbox-fade fade-in-success check" >
                                                                             <label>
-                                                                                <input type="checkbox" value="Yes" name="cerAccidents">
+                                                                                <input type="radio" value="Yes" name="cerAccidents">
                                                                                 <span class="cr" >
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
                                                                                 <span>Yes</span>
                                                                             </label>
                                                                             <label>
-                                                                                <input type="checkbox" value="No"  name="cerAccidents">
+                                                                                <input type="radio" value="No"  name="cerAccidents">
                                                                                 <span class="cr" >
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -618,14 +618,14 @@
                                                                 <div class="col-sm-2 c">
                                                                     <div class="checkbox-fade fade-in-success">
                                                                         <label>
-                                                                            <input type="checkbox" value="Yes" name="cerWeightLoss">
+                                                                            <input type="radio" value="Yes" name="cerWeightLoss">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>Yes</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="No" name="cerWeightLoss">
+                                                                            <input type="radio" value="No" name="cerWeightLoss">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
