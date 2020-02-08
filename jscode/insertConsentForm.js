@@ -81,7 +81,7 @@ demo(u_patientId);
             success: function(response) {
                 console.log(response);
                 if (response.Responsecode == 200) {
-                     alert(response.Message);
+                    
                     swal({
                         position: 'top-end',
                         icon: 'success',

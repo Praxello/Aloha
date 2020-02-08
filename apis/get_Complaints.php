@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT * FROM complaint_master";
+$sql = "SELECT * FROM complaint_master ORDER BY complaintId DESC";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
