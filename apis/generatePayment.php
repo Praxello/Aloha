@@ -10,7 +10,6 @@ extract($_POST);
 $str = array();
 if (isset($_POST['postdata'])) {
     $someArray = json_decode($postdata, true);
-    print_r($someArray);
     $originalAmt = $someArray['originalAmt'];
     $amount      = $someArray["amount"];
     $discount    = isset($someArray["discount"])? $someArray["discount"]:'NULL';

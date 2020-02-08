@@ -13,7 +13,6 @@ function getMedicines() {
                         medicines.set(response.Data[i].medicineId, response.Data[i]);
                     }
                 }
-
             }
         }
     });

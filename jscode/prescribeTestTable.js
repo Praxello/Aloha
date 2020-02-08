@@ -32,7 +32,7 @@ function addrow() {
             tAmt = parseFloat(tests.fees) + tAmt;
             $('#fTotal').html(tAmt.toLocaleString());
             originalAmt = tAmt;
-            $('#tAmt').val(tAmt.toLocaleString());
+            $('#tAmt').val(tAmt);
         }
     } else {
         swal('Select a test');
@@ -144,7 +144,11 @@ function GeneratePayment() {
                         uniqueTest.clear();
                         $('#presTableBody').empty();
                         $('#fTotal').empty();
-                        // $('#opd-payment-generate').modal('hide');
+                        var r = confirm('Are you want to accept payment now ?');
+                        if (r) {
+                            $('#opd-payment-generate').modal('hide');
+                            opdPayment(patientId_ap);
+                        }
                     } else {
                         swal({
                             position: 'top-end',
@@ -198,7 +202,7 @@ function attach_data(paymentId) {
         $("#presTableBody").html(rowhtml);
         $('#dAmt').val(data.discount);
         $('#fTotal').html(tAmt.toLocaleString());
-        $('#tAmt').val(tAmt.toLocaleString());
+        $('#tAmt').val(tAmt);
         $('#paymentFor').val(data.doctorId).trigger('change');
     }
 }

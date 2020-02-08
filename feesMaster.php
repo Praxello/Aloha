@@ -75,7 +75,7 @@ if(isset($_SESSION['branchId'])){
                                 </div>
                                 
                             </div> -->
-                            <div class="card-body c">
+                            <div class="card-body c table-responsive">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
                                 <table id="fTable" class="table">

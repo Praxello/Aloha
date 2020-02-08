@@ -77,6 +77,7 @@ const listAppointments = (appointments, today) => {
 getAllAppointments(data.userId);
 
 const editPatient = (appointmentId) => {
+
     appointmentId = appointmentId.toString();
     let patient = appointments.get(appointmentId);
     u_patientId = patient.patientId;
@@ -84,6 +85,9 @@ const editPatient = (appointmentId) => {
     global_patientId = patient.patientId;
     $('#tData').hide();
     $('#editProfile').load('edit-prescription-2.php');
+    $('.wrapper').addClass('nav-collapsed menu-collapsed');
+    $('#tog').removeClass('ik-toggle-right');
+    $('#tog').addClass('ik-toggle-left');
 };
 
 function getToday() {

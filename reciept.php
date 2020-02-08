@@ -6,189 +6,192 @@ use Dompdf\Dompdf;
 
 /* instantiate and use the dompdf class */
 $dompdf = new Dompdf();
-extract($_GET);
-$paymentId = isset($_GET['paymentId']) ? $_GET['paymentId']:1;
-function patientDetails($paymentId)
-{
-  $output  = '';
-    include 'connection.php';
-    $sql       = "SELECT opm.recieptId,pm.firstName,pm.surname,pm.mobile1,opm.patientId,DATE_FORMAT(opm.visitDate,'%d %b %Y') visitDate  
-FROM opd_patient_payment_master opm LEFT JOIN patient_master pm ON pm.patientId = opm.patientId
-WHERE opm.paymentId =  $paymentId";
-    $jobQuery  = mysqli_query($conn, $sql);
-    if ($jobQuery != null) {
-        $academicAffected = mysqli_num_rows($jobQuery);
-        if ($academicAffected > 0) {
-            $academicResults = mysqli_fetch_assoc($jobQuery);
-            $patientName = $academicResults['firstName'].' '.$academicResults['surname'];
-            $patientId = $academicResults['patientId'];
-            $tDate = $academicResults['visitDate'];
-            $mobile = $academicResults['mobile1'];
-            $output .= '<div class="row pb-5 p-5 ">
-                        <div class="col-xs-4">
-                            <p class="mb-1 "><span class="text-muted ">Reciept number: </span>'.$academicResults['recieptId'].'</p>
-                        </div>
-                        <div class="col-xs-4">
-                            <p class="mb-1 "><span class="text-muted ">Date: </span> '.$tDate.'</p>
-                        </div>
-                        <div class="col-xs-4">
-                    </div>
-                    </div>
-                    <div class="row pb-5 p-5 ">
-                        <div class="col-xs-4">
-                            <p class="mb-1 "><span class="text-muted ">Patient Name: </span> '.$patientName.'</p>
-                        </div>
-                        <div class="col-xs-4">
-                            <p class="mb-1 "><span class="text-muted ">Cell: </span> '.$mobile.'</p>
-                        </div>
-                        <div class="col-xs-4">
-                            <p class="mb-1 "><span class="text-muted ">Reg no: </span> '.$patientId.'</p>
-                        </div>
-                    </div>';
-        }
-    }
-    return $output;
-}
 
-function billDetails($paymentId)
-{
-    include 'connection.php';
-    $output    = '';
-    $sql       = "SELECT opm.patientId,opm.total,opm.pending,bd.feesType,bd.fees,opm.discount,opm.originalAmt
-    FROM opd_patient_payment_master opm LEFT JOIN  Bill_Details bd on bd.paymentId = opm.paymentId 
-    WHERE opm.paymentId =  $paymentId";
-    $jobQuery  = mysqli_query($conn, $sql);
-
-    if ($jobQuery != null) {
-        $total =0;$discount=0;$originalAmt=0;$pending=0;
-        $academicAffected = mysqli_num_rows($jobQuery);
-        if ($academicAffected > 0) {
-$output .= '<div class="row p-5">
-<div class="col-xs-12 ">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th class="border-0 text-uppercase small font-weight-bold ">Fees Type</th>
-                <th class="border-0 text-uppercase small font-weight-bold ">Fee</th>
-            </tr>
-        </thead>
-        <tbody>';
-        While($academicResults = mysqli_fetch_assoc($jobQuery)){
-
-            $total= number_format($academicResults['total'],2);
-            $originalAmt = $academicResults['originalAmt'];
-            $discount = $academicResults['discount'];
-            $pending = $academicResults['pending'];
-            $output .= '
-            <tr>
-                  <td >'.$academicResults['feesType'].'</td>
-                  <td>'.number_format($academicResults['fees'],2).'</td>
-            </tr>';
-                }
-            $output .= '<tr>
-            <td class="thick-line "><strong>Total amount</strong></td>
-            <td class="thick-line "><strong>' .number_format($originalAmt,2).'</strong></td>
-        </tr>';
-        if($discount>0){
-            $output .= '<tr>
-            <td class="thick-line "><strong>Total Discount</strong></td>
-            <td class="thick-line "><strong>' .number_format($discount,2).'</strong></td>
-        </tr>';
-        }
-        $output .= '<tr>
-            <td class="thick-line "><strong>Payble amount</strong></td>
-            <td class="thick-line "><strong>' .$total.'</strong></td>
-        </tr>';
-        if($pending>0){
-            $output .= '<tr>
-            <td class="thick-line "><strong>Pending amount</strong></td>
-            <td class="thick-line "><strong>' .number_format($pending,2).'</strong></td>
-        </tr>';
-        }
-        $output .='
-        </tbody>
-    </table>
-</div>
-</div>';
-        }
-    }
-    return $output;
-}
-function paymentHistory($paymentId)
-{
-    include 'connection.php';
-    $output    = '';
-    $sql       = "SELECT opm.amount,opm.paymentMode,DATE_FORMAT(opm.paymentDate,'%d %b %Y') paymentDate
-     FROM opd_payment_transaction_master opm WHERE opm.paymentId = $paymentId";
-    $jobQuery  = mysqli_query($conn, $sql);
-    if ($jobQuery != null) {
-        $academicAffected = mysqli_num_rows($jobQuery);
-        if ($academicAffected > 0) {
-$output .= ' <center>
-<h3>Payment History</h3>
-</center>
-<div class="row">
-
-<div class="col-xs-12">
-    <table class="table table-bordered ">
-        <thead>
-            <tr>
-                <th class="border-0 text-uppercase small font-weight-bold ">Payment Mode</th>
-                <th class="border-0 text-uppercase small font-weight-bold ">Amount</th>
-                <th class="border-0 text-uppercase small font-weight-bold ">Date</th>
-            </tr>
-        </thead>
-        <tbody>';
-        while($academicResults = mysqli_fetch_assoc($jobQuery)){
-            $output .='<tr>
-            <td >'.$academicResults['paymentMode'].'</td>
-            <td>'.number_format($academicResults['amount'],2).'</td>
-            <td>'.$academicResults['paymentDate'].'</td>
-            
-          </tr>';
-        }
-          $output .='</tbody>
-    </table>
-</div>
-
-</div>';
-        }
-    }
-    return $output;
-}
 $html = '<link rel="stylesheet" href="dompdf/style.css">
-<head>
-    <title>Payment Reciept</title>
-    <link rel="icon" href="../img/medical.jpg" type="image/x-icon" />
-</head>
-<div class="container">
-    <div class=" row ">
-        <div class="col-1 ">
-            <div class="card ">
-                <div class="card-body p-0 ">
-                    <div class="row p-5 ">
-                        <div class="col-xs-4 ">
-                            <img class="img-fluid " src="img/medical.jpg" width="20% " height="20% ">
-                        </div>
+<div class="receipt-content">
+<div class="container bootstrap snippet">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="invoice-wrapper">
 
-                        <div class="col-xs-6 ">
-                            <strong><p class="font-weight-bold mb-1 ">S.NO.46,Vartak Pride,D.P.Road,KarveNagar,Maharashtra, Pune 411004</p></strong>
+                <div class="">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img src="aloha" alt="">
+                        </div>
+                        <div class="col-sm-6 text-right">
+
+                            <strong>
+                        DR RITUPARNA SHINDE
+                    </strong>
+                            <p>
+                                MBBS, M.D(Med), DNB(Card) <br> FACC FSCAI(USA), FESC FISE <br> Reg. No. 2000/02/0865<br> Consultant & Interventional Cardiologist<br> Medical Director LDR Clinics
+                            </p>
                         </div>
                     </div>
-                   
-                    <hr class="my-5">
-                    '.patientDetails($paymentId).'
-                    <center>
-                        <h3>Reciept</h3>
-                    </center>
-                    
-                    <hr class="my-5">
-                    '.billDetails($paymentId).'
-                   '.paymentHistory($paymentId).'
                 </div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        VIJAY JOSHI <span>Reg No. : 262 </span><span> Cell No : 9422060420</span>
+                        <br> Age : 77/Male<span> Weight : 60.65 Kg   </span><span> BMI : 22.009726 </span> <span> HB1C : 10.13</span><span> GFR : Infinity</span>
+                    </div>
+                    <div class="col-sm-4 text-right">
+                        <span>Date : Mon - 23 Sep 2019</span>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="clinical-notes">
+                        <strong>Clinical Notes:</strong><br> lorem lorem
+
+                    </div>
+                    <div class="clinical-notes">
+                        <strong>Clinical Diagnosis:</strong><br> lorem lorem
+
+                    </div>
+                </div>
+
+                <div class="line-items">
+                    <div class="headers clearfix">
+                        <div class="row">
+                            <strong><div class="col-xs-2">Medicine</div></strong>
+                            <strong><div class="col-xs-2">Morning</div></strong>
+                            <strong><div class="col-xs-2">Afternoon</div></strong>
+                            <strong><div class="col-xs-2">Night</div></strong>
+                            <strong><div class="col-xs-2">Remarks</div></strong>
+                            <strong><div class="col-xs-2 text-right">Days</div></strong>
+                        </div>
+                    </div>
+                    <div class="items">
+                        <div class="row item">
+                            <div class="col-xs-2 desc">
+                                Tab. ACILOC 150
+                            </div>
+                            <div class="col-xs-2 qty">
+                                2
+                            </div>
+                            <div class="col-xs-2 qty">
+                                0
+                            </div>
+                            <div class="col-xs-2 qty">
+                                0
+                            </div>
+                            <div class="col-xs-2 qty">
+                                After Dinner
+                            </div>
+                            <div class="col-xs-2 amount text-right">
+                                10
+                            </div>
+                        </div>
+                        <div class="row item">
+                            <div class="col-xs-2 desc">
+                                Tab. ACILOC 150
+                            </div>
+                            <div class="col-xs-2 qty">
+                                2
+                            </div>
+                            <div class="col-xs-2 qty">
+                                0
+                            </div>
+                            <div class="col-xs-2 qty">
+                                0
+                            </div>
+                            <div class="col-xs-2 qty">
+                                After Dinner
+                            </div>
+                            <div class="col-xs-2 amount text-right">
+                                10
+                            </div>
+                        </div>
+                        <div class="row item">
+                            <div class="col-xs-2 desc">
+                                Tab. ACILOC 150
+                            </div>
+                            <div class="col-xs-2 qty">
+                                2
+                            </div>
+                            <div class="col-xs-2 qty">
+                                0
+                            </div>
+                            <div class="col-xs-2 qty">
+                                0
+                            </div>
+                            <div class="col-xs-2 qty">
+                                After Dinner
+                            </div>
+                            <div class="col-xs-2 amount text-right">
+                                10
+                            </div>
+                        </div>
+
+                        <div class="row item">
+                            <div class="col-xs-2 desc">
+                                Tab. ACILOC 150
+                            </div>
+                            <div class="col-xs-2 qty">
+                                2
+                            </div>
+                            <div class="col-xs-2 qty">
+                                0
+                            </div>
+                            <div class="col-xs-2 qty">
+                                0
+                            </div>
+                            <div class="col-xs-2 qty">
+                                After Dinner
+                            </div>
+                            <div class="col-xs-2 amount text-right">
+                                10
+                            </div>
+                        </div>
+                        <div class="row item">
+                            <div class="col-xs-2 desc">
+                                Tab. ACILOC 150
+                            </div>
+                            <div class="col-xs-2 qty">
+                                2
+                            </div>
+                            <div class="col-xs-2 qty">
+                                0
+                            </div>
+                            <div class="col-xs-2 qty">
+                                0
+                            </div>
+                            <div class="col-xs-2 qty">
+                                After Dinner
+                            </div>
+                            <div class="col-xs-2 amount text-right">
+                                10
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <p class="extra-notes">
+                            <strong>Advice:</strong> Leptin,OGTT PLUS,
+
+                        </p>
+                        <div>Next visit date : Tue - 08 Oct 2019 / <span>as necessary [Please confirm appointment 2 days prior]</span> </div>
+                    </div>
+                    <div class="col-sm-12 text-right ">
+                        <strong>DR RITUPARNA SHINDE</strong>
+                    </div>
+
+                    <div class="print">
+                        <a href="#">
+                            <i class="fa fa-print"></i> Print this receipt
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                Copyright © 2014. company name
             </div>
         </div>
     </div>
+</div>
 </div>';
 
 $dompdf->setPaper('A4', 'portrait');

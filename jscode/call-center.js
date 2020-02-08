@@ -2,6 +2,51 @@ var calls = new Map();
 var existCall = new Map();
 var clientId = null,
     up_callId = null;
+var customers = new Map();
+const getAllClients = () => {
+    $.ajax({
+        url: url + 'getAllcustomers.php',
+        type: 'POST',
+        dataType: 'json',
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const cust = response.Data;
+                cust.forEach(customer => {
+                    customers.set(customer.clientId, customer);
+                });
+            }
+        }
+    });
+};
+getAllClients();
+const listCustomers = customers => {
+    $('#appT').hide();
+    $('#customerT').show();
+    $('#customerTable').dataTable().fnDestroy();
+    $('#customerData').empty();
+    var tblData = '';
+    customers.forEach(customer => {
+        tblData += '<tr><td>' + customer.firstName + ' ' + customer.lastName + '</td>';
+        tblData += '<td>' + customer.email + '</td>';
+        tblData += '<td>' + getAge(customer.dateOfBirth) + '</td>';
+        tblData += '<td>' + customer.mobile + '</td>';
+        tblData += '<td>' + customer.stateName + ' ' + customer.cityName + '</td>';
+        tblData += '<td><div class="table-actions" style="text-align: left;">';
+        tblData += '<a href="#" onclick="editCustomer(' + (customer.clientId) + ')" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '</div></td></tr>';
+    });
+    $('#customerData').html(tblData);
+    $('#customerTable').dataTable({
+        searching: true,
+        retrieve: true,
+        bPaginate: $('tbody tr').length > 10,
+        order: [],
+        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5] }],
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf'],
+        destroy: true
+    });
+};
 const getAllCalls = (fromDate, uptoDate) => {
     calls.clear();
     $.ajax({

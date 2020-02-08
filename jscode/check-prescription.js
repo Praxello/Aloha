@@ -9,7 +9,6 @@ function check_prescription(patientId, appointmentId) {
         dataType: 'json',
         data: { patientId: patientId, visitDate: patient.appointmentDate },
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
                 fill_exist_data(response.Data);
             } else {
@@ -22,18 +21,59 @@ function check_prescription(patientId, appointmentId) {
 
 function fill_exist_data(response) {
     var count = response.length;
-    var rowId = 1;
+    var rowid = 1,
+        medical = null,
+        newOption = null;
     $('#complaintsId').importTags(response[0].complaint);
     for (var i = 0; i < count; i++) {
         addrow();
-        $("#typeId" + rowId).val(response[i].type).trigger('change');
-        $("#medicineId" + rowId).val(response[i].name).trigger('change');
-        $("#morning" + rowId).val(response[i].morning).trigger('change');
-        $("#evining" + rowId).val(response[i].evining).trigger('change');
-        $("#night" + rowId).val(response[i].night).trigger('change');
-        $("#duration" + rowId).val(response[i].period);
-        $("#inst" + rowId).val(response[i].instruction).trigger('change');
-        rowId++;
+        medical = response[i];
+        if ($('#medicineId' + rowid).find("option[value='" + medical.name + "']").length) {
+            $('#medicineId' + rowid).val(medical.name).trigger('change');
+        } else {
+            newOption = new Option(medical.name, medical.name, true, true);
+            $('#medicineId' + rowid).append(newOption).trigger('change');
+        }
+        if ($('#typeId' + rowid).find("option[value='" + medical.type + "']").length) {
+            $('#typeId' + rowid).val(medical.type).trigger('change');
+        } else {
+            newOption = new Option(medical.type, medical.type, true, true);
+            $('#typeId' + rowid).append(newOption).trigger('change');
+        }
+        if ($('#morning' + rowid).find("option[value='" + medical.morning + "']").length) {
+            $('#morning' + rowid).val(medical.morning).trigger('change');
+        } else {
+            newOption = new Option(medical.morning, medical.morning, true, true);
+            $('#morning' + rowid).append(newOption).trigger('change');
+        }
+        if ($('#evining' + rowid).find("option[value='" + medical.evining + "']").length) {
+            $('#evining' + rowid).val(medical.evining).trigger('change');
+        } else {
+            newOption = new Option(medical.evining, medical.evining, true, true);
+            $('#evining' + rowid).append(newOption).trigger('change');
+        }
+        if ($('#night' + rowid).find("option[value='" + medical.night + "']").length) {
+            $('#night' + rowid).val(medical.night).trigger('change');
+        } else {
+            newOption = new Option(medical.night, medical.night, true, true);
+            $('#night' + rowid).append(newOption).trigger('change');
+        }
+        if (medical.instruction != '') {
+            if ($('#inst' + rowid).find("option[value='" + medical.instruction + "']").length) {
+                $('#inst' + rowid).val(medical.instruction).trigger('change');
+            } else {
+                newOption = new Option(medical.instruction, medical.instruction, true, true);
+                $('#inst' + rowid).append(newOption).trigger('change');
+            }
+        }
+        // $("#typeId" + rowId).val(response[i].type).trigger('change');
+        // $("#medicineId" + rowId).val(response[i].name).trigger('change');
+        // $("#morning" + rowId).val(response[i].morning).trigger('change');
+        // $("#evining" + rowId).val(response[i].evining).trigger('change');
+        // $("#night" + rowId).val(response[i].night).trigger('change');
+        $("#duration" + rowid).val(response[i].period);
+        // $("#inst" + rowId).val(response[i].instruction).trigger('change');
+        rowid++;
     }
     $('#nextVisitDate').val(response[0].nextVisitDate);
     $('#diagnosis').importTags(response[0].diagnosis);
@@ -49,8 +89,6 @@ function fetch_previous_prescription(u_patientId) {
         success: function(response) {
             if (response.Responsecode == 200) {
                 fill_prev(response.Data);
-            } else {
-                console.log(response.Message);
             }
         }
     });

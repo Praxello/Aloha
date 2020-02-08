@@ -70,7 +70,7 @@ if (isset($_SESSION['userId'])) {
                                    
                                    </div>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body table-responsive">
                             <div class="dt-responsive">
                                 <table id="aTable" class="table">
                                     <thead>
