@@ -36,7 +36,10 @@ if (isset($_SESSION['userId'])) {
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
     </head>
-
+ <style>
+.card .card-header .card-search .form-control {
+    padding-right: 0px;
+     </style>
     <body>
         <div class="wrapper">
             <div class="page-wrap">
@@ -50,22 +53,71 @@ if (isset($_SESSION['userId'])) {
                             <div class="card-header row">
                                 <div class="col col-sm-3">
                                 <div class="card-search with-adv-search dropdown">
-                                        <div class="form-group">
-                                            <label for="birthDate">Appointment Date</label>
-                                            <input id="dropper-max-year" class="form-control" type="date"  placeholder="select date" onchange="fetch(this.value);"/>
-                                        </div>
+                                        <!-- <div class="form-group" >
+                                            <label for="birthDate">Appointment Date</label>  
+                                            <input id="dropper-max-year" class="form-control" type="date"  placeholder="select date" onchange="fetch(this.value);" /><i class="fa fa-calendar input-group-text" ></i> 
+                                        </div> -->
+                                        <label for="birthDate">Appointment Date</label>  
+                                        <div class="input-group input-group-primary a">
+                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="fa fa-calendar"></i></label></span>
+                                                    <input id="dropper-max-year" class="form-control" type="date"  placeholder="select date" onchange="fetch(this.value);" />
+                                                </div>
                                     </div>
                                 </div>
-                                <div class="col col-sm-2">
-                                <strong>Total Patients:<span id="totalPatient"></span></strong>
-                                   
+
+                            <div class="col col-sm-2">
+                                <div class="card card-green st-cir-card text-white">
+                                    <div class="card-block">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <div><b style="color:black">Total Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="totalPatient"></b></span>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+                                      
+                                    </div>
                                 </div>
-                                <div class="col col-sm-2">
+                            </div>
+
+                                
+                            <div class="col col-sm-2">
+                                <div class="card card-green st-cir-card text-white">
+                                    <div class="card-block">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <div><b style="color:black">New Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="newPatients"></b></span>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                             
+                                   
+                            <div class="col col-sm-2">
+                                <div class="card card-green st-cir-card text-black" >
+                                    <div class="card-block">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <div><b style="color:black">Consulted: &nbsp; &nbsp;&nbsp;<span id="consulted"></b></span>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                               
+                                <!-- <div class="col col-sm-2">
                                 <strong>New Patients:<span id="newPatients"></span></strong>
                                 </div>
                                 <div class="col col-sm-2">
                                 <strong>Consulted:<span id="consulted"></span></strong>
-                                </div>
+                                </div> -->
                                 <div class="col col-sm-3">
                                    
                                    </div>
