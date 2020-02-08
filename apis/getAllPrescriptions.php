@@ -12,7 +12,7 @@ extract($_POST);
 if(isset($_POST['patientId'])){
 $sql = "SELECT pm.patientId,pm.visitDate,pm.nextVisitDate,pm.complaint,pm.advice,pm.diagnosis,pm.doctorId,hm.branchName,um.username
 FROM patient_medication pm INNER JOIN user_master um ON um.userId = pm.doctorId 
-LEFT JOIN hospital_branch_master hm ON hm.branchId = um.branchId WHERE pm.patientId  = $patientId";
+LEFT JOIN hospital_branch_master hm ON hm.branchId = um.branchId WHERE pm.patientId  = $patientId ORDER BY pm.visitDate DESC";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

@@ -57,6 +57,7 @@ if(isset($_SESSION['branchId'])){
                 <div id="editProfile"></div>
                 <div class="main-content template-demo " id="tData">
                 <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 16px;">
+                <button type="button" class="btn btn-warning" onclick="listCustomers(customers)">All Customers</button>
                 <button type="button" class="btn btn-primary" onclick="getAllCalls(data.today,data.today)">Today's Appointment</button>
   <button type="button" class="btn btn-secondary" data-toggle="collapse" href="#content" role="button" aria-expanded="false" aria-controls="collapseExample">Call Register</button>
   <button type="button" class="btn btn-success" data-toggle="collapse" href="#content1" role="button" aria-expanded="false" aria-controls="collapseExample">Follow up List</button>
@@ -153,7 +154,7 @@ if(isset($_SESSION['branchId'])){
                             </div>
                             </form>
                         </div>
-                            <div class="card-body c">
+                            <div class="card-body c" id="appT">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
                                 <table id="cTable" class="table">
@@ -171,6 +172,26 @@ if(isset($_SESSION['branchId'])){
                                         </tr>
                                     </thead>
                                     <tbody id="callData">
+                                       
+                                    </tbody>
+                                </table>
+                                    </div>
+                            </div>
+                            <div class="card-body c" style="display: none;" id="customerT">
+                            <!-- <div style="overflow-x:auto;"> -->
+                            <div class="dt-responsive tbl">
+                                <table id="customerTable" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 15%;">Name</th>
+                                            <th>Email</th>
+                                            <th>Age</th>
+                                            <th>Contact Number</th>
+                                            <th style="width: 20%;">Address</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="customerData">
                                        
                                     </tbody>
                                 </table>

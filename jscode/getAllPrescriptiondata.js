@@ -1,29 +1,23 @@
 function loadMedicine(id) {
-
     var dropDownList = '<option></option>';
-    for (let k of medicines.keys()) {
-        var data = medicines.get(k);
-        //dropDownList += "<option value=" + data.medicineId + ">" + data.name + "</option>";
-        dropDownList += "<option>" + data.name + "</option>";
-    }
+    medicines.forEach((value, key) => {
+        dropDownList += "<option value=" + key + ">" + value.name + "</option>";
+    });
     $('#medicineId' + id).html(dropDownList);
 }
 
 function loadMedicineTypes(id) {
     var dropDownList = '<option></option>';
     medicineTypes.forEach(medicine => {
-        dropDownList += "<option>" + medicine + "</option>";
+        dropDownList += "<option value=" + medicine + ">" + medicine + "</option>";
     });
     $('#typeId' + id).html(dropDownList);
 }
 
-
-
 function loadMedicineDosage(id) {
     var dropDownList = '<option></option>';
-
     medicineDosage.forEach(dosage => {
-        dropDownList += "<option>" + dosage + "</option>";
+        dropDownList += "<option value=" + dosage + ">" + dosage + "</option>";
     });
     $('#morning' + id).html(dropDownList);
     $('#evining' + id).html(dropDownList);
@@ -33,7 +27,7 @@ function loadMedicineDosage(id) {
 function loadInstructions(id) {
     var dropDownList = '<option></option>';
     instructions.forEach(instruction => {
-        dropDownList += "<option>" + instruction + "</option>";
+        dropDownList += "<option value=" + instruction + ">" + instruction + "</option>";
     });
     $('#inst' + id).html(dropDownList);
 }

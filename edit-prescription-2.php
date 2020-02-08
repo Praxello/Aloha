@@ -411,17 +411,21 @@
 </div>
 <script>
     $('#diagnosis').tagsinput({
+        'delimiter': ';',
         'autocomplete': {
             source: diagnosis
         }
     });
     $('#complaintsId').tagsinput({
+        'delimiter': ';',
         'autocomplete': {
             source: complaints
         }
     });
     //for come to main page appointments
     function goback() {
+        $('#diagnosis').tagsinput('refresh');
+        $('#complaintsId').tagsinput('refresh');
         $('#editProfile').empty();
         $('#tData').show();
     }
