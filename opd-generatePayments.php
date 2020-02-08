@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="fullwindowModalLabel"><strong>Generate Payment</strong></h5>
+                <h5 class="modal-title" id="fullwindowModalLabel"><strong>Generate OPD Payment</strong></h5>
                 <button type="button" class="close " data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <form id="paymentForm">
@@ -10,19 +10,20 @@
                 <div class="container-fluid" >
                     <div class="row">
                         <div class="card">
-                            <div class="row">
+                            <div class="row" style="margin-bottom: 11px;">
                                 <div class="col-sm-3"></div>
-                                <div class="col-sm-6">
-                                    <div class="card-body" style="background: aliceblue; margin-bottom: 10px;">
-                                        <div class="form-group" style="text-align: center;">
-                                          
-                                            <select class="form-control select2"  id="paymentFor" name="paymentFor" style="width:100%;" onchange="getSelectedText()">
+                                <div class="col-sm-1" style="background: aliceblue; text-align: end;">
+                                <label for="" style="margin-top: 30px; "><b>Select Doctor</b></label> </div>
+                                <div class="col-sm-5"  style="background: aliceblue;">
+                                    <div class="card-body" >
+                                        <div style="text-align: center;">  
+                                            <select class=" select2"  id="paymentFor" name="paymentFor" style="width:100%;" onchange="getSelectedText()">
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-3"></div>
-                            </div>
+                            </div>                                  
                             
                         </div>
                     </div>

@@ -15,7 +15,7 @@ var loadPatientDetails = details => {
     $('#religion').val(details.religion).trigger('change');
 
 
-    $('#country').val(parseInt(details.country)).trigger('change');
+    $('#country1').val(parseInt(details.country)).trigger('change');
 
     $('#pincode').val(details.pincode);
     $('#address1').val(details.address);
@@ -57,6 +57,17 @@ var loadPatientDetails = details => {
     var src = "upload/patients/" + details.patientId + ".jpg";
     $('#userJpg').attr("src", src);
     $('#userPic').attr("src", src);
+
+
+    $('#country1').html(editCountry);
+
+$('.select2').select2({
+    placeholder:'select',
+    allowClear:true,
+    async : false,
+    dropdownParent: $('#epatientDetails'),
+   
+});
 
 };
 

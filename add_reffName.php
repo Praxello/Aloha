@@ -2,13 +2,19 @@
     .error {
         color: red;
     }
+  
+  .required:after {
+    content:" *";
+    color: red;
+  }
+
 </style>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <form class="forms-sample" id="refferedByForm" method="POST" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="demoModalLabel">Add New Referring Doctor</h5>
+                    <h5 class="modal-title" id="demoModalLabel">Enter New Referring Source</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
@@ -33,7 +39,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="Name">Name</label>
+                                        <label for="Name"  class="required">Name</label>
                                         <input type="text" id="Name" name="Name" class="form-control" placeholder="Name" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                     </div>
                                 </div>
@@ -107,3 +113,4 @@
 </div>
 
 <script src="jscode/referringMaster.js"></script>
+<script src="jscode/referring_validation.js"></script>

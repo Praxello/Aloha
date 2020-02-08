@@ -1,5 +1,10 @@
-<link rel="stylesheet" href="dist/css/dropzone.css">
-<link rel="stylesheet" href="dist/css/style.css">
+<style>
+  .required:after {
+    content:" *";
+    color: red;
+  }
+</style>
+
 <link rel="stylesheet" href="dist/css/viewImage.css">
 <div class="main-content">
     <div class="container-fluid">
@@ -30,9 +35,10 @@
                         <img src="">
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-2">
                     <nav class="breadcrumb-container" aria-label="breadcrumb">
-                        <button type="button" class="btn btn-primary" onclick="goback();">Back</button>
+                        <button type="button" class="btn btn-success" onclick="goback();"><i class="ik ik-arrow-left"></i></button>
 
                     </nav>
                 </div>
@@ -109,7 +115,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="fname">First Name</label>
+                                            <label for="fname" class="required">First Name</label>
                                             <input type="text" placeholder="Johnathan" class="form-control" name="firstName" id="firstName" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                         </div>
                                     </div>
@@ -121,7 +127,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="lname">Last Name</label>
+                                            <label for="lname" class="required">Last Name</label>
                                             <input type="text" placeholder="Doe" class="form-control" name="surname" id="surname" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                         </div>
                                     </div>
@@ -173,19 +179,19 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="height">Height (in cm)</label>
+                                            <label for="height" class="required">Height (in cm)</label>
                                             <input type="text" placeholder="165" class="form-control" name="height" id="height">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="weight">Weight (in KG)</label>
+                                        <div class="form-group" class="required">
+                                            <label for="weight"  class="required">Weight (in KG)</label>
                                             <input type="text" placeholder="65" class="form-control" name="weight" id="weight">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="occupation">Occupation</label>
+                                            <label for="occupation" class="required">Occupation</label>
                                             <input type="text" placeholder="Enginner" class="form-control" name="occupation" id="occupation" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                         </div>
                                     </div>
@@ -209,7 +215,7 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="mobile1">Mobile No.</label>
+                                            <label for="mobile1" class="required">Mobile No.</label>
                                             <input type="text" class="form-control" id="mobile1" name="mobile1" placeholder="Mobile No" ng-pattern="/^[0-9]*$/" onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
                                         </div>
                                     </div>
@@ -242,25 +248,25 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="country1">Country</label>
+                                            <label for="country1" class="required">Country</label>
 
-                                            <select class="form-control" id="country" name="country"  placeholder="country" onchange="loadStates(this.value)">
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label for="state1">State</label>
-                                            <select class="form-control" id="state" name="state" placeholder="state" onchange="loadCities(this.value)">
+                                            <select class="form-control select2" id="country1" name="name"  placeholder="country" onchange="loadStates(this.value)">
 
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="city1">City</label>
-                                            <select class="form-control" id="city" name="city" placeholder="city"></select>
+                                            <label for="state1" class="required">State</label>
+                                            <select class="form-control" id="state1" name="state" placeholder="state" onchange="loadCities(this.value)">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="city1" class="required">City</label>
+                                            <select class="form-control" id="city1" name="city" placeholder="city"></select>
 
                                         </div>
                                     </div>
@@ -277,7 +283,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="address">Address</label>
+                                            <label for="address" class="required">Address</label>
                                             <textarea class="form-control" id="address1" name="address" rows="1"></textarea>
                                         </div>
 
@@ -439,9 +445,7 @@
 <script src="jscode/getReffName.js"></script>
 <script src="jscode/updatePatientsJs.js"></script>
 
-<script src="jscode/getcscRefName.js"></script>
-<script type="text/javascript" src="js/dropzone.js"></script>
-<script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
+
 <script src="jscode/loadFile.js"></script>
 <script src="jscode/uploadProfile.js"></script>
 <?php include 'add_reffName.php';?>
