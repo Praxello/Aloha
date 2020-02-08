@@ -66,13 +66,7 @@ function fill_exist_data(response) {
                 $('#inst' + rowid).append(newOption).trigger('change');
             }
         }
-        // $("#typeId" + rowId).val(response[i].type).trigger('change');
-        // $("#medicineId" + rowId).val(response[i].name).trigger('change');
-        // $("#morning" + rowId).val(response[i].morning).trigger('change');
-        // $("#evining" + rowId).val(response[i].evining).trigger('change');
-        // $("#night" + rowId).val(response[i].night).trigger('change');
         $("#duration" + rowid).val(response[i].period);
-        // $("#inst" + rowId).val(response[i].instruction).trigger('change');
         rowid++;
     }
     $('#nextVisitDate').val(response[0].nextVisitDate);

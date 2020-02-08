@@ -32,8 +32,8 @@ function fetchPrescriptiondata($patientId,$visitDate,$doctorId)
 {
     include 'connection.php';
     $output = '';
-    $sql    = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pt.weight,pt.surname,pt.birthDate,pt.address,pt.mobile1,DATE_FORMAT(pt.firstVisitDate,'%d %b %Y') firstVisitDate
-    ,pt.gender,pom.pulse ,pom.bp,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age,DATE_FORMAT(pm.nextVisitDate,'%d %b %Y') nextVisitDate,pm.complaint,pm.diagnosis
+    $sql    = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pt.weight,pt.surname,pt.birthDate,pt.address,pt.mobile1,DATE_FORMAT(pt.firstVisitDate,'%a-%d %b %Y') firstVisitDate
+    ,pt.gender,pom.pulse ,pom.bp,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age,DATE_FORMAT(pm.nextVisitDate,'%a-%d %b %Y') nextVisitDate,pm.complaint,pm.diagnosis,DATE_FORMAT(pm.visitDate,'%a-%d %b %Y') visitDate
     FROM patient_medication pm LEFT JOIN patient_master pt ON pt.patientId = pm.patientId
     LEFT JOIN patient_onassessment_master pom ON pom.patientId = pm.patientId AND pom.visitDate = pm.visitDate
     WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate' AND pm.doctorId = $doctorId";
@@ -45,9 +45,20 @@ function fetchPrescriptiondata($patientId,$visitDate,$doctorId)
         $patientName = $patientId.'_'.$row['firstName'].'_'.$row['surname'].'_'.$visitDate;
         $advice = $row['advice'];
 
-$output .= '<div class="row ">
+$output .= '<div class="row">
+<div class="col-xs-3">
+</div>
+<div class="col-xs-3">
+</div>
+<div class="col-xs-2">
+</div>
+<div class="col-xs-4">
+   <p class="font-weight-bold mb-4">Date:<strong>'.$row['visitDate'].'</strong></p>
+</div>
+</div>
+<div class="row ">
 <div class="col-xs-3 ">
-   <p class="font-weight-bold mb-4 ">Name:<span>'.$row['firstName'].' '.$row['surname'].'</span></p>
+   <p class="font-weight-bold mb-4 "><strong>'.$row['firstName'].' '.$row['surname'].'</strong></p>
 </div>
 <div class="col-xs-3 ">
    <p class="font-weight-bold mb-4 ">Reg number:<span>'.$patientId.'</span></p>
@@ -75,18 +86,18 @@ $output .= '<div class="row ">
 </div>
 <hr class="my-5 ">
 <div class="row ">
-<div class="col-xs-2 ">
-<strong>Complaints:</strong>
+<div class="col-xs-2">
+<strong>Clinical Notes:</strong>
 </div>
-<div class="col-xs-8 ">
+<div class="col-xs-10">
 <p class="font-weight-bold mb-4 ">'.$row['complaint'].'</p>
 </div>
 </div>
 <div class="row ">
-<div class="col-xs-2 ">
-<strong>Diagnosis:</strong>
+<div class="col-xs-2">
+<strong>Clinical Diagnosis:</strong>
 </div>
-<div class="col-xs-8 ">
+<div class="col-xs-10">
 <p class="font-weight-bold mb-4 ">'.$row['diagnosis'].'</p>
 </div>
 </div>';
@@ -123,8 +134,6 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
 <div class="container">
     <div class=" row ">
         <div class="col-12 ">
-            <div class="card ">
-                <div class="card-body p-0 ">
                     <div class="row p-5 ">
                         <div class="col-xs-4 ">
                         <img class="img-fluid " src="medical.jpeg" height="20% " width="10% ">
@@ -141,10 +150,10 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                                 <thead>
                                     <tr>
                                         <th class="border-0 text-uppercase small font-weight-bold ">Medicine</th>
-                                        <th style="width:5%;text-align:center" class="border-0 text-uppercase small font-weight-bold ">Morning</th>
-                                        <th style="width:8%;text-align:center" class="border-0 text-uppercase small font-weight-bold ">Afternoon</th>
-                                        <th style="width:5%;text-align:center" class="border-0 text-uppercase small font-weight-bold ">Night</th>
-                                        <th style="width:5%;text-align:center" class="border-0 text-uppercase small font-weight-bold ">Days</th>
+                                        <th style="width:5%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Morning</th>
+                                        <th style="width:8%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Afternoon</th>
+                                        <th style="width:5%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Night</th>
+                                        <th style="width:5%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Days</th>
                                         <th class="border-0 text-uppercase small font-weight-bold ">Remarks</th>
                                     </tr>
                                 </thead>
@@ -170,8 +179,6 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                     <p class="font-weight-bold mb-4 ">'.$nextVisitDate.'</p>
                     </div>
                  </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -183,5 +190,6 @@ $dompdf->loadHtml($html);
 /* Render the HTML as PDF */
 $dompdf->render();
 /* Output the generated PDF to Browser */
+
 $dompdf->stream($patientName, array("Attachment" => false));
 ?>

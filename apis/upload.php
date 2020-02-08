@@ -23,6 +23,8 @@ if (isset($_POST['patientId'])) {
         $rowsAffected = mysqli_affected_rows($conn);
         if ($rowsAffected == 1) {
             $docId     = $conn->insert_id;
+            $file_parts = pathinfo($filename);
+            echo $file_parts['extension'];
             if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_dir . $docId.'.jpg')) {
                 $filename = $docId.'.jpg';
                 $response = array(

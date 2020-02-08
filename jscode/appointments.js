@@ -50,7 +50,7 @@ const listAppointments = (appointments, today) => {
                 tblData += '<td><span class="badge badge-default">Pending</span></td>';
             }
 
-            tblData += '<td>' + patient.doctorName + '</td>';
+            tblData += '<td>' + patient.doctorName + '(' + patient.address + ')</td>';
             tblData += '<td>' + fees_status(patient.patientId, patient.doctorId, patient.appointmentDate) + '</td>';
             tblData += patientType;
             tblData += '<td ><div class="table-actions" style="text-align : left" >';
