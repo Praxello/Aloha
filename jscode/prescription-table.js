@@ -85,7 +85,6 @@ function deleterow(id) {
 
 function fetchMedicine(medicine, rowid) {
     var newOption = null;
-    console.log(medicine);
     if (medicines.has(medicine)) {
         let medical = medicines.get(medicine);
         $('#duration' + rowid).val(medical.days);

@@ -8,7 +8,7 @@ $records  = null;
 extract($_POST);
 if(isset($_POST['doctorId'])){
 $sql = "SELECT pdas.appointmentId,pdas.appointmentDate,pdas.scheduledBy,pdas.patientId,pm.firstName,pm.surname,um.username,
-rm.doctorName,pm.firstVisitDate,pdas.doctorId
+rm.doctorName,pm.firstVisitDate,pdas.doctorId,rm.address
 FROM patient_doctor_appointment_scheduling pdas INNER JOIN patient_master pm ON pm.patientId = pdas.patientId 
 INNER JOIN user_master um ON um.userId = pdas.doctorId LEFT JOIN referring_master rm ON pm.referredby = rm.refferId
 WHERE pdas.doctorId = $doctorId  ORDER BY pdas.appointmentDate DESC";

@@ -1,6 +1,5 @@
 var spines = new Map();
 var spine_details = {};
-// var patientId_ap = null;
 var getLumbarSpine = (patientId) => {
     $.ajax({
         url: url + 'getAllLumbarSpine.php',
@@ -17,7 +16,6 @@ var getLumbarSpine = (patientId) => {
                 }
 
             }
-            console.log(spines);
             showLumbarSpine(spines);
         }
     });

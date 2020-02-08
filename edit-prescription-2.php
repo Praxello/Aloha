@@ -9,6 +9,7 @@
                         <div class="d-inline">
                             <h5>Prescription</h5>
                             <span id="patientName"></span>
+                           
                         </div>
                     </div>
                 </div>
@@ -168,34 +169,31 @@
                             </div>
 
                             <div class="card">
-                                <div class="card-header">
-                                    <h3>Remarks</h3>
-                                </div>
                                 <div class="card-body">
                                     <div class="row">
 
                                         <div class="col-md-4">
 
                                             <div class="form-group">
-                                                <label for="input">Remarks</label>
-                                                <textarea name="remark" id="remark" cols="3" rows="3" class="form-control"></textarea>
+                                               <h4>Advice</h4>
+                                                <textarea name="remark" id="remark" cols="1" rows="1" class="form-control"></textarea>
 
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-1">
                                             <div class="form-group">
-                                                <label for="input">Enter Days</label>
+                                                <label for="input" style="margin-top: 10px;">Enter Days</label>
                                                 <input type="number" id="vdate" class="form-control" oninput="setDate(this.value);">
                                             </div>
                                             <strong id="dayOfDate" style="color:green;"></strong>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="input">Next Visit Date</label>
+                                                <label for="input" style="margin-top: 10px;">Next Visit Date</label>
                                                 <input type="date" id="nextVisitDate" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4" style="margin-top: 26px;">
+                                        <div class="col-md-5" style="margin-top: 26px;">
 
                                             <button type="button" class="btn  btn-success" onclick="savePrescription()">Save</button>
                                             <button type="button" class="btn  btn-default" onclick="goback()">Cancel</button>
