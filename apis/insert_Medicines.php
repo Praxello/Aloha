@@ -7,12 +7,14 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['name']) && isset($_POST['genName']) && isset($_POST['dosage']) && isset($_POST['days'])  && isset($_POST['isImportant']) && isset($_POST['instruction'])
-&& isset($_POST['type'])) {
+
+if (isset($_POST['name']) && isset($_POST['genName']) && isset($_POST['morning'])  && isset($_POST['noon']) && isset($_POST['night'])  && isset($_POST['instruction'])
+ && isset($_POST['days'])  && isset($_POST['isImportant']) && isset($_POST['type']) )
+ {
     
     
-    $sql = "INSERT INTO medicine_master(name,genName,dosage,days,isImportant,instruction,type) 
-     VALUES ('$name','$genName','$dosage','$days','$isImportant','$instruction',type)";
+    $sql = "INSERT INTO medicine_master(name,genName,morning,noon,night,instruction,days,isImportant,type) 
+     VALUES ('$name','$genName','$morning','$noon','$night','$instruction','$days','$isImportant','$type')";
     
     $query = mysqli_query($conn, $sql);
     

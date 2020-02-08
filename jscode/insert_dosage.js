@@ -1,13 +1,14 @@
-$('#feesMasterForm').on('submit', function(e) {
+$('#dosageMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-   
-    
+           
+    var returnVal = $("#dosageMasterForm").valid();
+    if (returnVal) {
         var fData = new FormData(this);
 
 
         $.ajax({
-            url: url + 'insert_Fees_Master.php',
+            url: url + 'insert_dosage_Master.php',
             type: 'POST',
             data: fData,
             cache: false,
@@ -17,7 +18,7 @@ $('#feesMasterForm').on('submit', function(e) {
             success: function(response) {
                 console.log(response);
                 if (response.Responsecode == 200) {
-                 
+                    
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -26,8 +27,9 @@ $('#feesMasterForm').on('submit', function(e) {
                         timer: 1500
                     });
                     $('#cButton').click();
-                    feess.set(response.Data.feesId, response.Data);
-                    listFees(feess);
+                    $('#dosageMasterForm').trigger('reset');
+                    dosageM.set(response.Data.dosageId, response.Data);
+                     listDosage(dosageM);
 
                 } else {
                     swal({
@@ -41,4 +43,5 @@ $('#feesMasterForm').on('submit', function(e) {
                 }
             }
         });
-    });
+    }
+});

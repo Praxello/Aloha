@@ -1,44 +1,43 @@
-var dosage = new Map();
-var complaint_details = {};
-var  complaintId_ap = null;
+var dosageM = new Map();
+var dosage_details = {};
+var dosageId_ap = null;
 
-const getAllComplaints = () => {
+const getAllDosagess = () => {
     $.ajax({
-        url: url + 'get_Complaints.php',
+        url: url + 'get_Dosage.php',
         type: 'POST',
         dataType: 'json',
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
-                    complaint.set(response.Data[i].complaintId, response.Data[i]);
+                    dosageM.set(response.Data[i].dosageId, response.Data[i]);
                 }
          
-                listcomplaint(complaint);
+                listDosage(dosageM);
             }
         }
     });
 };
 
-const listcomplaint = complaint => {
-    $('#comTable').dataTable().fnDestroy();
-    $('#complaintData').empty();
+const listDosage = dosageM => {
+    $('#dosTable').dataTable().fnDestroy();
+    $('#dosageData').empty();
     var tblData = '';
-    for (let k of complaint.keys()) {
-        let compl = complaint.get(k);
+    for (let k of dosageM.keys()) {
+        let dose = dosageM.get(k);
 
-        tblData += '<tr><td>' + compl.complaintId + '</td>';
-        tblData += '<td>' + compl.complaint + '</td>';
-      
- 
+        tblData += '<tr><td>' + dose.dosageId + '</td>';
+        tblData += '<td>' + dose.dosage + '</td>';
       
         tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editComplaints(' + (k) + ')" title="Edit complaints details"><i class="ik ik-edit text-blue"></i></a>';
+        tblData += '<a href="#" onclick="editDosage(' + (k) + ')" title="Edit dosage details"><i class="ik ik-edit text-blue"></i></a>';
+        
     
         tblData += '</div></td></tr>';
     }
-    $('#complaintData').html(tblData);
-    $('#comTable').dataTable({
+    $('#dosageData').html(tblData);
+    $('#dosTable').dataTable({
         searching: true,
         retrieve: true,
         bPaginate: $('tbody tr').length > 10,
@@ -49,14 +48,19 @@ const listcomplaint = complaint => {
         destroy: true
     });
 };
-getAllComplaints();
+getAllDosagess();
 
-const editComplaints = (complaintId) => {
-    complaintId = complaintId.toString();
-    complaint_details = complaint.get(complaintId);
-    complaintId_ap= complaintId;
-    console.log(complaintId_ap);
-    $('#complaintsData').hide();
-    $('#complaintNew').load('edit_Complaint_Master.php');
+var editDosage = (dosageId) => {
+    dosageId = dosageId.toString();
+    dosage_details = dosageM.get(dosageId);
+    dosageId_ap= dosageId;
+    console.log(dosageId_ap);
+    $('#dosRecord').hide();
+    $('#doseNew').load('edit_Dosage_Master.php');
 
 };
+
+function gobackDosage(){
+    $('#dosRecord').show();
+    $('#doseNew').empty();
+}

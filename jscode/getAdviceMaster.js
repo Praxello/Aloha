@@ -60,3 +60,7 @@ const editAdvice = (adviceId) => {
     $('#adviceNew').load('edit_AdviceMaster.php');
 
 };
+function gobackAdvice(){
+    $('#adData').show();
+    $('#adviceNew').empty();
+}

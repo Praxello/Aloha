@@ -1,46 +1,47 @@
 var medicines = new Map();
 var medicine_details = {};
 var medicineId_ap = null;
-
-const getAllMedicines = () => {
+var list = null;
+var medicineTypeList=null;
+var getAllMedicines = () => {
     $.ajax({
         url: url + 'get_Medicines.php',
         type: 'POST',
         dataType: 'json',
         success: function(response) {
+            console.log(response);
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
                     medicines.set(response.Data[i].medicineId, response.Data[i]);
                 }
-         
                 listMedicines(medicines);
             }
         }
     });
 };
 
-const listMedicines = medicines => {
+var listMedicines = medicines => {
     $('#medicinesTable').dataTable().fnDestroy();
     $('#medicineData').empty();
     var tblData = '';
-    for (let k of medicines.keys()) {
-        let medicine = medicines.get(k);
-
-       
-        // tblData += '<tr><td>' + medicine. type + '</td>';
+    medicines.forEach((medicine,key) => {
+        // tblData += '<tr><td>' + medicine.type + '</td>';
         tblData += '<tr><td>' + medicine.name + '</td>';
         tblData += '<td>' + medicine.genName + '</td>';
-        tblData += '<td>' + medicine.dosage + '</td>';
+        tblData += '<td>' + medicine.type + '</td>';
         tblData += '<td>' + medicine.instruction + '</td>';
+        tblData += '<td>' + medicine.morning + '</td>'; 
+        tblData += '<td>' + medicine.noon + '</td>'; 
+        tblData += '<td>' + medicine.night + '</td>'; 
         tblData += '<td>' + medicine.days + '</td>';
         tblData += '<td>' + medicine.isImportant + '</td>';
  
         tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editMedicines(' + (k) + ')" title="Edit Medicines details"><i class="ik ik-edit text-blue"></i></a>';
-    
+        tblData += '<a href="#" onclick="editMedicines(' + (key) + ')" title="Edit Medicines details"><i class="ik ik-edit text-blue"></i></a>';
         tblData += '</div></td></tr>';
-    }
+        
+    });
     $('#medicineData').html(tblData);
     $('#medicinesTable').dataTable({
         searching: true,
@@ -55,12 +56,62 @@ const listMedicines = medicines => {
 };
 getAllMedicines();
 
-// const editComplaints = (complaintId) => {
-//     complaintId = complaintId.toString();
-//     complaint_details = complaint.get(complaintId);
-//     complaintId_ap= complaintId;
-//     console.log(complaintId_ap);
-//     $('#complaintsData').hide();
-//     $('#complaintNew').load('edit_Complaint_Master.php');
+var editMedicines = (medicineId) => {
+    medicineId = medicineId.toString();
+    medicine_details = medicines.get(medicineId);
+    medicineId_ap= medicineId;
+    $('#addMedicines').hide();
+    $('#medicineNew').load('edit_Medicines.php');
 
-// };
+    var json, obj, values, i;
+
+    
+
+};
+function loadMedicineDosage() {
+    
+    var dropDownList = '<option></option>';
+
+    medicineDosage.forEach(dosage => {
+        dropDownList += "<option>" + dosage + "</option>";
+    });
+    list = dropDownList;
+  
+    $('#morning').html(dropDownList);
+    $('#noon').html(dropDownList);
+    $('#night').html(dropDownList);
+
+    $('.select2').select2({
+        placeholder:'select',
+        allowClear:true,
+        tags:true,
+        dropdownParent: $('#medicinesModal'),
+        selectOnClose: true
+    });
+}
+loadMedicineDosage();
+
+function loadMedicineTypes() {
+    var dropDownList = '<option></option>';
+  
+    medicineTypes.forEach(medicine => {
+        dropDownList += "<option>" + medicine + "</option>";
+    });
+    medicineTypeList=dropDownList;
+
+    $('#typeId').html(dropDownList);
+    console.log(dropDownList);
+    $('.select2').select2({
+        placeholder:'select',
+        allowClear:true,
+        tags:true,
+        dropdownParent: $('#medicinesModal'),
+        selectOnClose: true,
+    });
+}
+loadMedicineTypes();
+
+function gobackMedicine(){
+    $('#addMedicines').show();
+    $('#medicineNew').empty();
+}

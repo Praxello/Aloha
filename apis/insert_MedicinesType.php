@@ -6,11 +6,11 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['feesType']) && isset($_POST['fee']) && isset($_POST['userId'])) {
+if (isset($_POST['type']) ) {
     
     
-    $sql = "INSERT INTO doctor_fees_master(feesType,fee,doctorId) 
-     VALUES ('$feesType','$fee','$userId')";
+    $sql = "INSERT INTO medicine_type(type) 
+     VALUES ('$type')";
     
     $query = mysqli_query($conn, $sql);
     
@@ -18,8 +18,8 @@ if (isset($_POST['feesType']) && isset($_POST['fee']) && isset($_POST['userId'])
     
     
     if ($rowsAffected == 1) {
-        $feesId  = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT * FROM doctor_fees_master where feesId = $feesId");
+        $medicineTypeId     = $conn->insert_id;
+        $academicQuery = mysqli_query($conn, "SELECT * FROM medicine_type where medicineTypeId = $medicineTypeId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
@@ -28,7 +28,7 @@ if (isset($_POST['feesType']) && isset($_POST['fee']) && isset($_POST['userId'])
             }
         }
         $response = array(
-            'Message' => "Fees Added Successfull",
+            'Message' => "Medicine Type Added Successfull",
             "Data" => $records,
             'Responsecode' => 200
         );

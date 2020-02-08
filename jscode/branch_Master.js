@@ -62,3 +62,7 @@ const editBranch = (branchId) => {
     $('#editbranchNew').load('edit_Branch_Profile.php');
  
 };
+function goback1() {
+    $('#newData').show();
+    $('#editbranchNew').empty();
+}

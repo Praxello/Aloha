@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT type,medicineTypeId FROM medicine_type";
+$sql = "SELECT * FROM dosage_master";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -16,7 +16,7 @@ if ($jobQuery != null) {
         }
         
         $response = array(
-            'Message' => "All Medicines type Data Fetched successfully",
+            'Message' => "All Dosage Data Fetched successfully",
             "Data" => $records,
             'Responsecode' => 200
         );
@@ -36,4 +36,4 @@ if ($jobQuery != null) {
 }
 mysqli_close($conn);
 exit(json_encode($response));
-?>      
+?>  

@@ -1,23 +1,24 @@
-$('#feesMasterForm').on('submit', function(e) {
+$('#medicineMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-   
-    
+  
+    var returnVal = $("#medicineMasterForm").valid();
+    if (returnVal) {
         var fData = new FormData(this);
-
-
+        fData.append('medicineId',medicineId_ap);
+        console.log(medicineId_ap);
         $.ajax({
-            url: url + 'insert_Fees_Master.php',
+            url: url + 'updateMedicinesMaster.php',
             type: 'POST',
             data: fData,
-            cache: false,
+            cache: false,       
             contentType: false,
             processData: false,
             dataType: 'json',
             success: function(response) {
                 console.log(response);
                 if (response.Responsecode == 200) {
-                 
+                  alert(response.Responsecode); 
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -25,9 +26,10 @@ $('#feesMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    $('#cButton').click();
-                    feess.set(response.Data.feesId, response.Data);
-                    listFees(feess);
+                    $('#medicineNew').empty();
+                    $('#addMedicines').show();
+                    medicines.set(response.Data.medicineId, response.Data);
+                    listMedicines(medicines);
 
                 } else {
                     swal({
@@ -37,8 +39,8 @@ $('#feesMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-               
                 }
             }
         });
-    });
+    }
+});

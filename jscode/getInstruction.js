@@ -59,3 +59,8 @@ const editInstruction = (instructionId) => {
     $('#instrNew').load('edit_InstructionMaster.php');
 
 };
+
+function gobackInstruction(){
+    $('#itData').show();
+    $('#instrNew').empty();
+}

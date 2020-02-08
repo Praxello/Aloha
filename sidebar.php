@@ -72,13 +72,16 @@
                                     <a href="adviceMaster.php"><i class="ik ik-user"></i><span>Advice Master</span> <span class="badge badge-success"></span></a>
                                 </div>
                                 <div class="nav-item">
-                                    <a href="instructionMaster.php"><i class="ik ik-user"></i><span>Istruction Master</span> <span class="badge badge-success"></span></a>
+                                    <a href="instructionMaster.php"><i class="ik ik-user"></i><span>Instruction Master</span> <span class="badge badge-success"></span></a>
                                 </div>
                                 <div class="nav-item">
                                     <a href="medicinesMaster.php"><i class="ik ik-user"></i><span>Medicines Master</span> <span class="badge badge-success"></span></a>
                                 </div>
                                 <div class="nav-item">
                                     <a href="dosageMaster.php"><i class="ik ik-user"></i><span>Dosage Master</span> <span class="badge badge-success"></span></a>
+                                </div>
+                                <div class="nav-item">
+                                    <a href="medicineType.php"><i class="ik ik-user"></i><span>Medicine Type</span> <span class="badge badge-success"></span></a>
                                 </div>
                             </nav>
                         </div>

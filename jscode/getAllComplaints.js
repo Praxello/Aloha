@@ -60,3 +60,8 @@ const editComplaints = (complaintId) => {
     $('#complaintNew').load('edit_Complaint_Master.php');
 
 };
+
+function gobackComp(){
+    $('#complaintsData').show();
+    $('#complaintNew').empty();
+}

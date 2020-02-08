@@ -50,7 +50,7 @@ if(isset($_SESSION['branchId'])){
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
                 <div id="medicineNew"></div>
-                <div class="main-content template-demo " id="medicineData">
+                <div class="main-content template-demo" id="addMedicines">
                 
                 <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#medicinesModal">Add New Medicines</button>
                     <div class="container-fluid">
@@ -65,11 +65,14 @@ if(isset($_SESSION['branchId'])){
                                     <thead>
                                         <tr>
                                            
-                                            <!-- <th >Prefix/Type</th> -->
+                                            <!-- <th>Type</th> -->
                                             <th>Name</th>   
                                             <th>Generic Name</th>
-                                            <th>Dosage</th>
+                                            <th>Type</th>
                                             <th>Instruction</th>
+                                            <th>Morning</th>
+                                            <th>Afternoon</th>
+                                            <th>Night</th>
                                             <th>Days</th>
                                             <th>Important</th>               
                                             <th>Action</th>
@@ -124,18 +127,18 @@ if(isset($_SESSION['branchId'])){
         <script src="jscode/loader.js"></script>
     
           <?php include 'add_NewMedicines.php';?>
+
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-
         <script src="jscode/get_Instruction.js"></script>
-        
        <script src="jscode/mediInstruction.js"></script>
-       
-     
+       <script src="jscode/getMedicineDosage.js"></script> 
+       <script src="jscode/getMedicineTypes.js"></script>
        <script src="jscode/getAllMedicines.js"></script>
-
-       <script src="jscode/medicineType.js"></script>
-       <script src="jscode/getMedicinesType.js"></script>
+      
+       <!-- <script src="jscode/medicineType.js"></script>
+       <script src="jscode/getMedicinesType.js"></script> -->
+     
     </body>
 
 </html>

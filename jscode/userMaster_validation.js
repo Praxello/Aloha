@@ -17,6 +17,9 @@ $(function() {
                 },
                 address : {
                     required :true
+                },
+                conpassword :{
+                    equalTo: "#password"
                 }
             },
             messages: {
@@ -35,6 +38,9 @@ $(function() {
                 },
                 address :{
                     required : "Please Enter the Address"
+                },
+                conpassword :{
+                    required : "Please re-enter the Password"
                 }
         
 

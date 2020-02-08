@@ -8,7 +8,7 @@ if(isset($_SESSION['branchId'])){
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Praxello Solutions</title>
+        <title>Praxello solutions </title>
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,46 +49,29 @@ if(isset($_SESSION['branchId'])){
             <div class="page-wrap">
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
-                <div id="editfeesNew"></div>
-                <div class="main-content template-demo " id="newFees">
+                <div id="editMedNew"></div>
+                <div class="main-content template-demo " id="meTypeRecord">
                 
-                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#feesModal">Add Fees</button>
+                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#medicineTypeModal">Add New medicine Type</button>
                     <div class="container-fluid">
                    
                         <div class="card">
                         
-                            <!-- <div class="card-header row">
-                                <div class="col col-sm-3">
-                                    <div class="card-options d-inline-block">
-                                        <a href="#"><i class="ik ik-inbox"></i></a>
-                                        <a href="#"><i class="ik ik-plus"></i></a>
-                                        <a href="#"><i class="ik ik-rotate-cw"></i></a>
-                                        <div class="dropdown d-inline-block">
-                                            <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ik ik-more-horizontal"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="moreDropdown">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">More Action</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                             
-                                </div>
-                                
-                            </div> -->
+                          
                             <div class="card-body c">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
-                                <table id="fTable" class="table">
+                                <table id="mTypeTable" class="table">
                                     <thead>
                                         <tr>
-                                       
-                                            <th>Fees Type</th>
-                                            <th>Fees</th>
                                            
+                                            <th >Id</th>
+                                            <th>Type</th>
+                                         
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="feesData">
+                                    <tbody id="mTypeData">
                                        
                                         
                                         
@@ -115,13 +98,7 @@ if(isset($_SESSION['branchId'])){
         <script>
             window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
         </script>
-         <script>
-      var data = {
-userId:<?php echo $_SESSION['userId'];?>,
-branchId:<?php echo $_SESSION['branchId'];?>,
-username:'<?php echo $_SESSION['username'];?>'
-};
-      </script>
+         
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -141,15 +118,12 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
-        <?php include 'addNewFees.php';?>
- 
+    
+          <?php include 'add_New_Medicine_Type.php';?>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-        <script src="jscode/getUsers.js"></script>
-        <!-- <script src="jscode/loadUsers.js"></script> -->
-        <script src="jscode/getFeesMaster.js"></script>
-       
-       
+   
+       <script src="jscode/medicineType.js"></script>
     
     </body>
 

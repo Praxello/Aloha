@@ -14,16 +14,12 @@
             <div class="modal-body">
                 <form class="forms-sample" id="feesMasterForm" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-4">
+                        
+                    <div class="col-md-6">
                             <div class="form-group">
-                                <label for="fees">Fees Id</label>
-                                
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="docId">Doctor Id</label>
-                             
+                                <label for="">Doctor Name</label>
+                                <select class="form-control select2" id="userId" name="userId" style="width: 100%">
+                                </select>
                             </div>
                         </div>
                        
@@ -38,7 +34,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="fee">Doctor Fees</label>
-                                <input id="fee" class="form-control" type="text" name="fee" placeholder="Fees" />                         
+                                <input id="fee" class="form-control" type="text" name="fee" placeholder="Fees"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" />                         
                             </div>
                         </div>
                        

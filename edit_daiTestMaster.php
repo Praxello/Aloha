@@ -63,6 +63,7 @@
                     
                     
                     <button class="btn btn-success" type="submit">Update Test</button>
+                    <button class="btn btn-success" type="button" onClick="gobackTest()">Cancel</button>
                 </form>
                         </div>
                     </div>

@@ -28,6 +28,8 @@ const listFees = feeses => {
     for (let k of feess.keys()) {
         let fees = feess.get(k);
 
+        
+    
         tblData += '<tr><td>' + fees.feesType + '</td>';
       
         tblData += '<td>' + fees.fee + '</td>';
@@ -58,3 +60,38 @@ const editFees = (feesId) => {
     $('#newFees').hide();
     $('#editfeesNew').load('edit_newFees.php');
 };
+
+
+var DocList=null;
+function loadUsers() {
+    var dropdownList = '<option></option>';
+    users.forEach(user => {
+            dropdownList += '<option value="' + user.userId + '">' + user.username + '</option>';
+    });
+//both eor each are useful
+
+    // for (let k of users.keys()) {
+    //     var user = users.get(k);
+      
+    //         dropdownList += '<option value="' + user.userId + '">' + user.username + '</option>';
+    // }
+   
+    $('#userId').html(dropdownList);
+    DocList=dropdownList;
+    console.log(DocList);
+    $("#userId").select2({
+      
+        placeholder: 'Choose from list',
+        tags : true,
+        allowClear:true,
+        
+        dropdownParent: $('#feesMasterForm'),
+    });
+}
+loadUsers();
+
+
+function gobackFees(){
+    $('#newFees').show();
+    $('#editfeesNew').empty();
+}

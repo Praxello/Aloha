@@ -49,10 +49,10 @@ if(isset($_SESSION['branchId'])){
             <div class="page-wrap">
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
-                <div id="complaintNew"></div>
-                <div class="main-content template-demo " id="complaintsData">
+                <div id="doseNew"></div>
+                <div class="main-content template-demo " id="dosRecord">
                 
-                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#complaintModal">Add New Dosage</button>
+                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#dosageModal">Add New Dosage</button>
                     <div class="container-fluid">
                    
                         <div class="card">
@@ -61,7 +61,7 @@ if(isset($_SESSION['branchId'])){
                             <div class="card-body c">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
-                                <table id="comTable" class="table">
+                                <table id="dosTable" class="table">
                                     <thead>
                                         <tr>
                                            
@@ -71,7 +71,7 @@ if(isset($_SESSION['branchId'])){
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="complaintData">
+                                    <tbody id="dosageData">
                                        
                                         
                                         
@@ -119,7 +119,7 @@ if(isset($_SESSION['branchId'])){
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
     
-         <?php include 'add_NewComplaint.php';?>
+         <?php include 'add_New_Dosage.php';?>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
        <script src="jscode/getDosageMaster.js"></script>

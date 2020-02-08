@@ -28,14 +28,22 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
+                                <label for="latitude">Confirm  Password</label>
+                                <input type="password" id="conpassword" name="conpassword" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+
+                      
+                        <div class="col-md-4">
+                            <div class="form-group">
                                 <label for="longitude">Mobile Number </label>
                                 <input type="text" id="mobile" name="mobile" class="form-control" placeholder="mobile" ng-pattern="/^[0-9]*$/" onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
 
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="usertype">Aadhar Number</label>
@@ -48,20 +56,21 @@
                                 <input id="usertype" class="form-control" type="text" name="usertype" placeholder="" />
                             </div>
                         </div>
-                        <div class="col-md-4">
+                       
+                    </div>
+
+                    <div class="row">
+
+                    <div class="col-md-4">
                             <div class="form-group">
                                 <label for="designation">Designation</label>
                                 <input id="designation" class="form-control" type="text" name="designation" placeholder="Designation" />
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
-
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="branchName">Branch Name </label>
-                                <select class="form-control" id="branchId" name="branchName" style="width: 100%;" placeholder="Branch Name">
+                                <select class="form-control select2" id="branchId" name="branchName" style="width: 100%;" placeholder="Branch Name">
                                  
                                 </select>
                             </div>
@@ -72,29 +81,37 @@
                                 <input id="firmName" class="form-control" type="text" name="firmName" placeholder="firm Name" />
                             </div>
                         </div>
-                        <div class="col-sm-4" style="margin-top: 33px;">
-                        <label for="firmName">Active</label>
-                            <div class="checkbox-fade fade-in-success check">
-                                <label>
-                                    <input type="checkbox" value="active" name="active">
-                                    <span class="cr">
-                                      <i class="cr-icon ik ik-check txt-success"></i>
-                                      </span>
-                                    <span>Yes</span>
-                                </label>
-                            </div>
-
-                        </div>
+                     
                         </div>
                         <div class="row">
-
-                            <div class="col-md-12">
+                      
+                            <div class="col-md-8">
                                 <div class="form-group">
                                     <label for="address">Address</label>
                                     <textarea id="address" class="form-control" type="text" name="address" placeholder="address"></textarea>
 
                                 </div>
                             </div>
+                            <div class="col-sm-4" style="margin-top: 33px;">
+                        <label for="firmName">Active</label>
+                            <div class="checkbox-fade fade-in-success check">
+                            <label>
+                                    <input type="radio" value="1" name="active" id="active">
+                                    <span class="cr">
+                                      <i class="cr-icon ik ik-check txt-success"></i>
+                                      </span>
+                                    <span>Yes</span>
+                                </label>
+                                <label>
+                                    <input type="radio" value="0" name="inactive" id="inactive">
+                                    <span class="cr">
+                                      <i class="cr-icon ik ik-check txt-success"></i>
+                                      </span>
+                                    <span>No</span>
+                                </label>
+                            </div>
+
+                        </div>
                         </div>
                         </div>
 

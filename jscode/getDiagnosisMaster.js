@@ -60,3 +60,7 @@ const editDiagnosis = (diagnosisId) => {
     $('#editdiaNew').load('edit_Diagnosis_Master.php');
  
 };
+function gobackD(){
+    $('#diagnosisData').show();
+    $('#editdiaNew').empty();
+}

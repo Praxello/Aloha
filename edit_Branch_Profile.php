@@ -12,9 +12,9 @@
         <div class="col-lg-12 col-md-7">
             <div class="card">
                 <ul class="nav nav-pills custom-pills t1" id="pills-tab" role="tablist">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active" id="pills-timeline-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-timeline" aria-selected="true">Profile</a>
-                    </li>   
+                    </li>    -->
                    
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -56,14 +56,14 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="mobile1">Mobile Number 1</label>
+                                <label for="mobile1">Primary Mobile Number </label>
                                 <input id="mobile1" class="form-control" type="text" name="mobile1" placeholder="mobile" ng-pattern="/^[0-9]*$/"
                               onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10" />
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="mobile2">Mobile Number 2</label>
+                                <label for="mobile2">Secondary Mobile Number </label>
                                 <input id="mobile2" class="form-control" type="text" name="mobile2" placeholder="mobile" ng-pattern="/^[0-9]*$/"
                               onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10" />
                             </div>
@@ -74,14 +74,14 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="landline1">Landline Number 1</label>
-                                <input id="landline1" class="form-control" type="text" name="landline1" placeholder="mobile" />
+                                <label for="landline1">Primary Landline Number </label>
+                                <input id="landline1" class="form-control" type="text" name="landline1" placeholder="mobile"   onkeypress="return event.charCode >= 48 && event.charCode <= 57"/>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="landline2">Landline Number 2</label>
-                                <input id="landline2" class="form-control" type="text" name="landline2" placeholder="mobile" />
+                                <label for="landline2">Secondary Landline Number </label>
+                                <input id="landline2" class="form-control" type="text" name="landline2" placeholder="mobile"   onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -104,7 +104,7 @@
                     </div>
                     
                     <button class="btn btn-success" type="submit">Update Branch</button>
-                    <button class="btn btn-success" type="submit">Cancel</button>
+                    <button class="btn btn-success" type="button" onclick="goback1()">Cancel</button>
                 </form>
                         </div>
                     </div>

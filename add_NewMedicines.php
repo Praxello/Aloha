@@ -12,62 +12,101 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form class="forms-sample" id="medicineMasterForm" method="POST" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="type">Type</label>
+            <form class="forms-sample" id="medicineMasterForm" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="type">Type</label>
+
+                                            <select class="form-control select2" id="typeId" name="type" placeholder="Type" style="width:100%;">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="genName">Generic Name</label>
+                                            <input type="text" id="genName" name="genName" class="form-control" placeholder="Generic Name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                   
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="morning">Morning</label>
+
+                                            <select class="form-control select2" id="morning" name="morning" style="width:100%;"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="noon">Afternoon</label>
+                                            <select class="form-control select2" id="noon" name="noon" style="width:100%;"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="night">Night</label>
+
+                                            <select class="form-control select2" id="night" name="night" style="width:100%;"></select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                   
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="instruction">Instruction</label>
+
+                                            <select class="form-control" id="instructionId" name="instruction" placeholder="Instruction" style="width:100%;">
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="days">Days </label>
+                                            <input type="text" id="days" name="days" class="form-control" placeholder="Days">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1" style="margin-top: 35px;">
+                                        <div class="form-group">
+                                            <label for="isImportant">Important</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" style="margin-top: 35px;" >
+                                        <div class="checkbox-fade fade-in-success check">
+                                            <label>
+                                                <input type="radio" value="1" name="isImportant" >
+                                                <span class="cr">
+                                                <i class="cr-icon ik ik-check txt-success"></i>
+                                                </span>
+                                                <span>Yes</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" value="0" name="isImportant" >
+                                                <span class="cr">
+                                             <i class="cr-icon ik ik-check txt-success"></i>
+                                              </span>
+                                                <span>No</span>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                                
-                            <select  class="form-control" id="medicineTypeId" name="type"  placeholder="Type" style="width:100%;">
-
-                         </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" class="form-control" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="genName">Generic Name</label>
-                                <input type="text" id="genName" name="genName" class="form-control" placeholder="Generic Name">
-                            </div>
-                        </div>    
-                    </div>                                          
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="dosage">Dosage</label>
-                                <input type="text" id="dosage" name="dosage" class="form-control" placeholder="Dosage">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="instruction">Instruction</label>
-                                       
-                            <select  class="form-control" id="instructionId" name="instruction"  placeholder="Instruction" style="width:100%;">
-                             
-                         </select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="days">Days </label>
-                                <input type="text" id="days" name="days" class="form-control" placeholder="Days">
-                            </div>
-                        </div>    
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="isImportant">Important</label>
-                                <input type="text" id="isImportant" name="isImportant" class="form-control" placeholder="Important">
-                            </div>
-                        </div>
-
-                    </div>
              </div>
              
 

@@ -1,11 +1,13 @@
 $('#medicineMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-           
+
+   
+
     var returnVal = $("#medicineMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-
+       
         $.ajax({
             url: url + 'insert_Medicines.php',
             type: 'POST',

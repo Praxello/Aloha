@@ -22,12 +22,12 @@
                  
                     <div class="tab-pane fade show active" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
                         <div class="card-body">
-                        <form class="forms-sample" id="complaintMasterForm" method="POST" enctype="multipart/form-data">
+                        <form class="forms-sample" id="dosageMasterForm" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="complaint">Complaints</label>
-                                <input type="text" id="complaint" name="complaint" class="form-control" placeholder="Complaint Name">
+                                <label for="dosage">Dosage</label>
+                                <input type="text" id="dosage" name="dosage" class="form-control" placeholder="Enter New Dosage">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -36,8 +36,8 @@
                        
                     </div>
                     
-                    <button class="btn btn-success" type="submit">Update Complaint</button>
-                    <button class="btn btn-success" type="button" onClick="gobackComp()">Cancel</button>
+                    <button class="btn btn-success" type="submit">Update Dosage</button>
+                    <button class="btn btn-success" type="button" onClick="gobackDosage()">Cancel</button>
                 </form>
                         </div>
                     </div>
@@ -50,9 +50,9 @@
 
 <script type="text/javascript" src="js/dropzone.js"></script>
 <script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
-<script src="jscode/edit_complaint.js"></script>
-<script src="jscode/update_Complaint_Master.js"></script>
+<script src="jscode/edit_dosageNew.js"></script>
+<script src="jscode/update_Dosage.js"></script>
 <script src="js/jquery.validate.js"></script>
-<script src="jscode/complaint_validation.js"></script>
+<script src="jscode/dosage_validation.js"></script>
 
 

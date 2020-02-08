@@ -60,3 +60,7 @@ var editTest = (testId) => {
      $('#TestNew').load('edit_daiTestMaster.php');
  
 };
+function gobackTest(){
+    $('#testDiagnosisData').show();
+    $('#TestNew').empty();
+}

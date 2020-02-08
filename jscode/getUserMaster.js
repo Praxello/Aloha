@@ -63,3 +63,8 @@ const editUser = (userId) => {
 
  
 };
+
+function gobackUser(){
+    $('#newUser').show();
+    $('#editUserNew').empty();
+}

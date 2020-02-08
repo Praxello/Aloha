@@ -37,6 +37,7 @@
                     </div>
                     
                     <button class="btn btn-success" type="submit">Update Advice</button>
+                    <button class="btn btn-success" type="button" onClick="gobackAdvice()">Cancel</button>
                 </form>
                         </div>
                     </div>

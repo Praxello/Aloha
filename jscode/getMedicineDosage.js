@@ -5,6 +5,7 @@ function getMedicinesDosage() {
         url: url + 'getAllMedicineDosage.php',
         type: 'POST',
         dataType: 'json',
+        async:false,
         success: function(response) {
             if (response.Responsecode == 200) {
                 if (response.Data != null) {

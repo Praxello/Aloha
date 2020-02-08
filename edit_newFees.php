@@ -12,9 +12,9 @@
         <div class="col-lg-12 col-md-7">
             <div class="card">
                 <ul class="nav nav-pills custom-pills t1" id="pills-tab" role="tablist">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active" id="pills-timeline-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-timeline" aria-selected="true">Profile</a>
-                    </li>
+                    </li> -->
 
                  
                 </ul>
@@ -23,18 +23,13 @@
                         <div class="card-body">
                             <form class="forms-sample" id="feesMasterForm" method="POST" enctype="multipart/form-data">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="fees">Fees Id</label>
-
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="docId">Doctor Id</label>
-
-                                        </div>
-                                    </div>
+                                <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="">Doctor Name</label>
+                                <select class="form-control select2" id="userIde" name="userId" style="width: 100%">
+                                </select>
+                            </div>
+                        </div>
 
                                 </div>
                                 <div class="row">
@@ -54,6 +49,7 @@
                                 </div>
                            
                                 <button class="btn btn-success" type="submit">Update</button>
+                                <button class="btn btn-success" type="button" onclick="gobackFees()">Cancel</button>
                                 </form>
                         
                          
