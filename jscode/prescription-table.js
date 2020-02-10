@@ -11,7 +11,7 @@ function addrow() {
     rowid += 1;
     rowhtml = "";
     rowhtml += '<tr id="row' + rowid + '">';
-    rowhtml += '<td>';
+    rowhtml += '<td style="width:10%">';
     rowhtml += '<select class="form-control" id="typeId' + rowid + '" name="typeId' + rowid + '" style="width:100%;">';
     rowhtml += '</select>';
     rowhtml += '</td>';
@@ -19,19 +19,19 @@ function addrow() {
     rowhtml += '<select class="form-control" id="medicineId' + rowid + '" name="medicineId' + rowid + '" style="width:100%;" onchange="fetchMedicine(this.value,' + rowid + ')">';
     rowhtml += '</select>';
     rowhtml += '</td>';
-    rowhtml += '<td>';
+    rowhtml += '<td style="width:10%">';
     rowhtml += '<select class="form-control" id="morning' + rowid + '" name="morning' + rowid + '"  style="width:100%;">';
     rowhtml += '</select>';
     rowhtml += '</td>';
-    rowhtml += '<td>';
+    rowhtml += '<td style="width:10%">';
     rowhtml += '<select class="form-control" id="evining' + rowid + '" name="evining' + rowid + '"  style="width:100%;">';
     rowhtml += '</select>';
     rowhtml += '</td>';
-    rowhtml += '<td>';
+    rowhtml += '<td style="width:10%">';
     rowhtml += '<select class="form-control" id="night' + rowid + '" name="night' + rowid + '"  style="width:100%;">';
     rowhtml += '</select>';
     rowhtml += '</td>';
-    rowhtml += '<td>';
+    rowhtml += '<td style="width:10%">';
     rowhtml += '<input type="text" class="form-control" id="duration' + rowid + '" name="duration' + rowid + '"/>';
     rowhtml += '</td>';
     rowhtml += '<td>';
@@ -87,7 +87,14 @@ function fetchMedicine(medicine, rowid) {
     var newOption = null;
     if (medicines.has(medicine)) {
         let medical = medicines.get(medicine);
+        console.log(medical);
         $('#duration' + rowid).val(medical.days);
+        if ($('#typeId' + rowid).find("option[value='" + medical.type + "']").length) {
+            $('#typeId' + rowid).val(medical.type).trigger('change');
+        } else {
+            newOption = new Option(medical.type, medical.type, true, true);
+            $('#typeId' + rowid).append(newOption).trigger('change');
+        }
         if ($('#morning' + rowid).find("option[value='" + medical.morning + "']").length) {
             $('#morning' + rowid).val(medical.morning).trigger('change');
         } else {
