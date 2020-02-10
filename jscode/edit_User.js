@@ -10,6 +10,7 @@ const loadUserDetails = details => {
     $('#address').val(details.address);
     $('#firmName').val(details.firmName);
     $('#branchIde').val(details.branchIde).trigger('change');
+    $('#roleIde').val(details.roleId).trigger('change');
     // $('#sign').val(details.sign);
 
     if(details.active == 1){
@@ -20,10 +21,20 @@ const loadUserDetails = details => {
 
     $('#branchIde').html(branchList);
     console.log(branchList);
-$('.branchIde').select2({
+
+$('#branchIde').select2({
     placeholder:'select',
     dropdownParent: $('#userMasterForm'),
    
+});
+
+$('#roleIde').html(userroleList);
+console.log(userroleList);
+$('#roleIde').select2({
+placeholder:'select',
+
+dropdownParent: $('#userMasterForm'),
+
 });
 
 };

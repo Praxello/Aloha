@@ -10,7 +10,6 @@ const loadBranchDetails = details => {
     $('#landline2').val(details.landline2);
     $('#fax').val(details.fax);
     $('#branchAddress').val(details.branchAddress);
-   
- ;
+
 };
 loadBranchDetails(branch_details);

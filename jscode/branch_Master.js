@@ -59,6 +59,8 @@ const editBranch = (branchId) => {
     branchId_ap= branchId;
     console.log(branchId_ap);
     $('#newData').hide();
+    $('#editbranchNew').empty();
+
     $('#editbranchNew').load('edit_Branch_Profile.php');
  
 };
