@@ -31,7 +31,8 @@ const listAppointments = (appointments, today) => {
         i = 0,
         patientType = '',
         nType = 0,
-        cType = 0;
+        cType = 0,
+        feesSt = null;
     for (let k of appointments.keys()) {
         let patient = appointments.get(k);
         if (patient.appointmentDate == today) {
@@ -78,7 +79,6 @@ const listAppointments = (appointments, today) => {
 getAllAppointments(data.userId);
 
 const editPatient = (appointmentId) => {
-
     appointmentId = appointmentId.toString();
     let patient = appointments.get(appointmentId);
     details = patient;
@@ -123,7 +123,7 @@ var fees_status = (patientId, doctorId, visitDate) => {
             if (response.Responsecode == 200) {
                 fees = parseFloat(response.Data.fees);
             } else {
-                fees = 'unmarked';
+                fees = 0;
             }
         }
     });

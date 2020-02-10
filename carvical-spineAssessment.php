@@ -736,7 +736,7 @@
 
                                                          <span><b>MOVEMENT LOSS:</b></span>
                                                          <div class="form-group row">
-                                                            <table class="table table-bordered" >
+                                                            <table class="table table-bordered" id="cerMomentLoss">
                                                                 <thead>
                                                                   <tr>
                                                                     <th scope="col"></th>
@@ -747,7 +747,7 @@
                                                                     <th scope="col">Pain</th>
                                                                   </tr>
                                                                 </thead>
-                                                                <tbody id="cerMomentLoss" >
+                                                                <tbody >
                                                                   <tr>
                                                                     <th scope="row">Protrusion</th>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
@@ -821,7 +821,7 @@
 
                                                               <span><b> TEST MOVEMENT:</b></span>
                                                               <div class="form-group row">
-                                                                 <table class="table table-bordered" >
+                                                                 <table class="table table-bordered" id="cerTestMovement">
                                                                      <thead>
                                                                        <tr>
                                                                          <th scope="col"></th>
@@ -840,16 +840,15 @@
                                                                        
                                                                        </tr>
                                                                      </thead>
-                                                                     <tbody id="cerTestMovement">
+                                                                     <tbody >
                                                                        <tr>
                                                                          <th scope="row">Rep RET</th>
-                                                                         <td><input type="text" class="form-control"   placeholder=""></td>
-                                                                         <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                         <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                         <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                         <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                            </tr> 
-                                                                           
+                                                                         <td><input type="text" class="form-control"></td>
+                                                                         <td><input type="text" class="form-control"></td>
+                                                                         <td><input type="text" class="form-control"></td>
+                                                                         <td><input type="text" class="form-control"></td>
+                                                                         <td><input type="text" class="form-control"></td>
+                                                                    </tr> 
                                                                      </tbody>
                                                                    </table>
 

@@ -811,7 +811,7 @@
 
                                                          <span><b>MOVEMENT LOSS:</b></span>
                                                          <div class="form-group row">
-                                                            <table class="table table-bordered" id="momentLoss" >
+                                                            <table class="table table-bordered" id="momentLoss">
                                                                 <thead>
                                                                   <tr>
                                                                     <th scope="col"></th>

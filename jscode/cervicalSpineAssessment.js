@@ -1,5 +1,4 @@
 $('#cervicalSpineForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
     var returnVal = $("#cervicalSpineForm").valid();
     if (returnVal) {
@@ -79,14 +78,13 @@ $('#cervicalSpineForm').on('submit', function(e) {
         proObj = JSON.stringify(proObj);
         deObj = JSON.stringify(deObj);
 
-
-
         var momentLoss = storeMovement();
         var testMovement = storeT();
+        console.log(testMovement);
 
         momentLoss = JSON.stringify(Object.assign({}, momentLoss));
         testMovement = JSON.stringify(Object.assign({}, testMovement));
-
+        console.log(testMovement);
         $.ajax({
             url: url + 'insertCervicalSpine.php',
             type: 'POST',
@@ -484,7 +482,9 @@ function storeT() {
             "m-rom-d": nil,
             "m-noefect": pain
         };
+        console.log(TableData);
     });
+
     TableData.shift();
     TableData.shift();
     return TableData;

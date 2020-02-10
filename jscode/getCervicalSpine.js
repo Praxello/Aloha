@@ -394,6 +394,7 @@ function fill_Cervical(details) {
     json = details.cerMomentLoss;
     if (json != null) {
         obj = JSON.parse(json);
+        console.log(obj);
         count = Object.keys(obj).length;
         var arr = ['Flexion', 'Extension', 'Side Gliding R', 'Side Gliding L', 'Protrusion', 'Retraction', 'Rotation R', 'Rotation L'];
         for (var j = 0; j < count; j++) {
