@@ -15,8 +15,6 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['pa
     $query = mysqli_query($conn, $sql);
     
     $rowsAffected = mysqli_affected_rows($conn);
-    
-    
     if ($rowsAffected == 1) {
         $patientId     = $conn->insert_id;
         $academicQuery = mysqli_query($conn, "SELECT * FROM neck_disability_index where ndisabilityId = $patientId");

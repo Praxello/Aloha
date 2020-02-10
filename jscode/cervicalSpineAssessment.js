@@ -80,11 +80,9 @@ $('#cervicalSpineForm').on('submit', function(e) {
 
         var momentLoss = storeMovement();
         var testMovement = storeT();
-        console.log(testMovement);
 
         momentLoss = JSON.stringify(Object.assign({}, momentLoss));
         testMovement = JSON.stringify(Object.assign({}, testMovement));
-        console.log(testMovement);
         $.ajax({
             url: url + 'insertCervicalSpine.php',
             type: 'POST',

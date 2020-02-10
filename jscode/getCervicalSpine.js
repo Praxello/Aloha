@@ -29,6 +29,7 @@ var showCervicalSpine = cervicals => {
     var tblData = '';
     for (let k of cervicals.keys()) {
         let cervical = cervicals.get(k);
+        console.log(cervical);
         tblData += '<tr><td>' + getDate(cervical.visitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editCervicalSpine(' + (k) + ')" title="Edit patients details"><i class="ik ik-edit text-blue"></i></a>';

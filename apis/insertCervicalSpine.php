@@ -37,7 +37,7 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['ce
         }
         $response = array(
             'Message' => "Added Successfull",
-            "Data" => $sql,
+            "Data" => $records,
             'Responsecode' => 200
         );
         
