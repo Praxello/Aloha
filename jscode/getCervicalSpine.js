@@ -57,7 +57,7 @@ var editCervicalSpine = (cerSpineId) => {
 };
 
 function fill_Cervical(details) {
-
+    console.log(details);
     if (details.cerVasScore != null) {
         $('#cerVasScore').val(details.cerVasScore);
     }
@@ -410,23 +410,18 @@ function fill_Cervical(details) {
 
     }
     json = details.cerTestMovement;
-    if (json != null) {
-        if (json.hasOwnProperty('During-test')) {
-            console.log("vikas" + json);
-        } else {
-            content = '';
-            obj = JSON.parse(json);
-            console.log(obj);
-            content += '<tr>';
-            content += ' <th scope="row">Rep EIL</th>';
-            content += '<td><input type="text" class="form-control"  value="' + obj[0]['During-test'] + '"></td>';
-            content += '<td><input type="text" class="form-control"  value="' + obj[0]['after-test'] + '"></td>';
-            content += '<td><input type="text" class="form-control"  value="' + obj[0]['m-rom-u'] + '"></td>';
-            content += '<td><input type="text" class="form-control"  value="' + obj[0]['m-rom-d'] + '"></td>';
-            content += '<td><input type="text" class="form-control"  value="' + obj[0]['m-noefect'] + '"></td>';
-            content += '</tr>';
-            $('#cerTestMovement').html(content);
-        }
+    obj = JSON.parse(json);
+    if (Object.keys(obj).length === 0) {} else {
+        content = '';
+        content += '<tr>';
+        content += ' <th scope="row">Rep EIL</th>';
+        content += '<td><input type="text" class="form-control"  value="' + obj[0]['During-test'] + '"></td>';
+        content += '<td><input type="text" class="form-control"  value="' + obj[0]['after-test'] + '"></td>';
+        content += '<td><input type="text" class="form-control"  value="' + obj[0]['m-rom-u'] + '"></td>';
+        content += '<td><input type="text" class="form-control"  value="' + obj[0]['m-rom-d'] + '"></td>';
+        content += '<td><input type="text" class="form-control"  value="' + obj[0]['m-noefect'] + '"></td>';
+        content += '</tr>';
+        $('#cerTestMovement').html(content);
     }
     $('#cervicalSpine').modal('show');
 }

@@ -2,6 +2,7 @@ var appointments = new Map();
 var u_patientId = null;
 var u_appointmentId = null;
 var global_patientId = null; //for lumbar neck,and back pain
+var details = {};
 var global_date = moment().format('YYYY-MM-DD');
 $('#dropper-max-year').val(moment().format('YYYY-MM-DD'));
 const getAllAppointments = (doctorId) => {
@@ -49,9 +50,9 @@ const listAppointments = (appointments, today) => {
             } else {
                 tblData += '<td><span class="badge badge-default">Pending</span></td>';
             }
-
+            feesSt = fees_status(patient.patientId, patient.doctorId, patient.appointmentDate);
             tblData += '<td>' + patient.doctorName + '(' + patient.address + ')</td>';
-            tblData += '<td>' + fees_status(patient.patientId, patient.doctorId, patient.appointmentDate) + '</td>';
+            tblData += '<td>' + feesSt + '</td>';
             tblData += patientType;
             tblData += '<td ><div class="table-actions" style="text-align : left" >';
             tblData += '<a href="#"  onclick="editPatient(' + (k) + ')" title="medication"><i class="fa fa-medkit" style="color: blue;"></i></a>';
@@ -80,6 +81,7 @@ const editPatient = (appointmentId) => {
 
     appointmentId = appointmentId.toString();
     let patient = appointments.get(appointmentId);
+    details = patient;
     u_patientId = patient.patientId;
     u_appointmentId = appointmentId;
     global_patientId = patient.patientId;

@@ -15,11 +15,11 @@
                 </div>
                 <div class="col-lg-5 form-group row" style="background-color: #64ffda;">
                                       <label for="" class="col-sm-2 col-form-label"><b>Patients Name</b></label>
-                                      <label for="" class="col-sm-2 col-form-label">ABC</label>  
+                                      <label for="" class="col-sm-2 col-form-label" id="detailPName">ABC</label>  
                                       <label for="" class="col-sm-2 col-form-label"><b>Reffered by</b></label>  
-                                      <label for="" class="col-sm-3 col-form-label">SELF(ALOHA CLINIC)</label>   
+                                      <label for="" class="col-sm-3 col-form-label" id="detailsReff">SELF(ALOHA CLINIC)</label>   
                                       <label for="" class="col-sm-2 col-form-label"><b>Fees status</b></label>  
-                                      <label for="" class="col-sm-1 col-form-label">pending</label>      
+                                      <label for="" class="col-sm-1 col-form-label" id="detailsFees">pending</label>      
 
                 </div>
 
