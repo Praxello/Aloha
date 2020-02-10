@@ -178,7 +178,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="address" class="required">Address</label>
-                                <textarea class="form-control" id="address" name="address" rows="1" placeholder="Address"></textarea>
+                                <textarea class="form-control" id="address1" name="address" rows="1" placeholder="Address"></textarea>
                             </div>
                         </div>
                     </div>

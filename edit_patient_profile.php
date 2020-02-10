@@ -28,8 +28,8 @@
                         <img src="">
                     </div>
                 </div>
-                
-                <div class="col-lg-8 form-group row" style="background-color: #64ffda;">
+                <div class="col-lg-8"></div>
+                <!-- <div class="col-lg-8 form-group row" style="background-color: #64ffda;">
                                       <label for="" class="col-sm-2 col-form-label"  ><b>Patients Name:</b></label>
                         
                                      <label for="" class="col-sm-2 col-form-label"  id="uname" style="font-weight: bold;"></label> 
@@ -39,7 +39,7 @@
                                       <label for="" class="col-sm-2 col-form-label" id="uphone" style="font-weight: bold;"></label>  
                                      <label for="" class="col-sm-2 col-form-label" id="ucity" style="font-weight: bold;"></label>    
 
-                </div>
+                </div> -->
                 
                 <div class="col-lg-2">
                     <nav class="breadcrumb-container" aria-label="breadcrumb">
@@ -182,25 +182,25 @@
                                 <h5>Medical Details</h5>
 
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="height" class="required">Height (in cm)</label>
                                             <input type="text" placeholder="165" class="form-control" name="height" id="height">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <div class="form-group" class="required">
                                             <label for="weight"  class="required">Weight (in KG)</label>
                                             <input type="text" placeholder="65" class="form-control" name="weight" id="weight">
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                         <div class="form-group">
                                             <label for="occupation" class="required">Occupation</label>
                                             <input type="text" placeholder="Enginner" class="form-control" name="occupation" id="occupation" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-5">
                                         <div class="form-group">
                                             <label for="referredby">Referred By</label>
                                             <select id="referredby" name="referredby" class="form-control"></select>

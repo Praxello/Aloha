@@ -67,7 +67,17 @@ if (isset($_SESSION['userId'])) {
                                             </div>
                                         </div>
 
-                                        <div class="col col-sm-2">
+                                        <div class="col col-sm-3">
+
+                                        <div class=" template-demo " id="">
+                                        <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 16px;">
+                <button type="button" class="btn btn-warning" >Total Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="totalPatient"></span></button>
+                <button type="button" class="btn btn-primary">New Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="newPatients"></span></button>
+                <button type="button" class="btn btn-success">Consulted: &nbsp; &nbsp;&nbsp;<span id="consulted"></span></button>
+                                        </div>
+                                        </div>
+
+                                        <!-- <div class="col col-sm-2">
                                             <div class="card card-green st-cir-card text-white">
                                                 <div class="card-block">
                                                     <div class="row align-items-center">
@@ -80,9 +90,9 @@ if (isset($_SESSION['userId'])) {
 
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
 
-                                        <div class="col col-sm-2">
+                                        <!-- <div class="col col-sm-2">
                                             <div class="card card-green st-cir-card text-white">
                                                 <div class="card-block">
                                                     <div class="row align-items-center">
@@ -95,9 +105,9 @@ if (isset($_SESSION['userId'])) {
 
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->                                                                                                              
 
-                                        <div class="col col-sm-2">
+                                        <!-- <div class="col col-sm-2">
                                             <div class="card card-green st-cir-card text-black">
                                                 <div class="card-block">
                                                     <div class="row align-items-center">
@@ -110,14 +120,9 @@ if (isset($_SESSION['userId'])) {
 
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
 
-                                        <!-- <div class="col col-sm-2">
-                                <strong>New Patients:<span id="newPatients"></span></strong>
-                                </div>
-                                <div class="col col-sm-2">
-                                <strong>Consulted:<span id="consulted"></span></strong>
-                                </div> -->
+                                 
                                         <div class="col col-sm-3">
 
                                         </div>

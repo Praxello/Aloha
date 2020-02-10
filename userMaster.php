@@ -199,7 +199,8 @@ username:'<?php echo $_SESSION['username'];?>'
         <?php include 'add_NewUser.php';?>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-      
+        <script src="jscode/get_Role.js"></script>
+        <script src="jscode/getRoleDropdown.js"></script>
         <script src="jscode/getUserMaster.js"></script>
     
     </body>
