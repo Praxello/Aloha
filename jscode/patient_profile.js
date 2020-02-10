@@ -1,5 +1,4 @@
 var loadPatientDetails = details => {
-    console.log(details);
     $('#uname').html(details.firstName + ' ' + details.surname);
     $('#uemailId').html(details.email);
     $('#uphone').html(details.mobile1);
@@ -15,14 +14,14 @@ var loadPatientDetails = details => {
     $('#religion').val(details.religion).trigger('change');
 
 
-    $('#country1').val(parseInt(details.country)).trigger('change');
+    $('#country1').val(details.country).trigger('change');
 
     $('#pincode').val(details.pincode);
     $('#address1').val(details.address);
-    $('#state').val(details.state).trigger('change');
+    $('#state1').val(details.state).trigger('change');
     $('#lastVisitDate').val(details.lastVisitDate);
     $('#nextVisitDate').val(details.nextVisitDate);
-    $('#city').val(details.city).trigger('change');
+    $('#city1').val(details.city).trigger('change');
     $('#firstVisitDate').val(details.firstVisitDate);
 
     if (details.alcohol == 1)
@@ -57,18 +56,6 @@ var loadPatientDetails = details => {
     var src = "upload/patients/" + details.patientId + ".jpg";
     $('#userJpg').attr("src", src);
     $('#userPic').attr("src", src);
-
-
-    $('#country1').html(editCountry);
-
-$('.select2').select2({
-    placeholder:'select',
-    allowClear:true,
-    async : false,
-    dropdownParent: $('#epatientDetails'),
-   
-});
-
 };
 
 loadPatientDetails(patient_details);

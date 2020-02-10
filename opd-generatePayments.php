@@ -146,20 +146,20 @@
                    
                                                 <div class="row mb-15">
                                                 <div class="col-sm-3">
-                                                        <label for=""><strong>Discount Type</strong></label> 
+                                                        <label for=""><strong>Discount Type(%)</strong></label> 
                                                       <select name="discountType" id="discountType" style="width: 100%;" onchange="setDiscount(this.value)"></select>
                                                       <strong id="maxDiscount"></strong>
                                                     </div>
                                                     <div class="col-sm-3">
-                                                        <label for=""><strong>Discount:</strong></label> 
-                                                        <input type="text" placeholder="100.00"
+                                                        <label for=""><strong>Discount(%):</strong></label> 
+                                                        <input type="number" placeholder="100.00"
                                                         class="form-control" 
-                                                        name="dAmt" id="dAmt" oninput="calculateAmt1(this.value)">
+                                                        name="dAmt" id="dAmt" oninput="calculateAmt1(this.value)" min="0" max="99">
                                                     </div>
                                                     
                                                     
                                                     <div class="col-sm-3"> 
-                                                        <label for="total"><strong>Percentage:</strong></label>
+                                                        <label for="total"><strong>Discount amount:</strong></label>
                                                         <input type="text"  class="form-control"  id="pAmt" readonly>
                                                     </div> 
                                                     <div class="col-sm-3">

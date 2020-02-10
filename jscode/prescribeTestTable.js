@@ -101,10 +101,10 @@ function calculateAmt1(amount) {
                 $('#tAmt').val(tAmt - totalDiscount);
             } else {
                 amount = parseFloat(amount);
-                total = parseFloat($('#tAmt').val());
-                formula = (100 * amount) / total;
+                total = parseFloat(tAmt);
+                formula = (total * amount) / 100;
+                $('#tAmt').val(tAmt - formula);
                 $('#pAmt').val(formula.toFixed(2));
-                $('#tAmt').val(tAmt - amount);
             }
         }
     } else {
@@ -113,10 +113,14 @@ function calculateAmt1(amount) {
             $('#pAmt').val('');
         } else {
             amount = parseFloat(amount);
-            total = parseFloat($('#tAmt').val());
-            formula = (100 * amount) / total;
+            console.log(amount);
+            total = parseFloat(tAmt);
+            console.log(total);
+            formula = (total * amount) / 100;
+            console.log(formula);
+            $('#tAmt').val(tAmt - formula);
+            console.log(formula);
             $('#pAmt').val(formula.toFixed(2));
-            $('#tAmt').val(tAmt - amount);
         }
     }
 }
@@ -282,7 +286,7 @@ function setDiscount(Id) {
         Id = Id.toString();
         let discount = discounts.get(Id);
         totalDiscount = parseFloat(discount.discount);
-        $('#maxDiscount').html('Maximum discount ' + totalDiscount);
+        $('#maxDiscount').html('Maximum discount ' + totalDiscount + '%');
     }
 }
 

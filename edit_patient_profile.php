@@ -19,16 +19,6 @@
 
                         </div>
                     </div>
-                
-                    <!-- <div style="margin-left: 140px;">
-                        <h5 class="card-title" id="uname">John Doe</h5>
-                        <p class="card-subtitle" id="ucity">Front End Developer</p>
-                        <i class="ik ik-user" style="color: blueviolet;"></i> <font id="uage">254</font>
-                        <i class="ik ik-image" style="color: chocolate;"> </i> <font id="ugender">54</font>
-
-                        <i class="rounded-circle"><h6 id="uphone" >(123) 456 7890</h6></i>
-                    </div> -->
-
                 </div>
                 <div class="col-lg-1"></div>
                 <div class="it">
@@ -265,7 +255,7 @@
                                         <div class="form-group">
                                             <label for="country1" class="required">Country</label>
 
-                                            <select class="form-control select2" id="country1" name="name"  placeholder="country" onchange="loadStates(this.value)">
+                                            <select class="form-control select2" id="country1" name="country"  placeholder="country" onchange="loadStates1(this.value)">
 
                                             </select>
                                         </div>
@@ -273,7 +263,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="state1" class="required">State</label>
-                                            <select class="form-control" id="state1" name="state" placeholder="state" onchange="loadCities(this.value)">
+                                            <select class="form-control" id="state1" name="state" placeholder="state" onchange="loadCities1(this.value)">
 
                                             </select>
                                         </div>
@@ -454,6 +444,7 @@
 
     });
 </script>
+<script src="jscode/load.js"></script>
 <script src="jscode/cancel-appointment.js"></script>
 <script src="jscode/patient_profile.js"></script>
 <script type="text/javascript" src="js/dropzone.js"></script>

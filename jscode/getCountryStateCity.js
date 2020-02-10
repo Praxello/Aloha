@@ -56,7 +56,7 @@ function getCities() {
         }
     });
 }
-var editCountry=null;
+
 function loadCountries() {
     var dropdownList = '<option></option>';
     for (let k of countries.keys()) {
@@ -64,10 +64,6 @@ function loadCountries() {
         dropdownList += '<option value="' + k + '">' + country + '</option>';
     }
     $('#country').html(dropdownList);
-    
-    editCountry=dropdownList;
-
-
     $("#country").select2({
         placeholder: 'Select Country',
         allowClear: true,
@@ -104,6 +100,3 @@ function loadCities(stateId) {
         dropdownParent: $('#patientform')
     });
 }
-
-
-
