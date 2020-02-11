@@ -23,19 +23,31 @@ const getAllBranches = () => {
 const listBranches = branches => {
     $('#bTable').dataTable().fnDestroy();
     $('#branchData').empty();
-    var tblData = '';
+    var tblData = '',
+    actbutton;
+   
     for (let k of branches.keys()) {
         let branch = branches.get(k);
+        actbutton = '';
 
+        console.log(branch.isActive);
+
+        if (branch.isActive == 1 || branch.isActive == '1') {
+            actbutton = '<td><span class="badge badge-success">active</span></td>';
+        } else {
+            actbutton = '<td><span class="badge badge-warning">inactive</span></td>';
+        }
+       
         tblData += '<tr><td>' + branch.branchId + '</td>';
         tblData += '<td>' + branch.branchName + '</td>';
-  
         tblData += '<td>' + branch.branchAddress  + '</td>';
         tblData += '<td>' + branch.mobile1 + '</td>';
         tblData += '<td>' + branch.fax + '</td>';
+        tblData += actbutton;
       
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editBranch(' + (k) + ')" title="Edit branch details"><i class="ik ik-edit text-blue"></i></a>';
+        tblData += '<a href="#" class="ik edit"  onclick="inactivatebranch(' + (k) + ')" title="Active/inactive branch"><i class="ik ik-trash text-danger"></i></a>';
     
         tblData += '</div></td></tr>';
     }
@@ -64,6 +76,55 @@ const editBranch = (branchId) => {
     $('#editbranchNew').load('edit_Branch_Profile.php');
  
 };
+
+var inactivatebranch = branchId => {
+    branchId = branchId.toString();
+    let branch = branches.get(branchId);
+    var msg = '',
+        btn = '',
+        msg1 = '';
+    if (branch.isActive == 1) {
+        branch.isActive = 0;
+        msg = 'Do you really want to in activate this Branch?';
+        btn = 'Deactivate Now';
+        msg1 = 'Branch Deactivated';
+    } else {
+        branch.isActive = 1;
+        msg = 'Do you really want to  activate this Branch?';
+        btn = 'Activate Now';
+        msg1 = 'Branch Activated';
+    }
+    swal({
+            title: "Are you sure?",
+            text: msg,
+            icon: "warning",
+            buttons: ["Cancel", btn],
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: url + 'branchActivation.php',
+                    type: 'POST',
+                    data: { branchId: branchId },
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log(response);
+                        if (response.branchId == 200) {
+                            branches.set(branchId, branch);
+                            listBranches(branches);
+                            swal({
+                                text: msg1,
+                                icon: "success"
+                            });
+
+                        }
+                    }
+                });
+            }
+        });
+};
+
 function goback1() {
     $('#newData').show();
     $('#editbranchNew').empty();

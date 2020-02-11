@@ -6,11 +6,11 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['feesType']) && isset($_POST['fee']) && isset($_POST['userId'])) {
+if (isset($_POST['feesType']) && isset($_POST['fee']) && isset($_POST['doctorId'])) {
     
     
     $sql = "INSERT INTO doctor_fees_master(feesType,fee,doctorId) 
-     VALUES ('$feesType','$fee','$userId')";
+     VALUES ('$feesType','$fee','$doctorId')";
     
     $query = mysqli_query($conn, $sql);
     

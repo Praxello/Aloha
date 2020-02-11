@@ -9,7 +9,6 @@ function mapRole() {
    
     $('#roleId').html(dropdownList);
     userroleList = dropdownList;
-    console.log(userroleList)
 }
 $(document).ready(function() {
      mapRole();

@@ -7,12 +7,12 @@ $response = null;
 $records  = null;
 extract($_POST);
 
-if (isset($_POST['feesId']) && isset($_POST['feesType']) && isset($_POST['fee']) && isset($_POST['userId']) ) {
+if (isset($_POST['feesId']) && isset($_POST['feesType']) && isset($_POST['fee']) && isset($_POST['doctorId']) ) {
     
     
 
     
-    $sql = "UPDATE doctor_fees_master SET feesType='$feesType',fee = '$fee',doctorId='$userId' WHERE feesId='$feesId'";
+    $sql = "UPDATE doctor_fees_master SET feesType='$feesType',fee = '$fee',doctorId='$doctorId' WHERE feesId='$feesId'";
   
     
     $query = mysqli_query($conn, $sql);
