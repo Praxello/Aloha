@@ -55,6 +55,39 @@ function getSelectedText() {
     $('#dName').html(a);
 }
 
+// function calculateAmt(amount) {
+//     var total, formula;
+//     if (totalDiscount > 0) {
+//         if (amount == '') {
+//             $('#tAmt').val(tAmt);
+//             $('#pAmt').val('');
+//         } else {
+//             if (amount > totalDiscount) {
+//                 swal('can not exceed discount more than ' + totalDiscount);
+//                 $('#dAmt').val(totalDiscount);
+//                 $('#tAmt').val(tAmt - totalDiscount);
+//             } else {
+//                 amount = parseFloat(amount);
+//                 total = parseFloat($('#tAmt').val());
+//                 formula = (100 * amount) / total;
+//                 $('#pAmt').val(formula.toFixed(2));
+//                 $('#tAmt').val(tAmt - amount);
+//             }
+//         }
+//     } else {
+//         if (amount == '') {
+//             $('#tAmt').val(tAmt);
+//             $('#pAmt').val('');
+//         } else {
+//             amount = parseFloat(amount);
+//             total = parseFloat($('#tAmt').val());
+//             formula = (100 * amount) / total;
+//             $('#pAmt').val(formula.toFixed(2));
+//             $('#tAmt').val(tAmt - amount);
+//         }
+//     }
+// }
+
 function calculateAmt(amount) {
     var total, formula;
     if (totalDiscount > 0) {
@@ -65,40 +98,8 @@ function calculateAmt(amount) {
             if (amount > totalDiscount) {
                 swal('can not exceed discount more than ' + totalDiscount);
                 $('#dAmt').val(totalDiscount);
-                $('#tAmt').val(tAmt - totalDiscount);
-            } else {
-                amount = parseFloat(amount);
-                total = parseFloat($('#tAmt').val());
-                formula = (100 * amount) / total;
-                $('#pAmt').val(formula.toFixed(2));
-                $('#tAmt').val(tAmt - amount);
-            }
-        }
-    } else {
-        if (amount == '') {
-            $('#tAmt').val(tAmt);
-            $('#pAmt').val('');
-        } else {
-            amount = parseFloat(amount);
-            total = parseFloat($('#tAmt').val());
-            formula = (100 * amount) / total;
-            $('#pAmt').val(formula.toFixed(2));
-            $('#tAmt').val(tAmt - amount);
-        }
-    }
-}
-
-function calculateAmt1(amount) {
-    var total, formula;
-    if (totalDiscount > 0) {
-        if (amount == '') {
-            $('#tAmt').val(tAmt);
-            $('#pAmt').val('');
-        } else {
-            if (amount > totalDiscount) {
-                swal('can not exceed discount more than ' + totalDiscount);
-                $('#dAmt').val(totalDiscount);
-                $('#tAmt').val(tAmt - totalDiscount);
+                formula = (tAmt * totalDiscount) / 100;
+                $('#tAmt').val(tAmt - formula);
             } else {
                 amount = parseFloat(amount);
                 total = parseFloat(tAmt);
@@ -113,13 +114,9 @@ function calculateAmt1(amount) {
             $('#pAmt').val('');
         } else {
             amount = parseFloat(amount);
-            console.log(amount);
             total = parseFloat(tAmt);
-            console.log(total);
             formula = (total * amount) / 100;
-            console.log(formula);
             $('#tAmt').val(tAmt - formula);
-            console.log(formula);
             $('#pAmt').val(formula.toFixed(2));
         }
     }

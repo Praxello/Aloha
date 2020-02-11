@@ -40,7 +40,7 @@
                                                             <th>reciept Id</th>
                                                             <th>Doctor</th>
                                                             <th>Original Amount</th>
-                                                            <th>Discount</th>
+                                                            <th>Discount(%)</th>
                                                             <th>Total</th>
                                                             <th>Pending</th>  
                                                             <th></th>                                                  
@@ -152,9 +152,9 @@
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label for=""><strong>Discount(%):</strong></label> 
-                                                        <input type="number" placeholder="100.00"
+                                                        <input type="number" placeholder="10"
                                                         class="form-control" 
-                                                        name="dAmt" id="dAmt" oninput="calculateAmt1(this.value)" min="0" max="99">
+                                                        name="dAmt" id="dAmt" oninput="calculateAmt(this.value)" min="0" max="99">
                                                     </div>
                                                     
                                                     

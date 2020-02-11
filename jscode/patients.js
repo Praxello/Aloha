@@ -83,6 +83,7 @@ function acceptPayment(patientId) {
         placeholder: 'Select Doctor for payment',
         allowClear: true
     });
+    //  $("#presTable tbody").empty();
     $('#opd-payment-generate').modal('show');
 }
 
