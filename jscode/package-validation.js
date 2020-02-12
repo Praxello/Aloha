@@ -3,8 +3,8 @@ $(function() {
         ignore: [],
         rules: {
             packageTitle: {
-                required: true,
-                lettersonly: true
+                required: true
+
             },
             packageCost: {
                 required: true,
@@ -14,8 +14,7 @@ $(function() {
         },
         messages: {
             packageTitle: {
-                required: "Please enter Package Title",
-                lettersonly: "Enter only character"
+                required: "Please enter Package Title"
 
             },
             packageCost: {

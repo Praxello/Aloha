@@ -44,7 +44,9 @@ var listpaymentdetails = payments => {
         } else {
             tblData += '';
         }
-        tblData += '<a href="#" onclick="printRecieptTbl(' + k + ')" title="Download payment receipt"><i class="fa fa-download text-blue" ></i></a></td></div></tr>';
+        tblData += '<a href="#" onclick="printRecieptTbl(' + k + ')" title="Download payment receipt"><i class="fa fa-download text-blue" ></i></a>';
+        tblData += '<a href="#" onclick="removeReciept(' + k + ')" title="Remove Reciept"><i class="fa fa-trash text-red" ></i></a>';
+        tblData += '</td></div></tr>';
     }
     $('#opdPaymentData').html(tblData);
     $('#opdPayment').DataTable({
@@ -153,4 +155,37 @@ function check(input) {
         input.value = pendingAmt;
         $('.errorMsg').html('<font color="red" style="margin-left: 148px;">Can not exceed amount limit ' + pendingAmt + '</font>');
     }
+}
+
+function removeReciept(receiptId) {
+    receiptId = receiptId.toString();
+    let package = payments.get(receiptId);
+    swal({
+            title: "Are you sure?",
+            text: 'Remove this reciept',
+            icon: "warning",
+            buttons: ["Cancel", 'Remove Now'],
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: url + 'recieptRemove.php',
+                    type: 'POST',
+                    data: { paymentId: receiptId },
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.Responsecode == 200) {
+                            payments.delete(receiptId);
+                            listpaymentdetails(payments);
+                            swal({
+                                text: response.Message,
+                                icon: "success"
+                            });
+
+                        }
+                    }
+                });
+            }
+        });
 }

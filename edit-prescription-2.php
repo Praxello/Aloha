@@ -13,17 +13,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 form-group row" style="background-color: #64ffda;">
-                                      <label for="" class="col-sm-2 col-form-label"><b>Patients Name</b></label>
-                                      <label for="" class="col-sm-2 col-form-label" id="detailPName"></label>  
-                                      <label for="" class="col-sm-2 col-form-label"><b>Reffered by</b></label>  
-                                      <label for="" class="col-sm-3 col-form-label" id="detailsReff"></label>   
-                                      <label for="" class="col-sm-2 col-form-label"><b>Fees status</b></label>  
-                                      <label for="" class="col-sm-1 col-form-label" id="detailsFees"></label>      
+                <div class="col-lg-7">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-warning" >Patients Name: &nbsp; &nbsp;&nbsp;&nbsp;<span id="detailPName"></span></button>
+                <button type="button" class="btn btn-primary">Reffered by: &nbsp; &nbsp;&nbsp;&nbsp;<span id="detailsReff"></span></button>
+                <button type="button" class="btn btn-success">Fees status: &nbsp; &nbsp;&nbsp;<span id="detailsFees"></span></button>
+                                        </div>
 
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-lg-2">
                     <nav class="breadcrumb-container" aria-label="breadcrumb">
                         <button type="button" class="btn btn-success" onclick="goback();"><i class="ik ik-arrow-left"></i></button>
                     </nav>
@@ -81,14 +80,20 @@
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <div class="form-group">
-                                                        <label for="input">Height</label>
-                                                        <input type="number" id="height" class="form-control form-control-sm">
+                                                        <label for="input">Height(CM)</label>
+                                                        <input type="number" id="height" class="bmi form-control form-control-sm">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-1">
                                                     <div class="form-group">
-                                                        <label for="input">Weight</label>
-                                                        <input type="number" id="weight" class="form-control form-control-sm">
+                                                        <label for="input">Weight(KG)</label>
+                                                        <input type="number" id="weight" class="bmi form-control form-control-sm">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1">
+                                                    <div class="form-group">
+                                                        <label for="input">BMI</label>
+                                                        <input type="number" id="bmi" class="form-control form-control-sm" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-1">
@@ -115,7 +120,7 @@
                                                         <input type="number" id="spo2" class="form-control form-control-sm">
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-4">
+                                                <div class="col-sm-3">
 
                                                 </div>
                                             </div>
@@ -186,8 +191,7 @@
 
                                             <div class="form-group">
                                                <h4>Advice</h4>
-                                                <textarea name="remark" id="remark" cols="1" rows="1" class="form-control"></textarea>
-
+                                                <input name="remark" id="adviceId"  class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-1">
@@ -203,7 +207,7 @@
                                                 <input type="date" id="nextVisitDate" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-5" style="margin-top: 26px;">
+                                        <div class="col-md-5" style="margin-top: 38px;">
 
                                             <button type="button" class="btn  btn-success" onclick="savePrescription()">Save</button>
                                             <button type="button" class="btn  btn-default" onclick="goback()">Cancel</button>
@@ -214,6 +218,7 @@
                             <hr>
                             <h5>Previous Prescriptions</h5>
                             <div id="prevData"></div>
+                           
                         </div>
                         <div class="tab-pane fade" id="last-month" role="tabpanel" aria-labelledby="pills-profile-tab">
 
@@ -430,6 +435,12 @@
             source: complaints
         }
     });
+    $('#adviceId').tagsinput({
+        'delimiter': ';',
+        'autocomplete': {
+            source: advice
+        }
+    });
     //for come to main page appointments
     function goback() {
         $('#diagnosis').tagsinput('refresh');
@@ -458,6 +469,15 @@
         $('#detailPName').html(details.firstName+' '+details.surname);
         $('#detailsReff').html(details.doctorName);
     }
+    $('#bp').mask('000/000',{placeholder: "___/___"});
+
+    $('.bmi').on('change',function(){
+        var height = parseFloat($('#height').val());
+        var weight = parseFloat($('#weight').val());
+        var meter = height/100;
+        var bmi = parseFloat(weight/(meter*meter));
+        $('#bmi').val(bmi.toFixed(2));
+    });
 </script>
 <script src="js/jquery.validate.js"></script>
 <script src="jscode/getLumbarSpine.js"></script>

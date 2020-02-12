@@ -18,6 +18,7 @@ if (isset($_SESSION['userId'])) {
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
         <!-- <link rel="stylesheet" href="plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css"> -->
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="dist/css/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
         <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
@@ -31,6 +32,7 @@ if (isset($_SESSION['userId'])) {
         <link rel="stylesheet" href="plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <link rel="stylesheet" href="dist/css/jquery-ui.css">
+       
         <link rel="stylesheet" href="plugins/bootstrap-tagsinput/dist/tagsinput.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
@@ -54,16 +56,24 @@ if (isset($_SESSION['userId'])) {
                                 <div class="card">
                                     <div class="card-header row">
                                         <div class="col col-sm-3">
+                                        <!-- <div class="form-group">
+                <label for="dtp_input2" class="col-md-3 control-label">Date Picking</label>
+                <div class="input-group date form_date col-md-5" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                    <input class="form-control" size="16" type="text" value="" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+				<input type="hidden" id="dtp_input2" value="" /><br/>
+            </div> -->
                                             <div class="card-search with-adv-search dropdown">
-                                                <!-- <div class="form-group" >
-                                            <label for="birthDate">Appointment Date</label>  
-                                            <input id="dropper-max-year" class="form-control" type="date"  placeholder="select date" onchange="fetch(this.value);" /><i class="fa fa-calendar input-group-text" ></i> 
-                                        </div> -->
+                                           
                                                 <label for="birthDate">Appointment Date</label>
-                                                <div class="input-group input-group-primary a">
-                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="fa fa-calendar"></i></label></span>
+                                                
+                                                  
+                                                  
                                                     <input id="dropper-max-year" class="form-control" type="date" placeholder="select date" onchange="fetch(this.value);" />
-                                                </div>
+                                                   
+                                               
                                             </div>
                                         </div>
 
@@ -162,8 +172,10 @@ if (isset($_SESSION['userId'])) {
         </div>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap-datetimepicker.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
         <script src="plugins/screenfull/dist/screenfull.js"></script>
         <script src="plugins/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -172,7 +184,6 @@ if (isset($_SESSION['userId'])) {
         <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
         <script src="plugins/datedropper/datedropper.min.js"></script>
         <script src="js/form-picker.js"></script>
-
         <script src="plugins/moment/moment.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
         <script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
@@ -185,7 +196,16 @@ if (isset($_SESSION['userId'])) {
         <!-- <script src="plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script> -->
         <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
         <script>
-            const data = {
+    //         $('.form_date').datetimepicker({
+    //     weekStart: 1,
+    //     todayBtn:  1,
+	// 	autoclose: 1,
+	// 	todayHighlight: 1,
+	// 	startView: 2,
+	// 	minView: 2,
+	// 	forceParse: 0
+    // });
+    const data = {
                 userId: <?php echo $_SESSION['userId']; ?>
             };
         </script>
@@ -198,6 +218,7 @@ if (isset($_SESSION['userId'])) {
         <script src="jscode/getMedicineTypes.js"></script>
         <script src="jscode/getMedicineDosage.js"></script>
         <script src="jscode/getComplaints.js"></script>
+        <script src="jscode/getAdvice.js"></script>
         <script src="jscode/getAllDiagnosis.js"></script>
     </body>
 

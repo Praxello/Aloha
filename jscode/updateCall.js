@@ -16,15 +16,14 @@ function updateCall() {
             state: $('#state').val(),
             country: $('#country').val(),
             zipcode: $('#zipcode').val(),
-            nearbyarea: $('#nearbyarea').val(),
+            nearByArea: $('#nearByArea').val(),
             reference: $('#reference').val(),
-            calldatetime: $('#calldatetime').val(),
             branchId: $('#branchId').val(),
             userId: $('#userId').val(),
-            disease: $('#desease').val(),
+            desease: $('#desease').val(),
             appointmentDate: $('#appointmentDate').val(),
             remarks: $('#remarks').val(),
-            followup: $('#followup').val(),
+            folowupNeeded: $('#folowupNeeded').val(),
             follwupdate: $('#follwupdate').val(),
             attendedBy: data.userId
         };
@@ -43,9 +42,9 @@ function updateCall() {
                         timer: 1500
                     });
                     $('#fullwindowModal').modal('hide');
+                    $('.select2').val('').trigger('change');
                     $('#callForm').trigger('reset');
                     calls.set(response.Data.callId, response.Data);
-                    console.log(calls);
                     listCalls(calls);
                 } else {
                     swal({

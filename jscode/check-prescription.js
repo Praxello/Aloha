@@ -71,7 +71,7 @@ function fill_exist_data(response) {
     }
     $('#nextVisitDate').val(response[0].nextVisitDate);
     $('#diagnosis').importTags(response[0].diagnosis);
-    $('#remark').val(response[0].advice);
+    $('#adviceId').importTags(response[0].advice);
 }
 
 function fetch_previous_prescription(u_patientId) {

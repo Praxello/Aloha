@@ -32,8 +32,8 @@ function fetchPrescriptiondata($patientId,$visitDate,$doctorId)
 {
     include 'connection.php';
     $output = '';
-    $sql    = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pt.weight,pt.surname,pt.birthDate,pt.address,pt.mobile1,DATE_FORMAT(pt.firstVisitDate,'%a-%d %b %Y') firstVisitDate
-    ,pt.gender,pom.pulse ,pom.bp,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age,DATE_FORMAT(pm.nextVisitDate,'%a-%d %b %Y') nextVisitDate,pm.complaint,pm.diagnosis,DATE_FORMAT(pm.visitDate,'%a-%d %b %Y') visitDate
+    $sql    = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pom.weight,pt.surname,pt.birthDate,pt.address,pt.mobile1,DATE_FORMAT(pt.firstVisitDate,'%a-%d %b %Y') firstVisitDate
+    ,pt.gender,pom.pulse ,pom.bp,pom.height,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age,DATE_FORMAT(pm.nextVisitDate,'%a-%d %b %Y') nextVisitDate,pm.complaint,pm.diagnosis,DATE_FORMAT(pm.visitDate,'%a-%d %b %Y') visitDate
     FROM patient_medication pm LEFT JOIN patient_master pt ON pt.patientId = pm.patientId
     LEFT JOIN patient_onassessment_master pom ON pom.patientId = pm.patientId AND pom.visitDate = pm.visitDate
     WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate' AND pm.doctorId = $doctorId";
@@ -44,6 +44,13 @@ function fetchPrescriptiondata($patientId,$visitDate,$doctorId)
         $nextVisitDate = $row['nextVisitDate'];
         $patientName = $patientId.'_'.$row['firstName'].'_'.$row['surname'].'_'.$visitDate;
         $advice = $row['advice'];
+        $bmi = '';
+        $height = '';
+        if(!empty($row['weight']) && !empty($row['height'])){
+            $height = $row['height']/100;
+            $bmi = floatval($row['weight'])/($height*$height);
+            $bmi = number_format($bmi,2);
+        }
 
 $output .= '<div class="row">
 <div class="col-xs-3">
@@ -70,20 +77,22 @@ $output .= '<div class="row">
 </div>
 </div>
 <div class="row ">
-<div class="col-xs-2">
+<div class="col-xs-1">
    <p class="font-weight-bold mb-4 ">Age:<span>'.$row['age'].'</span></p>
 </div>
 <div class="col-xs-2">
    <p class="font-weight-bold mb-4 ">Weight:<span>'.$row['weight'].'</span></p>
 </div>
-<div class="col-xs-2">
+<div class="col-xs-1">
    <p class="font-weight-bold mb-4 ">BP:<span>'.$row['bp'].'</span></p>
 </div>
-<div class="col-xs-2">
+<div class="col-xs-1">
 <p class="font-weight-bold mb-4 ">Pulse:<span>'.$row['pulse'].'</span></p>
 </div>
-<div class="col-xs-2">
-<p class="font-weight-bold mb-4 ">BMI:<span>'.$row['pulse'].'</span></p>
+<div class="col-xs-1">
+<p class="font-weight-bold mb-4 ">BMI:<span>'.$bmi.'</span></p>
+</div>
+<div class="col-xs-5">
 </div>
 </div>
 <hr class="my-5 ">
@@ -110,7 +119,8 @@ function fetchmedicinedata($patientId,$visitDate,$doctorId)
 {
     include 'connection.php';
     $output = '';
-    $sql    = "SELECT * FROM patient_prescription_medicine ppm
+    $sql    = "SELECT mm.genName,ppm.type,ppm.name,ppm.morning,ppm.evining,ppm.night,ppm.instruction,ppm.period,ppm.patientId,ppm.visitDate,ppm.doctorId 
+    FROM patient_prescription_medicine ppm LEFT JOIN medicine_master mm ON mm.name = ppm.name
      WHERE ppm.patientId = $patientId AND ppm.visitDate = '$visitDate' AND ppm.doctorId = $doctorId";
     $result = mysqli_query($conn, $sql);
     $i      = 0;
@@ -119,7 +129,7 @@ function fetchmedicinedata($patientId,$visitDate,$doctorId)
             $i++;
 
         $output .= ' <tr>
-        <td><strong>' . $row['name'] . '</strong>-' . $row['type'] . '<br><small>'.$row['genName'].'</small></td>
+        <td><small>' . $row['type'] . '<small><strong>-' . $row['name'] . '</strong><br>'.$row['genName'].'</td>
         <td style="width:5%;text-align:center">' . $row['morning'] . '</td>
         <td style="width:5%;text-align:center">' . $row['evining'] . '</td>
         <td style="width:5%;text-align:center">' . $row['night'] . '</td>

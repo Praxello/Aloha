@@ -52,7 +52,7 @@ $(function() {
                     required: true
                 },
                 follwupdate: {
-                    required: "#followup:checked"
+                    required: "#folowupNeeded:checked"
                 }
             },
             messages: {

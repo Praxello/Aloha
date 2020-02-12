@@ -101,7 +101,7 @@ if(!isset($_SESSION['userId'])){
         <script src="jscode/getBranches.js"></script>
         <script src="jscode/getUsers.js"></script>
         <script src="jscode/login.js"></script>
-        <script src="jscode/loadUsers.js"></script>
+        <script src="jscode/loginUsers.js"></script>
         <script src="jscode/authentication.js"></script>
     </body>
 
