@@ -1,4 +1,4 @@
-const loadBranchDetails = details => {
+var loadBranchDetails = details => {
 
     $('#branchName').val(details.branchName);
     $('#latitude').val(details.latitude);

@@ -18,7 +18,7 @@
                     <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Doctor Name</label>
-                                <select class="form-control select2" id="userId" name="userId" style="width: 100%">
+                                <select class="form-control select2" id="userId" name="doctorId" style="width: 100%">
                                 </select>
                             </div>
                         </div>

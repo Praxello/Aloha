@@ -94,7 +94,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="usertype">User Type</label>
-                                <select class="form-control select2" id="roleIde" name="roleId" style="width: 100%;" placeholder="role Name">  
+                                <select class="form-control select2" id="roleIde" name="usertype" style="width: 100%;" placeholder="role Name">  
                                 </select>
                             </div>
                         </div>

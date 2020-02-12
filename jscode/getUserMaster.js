@@ -59,6 +59,7 @@ const editUser = (userId) => {
     user_details = users.get(userId);
     userId_np= userId;
     $('#newUser').hide();
+    
     $('#editUserNew').load('edit_user_profile.php');
 
  

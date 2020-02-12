@@ -1,41 +1,30 @@
-const loadUserDetails = details => {
-
+var loadUserDetails = details => {
+    console.log(details);
     $('#username').val(details.username);
     $('#password').val(details.password); 
-    $('#conpassword1').val(details.conpassword); 
     $('#mobile').val(details.mobile);
     $('#addharId').val(details.addharId);
-    $('#usertype').val(details.usertype);
     $('#designation').val(details.designation);
+    $('#branchIde').val(details.branchId).trigger('change');
+    $('#roleIde').val(details.usertype).trigger('change');
     $('#address').val(details.address);
     $('#firmName').val(details.firmName);
-    $('#branchIde').val(details.branchIde).trigger('change');
-    $('#roleIde').val(details.roleId).trigger('change');
-    // $('#sign').val(details.sign);
+
 
     if(details.active == 1){
         $('#active').prop('checked',true);
     }else{
         $('#inactive').prop('checked',true); 
     }
-
-    $('#branchIde').html(branchList);
-    console.log(branchList);
-
-$('#branchIde').select2({
-    placeholder:'select',
-    dropdownParent: $('#userMasterForm'),
-   
-});
-
-$('#roleIde').html(userroleList);
+};
 console.log(userroleList);
+$('#roleIde').html(userroleList);
 $('#roleIde').select2({
 placeholder:'select',
-
-dropdownParent: $('#userMasterForm'),
-
+autoClear:true
 });
-
-};
+$('#branchIde').html(branchList);
+$('#branchIde').select2({
+    placeholder:'select'
+});
 loadUserDetails(user_details);

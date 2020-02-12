@@ -1,17 +1,17 @@
-const loadFeesDetails = details => {
+var loadFeesDetails = details => {
+ console.log(details);
  
     $('#feesType').val(details.feesType);
     $('#fee').val(details.fee); 
  
-    $('#userIde').val(details.userId).trigger('change');
+ 
     $('#userIde').html(DocList);
  
     $('.select2').select2({
-        placeholder:'select',
-        allowClear:true,
-        async : false,
-        dropdownParent: $('#feesMasterForm'),
-       
+        placeholder:'select'
+      
+      
     });
+    $('#userIde').val(details.doctorId).trigger('change');
 };
 loadFeesDetails(fees_details);
