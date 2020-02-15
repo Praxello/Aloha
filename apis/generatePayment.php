@@ -3,13 +3,16 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
 include "getLastId.php";
+include "packageOfPatient.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
 $str = array();
-if (isset($_POST['postdata'])) {
-    $someArray = json_decode($postdata, true);
+if (isset($_POST['postdata']) && isset($_POST['packageDetails'])) {
+    $someArray   = json_decode($postdata, true);
+    $packages    = $_POST['packageDetails'];
+    $isPackage   = 0;
     $originalAmt = $someArray['originalAmt'];
     $amount      = $someArray["amount"];
     $discount    = isset($someArray["discount"])? $someArray["discount"]:'NULL';
@@ -19,10 +22,13 @@ if (isset($_POST['postdata'])) {
     $branchId    = $someArray["branchId"];
     $visitDate   = date('Y-m-d');
     $billDetails = $someArray["billDetails"];
-    $recieptId = getLastId($branchId)+1;
-
-    $sql         = "INSERT INTO opd_patient_payment_master(recieptId,branchId,patientId, doctorId,originalAmt,total,discount,received,pending,visitDate,createdBy)
-    VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount','$discount',0,'$amount','$visitDate',$userId)";
+    $recieptId   = getLastId($branchId)+1;
+    if($packages['flag'] == 1 && !empty($packages['packageId'])){
+        $isPackage = 1;
+        package($packages['packageId'],$patientId,$packages['packageCost'],1,$branchId,$userId,$packages['packageDuration']);
+    }
+    $sql         = "INSERT INTO opd_patient_payment_master(recieptId,branchId,patientId, doctorId,originalAmt,total,discount,received,pending,visitDate,createdBy,isPackage)
+    VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount','$discount',0,'$amount','$visitDate',$userId,$isPackage)";
     $query       = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {

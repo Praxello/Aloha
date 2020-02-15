@@ -2,7 +2,6 @@ var rowhtml, rowid = 0;
 var uniqueTest = new Set();
 var tAmt = 0.00;
 var originalAmt = 0.00;
-var discounts = new Map();
 var totalDiscount = 0;
 getDiscounts(data.branchId);
 
@@ -55,38 +54,6 @@ function getSelectedText() {
     $('#dName').html(a);
 }
 
-// function calculateAmt(amount) {
-//     var total, formula;
-//     if (totalDiscount > 0) {
-//         if (amount == '') {
-//             $('#tAmt').val(tAmt);
-//             $('#pAmt').val('');
-//         } else {
-//             if (amount > totalDiscount) {
-//                 swal('can not exceed discount more than ' + totalDiscount);
-//                 $('#dAmt').val(totalDiscount);
-//                 $('#tAmt').val(tAmt - totalDiscount);
-//             } else {
-//                 amount = parseFloat(amount);
-//                 total = parseFloat($('#tAmt').val());
-//                 formula = (100 * amount) / total;
-//                 $('#pAmt').val(formula.toFixed(2));
-//                 $('#tAmt').val(tAmt - amount);
-//             }
-//         }
-//     } else {
-//         if (amount == '') {
-//             $('#tAmt').val(tAmt);
-//             $('#pAmt').val('');
-//         } else {
-//             amount = parseFloat(amount);
-//             total = parseFloat($('#tAmt').val());
-//             formula = (100 * amount) / total;
-//             $('#pAmt').val(formula.toFixed(2));
-//             $('#tAmt').val(tAmt - amount);
-//         }
-//     }
-// }
 
 function calculateAmt(amount) {
     var total, formula;
@@ -148,6 +115,19 @@ function GeneratePayment() {
             if (discount == '') {
                 discount = 0;
             }
+            var packageId = null,
+                flag = 0;
+            if ($('#packageIds').val() != '') {
+                packageId = $('#packageIds').val();
+                flag = 1;
+            }
+            var packageDetails = {
+                packageId: packageId,
+                flag: flag,
+                isActive: 1,
+                packageDuration: 10,
+                packageCost: tAmt
+            };
             var details = {
                 userId: data.userId,
                 branchId: data.branchId,
@@ -162,7 +142,7 @@ function GeneratePayment() {
             $.ajax({
                 url: url + 'generatePayment.php',
                 type: 'POST',
-                data: { postdata: details },
+                data: { postdata: details, packageDetails: packageDetails },
                 dataType: 'json',
                 success: function(response) {
                     if (response.Responsecode == 200) {
@@ -242,39 +222,6 @@ function attach_data(paymentId) {
 }
 
 
-function getDiscounts(branchId) {
-    $.ajax({
-        url: url + 'getDiscounts.php',
-        type: 'POST',
-        dataType: 'json',
-        data: { branchId: branchId },
-        success: function(response) {
-            if (response.Responsecode == 200) {
-                if (response.Data != null) {
-                    var n = response.Data.length;
-                    for (var i = 0; i < n; i++) {
-                        discounts.set(response.Data[i].discountId, response.Data[i]);
-                    }
-                }
-            }
-            mapDiscounts(discounts);
-        }
-    });
-}
-
-
-function mapDiscounts(discounts) {
-    var dropdownList = '<option></option>';
-    for (let k of discounts.keys()) {
-        let discount = discounts.get(k);
-        dropdownList += '<option value="' + k + '">' + discount.discountType + '</option>';
-    }
-    $('#discountType').html(dropdownList);
-    $("#discountType").select2({
-        placeholder: 'Select discount type',
-        allowClear: true
-    });
-}
 
 function setDiscount(Id) {
     if (Id == "") {
@@ -291,3 +238,23 @@ function openScreen() {
     $('#opd-payment-generate').modal('hide');
     opdPayment(patientId_ap);
 }
+
+$('input:radio[name=radio]').change(function() {
+    if (this.value == '1') {
+        $('.package').hide();
+        $('.opd').show();
+        $('#headTitle').text('Amount');
+        $('#presTableBody').empty();
+        $('#fTotal').html('');
+        $('#paymentFor').val('').trigger('change');
+        tAmt = 0;
+        $('#tAmt').val('');
+    } else if (this.value == '0') {
+        $('.package').show();
+        $('.opd').hide();
+        $('#headTitle').text('Quota');
+        $('#presTableBody').empty();
+        $('#fTotal').html('');
+        $('#packageIds').val('').trigger('change');
+    }
+});

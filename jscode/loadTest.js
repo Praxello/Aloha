@@ -7,6 +7,7 @@ function loadTest() {
     $('#test').html(dropdownList);
     $("#test").select2({
         placeholder: 'Select Test',
-        allowClear: true
+        allowClear: true,
+        dropdownParent: $('#opd-payment-generate')
     });
 }

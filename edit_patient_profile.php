@@ -70,6 +70,9 @@
                     <li class="nav-item">
                         <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#cervical" role="tab" aria-controls="pills-setting" aria-selected="false">Appointments</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-timeline-tab" data-toggle="pill" href="#packages" role="tab" aria-controls="pills-timeline" aria-selected="false">Packages</a>
+                    </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade " id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
@@ -418,6 +421,34 @@
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane fade" id="packages" role="tabpanel" aria-labelledby="pills-timeline-tab">
+                    <div class="container-fluid">
+                    <button type="button" class="btn  btn-success s" style="float: right;margin-top:5px;" onclick="addPackage()">Add New</button>
+                            <div class="card">
+                        <div class="load-pack" style="margin-top: 10px;"></div>
+                                <div class="card-body c s">
+                                    <div class="dt-responsive tbl">
+                                        <table id="packageDetails" class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Package</th>
+                                                    <th>Package Cost</th>
+                                                    <th>Package Duration</th>
+                                                    <th>Expiray Date</th>
+                                                    <th>Purchase Date</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="packageData">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -451,8 +482,8 @@
 <script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
 <script src="jscode/getReffName.js"></script>
 <script src="jscode/updatePatientsJs.js"></script>
-
-
+<script src="jscode/patientPackage.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="jscode/uploadProfile.js"></script>
 <?php include 'add_reffName.php';?>
+<?php include 'assign_package.php';?>
