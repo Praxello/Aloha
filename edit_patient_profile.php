@@ -423,7 +423,7 @@
                     </div>
                     <div class="tab-pane fade" id="packages" role="tabpanel" aria-labelledby="pills-timeline-tab">
                     <div class="container-fluid">
-                    <button type="button" class="btn  btn-success s" style="float: right;margin-top:5px;" onclick="addPackage()">Add New</button>
+                    <!-- <button type="button" class="btn  btn-success s" style="float: right;margin-top:5px;" onclick="addPackage()">Add New</button> -->
                             <div class="card">
                         <div class="load-pack" style="margin-top: 10px;"></div>
                                 <div class="card-body c s">

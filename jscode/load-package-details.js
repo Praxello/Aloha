@@ -1,6 +1,6 @@
 var package_branches = new Map();
 var package_tests = new Map();
-loadTest();
+loadTestPackage();
 
 function show_details(packageId) {
     let package = packages.get(packageId);
