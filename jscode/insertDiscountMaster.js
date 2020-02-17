@@ -1,14 +1,14 @@
-$('#diagnosisMasterForm').on('submit', function(e) {
+$('#discountMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-           
-    var returnVal = $("#diagnosisMasterForm").valid();
+   
+    var returnVal = $("#discountMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
 
 
         $.ajax({
-            url: url + 'insertDiagnosisMaster.php',
+            url: url + 'insert_discount_master.php',
             type: 'POST',
             data: fData,
             cache: false,
@@ -18,7 +18,7 @@ $('#diagnosisMasterForm').on('submit', function(e) {
             success: function(response) {
                 console.log(response);
                 if (response.Responsecode == 200) {
-              
+                 
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -27,9 +27,8 @@ $('#diagnosisMasterForm').on('submit', function(e) {
                         timer: 1500
                     });
                     $('#cButton').click();
-                    $('#diagnosisMasterForm').trigger('reset');
-                    diagnosis.set(response.Data.diagnosisId,response.Data);
-                    listdiagnosis(diagnosis);
+                    discounts.set(response.Data.discountId, response.Data);
+                    listDiscount(discounts);
 
                 } else {
                     swal({
@@ -44,4 +43,4 @@ $('#diagnosisMasterForm').on('submit', function(e) {
             }
         });
     }
-});
+    });

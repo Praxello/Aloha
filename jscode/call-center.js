@@ -106,9 +106,10 @@ const listCalls = calls => {
         tblData += '<td>' + getDate(call.folowupNeededDateTime) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editCall(' + (k) + ')" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="takeFeedback(' + (k) + ')" title="Take Feedback"><i class="ik ik-message-circle" style="color:purple"></i></a>';
         tblData += '</div></td></tr>';
     }
-    $('#callData').html(tblData);
+    $('#callData').html(tblData);                                                                                                                   
     $('#cTable').dataTable({
         searching: true,
         retrieve: true,
@@ -129,7 +130,10 @@ const editCall = (callId) => {
     clientId = call.clientId;
     fill_data(call);
 };
-
+function takeFeedback(callId) {
+    up_callId = callId;
+    $('#takeFeedback').modal('show');
+}
 function callRegister() {
     $("#callRegister").validate({
         ignore: [],

@@ -16,9 +16,9 @@ $('#medicineMasterForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
+            
                 if (response.Responsecode == 200) {
-                  alert(response.Responsecode); 
+                 
                     swal({
                         position: 'top-end',
                         icon: 'success',

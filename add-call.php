@@ -1,3 +1,13 @@
+<style>
+    .error {
+        color: red;
+    }
+  .required:after {
+    content:" *";
+    color: red;
+  }
+
+</style>
 <div class="modal fade full-window-modal" id="fullwindowModal" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form id="callForm" method="POST">
@@ -5,7 +15,7 @@
             <div class="modal-header" style="background-color: aliceblue;">
                 <h5 class="modal-title" id="fullwindowModalLabel"><strong>Call Information</strong></h5>
                 <div class="template-demo">
-                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">Search Old Record</button>
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter"><i class="ik ik-search" style="font-size: 20px;color: blueviolet;" ></i></button>
                 </div>
                
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -23,7 +33,7 @@
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="firstName">First Name</label>
+                                                <label for="firstName" class="required">First Name</label>
                                                 <input type="text" placeholder="John" class="form-control" name="firstName" id="firstName">
                                             </div>
                                         </div>
@@ -35,7 +45,7 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">Last Name</label>
+                                                <label for="" class="required">Last Name</label>
                                                 <input type="text" placeholder="Doe" class="form-control" name="lastName" id="lastName">
                                             </div>
                                         </div>
@@ -47,13 +57,13 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">Date of Birth</label>
+                                                <label for="" class="required">Date of Birth</label>
                                                 <input type="date" class="form-control" name="birthdate" id="birthdate">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">Gender</label>
+                                                <label for="" class="required">Gender</label>
                                                 <select name="gender" id="gender" class="form-control">
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
@@ -88,7 +98,7 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">Contact Number</label>
+                                                <label for="" class="required">Contact Number</label>
                                                 <input type="text" class="form-control" name="mobile" id="mobile">
                                             </div>
                                         </div>
@@ -101,20 +111,20 @@
                                         
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">Country</label>
+                                                <label for="" class="required">Country</label>
                                                 <select  class="form-control select2"name="country" id="country" style="width: 100%;" onchange="loadStates(this.value);"></select>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">State</label>
+                                                <label for="" class="required">State</label>
                                         
                                                 <select  class="form-control select2" name="state" id="state" style="width: 100%;" onchange="loadCities(this.value);"></select>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">City</label>
+                                                <label for="" class="required">City</label>
                                                 <select  class="form-control select2" name="city" id="city" style="width: 100%;"></select>
                                             </div>
                                         </div>
@@ -146,7 +156,7 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">Branch</label>
+                                                <label for="" class="required">Branch</label>
                                                 <select name="branchId" id="branchId" class="form-control select2" style="width: 100%;" onchange="loadUsers(this.value)">
 
                                                 </select>
@@ -154,7 +164,7 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">Doctor</label>
+                                                <label for="" class="required">Doctor</label>
                                                 <select name="userId" id="userId" class="form-control select2" style="width: 100%;">
 
                                                 </select>
@@ -176,28 +186,26 @@
 
                         <div class="row">
 
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="">Desease</label>
+                                    <label for="">Disease</label>
                                     <input type="text" class="form-control" name="desease" id="desease">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="">Appointment Date</label>
+                                    <label for="" class="required">Appointment Date</label>
                                     <input type="date" class="form-control" name="appointmentDate" id="appointmentDate">
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="">Remarks</label>
                                     <input type="text"  class="form-control" name="remarks" id="remarks">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
 
-                            <div class="col-md-4">
+                            <div class="col-md-2" style="margin-top: 32px;">
                                 <div class="form-group">
                                 <div class="checkbox-fade fade-in-success">
                                                         <label>
@@ -210,12 +218,22 @@
                                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Follow up Date/Time</label>
                                     <input type="datetime-local" class="form-control" name="follwupdate" id="follwupdate">
                                 </div>
                             </div>
+
+                        </div>
+                        <div class="row">
+
+                        <div class="col-md-4">
+                        <div class="form-group">
+                                    <label for="feedback">Feedback</label>
+                                    <textarea name="feedback" id="feedback" rows="2" class="form-control "></textarea>
+                                </div>
+                                </div>
                             <div class="col-md-4">
                                <input type="hidden" id="clientId" name="clientId">
                             </div>

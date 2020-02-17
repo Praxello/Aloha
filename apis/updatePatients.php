@@ -32,7 +32,8 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
     $cholestrol     = isset($_POST['cholestrol']) ? $_POST['cholestrol'] : 'NULL';
     $history        = isset($_POST['history']) ? $_POST['history'] : 'NULL';
     $occupation     = isset($_POST['occupation']) ? $_POST['occupation'] : 'NULL';
-  
+    $hardDrink     = isset($_POST['hardDrink']) ? $_POST['hardDrink'] : 'NULL';
+    
     $economicStrata = isset($_POST['economicStrata']) ? $_POST['economicStrata'] : 'NULL';
     
     $address = mysqli_real_escape_string($conn, $address);
@@ -42,7 +43,7 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
      landline='$landline',city='$city',address='$address',referredby='$referredby',firstVisitDate='$firstVisitDate',lastVisitDate='$lastVisitDate',
      nextVisitDate='$nextVisitDate',smoking='$smoking',alcohol='$alcohol',tobacco='$tobacco',HTN='$HTN',diabetes='$diabetes', 
      cholestrol='$cholestrol',history='$history',occupation='$occupation',economicStrata='$economicStrata',
-     country='$country',state='$state',maritalstatus='$maritalstatus',pincode='$pincode',remarks='$remarks' WHERE patientId='$patientId'";
+     country='$country',state='$state',maritalstatus='$maritalstatus',pincode='$pincode',remarks='$remarks',hardDrink='$hardDrink' WHERE patientId='$patientId'";
   
     
     $query = mysqli_query($conn, $sql);

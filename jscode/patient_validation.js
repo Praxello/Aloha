@@ -11,7 +11,7 @@ $(function() {
                     maxlength: 50
                 },
 
-                birthDate: {
+                birthdate: {
                     required: true
 
                 },
@@ -28,10 +28,7 @@ $(function() {
                     required :true,
                     number : true
                 },
-                occupation :{
-                    required :true
-                
-                },
+              
                 referredby:{
                     required :true
                
@@ -60,7 +57,7 @@ $(function() {
                     required: "Please enter Last name",
                     maxlength: "Length Exceed upto 50 characters"
                 },
-                birthDate: {
+                birthdate: {
                     required: "Please enter Date of birth"
 
                 },
@@ -78,9 +75,7 @@ $(function() {
                     required: "Please enter height",
                     number: "enter valid number"
                 },
-                occupation:{
-                    required: "Please enter occupation"
-                },
+              
                 referredby:{
                     required: "Please enter name of referredby"
                 },

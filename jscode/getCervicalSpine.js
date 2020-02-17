@@ -30,6 +30,7 @@ var showCervicalSpine = cervicals => {
     for (let k of cervicals.keys()) {
         let cervical = cervicals.get(k);
         console.log(cervical);
+         
         tblData += '<tr><td>' + getDate(cervical.visitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editCervicalSpine(' + (k) + ')" title="Edit patients details"><i class="ik ik-edit text-blue"></i></a>';
@@ -53,8 +54,10 @@ var showCervicalSpine = cervicals => {
 
 var editCervicalSpine = (cerSpineId) => {
     cerSpineId = cerSpineId.toString();
+
     cervical_details = cervicals.get(cerSpineId);
     fill_Cervical(cervical_details);
+
 };
 
 function fill_Cervical(details) {

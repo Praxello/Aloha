@@ -77,6 +77,7 @@ const editBranch = (branchId) => {
  
 };
 
+
 var inactivatebranch = branchId => {
     branchId = branchId.toString();
     let branch = branches.get(branchId);
@@ -85,12 +86,12 @@ var inactivatebranch = branchId => {
         msg1 = '';
     if (branch.isActive == 1) {
         branch.isActive = 0;
-        msg = 'Do you really want to in activate this Branch?';
+        msg = 'Do you really want to in activate this branch?';
         btn = 'Deactivate Now';
-        msg1 = 'Branch Deactivated';
+        msg1 = 'Branch Deactvated';
     } else {
         branch.isActive = 1;
-        msg = 'Do you really want to  activate this Branch?';
+        msg = 'Do you really want to  activate this branch?';
         btn = 'Activate Now';
         msg1 = 'Branch Activated';
     }
@@ -109,8 +110,7 @@ var inactivatebranch = branchId => {
                     data: { branchId: branchId },
                     dataType: 'json',
                     success: function(response) {
-                        console.log(response);
-                        if (response.branchId == 200) {
+                        if (response.Responsecode == 200) {
                             branches.set(branchId, branch);
                             listBranches(branches);
                             swal({

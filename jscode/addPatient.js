@@ -2,9 +2,9 @@ $('#patientform').on('submit', function(e) {
     e.preventDefault();
     var returnVal = $("#patientform").valid();
     if (returnVal) {
-        var birthDate = moment($('#dropper-max-year').val()).format('YYYY-MM-DD');
+        var birthdate = moment($('#dropper-max-year').val()).format('YYYY-MM-DD');
         var fData = new FormData(this);
-        fData.append('birthDate', birthDate);
+        fData.append('birthdate', birthdate);
         $.ajax({
             url: url + 'addPatient.php',
             type: 'POST',

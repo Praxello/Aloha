@@ -12,11 +12,7 @@
         <div class="col-lg-12 col-md-7">
             <div class="card">
                 <ul class="nav nav-pills custom-pills t1" id="pills-tab" role="tablist">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active" id="pills-timeline-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-timeline" aria-selected="true">Profile</a>
-                    </li> -->
-
-                 
+                   
                 </ul>
               
                     <div class="tab-pane fade show active" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
