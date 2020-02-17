@@ -42,7 +42,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="gender">Gender</label>
+                                <label for="gender" class="required">Gender</label>
                                 <select class="form-control select2" id="gender" name="gender" placeholder="Gender">
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="">Date of Birth</label>
+                                <label for="" class="required"> Date of Birth</label>
                                 <input type="date" class="form-control" name="birthdate" id="birthdate">
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="occupation" class="required">Occupation</label>
+                                <label for="occupation">Occupation</label>
                                 <input type="text" class="form-control" id="occupation" name="occupation" placeholder="occupation" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="referredby">Referred By</label>
+                                <label for="referredby" class="required">Referred By</label>
                                 <select id="referredby" name="referredby" class="form-control" style="width: 100%;"></select>
                             </div>
                         </div>
