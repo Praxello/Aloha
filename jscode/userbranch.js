@@ -13,6 +13,6 @@ $(document).ready(function() {
     $("#branchId").select2({
         placeholder: 'Select branch',
         allowClear: true,
-        dropdownParent: $('#userModal')
+        // dropdownParent: $('#userModal')
     });
 });

@@ -83,6 +83,9 @@
                                 <div class="nav-item">
                                     <a href="medicineType.php"><i class="ik ik-user"></i><span>Medicine Type</span> <span class="badge badge-success"></span></a>
                                 </div>
+                                <div class="nav-item">
+                                    <a href="discountMaster.php"><i class="ik ik-user"></i><span>Discount Master</span> <span class="badge badge-success"></span></a>
+                                </div>
                             </nav>
                         </div>
                     </div>

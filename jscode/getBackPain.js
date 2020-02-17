@@ -133,7 +133,7 @@ function fill_back(back) {
             return obj[key];
         });
         i = 0;
-        $.each($("input[name='sitting']"), function() {
+        $.each($("input[name='sitting1']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {

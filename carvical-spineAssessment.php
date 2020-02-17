@@ -46,7 +46,7 @@
 
                                                                 <label for="presentSince" class="col-sm-1 col-form-label">Present Since:</label>
                                                                 <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="cerpresentSince1" name="cerpresentSince1" placeholder="0-10">
+                                                                    <input type="text" class="form-control" id="cerpresentSince1" name="cerpresentSince1" placeholder="">
                                                                 </div>
                                                                 <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success check">

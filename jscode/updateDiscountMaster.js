@@ -1,14 +1,14 @@
-$('#diagnosisMasterForm').on('submit', function(e) {
+$('#discountMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-           
-    var returnVal = $("#diagnosisMasterForm").valid();
+  
+    var returnVal = $("#discountMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-
-
+        fData.append('discountId',discountId_np);
+    
         $.ajax({
-            url: url + 'insertDiagnosisMaster.php',
+            url: url + 'update_Discount.php',
             type: 'POST',
             data: fData,
             cache: false,
@@ -18,7 +18,7 @@ $('#diagnosisMasterForm').on('submit', function(e) {
             success: function(response) {
                 console.log(response);
                 if (response.Responsecode == 200) {
-              
+                    // alert(response.Message);
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -26,10 +26,10 @@ $('#diagnosisMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    $('#cButton').click();
-                    $('#diagnosisMasterForm').trigger('reset');
-                    diagnosis.set(response.Data.diagnosisId,response.Data);
-                    listdiagnosis(diagnosis);
+                    $('#editfeesNew').empty();
+                    $('#newFees').show();
+                    discounts.set(response.Data.discountId, response.Data);
+                    listDiscount(discounts);
 
                 } else {
                     swal({
@@ -39,7 +39,6 @@ $('#diagnosisMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-               
                 }
             }
         });

@@ -8,7 +8,7 @@ var loadFeesDetails = details => {
     $('#userIde').html(DocList);
  
     $('.select2').select2({
-        placeholder:'select'
+        placeholder:'select fees'
       
       
     });
