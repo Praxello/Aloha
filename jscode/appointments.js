@@ -3,6 +3,7 @@ var u_patientId = null;
 var u_appointmentId = null;
 var global_patientId = null; //for lumbar neck,and back pain
 var details = {};
+var fStatus = null;
 var global_date = moment().format('YYYY-MM-DD');
 $('#dropper-max-year').val(moment().format('YYYY-MM-DD'));
 const getAllAppointments = (doctorId) => {
@@ -52,11 +53,14 @@ const listAppointments = (appointments, today) => {
                 tblData += '<td><span class="badge badge-default">Pending</span></td>';
             }
             feesSt = fees_status(patient.patientId, patient.doctorId, patient.appointmentDate);
+            if (feesSt == 0) {
+                feesSt = 'unmarked';
+            }
             tblData += '<td>' + patient.doctorName + '(' + patient.address + ')</td>';
             tblData += '<td>' + feesSt + '</td>';
             tblData += patientType;
             tblData += '<td ><div class="table-actions" style="text-align : left" >';
-            tblData += '<a href="#"  onclick="editPatient(' + (k) + ')" title="medication"><i class="fa fa-medkit" style="color: blue;"></i></a>';
+            tblData += '<a href="#"  onclick="editPatient(\'' + k + '\',\'' + feesSt + '\')" title="medication"><i class="fa fa-medkit" style="color: blue;"></i></a>';
             tblData += '</div></td></tr>';
         }
 
@@ -78,7 +82,8 @@ const listAppointments = (appointments, today) => {
 };
 getAllAppointments(data.userId);
 
-const editPatient = (appointmentId) => {
+const editPatient = (appointmentId, feesSt) => {
+    fStatus = feesSt;
     appointmentId = appointmentId.toString();
     let patient = appointments.get(appointmentId);
     details = patient;

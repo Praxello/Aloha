@@ -99,10 +99,10 @@
 
                                                 <div class="row">
                                                     <div class="col-sm-6">
-                                                        <label for="total"><strong>Total :</strong></label>
+                                                       <strong>Total :</strong><span id="total"></span>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <label for="received"><strong>Received :</strong></label>
+                                                        <strong>Received :</strong><span id="received"></span>
                                                     </div>
 
                                                     <div class="col-sm-2"></div>
@@ -154,7 +154,7 @@
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label for=""><strong>Discount(%):</strong></label>
-                                                        <input type="number" placeholder="10" class="form-control" name="dAmt" id="dAmt" oninput="calculateAmt(this.value)" min="0" max="99">
+                                                        <input type="number"  class="form-control" name="dAmt" id="dAmt" oninput="calculateAmt(this.value)" min="0" max="99">
                                                     </div>
 
                                                     <div class="col-sm-3">

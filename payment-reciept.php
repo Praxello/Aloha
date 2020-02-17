@@ -12,7 +12,7 @@ function patientDetails($paymentId)
 {
   $output  = '';
     include 'connection.php';
-    $sql       = "SELECT opm.recieptId,pm.firstName,pm.surname,pm.mobile1,opm.patientId,DATE_FORMAT(opm.visitDate,'%d %b %Y') visitDate  
+    $sql       = "SELECT opm.recieptId,pm.firstName,pm.surname,pm.mobile1,opm.patientId,DATE_FORMAT(opm.visitDate,'%d %b %Y') visitDate,pm.address  
 FROM opd_patient_payment_master opm LEFT JOIN patient_master pm ON pm.patientId = opm.patientId
 WHERE opm.paymentId =  $paymentId";
     $jobQuery  = mysqli_query($conn, $sql);
@@ -24,25 +24,30 @@ WHERE opm.paymentId =  $paymentId";
             $patientId = $academicResults['patientId'];
             $tDate = $academicResults['visitDate'];
             $mobile = $academicResults['mobile1'];
-            $output .= '<div class="row pb-5 p-5 ">
-                        <div class="col-xs-4">
-                            <p class="mb-1 "><span class="text-muted ">Reciept number: </span>'.$academicResults['recieptId'].'</p>
+            $output .= '<div class="row">
+            <div class="col-xs-8"></div>
+            <div class="col-xs-4">
+            <p><span class="text-muted ">Date: </span><strong style="margin-left:3px;"> '.$tDate.'</strong></p>
+            </div>
+                        </div>
+                        <div class="row pb-5 p-5 ">
+                        <div class="col-xs-2">
+                        <p class="mb-1 "><span class="text-muted ">Reciept number: </span>'.$academicResults['recieptId'].'</p>
+                     
+                        </div>
+                        <div class="col-xs-2">
+                        <p class="mb-1 "><span class="text-muted ">Reg no: </span> '.$patientId.'</p>
                         </div>
                         <div class="col-xs-4">
-                            <p class="mb-1 "><span class="text-muted ">Date: </span> '.$tDate.'</p>
+                        <p class="mb-1"><span class="text-muted ">Patient Name: </span><strong><u>'.$patientName.'</u></strong></p>
                         </div>
                         <div class="col-xs-4">
+                        <p class="mb-1 "><span class="text-muted ">Cell: </span> '.$mobile.'</p>
                     </div>
                     </div>
-                    <div class="row pb-5 p-5 ">
-                        <div class="col-xs-4">
-                            <p class="mb-1 "><span class="text-muted ">Patient Name: </span> '.$patientName.'</p>
-                        </div>
-                        <div class="col-xs-4">
-                            <p class="mb-1 "><span class="text-muted ">Cell: </span> '.$mobile.'</p>
-                        </div>
-                        <div class="col-xs-4">
-                            <p class="mb-1 "><span class="text-muted ">Reg no: </span> '.$patientId.'</p>
+                    <div class="row pb-5 p-5">
+                        <div class="col-xs-12">
+                        <p class="mb-1 "><span class="text-muted">Address: </span> '.$academicResults['address'].'</p>
                         </div>
                     </div>';
         }

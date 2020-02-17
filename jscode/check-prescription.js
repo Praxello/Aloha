@@ -98,22 +98,22 @@ function fill_prev(response) {
         tblData += '<div class="card-body">';
         tblData += '<div class="row invoice-info">';
         tblData += '<div class="col-sm-6">';
-        tblData += '<div><h5 class="d-block w-100"> Branch:';
+        tblData += '<div><h5 class="d-block w-100"> Branch: ';
         tblData += response[i].branchName;
         tblData += '</h5></div> </div> <div class="col-sm-6">';
-        tblData += '<div><h5 class="d-block w-100"> Doctor:';
+        tblData += '<div><h5 class="d-block w-100"> Doctor: ';
         tblData += response[i].username;
         tblData += '</h5></div> </div> </div>';
         tblData += '<div class="row invoice-info">';
         tblData += '<div class="col-sm-6 invoice-col">';
-        tblData += '<div class="alert alert-secondary mt-20">Complaints:';
+        tblData += '<div class="alert alert-secondary mt-20">Complaints: ';
         tblData += response[i].complaint;
         tblData += '</div> </div> <div class="col-sm-6 invoice-col">';
-        tblData += '<div class="alert alert-secondary mt-20">Diagnosis:';
+        tblData += '<div class="alert alert-secondary mt-20">Diagnosis: ';
         tblData += response[i].diagnosis;
         tblData += '</div> </div> </div> <div class="row">';
         tblData += '<div class="col-12 table-responsive"> <table class="table"> <thead> ';
-        tblData += ' <th>Type</th><th>Medicine</th> <th>Morning</th><th>Evening</th><th>Night</th><th>Duration</th><th>Inst</th>  </tr> </thead>';
+        tblData += ' <th>Type</th><th>Medicine</th> <th>Morning</th><th>Afternoon</th><th>Night</th><th>Duration</th><th>Inst</th>  </tr> </thead>';
         if (response[i].medicines != null) {
             var n = response[i].medicines.length;
             for (var j = 0; j < n; j++) {

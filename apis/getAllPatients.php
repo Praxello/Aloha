@@ -6,8 +6,13 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT pm.patientId,COALESCE(pm.firstName,'') firstName,COALESCE(pm.middleName,'') middleName,COALESCE(pm.surname,'') surname,COALESCE(pm.gender,'') gender,COALESCE(pm.height,'') height,COALESCE(pm.weight,'') weight,COALESCE(pm.birthDate,'') birthDate,COALESCE(pm.religion,'') religion,COALESCE(pm.landline,'') landline,COALESCE(pm.remarks,'') remarks,pm.email,pm.mobile1,pm.mobile2,pm.referredby,pm.country,pm.pincode,pm.maritalstatus,pm.state,pm.city,pm.cholestrol,pm.diabetes,pm.firstVisitDate,pm.lastVisitDate,pm.smoking,pm.alcohol,pm.tobacco,pm.HTN,pm.diabetes,pm.tobacco,
-st.name stateName,ct.name cityName,pm.address FROM patient_master pm LEFT JOIN states st ON st.id = pm.state LEFT JOIN cities ct ON ct.id = pm.city";
+$sql = "SELECT pm.patientId,COALESCE(pm.firstName,'') firstName,COALESCE(pm.middleName,'') middleName,COALESCE(pm.surname,'') surname,
+COALESCE(pm.gender,'') gender,COALESCE(pm.height,'') height,COALESCE(pm.weight,'') weight,COALESCE(pm.birthDate,'') birthDate,
+COALESCE(pm.religion,'') religion,COALESCE(pm.landline,'') landline,COALESCE(pm.remarks,'') remarks,pm.email,pm.mobile1,
+pm.mobile2,pm.referredby,pm.country,pm.pincode,pm.maritalstatus,pm.state,pm.city,pm.cholestrol,pm.diabetes,pm.firstVisitDate,
+pm.lastVisitDate,pm.smoking,pm.alcohol,pm.tobacco,pm.HTN,pm.diabetes,pm.tobacco,
+st.name stateName,ct.name cityName,pm.address FROM patient_master pm 
+LEFT JOIN states st ON st.id = pm.state LEFT JOIN cities ct ON ct.id = pm.city";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

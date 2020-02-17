@@ -83,55 +83,37 @@ function paymentHistory()
     }
     return $output;
 }
-$html = '<!DOCTYPE html>
-<html>
+$html = '<html>
 <head>
-    <title></title>
-</head>
-<style type="text/css">
-    table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-
-}
-th, td {
-  padding: 5px;
-  text-align: left;    
-}
-</style>
+  <style>
+    @page { margin: 180px 50px; }
+    #header { position: fixed; left: 0px; top: -180px; right: 0px; height: 150px; background-color: orange; text-align: center; }
+    #footer { position: fixed; left: 0px; bottom: -180px; right: 0px; height: 150px; background-color: lightblue; }
+    #footer .page:after { content: counter(page, upper-roman); }
+  </style>
 <body>
-
-    <table width="100%" border=0 width=1000 style="border-collapse:collapse;">
-<tr>
-<td width="15%">
-<img src="img/medical.jpg" width="120" >
-</td>
-<td width="50%">
-<p style="text-align:center; font-weight:bold; margin-bottom:0px; margin-top:4px;">S.NO.46,Vartak Pride,D.P.Road,KarveNagar,Maharashtra, Pune 411004</p>
-<p > <img src="img/web.jpg" height="32px;" >www.aloha.com  <img src="img/mobile.jpg" height= 32px; style="margin-left: 40px">9087878787 <img src="img/landline.jpg" height="32px" style="margin-left: 40px">020-25449102</p>
-
-</td>
-</tr>
-</table>
-</div>
-
-    <hr style="margin-top: 35px;">
-
-    <p><h1 style="margin-left: 300px;">Receipt</h1></p>
-    '.patientDetails().'
-    
-  
-    <p ><h3 style="margin-left: 300px;">Receipt Details</h3></p>
-    <table style="width:100%">
- ' . billDetails() . '
-</table>
-<br>
-'.paymentHistory().'
-<br>
-<p style="margin-top: 35px;"><b>LDR Clinic</b></p>
-
+  <div id="header">
+    <h1>ibmphp.blogspot.com</h1>
+  </div>
+  <div id="footer">
+    <p class="page"><a href="ibmphp.blogspot.com"></a></p>
+  </div>
+  <div id="content">
+    <p><a href="ibmphp.blogspot.com">ibmphp.blogspot.com</a></p>
+    <p style="page-break-before: always;"><a href="ibmphp.blogspot.com">ibmphp.blogspot.com</a></p>
+    <p style="page-break-before: always;"><a href="ibmphp.blogspot.com">ibmphp.blogspot.com</a></p>
+    <p style="page-break-before: always;"><a href="ibmphp.blogspot.com">ibmphp.blogspot.com</a></p>
+    <p style="page-break-before: always;"><a href="ibmphp.blogspot.com">ibmphp.blogspot.com</a></p>
+    <p style="page-break-before: always;"><a href="ibmphp.blogspot.com">ibmphp.blogspot.com</a></p>
+    <p style="page-break-before: always;"><a href="ibmphp.blogspot.com">ibmphp.blogspot.com</a></p>
+    <p style="page-break-before: always;"><a href="ibmphp.blogspot.com">ibmphp.blogspot.com</a></p>
+    <p style="page-break-before: always;"><a href="ibmphp.blogspot.com">ibmphp.blogspot.com</a></p>
+    <p style="page-break-before: always;"><a href="ibmphp.blogspot.com">ibmphp.blogspot.com</a></p>
+    <p style="page-break-before: always;"><a href="ibmphp.blogspot.com">ibmphp.blogspot.com</a></p>
+  </div>
 </body>
-</html>';
+</html>
+';
 
 $dompdf->setPaper('A4', 'portrait');
 
