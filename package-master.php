@@ -122,6 +122,8 @@ if(isset($_SESSION['branchId'])){
         <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
         <script src="plugins/select2/dist/js/select2.min.js"></script>
+        <script src="js/jquery.validate.js"></script>
+        <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
         <script src="plugins/screenfull/dist/screenfull.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="jscode/apis.js"></script>

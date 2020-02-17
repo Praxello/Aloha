@@ -15,24 +15,29 @@ if (isset($_POST['callId']) && isset($_POST['clientId']) && isset($_POST['firstN
     $country               = isset($_POST['country']) ? $_POST['country'] : 'NULL';
     $pincode               = isset($_POST['zipcode']) ? $_POST['zipcode'] : 'NULL';
     $reference             = isset($_POST['reference']) ? $_POST['reference'] : 'NULL';
-    $callDateTime          = isset($_POST['callDateTime']) ? $_POST['callDateTime'] : 'NULL';
-    $disease               = isset($_POST['disease']) ? $_POST['disease'] : 'NULL';
+    $callDateTime          = date("Y-m-d h:i:s");//isset($_POST['callDateTime']) ? $_POST['callDateTime'] : 'NULL';
+    $disease               = isset($_POST['desease']) ? $_POST['desease'] : 'NULL';
     $remarks               = isset($_POST['remarks']) ? $_POST['remarks'] : 'NULL';
     $folowupNeeded         = isset($_POST['folowupNeeded']) ? $_POST['folowupNeeded'] : 'NULL';
-    $folowupNeededDateTime = isset($_POST['folowupNeededDateTime']) ? $_POST['folowupNeededDateTime'] : 'NULL';
+    $folowupNeededDateTime = isset($_POST['follwupdate']) ? $_POST['follwupdate'] : 'NULL';
     $attendedBy            = isset($_POST['attendedBy']) ? $_POST['attendedBy'] : 'NULL';
     $branchId              = isset($_POST['branchId']) ? $_POST['branchId'] : 'NULL';
     $doctorId              = isset($_POST['userId']) ? $_POST['userId'] : 'NULL';
 
-    $sql = "UPDATE call_center_patients SET firstName = '$firstName',middleName = '$middleName',lastName = '$lastName',email='$email',mobile = '$mobile' ,landline ='$landline' ,nearByArea = '$nearByArea',city = '$city',state = '$state',country = '$country',pincode = '$pincode',reference = '$reference',gender = '$gender',dateOfBirth = '$birthdate' WHERE clientId = $clientId";
+    $sql = "UPDATE call_center_patients SET firstName = '$firstName',middleName = '$middleName',lastName = '$lastName',email='$email',
+    mobile = '$mobile' ,landline ='$landline' ,nearByArea = '$nearByArea',city = '$city',state = '$state',country = '$country',
+    pincode = '$pincode',reference = '$reference',gender = '$gender',dateOfBirth = '$birthdate' WHERE clientId = $clientId";
     
     $query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
-    $sql1 = "UPDATE call_center SET callDateTime = '$callDateTime',branchId = $branchId,doctorId = $doctorId,disease ='$disease',appointmentDate = '$appointmentDate',remarks = '$remarks',folowupNeeded = '$folowupNeeded',folowupNeededDateTime = '$folowupNeededDateTime',attendedBy = '$attendedBy' WHERE callId = $callId";
+    $sql1 = "UPDATE call_center SET callDateTime = '$callDateTime',branchId = $branchId,doctorId = $doctorId,disease ='$disease',
+    appointmentDate = '$appointmentDate',remarks = '$remarks',folowupNeeded = '$folowupNeeded',folowupNeededDateTime = '$folowupNeededDateTime',attendedBy = '$attendedBy' WHERE callId = $callId";
     $query_1 = mysqli_query($conn, $sql1) or die(mysqli_error($conn));
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected > 0) {
-            $academicQuery = mysqli_query($conn, "SELECT * FROM call_center cc INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId WHERE cc.callId = $callId");
+            $academicQuery = mysqli_query($conn, "SELECT *,st.name stateName,ct.name cityName FROM call_center cc INNER JOIN call_center_patients ccp 
+            ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state LEFT JOIN cities ct ON ct.id = ccp.city
+            WHERE cc.callId = $callId");
             if ($academicQuery != null) {
                 $academicAffected = mysqli_num_rows($academicQuery);
                 if ($academicAffected > 0) {

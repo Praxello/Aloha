@@ -75,6 +75,5 @@
     </div>
 </div>
 </div>
-<script src="js/jquery.validate.js"></script>
 <script src="jscode/package-validation.js"></script>
 <script src="jscode/addPackage.js"></script>

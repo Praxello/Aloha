@@ -85,8 +85,8 @@ $output .= '<div class="row p-5">
         </tr>';
         if($discount>0){
             $output .= '<tr>
-            <td class="thick-line "><strong>Total Discount</strong></td>
-            <td class="thick-line "><strong>' .number_format($discount,2).'</strong></td>
+            <td class="thick-line "><strong>Total Discount(%)</strong></td>
+            <td class="thick-line "><strong>' .number_format($discount,2).'%</strong></td>
         </tr>';
         }
         $output .= '<tr>

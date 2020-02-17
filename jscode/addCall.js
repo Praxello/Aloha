@@ -24,10 +24,10 @@ $('#callForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
+                    $('.select2').val('').trigger('change');
                     $('#callForm').trigger('reset');
                     $('#fullwindowModal').modal('hide');
                     calls.set(response.Data.callId, response.Data);
-                    console.log(calls);
                     listCalls(calls);
                 } else {
                     swal({

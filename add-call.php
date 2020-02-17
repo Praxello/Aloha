@@ -102,20 +102,20 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="">Country</label>
-                                                <select  class="form-control"name="country" id="country" style="width: 100%;" onchange="loadStates(this.value);"></select>
+                                                <select  class="form-control select2"name="country" id="country" style="width: 100%;" onchange="loadStates(this.value);"></select>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="">State</label>
                                         
-                                                <select  class="form-control" name="state" id="state" style="width: 100%;" onchange="loadCities(this.value);"></select>
+                                                <select  class="form-control select2" name="state" id="state" style="width: 100%;" onchange="loadCities(this.value);"></select>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="">City</label>
-                                                <select  class="form-control" name="city" id="city" style="width: 100%;"></select>
+                                                <select  class="form-control select2" name="city" id="city" style="width: 100%;"></select>
                                             </div>
                                         </div>
                                     </div>
@@ -129,13 +129,13 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="">Near by area</label>
-                                                <input type="text" class="form-control" name="nearbyarea" id="nearbyarea">
+                                                <input type="text" class="form-control" name="nearByArea" id="nearByArea">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="">Reference</label>
-                                                <select  class="form-control" name="reference" id="reference" style="width: 100%;"></select>
+                                                <select  class="form-control select2" name="reference" id="reference" style="width: 100%;"></select>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -147,7 +147,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="">Branch</label>
-                                                <select name="branchId" id="branchId" class="form-control" style="width: 100%;" onchange="loadUsers(this.value)">
+                                                <select name="branchId" id="branchId" class="form-control select2" style="width: 100%;" onchange="loadUsers(this.value)">
 
                                                 </select>
                                             </div>
@@ -155,7 +155,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="">Doctor</label>
-                                                <select name="userId" id="userId" class="form-control" style="width: 100%;">
+                                                <select name="userId" id="userId" class="form-control select2" style="width: 100%;">
 
                                                 </select>
                                             </div>

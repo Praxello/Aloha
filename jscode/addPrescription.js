@@ -28,13 +28,21 @@ function storeTblValues() {
 function savePrescription() {
     var prescriptionData = {
         medicinesDetails: storeTblValues(),
-        remarks: $('#remark').val(),
+        remarks: $('#adviceId').val(),
         complaints: $('#complaintsId').val(),
         diagnosis: $('#diagnosis').val(),
         patientId: u_patientId,
         doctorId: data.userId,
         nextvisit: $('#nextVisitDate').val(),
-        vdate: '2019-01-03'
+        vdate: '2019-01-03',
+        pulse: $('#pulse').val(),
+        height: $('#height').val(),
+        weight: $('#weight').val(),
+        west: $('#west').val(),
+        hip: $('#hip').val(),
+        temp: $('#temp').val(),
+        spo2: $('#spo2').val(),
+        bp: $('#bp').val()
     };
     prescriptionData = JSON.stringify(prescriptionData);
     $.ajax({

@@ -3,11 +3,12 @@
         color: red;
     }
 </style>
+ <button class="btn btn-primary" type="button" onclick="goback()" style="float: right;">Back</button>
 <div class="container-fluid">
-    <button class="btn btn-primary" type="button" onclick="goback()" style="float: right;">Back</button>
+   
     <div class="row">
 
-        <div class="col-lg-12 col-md-7">
+        <div class="col-lg-12 col-md-12">
             <div class="card">
                 <ul class="nav nav-pills custom-pills" id="pills-tab" role="tablist">
                     <li class="nav-item">
@@ -85,7 +86,7 @@
                                     <br>
                                  <select name="branchId" id="branchId" class="form-control" style="width: 100%;"></select>
                                 </div>
-                                <div class="col-md-3 col-6"> <strong>Package Discount</strong>
+                                <div class="col-md-3 col-6"> <strong>Package Discount(%)</strong>
                                     <br>
                                   <input type="text" class="form-control" id="packageDiscount" name="packageDiscount">
                                 </div>
@@ -135,14 +136,14 @@
                                         <label for="example-password">Package Status</label>
                                         <div class="checkbox-fade fade-in-success check">
                                             <label>
-                                                <input type="radio" value="1" name="isActive">
+                                                <input type="radio" value="1" name="isActive" id="isActivet">
                                                 <span class="cr">
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                 <span>Active</span>
                                             </label>
                                             <label>
-                                                <input type="radio" value="0" name="isActive">
+                                                <input type="radio" value="0" name="isActive" id="isActivef">
                                                 <span class="cr">
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>

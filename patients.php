@@ -124,6 +124,7 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
         <script src="plugins/d3/dist/d3.min.js"></script>
         <script src="plugins/c3/c3.min.js"></script>
+        <script src="js/jquery.validate.js"></script>
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
          <?php include 'add_patient.php';?>
@@ -143,9 +144,13 @@ username:'<?php echo $_SESSION['username'];?>'
        <script src="jscode/getAllTests.js"></script>
        <script src="jscode/loadFile.js"></script>
        <script src="jscode/loadTest.js"></script>
+       <script src="jscode/getPackages.js"></script>
        <script src="jscode/getCountryStateCity.js"></script>
        <script src="jscode/getPreviousPayments.js"></script>
+       <script src="jscode/getDiscount.js"></script>
        <script src="jscode/prescribeTestTable.js"></script>
+       <script src="jscode/packagePayment.js"></script>
+       
     </body>
 
 </html>

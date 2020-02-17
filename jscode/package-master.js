@@ -65,7 +65,7 @@ const editPackage = packageId => {
     $('#loadPackage').load('edit-package.php');
 };
 
-const addPackage = () => {
+var addPackage = () => {
     $('#demoModal').modal('show');
 };
 

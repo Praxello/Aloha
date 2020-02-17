@@ -81,7 +81,8 @@ function acceptPayment(patientId) {
     $('#paymentFor').html(list);
     $("#paymentFor").select2({
         placeholder: 'Select Doctor for payment',
-        allowClear: true
+        allowClear: true,
+        dropdownParent: $('#opd-payment-generate')
     });
     //  $("#presTable tbody").empty();
     $('#opd-payment-generate').modal('show');

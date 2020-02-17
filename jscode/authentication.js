@@ -11,9 +11,8 @@ $('#signin').on('submit', function(event) {
         data: loginData,
         dataType: 'json',
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
-                window.location.href = 'createSession.php?userId=' + loginData.userId + '&branchId=' + loginData.branchId + '&username=' + response.Data.username;
+                window.location.href = 'createSession.php?userId=' + loginData.userId + '&branchId=' + loginData.branchId + '&username=' + response.Data.username + '&role=' + response.Data.usertype + '&roleName=' + response.Data.role;
             } else {
                 $('.message').show();
             }

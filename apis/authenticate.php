@@ -7,7 +7,9 @@ $response = null;
 $records  = null;
 extract($_POST);
 if (isset($_POST['userId']) && isset($_POST['passwrd']) && isset($_POST['branchId'])) {
-    $sql      = "SELECT um.userId,username FROM user_master um WHERE um.userId = $userId AND um.password = '$passwrd' AND um.branchId = $branchId";
+    $sql      = "SELECT um.userId,um.username,um.usertype,rm.role FROM user_master um 
+    LEFT JOIN roleMaster rm ON rm.roleId = um.usertype  
+    WHERE um.userId = $userId AND um.password = '$passwrd' AND um.branchId = $branchId";
     $jobQuery = mysqli_query($conn, $sql);
     if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);

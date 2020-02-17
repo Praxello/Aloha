@@ -18,7 +18,7 @@ const getAllClients = () => {
         }
     });
 };
-getAllClients();
+// getAllClients();
 const listCustomers = customers => {
     $('#appT').hide();
     $('#customerT').show();
@@ -30,7 +30,7 @@ const listCustomers = customers => {
         tblData += '<td>' + customer.email + '</td>';
         tblData += '<td>' + getAge(customer.dateOfBirth) + '</td>';
         tblData += '<td>' + customer.mobile + '</td>';
-        tblData += '<td>' + customer.stateName + ' ' + customer.cityName + '</td>';
+        tblData += '<td>' + customer.stateName + ',' + customer.cityName + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editCustomer(' + (customer.clientId) + ')" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '</div></td></tr>';
@@ -65,6 +65,24 @@ const getAllCalls = (fromDate, uptoDate) => {
         }
     });
 };
+const getFollowuplist = (fromDate, uptoDate) => {
+    calls.clear();
+    $.ajax({
+        url: url + 'getFollowupcall.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { fromDate: fromDate, uptoDate: uptoDate },
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                    calls.set(response.Data[i].callId, response.Data[i]);
+                }
+            }
+            listCalls(calls);
+        }
+    });
+};
 
 const listCalls = calls => {
     $('#cTable').dataTable().fnDestroy();
@@ -82,7 +100,7 @@ const listCalls = calls => {
         tblData += '<td>' + call.email + '</td>';
         tblData += '<td>' + getAge(call.dateOfBirth) + '</td>';
         tblData += '<td>' + call.mobile + '</td>';
-        tblData += '<td>' + call.stateName + ' ' + call.cityName + '</td>';
+        tblData += '<td>' + call.stateName + ',' + call.cityName + '</td>';
         tblData += '<td>' + getDate(call.appointmentDate) + '</td>';
         tblData += badge;
         tblData += '<td>' + getDate(call.folowupNeededDateTime) + '</td>';
@@ -164,11 +182,12 @@ function followupList() {
     if (returnVal) {
         var fromDate = $('#folDate').val();
         var uptoDate = $('#foluDate').val();
-        getAllCalls(fromDate, uptoDate);
+        getFollowuplist(fromDate, uptoDate);
     }
 }
 
 function fill_data(call) {
+    console.log(call);
     $('#firstName').val(call.firstName);
     $('#middleName').val(call.middleName);
     $('#lastName').val(call.lastName);
@@ -181,7 +200,7 @@ function fill_data(call) {
     $('#state').val(call.state).trigger('change');
     $('#city').val(call.city).trigger('change');
     $('#zipcode').val(call.pincode);
-    $('#nearbyarea').val(call.nearByArea);
+    $('#nearByArea').val(call.nearByArea);
     $('#reference').val(call.reference).trigger('change');
     //$('#calldatetime').val(call.callDateTime);
     $('#branchId').val(call.branchId).trigger('change');
@@ -190,7 +209,6 @@ function fill_data(call) {
     $('#remarks').val(call.remarks);
     $('#userId').val(call.doctorId).trigger('change');
     $('#follwupdate').val(call.folowupNeededDateTime);
-
     $('#new').hide();
     $('#update').show();
     $('#fullwindowModal').modal('show');

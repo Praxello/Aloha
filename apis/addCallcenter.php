@@ -10,14 +10,14 @@ extract($_POST);
 if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['birthdate']) && isset($_POST['gender']) && isset($_POST['mobile']) && isset($_POST['city']) && isset($_POST['state'])) {
     
     $middleName            = isset($_POST['middleName']) ? $_POST['middleName'] : 'NULL';
-    $email                 = isset($_POST['email']) ? $_POST['email'] : 'NULL';
+    $email                 = isset($_POST['emailId']) ? $_POST['emailId'] : 'NULL';
     $landline              = isset($_POST['landline']) ? $_POST['landline'] : 'NULL';
     $nearByArea            = isset($_POST['nearByArea']) ? $_POST['nearByArea'] : 'NULL';
     $country               = isset($_POST['country']) ? $_POST['country'] : 'NULL';
-    $pincode               = isset($_POST['pincode']) ? $_POST['pincode'] : 'NULL';
+    $pincode               = isset($_POST['zipcode']) ? $_POST['zipcode'] : 'NULL';
     $reference             = isset($_POST['reference']) ? $_POST['reference'] : 'NULL';
     $callDateTime          = date("Y-m-d h:i:s");//isset($_POST['callDateTime']) ? $_POST['callDateTime'] : 'NULL';
-    $disease               = isset($_POST['disease']) ? $_POST['disease'] : 'NULL';
+    $disease               = isset($_POST['desease']) ? $_POST['desease'] : 'NULL';
     $remarks               = isset($_POST['remarks']) ? $_POST['remarks'] : 'NULL';
     $folowupNeeded         = isset($_POST['folowupNeeded']) ? $_POST['folowupNeeded'] : 'NULL';
     $folowupNeededDateTime = isset($_POST['follwupdate']) ? $_POST['follwupdate'] : 'NULL';
@@ -39,7 +39,9 @@ if ($rowsAffected >0 || $rowsAffected == 0 ) {
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $callId        = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT * FROM call_center cc INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId WHERE cc.callId = $callId");
+        $academicQuery = mysqli_query($conn, "SELECT *,st.name stateName,ct.name cityName FROM call_center cc INNER JOIN call_center_patients ccp 
+        ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state LEFT JOIN cities ct ON ct.id = ccp.city
+        WHERE cc.callId = $callId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {

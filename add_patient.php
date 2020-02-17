@@ -195,7 +195,6 @@
 </div>
 </div>
 
-<script src="js/jquery.validate.js"></script>
 <script src="jscode/patient_validation.js"></script>
 <script src="jscode/addPatient.js"></script>
 <script src="jscode/getReffName.js"></script>
