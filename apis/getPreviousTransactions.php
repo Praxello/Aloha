@@ -10,7 +10,7 @@ $temparray = null;
 extract($_POST);
 if(isset($_POST['patientId'])){
     $today = date('Y-m-d');
-$sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.doctorId 
+$sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.doctorId,opm.discountType,opm.received,opm.visitDate
 FROM opd_patient_payment_master opm 
 INNER JOIN user_master um ON um.userId = opm.doctorId 
 WHERE opm.patientId = $patientId AND opm.visitDate = '$today'";

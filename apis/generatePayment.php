@@ -7,9 +7,17 @@ include "packageOfPatient.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
+$tempMedicines = null;
+$temparray = null;
+$billDetails_q = null;
 extract($_POST);
 $str = array();
-if (isset($_POST['postdata']) && isset($_POST['packageDetails'])) {
+if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST['uFlag'])) {
+
+    if($uFlag['uFlag'] == 1 && $uFlag['paymentId'] != null){
+        $payId = $uFlag['paymentId'];
+        mysqli_query($conn,"DELETE FROM opd_patient_payment_master WHERE paymentId=$payId");
+    }
     $someArray   = json_decode($postdata, true);
     $packages    = $_POST['packageDetails'];
     $isPackage   = 0;
@@ -20,15 +28,16 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails'])) {
     $doctorId    = $someArray["doctorId"];
     $userId      = $someArray["userId"];
     $branchId    = $someArray["branchId"];
-    $visitDate   = date('Y-m-d');
+    $visitDate   = $someArray["visitDate"];//date('Y-m-d');
     $billDetails = $someArray["billDetails"];
+    $discountType = $someArray["discountType"];
     $recieptId   = getLastId($branchId)+1;
     if($packages['flag'] == 1 && !empty($packages['packageId'])){
         $isPackage = 1;
         package($packages['packageId'],$patientId,$packages['packageCost'],1,$branchId,$userId,$packages['packageDuration']);
     }
-    $sql         = "INSERT INTO opd_patient_payment_master(recieptId,branchId,patientId, doctorId,originalAmt,total,discount,received,pending,visitDate,createdBy,isPackage)
-    VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount','$discount',0,'$amount','$visitDate',$userId,$isPackage)";
+    $sql         = "INSERT INTO opd_patient_payment_master(recieptId,branchId,patientId, doctorId,originalAmt,total,discountType,discount,received,pending,visitDate,createdBy,isPackage)
+    VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount','$discountType','$discount',0,'$amount','$visitDate',$userId,$isPackage)";
     $query       = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
@@ -41,7 +50,8 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails'])) {
             $query       = mysqli_query($conn, $sql);
            
         }
-        $sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.doctorId FROM opd_patient_payment_master opm 
+        $sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.visitDate,
+        opm.doctorId,opm.discountType,opm.total,opm.received FROM opd_patient_payment_master opm 
         INNER JOIN user_master um ON um.userId = opm.doctorId 
         WHERE opm.paymentId = $tId";
         // $sql      = "SELECT * FROM opd_patient_payment_master WHERE paymentId = $tId";
@@ -50,7 +60,20 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails'])) {
             $academicAffected = mysqli_num_rows($jobQuery);
             if ($academicAffected > 0) {
                 $academicResults = mysqli_fetch_assoc($jobQuery);
-                $records       = $academicResults;
+               
+                $query = "SELECT fees,feesType,paymentId FROM Bill_Details pm WHERE paymentId = $tId";
+            $jobQuery_1 = mysqli_query($conn, $query);
+            if ($jobQuery_1 != null) {
+                $academicAffected_1 = mysqli_num_rows($jobQuery_1);
+                if ($academicAffected_1 > 0) {
+                    while ($academicResults_1 = mysqli_fetch_assoc($jobQuery_1)) {
+                        $billDetails_q[] = $academicResults_1;
+                    }
+                }
+            }
+            $temparray =  array("billdetails"=> $billDetails_q);
+            $tempMedicines =  array_merge($academicResults,$temparray);	
+            $records       = $tempMedicines;
                 $response        = array(
                     'Message' => "Payment generated successfully",
                     "Data" => $records,

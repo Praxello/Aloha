@@ -468,6 +468,7 @@
     function display(details){
         $('#detailPName').html(details.firstName+' '+details.surname);
         $('#detailsReff').html(details.doctorName);
+        $('#detailsFees').html(fStatus);
     }
     $('#bp').mask('000/000',{placeholder: "___/___"});
 

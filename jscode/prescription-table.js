@@ -2,7 +2,7 @@ var rowid = 0;
 var rowhtml = "";
 
 function load_initital() {
-    for (var i = 0; i < 4; i++) {
+    for (var i = 0; i < 5; i++) {
         addrow();
     }
 }

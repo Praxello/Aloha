@@ -6,7 +6,7 @@ function loadTest() {
     }
     $('#test').html(dropdownList);
     $("#test").select2({
-        placeholder: 'Select Test',
+        placeholder: 'Select Procedures',
         allowClear: true,
         dropdownParent: $('#opd-payment-generate')
     });

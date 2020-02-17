@@ -3,6 +3,9 @@ var uniqueTest = new Set();
 var tAmt = 0.00;
 var originalAmt = 0.00;
 var totalDiscount = 0;
+var updateFlag = 0;
+var updatePaymentId = null;
+var global_date = moment().format('YYYY-MM-DD');
 getDiscounts(data.branchId);
 
 function addrow() {
@@ -63,10 +66,11 @@ function calculateAmt(amount) {
             $('#pAmt').val('');
         } else {
             if (amount > totalDiscount) {
-                swal('can not exceed discount more than ' + totalDiscount);
-                $('#dAmt').val(totalDiscount);
-                formula = (tAmt * totalDiscount) / 100;
+                swal('You need to seek approval ' + amount);
+                $('#dAmt').val(amount);
+                formula = (tAmt * amount) / 100;
                 $('#tAmt').val(tAmt - formula);
+                $('#pAmt').val(formula.toFixed(2));
             } else {
                 amount = parseFloat(amount);
                 total = parseFloat(tAmt);
@@ -115,6 +119,10 @@ function GeneratePayment() {
             if (discount == '') {
                 discount = 0;
             }
+            var discountType = $('#discountType').val();
+            if (discountType == '') {
+                discountType = 'NULL';
+            }
             var packageId = null,
                 flag = 0;
             if ($('#packageIds').val() != '') {
@@ -136,13 +144,19 @@ function GeneratePayment() {
                 originalAmt: originalAmt,
                 discount: discount,
                 doctorId: $('#paymentFor').val(),
-                patientId: patientId_ap
+                patientId: patientId_ap,
+                discountType: discountType,
+                visitDate: global_date
+            };
+            var updateDetails = {
+                uFlag: updateFlag,
+                paymentId: updatePaymentId
             };
             details = JSON.stringify(details);
             $.ajax({
                 url: url + 'generatePayment.php',
                 type: 'POST',
-                data: { postdata: details, packageDetails: packageDetails },
+                data: { postdata: details, packageDetails: packageDetails, uFlag: updateDetails },
                 dataType: 'json',
                 success: function(response) {
                     if (response.Responsecode == 200) {
@@ -153,11 +167,14 @@ function GeneratePayment() {
                             button: false,
                             timer: 1500
                         });
+                        console.log(response.Data);
                         prevTransactions.set(response.Data.paymentId, response.Data);
                         list_transactions(prevTransactions);
                         uniqueTest.clear();
                         $('#presTableBody').empty();
                         $('#fTotal').empty();
+                        $('#paymentForm').trigger('reset');
+                        $('#discountType').val('').trigger('change');
                         var r = confirm('Do you want to accept payment now ?');
                         if (r) {
                             $('#opd-payment-generate').modal('hide');
@@ -188,8 +205,13 @@ function GeneratePayment() {
 }
 
 function attach_data(paymentId) {
+    updateFlag = 1;
+    updatePaymentId = paymentId;
+    console.log(paymentId);
     paymentId = paymentId.toString();
     let data = prevTransactions.get(paymentId);
+    global_date = data.visitDate;
+    console.log(data);
     var rowhtml = '',
         rowid = 0,
         T = 0;
@@ -214,23 +236,27 @@ function attach_data(paymentId) {
         }
         originalAmt = tAmt;
         $("#presTableBody").html(rowhtml);
-        $('#dAmt').val(data.discount);
+        $('#discountType').val(data.discountType).trigger('change');
+        $('#dAmt').val(data.discount).trigger('change');
         $('#fTotal').html(tAmt.toLocaleString());
-        $('#tAmt').val(tAmt);
+        $('#tAmt').val(data.total);
         $('#paymentFor').val(data.doctorId).trigger('change');
+        $('#total').html(data.total);
+        $('#received').html(data.received);
     }
 }
 
 
 
 function setDiscount(Id) {
-    if (Id == "") {
-
-    } else {
+    if (Id != "") {
         Id = Id.toString();
         let discount = discounts.get(Id);
         totalDiscount = parseFloat(discount.discount);
         $('#maxDiscount').html('Maximum discount ' + totalDiscount + '%');
+        $('#dAmt').val('');
+        $('#pAmt').val('');
+        $('#tAmt').val(tAmt);
     }
 }
 
@@ -248,6 +274,8 @@ $('input:radio[name=radio]').change(function() {
         $('#fTotal').html('');
         $('#paymentFor').val('').trigger('change');
         tAmt = 0;
+        $('#dAmt').val('');
+        $('#pAmt').val('');
         $('#tAmt').val('');
     } else if (this.value == '0') {
         $('.package').show();
@@ -256,5 +284,8 @@ $('input:radio[name=radio]').change(function() {
         $('#presTableBody').empty();
         $('#fTotal').html('');
         $('#packageIds').val('').trigger('change');
+        $('#dAmt').val('');
+        $('#pAmt').val('');
+        $('#tAmt').val('');
     }
 });
