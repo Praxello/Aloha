@@ -27,16 +27,19 @@ const listFees = feeses => {
     var tblData = '';
     for (let k of feess.keys()) {
         let fees = feess.get(k);
-
-        
+        badge = '';
+        if (fees.isActive == 1) {
+            badge1 = '<td><span class="badge badge-success">active</span></td>';
+        } else {
+            badge1 = '<td><span class="badge badge-warning">inactive</span></td>';
+        }
     
         tblData += '<tr><td>' + fees.feesType + '</td>';
-      
         tblData += '<td>' + fees.fee + '</td>';
-     
+        tblData += badge1;
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editFees(' + (k) + ')" title="Edit Fees details"><i class="ik ik-edit text-blue"></i></a>';
-    
+        tblData += '<a href="#" class="ik edit"  onclick="inactivateFees(' + (k) + ')" title="Active/inactive User"><i class="ik ik-trash text-danger"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#feesData').html(tblData);
@@ -78,7 +81,7 @@ function loadUsers() {
    
     $('#userId').html(dropdownList);
     DocList=dropdownList;
-    console.log(DocList);
+  
     $("#userId").select2({
       
         placeholder: 'Choose from list',
@@ -90,6 +93,52 @@ function loadUsers() {
 }
 loadUsers();
 
+var inactivateFees = feesId => {
+    feesId = feesId.toString();
+    let fees = feess.get(feesId);
+    var msg = '',
+        btn = '',
+        msg1 = '';
+    if (fees.isActive == 1) {
+        fees.isActive = 0;
+        msg = 'Do you really want to in activate this Fees?';
+        btn = 'Deactivate Now';
+        msg1 = 'Fees Deactivated';
+    } else {
+        fees.isActive = 1;
+        msg = 'Do you really want to  activate this Fees?';
+        btn = 'Activate Now';
+        msg1 = 'Fees Activated';
+    }
+    swal({
+            title: "Are you sure?",
+            text: msg,
+            icon: "warning",
+            buttons: ["Cancel", btn],
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: url + 'feesActivation.php',
+                    type: 'POST',
+                    data: {feesId: feesId},
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.Responsecode == 200) {
+                            feess.set(feesId, fees);
+                            listFees(feess);
+                            swal({
+                                text: msg1,
+                                icon: "success"
+                            });
+
+                        }
+                    }
+                });
+            }
+        });
+};
 
 function gobackFees(){
     $('#newFees').show();

@@ -84,7 +84,7 @@ if(isset($_SESSION['branchId'])){
                                        
                                             <th>Fees Type</th>
                                             <th>Fees</th>
-                                           
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

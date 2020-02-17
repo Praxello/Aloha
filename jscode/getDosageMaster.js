@@ -26,13 +26,19 @@ const listDosage = dosageM => {
     var tblData = '';
     for (let k of dosageM.keys()) {
         let dose = dosageM.get(k);
-
+        badge1 = '';
+        if (dose.isActive == 1) {
+            badge1 = '<td><span class="badge badge-success">active</span></td>';
+        } else {
+            badge1 = '<td><span class="badge badge-warning">inactive</span></td>';
+        }
+    
         tblData += '<tr><td>' + dose.dosageId + '</td>';
         tblData += '<td>' + dose.dosage + '</td>';
-      
+        tblData += badge1;
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editDosage(' + (k) + ')" title="Edit dosage details"><i class="ik ik-edit text-blue"></i></a>';
-        
+        tblData += '<a href="#" class="ik edit"  onclick="inactivateDose(' + (k) + ')" title="Active/inactive User"><i class="ik ik-trash text-danger"></i></a>';
     
         tblData += '</div></td></tr>';
     }
@@ -58,6 +64,54 @@ var editDosage = (dosageId) => {
     $('#dosRecord').hide();
     $('#doseNew').load('edit_Dosage_Master.php');
 
+};
+
+
+var inactivateDose = dosageId => {
+    dosageId = dosageId.toString();
+    let dose = dosageM.get(dosageId);
+    var msg = '',
+        btn = '',
+        msg1 = '';
+    if (dose.isActive == 1) {
+        dose.isActive = 0;
+        msg = 'Do you really want to in activate this Dosage?';
+        btn = 'Deactivate Now';
+        msg1 = 'Dosage Deactivated';
+    } else {
+        dose.isActive = 1;
+        msg = 'Do you really want to  activate this Dosage?';
+        btn = 'Activate Now';
+        msg1 = 'Dosage Activated';
+    }
+    swal({
+            title: "Are you sure?",
+            text: msg,
+            icon: "warning",
+            buttons: ["Cancel", btn],
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: url + 'dosageActivation.php',
+                    type: 'POST',
+                    data: {dosageId: dosageId},
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.Responsecode == 200) {
+                            dosageM.set(dosageId, dose);
+                            listDosage(dosageM);
+                            swal({
+                                text: msg1,
+                                icon: "success"
+                            });
+
+                        }
+                    }
+                });
+            }
+        });
 };
 
 function gobackDosage(){

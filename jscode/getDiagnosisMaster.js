@@ -26,15 +26,21 @@ const listdiagnosis = diagnosis => {
     var tblData = '';
     for (let k of diagnosis.keys()) {
         let diagnos = diagnosis.get(k);
-
+        badge = '';
+        if (diagnos.isActive == 1) {
+            badge1 = '<td><span class="badge badge-success">active</span></td>';
+        } else {
+            badge1 = '<td><span class="badge badge-warning">inactive</span></td>';
+        }
+    
         tblData += '<tr><td>' + diagnos.diagnosisId + '</td>';
         tblData += '<td>' + diagnos.diagnosis + '</td>';
         tblData += '<td>' + diagnos.icdCode  + '</td>';
- 
+        tblData += badge1;
       
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editDiagnosis(' + (k) + ')" title="Edit branch details"><i class="ik ik-edit text-blue"></i></a>';
-    
+        tblData += '<a href="#" class="ik edit"  onclick="inactivateDiagnosis(' + (k) + ')" title="Active/inactive User"><i class="ik ik-trash text-danger"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#diaData').html(tblData);
@@ -64,3 +70,50 @@ function gobackD(){
     $('#diagnosisData').show();
     $('#editdiaNew').empty();
 }
+
+var inactivateDiagnosis = diagnosisId => {
+    diagnosisId = diagnosisId.toString();
+    let diagnos = diagnosis.get(diagnosisId);
+    var msg = '',
+        btn = '',
+        msg1 = '';
+    if (diagnos.isActive == 1) {
+        diagnos.isActive = 0;
+        msg = 'Do you really want to in activate this Dosage?';
+        btn = 'Deactivate Now';
+        msg1 = 'Dosage Deactivated';
+    } else {
+        diagnos.isActive = 1;
+        msg = 'Do you really want to  activate this Dosage?';
+        btn = 'Activate Now';
+        msg1 = 'Dosage Activated';
+    }
+    swal({
+            title: "Are you sure?",
+            text: msg,
+            icon: "warning",
+            buttons: ["Cancel", btn],
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: url + 'diagnosisActivation.php',
+                    type: 'POST',
+                    data: {diagnosisId: diagnosisId},
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.Responsecode == 200) {
+                            diagnosis.set(diagnosisId, diagnos);
+                            listdiagnosis(diagnosis);
+                            swal({
+                                text: msg1,
+                                icon: "success"
+                            });
+
+                        }
+                    }
+                });
+            }
+        });
+};

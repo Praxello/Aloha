@@ -26,15 +26,21 @@ const listcomplaint = complaint => {
     var tblData = '';
     for (let k of complaint.keys()) {
         let compl = complaint.get(k);
-
+        badge = '';
+        if (compl.isActive == 1) {
+            badge1 = '<td><span class="badge badge-success">active</span></td>';
+        } else {
+            badge1 = '<td><span class="badge badge-warning">inactive</span></td>';
+        }
+    
         tblData += '<tr><td>' + compl.complaintId + '</td>';
         tblData += '<td>' + compl.complaint + '</td>';
-      
+        tblData += badge1;
  
       
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editComplaints(' + (k) + ')" title="Edit complaints details"><i class="ik ik-edit text-blue"></i></a>';
-    
+        tblData += '<a href="#" class="ik edit"  onclick="inactivateComplaint(' + (k) + ')" title="Active/inactive User"><i class="ik ik-trash text-danger"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#complaintData').html(tblData);
@@ -61,6 +67,52 @@ const editComplaints = (complaintId) => {
 
 };
 
+var inactivateComplaint = complaintId => {
+    complaintId = complaintId.toString();
+    let compl = complaint.get(complaintId);
+    var msg = '',
+        btn = '',
+        msg1 = '';
+    if (compl.isActive == 1) {
+        compl.isActive = 0;
+        msg = 'Do you really want to in activate this Complaint?';
+        btn = 'Deactivate Now';
+        msg1 = 'Complaint Deactivated';
+    } else {
+        compl.isActive = 1;
+        msg = 'Do you really want to  activate this Complaint?';
+        btn = 'Activate Now';
+        msg1 = 'Complaint Activated';
+    }
+    swal({
+            title: "Are you sure?",
+            text: msg,
+            icon: "warning",
+            buttons: ["Cancel", btn],
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: url + 'complaintActivation.php',
+                    type: 'POST',
+                    data: {complaintId: complaintId},
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.Responsecode == 200) {
+                            complaint.set(complaintId, compl);
+                            listcomplaint(complaint);
+                            swal({
+                                text: msg1,
+                                icon: "success"
+                            });
+
+                        }
+                    }
+                });
+            }
+        });
+};
 function gobackComp(){
     $('#complaintsData').show();
     $('#complaintNew').empty();

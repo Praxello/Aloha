@@ -67,6 +67,7 @@ if(isset($_SESSION['branchId'])){
                                             <th >Id</th>
                                             <th>Diagnosis</th>
                                             <th>icdCode</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

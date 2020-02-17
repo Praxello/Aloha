@@ -67,6 +67,7 @@ if(isset($_SESSION['branchId'])){
                                             <th>Instruction</th>
                                             <th>Instruction Hindi</th>
                                             <th>Instruction Marathi</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
