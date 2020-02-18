@@ -22,7 +22,7 @@
                                 <div class="col-md-4">
                             <div class="form-group">
                                 <label for="">Doctor Name</label>
-                                <select class="form-control select2" id="userIde" name="doctorId" style="width: 100%">
+                                <select class="form-control select2" id="doctorId" name="doctorId" style="width: 100%">
                                 </select>
                             </div>
                         </div>

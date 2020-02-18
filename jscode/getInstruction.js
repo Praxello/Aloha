@@ -27,7 +27,7 @@ const listInstr = instruction => {
     for (let k of instruction.keys()) {
         let inst = instruction.get(k);
         badge = '';
-        if (inst.isActive == 1) {
+        if (inst.isActive == 1 || inst.isActive == '1' ) {
             badge = '<td><span class="badge badge-success">active</span></td>';
         } else {
             badge = '<td><span class="badge badge-warning">inactive</span></td>';

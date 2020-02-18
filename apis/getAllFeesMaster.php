@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT * FROM doctor_fees_master";
+$sql = "SELECT feesId,doctorId,feesType,fee,isActive FROM doctor_fees_master";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

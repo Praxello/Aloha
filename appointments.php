@@ -37,11 +37,30 @@ if (isset($_SESSION['userId'])) {
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
+
+     <!-- datetime Picker -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+
+  <!-- //end -->
+ 
+
+ <!-- date -->
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
     </head>
     <style>
             .card .card-header .card-search .form-control {
             padding-right: 0px;
             }
+
+            .datepicker.dropdown-menu {
+    min-width: 200px;
+            }
+#datepicker > span:hover{cursor: pointer;}
+
+
     </style>
 
     <body>
@@ -53,84 +72,69 @@ if (isset($_SESSION['userId'])) {
                         <div class="main-content" id="tData">
                             <div class="container-fluid">
 
-                                <div class="card">
+                            <div class="card">
                                     <div class="card-header row">
                                         <div class="col col-sm-3">
-                                        <!-- <div class="form-group">
-                <label for="dtp_input2" class="col-md-3 control-label">Date Picking</label>
-                <div class="input-group date form_date col-md-5" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                    <input class="form-control" size="16" type="text" value="" readonly>
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-                </div>
-				<input type="hidden" id="dtp_input2" value="" /><br/>
-            </div> -->
-                                            <div class="card-search with-adv-search dropdown">
-                                           
-                                                <label for="birthDate">Appointment Date</label>
-                                                
-                                                  
-                                                  
-                                                    <input id="dropper-max-year" class="form-control" type="date" placeholder="select date" onchange="fetch(this.value);" />
-                                                   
-                                               
-                                            </div>
+                                           <label for="">Appointment Date</label>
+    <!-- <input id="dropper-max-year" class="form-control" type="date" placeholder="select date" onchange="fetch(this.value);" />     -->
+                                                <!-- <div class="form-group">
+                                                    <div class='input-group date' id='datetimepicker6'>
+                                                        <input type='text' class="form-control" onchange="fetch(this.value)" />
+                                                        <span class="input-group-addon">
+                                                         <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div> -->
+
+                                                <div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
+    <input class="form-control" type="text"   />
+    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+</div> 
                                         </div>
 
-                                        <div class="col col-sm-3">
+                                        <div class="col col-sm-5">
 
-                                        <div class=" template-demo " id="">
-                                        <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 16px;">
-                <button type="button" class="btn btn-warning" >Total Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="totalPatient"></span></button>
-                <button type="button" class="btn btn-primary">New Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="newPatients"></span></button>
-                <button type="button" class="btn btn-success">Consulted: &nbsp; &nbsp;&nbsp;<span id="consulted"></span></button>
+                                            <div class=" template-demo " id="">
+                                                <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 16px;">
+                                                    <button type="button" class="btn btn-warning">Total Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="totalPatient"></span></button>
+                                                    <button type="button" class="btn btn-primary">New Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="newPatients"></span></button>
+                                                    <button type="button" class="btn btn-success">Consulted: &nbsp; &nbsp;&nbsp;<span id="consulted"></span></button>
+                                                </div>
+                                            </div>
+                                            </div>
+
+                                            <div class="col col-sm-3">
+                                            <!-- <label>Select Date: </label>
+<div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
+    <input class="form-control" type="text"  />
+    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+</div> -->
+                                            </div>
                                         </div>
+                                        <div class="card-body table-responsive">
+                                            <div class="dt-responsive">
+                                                <table id="aTable" class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="nosort">Profile</th>
+                                                            <th>Patient Name</th>
+                                                            <th>Status</th>
+                                                            <th>Reffered by</th>
+                                                            <th>Fees status</th>
+                                                            <th>Patient Type</th>
+                                                            <th class="nosort">action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="aptData">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                         </div>
 
-                                        <!-- <div class="col col-sm-2">
-                                            <div class="card card-green st-cir-card text-white">
-                                                <div class="card-block">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-auto">
-                                                            <div><b style="color:black">Total Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="totalPatient"></b></span>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div> -->
-
-                                        <!-- <div class="col col-sm-2">
-                                            <div class="card card-green st-cir-card text-white">
-                                                <div class="card-block">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-auto">
-                                                            <div><b style="color:black">New Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="newPatients"></b></span>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div> -->                                                                                                              
-
-                                        <!-- <div class="col col-sm-2">
-                                            <div class="card card-green st-cir-card text-black">
-                                                <div class="card-block">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-auto">
-                                                            <div><b style="color:black">Consulted: &nbsp; &nbsp;&nbsp;<span id="consulted"></b></span>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div> -->
+                                      
 
                                  
                                         <div class="col col-sm-3">
@@ -193,8 +197,20 @@ if (isset($_SESSION['userId'])) {
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="plugins/select2/dist/js/select2.min.js"></script>
-        <!-- <script src="plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script> -->
+     
         <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
+
+          <!-- datetime Picker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+       <!-- end -->
+
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
         <script>
     //         $('.form_date').datetimepicker({
     //     weekStart: 1,
@@ -220,6 +236,23 @@ if (isset($_SESSION['userId'])) {
         <script src="jscode/getComplaints.js"></script>
         <script src="jscode/getAdvice.js"></script>
         <script src="jscode/getAllDiagnosis.js"></script>
+        <script>
+$(document).ready(function() {
+  $(function() {
+    $('#datetimepicker6').datepicker();
+  });
+});
+</script>
+<script>
+$(document).ready(function() {
+$(function () {
+  $("#datepicker").datepicker({ 
+        autoclose: true, 
+        todayHighlight: true
+  }).datepicker('update', new Date());
+});
+});
+</script>
     </body>
 
     </html>

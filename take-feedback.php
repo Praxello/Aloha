@@ -15,6 +15,8 @@
                                <textarea name="feedback" id="feedbackNew" rows="2" class="form-control "></textarea>
                         </div>
                       </div>
+
+                      
                     </div>
 
                     <div class="modal-footer">

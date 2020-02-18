@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT discountId,discountType,discount,createdAt,branchId FROM discountmaster";
+$sql = "SELECT discountId,discountType,discount,createdAt,branchId,isActive FROM discountmaster";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

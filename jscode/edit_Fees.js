@@ -5,13 +5,11 @@ var loadFeesDetails = details => {
     $('#fee').val(details.fee); 
  
  
-    $('#userIde').html(DocList);
+    $('#doctorId').html(DocList);
  
     $('.select2').select2({
-        placeholder:'select fees'
-      
-      
+        placeholder:'select doctor'
     });
-    $('#userIde').val(details.doctorId).trigger('change');
+    $('#doctorId').val(details.doctorId).trigger('change');
 };
 loadFeesDetails(fees_details);

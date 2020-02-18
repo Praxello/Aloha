@@ -26,6 +26,7 @@ const getAllAppointments = (doctorId) => {
 };
 
 const listAppointments = (appointments, today) => {
+    $.noConflict();
     $('#aTable').dataTable().fnDestroy();
     $('#aptData').empty();
     var tblData = '',
