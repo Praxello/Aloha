@@ -149,10 +149,14 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2">
-                                            <!-- <div class="form-group">
-                                                <label for="">Call Date/Time</label>
-                                                <input type="datetime-local" class="form-control" name="calldatetime" id="calldatetime">
-                                            </div> -->
+                                            <div class="form-group">
+                                                <label for="">Call Status</label>
+                                               <select name="callStatus" id="callStatus" style="width: 100%;" class="form-control select2">
+                                               <option></option>
+                                               <option value="1">Idle</option>
+                                               <option value="2">Close Query</option>
+                                            </select>
+                                            </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
@@ -195,7 +199,7 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="" class="required">Appointment Date</label>
-                                    <input type="date" class="form-control" name="appointmentDate" id="appointmentDate">
+                                    <input type="datetime-local" class="form-control" name="appointmentDate" id="appointmentDate">
                                 </div>
                             </div>
                             <div class="col-md-2">

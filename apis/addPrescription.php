@@ -11,7 +11,6 @@ extract($_POST);
 $wital = null;
 if (isset($_POST['postdata'])) {
     $someArray = json_decode($postdata, true);
-    
     $remarks          = mysqli_escape_string($conn, $someArray['remarks']);
     $complaints       = mysqli_escape_string($conn, $someArray["complaints"]);
     $diagnosis        = mysqli_escape_string($conn, $someArray["diagnosis"]);

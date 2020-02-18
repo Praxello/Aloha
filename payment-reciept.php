@@ -8,12 +8,14 @@ use Dompdf\Dompdf;
 $dompdf = new Dompdf();
 extract($_GET);
 $paymentId = isset($_GET['paymentId']) ? $_GET['paymentId']:1;
+
+$sign = '-';
 function patientDetails($paymentId)
 {
   $output  = '';
     include 'connection.php';
-    $sql       = "SELECT opm.recieptId,pm.firstName,pm.surname,pm.mobile1,opm.patientId,DATE_FORMAT(opm.visitDate,'%d %b %Y') visitDate,pm.address  
-FROM opd_patient_payment_master opm LEFT JOIN patient_master pm ON pm.patientId = opm.patientId
+    $sql       = "SELECT opm.recieptId,pm.firstName,pm.surname,pm.mobile1,opm.patientId,DATE_FORMAT(opm.visitDate,'%d %b %Y') visitDate,pm.address,um.username  
+FROM opd_patient_payment_master opm LEFT JOIN patient_master pm ON pm.patientId = opm.patientId LEFT JOIN user_master um ON um.userId = opm.createdBy
 WHERE opm.paymentId =  $paymentId";
     $jobQuery  = mysqli_query($conn, $sql);
     if ($jobQuery != null) {
@@ -24,10 +26,12 @@ WHERE opm.paymentId =  $paymentId";
             $patientId = $academicResults['patientId'];
             $tDate = $academicResults['visitDate'];
             $mobile = $academicResults['mobile1'];
+            global $sign;
+            $sign = $academicResults['username'];
             $output .= '<div class="row">
-            <div class="col-xs-8"></div>
-            <div class="col-xs-4">
-            <p><span class="text-muted ">Date: </span><strong style="margin-left:3px;"> '.$tDate.'</strong></p>
+            <div class="col-xs-9"></div>
+            <div class="col-xs-3">
+            <p><span class="text-muted ">Date: </span><strong> '.$tDate.'</strong></p>
             </div>
                         </div>
                         <div class="row pb-5 p-5 ">
@@ -175,7 +179,7 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                         </div>
                     </div>
                    
-                    <hr class="my-5">
+                    <hr>
                     <center>
                     <h3>Reciept</h3>
                 </center>
@@ -187,6 +191,7 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
             </div>
         </div>
     </div>
+    <footer style="text-align:right;position:fixed;right:0;bottom:0; "><strong>'.$sign.'</strong></footer>
 </div>';
 
 $dompdf->setPaper('A4', 'portrait');

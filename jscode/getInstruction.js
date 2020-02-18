@@ -13,7 +13,7 @@ const getAllInstructionn = () => {
                 for (var i = 0; i < count; i++) {
                     instruction.set(response.Data[i].instructionId, response.Data[i]);
                 }
-         
+
                 listInstr(instruction);
             }
         }
@@ -27,7 +27,8 @@ const listInstr = instruction => {
     for (let k of instruction.keys()) {
         let inst = instruction.get(k);
         badge = '';
-        if (inst.isActive == 1 || inst.isActive == '1' ) {
+        console.log(inst);
+        if (inst.isActive == 1 || inst.isActive == '1') {
             badge = '<td><span class="badge badge-success">active</span></td>';
         } else {
             badge = '<td><span class="badge badge-warning">inactive</span></td>';
@@ -58,8 +59,8 @@ getAllInstructionn();
 const editInstruction = (instructionId) => {
     instructionId = instructionId.toString();
     instruction_details = instruction.get(instructionId);
-    instructionId_ap= instructionId;
-   // console.log(instructionId_ap);
+    instructionId_ap = instructionId;
+    // console.log(instructionId_ap);
     $('#itData').hide();
     $('#instrNew').load('edit_InstructionMaster.php');
 
@@ -112,7 +113,8 @@ var inactivateInstruction = instructionId => {
             }
         });
 };
-function gobackInstruction(){
+
+function gobackInstruction() {
     $('#itData').show();
     $('#instrNew').empty();
 }

@@ -58,7 +58,7 @@ if(isset($_SESSION['branchId'])){
                 <div class="main-content template-demo " id="tData">
                 <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 16px;">
                 <!-- <button type="button" class="btn btn-warning" onclick="listCustomers(customers)">All Customers</button> -->
-                <button type="button" class="btn btn-primary" onclick="getAllCalls(data.today,data.today)">Appointment</button>
+                <button type="button" class="btn btn-primary" data-toggle="collapse" href="#content" onclick="getAllCalls(data.today,data.today)">Appointment</button>
   <button type="button" class="btn btn-secondary" data-toggle="collapse" href="#content" role="button" aria-expanded="false" aria-controls="collapseExample">Call Register</button>
   <button type="button" class="btn btn-success" data-toggle="collapse" href="#content1" role="button" aria-expanded="false" aria-controls="collapseExample">Follow up List</button>
   <button type="button" class="btn btn-default" data-toggle="collapse" href="#content2" role="button" aria-expanded="false" aria-controls="collapseExample">Absent Patients</button>
@@ -81,6 +81,12 @@ if(isset($_SESSION['branchId'])){
                                     <div class="form-group">
                                         <label for="">Upto</label>
                                         <input type="date" class="form-control" name="uptoDate" id="uptoDate">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="">Branch</label>
+                                      <select name="branch" id="branch" style="width: 100%;"></select>
                                     </div>
                                 </div>
                                 <div class="col-sm-2" style="margin-top: 16px;" >
