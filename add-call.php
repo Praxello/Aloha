@@ -15,7 +15,7 @@
         <div class="modal-content">
             <div class="modal-header" style="background-color: aliceblue;">
                 <h5 class="modal-title" id="fullwindowModalLabel"><strong>Call Information</strong></h5>
-                <div class="template-demo">
+                <div class="template-demo" id="s2">
                 <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter"><i class="ik ik-search" style="font-size: 20px;color: blueviolet;" ></i></button>
                 </div>
                
@@ -200,14 +200,7 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="" class="required">Appointment Date</label>
-                                
-                                                    <div class='input-group date' id='datetimepicker2'>
-                                                        <input type='text' class="form-control" />
-                                                        <span class="input-group-addon">
-                                                         <span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                    </div>
-                                                
+                                        <input type="date" name="appointmentDate" id="appointmentDate" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-2">

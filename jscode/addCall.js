@@ -28,6 +28,7 @@ $('#callForm').on('submit', function(e) {
                     $('#callForm').trigger('reset');
                     $('#fullwindowModal').modal('hide');
                     calls.set(response.Data.callId, response.Data);
+
                     listCalls(calls);
                 } else {
                     swal({

@@ -173,6 +173,7 @@ if(isset($_SESSION['branchId'])){
                                             <th style="width: 20%;">Address</th>
                                             <th>Appointment Date</th>
                                             <th>Follow up Need</th>
+                                            <th>Status</th>
                                             <th>Follow up date</th>
                                             <th>Action</th>
                                         </tr>
