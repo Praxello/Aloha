@@ -27,6 +27,13 @@ var listMedicines = medicines => {
     var tblData = '';
     medicines.forEach((medicine,key) => {
         // tblData += '<tr><td>' + medicine.type + '</td>';
+        badge1 = '';
+        if (medicine.isActive == 1) {
+            badge1 = '<td><span class="badge badge-success">active</span></td>';
+        } else {
+            badge1 = '<td><span class="badge badge-warning">inactive</span></td>';
+        }
+    
         tblData += '<tr><td>' + medicine.name + '</td>';
         tblData += '<td>' + medicine.genName + '</td>';
         tblData += '<td>' + medicine.type + '</td>';
@@ -36,9 +43,10 @@ var listMedicines = medicines => {
         tblData += '<td>' + medicine.night + '</td>'; 
         tblData += '<td>' + medicine.days + '</td>';
         tblData += '<td>' + medicine.isImportant + '</td>';
- 
+        tblData += badge1;
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editMedicines(' + (key) + ')" title="Edit Medicines details"><i class="ik ik-edit text-blue"></i></a>';
+        tblData += '<a href="#" class="ik edit"  onclick="inactivateMedicine(' + (key) + ')" title="Active/inactive User"><i class="ik ik-trash text-danger"></i></a>';
         tblData += '</div></td></tr>';
         
     });
@@ -115,3 +123,51 @@ function gobackMedicine(){
     $('#addMedicines').show();
     $('#medicineNew').empty();
 }
+
+
+var inactivateMedicine = medicineId => {
+    medicineId = medicineId.toString();
+    let medicine = medicines.get(medicineId);
+    var msg = '',
+        btn = '',
+        msg1 = '';
+    if (medicine.isActive == 1) {
+        medicine.isActive = 0;
+        msg = 'Do you really want to in activate this Medicines?';
+        btn = 'Deactivate Now';
+        msg1 = 'Medicines Deactivated';
+    } else {
+        medicine.isActive = 1;
+        msg = 'Do you really want to  activate this Medicines?';
+        btn = 'Activate Now';
+        msg1 = 'Medicines Activated';
+    }
+    swal({
+            title: "Are you sure?",
+            text: msg,
+            icon: "warning",
+            buttons: ["Cancel", btn],
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    url: url + 'medicineActivation.php',
+                    type: 'POST',
+                    data: {medicineId: medicineId},
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.Responsecode == 200) {
+                            medicines.set(medicineId, medicine);
+                            listMedicines(medicines);
+                            swal({
+                                text: msg1,
+                                icon: "success"
+                            });
+
+                        }
+                    }
+                });
+            }
+        });
+};

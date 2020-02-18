@@ -74,7 +74,8 @@ if(isset($_SESSION['branchId'])){
                                             <th>Afternoon</th>
                                             <th>Night</th>
                                             <th>Days</th>
-                                            <th>Important</th>               
+                                            <th>Important</th>     
+                                            <th>Status</th>          
                                             <th>Action</th>
                                         </tr>
                                     </thead>
