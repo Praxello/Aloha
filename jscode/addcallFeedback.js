@@ -1,4 +1,4 @@
-$('#takeFeedback').on('submit', function(e) {
+$('#takeFeedbackForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
   
@@ -7,11 +7,12 @@ $('#takeFeedback').on('submit', function(e) {
      
      
         $.ajax({
-            url: url + 'updateFeedback.php',
+            url: url + 'insertFeedback.php',
             type: 'POST',
             data: {
                 callId: up_callId,
-                feedback:feedback},
+                feedback:feedback,
+                userId:data.userId},
             dataType: 'json',
             success: function(response) {
                 if (response.Responsecode == 200) {
@@ -23,8 +24,10 @@ $('#takeFeedback').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    $('#takeFeedback').empty();
-                    $('#tData').show();
+                    $('#takeFeedback').modal('hide');
+                    $('#takeFeedbackForm').empty();
+                    followupes.set(response.Data.callFollowupsId, response.Data);
+                  listFollowup(followupes);
                     
                 } else {
                     swal({

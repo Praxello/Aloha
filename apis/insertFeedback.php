@@ -6,16 +6,21 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['callId']) && isset($_POST['feedback']) ) {
-    
-    $sql = "UPDATE call_center SET feedback='$feedback' WHERE callId = $callId";
-  
+if (isset($_POST['callId']) && isset($_POST['feedback']) && isset($_POST['userId']) ) {
+    $date=date('Y-m-d');
+    $sql = "insert  into call_center_followups(callId,followUp,attendedBy,followUpDateTime) values('$callId','$feedback','$userId','$date')";
+
+   
     
     $query = mysqli_query($conn, $sql);
     if($query!=null){
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-     $sql = "SELECT * FROM call_center  where callId = $callId";
+
+        $callFollowupsId  = $conn->insert_id;
+        $academicQuery = mysqli_query($conn, "SELECT * FROM  where callFollowupsId = $callFollowupsId");
+
+     $sql = "SELECT * FROM call_center_followups  where callId = $callId";
         $academicQuery = mysqli_query($conn,$sql);
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
@@ -25,7 +30,7 @@ if (isset($_POST['callId']) && isset($_POST['feedback']) ) {
             }
         
         $response = array(
-            'Message' => "Update feedback Successfull",
+            'Message' => "insert feedback Successfull",
             "Data" => $records,
             "sql" => $sql,
             'Responsecode' => 200

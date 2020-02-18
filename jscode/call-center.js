@@ -152,6 +152,7 @@ const editCall = (callId) => {
 };
 
 function takeFeedback(callId) {
+    console.log(callId);
     up_callId = callId;
     $('#takeFeedback').modal('show');
 }
