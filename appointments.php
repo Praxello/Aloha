@@ -135,7 +135,8 @@ if (isset($_SESSION['userId'])) {
         <script src="js/jquery-ui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
-        <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <!-- <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script> -->
         <script src="js/bootstrap-datetimepicker.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
         <script src="plugins/screenfull/dist/screenfull.js"></script>
@@ -156,7 +157,6 @@ if (isset($_SESSION['userId'])) {
         <script src="plugins/select2/dist/js/select2.min.js"></script>
      
         <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
-
 
         <script>
     //         $('.form_date').datetimepicker({
@@ -183,7 +183,7 @@ if (isset($_SESSION['userId'])) {
         <script src="jscode/getComplaints.js"></script>
         <script src="jscode/getAdvice.js"></script>
         <script src="jscode/getAllDiagnosis.js"></script>
-        <script>
+      
 
     </body>
 
