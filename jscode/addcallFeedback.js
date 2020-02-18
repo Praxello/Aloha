@@ -1,7 +1,6 @@
 $('#takeFeedbackForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-  
 
         var feedback = document.getElementById('feedbacknew').value;
      
@@ -39,6 +38,7 @@ $('#takeFeedbackForm').on('submit', function(e) {
                     });
                 }
             }
-        });
-    
+        }
+    });
+
 });

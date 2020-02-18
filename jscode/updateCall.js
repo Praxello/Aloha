@@ -25,7 +25,8 @@ function updateCall() {
             remarks: $('#remarks').val(),
             folowupNeeded: $('#folowupNeeded').val(),
             follwupdate: $('#follwupdate').val(),
-            attendedBy: data.userId
+            attendedBy: data.userId,
+            callStatus: $('#callStatus').val()
         };
         $.ajax({
             url: url + 'updateCallcenter.php',

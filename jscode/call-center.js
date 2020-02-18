@@ -39,7 +39,7 @@ const getAllClients = () => {
 };
 // getAllClients();
 const listCustomers = customers => {
-    
+
     $('#appT').hide();
     $('#customerT').show();
     $('#customerTable').dataTable().fnDestroy();
@@ -110,11 +110,18 @@ const listCalls = calls => {
     var tblData = '';
     for (let k of calls.keys()) {
         let call = calls.get(k);
-        badge = '';
+        badge = '', st = '';
         if (call.folowupNeeded == 1) {
             badge = '<td><span class="badge badge-success">Yes</span></td>';
         } else {
             badge = '<td></td>';
+        }
+        if (call.callStatus == 1) {
+            st = '<td><span class="badge badge-success">Idle</span></td>';
+        } else if (call.callStatus == 2) {
+            st = '<td><span class="badge badge-warning">Close</span></td>';
+        } else {
+            st = '<td><span class="badge badge-success">Idle</span></td>';
         }
         tblData += '<tr><td>' + call.firstName + ' ' + call.lastName + '</td>';
         tblData += '<td>' + call.email + '</td>';
@@ -123,6 +130,7 @@ const listCalls = calls => {
         tblData += '<td>' + call.stateName + ',' + call.cityName + '</td>';
         tblData += '<td>' + getDate(call.appointmentDate) + '</td>';
         tblData += badge;
+        tblData += st;
         tblData += '<td>' + call.folowupNeededDateTime + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editCall(' + (k) + ')" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
@@ -148,6 +156,7 @@ const editCall = (callId) => {
     up_callId = callId;
     let call = calls.get(callId);
     clientId = call.clientId;
+    $('#s2').hide();
     fill_data(call);
 };
 
@@ -240,8 +249,11 @@ function fill_data(call) {
     $('#remarks').val(call.remarks);
     $('#userId').val(call.doctorId).trigger('change');
     // console.log(moment().format(call.folowupNeededDateTime.DATETIME_LOCAL));
-
+    $('#callStatus').val(call.callStatus).trigger('change');
     $('#follwupdate').val(call.folowupNeededDateTime);
+    if (call.folowupNeeded == 1) {
+        $('#folowupNeeded').prop('checked', true);
+    }
     $('#new').hide();
     $('#update').show();
     $('#fullwindowModal').modal('show');

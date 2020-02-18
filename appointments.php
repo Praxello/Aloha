@@ -32,25 +32,25 @@ if (isset($_SESSION['userId'])) {
         <link rel="stylesheet" href="plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <link rel="stylesheet" href="dist/css/jquery-ui.css">
-       
+
         <link rel="stylesheet" href="plugins/bootstrap-tagsinput/dist/tagsinput.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
 
-     
     </head>
     <style>
-            .card .card-header .card-search .form-control {
+        .card .card-header .card-search .form-control {
             padding-right: 0px;
-            }
-
-            .datepicker.dropdown-menu {
-    min-width: 200px;
-            }
-#datepicker > span:hover{cursor: pointer;}
-
-
+        }
+        
+        .datepicker.dropdown-menu {
+            min-width: 200px;
+        }
+        
+        #datepicker > span:hover {
+            cursor: pointer;
+        }
     </style>
 
     <body>
@@ -62,14 +62,13 @@ if (isset($_SESSION['userId'])) {
                         <div class="main-content" id="tData">
                             <div class="container-fluid">
 
-                            <div class="card">
+                                <div class="card">
                                     <div class="card-header row">
                                         <div class="col col-sm-3">
-                                           <label for="">Appointment Date</label>
-                                              <input id="dropper-max-year" class="form-control" type="date" placeholder="select date" onchange="fetch(this.value);" />    
-                                          
-                                     </div> 
-                                     
+                                            <label for="">Appointment Date</label>
+                                            <input id="dropper-max-year" class="form-control" type="date" placeholder="select date" onchange="fetch(this.value);" />
+
+                                        </div>
 
                                         <div class="col col-sm-4">
 
@@ -80,12 +79,12 @@ if (isset($_SESSION['userId'])) {
                                                     <button type="button" class="btn btn-success">Consulted: &nbsp; &nbsp;&nbsp;<span id="consulted"></span></button>
                                                 </div>
                                             </div>
-                                            </div>
+                                        </div>
 
-                                            <div class="col col-sm-3">
-  
-                                            </div>
-                                   
+                                        <div class="col col-sm-3">
+
+                                        </div>
+
                                         <div class="card-body table-responsive">
                                             <div class="dt-responsive">
                                                 <table id="aTable" class="table">
@@ -107,12 +106,9 @@ if (isset($_SESSION['userId'])) {
                                         </div>
                                     </div>
                                 </div>
-                                        </div>
+                            </div>
 
-                                      
-
-                                 
-                                        <div class="col col-sm-3">
+                            <div class="col col-sm-3">
 
                                         </div>
                                     </div>
@@ -120,23 +116,25 @@ if (isset($_SESSION['userId'])) {
                                 </div>
                             </div>
                         </div>
-
-                        <div id="loader"></div>
-                        <footer class="footer">
-                            <div class="w-100 clearfix">
-                                <span class="text-center text-sm-left d-md-inline-block">Copyright © 2020 Praxello Solutions All Rights Reserved.</span>
-                                <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="https://praxello.com/" class="text-dark" target="_blank">Praxello</a></span>
-                            </div>
-                        </footer>
-
             </div>
+        </div>
+        </div>
+
+        <div id="loader"></div>
+        <footer class="footer">
+            <div class="w-100 clearfix">
+                <span class="text-center text-sm-left d-md-inline-block">Copyright © 2020 Praxello Solutions All Rights Reserved.</span>
+                <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="https://praxello.com/" class="text-dark" target="_blank">Praxello</a></span>
+            </div>
+        </footer>
+
+        </div>
         </div>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        <!-- <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script> -->
+        <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="js/bootstrap-datetimepicker.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
         <script src="plugins/screenfull/dist/screenfull.js"></script>
@@ -155,20 +153,11 @@ if (isset($_SESSION['userId'])) {
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="plugins/select2/dist/js/select2.min.js"></script>
-     
+
         <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
 
         <script>
-    //         $('.form_date').datetimepicker({
-    //     weekStart: 1,
-    //     todayBtn:  1,
-	// 	autoclose: 1,
-	// 	todayHighlight: 1,
-	// 	startView: 2,
-	// 	minView: 2,
-	// 	forceParse: 0
-    // });
-    const data = {
+            const data = {
                 userId: <?php echo $_SESSION['userId']; ?>
             };
         </script>
@@ -183,7 +172,6 @@ if (isset($_SESSION['userId'])) {
         <script src="jscode/getComplaints.js"></script>
         <script src="jscode/getAdvice.js"></script>
         <script src="jscode/getAllDiagnosis.js"></script>
-      
 
     </body>
 

@@ -15,7 +15,7 @@
         <div class="modal-content">
             <div class="modal-header" style="background-color: aliceblue;">
                 <h5 class="modal-title" id="fullwindowModalLabel"><strong>Call Information</strong></h5>
-                <div class="template-demo">
+                <div class="template-demo" id="s2">
                 <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter"><i class="ik ik-search" style="font-size: 20px;color: blueviolet;" ></i></button>
                 </div>
                
@@ -202,8 +202,8 @@
                                     <label for="" class="required">Appointment Date</label>
                                 
                                     <div class="form-group">
-                <div class='input-group date' id='appoinmentDate'>
-                    <input type='text' class="form-control"/>
+                <div class='input-group date' id="apDate">
+                    <input type='text' class="form-control" id='appointmentDate' name="appointmentDate"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -237,8 +237,8 @@
                                     <label for="">Follow up Date/Time</label>
                                    
                                     <div class="form-group">
-                <div class='input-group date' id='follwupdate'>
-                    <input type='text' class="form-control"/>
+                <div class='input-group date' id="foDate1">
+                    <input type='text' class="form-control" name="follwupdate" id='follwupdate'/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -282,23 +282,16 @@
 <script>
 $(document).ready(function() {
   $(function() {
-    $('#appoinmentDate').datetimepicker({
-    defaultDate: new Date(),
-    format: 'DD/MM/YYYY H:mm:ss',
-    sideBySide: true
+    $('#apDate').datetimepicker({
+        sideBySide: true,
+        format:"YYYY-MM-DD HH:mm:ss"
+    });
+$('#foDate1').datetimepicker({
+    sideBySide: true,
+    format:"YYYY-MM-DD HH:mm:ss"
 });
 
   });
 });
 
-$(document).ready(function() {
-  $(function() {
-    $('#follwupdate').datetimepicker({
-    defaultDate: new Date(),
-    format: 'DD/MM/YYYY H:mm:ss',
-    sideBySide: true
-});
-
-  });
-});
 </script>

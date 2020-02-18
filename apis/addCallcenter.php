@@ -26,6 +26,7 @@ if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['bir
     $doctorId              = isset($_POST['userId']) ? $_POST['userId'] : 'NULL';
     $feedback              = isset($_POST['feedback']) ? $_POST['feedback'] : 'NULL';
     $callStatus            = isset($_POST['callStatus']) ? $_POST['callStatus'] : '1';
+    $appointmentDate       = isset($_POST['appointmentDate']) ? $_POST['appointmentDate']:'NULL';
 
     if(isset($_POST['clientId']) && !empty($_POST['clientId'])){
         $sql = "UPDATE call_center_patients SET firstName = '$firstName',middleName = '$middleName',lastName = '$lastName',email='$email',mobile = '$mobile' ,landline ='$landline' ,nearByArea = '$nearByArea',city = '$city',state = '$state',country = '$country',
