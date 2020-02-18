@@ -200,7 +200,16 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="" class="required">Appointment Date</label>
-                                        <input type="date" name="appointmentDate" id="appointmentDate" class="form-control">
+                                
+                                    <div class="form-group">
+                <div class='input-group date' id='appointmentDate' name="appointmentDate">
+                    <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+                                                
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -226,7 +235,15 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Follow up Date/Time</label>
-                                    <input type="datetime-local" class="form-control" name="follwupdate" id="follwupdate">
+                                   
+                                    <div class="form-group">
+                <div class='input-group date' id='follwupdate'>
+                    <input type='text' class="form-control"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
                                 </div>
                             </div>
 
@@ -265,7 +282,23 @@
 <script>
 $(document).ready(function() {
   $(function() {
-    $('#datetimepicker2').datetimepicker();
+    $('#appoinmentDate').datetimepicker({
+    defaultDate: new Date(),
+    format: 'DD/MM/YYYY H:mm:ss',
+    sideBySide: true
+});
+
+  });
+});
+
+$(document).ready(function() {
+  $(function() {
+    $('#follwupdate').datetimepicker({
+    defaultDate: new Date(),
+    format: 'DD/MM/YYYY H:mm:ss',
+    sideBySide: true
+});
+
   });
 });
 </script>
