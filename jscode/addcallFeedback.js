@@ -38,7 +38,5 @@ $('#takeFeedbackForm').on('submit', function(e) {
                     });
                 }
             }
-        }
+        });
     });
-
-});
