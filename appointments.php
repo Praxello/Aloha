@@ -116,25 +116,7 @@ if (isset($_SESSION['userId'])) {
 
                                         </div>
                                     </div>
-                                    <div class="card-body table-responsive">
-                                        <div class="dt-responsive">
-                                            <table id="aTable" class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="nosort">Profile</th>
-                                                        <th>Patient Name</th>
-                                                        <th>Status</th>
-                                                        <th>Reffered by</th>
-                                                        <th>Fees status</th>
-                                                        <th>Patient Type</th>
-                                                        <th class="nosort">action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="aptData">
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
+                              
                                 </div>
                             </div>
                         </div>

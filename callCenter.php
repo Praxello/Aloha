@@ -33,6 +33,9 @@ if(isset($_SESSION['branchId'])){
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
+        <link rel="stylesheet" href="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <style>
 .error{
@@ -264,6 +267,8 @@ today:'<?php echo date('Y-m-d');?>'
        <script src="jscode/getAge.js"></script>
        <script src="jscode/cities.js"></script>
        <script src="jscode/call-center.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+       <script src="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/js/bootstrap-datetimepicker.min.js"></script>
        <script>
            $('.collapse').on('show.bs.collapse', function () {
             $('.collapse.show').each(function(){
