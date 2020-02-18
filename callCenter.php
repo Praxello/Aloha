@@ -62,7 +62,6 @@ if(isset($_SESSION['branchId'])){
                 <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 16px;">
                 <!-- <button type="button" class="btn btn-warning" onclick="listCustomers(customers)">All Customers</button> -->
                 <button type="button" class="btn btn-primary" data-toggle="collapse" href="#content" onclick="getAllCalls(data.today,data.today)">Appointment</button>
-  <button type="button" class="btn btn-secondary" data-toggle="collapse" href="#content" role="button" aria-expanded="false" aria-controls="collapseExample">Call Register</button>
   <button type="button" class="btn btn-success" data-toggle="collapse" href="#content1" role="button" aria-expanded="false" aria-controls="collapseExample">Follow up List</button>
   <button type="button" class="btn btn-default" data-toggle="collapse" href="#content2" role="button" aria-expanded="false" aria-controls="collapseExample">Absent Patients</button>
 </div>
@@ -94,7 +93,6 @@ if(isset($_SESSION['branchId'])){
                                 </div>
                                 <div class="col-sm-2" style="margin-top: 16px;" >
                                     <div class="form-group" style="margin-top: 15px;">
-                                       
                                     <button class="btn  btn-success" type="button"  onclick="callRegister()">Search</button>
                                     </div>
                                 </div>
@@ -238,7 +236,7 @@ today:'<?php echo date('Y-m-d');?>'
     
         <?php include 'search-modal.php'?>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
-        <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script> -->
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
         <script src="plugins/screenfull/dist/screenfull.js"></script>
         <script src="plugins/datatables.net/js/jquery.dataTables.min.js"></script>

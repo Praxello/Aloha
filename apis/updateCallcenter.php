@@ -23,14 +23,14 @@ if (isset($_POST['callId']) && isset($_POST['clientId']) && isset($_POST['firstN
     $attendedBy            = isset($_POST['attendedBy']) ? $_POST['attendedBy'] : 'NULL';
     $branchId              = isset($_POST['branchId']) ? $_POST['branchId'] : 'NULL';
     $doctorId              = isset($_POST['userId']) ? $_POST['userId'] : 'NULL';
-
+    $callStatus            = isset($_POST['callStatus']) ? $_POST['callStatus'] : 'NULL';
     $sql = "UPDATE call_center_patients SET firstName = '$firstName',middleName = '$middleName',lastName = '$lastName',email='$email',
     mobile = '$mobile' ,landline ='$landline' ,nearByArea = '$nearByArea',city = '$city',state = '$state',country = '$country',
     pincode = '$pincode',reference = '$reference',gender = '$gender',dateOfBirth = '$birthdate' WHERE clientId = $clientId";
     
     $query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
-    $sql1 = "UPDATE call_center SET callDateTime = '$callDateTime',branchId = $branchId,doctorId = $doctorId,disease ='$disease',
+    $sql1 = "UPDATE call_center SET callStatus = '$callStatus',callDateTime = '$callDateTime',branchId = $branchId,doctorId = $doctorId,disease ='$disease',
     appointmentDate = '$appointmentDate',remarks = '$remarks',folowupNeeded = '$folowupNeeded',folowupNeededDateTime = '$folowupNeededDateTime',attendedBy = '$attendedBy' WHERE callId = $callId";
     $query_1 = mysqli_query($conn, $sql1) or die(mysqli_error($conn));
     $rowsAffected = mysqli_affected_rows($conn);

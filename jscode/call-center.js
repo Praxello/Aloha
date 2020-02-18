@@ -250,6 +250,9 @@ function fill_data(call) {
     // console.log(moment().format(call.folowupNeededDateTime.DATETIME_LOCAL));
     $('#callStatus').val(call.callStatus).trigger('change');
     $('#follwupdate').val(call.folowupNeededDateTime);
+    if (call.folowupNeeded == 1) {
+        $('#folowupNeeded').prop('checked', true);
+    }
     $('#new').hide();
     $('#update').show();
     $('#fullwindowModal').modal('show');
