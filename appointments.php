@@ -153,9 +153,7 @@ if (isset($_SESSION['userId'])) {
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="plugins/select2/dist/js/select2.min.js"></script>
-
         <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
-
         <script>
             const data = {
                 userId: <?php echo $_SESSION['userId']; ?>
