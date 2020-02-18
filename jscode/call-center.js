@@ -3,6 +3,25 @@ var existCall = new Map();
 var clientId = null,
     up_callId = null;
 var customers = new Map();
+
+function branches() {
+    var dropdownList = '<option></option>';
+    for (let k of branch.keys()) {
+        dropdownList += '<option value="' + k + '">' + branch.get(k) + '</option>';
+    }
+    $('#branch').html(dropdownList);
+    $("#branch").select2({
+        placeholder: 'Select branch',
+        allowClear: true
+    });
+}
+
+branches();
+$("#callStatus").select2({
+    placeholder: 'Select Call Status',
+    allowClear: true,
+    dropdownParent: $('#fullwindowModal')
+});
 const getAllClients = () => {
     $.ajax({
         url: url + 'getAllcustomers.php',
@@ -47,13 +66,13 @@ const listCustomers = customers => {
         destroy: true
     });
 };
-const getAllCalls = (fromDate, uptoDate) => {
+const getAllCalls = (fromDate, uptoDate, branchId) => {
     calls.clear();
     $.ajax({
         url: url + 'getAllCalls.php',
         type: 'POST',
         dataType: 'json',
-        data: { fromDate: fromDate, uptoDate: uptoDate },
+        data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branchId },
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
@@ -103,13 +122,13 @@ const listCalls = calls => {
         tblData += '<td>' + call.stateName + ',' + call.cityName + '</td>';
         tblData += '<td>' + getDate(call.appointmentDate) + '</td>';
         tblData += badge;
-        tblData += '<td>' + getDate(call.folowupNeededDateTime) + '</td>';
+        tblData += '<td>' + call.folowupNeededDateTime + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editCall(' + (k) + ')" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '<a href="#" onclick="takeFeedback(' + (k) + ')" title="Take Feedback"><i class="ik ik-message-circle" style="color:purple"></i></a>';
         tblData += '</div></td></tr>';
     }
-    $('#callData').html(tblData);                                                                                                                   
+    $('#callData').html(tblData);
     $('#cTable').dataTable({
         searching: true,
         retrieve: true,
@@ -130,10 +149,12 @@ const editCall = (callId) => {
     clientId = call.clientId;
     fill_data(call);
 };
+
 function takeFeedback(callId) {
     up_callId = callId;
     $('#takeFeedback').modal('show');
 }
+
 function callRegister() {
     $("#callRegister").validate({
         ignore: [],
@@ -156,9 +177,13 @@ function callRegister() {
     });
     var returnVal = $("#callRegister").valid();
     if (returnVal) {
+        var branch = null;
         var fromDate = $('#fromDate').val();
         var uptoDate = $('#uptoDate').val();
-        getAllCalls(fromDate, uptoDate);
+        if ($('#branch').val() != '') {
+            branch = $('#branch').val();
+        }
+        getAllCalls(fromDate, uptoDate, branch);
     }
 }
 
@@ -212,6 +237,8 @@ function fill_data(call) {
     $('#appointmentDate').val(call.appointmentDate);
     $('#remarks').val(call.remarks);
     $('#userId').val(call.doctorId).trigger('change');
+    // console.log(moment().format(call.folowupNeededDateTime.DATETIME_LOCAL));
+
     $('#follwupdate').val(call.folowupNeededDateTime);
     $('#new').hide();
     $('#update').show();

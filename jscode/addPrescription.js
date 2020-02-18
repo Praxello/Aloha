@@ -45,6 +45,7 @@ function savePrescription() {
         bp: $('#bp').val()
     };
     prescriptionData = JSON.stringify(prescriptionData);
+    console.log(prescriptionData);
     $.ajax({
         url: url + 'addPrescription.php',
         type: 'POST',

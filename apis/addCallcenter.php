@@ -24,6 +24,8 @@ if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['bir
     $attendedBy            = isset($_POST['attendedBy']) ? $_POST['attendedBy'] : 'NULL';
     $branchId              = isset($_POST['branchId']) ? $_POST['branchId'] : 'NULL';
     $doctorId              = isset($_POST['userId']) ? $_POST['userId'] : 'NULL';
+    $feedback              = isset($_POST['feedback']) ? $_POST['feedback'] : 'NULL';
+    $callStatus            = isset($_POST['callStatus']) ? $_POST['callStatus'] : '1';
 
     if(isset($_POST['clientId']) && !empty($_POST['clientId'])){
         $sql = "UPDATE call_center_patients SET firstName = '$firstName',middleName = '$middleName',lastName = '$lastName',email='$email',mobile = '$mobile' ,landline ='$landline' ,nearByArea = '$nearByArea',city = '$city',state = '$state',country = '$country',
@@ -34,7 +36,8 @@ $query = mysqli_query($conn, $sql);
 $rowsAffected = mysqli_affected_rows($conn);
 if ($rowsAffected >0 || $rowsAffected == 0 ) {
     $sql = "INSERT INTO call_center(clientId,callDateTime,branchId,doctorId,disease,appointmentDate,remarks,folowupNeeded,
-    folowupNeededDateTime,attendedBy) VALUES ($clientId,'$callDateTime',$branchId,$doctorId,'$disease', '$appointmentDate', '$remarks', '$folowupNeeded', '$folowupNeededDateTime', '$attendedBy')";
+    folowupNeededDateTime,attendedBy,feedback,callStatus) VALUES ($clientId,'$callDateTime',$branchId,$doctorId,'$disease', 
+    '$appointmentDate', '$remarks', '$folowupNeeded', '$folowupNeededDateTime', '$attendedBy','$feedback','$callStatus')";
     $query = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {

@@ -9,26 +9,30 @@ extract($_GET);
 $doctorId  = $_GET['doctorId'];
 $patientId = $_GET['patientId'];
 $visitDate = $_GET['visitDate'];
-$sign = '';
-$advice;$patientName;$nextVisitDate;
-function doctor_details($doctorId){
+$sign      = '';
+$advice;
+$patientName;
+$nextVisitDate;
+function doctor_details($doctorId)
+{
     include 'connection.php';
     $output = '';
     $sql    = "SELECT um.username,um.mobile,um.sign FROM user_master um WHERE um.userId = $doctorId";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-        global $sign;$sign = $row['username'];
-$output .= '<div class="col-xs-8 ">
-<h3><p class="font-weight-bold mb-1 "><strong>'.$row['username'].'</strong></p></h3>
-<p class="text-muted ">'.$row['sign'].'</p>
-<p class="text-muted ">Mobile no:'.$row['mobile'].'  </p>
+        global $sign;
+        $sign = $row['username'];
+        $output .= '<div class="col-xs-8 ">
+<h3><p class="font-weight-bold mb-1 "><strong>' . $row['username'] . '</strong></p></h3>
+<p class="text-muted ">' . $row['sign'] . '</p>
+<p class="text-muted ">Mobile no:' . $row['mobile'] . '  </p>
 </div>';
     }
     return $output;
 }
 
-function fetchPrescriptiondata($patientId,$visitDate,$doctorId)
+function fetchPrescriptiondata($patientId, $visitDate, $doctorId)
 {
     include 'connection.php';
     $output = '';
@@ -40,19 +44,19 @@ function fetchPrescriptiondata($patientId,$visitDate,$doctorId)
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
-        global $advice,$patientName,$nextVisitDate;
+        global $advice, $patientName, $nextVisitDate;
         $nextVisitDate = $row['nextVisitDate'];
-        $patientName = $patientId.'_'.$row['firstName'].'_'.$row['surname'].'_'.$visitDate;
-        $advice = $row['advice'];
-        $bmi = '';
-        $height = '';
-        if(!empty($row['weight']) && !empty($row['height'])){
-            $height = $row['height']/100;
-            $bmi = floatval($row['weight'])/($height*$height);
-            $bmi = number_format($bmi,2);
+        $patientName   = $patientId . '_' . $row['firstName'] . '_' . $row['surname'] . '_' . $visitDate;
+        $advice        = $row['advice'];
+        $bmi           = '';
+        $height        = '';
+        if (!empty($row['weight']) && !empty($row['height'])) {
+            $height = $row['height'] / 100;
+            $bmi    = floatval($row['weight']) / ($height * $height);
+            $bmi    = number_format($bmi, 2);
         }
-
-$output .= '<div class="row">
+        
+        $output .= '<div class="row">
 <div class="col-xs-3">
 </div>
 <div class="col-xs-3">
@@ -60,39 +64,39 @@ $output .= '<div class="row">
 <div class="col-xs-2">
 </div>
 <div class="col-xs-4">
-   <p class="font-weight-bold mb-4">Date:<strong>'.$row['visitDate'].'</strong></p>
+   <p class="font-weight-bold mb-4">Date:<strong>' . $row['visitDate'] . '</strong></p>
 </div>
 </div>
 <div class="row ">
 <div class="col-xs-2">
-   <p class="font-weight-bold mb-4 "><strong class="text-uppercase">'.$row['firstName'].' '.$row['surname'].'</strong></p>
+   <p class="font-weight-bold mb-4 "><strong class="text-uppercase">' . $row['firstName'] . ' ' . $row['surname'] . '</strong></p>
 </div>
-<div class="col-xs-1">
-   <p class="font-weight-bold mb-4 ">Reg No:<span>'.$patientId.'</span></p>
+<div class="col-xs-2">
+   <p class="font-weight-bold mb-4 ">Reg No:<span>' . $patientId . '</span></p>
 </div>
 <div class="col-xs-3">
-   <p class="font-weight-bold mb-4 ">Cell No:<span>'.$row['mobile1'].'</span></p>
+   <p class="font-weight-bold mb-4 ">Cell No:<span>' . $row['mobile1'] . '</span></p>
 </div>
-<div class="col-xs-6">
+<div class="col-xs-5">
 </div>
 </div>
 <div class="row ">
 <div class="col-xs-1">
-   <p class="font-weight-bold mb-4 ">Age:<span>'.$row['age'].'</span></p>
+   <p class="font-weight-bold mb-4 ">Age:<span>' . $row['age'] . '</span></p>
 </div>
 <div class="col-xs-2">
-   <p class="font-weight-bold mb-4 ">Weight:<span>'.$row['weight'].'</span></p>
+   <p class="font-weight-bold mb-4 ">Weight:<span>' . $row['weight'] . '</span></p>
 </div>
-<div class="col-xs-1">
-   <p class="font-weight-bold mb-4 ">BP:<span>'.$row['bp'].'</span></p>
+<div class="col-xs-2">
+   <p class="font-weight-bold mb-4 ">BP:<span>' . $row['bp'] . '</span></p>
 </div>
-<div class="col-xs-1">
-<p class="font-weight-bold mb-4 ">Pulse:<span>'.$row['pulse'].'</span></p>
+<div class="col-xs-2">
+<p class="font-weight-bold mb-4 ">Pulse:<span>' . $row['pulse'] . '</span></p>
 </div>
-<div class="col-xs-1">
-<p class="font-weight-bold mb-4 ">BMI:<span>'.$bmi.'</span></p>
+<div class="col-xs-2">
+<p class="font-weight-bold mb-4 ">BMI:<span>' . $bmi . '</span></p>
 </div>
-<div class="col-xs-5">
+<div class="col-xs-3">
 </div>
 </div>
 <hr class="my-5 ">
@@ -101,7 +105,7 @@ $output .= '<div class="row">
 <strong><u>Clinical Notes</u>:</strong>
 </div>
 <div class="col-xs-10">
-<p class="font-weight-bold mb-4 ">'.$row['complaint'].'</p>
+<p class="font-weight-bold mb-4 ">' . $row['complaint'] . '</p>
 </div>
 </div>
 <div class="row ">
@@ -109,13 +113,13 @@ $output .= '<div class="row">
 <strong><u>Clinical Diagnosis</u>:</strong>
 </div>
 <div class="col-xs-10">
-<p class="font-weight-bold mb-4 ">'.$row['diagnosis'].'</p>
+<p class="font-weight-bold mb-4 ">' . $row['diagnosis'] . '</p>
 </div>
 </div>';
     }
     return $output;
 }
-function fetchmedicinedata($patientId,$visitDate,$doctorId)
+function fetchmedicinedata($patientId, $visitDate, $doctorId)
 {
     include 'connection.php';
     $output = '';
@@ -127,9 +131,8 @@ function fetchmedicinedata($patientId,$visitDate,$doctorId)
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
             $i++;
-
-        $output .= ' <tr>
-        <td><small>' . $row['type'] . '<small><strong>-' . $row['name'] . '</strong><br>'.$row['genName'].'</td>
+            $output .= ' <tr>
+        <td><small>' . $row['type'] . '<small><strong>-' . $row['name'] . '</strong><br>' . $row['genName'] . '</td>
         <td style="width:5%;text-align:center">' . $row['morning'] . '</td>
         <td style="width:5%;text-align:center">' . $row['evining'] . '</td>
         <td style="width:5%;text-align:center">' . $row['night'] . '</td>
@@ -139,23 +142,23 @@ function fetchmedicinedata($patientId,$visitDate,$doctorId)
         }
     }
     return $output;
-
+    
 }
 
 $html = '<link rel="stylesheet" href="dompdf/style.css">
 <div class="container">
     <div class=" row ">
         <div class="col-12 ">
-                    <div class="row p-5 ">
+                    <div class="row p-5 " id="header">
                         <div class="col-xs-4 ">
                         <img class="img-fluid " src="medical.jpeg" height="30% " width="30% ">
                         </div>
-                       '.doctor_details($doctorId).'
+                       ' . doctor_details($doctorId) . '
                     </div>
 
                     <hr class="my-5 ">
 
-                '.fetchPrescriptiondata($patientId,$visitDate,$doctorId).'
+                ' . fetchPrescriptiondata($patientId, $visitDate, $doctorId) . '
                     <div class="row p-5 ">
                         <div class="col-xs-12 ">
                             <table class="table ">
@@ -170,7 +173,7 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   '.fetchmedicinedata($patientId,$visitDate,$doctorId).'
+                                   ' . fetchmedicinedata($patientId, $visitDate, $doctorId) . '
                                 </tbody>
                             </table>
                         </div>
@@ -180,7 +183,7 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                   <strong>Advice:</strong>
                   </div>
                   <div class="col-xs-8 ">
-                    <p class="font-weight-bold mb-4 ">'.$advice.'</p>
+                    <p class="font-weight-bold mb-4 ">' . $advice . '</p>
                     </div>
                  </div>
                  <div class="row ">
@@ -188,13 +191,13 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                   <strong>Next visit date:</strong>
                   </div>
                   <div class="col-xs-8 ">
-                    <p class="font-weight-bold mb-4 ">'.$nextVisitDate.'/ as necessary [Please confirm appointment 10 days prior]</p>
+                    <p class="font-weight-bold mb-4 ">' . $nextVisitDate . '/ as necessary [Please confirm appointment 10 days prior]</p>
                     </div>
                  </div>
         </div>
     </div>
 
-    <footer style="text-align:right;position:fixed;right:0;bottom:0; "><strong>'.$sign.'</strong></footer>
+    <footer style="text-align:right;position:fixed;right:0;bottom:0; "><strong>' . $sign . '</strong></footer>
 </div>';
 
 $dompdf->loadHtml($html);
@@ -203,5 +206,7 @@ $dompdf->loadHtml($html);
 $dompdf->render();
 /* Output the generated PDF to Browser */
 
-$dompdf->stream($patientName, array("Attachment" => false));
-?>
+$dompdf->stream($patientName, array(
+    "Attachment" => false
+));
+?> 
