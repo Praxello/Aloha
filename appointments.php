@@ -38,17 +38,7 @@ if (isset($_SESSION['userId'])) {
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
 
-     <!-- datetime Picker -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
-
-  <!-- //end -->
- 
-
- <!-- date -->
- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
+     
     </head>
     <style>
             .card .card-header .card-search .form-control {
@@ -76,23 +66,12 @@ if (isset($_SESSION['userId'])) {
                                     <div class="card-header row">
                                         <div class="col col-sm-3">
                                            <label for="">Appointment Date</label>
-    <!-- <input id="dropper-max-year" class="form-control" type="date" placeholder="select date" onchange="fetch(this.value);" />     -->
-                                                <!-- <div class="form-group">
-                                                    <div class='input-group date' id='datetimepicker6'>
-                                                        <input type='text' class="form-control" onchange="fetch(this.value)" />
-                                                        <span class="input-group-addon">
-                                                         <span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                    </div>
-                                                </div> -->
+                                              <input id="dropper-max-year" class="form-control" type="date" placeholder="select date" onchange="fetch(this.value);" />    
+                                          
+                                     </div> 
+                                     
 
-                                                <div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
-    <input class="form-control" type="text"   />
-    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-</div> 
-                                        </div>
-
-                                        <div class="col col-sm-5">
+                                        <div class="col col-sm-4">
 
                                             <div class=" template-demo " id="">
                                                 <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 16px;">
@@ -104,13 +83,9 @@ if (isset($_SESSION['userId'])) {
                                             </div>
 
                                             <div class="col col-sm-3">
-                                            <!-- <label>Select Date: </label>
-<div id="datepicker" class="input-group date" data-date-format="mm-dd-yyyy">
-    <input class="form-control" type="text"  />
-    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-</div> -->
+  
                                             </div>
-                                        </div>
+                                   
                                         <div class="card-body table-responsive">
                                             <div class="dt-responsive">
                                                 <table id="aTable" class="table">
@@ -200,17 +175,7 @@ if (isset($_SESSION['userId'])) {
      
         <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
 
-          <!-- datetime Picker -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-
-       <!-- end -->
-
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
         <script>
     //         $('.form_date').datetimepicker({
     //     weekStart: 1,
@@ -237,22 +202,7 @@ if (isset($_SESSION['userId'])) {
         <script src="jscode/getAdvice.js"></script>
         <script src="jscode/getAllDiagnosis.js"></script>
         <script>
-$(document).ready(function() {
-  $(function() {
-    $('#datetimepicker6').datepicker();
-  });
-});
-</script>
-<script>
-$(document).ready(function() {
-$(function () {
-  $("#datepicker").datepicker({ 
-        autoclose: true, 
-        todayHighlight: true
-  }).datepicker('update', new Date());
-});
-});
-</script>
+
     </body>
 
     </html>
