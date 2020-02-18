@@ -39,6 +39,7 @@ const getAllClients = () => {
 };
 // getAllClients();
 const listCustomers = customers => {
+    
     $('#appT').hide();
     $('#customerT').show();
     $('#customerTable').dataTable().fnDestroy();

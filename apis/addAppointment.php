@@ -7,6 +7,7 @@ $response = null;
 $records  = null;
 extract($_POST);
 if (isset($_POST['patientId']) && isset($_POST['appointmentDate']) && isset($_POST['userId']) && isset($_POST['scheduledBy'])) {
+    
     $sql   = "INSERT INTO patient_doctor_appointment_scheduling(patientId,appointmentDate,doctorId,scheduledBy) 
      VALUES ($patientId,'$appointmentDate',$userId,'$scheduledBy')";
     $query = mysqli_query($conn, $sql);

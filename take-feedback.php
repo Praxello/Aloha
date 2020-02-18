@@ -6,13 +6,13 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <form  id="take-appointment" method="POST" enctype="multipart/form-data">
+                <form  id="takeFeedback" method="POST" enctype="multipart/form-data">
                 <div class="row">
 
                     <div class="col-md-10">
                         <div class="form-group">
                               <label for="feedback">Feedback</label>
-                               <textarea name="feedback" id="feedbackNew" rows="2" class="form-control "></textarea>
+                               <textarea name="feedback" id="feedbacknew" rows="2" class="form-control "></textarea>
                         </div>
                       </div>
 

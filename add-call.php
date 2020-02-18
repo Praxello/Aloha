@@ -1,3 +1,4 @@
+
 <style>
     .error {
         color: red;
@@ -199,7 +200,14 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="" class="required">Appointment Date</label>
-                                    <input type="datetime-local" class="form-control" name="appointmentDate" id="appointmentDate">
+                                
+                                                    <div class='input-group date' id='datetimepicker2'>
+                                                        <input type='text' class="form-control" />
+                                                        <span class="input-group-addon">
+                                                         <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -260,3 +268,11 @@
 <script src="jscode/call-center-validation.js"></script>
 <script src="jscode/addCall.js"></script>
 <script src="jscode/updateCall.js"></script>
+
+<script>
+$(document).ready(function() {
+  $(function() {
+    $('#datetimepicker2').datetimepicker();
+  });
+});
+</script>
