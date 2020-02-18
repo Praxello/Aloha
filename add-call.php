@@ -202,7 +202,7 @@
                                     <label for="" class="required">Appointment Date</label>
                                 
                                     <div class="form-group">
-                <div class='input-group date' id='appointmentDate' name="appointmentDate">
+                <div class='input-group date' id='appoinmentDate'>
                     <input type='text' class="form-control"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
