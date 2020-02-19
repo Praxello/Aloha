@@ -5,8 +5,9 @@ include "../connection.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
-
-$sql = "SELECT * FROM call_center_followups";
+extract($_POST);
+if(isset($_POST['callId'])){
+$sql = "SELECT callFollowupsId,callId,followUp,followUpDateTime,attendedBy FROM call_center_followups WHERE callId = $callId";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -30,6 +31,13 @@ if ($jobQuery != null) {
 }else{
     $response = array(
         'Message' => "Please Logout and login again",
+        "Data" => $records,
+        'Responsecode' => 300
+    ); 
+}
+}else{
+    $response = array(
+        'Message' => "Parameter missing",
         "Data" => $records,
         'Responsecode' => 300
     ); 

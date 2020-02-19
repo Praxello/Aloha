@@ -10,10 +10,10 @@
                 <form  id="takeFeedbackForm" method="POST" enctype="multipart/form-data">
                 <div class="row">
 
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <div class="form-group">
                               <label for="feedback">Feedback</label>
-                               <textarea name="feedback" id="feedbacknew" rows="2" class="form-control "></textarea>
+                               <textarea name="feedback" id="feedbacknew" rows="2" class="form-control " required></textarea>
                         </div>
                       </div>
                 </div>
@@ -27,8 +27,6 @@
                                             <th>Followup</th>
                                             <th>Date</th>
                                             <th>AttendedBy</th>
-
-                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="callFollData">
@@ -50,4 +48,3 @@
     </div>
 </div>
 <script src="jscode/addcallFeedback.js"></script>
-<script src="jscode/getcallFollowup.js"></script>

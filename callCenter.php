@@ -17,7 +17,7 @@ if(isset($_SESSION['branchId'])){
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
 
-        <!-- <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css"> -->
+        <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
         <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
@@ -264,6 +264,7 @@ today:'<?php echo date('Y-m-d');?>'
        <script src="jscode/getDateFormat.js"></script>
        <script src="jscode/getAge.js"></script>
        <script src="jscode/cities.js"></script>
+       <script src="jscode/getcallFollowup.js"></script>
        <script src="jscode/call-center.js"></script>
        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
        <script src="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/js/bootstrap-datetimepicker.min.js"></script>
