@@ -16,7 +16,7 @@ var getPatientAppointments = (patientId) => {
                     tblData += '<td>' + response.Data[i].username + '</td>';
                     tblData += '<td>' + response.Data[i].scheduledBy + '</td>';
                     tblData += '<td><div class="table-actions" style="text-align: left;">';
-                    tblData += '<a href="#" class="list-delete" onclick="removeAppointment(' + response.Data[i].appointmentId + ')" title="Remove appointment"><i class="ik ik-check-circle text-yellow"></i></a>';
+                    tblData += '<a href="#" class="list-delete" onclick="removeAppointment(' + response.Data[i].appointmentId + ')" title="Remove appointment"><i class="ik ik-trash text-red"></i></a>';
                     tblData += '</div></td></tr>';
                 }
                 $('#cAppData').html(tblData);
