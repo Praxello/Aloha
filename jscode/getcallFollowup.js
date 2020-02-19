@@ -14,8 +14,8 @@ var getAllCallFollowup = (callId) => {
                 for (var i = 0; i < count; i++) {
                     followupes.set(response.Data[i].callFollowupsId, response.Data[i]);
                 }
-                listFollowup(followupes);
             }
+            listFollowup(followupes);
         }
     });
 };

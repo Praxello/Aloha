@@ -7,7 +7,8 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['callId'])){
-$sql = "SELECT callFollowupsId,callId,followUp,followUpDateTime,attendedBy FROM call_center_followups WHERE callId = $callId";
+$sql = "SELECT cf.callFollowupsId,cf.callId,cf.followUp,cf.followUpDateTime,um.username attendedBy 
+FROM call_center_followups cf LEFT JOIN user_master um  ON um.userId = cf.attendedBy WHERE callId = $callId";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
