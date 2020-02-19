@@ -43,9 +43,9 @@ if ($rowsAffected >0 || $rowsAffected == 0 ) {
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $callId        = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT *,st.name stateName,ct.name cityName FROM call_center cc INNER JOIN call_center_patients ccp 
-        ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state LEFT JOIN cities ct ON ct.id = ccp.city
-        WHERE cc.callId = $callId");
+        $academicQuery = mysqli_query($conn, "SELECT *,st.name AS stateName,ct.name AS cityName,DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s') folowupNeededDateTime FROM call_center cc 
+        INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state 
+        LEFT JOIN cities ct ON ct.id = ccp.city WHERE cc.callId = $callId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {

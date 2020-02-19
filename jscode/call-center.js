@@ -14,8 +14,17 @@ function branches() {
         placeholder: 'Select branch',
         allowClear: true
     });
+    $('#branchA').html(dropdownList);
+    $("#branchA").select2({
+        placeholder: 'Select branch',
+        allowClear: true
+    });
+    $('#branchF').html(dropdownList);
+    $("#branchF").select2({
+        placeholder: 'Select branch',
+        allowClear: true
+    });
 }
-
 branches();
 $("#callStatus").select2({
     placeholder: 'Select Call Status',
@@ -85,13 +94,13 @@ const getAllCalls = (fromDate, uptoDate, branchId) => {
         }
     });
 };
-const getFollowuplist = (fromDate, uptoDate) => {
+const getFollowuplist = (fromDate, uptoDate, branchId) => {
     calls.clear();
     $.ajax({
         url: url + 'getFollowupcall.php',
         type: 'POST',
         dataType: 'json',
-        data: { fromDate: fromDate, uptoDate: uptoDate },
+        data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branchId },
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
@@ -110,7 +119,8 @@ const listCalls = calls => {
     var tblData = '';
     for (let k of calls.keys()) {
         let call = calls.get(k);
-        badge = '', st = '';
+        var badge = '',
+            st = '';
         if (call.folowupNeeded == 1) {
             badge = '<td><span class="badge badge-success">Yes</span></td>';
         } else {
@@ -222,12 +232,15 @@ function followupList() {
     if (returnVal) {
         var fromDate = $('#folDate').val();
         var uptoDate = $('#foluDate').val();
-        getFollowuplist(fromDate, uptoDate);
+        var branchId = null;
+        if ($('#branchA').val() != '') {
+            branchId = $('#branchA').val();
+        }
+        getFollowuplist(fromDate, uptoDate, branchId);
     }
 }
 
 function fill_data(call) {
-    console.log(call);
     $('#firstName').val(call.firstName);
     $('#middleName').val(call.middleName);
     $('#lastName').val(call.lastName);
@@ -351,12 +364,15 @@ function absentList() {
     if (returnVal) {
         var fromDate = $('#foDate').val();
         var uptoDate = $('#upDate').val();
-
+        var branchId = null;
+        if ($('#branchA').val() != '') {
+            branchId = $('#branchA').val();
+        }
         $.ajax({
             url: url + 'getAbsentCallList.php',
             type: 'POST',
             dataType: 'json',
-            data: { fromDate: fromDate, uptoDate: uptoDate },
+            data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branchId },
             success: function(response) {
                 if (response.Responsecode == 200) {
                     const count = response.Data.length;
