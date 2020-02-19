@@ -49,8 +49,8 @@ $jobQuery = mysqli_query($conn, $sql);
                 $output.='<p style="font-size: 18px; margin-left:10px">I also agree to use my treatment reports for R & D Study purposes for the betterment and humankind.</p>';
                 $output.='<p style="font-size: 18px; margin-left:10px">Signature of Patient:<input type="text" style="margin-top:20px"></p> ';
                 $output.=' <h3><center><b>PATIENT ATTENDANT CONSENT</b></center></h3>';
-                $output.= '<p style="font-size: 18px; margin-left:10px">I <b>'.$relativeName.'</b>  am a relative / friend to the patient <b>'.$medicalTreatment .'</b>';
-                $output.=' We have been explained about the therapy and we agree for <b>'.$treatmentName.'</b>';
+                $output.= '<p style="font-size: 18px; margin-left:10px">I <b>'.$relativeName.'</b>  am a relative / friend to the patient <b>'.$treatmentName .'</b>';
+                $output.=' We have been explained about the therapy and we agree for <b>'.$medicalTreatment.'</b>';
                 $output.=' to undergo 3D Spinal Decompression Mobilization & Correction therapy / program. We will not hold any doctor / therapist / staff of the hospital / medicle centre regarding the treatment regarding the treatment results.</p>
                  
                 </p>';

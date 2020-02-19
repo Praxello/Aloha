@@ -2,7 +2,7 @@
     <div class="sidebar-header">
         <a class="header-brand" href="index.php">
             <div class="logo-img">
-                <img src="src/img/down.png" class="header-brand-img" alt="lavalite" width="20px">
+                <img src="src/img/image.png" class="header-brand-img" alt="lavalite" width="20px">
             </div>
             <span class="text">Spine 360</span>
         </a>
