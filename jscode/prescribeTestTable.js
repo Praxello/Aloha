@@ -167,7 +167,6 @@ function GeneratePayment() {
                             button: false,
                             timer: 1500
                         });
-                        console.log(response.Data);
                         prevTransactions.set(response.Data.paymentId, response.Data);
                         list_transactions(prevTransactions);
                         uniqueTest.clear();
@@ -207,11 +206,9 @@ function GeneratePayment() {
 function attach_data(paymentId) {
     updateFlag = 1;
     updatePaymentId = paymentId;
-    console.log(paymentId);
     paymentId = paymentId.toString();
     let data = prevTransactions.get(paymentId);
     global_date = data.visitDate;
-    console.log(data);
     var rowhtml = '',
         rowid = 0,
         T = 0;

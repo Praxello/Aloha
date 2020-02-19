@@ -7,6 +7,7 @@ function getPreviousPayments(patientId) {
         data: { patientId: patientId },
         dataType: 'json',
         success: function(response) {
+            prevTransactions.clear();
             if (response.Responsecode == 200) {
                 if (response.Data != null) {
                     var n = response.Data.length;
@@ -14,8 +15,8 @@ function getPreviousPayments(patientId) {
                         prevTransactions.set(response.Data[i].paymentId, response.Data[i]);
                     }
                 }
-                list_transactions(prevTransactions);
             }
+            list_transactions(prevTransactions);
         }
     });
 }

@@ -10,6 +10,7 @@ var paymentDetails = patientId => {
         data: { patientId: patientId },
         dataType: 'json',
         success: function(response) {
+            payments.clear();
             if (response.Responsecode == 200) {
                 if (response.Data != null) {
                     var n = response.Data.length;

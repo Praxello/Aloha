@@ -161,7 +161,6 @@ const editCall = (callId) => {
 };
 
 function takeFeedback(callId) {
-    console.log(callId);
     up_callId = callId;
     getAllCallFollowup(up_callId);
     $('#takeFeedback').modal('show');
