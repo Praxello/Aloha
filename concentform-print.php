@@ -34,7 +34,7 @@ $jobQuery = mysqli_query($conn, $sql);
                     </u></b> am a patient of <b> <u>'.$deseaseNew.'</u></b>
                      since <b>'.$sinceDays.'</b> </p>';
                     
-             $output.='  <p  style="font-size: 18px; margin-left:10px"> I have appraoached Lokmanya Hospitals for the treament of the same.</p>';  
+             $output.='  <p  style="font-size: 18px; margin-left:10px"> I have appraoached 360 Spinal Wellness  and Rehabilitation for the treament of the same.</p>';  
              $output.=' <p style="font-size: 18px; margin-left:10px">I am aware that my complaints is lifestyle based / degenerative in nature that has accumulated over time due to a wrong lifestyle / posture / age factors, etc.
              The doctor / therapist has examined me and expained about problems and treatment options.</p>';
              $output.=' <p style="font-size: 18px; margin-left:10px"> I am aware that non-surgical and / or complementory and alternative methods require its own course of times as they offer progressive wellness and relief. 

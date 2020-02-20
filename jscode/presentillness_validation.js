@@ -8,14 +8,14 @@ $(function() {
             chiefcomplaints: {
                 // required: true,
                 // lettersonly: true,
-                maxlength: 100,
-                number:true
+                maxlength: 100
+           
             },
             history: {
                 //required: true,
                 //lettersonly: true,
-                maxlength: 100,
-                number:true
+                maxlength: 100
+              
             },
 
             bp: {

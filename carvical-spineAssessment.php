@@ -666,233 +666,145 @@
                                                         <span class="cr">
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
-                                                        <span>No</span>
-                                                    </label>
+                                                                        <span>No</span>
+                                                                    </label>
+                                                               
+                                                                   
+                                                                </div>
+                                                            </div>
+                                                            </div>
 
-                                                </div>
-                                            </div>
-                                        </div>
+                                                       
 
-                                        <span><b>MOVEMENT LOSS:</b></span>
-                                        <div class="form-group row">
-                                            <table class="table table-bordered" id="cerMomentLoss">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col"></th>
-                                                        <th scope="col">Maj</th>
-                                                        <th scope="col">Mod</th>
-                                                        <th scope="col">Min</th>
-                                                        <th scope="col">Nil</th>
-                                                        <th scope="col">Pain</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">Protrusion</th>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Flexion</th>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                    </tr>
-                                                 
-                                                    <tr>
-                                                        <th scope="row">Retraction</th>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                    </tr>
 
-                                                    <tr>
-                                                        <th scope="row">Extension</th>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Lateral Flexion R</th>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Lateral Flexion L</th>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Rotation R</th>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Rotation L</th>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control" placeholder="">
-                                                        </td>
-                                                    </tr>
+                                                         <span><b>MOVEMENT LOSS:</b></span>
+                                                         <div class="form-group row">
+                                                            <table class="table table-bordered" id="cerMomentLoss">
+                                                                <thead>
+                                                                  <tr>
+                                                                    <th scope="col"></th>
+                                                                    <th scope="col">Maj</th>
+                                                                    <th scope="col">Mod</th>
+                                                                    <th scope="col">Min</th>
+                                                                    <th scope="col">Nil</th>
+                                                                    <th scope="col">Pain</th>
+                                                                  </tr>
+                                                                </thead>
+                                                                <tbody >
+                                                                  <!-- <tr>
+                                                                    <th scope="row">Protrusion</th>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                  </tr> -->
+                                                                  <tr>
+                                                                    <th scope="row">Flexion</th>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                  </tr>
+                                                                  </tr>
+                                                                  <!-- <tr>
+                                                                    <th scope="row">Retraction</th>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                  </tr> -->
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <th scope="row">Extension</th>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control" placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control" placeholder=""></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <th scope="row">Lateral Flexion R</th>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control" placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <th scope="row">Lateral Flexion L</th>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <th scope="row">Rotation R</th>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                  </tr>
+                                                                  <tr>
+                                                                    <th scope="row">Rotation L</th>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                  </tr>
+                                                                  </tr>
+                                                                </tbody>
+                                                              </table>
+                                                              </div>
 
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                                              <span><b> TEST MOVEMENT:</b></span>
+                                                              <div class="form-group row">
+                                                                 <table class="table table-bordered" id="cerTestMovement">
+                                                                     <thead>
+                                                                       <tr>
+                                                                         <th scope="col"></th>
+                                                                         <th scope="col">Symptoms During Testing</th>
+                                                                         <th scope="col">Symptoms After Testing</th>
+                                                                        <!-- <th scope="colgroup" colspan="3">/th> -->
+                                                                         <th scope="colgroup" colspan="3">Mechanical Response
+                                                                         <thead > 
+                                                                             <th></th> <th></th> <th></th>
+                                                                         <th>
+                                                                             <div colspan="3"><i class="ik ik-arrow-up"></i>Rom</div> 
+                                                                         </th>  
+                                                                         <th> <i class="ik ik-arrow-down"></i>Rom</th>
+                                                                         <th>No Effect</th></th>
+                                                                         </thead>
+                                                                       
+                                                                       </tr>
+                                                                     </thead>
+                                                                     <tbody >
+                                                                       <tr>
+                                                                         <th scope="row">Rep RET</th>
+                                                                         <td><input type="text" class="form-control"></td>
+                                                                         <td><input type="text" class="form-control"></td>
+                                                                         <td><input type="text" class="form-control"></td>
+                                                                         <td><input type="text" class="form-control"></td>
+                                                                         <td><input type="text" class="form-control"></td>
+                                                                    </tr> 
+                                                                     </tbody>
+                                                                   </table>
 
-                                        <span><b> TEST MOVEMENT:</b></span>
-                                        <div class="form-group row">
-                                            <table class="table table-bordered" id="cerTestMovement">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col"></th>
-                                                        <th scope="col">Symptoms During Testing</th>
-                                                        <th scope="col">Symptoms After Testing</th>
-                                                    
-                                                        <th scope="colgroup" colspan="3">Mechanical Response
-                                                            <thead>
-                                                                <th></th>
-                                                                <th></th>
-                                                                <th></th>
-                                                                <th>
-                                                                    <div colspan="3"><i class="ik ik-arrow-up"></i>Rom</div>
-                                                                </th>
-                                                                <th> <i class="ik ik-arrow-down"></i>Rom</th>
-                                                                <th>No Effect</th>
-                                                      
-                                                        </thead>
+                                                                 
+                                                                 </div>
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <th scope="row">Rep RET</th>
-                                                        <td>
-                                                            <input type="text" class="form-control">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control">
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" class="form-control">
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                        </div>
-
-                                        <span><b>PROVISIONAL CLASSIFICATION:</b></span>
-                                        <div class="form-group row">
-                                            <div class="col-sm-3">
-                                                <div class="checkbox-fade fade-in-success">
-                                                    <label>
-                                                        <input type="checkbox" value="Derangement" name="cerderagement">
-                                                        <span class="cr">
+                                                                 <span><b>PROVISIONAL CLASSIFICATION:</b></span>
+                                                                 <div class="form-group row">
+                                                                    <div class="col-sm-3">
+                                                                    <div class="checkbox-fade fade-in-success" >
+                                                                        <label>
+                                                                            <input type="checkbox" value="Derangement"  name="cerderagement" >
+                                                                            <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                         <span>Derangement</span>
