@@ -2,7 +2,6 @@ check_prescription(u_patientId, u_appointmentId);
 
 function check_prescription(patientId, appointmentId) {
     let patient = appointments.get(appointmentId);
-    $('#patientName').html(patient.firstName + ' ' + patient.surname);
     $.ajax({
         url: url + 'get-todayPrescription.php',
         type: 'POST',
@@ -129,7 +128,7 @@ function fill_prev(response) {
         tblData += '<tbody>' + tbody;
         tblData += ' </tbody> </table></div></div>';
         tblData += ' <div class="row"> <div class="col-6"> <p class="lead">Next Visit Date ' + getDate(response[i].nextVisitDate) + '</p>';
-        tblData += ' <div class="alert alert-secondary mt-20">Remark:' + response[i].advice + '  </div>   </div>';
+        tblData += ' <div class="alert alert-secondary mt-20">Remark: ' + response[i].advice + '  </div>   </div>';
         tblData += ' <div class="col-6"> </div>  </div>';
         tblData += ' <div class="row no-print"> <div class="col-12">';
         // tblData += '<button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment</button>';

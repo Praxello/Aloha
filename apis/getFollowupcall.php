@@ -10,6 +10,9 @@ if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
     $sql = "SELECT *,st.name AS stateName,ct.name AS cityName FROM call_center cc 
     INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state 
     LEFT JOIN cities ct ON ct.id = ccp.city WHERE cc.folowupNeededDateTime BETWEEN '$fromDate' AND '$uptoDate'";
+    if(isset($_POST['branchId']) && !empty($_POST['branchId'])){
+        $sql .= " AND cc.branchId = $branchId";
+    }
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

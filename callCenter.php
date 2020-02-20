@@ -87,7 +87,7 @@ if(isset($_SESSION['branchId'])){
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">Branch</label>
-                                      <select name="branch" id="branch" style="width: 100%;"></select>
+                                      <select name="branch" id="branch" style="width: 100%;" class="form-control"></select>
                                     </div>
                                 </div>
                                 <div class="col-sm-2" style="margin-top: 16px;" >
@@ -118,6 +118,12 @@ if(isset($_SESSION['branchId'])){
                                         <input type="date" class="form-control" name="foluDate" id="foluDate">
                                     </div>
                                 </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="">Branch</label>
+                                      <select name="branchF" id="branchF" style="width: 100%;" class="form-control"></select>
+                                    </div>
+                                </div>
                                 <div class="col-sm-2" style="margin-top: 16px;">
                                     <div class="form-group" style="margin-top: 15px;">
                                        
@@ -145,6 +151,12 @@ if(isset($_SESSION['branchId'])){
                                     <div class="form-group">
                                         <label for="">Upto</label>
                                         <input type="date" class="form-control" name="upDate" id="upDate">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="">Branch</label>
+                                      <select name="branchA" id="branchA" style="width: 100%;" class="form-control"></select>
                                     </div>
                                 </div>
                                 <div class="col-sm-2" >

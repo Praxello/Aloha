@@ -150,9 +150,7 @@ username:'<?php echo $_SESSION['username'];?>'
        <script src="jscode/getDiscount.js"></script>
        <script src="jscode/prescribeTestTable.js"></script>
        <script src="jscode/packagePayment.js"></script>
-       
     </body>
-
 </html>
 <?php
 }else{
