@@ -748,14 +748,14 @@
                                                                   </tr>
                                                                 </thead>
                                                                 <tbody >
-                                                                  <tr>
+                                                                  <!-- <tr>
                                                                     <th scope="row">Protrusion</th>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                  </tr>
+                                                                  </tr> -->
                                                                   <tr>
                                                                     <th scope="row">Flexion</th>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
@@ -765,14 +765,14 @@
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
                                                                   </tr>
                                                                   </tr>
-                                                                  <tr>
+                                                                  <!-- <tr>
                                                                     <th scope="row">Retraction</th>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
                                                                     <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                  </tr>
+                                                                  </tr> -->
                                                                   </tr>
                                                                   <tr>
                                                                     <th scope="row">Extension</th>

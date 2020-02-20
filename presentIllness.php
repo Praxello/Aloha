@@ -47,7 +47,7 @@
                                 <div class="card-body template-demo">
                                 
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
-                                        data-target="#fullwindowModal">Full Window</button>
+                                        data-target="#presentIllness">Full Window</button>
                                 </div>
                             </div>
                          

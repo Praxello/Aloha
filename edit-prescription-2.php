@@ -55,7 +55,10 @@
                                             <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#last-month" role="tab" aria-controls="pills-profile" aria-selected="false">Present Illness</a>
                                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false">Concent form</a>
+                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false">Consent form</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#present" role="tab" aria-controls="pills-setting" aria-selected="false">Present illness</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
@@ -246,7 +249,7 @@
                                                                     <input type="text" style="margin-top:15px;" id="deseaseNew"> Since
                                                                     <input type="text" style="margin-top:15px;" id="sinceDays"> </p>
 
-                                                                <p style="font-size: 17px;  margin-left:10px"> I have appraoached Lokmanya Hospitals for the treament of the same.</p>
+                                                                <p style="font-size: 17px;  margin-left:10px"> I have appraoached 360 Spinal Wellness and Rehabilitation for the treament of the same.</p>
 
                                                                 <p style="font-size: 17px; margin-left:10px">I am aware that my complaints is lifestyle based / degenerative in nature that has accumulated over time due to a wrong lifestyle / posture / age factors, etc. The doctor / therapist has examined me and expained about problems and treatment options.</p>
                                                                 <p style="font-size: 17px; margin-left:10px"> I am aware that non-surgical and / or complementory and alternative methods require its own course of times as they offer progressive wellness and relief. I have been explained clearly and properly by the doctors / staff of the therapeutic centre, about the treatment options, indications ad contra-indications. </p>
@@ -416,6 +419,37 @@
                             </div>
                         </div>
 
+
+<!-- prentillness -->
+<div class="tab-pane fade" id="present" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+<button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#presentIllness">Add Present Illness</button>
+<div class="container-fluid">
+
+    <div class="card">
+
+        <div class="card-body c">
+            <!-- <div style="overflow-x:auto;"> -->
+            <div class="dt-responsive tbl">
+                <table id="pTable" class="table">
+                    <thead>
+
+                        <tr>
+
+                            <th>Visit Date</th>
+
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="presentData">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
                     </div>
                 </div>
             </div>
@@ -491,13 +525,18 @@
 <script src="jscode/check-prescription.js"></script>
 <script src="jscode/addPrescription.js"></script>
 <script src="jscode/insertConsentForm.js"></script>
+<script src="jscode/getPresentIllness.js"></script>
+
+
 <script>
     getLumbarSpine(u_patientId);
     getNeckDisblity(u_patientId);
     getLowBackPain(u_patientId);
     getCervicalSpine(u_patientId);
+    getPresentDetails(u_patientId);
 </script>
-<?php include 'lumbar-spin-assesment.php';?>
+<?php include 'lumbar-spin-assesment.php';?>            
 <?php include 'neck-disability.php';?>
 <?php include 'low-backPainQues.php';?>
 <?php include 'carvical-spineAssessment.php';?>
+<?php include 'newPresentIllness.php';?>

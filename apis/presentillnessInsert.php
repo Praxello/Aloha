@@ -6,16 +6,11 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-
-if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['chiefcomplaints']) && 
-isset($_POST['history'])) {
-    
-
- 
- 
+$dir = '../upload/patients/';
+if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['chiefcomplaints']) && isset($_POST['history']) ) {
     $pulse       = isset($_POST['pulse']) ? $_POST['pulse'] : 'NULL';
     $spo2        = isset($_POST['spo2']) ? $_POST['spo2'] : 'NULL';
-    $bp1          = isset($_POST['bp1']) ? $_POST['bp1'] : 'NULL';
+  
     $temperature = isset($_POST['temperature']) ? $_POST['temperature'] : 'NULL';
     $weight      = isset($_POST['weight']) ? $_POST['weight'] : 'NULL';
     $chiefcomplaints      = isset($_POST['chiefcomplaints']) ? $_POST['chiefcomplaints'] : 'NULL';
@@ -28,8 +23,8 @@ isset($_POST['history'])) {
     $ppbs      = isset($_POST['ppbs']) ? $_POST['ppbs'] : 'NULL';
     $gfr      = isset($_POST['gfr']) ? $_POST['gfr'] : 'NULL';
     $height      = isset($_POST['height']) ? $_POST['height'] : 'NULL';
-    
-    $goalweight      = isset($_POST['goalweight']) ? $_POST['goalweight'] : 'NULL';
+  
+ 
     $chest      = isset($_POST['chest']) ? $_POST['chest'] : 'NULL';
     $addedSound      = isset($_POST['addedSound']) ? $_POST['addedSound'] : 'NULL';
     $wheezeRhonchi      = isset($_POST['wheezeRhonchi']) ? $_POST['wheezeRhonchi'] : 'NULL';
@@ -54,9 +49,9 @@ isset($_POST['history'])) {
     $itching      = isset($_POST['itching']) ? $_POST['itching'] : 'NULL';
 
 
-    $sql = "INSERT INTO patient_onassessment_master (patientId,visitDate,pulse,spo2,bp,temperature,weight,chiefcomplaints,history,waist,hip,hb1c,fbs,ppbs,gfr,goalweight,height,chest,addedSound,
+    $sql = "INSERT INTO patient_onassessment_master (patientId,visitDate,pulse,spo2,temperature,weight,chiefcomplaints,history,waist,hip,hb1c,fbs,ppbs,gfr,height,chest,addedSound,
     wheezeRhonchi,dyspoea,conciousness,umnreflex,lmnreflex,reflexes,s1s2heard,murmur,oralMucosa,scalp,nodules,eyes,raynaud,telangiectasia,photosensivity,rash,site,type,itching) 
-     VALUES ('$patientId','$visitDate','$pulse', '$spo2','$bp1','$temperature', '$weight','$chiefcomplaints','$history','$waist','$hip','$hb1c','$fbs','$ppbs','$gfr','$goalweight','$height','$chest',
+     VALUES ('$patientId','$visitDate','$pulse', '$spo2','$temperature', '$weight','$chiefcomplaints','$history','$waist','$hip','$hb1c','$fbs','$ppbs','$gfr','$height','$chest',
      '$addedSound','$wheezeRhonchi','$dyspoea','$conciousness','$umnreflex','$lmnreflex','$reflexes','$s1s2heard','$murmur','$oralMucosa','$scalp','$nodules','$eyes','$raynaud',
      '$telangiectasia','$photosensivity','$rash','$site','$type','$itching')";
     

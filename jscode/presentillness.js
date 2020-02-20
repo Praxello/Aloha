@@ -1,12 +1,17 @@
-$('#presentillnessform').on('submit', function(e) {
-    // console.log(e);
+
+$(document).on('submit','#presentillnessform',function(e){
+// $('#presentillnessform').on('submit', function(e) {
+ 
+
     e.preventDefault();
     var returnVal = $("#presentillnessform").valid();
     if (returnVal) {
     
         var fData = new FormData(this);
-        // console.log(fData);
-        // fData.serialize();
+        fData.append('patientId',global_patientId);
+        fData.append('visitDate',global_date)
+         console.log(global_patientId);
+         console.log(global_date);
 
         $.ajax({
             url: url + 'insertpresentIllness.php',
@@ -26,7 +31,9 @@ $('#presentillnessform').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                   
+                    $('#presentillnessform').trigger('reset');
+                    presentill.set(response.Data.onAssesmentId, response.Data);
+                showPresentillness(presentill);
 
                 } else {
                     swal({
