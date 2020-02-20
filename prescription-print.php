@@ -9,6 +9,7 @@ extract($_GET);
 $doctorId  = $_GET['doctorId'];
 $patientId = $_GET['patientId'];
 $visitDate = $_GET['visitDate'];
+$lang_flag = $_GET['flag'];
 $sign      = '';
 $advice;
 $patientName;
@@ -124,7 +125,7 @@ function fetchmedicinedata($patientId, $visitDate, $doctorId,$flag)
     include 'connection.php';
     $output = '';
     $sql = "SELECT mm.genName,ppm.type,ppm.name,ppm.morning,ppm.evining,ppm.night,ppm.period,ppm.patientId,ppm.visitDate,
-    ppm.doctorId,(CASE WHEN 1=$flag THEN (SELECT im.hindi FROM instruction_master im WHERE im.instruction = ppm.instruction) WHEN 2=$flag 
+    ppm.doctorId,(CASE WHEN 2=$flag THEN (SELECT im.hindi FROM instruction_master im WHERE im.instruction = ppm.instruction) WHEN 3=$flag 
     THEN (SELECT im.marathi FROM instruction_master im WHERE im.instruction = ppm.instruction)
     ELSE ppm.instruction END) instruction
     FROM patient_prescription_medicine ppm LEFT JOIN medicine_master mm ON mm.name = ppm.name
@@ -179,7 +180,7 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   ' . fetchmedicinedata($patientId, $visitDate, $doctorId,1) . '
+                                   ' . fetchmedicinedata($patientId, $visitDate, $doctorId,$lang_flag) . '
                                 </tbody>
                             </table>
                         </div>

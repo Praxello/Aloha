@@ -10,13 +10,15 @@ var getLowBackPain = (patientId) => {
             patientId: patientId
         },
         success: function(response) {
+            backPain.clear();
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
                     backPain.set(response.Data[i].lbackpId, response.Data[i]);
                 }
-                showBackPain(backPain);
+
             }
+            showBackPain(backPain);
         }
     });
 };
@@ -55,6 +57,7 @@ var editBack = (lbackpId) => {
     global_date = back_details.visitDate;
     fill_back(back_details);
 };
+var tp = 0;
 
 function fill_back(back) {
     var json, obj, values, i;
@@ -67,6 +70,7 @@ function fill_back(back) {
         i = 0;
         $.each($("input[name='painIntensity']"), function() {
             if (values[i] == 1) {
+                tp = tp + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -84,6 +88,7 @@ function fill_back(back) {
         i = 0;
         $.each($("input[name='personalCare']"), function() {
             if (values[i] == 1) {
+                tp = tp + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -101,6 +106,7 @@ function fill_back(back) {
         i = 0;
         $.each($("input[name='lifting']"), function() {
             if (values[i] == 1) {
+                tp = tp + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -118,6 +124,7 @@ function fill_back(back) {
         i = 0;
         $.each($("input[name='walking']"), function() {
             if (values[i] == 1) {
+                tp = tp + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -135,6 +142,7 @@ function fill_back(back) {
         i = 0;
         $.each($("input[name='sitting1']"), function() {
             if (values[i] == 1) {
+                tp = tp + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -152,6 +160,7 @@ function fill_back(back) {
         i = 0;
         $.each($("input[name='standing']"), function() {
             if (values[i] == 1) {
+                tp = tp + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -169,6 +178,7 @@ function fill_back(back) {
         i = 0;
         $.each($("input[name='sleeping']"), function() {
             if (values[i] == 1) {
+                tp = tp + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -186,6 +196,7 @@ function fill_back(back) {
         i = 0;
         $.each($("input[name='socialLife']"), function() {
             if (values[i] == 1) {
+                tp = tp + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -203,6 +214,7 @@ function fill_back(back) {
         i = 0;
         $.each($("input[name='travel']"), function() {
             if (values[i] == 1) {
+                tp = tp + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -220,6 +232,7 @@ function fill_back(back) {
         i = 0;
         $.each($("input[name='changingDegreeOfPain']"), function() {
             if (values[i] == 1) {
+                tp = tp + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -228,4 +241,5 @@ function fill_back(back) {
         });
     }
     $('#backPain').modal('show');
+    cal(parseInt(tp));
 }
