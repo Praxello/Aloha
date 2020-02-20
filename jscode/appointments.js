@@ -4,6 +4,7 @@ var u_appointmentId = null;
 var global_patientId = null; //for lumbar neck,and back pain
 var details = {};
 var fStatus = null;
+var lang_flag = 1;
 var global_date = moment().format('YYYY-MM-DD');
 $('#dropper-max-year').val(moment().format('YYYY-MM-DD'));
 const getAllAppointments = (doctorId) => {

@@ -119,13 +119,19 @@ function fetchPrescriptiondata($patientId, $visitDate, $doctorId)
     }
     return $output;
 }
-function fetchmedicinedata($patientId, $visitDate, $doctorId)
+function fetchmedicinedata($patientId, $visitDate, $doctorId,$flag)
 {
     include 'connection.php';
     $output = '';
-    $sql    = "SELECT mm.genName,ppm.type,ppm.name,ppm.morning,ppm.evining,ppm.night,ppm.instruction,ppm.period,ppm.patientId,ppm.visitDate,ppm.doctorId 
+    $sql = "SELECT mm.genName,ppm.type,ppm.name,ppm.morning,ppm.evining,ppm.night,ppm.period,ppm.patientId,ppm.visitDate,
+    ppm.doctorId,(CASE WHEN 1=$flag THEN (SELECT im.hindi FROM instruction_master im WHERE im.instruction = ppm.instruction) WHEN 2=$flag 
+    THEN (SELECT im.marathi FROM instruction_master im WHERE im.instruction = ppm.instruction)
+    ELSE ppm.instruction END) instruction
     FROM patient_prescription_medicine ppm LEFT JOIN medicine_master mm ON mm.name = ppm.name
-     WHERE ppm.patientId = $patientId AND ppm.visitDate = '$visitDate' AND ppm.doctorId = $doctorId";
+    WHERE ppm.patientId = $patientId AND ppm.visitDate = '$visitDate' AND ppm.doctorId = $doctorId";
+    // $sql    = "SELECT mm.genName,ppm.type,ppm.name,ppm.morning,ppm.evining,ppm.night,ppm.instruction,ppm.period,ppm.patientId,ppm.visitDate,ppm.doctorId 
+    // FROM patient_prescription_medicine ppm LEFT JOIN medicine_master mm ON mm.name = ppm.name
+    //  WHERE ppm.patientId = $patientId AND ppm.visitDate = '$visitDate' AND ppm.doctorId = $doctorId";
     $result = mysqli_query($conn, $sql);
     $i      = 0;
     if (mysqli_num_rows($result) > 0) {
@@ -173,7 +179,7 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   ' . fetchmedicinedata($patientId, $visitDate, $doctorId) . '
+                                   ' . fetchmedicinedata($patientId, $visitDate, $doctorId,1) . '
                                 </tbody>
                             </table>
                         </div>

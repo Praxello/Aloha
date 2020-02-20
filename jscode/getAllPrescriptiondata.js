@@ -26,8 +26,8 @@ function loadMedicineDosage(id) {
 
 function loadInstructions(id) {
     var dropDownList = '<option></option>';
-    instructions.forEach(instruction => {
-        dropDownList += "<option value=" + instruction + ">" + instruction + "</option>";
+    instructions.forEach((value, key) => {
+        dropDownList += "<option value=" + key + ">" + key + "</option>";
     });
     $('#inst' + id).html(dropDownList);
 }

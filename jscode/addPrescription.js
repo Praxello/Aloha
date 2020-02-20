@@ -9,17 +9,18 @@ function storeTblValues() {
         var night = $(tr).find('td:eq(4) select').val();
         var duration = $(tr).find('td:eq(5) input').val();
         var inst = $(tr).find('td:eq(6) select option:selected').text();
+        if (medicineId != '') {
+            TableData[row] = {
+                "typeId": typeId,
+                "medicineId": medicineId,
+                "morning": morning,
+                "evining": evining,
+                "night": night,
+                "duration": duration,
+                "inst": inst
 
-        TableData[row] = {
-            "typeId": typeId,
-            "medicineId": medicineId,
-            "morning": morning,
-            "evining": evining,
-            "night": night,
-            "duration": duration,
-            "inst": inst
-
-        };
+            };
+        }
     });
     TableData.shift();
     return TableData;
@@ -59,7 +60,7 @@ function savePrescription() {
                     button: false,
                     timer: 1500
                 });
-                window.open('prescription-print.php?patientId=' + response.patientId + '&doctorId=' + response.doctorId + '&visitDate=' + response.vdate);
+                window.open('prescription-print.php?flag=' + lang_flag + '&patientId=' + response.patientId + '&doctorId=' + response.doctorId + '&visitDate=' + response.vdate);
             } else {
                 swal({
                     position: 'top-end',
@@ -75,5 +76,5 @@ function savePrescription() {
 }
 
 function print_prscription(patientId, doctorId, visitDate) {
-    window.open('prescription-print.php?patientId=' + patientId + '&doctorId=' + doctorId + '&visitDate=' + visitDate);
+    window.open('prescription-print.php?flag=' + lang_flag + '&patientId=' + patientId + '&doctorId=' + doctorId + '&visitDate=' + visitDate);
 }

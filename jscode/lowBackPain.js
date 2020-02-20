@@ -75,6 +75,7 @@ var getpainIntensity = () => {
     $.each($("input[name='painIntensity']"), function() {
         var flag = 0;
         var value = $(this).val();
+        console.log(value);
         if (this.checked) {
             flag = 1;
             painObj[value] = flag;
@@ -230,3 +231,73 @@ var getchangingDegreeOfPain = () => {
     });
     return chanObj;
 };
+var a = 0,
+    b = 0,
+    c = 0,
+    d = 0,
+    e = 0,
+    f = 0,
+    g = 0,
+    h = 0,
+    l = 0,
+    j = 0;
+var k = 0;
+
+$("input[name='changingDegreeOfPain']").on('change', function() {
+    a = parseInt($(this).val());
+    a = a - 1;
+    cal(a + b + c + d + e + f + g + h + l + j);
+});
+$("input[name='travel']").on('change', function() {
+    b = parseInt($(this).val());
+    b = b - 1;
+    cal(a + b + c + d + e + f + g + h + l + j);
+});
+$("input[name='socialLife']").on('change', function() {
+    c = parseInt($(this).val());
+    c = c - 1;
+    cal(a + b + c + d + e + f + g + h + l + j);
+});
+$("input[name='sleeping']").on('change', function() {
+    d = parseInt($(this).val());
+    d = d - 1;
+    cal(a + b + c + d + e + f + g + h + l + j);
+});
+$("input[name='standing']").on('change', function() {
+    e = parseInt($(this).val());
+    e = e - 1;
+    cal(a + b + c + d + e + f + g + h + l + j);
+});
+
+$("input[name='painIntensity']").on('change', function() {
+    f = parseInt($(this).val());
+    f = f - 1;
+    cal(a + b + c + d + e + f + g + h + l + j);
+});
+$("input[name='personalCare']").on('change', function() {
+    g = parseInt($(this).val());
+    g = g - 1;
+    cal(a + b + c + d + e + f + g + h + l + j);
+});
+$("input[name='lifting']").on('change', function() {
+    h = parseInt($(this).val());
+    h = h - 1;
+    cal(a + b + c + d + e + f + g + h + l + j);
+});
+$("input[name='walking']").on('change', function() {
+    l = parseInt($(this).val());
+    l = l - 1;
+    cal(a + b + c + d + e + f + g + h + l + j);
+});
+$("input[name='sitting1']").on('change', function() {
+    j = parseInt($(this).val());
+    j = j - 1;
+    cal(a + b + c + d + e + f + g + h + l + j);
+});
+
+function cal(param) {
+    if (param != 0) {
+        k = (param / 50) * 100;
+        $('#per').html("Percentage " + k.toFixed(2));
+    }
+}

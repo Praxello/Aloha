@@ -23,7 +23,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="painIntensity">
+                                                        <input type="radio" value="1" name="painIntensity">
                                                         <span class="cr">
                                                       <i class="cr-icon ik ik-check txt-success"></i>
                                                         </span>
@@ -31,7 +31,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="2" name="painIntensity">
+                                                        <input type="radio" value="2" name="painIntensity">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -39,7 +39,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="3" name="painIntensity">
+                                                        <input type="radio" value="3" name="painIntensity">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -48,7 +48,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="4" name="painIntensity">
+                                                        <input type="radio" value="4" name="painIntensity">
                                                         <span class="cr">
                                                                                      <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -56,7 +56,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="5" name="painIntensity">
+                                                        <input type="radio" value="5" name="painIntensity">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -64,7 +64,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="6" name="painIntensity">
+                                                        <input type="radio" value="6" name="painIntensity">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -80,7 +80,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="personalCare">
+                                                        <input type="radio" value="1" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -88,7 +88,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="2" name="personalCare">
+                                                        <input type="radio" value="2" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -96,7 +96,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="3" name="personalCare">
+                                                        <input type="radio" value="3" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -104,7 +104,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="4" name="personalCare">
+                                                        <input type="radio" value="4" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -112,7 +112,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="5" name="personalCare">
+                                                        <input type="radio" value="5" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -120,7 +120,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="6" name="personalCare">
+                                                        <input type="radio" value="6" name="personalCare">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -136,7 +136,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="lifting">
+                                                        <input type="radio" value="1" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -144,7 +144,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="2" name="lifting">
+                                                        <input type="radio" value="2" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -152,7 +152,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="3" name="lifting">
+                                                        <input type="radio" value="3" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -161,7 +161,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="4" name="lifting">
+                                                        <input type="radio" value="4" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -171,7 +171,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="5" name="lifting">
+                                                        <input type="radio" value="5" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -179,7 +179,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="6" name="lifting">
+                                                        <input type="radio" value="6" name="lifting">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -194,7 +194,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="walking">
+                                                        <input type="radio" value="1" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -202,7 +202,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="2" name="walking">
+                                                        <input type="radio" value="2" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -210,7 +210,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="3" name="walking">
+                                                        <input type="radio" value="3" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -218,7 +218,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="4" name="walking">
+                                                        <input type="radio" value="4" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -227,7 +227,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="5" name="walking">
+                                                        <input type="radio" value="5" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -236,7 +236,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="6" name="walking">
+                                                        <input type="radio" value="6" name="walking">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -256,7 +256,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="sitting1">
+                                                        <input type="radio" value="1" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -264,7 +264,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="2" name="sitting1">
+                                                        <input type="radio" value="2" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -272,7 +272,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="3" name="sitting1">
+                                                        <input type="radio" value="3" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -281,7 +281,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="4" name="sitting1">
+                                                        <input type="radio" value="4" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -289,7 +289,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="5" name="sitting1">
+                                                        <input type="radio" value="5" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -297,7 +297,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="6" name="sitting1">
+                                                        <input type="radio" value="6" name="sitting1">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -313,7 +313,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="standing">
+                                                        <input type="radio" value="1" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -321,7 +321,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="2" name="standing">
+                                                        <input type="radio" value="2" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -329,7 +329,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="3" name="standing">
+                                                        <input type="radio" value="3" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -338,7 +338,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="4" name="standing">
+                                                        <input type="radio" value="4" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -346,7 +346,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="5" name="standing">
+                                                        <input type="radio" value="5" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -354,7 +354,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="6" name="standing">
+                                                        <input type="radio" value="6" name="standing">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -370,7 +370,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="sleeping">
+                                                        <input type="radio" value="1" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -378,7 +378,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="2" name="sleeping">
+                                                        <input type="radio" value="2" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -386,7 +386,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="3" name="sleeping">
+                                                        <input type="radio" value="3" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -395,7 +395,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="4" name="sleeping">
+                                                        <input type="radio" value="4" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -403,7 +403,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="5" name="sleeping">
+                                                        <input type="radio" value="5" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -411,7 +411,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="6" name="sleeping">
+                                                        <input type="radio" value="6" name="sleeping">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -427,7 +427,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="socialLife">
+                                                        <input type="radio" value="1" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -435,7 +435,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="2" name="socialLife">
+                                                        <input type="radio" value="2" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -443,7 +443,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="3" name="socialLife">
+                                                        <input type="radio" value="3" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -452,7 +452,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="4" name="socialLife">
+                                                        <input type="radio" value="4" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -460,7 +460,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="5" name="socialLife">
+                                                        <input type="radio" value="5" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -468,7 +468,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="6" name="socialLife">
+                                                        <input type="radio" value="6" name="socialLife">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -488,7 +488,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="travel">
+                                                        <input type="radio" value="1" name="travel">
                                                         <span class="cr">
                                                            <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -496,7 +496,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="2" name="travel">
+                                                        <input type="radio" value="2" name="travel">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -504,7 +504,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="3" name="travel">
+                                                        <input type="radio" value="3" name="travel">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -513,7 +513,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="4" name="travel">
+                                                        <input type="radio" value="4" name="travel">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -521,7 +521,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="5" name="travel">
+                                                        <input type="radio" value="5" name="travel">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -529,7 +529,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="6" name="travel">
+                                                        <input type="radio" value="6" name="travel">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -545,7 +545,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="checkbox" value="1" name="changingDegreeOfPain">
+                                                        <input type="radio" value="1" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -553,7 +553,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="2" name="changingDegreeOfPain">
+                                                        <input type="radio" value="2" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -561,7 +561,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="3" name="changingDegreeOfPain">
+                                                        <input type="radio" value="3" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -570,7 +570,7 @@
                                                     <br>
 
                                                     <label>
-                                                        <input type="checkbox" value="4" name="changingDegreeOfPain">
+                                                        <input type="radio" value="4" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -578,7 +578,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="5" name="changingDegreeOfPain">
+                                                        <input type="radio" value="5" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                                                         <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -586,7 +586,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="checkbox" value="6" name="changingDegreeOfPain">
+                                                        <input type="radio" value="6" name="changingDegreeOfPain">
                                                         <span class="cr">
                                                          <i class="cr-icon ik ik-check txt-success"></i>
                                                                                     </span>
@@ -594,6 +594,9 @@
                                                     </label>
                                                     <br>
                                                 </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <h3><strong id="per"></strong></h3>
                                             </div>
                                         </div>
 

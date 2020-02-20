@@ -1,4 +1,4 @@
-var instructions = new Set();
+var instructions = new Map();
 
 function getInstructions() {
     $.ajax({
@@ -10,7 +10,7 @@ function getInstructions() {
                 if (response.Data != null) {
                     var n = response.Data.length;
                     for (var i = 0; i < n; i++) {
-                        instructions.add(response.Data[i].instruction);
+                        instructions.set(response.Data[i].instruction, response.Data[i]);
                     }
                 }
 
