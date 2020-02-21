@@ -9,6 +9,7 @@ $(function() {
                 password :{
                     required :true
                 },
+                
                 mobile :{
                     number : true
                 },
@@ -19,7 +20,14 @@ $(function() {
                     required :true
                 },
                 conpassword :{
-                    equalTo: "#password"
+                    equalTo: "#password",
+                    required:true
+                },
+                usertype:{
+                    required :true
+                },
+                branchName:{
+                    required :true
                 }
             },
             messages: {
@@ -41,6 +49,12 @@ $(function() {
                 },
                 conpassword :{
                     required : "Please re-enter the Password"
+                },
+                usertype:{
+                    required : "Select User"
+                },
+                branchName:{
+                    required : "Select Branch"
                 }
         
 

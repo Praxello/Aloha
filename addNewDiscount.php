@@ -2,6 +2,11 @@
     .error{
         color:red;
     }
+       
+  .required:after {
+    content:" *";
+    color: red;
+  }
 </style>
 
 <div class="modal fade" id="discountModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
@@ -17,7 +22,7 @@
                         
                     <div class="col-md-6">
                             <div class="form-group">
-                                <label for="discountType">Discount Type</label>
+                                <label for="discountType"  class="required">Discount Type</label>
                                 <select class="form-control select2" id="discountType" name="discountType" style="width: 100%">
                                 </select>
                             </div>
@@ -25,7 +30,7 @@
                        
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Branch</label>
+                                <label for=""  class="required">Branch</label>
                                 <select class="form-control select2" id="branchId" name="branchId" style="width: 100%">
                                 </select>
                             </div>

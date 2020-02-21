@@ -2,6 +2,10 @@
     .error{
         color:red;
     }
+    .required:after {
+    content:" *";
+    color: red;
+  }
 </style>
 
 
@@ -21,7 +25,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="diagnosis">Diagnosis</label>
+                                <label for="diagnosis" class="required">Diagnosis</label>
                                 <input type="text" id="diagnosis" name="diagnosis" class="form-control" placeholder="Diagnosis Name">
                             </div>
                         </div>

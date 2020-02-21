@@ -4,11 +4,17 @@ $(function() {
         rules: {
             discountType: {
                 required: true 
+            },
+            branchId:{
+                required: true 
             }
         },
         messages: {
             discountType: {
                 required: "Please Enter Discount Type" 
+            },
+            branchId:{
+                required: "Please Select Branch" 
             }
         }
     });

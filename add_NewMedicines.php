@@ -2,6 +2,10 @@
     .error{
         color:red;
     }
+    .required:after {
+    content:" *";
+    color: red;
+  }
 </style>
 
 <div class="modal fade" id="medicinesModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
@@ -16,7 +20,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="type">Type</label>
+                                            <label for="type"  class="required">Type</label>
 
                                             <select class="form-control select2" id="typeId" name="type" placeholder="Type" style="width:100%;">
 
@@ -25,7 +29,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="name">Name</label>
+                                            <label for="name"  class="required">Name</label>
                                             <input type="text" id="name" name="name" class="form-control" placeholder="Name">
                                         </div>
                                     </div>
@@ -40,20 +44,20 @@
                                    
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="morning">Morning</label>
+                                            <label for="morning"  class="required">Morning</label>
 
                                             <select class="form-control select2" id="morning" name="morning" style="width:100%;"></select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="noon">Afternoon</label>
+                                            <label for="noon"  class="required" >Afternoon</label>
                                             <select class="form-control select2" id="noon" name="noon" style="width:100%;"></select>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="night">Night</label>
+                                            <label for="night"  class="required">Night</label>
 
                                             <select class="form-control select2" id="night" name="night" style="width:100%;"></select>
                                         </div>
@@ -66,7 +70,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="instruction">Instruction</label>
+                                            <label for="instruction"  class="required">Instruction</label>
 
                                             <select class="form-control select2" id="instructionId" name="instruction"  style="width:100%;">
 
@@ -76,7 +80,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="days">Days </label>
+                                            <label for="days"  class="required">Days </label>
                                             <input type="text" id="days" name="days" class="form-control" placeholder="Days">
                                         </div>
                                     </div>

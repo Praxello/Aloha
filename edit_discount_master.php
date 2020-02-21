@@ -2,6 +2,12 @@
     .error {
         color: red;
     }
+       
+  .required:after {
+    content:" *";
+    color: red;
+  }
+
 </style>
 
 <div class="main-content">
@@ -20,7 +26,7 @@
                         
                     <div class="col-md-6">
                             <div class="form-group">
-                                <label for="discountType">Discount Type</label>
+                                <label for="discountType" class="required">Discount Type</label>
                                 <select class="form-control select2" id="discountTypee" name="discountType" style="width: 100%">
                                 </select>
                             </div>
@@ -28,7 +34,7 @@
                        
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Branch</label>
+                                <label for="" class="required">Branch</label>
                                 <select class="form-control select2" id="branchIde" name="branchId" style="width: 100%">
                                 </select>
                             </div>

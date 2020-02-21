@@ -2,6 +2,12 @@
     .error{
         color:red;
     }
+   
+  .required:after {
+    content:" *";
+    color: red;
+  }
+
 </style>
 
 <div class="modal fade" id="branchModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
@@ -16,7 +22,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="branchName">Branch Name</label>
+                                <label for="branchName" class="required">Branch Name</label>
                                 <input type="text" id="branchName" name="branchName" class="form-control" placeholder="Branch Name">
                             </div>
                         </div>
@@ -90,7 +96,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="branchAddress">Address</label>
+                                <label for="branchAddress"  class="required">Address</label>
                                 <textarea class="form-control" id="branchAddress"  name="branchAddress" rows="1"></textarea>
                             </div>
                         </div>

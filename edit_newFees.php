@@ -2,6 +2,11 @@
     .error {
         color: red;
     }
+    .required:after {
+    content:" *";
+    color: red;
+  }
+
 </style>
 
 <link rel="stylesheet" href="dist/css/dropzone.css">
@@ -21,7 +26,7 @@
                                 <div class="row">
                                 <div class="col-md-4">
                             <div class="form-group">
-                                <label for="">Doctor Name</label>
+                                <label for=""  class="required">Doctor Name</label>
                                 <select class="form-control select2" id="doctorId" name="doctorId" style="width: 100%">
                                 </select>
                             </div>
@@ -37,7 +42,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="fee">Doctor Fees</label>
+                                            <label for="fee"  >Doctor Fees</label>
                                             <input id="fee" class="form-control" type="text" name="fee" placeholder="Fees" />
                                         </div>
                                     </div>

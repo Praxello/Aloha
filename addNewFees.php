@@ -2,6 +2,10 @@
     .error{
         color:red;
     }
+    .required:after {
+    content:" *";
+    color: red;
+  }
 </style>
 
 <div class="modal fade" id="feesModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
@@ -17,7 +21,7 @@
                         
                     <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Doctor Name</label>
+                                <label for=""  class="required">Doctor Name</label>
                                 <select class="form-control select2" id="userId" name="doctorId" style="width: 100%">
                                 </select>
                             </div>
@@ -53,3 +57,5 @@
 </div>
 
 <script src="jscode/insertFeesMaster.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="jscode/fees_validation.js"></script>

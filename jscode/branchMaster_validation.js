@@ -12,6 +12,15 @@ $(function() {
                 },
                 branchAddress:{
                     required :true
+                },
+                country:{
+                    required:true
+                },
+                state:{
+                    required:true
+                },
+                city:{
+                    required:true
                 }
             },
             messages: {
@@ -24,7 +33,16 @@ $(function() {
                     number : "Enter Valid Number"
                 },
                 branchAddress:{
-                    required: "Please Enter Branch Address",
+                    required: "Please Enter Branch Address"
+                },
+                country:{
+                    required: "Please Select Country"
+                },
+                state:{
+                    required: "Please Select State"
+                },
+                city:{
+                    required: "Please Select city"
                 }
 
             }

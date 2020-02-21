@@ -1,7 +1,8 @@
 $('#feesMasterForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-   
+    var returnVal = $("#feesMasterForm").valid();
+    if (returnVal) {
     
         var fData = new FormData(this);
 
@@ -42,4 +43,5 @@ $('#feesMasterForm').on('submit', function(e) {
                 }
             }
         });
+    }
     });

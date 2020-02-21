@@ -2,6 +2,10 @@
     .error{
         color:red;
     }
+    .required:after {
+    content:" *";
+    color: red;
+  }
 </style>
 
 <div class="modal fade" id="adviceModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
@@ -16,7 +20,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="advice">Advice</label>
+                                <label for="advice" class="required">Advice</label>
                                 <input type="text" id="advice" name="advice" class="form-control" placeholder="Enter New Advice">
                             </div>
                         </div>

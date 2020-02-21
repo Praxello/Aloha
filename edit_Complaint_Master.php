@@ -2,6 +2,10 @@
     .error{
         color:red;
     }
+    .required:after {
+    content:" *";
+    color: red;
+  }
 </style>
 
 <link rel="stylesheet" href="dist/css/dropzone.css">
@@ -26,7 +30,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="complaint">Complaints</label>
+                                <label for="complaint"  class="required">Complaints</label>
                                 <input type="text" id="complaint" name="complaint" class="form-control" placeholder="Complaint Name">
                             </div>
                         </div>
