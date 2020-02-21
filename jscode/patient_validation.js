@@ -15,6 +15,9 @@ $(function() {
                     required: true
 
                 },
+                nextVisitDate:{
+                    required: true
+                },
                 mobile1: {
                     required: true,
                     number: true,
@@ -60,6 +63,9 @@ $(function() {
                 birthdate: {
                     required: "Please enter Date of birth"
 
+                },
+                nextVisitDate:{
+                    required:  "Please Enter Consulting date"
                 },
                 mobile1: {
                     required: "Please enter mobile number",

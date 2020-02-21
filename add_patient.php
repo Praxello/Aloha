@@ -114,7 +114,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="">Consulting Date</label>
+                                <label for="" class="required">Consulting Date</label>
                                 <input type="date" class="form-control" name="nextVisitDate" id="nextVisitDate">
                             </div>
                         </div>

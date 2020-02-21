@@ -86,13 +86,21 @@
                         </div>
                         <div class="row">
                       
-                            <div class="col-md-8">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="address">Sign</label>
+                                    <textarea id="sign" class="form-control" type="text" name="sign" placeholder="sign"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="address">Address</label>
                                     <textarea id="address" class="form-control" type="text" name="address" placeholder="address"></textarea>
 
                                 </div>
                             </div>
+
                             <div class="col-sm-4" style="margin-top: 33px;">
                         <label for="firmName">Active</label>
                             <div class="checkbox-fade fade-in-success check">

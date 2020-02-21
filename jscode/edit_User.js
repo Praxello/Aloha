@@ -7,8 +7,10 @@ var loadUserDetails = details => {
     $('#designation').val(details.designation);
     $('#branchIde').val(details.branchId).trigger('change');
     $('#roleIde').val(details.usertype).trigger('change');
+    $('#sign').val(details.sign);
     $('#address').val(details.address);
     $('#firmName').val(details.firmName);
+  
 
 
     if(details.active == 1){

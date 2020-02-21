@@ -10,8 +10,8 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['mobi
 && isset($_POST['address']) && isset($_POST['firmName']) && isset($_POST['branchName']) ) {
     
     
-    $sql = "INSERT INTO user_master(username,password,mobile,addharId,usertype,designation,address,firmName,branchId) 
-     VALUES ('$username','$password','$mobile','$addharId','$usertype','$designation','$address','$firmName','$branchName')";
+    $sql = "INSERT INTO user_master(username,password,mobile,addharId,usertype,designation,address,firmName,branchId,sign) 
+     VALUES ('$username','$password','$mobile','$addharId','$usertype','$designation','$address','$firmName','$branchName','$sign')";
     
     $query = mysqli_query($conn, $sql);
     

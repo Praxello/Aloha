@@ -8,8 +8,21 @@ $(function() {
                     maxlength: 50,
                     lettersonly: true
                 },
+                branchId:{
+                    required: true
+                },
+                
+                userId:{
+                    required: true
+                },
                 middleName: {
                     lettersonly: true
+                },
+                reference:{
+                    required:true
+                },
+                callStatus:{
+                    required:true
                 },
                 lastName: {
                     required: true,
@@ -29,9 +42,8 @@ $(function() {
                     maxlength: 10
                 },
                 landline: {
-                    number: true,
-                    minlength: 10,
-                    maxlength: 10
+                    number: true
+                   
                 },
                 city: {
                     required: true,
@@ -62,6 +74,18 @@ $(function() {
                     maxlength: "Length Exceed upto 50 characters",
                     lettersonly: "Enter only characters"
                 },
+                branchId: {
+                    required: "Please Select Branch name"   
+                },
+                userId: {
+                    required: "Please Select Doctor name"   
+                },
+                reference:{
+                    required: "Please Select Reference"   
+                },
+                callStatus:{
+                    required: "Please Select Call Status"   
+                },
                 lastName: {
                     required: "Please enter Last name",
                     maxlength: "Length Exceed upto 50 characters",
@@ -78,8 +102,7 @@ $(function() {
                 },
                 landline: {
                     number: "enter valid number",
-                    minlength: "Should enter max 10 digits",
-                    maxlength: "Mobile number cannot be exceed more then 10 digits"
+                    
                 },
                 city: {
                     required: "Please select your City"
