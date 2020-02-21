@@ -119,7 +119,7 @@
 
                             <form class="form-horizontal" id="epatientDetails" method="POST" enctype="multipart/form-data">
                                 <h5>Basic Details</h5>
-
+                                <h6><span style="color:red">*</span> Marked fields are mandatory</h6>                                                           
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">

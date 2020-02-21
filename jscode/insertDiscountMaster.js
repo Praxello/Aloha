@@ -27,6 +27,9 @@ $('#discountMasterForm').on('submit', function(e) {
                         timer: 1500
                     });
                     $('#cButton').click();
+                    $('#discountMasterForm').trigger('reset');
+                    $('#discountType').empty();
+                    $('#branchId').empty();
                     discounts.set(response.Data.discountId, response.Data);
                     listDiscount(discounts);
 

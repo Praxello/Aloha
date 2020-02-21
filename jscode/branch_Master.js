@@ -30,7 +30,6 @@ const listBranches = branches => {
         let branch = branches.get(k);
         actbutton = '';
 
-        console.log(branch.isActive);
 
         if (branch.isActive == 1 || branch.isActive == '1') {
             actbutton = '<td><span class="badge badge-success">active</span></td>';
@@ -86,9 +85,9 @@ var inactivatebranch = branchId => {
         msg1 = '';
     if (branch.isActive == 1) {
         branch.isActive = 0;
-        msg = 'Do you really want to in activate this branch?';
+        msg = 'Do you really want to Inactivate this branch?';
         btn = 'Deactivate Now';
-        msg1 = 'Branch Deactvated';
+        msg1 = 'Branch Deactivated';
     } else {
         branch.isActive = 1;
         msg = 'Do you really want to  activate this branch?';

@@ -26,6 +26,7 @@ $('#branchMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
+                    $('#branchMasterForm').trigger('reset');
                     $('#cButton').click();
                     branches.set(response.Data.branchId, response.Data);
                     listBranches(branches);

@@ -24,9 +24,10 @@ $('#userMasterForm').on('submit', function(e) {
                         icon: 'success',
                         title: response.Message,
                         button: false,
-                        timer: 1500
+                        timer: 1500                                                                                                                                     
                     });
                     $('#cButton').click();
+                    $('#userMasterForm').trigger('reset');
                     users.set(response.Data.userId, response.Data);
                     listUsers(users);
 

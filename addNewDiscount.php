@@ -39,12 +39,7 @@
                                 <input id="discount" class="form-control" type="text" name="discount" placeholder="Fees Type" />
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="createdAt">Created At</label>
-                                <input type="date" class="form-control" name="createdAt" id="createdAt">                 
-                            </div>
-                        </div>
+                       
                        
                     </div>
                  

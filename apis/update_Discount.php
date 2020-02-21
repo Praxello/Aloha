@@ -6,9 +6,9 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['discountId']) && isset($_POST['discountType']) && isset($_POST['branchId']) && isset($_POST['discount']) && isset($_POST['createdAt'])) {
+if (isset($_POST['discountId']) && isset($_POST['discountType']) && isset($_POST['branchId']) && isset($_POST['discount']) ) {
     
-    $sql = "UPDATE discountmaster SET discountType='$discountType',branchId='$branchId',discount='$discount',createdAt='$createdAt' WHERE discountId = $discountId";
+    $sql = "UPDATE discountmaster SET discountType='$discountType',branchId='$branchId',discount='$discount' WHERE discountId = $discountId";
   
     
     $query = mysqli_query($conn, $sql);

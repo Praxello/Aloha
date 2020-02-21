@@ -25,6 +25,7 @@ $('#feesMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
+                  $('#feesMasterForm').trigger('reset');
                     $('#cButton').click();
                     feess.set(response.Data.feesId, response.Data);
                     listFees(feess);
