@@ -150,7 +150,7 @@
                             <div class="form-group">
                                 <label for="country" class="required">Country</label>
 
-                                <select class="form-control select2" id="country" name="country" style="width: 100%;" onchange="loadStates(this.value);" placeholder="country">
+                                <select class="form-control select2" id="country" name="country" style="width: 100%;" onchange="loadStates(this.value);" placeholder="country" style="width:100%;">
 
                                 </select>
                             </div>
@@ -158,7 +158,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="state" class="required">State</label>
-                                <select class="form-control select2" id="state" name="state" placeholder="state" onchange="loadCities(this.value);">
+                                <select class="form-control select2" id="state" name="state" placeholder="state" onchange="loadCities(this.value);" style="width:100%;">
 
                                 </select>
                             </div>
@@ -166,7 +166,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="city" class="required">City</label>
-                                <select class="form-control select2" id="city" name="city" placeholder="city"></select>
+                                <select class="form-control select2" id="city" name="city" placeholder="city" style="width:100%;"></select>
 
                             </div>
                         </div>

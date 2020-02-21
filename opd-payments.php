@@ -86,7 +86,7 @@
                                         <div class="col-md-12 tbl">
 
                                             <table id="opdPayment" class="table">
-                                                <thead style="background-color: aliceblue; color: darkblack">
+                                                <thead style="background-color: aliceblue; color: darkblack" >
                                                     <tr>
                                                         <th><b>Reciept Id</b></td>
                                                             <th><b>Doctor</b></th>

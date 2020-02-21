@@ -5,6 +5,7 @@ require_once 'dompdf/autoload.inc.php';
 use Dompdf\Dompdf;
 /* instantiate and use the dompdf class */
 $dompdf = new Dompdf();
+define("DOMPDF_UNICODE_ENABLED", true);
 extract($_GET);
 $doctorId  = $_GET['doctorId'];
 $patientId = $_GET['patientId'];
@@ -153,7 +154,14 @@ function fetchmedicinedata($patientId, $visitDate, $doctorId,$flag)
 }
 
 $html = '<link rel="stylesheet" href="dompdf/style.css">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <style>
+  *{ font-family: DejaVu Sans !important;}
+</style>
+</head>
 <div class="container">
+
     <div class=" row ">
         <div class="col-12 ">
                     <div class="row p-5 " id="header">
@@ -162,7 +170,6 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                         </div>
                        ' . doctor_details($doctorId) . '
                     </div>
-
                     <hr class="my-5 ">
 
                 ' . fetchPrescriptiondata($patientId, $visitDate, $doctorId) . '
