@@ -122,7 +122,7 @@ if(isset($_SESSION['branchId'])){
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
         <?php include 'Add_NewBranch.php';?>
-       
+        <script src="jscode/getCountryCityStateBranch.js"></script>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
    

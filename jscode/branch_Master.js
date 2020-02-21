@@ -13,7 +13,7 @@ const getAllBranches = () => {
                 for (var i = 0; i < count; i++) {
                     branches.set(response.Data[i].branchId, response.Data[i]);
                 }
-         
+
                 listBranches(branches);
             }
         }
@@ -24,8 +24,8 @@ const listBranches = branches => {
     $('#bTable').dataTable().fnDestroy();
     $('#branchData').empty();
     var tblData = '',
-    actbutton;
-   
+        actbutton;
+
     for (let k of branches.keys()) {
         let branch = branches.get(k);
         actbutton = '';
@@ -36,18 +36,18 @@ const listBranches = branches => {
         } else {
             actbutton = '<td><span class="badge badge-warning">inactive</span></td>';
         }
-       
+
         tblData += '<tr><td>' + branch.branchId + '</td>';
         tblData += '<td>' + branch.branchName + '</td>';
-        tblData += '<td>' + branch.branchAddress  + '</td>';
+        tblData += '<td>' + branch.branchAddress + '</td>';
         tblData += '<td>' + branch.mobile1 + '</td>';
         // tblData += '<td>' + branch.fax + '</td>';
         tblData += actbutton;
-      
+
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editBranch(' + (k) + ')" title="Edit branch details"><i class="ik ik-edit text-blue"></i></a>';
         tblData += '<a href="#" class="ik edit"  onclick="inactivatebranch(' + (k) + ')" title="Active/inactive branch"><i class="ik ik-trash text-danger"></i></a>';
-    
+
         tblData += '</div></td></tr>';
     }
     $('#branchData').html(tblData);
@@ -67,13 +67,11 @@ getAllBranches();
 const editBranch = (branchId) => {
     branchId = branchId.toString();
     branch_details = branches.get(branchId);
-    branchId_ap= branchId;
-    console.log(branchId_ap);
+    branchId_ap = branchId;
     $('#newData').hide();
     $('#editbranchNew').empty();
-
     $('#editbranchNew').load('edit_Branch_Profile.php');
- 
+    console.log(countryList);
 };
 
 

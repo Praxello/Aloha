@@ -4,8 +4,6 @@
     }
 </style>
 
-<link rel="stylesheet" href="dist/css/dropzone.css">
-<link rel="stylesheet" href="dist/css/style.css">
 <div class="main-content">
     <div class="container-fluid">
    
@@ -75,7 +73,7 @@
                             <div class="form-group">
                                 <label for="country" class="required">Country</label>
 
-                                <select class="form-control select2" id="countrye" name="country" style="width: 100%;" onchange="loadStates(this.value);" placeholder="country">
+                                <select class="form-control select2" id="countrye" name="country" style="width: 100%;" onchange="loadStatesedit(this.value);" placeholder="country">
 
                                 </select>
                             </div>
@@ -83,7 +81,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="state" class="required">State</label>
-                                <select class="form-control select2" id="state" name="state" placeholder="state"  style="width: 100%;"  onchange="loadCities(this.value);">
+                                <select class="form-control select2" id="statee" name="state" placeholder="state"  style="width: 100%;"  onchange="loadCitiesedit(this.value);">
 
                                 </select>
                             </div>
@@ -91,7 +89,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="city" class="required">City</label>
-                                <select class="form-control select2" id="city" name="city"  style="width: 100%;"  placeholder="city"></select>
+                                <select class="form-control select2" id="citye" name="city"  style="width: 100%;"  placeholder="city"></select>
 
                             </div>
                         </div>
@@ -119,9 +117,6 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="js/dropzone.js"></script>
-<script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
 <script src="jscode/edit_branch.js"></script>
 <script src="jscode/update_Branch_Master.js"></script>
 <script src="js/jquery.validate.js"></script>
