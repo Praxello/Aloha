@@ -174,6 +174,10 @@ function GeneratePayment() {
                         $('#fTotal').empty();
                         $('#paymentForm').trigger('reset');
                         $('#discountType').val('').trigger('change');
+                        $('#test').val('').trigger('change');
+                        $('#paymentFor').val('').trigger('change');
+                        tAmt = 0;
+                        $('#maxDiscount').html('');
                         var r = confirm('Do you want to accept payment now ?');
                         if (r) {
                             $('#opd-payment-generate').modal('hide');

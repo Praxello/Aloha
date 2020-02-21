@@ -7,7 +7,7 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['patientId'])){
-$sql = "SELECT opp.paymentId,opp.originalAmt,opp.total,opp.discount,opp.received,opp.pending,opp.visitDate,um.username,opp.recieptId 
+$sql = "SELECT opp.paymentId,opp.originalAmt,opp.total,opp.discount,opp.received,opp.pending,opp.visitDate,um.username,opp.recieptId,opp.isPackage 
 FROM opd_patient_payment_master opp
 INNER JOIN user_master um ON um.userId = opp.doctorId WHERE opp.patientId  = $patientId AND opp.isDeleted = 1 ORDER BY opp.visitDate DESC";
 $jobQuery = mysqli_query($conn, $sql);

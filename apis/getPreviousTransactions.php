@@ -10,10 +10,10 @@ $temparray = null;
 extract($_POST);
 if(isset($_POST['patientId'])){
     $today = date('Y-m-d');
-$sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.doctorId,opm.discountType,opm.received,opm.visitDate
+$sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.doctorId,opm.discountType,opm.received,opm.visitDate,opm.isPackage
 FROM opd_patient_payment_master opm 
 INNER JOIN user_master um ON um.userId = opm.doctorId 
-WHERE opm.patientId = $patientId AND opm.visitDate = '$today'";
+WHERE opm.patientId = $patientId AND opm.visitDate = '$today' AND isDeleted = 1";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

@@ -89,6 +89,7 @@
                                                 <thead style="background-color: aliceblue; color: darkblack" >
                                                     <tr>
                                                         <th><b>Reciept Id</b></td>
+                                                        <th>Type</th>
                                                             <th><b>Doctor</b></th>
                                                             <th><b>Orignal Amount</b></th>
                                                             <th><b>Payable Amount</b></th>

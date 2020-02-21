@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="fullwindowModalLabel"><strong>Generate OPD Invoices</strong></h5>
+                <h5 class="modal-title" id="fullwindowModalLabel"><strong>Today’s invoice</strong></h5>
                 <button type="button" class="close " data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <form id="paymentForm">
@@ -19,6 +19,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>reciept Id</th>
+                                                                <th>Type</th>
                                                                 <th>Doctor</th>
                                                                 <th>Original Amount</th>
                                                                 <th>Discount(%)</th>
