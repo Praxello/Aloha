@@ -1,4 +1,3 @@
-
 $(function() {
         var jvalidate = $("#callForm").validate({
             ignore: [],
@@ -8,21 +7,23 @@ $(function() {
                     maxlength: 50,
                     lettersonly: true
                 },
-                branchId:{
+                branchId: {
                     required: true
                 },
-                
-                userId:{
+                appointmentDate: {
+                    required: true
+                },
+                userId: {
                     required: true
                 },
                 middleName: {
                     lettersonly: true
                 },
-                reference:{
-                    required:true
+                reference: {
+                    required: true
                 },
-                callStatus:{
-                    required:true
+                callStatus: {
+                    required: true
                 },
                 lastName: {
                     required: true,
@@ -43,7 +44,7 @@ $(function() {
                 },
                 landline: {
                     number: true
-                   
+
                 },
                 city: {
                     required: true,
@@ -75,16 +76,16 @@ $(function() {
                     lettersonly: "Enter only characters"
                 },
                 branchId: {
-                    required: "Please Select Branch name"   
+                    required: "Please Select Branch name"
                 },
                 userId: {
-                    required: "Please Select Doctor name"   
+                    required: "Please Select Doctor name"
                 },
-                reference:{
-                    required: "Please Select Reference"   
+                reference: {
+                    required: "Please Select Reference"
                 },
-                callStatus:{
-                    required: "Please Select Call Status"   
+                callStatus: {
+                    required: "Please Select Call Status"
                 },
                 lastName: {
                     required: "Please enter Last name",
@@ -102,7 +103,7 @@ $(function() {
                 },
                 landline: {
                     number: "enter valid number",
-                    
+
                 },
                 city: {
                     required: "Please select your City"
@@ -125,7 +126,10 @@ $(function() {
                 },
                 follwupdate: {
                     required: "Select Follow up date and time"
-                }
+                },
+                appointmentDate: {
+                    required: "Select appointment date"
+                },
             }
         });
     }

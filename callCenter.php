@@ -36,13 +36,10 @@ if(isset($_SESSION['branchId'])){
         <link rel="stylesheet" href="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
-    <style>
-.error{
+<style>
+   .error{
     color: red;
 }
-</style>
-<style>
-   
 @media only screen and (max-width: 600px) {
   .tbl {
     overflow-x:auto;
@@ -51,16 +48,14 @@ if(isset($_SESSION['branchId'])){
 </style>
     <body>
         <div class="wrapper">
-
-
             <div class="page-wrap">
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
                 <div id="editProfile"></div>
-                <div class="main-content template-demo " id="tData">
+                <div class="main-content template-demo" id="tData">
                 <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 16px;">
-                <!-- <button type="button" class="btn btn-warning" onclick="listCustomers(customers)">All Customers</button> -->
-                <button type="button" class="btn btn-primary" data-toggle="collapse" href="#content" onclick="getAllCalls(data.today,data.today)">Appointment</button>
+                <button type="button" class="btn btn-warning" data-toggle="collapse" href="#content3" role="button" aria-expanded="false" aria-controls="collapseExample">My work</button>
+                <button type="button" class="btn btn-primary" data-toggle="collapse" href="#content"  role="button" aria-expanded="false" aria-controls="collapseExample">Appointment</button>
   <button type="button" class="btn btn-success" data-toggle="collapse" href="#content1" role="button" aria-expanded="false" aria-controls="collapseExample">Follow up List</button>
   <button type="button" class="btn btn-default" data-toggle="collapse" href="#content2" role="button" aria-expanded="false" aria-controls="collapseExample">Absent Patients</button>
 </div>
@@ -91,8 +86,8 @@ if(isset($_SESSION['branchId'])){
                                     </div>
                                 </div>
                                 <div class="col-sm-2" style="margin-top: 16px;" >
-                                    <div class="form-group" style="margin-top: 15px;">
-                                    <button class="btn  btn-success" type="button"  onclick="callRegister()">Search</button>
+                                    <div class="form-group" style="margin-top: 20px;">
+                                    <button class="btn  btn-primary" type="button"  onclick="callRegister()">Search</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -125,9 +120,9 @@ if(isset($_SESSION['branchId'])){
                                     </div>
                                 </div>
                                 <div class="col-sm-2" style="margin-top: 16px;">
-                                    <div class="form-group" style="margin-top: 15px;">
+                                    <div class="form-group" style="margin-top: 20px;">
                                        
-                                    <button class="btn  btn-primary" type="button"  onclick="followupList()">Search Follow up list</button>
+                                    <button class="btn  btn-success" type="button"  onclick="followupList()">Search Follow up list</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -160,9 +155,43 @@ if(isset($_SESSION['branchId'])){
                                     </div>
                                 </div>
                                 <div class="col-sm-2" >
-                                    <div class="form-group" style="margin-top: 15px;">
+                                    <div class="form-group" style="margin-top: 20px;">
                                        
-                                    <button class="btn  btn-primary" type="button"  onclick="absentList()">Search absent Call list</button>
+                                    <button class="btn  btn-default" type="button"  onclick="absentList()">Search absent Call list</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                   
+                                </div>
+                               
+                            </div>
+                            </form>
+                        </div>
+                        <div id="content3" class="collapse">
+                            <form id="myWork">
+                        <div class="card-header row">
+                          
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="">From</label>
+                                        <input type="date" class="form-control" name="mfoDate" id="mfoDate">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="">Upto</label>
+                                        <input type="date" class="form-control" name="mupDate" id="mupDate">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label for="">Branch</label>
+                                      <select name="mbranch" id="mbranch" style="width: 100%;" class="form-control"></select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2" >
+                                    <div class="form-group" style="margin-top: 20px;">
+                                    <button class="btn  btn-warning" type="button"  onclick="myWork()">Search My Work</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -247,7 +276,7 @@ today:'<?php echo date('Y-m-d');?>'
     
         <?php include 'search-modal.php'?>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
-        <!-- <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script> -->
+        <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
         <script src="plugins/screenfull/dist/screenfull.js"></script>
         <script src="plugins/datatables.net/js/jquery.dataTables.min.js"></script>

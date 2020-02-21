@@ -24,6 +24,11 @@ function branches() {
         placeholder: 'Select branch',
         allowClear: true
     });
+    $('#mbranch').html(dropdownList);
+    $("#mbranch").select2({
+        placeholder: 'Select branch',
+        allowClear: true
+    });
 }
 branches();
 $("#callStatus").select2({
@@ -48,7 +53,6 @@ const getAllClients = () => {
 };
 // getAllClients();
 const listCustomers = customers => {
-
     $('#appT').hide();
     $('#customerT').show();
     $('#customerTable').dataTable().fnDestroy();
@@ -208,6 +212,38 @@ function callRegister() {
     }
 }
 
+function myWork() {
+    $("#myWork").validate({
+        ignore: [],
+        rules: {
+            mfoDate: {
+                required: true,
+            },
+            mupDate: {
+                required: true
+            },
+        },
+        messages: {
+            mfoDate: {
+                required: "Select from Date"
+            },
+            mupDate: {
+                required: "Select upto Date"
+            },
+        }
+    });
+    var returnVal = $("#myWork").valid();
+    if (returnVal) {
+        var branch = null;
+        var fromDate = $('#mfoDate').val();
+        var uptoDate = $('#mupDate').val();
+        if ($('#mbranch').val() != '') {
+            branch = $('#mbranch').val();
+        }
+        getMyWork(fromDate, uptoDate, branch);
+    }
+}
+
 function followupList() {
     $("#followuplist").validate({
         ignore: [],
@@ -336,6 +372,7 @@ function renameCall(callId) {
 }
 
 function newCall() {
+    $('.select2').val('').trigger('change');
     $('#callForm').trigger('reset');
     $('#fullwindowModal').modal('show');
 }
@@ -411,3 +448,22 @@ function fill_search_data(call) {
     $('#clientId').val(call.clientId);
     $('#fullwindowModal').modal('show');
 }
+const getMyWork = (fromDate, uptoDate, branchId) => {
+    calls.clear();
+    $.ajax({
+        url: url + 'getMywork.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branchId },
+        success: function(response) {
+            calls.clear();
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                    calls.set(response.Data[i].callId, response.Data[i]);
+                }
+            }
+            listCalls(calls);
+        }
+    });
+};
