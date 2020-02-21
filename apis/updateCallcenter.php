@@ -24,18 +24,19 @@ if (isset($_POST['callId']) && isset($_POST['clientId']) && isset($_POST['firstN
     $branchId              = isset($_POST['branchId']) ? $_POST['branchId'] : 'NULL';
     $doctorId              = isset($_POST['userId']) ? $_POST['userId'] : 'NULL';
     $callStatus            = isset($_POST['callStatus']) ? $_POST['callStatus'] : 'NULL';
+    $feedback              = isset($_POST['feedback']) ? $_POST['feedback'] : 'NULL';
     $sql = "UPDATE call_center_patients SET firstName = '$firstName',middleName = '$middleName',lastName = '$lastName',email='$email',
     mobile = '$mobile' ,landline ='$landline' ,nearByArea = '$nearByArea',city = '$city',state = '$state',country = '$country',
     pincode = '$pincode',reference = '$reference',gender = '$gender',dateOfBirth = '$birthdate' WHERE clientId = $clientId";
     
     $query = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
-    $sql1 = "UPDATE call_center SET callStatus = '$callStatus',callDateTime = '$callDateTime',branchId = $branchId,doctorId = $doctorId,disease ='$disease',
+    $sql1 = "UPDATE call_center SET feedback = '$feedback',callStatus = '$callStatus',callDateTime = '$callDateTime',branchId = $branchId,doctorId = $doctorId,disease ='$disease',
     appointmentDate = '$appointmentDate',remarks = '$remarks',folowupNeeded = '$folowupNeeded',folowupNeededDateTime = '$folowupNeededDateTime',attendedBy = '$attendedBy' WHERE callId = $callId";
     $query_1 = mysqli_query($conn, $sql1) or die(mysqli_error($conn));
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected > 0) {
-            $academicQuery = mysqli_query($conn, "SELECT *,st.name stateName,ct.name cityName FROM call_center cc INNER JOIN call_center_patients ccp 
+            $academicQuery = mysqli_query($conn, "SELECT *,st.name stateName,ct.name cityName,cc.folowupNeededDateTime follow FROM call_center cc INNER JOIN call_center_patients ccp 
             ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state LEFT JOIN cities ct ON ct.id = ccp.city
             WHERE cc.callId = $callId");
             if ($academicQuery != null) {

@@ -32,6 +32,11 @@ function list_transactions(prevTransactions) {
         total = total + parseFloat(data.total);
         pendingTotal = pendingTotal + parseFloat(data.pending);
         tblData += '<tr><td>' + data.recieptId + '</td>';
+        if (data.isPackage == 1) {
+            tblData += '<td>Package</td>';
+        } else {
+            tblData += '<td>OPD</td>';
+        }
         tblData += '<td>' + data.username + '</td>';
         tblData += '<td>' + data.originalAmt + '</td>';
         tblData += '<td>' + data.discount + '</td>';

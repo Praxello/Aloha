@@ -51,7 +51,7 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST
            
         }
         $sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.visitDate,
-        opm.doctorId,opm.discountType,opm.total,opm.received FROM opd_patient_payment_master opm 
+        opm.doctorId,opm.discountType,opm.total,opm.received,opm.isPackage FROM opd_patient_payment_master opm 
         INNER JOIN user_master um ON um.userId = opm.doctorId 
         WHERE opm.paymentId = $tId";
         // $sql      = "SELECT * FROM opd_patient_payment_master WHERE paymentId = $tId";

@@ -283,8 +283,7 @@
 $(document).ready(function() {
   $(function() {
     $('#apDate').datetimepicker({
-        sideBySide: true,
-        format:"YYYY-MM-DD HH:mm:ss"
+        format:"YYYY-MM-DD"
     });
 $('#foDate1').datetimepicker({
     sideBySide: true,

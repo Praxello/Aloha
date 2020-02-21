@@ -31,7 +31,13 @@ var listpaymentdetails = payments => {
     var tblData = '';
     for (let k of payments.keys()) {
         let payment = payments.get(k);
+
         tblData += '<tr><td>' + payment.recieptId + '</td>';
+        if (payment.isPackage == 1) {
+            tblData += '<td>Package</td>';
+        } else {
+            tblData += '<td>OPD</td>';
+        }
         tblData += '<td>' + payment.username + '</td>';
         tblData += '<td>' + payment.originalAmt.toLocaleString() + '</td>';
         tblData += '<td>' + payment.total.toLocaleString() + '</td>';
@@ -40,6 +46,7 @@ var listpaymentdetails = payments => {
         tblData += '<td>' + payment.pending.toLocaleString() + '</td>';
         tblData += '<td>' + getDate(payment.visitDate) + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
+
         if (payment.pending > 0) {
             tblData += '<a href="#" onclick="makePayment(' + k + ')" title="Edit payment details"><i class="ik ik-edit-2 text-blue" ></i></a>';
         } else {
@@ -57,7 +64,7 @@ var listpaymentdetails = payments => {
         order: [],
         pageLength: 5,
         lengthMenu: [5, 10, 15, 20],
-        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7, 8] }],
+        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true

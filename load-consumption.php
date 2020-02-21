@@ -2,17 +2,17 @@
     <div class="row">
         <div class="col-md-3 col-6"> <strong>Package Name</strong>
             <br>
-            <p class="text-muted" id="pNamee">Johnathan Deo</p>
+            <p class="text-muted" id="pNamee"></p>
         </div>
         <div class="col-md-3 col-6"> <strong>Package Cost</strong>
             <br>
-            <p class="text-muted" id="pCoste">(123) 456 7890</p>
+            <p class="text-muted" id="pCoste"></p>
         </div>
         <div class="col-md-3 col-6"> <strong>Purchase date</strong>
             <br>
-            <p class="text-muted" id="purchaseDatee">johnathan@admin.com</p>
+            <p class="text-muted" id="purchaseDatee"></p>
         </div>
-        <div class="col-md-3 col-6"> <strong>Active/Inactive</strong>
+        <div class="col-md-3 col-6">
             <br>
            <button class="btn btn-warning" type="button" onclick="fromBack()">Back</button>
         </div>

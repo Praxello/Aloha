@@ -241,6 +241,7 @@ function followupList() {
 }
 
 function fill_data(call) {
+    console.log(call);
     $('#firstName').val(call.firstName);
     $('#middleName').val(call.middleName);
     $('#lastName').val(call.lastName);
@@ -255,7 +256,7 @@ function fill_data(call) {
     $('#zipcode').val(call.pincode);
     $('#nearByArea').val(call.nearByArea);
     $('#reference').val(call.reference).trigger('change');
-    //$('#calldatetime').val(call.callDateTime);
+    $('#feedback').val(call.feedback);
     $('#branchId').val(call.branchId).trigger('change');
     $('#desease').val(call.disease);
     $('#appointmentDate').val(call.appointmentDate);
@@ -263,7 +264,7 @@ function fill_data(call) {
     $('#userId').val(call.doctorId).trigger('change');
     // console.log(moment().format(call.folowupNeededDateTime.DATETIME_LOCAL));
     $('#callStatus').val(call.callStatus).trigger('change');
-    $('#follwupdate').val(call.folowupNeededDateTime);
+    $('#follwupdate').val(call.follow);
     if (call.folowupNeeded == 1) {
         $('#folowupNeeded').prop('checked', true);
     }
