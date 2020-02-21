@@ -55,6 +55,8 @@ var listpaymentdetails = payments => {
         retrieve: true,
         bPaginate: $('#opdPayment tbody tr').length > 10,
         order: [],
+        pageLength: 5,
+        lengthMenu: [5, 10, 15, 20],
         columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7, 8] }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],

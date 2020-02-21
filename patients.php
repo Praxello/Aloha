@@ -63,7 +63,6 @@ if(isset($_SESSION['branchId'])){
                                 <table id="pTable" class="table">
                                     <thead>
                                         <tr>
-                                           
                                             <th class="nosort">Profile</th>
                                             <th>Name</th>
                                             <th>Age</th>
@@ -75,12 +74,9 @@ if(isset($_SESSION['branchId'])){
                                         </tr>
                                     </thead>
                                     <tbody id="patientData">
-                                       
-                                        
-                                        
                                     </tbody>
                                 </table>
-                                    </div>
+                            </div>
                             </div>
                             <!-- <div> -->
                         </div>
@@ -127,7 +123,7 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="js/jquery.validate.js"></script>
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
-         <?php include 'add_patient.php';?>
+       <?php include 'add_patient.php';?>
        <?php include 'take-appointment.php';?>
        <?php include 'opd-payments.php';?>
        <?php include 'opd-generatePayments.php';?>
