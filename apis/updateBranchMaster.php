@@ -10,7 +10,7 @@ if (isset($_POST['branchId']) && isset($_POST['branchName']) && isset($_POST['la
 && isset($_POST['mobile2']) && isset($_POST['branchAddress'])) {
     
     $sql = "UPDATE hospital_branch_master SET branchName='$branchName',latitude='$latitude',longitude='$longitude',mapURL='$mapURL',mobile1='$mobile1',
-    mobile2='$mobile2',country='$country',state='$state',city='$city' branchAddress='$branchAddress' WHERE branchId = $branchId";
+    mobile2='$mobile2',country='$country',state='$state',city='$city', branchAddress='$branchAddress' WHERE branchId = $branchId";
   
     
     $query = mysqli_query($conn, $sql);

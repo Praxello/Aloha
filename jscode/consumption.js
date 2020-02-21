@@ -1,4 +1,5 @@
 var transactions = new Map();
+var exchangeT = new Map();
 
 function loadConsumption(details) {
     $('#pNamee').html(details.title);
@@ -28,27 +29,36 @@ function loadTransactions(pId) {
 }
 
 function exchange(pId) {
-    $('#exchangeT').dataTable().fnDestroy();
-    $('#exchangeData').empty();
     $.ajax({
         url: url + 'getExchangeTransactions.php',
         type: 'POST',
         data: { pId: pId },
         dataType: 'json',
         success: function(response) {
-            var tbldata = '';
+            exchangeT.clear();
             if (response.Data != null) {
                 var n = response.Data.length;
                 for (var i = 0; i < n; i++) {
-                    tbldata += '<tr><td>' + response.Data[i].transactionType + '</td>';
-                    tbldata += '<td>' + response.Data[i].username + '</td>';
-                    tbldata += '<td>' + response.Data[i].created_at + '</td></tr>';
+                    exchangeT.set(response.Data[i].transactionId, response.Data[i]);
+
                 }
             }
-            $('#exchangeData').html(tbldata);
-            $('#exchangeT').dataTable();
+            exchange_list(exchangeT);
         }
     });
+}
+
+function exchange_list(exchangeT) {
+    $('#exchangeT').dataTable().fnDestroy();
+    $('#exchangeData').empty();
+    var tbldata = '';
+    exchangeT.forEach(element => {
+        tbldata += '<tr><td>' + element.transactionType + '</td>';
+        tbldata += '<td>' + element.username + '</td>';
+        tbldata += '<td>' + element.created_at + '</td></tr>';
+    });
+    $('#exchangeData').html(tbldata);
+    $('#exchangeT').dataTable();
 }
 
 function listTransactions(transactions) {
@@ -71,15 +81,23 @@ function consumeNow(detailId) {
     detailId = detailId.toString();
     if (transactions.has(detailId)) {
         let transaction = transactions.get(detailId);
+        let consume = parseInt(transaction.consumed);
         $.ajax({
             url: url + 'consumeTransaction.php',
             type: 'POST',
             data: { detailId: detailId, userId: data.userId },
             dataType: 'json',
             success: function(response) {
+                console.log(response);
                 if (response.Responsecode == 200) {
-                    transaction.consumed = parseInt(transaction.consumed + 1);
+                    consume = consume + 1;
+                    transaction.consumed = consume;
                     transactions.set(detailId, transaction);
+                    if (response.Data != null) {
+                        exchangeT.set(response.Data.transactionId, response.Data);
+                        console.log(exchangeT);
+                        exchange_list(exchangeT);
+                    }
                 }
                 listTransactions(transactions);
             }

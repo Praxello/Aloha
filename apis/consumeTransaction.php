@@ -14,6 +14,18 @@ if ($jobQuery != null) {
     $insert = "INSERT INTO PackageTransaction(detailId,userId) VALUES($detailId,$userId)";
     mysqli_query($conn,$insert);
     if ($academicAffected ==1) {
+        $did = $conn->insert_id;
+$sql = "SELECT pt.transactionId,pt.transactionType,pt.userId,DATE_FORMAT(pt.created_at,'%d %b %Y') created_at,um.username 
+FROM PackageTransaction pt INNER JOIN PackageCustomerDetails pd ON pd.DetailId = pt.detailId LEFT JOIN user_master um ON um.userId = pt.userId
+WHERE pt.transactionId =  $did";
+$jobQuery = mysqli_query($conn, $sql);
+if ($jobQuery != null) {
+    $academicAffected = mysqli_num_rows($jobQuery);
+    if ($academicAffected > 0) {
+        $academicResults = mysqli_fetch_assoc($jobQuery);
+            $records = $academicResults;
+    }
+}
         $response = array(
             'Message' => "Package is consumed successfully",
             "Data" => $records,
