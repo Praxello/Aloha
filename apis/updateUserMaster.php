@@ -14,7 +14,7 @@ if (isset($_POST['userId']) && isset($_POST['username']) && isset($_POST['passwo
     $address = mysqli_real_escape_string($conn, $address);
     
     $sql = "UPDATE  user_master SET username='$username',password='$password',mobile='$mobile',addharId='$addharId',usertype ='$usertype',designation = '$designation',
-    address='$address',firmName = '$firmName' WHERE userId='$userId'";
+    address='$address',firmName = '$firmName',sign='$sign' WHERE userId='$userId'";
   
     
     $query = mysqli_query($conn, $sql);

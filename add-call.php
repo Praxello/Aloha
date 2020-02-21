@@ -35,19 +35,19 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="firstName" class="required">First Name</label>
-                                                <input type="text" placeholder="John" class="form-control" name="firstName" id="firstName">
+                                                <input type="text" placeholder="" class="form-control" name="firstName" id="firstName">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="">Middle Name</label>
-                                                <input type="text" placeholder="Mosh" class="form-control" name="middleName" id="middleName">
+                                                <input type="text" placeholder="" class="form-control" name="middleName" id="middleName">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="" class="required">Last Name</label>
-                                                <input type="text" placeholder="Doe" class="form-control" name="lastName" id="lastName">
+                                                <input type="text" placeholder="" class="form-control" name="lastName" id="lastName">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -145,13 +145,13 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">Reference</label>
+                                                <label for="" class="required">Reference</label>
                                                 <select  class="form-control select2" name="reference" id="reference" style="width: 100%;"></select>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="">Call Status</label>
+                                                <label for="" class="required">Call Status</label>
                                                <select name="callStatus" id="callStatus" style="width: 100%;" class="form-control select2">
                                                <option></option>
                                                <option value="1">Idle</option>
