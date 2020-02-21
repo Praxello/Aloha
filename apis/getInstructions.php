@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT instruction FROM instruction_master";
+$sql = "SELECT instruction,instructionId,hindi,marathi FROM instruction_master";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -14,9 +14,8 @@ if ($jobQuery != null) {
         while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
             $records[] = $academicResults;
         }
-        
         $response = array(
-            'Message' => "All Medicine Data Fetched successfully",
+            'Message' => "All instructions Data Fetched successfully",
             "Data" => $records,
             'Responsecode' => 200
         );

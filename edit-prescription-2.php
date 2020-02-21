@@ -158,6 +158,17 @@
                                     <div class="card">
                                         <div class="card-header">
                                             <button type="button" class="btn btn-icon btn-success" style="float: right;" onclick="addrow()" title="Add Medicine"><i class="ik ik-plus"></i></button>
+                                            <div class="col-md-2" style="float: left;">
+                                            <div class="form-group">
+                                               <label for="instFormat">Instruction format</label>
+                                               <select name="instFormat" id="instFormat" class="form-control" onchange="check_instruction_type(this.value)">
+                                                    <option value="1">English</option>
+                                                    <option value="2">Hindi</option>
+                                                    <option value="3">Marathi</option>
+                                               </select>
+                                            </div>
+                                        </div>
+                                        
                                         </div>
                                         <div class="card-body">
                                             <div class="dt-responsive">
@@ -199,17 +210,18 @@
                                         </div>
                                         <div class="col-md-1">
                                             <div class="form-group">
-                                                <label for="input" style="margin-top: 10px;">Enter Days</label>
+                                                <label for="vdate" style="margin-top: 10px;">Enter Days</label>
                                                 <input type="number" id="vdate" class="form-control" oninput="setDate(this.value);">
                                             </div>
                                             <strong id="dayOfDate" style="color:green;"></strong>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="input" style="margin-top: 10px;">Next Visit Date</label>
+                                                <label for="nextVisitDate" style="margin-top: 10px;">Next Visit Date</label>
                                                 <input type="date" id="nextVisitDate" class="form-control">
                                             </div>
                                         </div>
+                                       
                                         <div class="col-md-5" style="margin-top: 38px;">
 
                                             <button type="button" class="btn  btn-success" onclick="savePrescription()">Save</button>
@@ -314,7 +326,6 @@
                                             <table id="sTable" class="table">
                                                 <thead>
                                                     <tr>
-
                                                         <th>Visit Date</th>
                                                         <th>Action</th>
                                                     </tr>

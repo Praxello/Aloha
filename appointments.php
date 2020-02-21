@@ -12,11 +12,8 @@ if (isset($_SESSION['userId'])) {
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css"> -->
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="dist/css/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -32,12 +29,10 @@ if (isset($_SESSION['userId'])) {
         <link rel="stylesheet" href="plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <link rel="stylesheet" href="dist/css/jquery-ui.css">
-
         <link rel="stylesheet" href="plugins/bootstrap-tagsinput/dist/tagsinput.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
-
     </head>
     <style>
         .card .card-header .card-search .form-control {
@@ -61,15 +56,12 @@ if (isset($_SESSION['userId'])) {
                         <div id="editProfile"></div>
                         <div class="main-content" id="tData">
                             <div class="container-fluid">
-
                                 <div class="card">
                                     <div class="card-header row">
                                         <div class="col col-sm-3">
                                             <label for="">Appointment Date</label>
                                             <input id="dropper-max-year" class="form-control" type="date" placeholder="select date" onchange="fetch(this.value);" />
-
                                         </div>
-
                                         <div class="col col-sm-4">
 
                                             <div class=" template-demo " id="">
@@ -110,13 +102,13 @@ if (isset($_SESSION['userId'])) {
 
                             <div class="col col-sm-3">
 
-                                        </div>
-                                    </div>
-                              
-                                </div>
                             </div>
                         </div>
+
             </div>
+        </div>
+        </div>
+        </div>
         </div>
         </div>
 
@@ -132,7 +124,7 @@ if (isset($_SESSION['userId'])) {
         </div>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+        <script src="js/jquery.mask.min.js"></script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="js/bootstrap-datetimepicker.js"></script>
@@ -170,7 +162,6 @@ if (isset($_SESSION['userId'])) {
         <script src="jscode/getComplaints.js"></script>
         <script src="jscode/getAdvice.js"></script>
         <script src="jscode/getAllDiagnosis.js"></script>
-
     </body>
 
     </html>

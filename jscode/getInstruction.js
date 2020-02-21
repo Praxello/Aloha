@@ -13,7 +13,6 @@ const getAllInstructionn = () => {
                 for (var i = 0; i < count; i++) {
                     instruction.set(response.Data[i].instructionId, response.Data[i]);
                 }
-
                 listInstr(instruction);
             }
         }
@@ -27,7 +26,6 @@ const listInstr = instruction => {
     for (let k of instruction.keys()) {
         let inst = instruction.get(k);
         badge = '';
-        console.log(inst);
         if (inst.isActive == 1 || inst.isActive == '1') {
             badge = '<td><span class="badge badge-success">active</span></td>';
         } else {

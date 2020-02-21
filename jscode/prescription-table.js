@@ -122,3 +122,7 @@ function fetchMedicine(medicine, rowid) {
         }
     }
 }
+
+function check_instruction_type(id) {
+    lang_flag = id;
+}

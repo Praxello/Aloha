@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT instruction,instructionId,isActive FROM instruction_master";
+$sql = "SELECT instruction,instructionId,isActive,hindi,marathi FROM instruction_master";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
