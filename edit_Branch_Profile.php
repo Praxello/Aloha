@@ -71,23 +71,28 @@
                     </div>
 
                     <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="country" class="required">Country</label>
 
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="landline1">Primary Landline Number </label>
-                                <input id="landline1" class="form-control" type="text" name="landline1" placeholder="mobile"   onkeypress="return event.charCode >= 48 && event.charCode <= 57"/>
+                                <select class="form-control select2" id="countrye" name="country" style="width: 100%;" onchange="loadStates(this.value);" placeholder="country">
+
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="landline2">Secondary Landline Number </label>
-                                <input id="landline2" class="form-control" type="text" name="landline2" placeholder="mobile"   onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
+                                <label for="state" class="required">State</label>
+                                <select class="form-control select2" id="state" name="state" placeholder="state"  style="width: 100%;"  onchange="loadCities(this.value);">
+
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="fax">fax </label>
-                                <input type="text" class="form-control" id="fax" name="fax" placeholder="fax">
+                                <label for="city" class="required">City</label>
+                                <select class="form-control select2" id="city" name="city"  style="width: 100%;"  placeholder="city"></select>
+
                             </div>
                         </div>
 

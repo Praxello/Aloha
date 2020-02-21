@@ -56,7 +56,7 @@ function getCities() {
         }
     });
 }
-
+var countryList=null;
 function loadCountries() {
     var dropdownList = '<option></option>';
     for (let k of countries.keys()) {
@@ -64,10 +64,12 @@ function loadCountries() {
         dropdownList += '<option value="' + k + '">' + country + '</option>';
     }
     $('#country').html(dropdownList);
+    countryList=dropdownList;
+    
     $("#country").select2({
         placeholder: 'Select Country',
         allowClear: true,
-        dropdownParent: $('#demoModal')
+        dropdownParent: $('#branchModal')
     });
 }
 
@@ -82,7 +84,7 @@ function loadStates(countryId) {
     $("#state").select2({
         placeholder: 'Select State',
         allowClear: true,
-        dropdownParent: $('#demoModal')
+        dropdownParent: $('#branchModal')
     });
 }
 
@@ -97,6 +99,6 @@ function loadCities(stateId) {
     $("#city").select2({
         placeholder: 'Select City',
         allowClear: true,
-        dropdownParent: $('#demoModal')
+        dropdownParent: $('#branchModal')
     });
 }

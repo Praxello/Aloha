@@ -69,7 +69,7 @@ if(isset($_SESSION['branchId'])){
                                             <th>Branch Name</th>
                                             <th>Branch Address</th>
                                             <th>Contact Number</th>
-                                            <th>Fax</th>
+                                           
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>

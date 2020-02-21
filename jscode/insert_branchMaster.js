@@ -28,6 +28,7 @@ $('#branchMasterForm').on('submit', function(e) {
                     });
                     $('#branchMasterForm').trigger('reset');
                     $('#cButton').click();
+                    $('.select2').val('').trigger('change');
                     branches.set(response.Data.branchId, response.Data);
                     listBranches(branches);
 

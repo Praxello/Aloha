@@ -28,6 +28,7 @@ $('#userMasterForm').on('submit', function(e) {
                     });
                     $('#cButton').click();
                     $('#userMasterForm').trigger('reset');
+                    $('.select2').val('').trigger('change');
                     users.set(response.Data.userId, response.Data);
                     listUsers(users);
 

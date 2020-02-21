@@ -41,7 +41,7 @@ const listBranches = branches => {
         tblData += '<td>' + branch.branchName + '</td>';
         tblData += '<td>' + branch.branchAddress  + '</td>';
         tblData += '<td>' + branch.mobile1 + '</td>';
-        tblData += '<td>' + branch.fax + '</td>';
+        // tblData += '<td>' + branch.fax + '</td>';
         tblData += actbutton;
       
         tblData += '<td><div class="table-actions" style="text-align: left;">';

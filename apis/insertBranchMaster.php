@@ -9,8 +9,8 @@ extract($_POST);
 if (isset($_POST['branchName']) && isset($_POST['mobile1'])) {
     
     
-    $sql = "INSERT INTO hospital_branch_master(branchName,mobile1,latitude,longitude,mapURL,mobile2,landline1,landline2,fax,branchAddress) 
-     VALUES ('$branchName','$mobile1','$latitude','$longitude','$mapURL','$mobile2','$landline1','$landline2','$fax','$branchAddress')";
+    $sql = "INSERT INTO hospital_branch_master(branchName,mobile1,latitude,longitude,mapURL,mobile2,branchAddress,country,state,city) 
+     VALUES ('$branchName','$mobile1','$latitude','$longitude','$mapURL','$mobile2','$branchAddress','$country','$state','$city')";
     
     $query = mysqli_query($conn, $sql);
     

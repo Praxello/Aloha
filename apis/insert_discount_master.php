@@ -9,8 +9,8 @@ extract($_POST);
 if (isset($_POST['discountType']) && isset($_POST['discount']) && isset($_POST['branchId'])) {
     
     
-    $sql = "INSERT INTO discountmaster(discountType,discount,createdAt,branchId) 
-     VALUES ('$discountType','$discount','$createdAt','$branchId')";
+    $sql = "INSERT INTO discountmaster(discountType,discount,branchId) 
+     VALUES ('$discountType','$discount','$branchId')";
     
     $query = mysqli_query($conn, $sql);
     

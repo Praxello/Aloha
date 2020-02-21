@@ -68,7 +68,7 @@
                                         <div class="form-group">
                                             <label for="instruction">Instruction</label>
 
-                                            <select class="form-control" id="instructionId" name="instruction" placeholder="Instruction" style="width:100%;">
+                                            <select class="form-control select2" id="instructionId" name="instruction"  style="width:100%;">
 
                                             </select>
                                         </div>
