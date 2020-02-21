@@ -29,6 +29,11 @@ $('#medicineMasterForm').on('submit', function(e) {
                     });
                     $('#cButton').click();
                     $('#medicineMasterForm').trigger('reset');
+                    $('#typeId').empty();
+                    $('#morning').empty();
+                    $('#noon').empty();
+                    $('#night').empty();
+                    $('#instructionId').empty();
                     medicines.set(response.Data.medicineId, response.Data);
                    listMedicines(medicines);
 

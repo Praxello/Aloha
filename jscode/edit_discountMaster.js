@@ -1,8 +1,8 @@
-var loadDiscountDetails = details => {
+    var loadDiscountDetails = details => {
     console.log(details);
     
        $('#discount').val(details.discount);
-       $('#createdAte').val(details.createdAt); 
+      
     
        $('#discountTypee').html(userroleList);
        $('#branchIde').html(branchList);

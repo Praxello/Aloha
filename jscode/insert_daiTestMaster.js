@@ -26,6 +26,7 @@ $('#testMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
+                    $('#testMasterForm').trigger('reset');
                     $('#cButton').click();
                     $('#testMasterForm').trigger('reset');
                     testes.set(response.Data.testId, response.Data);

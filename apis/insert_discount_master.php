@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['discountType']) && isset($_POST['discount']) && isset($_POST['createdAt']) && isset($_POST['branchId'])) {
+if (isset($_POST['discountType']) && isset($_POST['discount']) && isset($_POST['branchId'])) {
     
     
     $sql = "INSERT INTO discountmaster(discountType,discount,createdAt,branchId) 

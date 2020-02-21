@@ -43,10 +43,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="createdAt">Created At</label>
-                                <input type="date" class="form-control" name="createdAt" id="createdAte">                 
-                            </div>
+                            
                         </div>
                        
                     </div>
