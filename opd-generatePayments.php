@@ -189,6 +189,6 @@
                 </div>
             </form>
         </div>
-
     </div>
-    <script src="jscode/payment-validation.js"></script>
+</div>
+<script src="jscode/payment-validation.js"></script>

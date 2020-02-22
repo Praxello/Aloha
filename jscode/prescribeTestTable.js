@@ -11,7 +11,6 @@ getDiscounts(data.branchId);
 
 function addrow() {
     var T = $('#test').val();
-    console.log(T);
     if (T != '') {
         T = T.toString();
         if (uniqueTest.has(T)) {
@@ -158,7 +157,6 @@ function GeneratePayment() {
                 paymentId: updatePaymentId
             };
             details = JSON.stringify(details);
-            console.log(details);
             $.ajax({
                 url: url + 'generatePayment.php',
                 type: 'POST',
@@ -173,11 +171,16 @@ function GeneratePayment() {
                             button: false,
                             timer: 1500
                         });
-                        updateFlag = 0;
-                        if (prevTransactions.has(updateDetails.updatePaymentId)) {
-                            console.log(prevTransactions);
-                            prevTransactions.delete();
+                        if (updateFlag == 1) {
+
+                            updatePaymentId = updatePaymentId.toString();
+                            if (prevTransactions.has(updatePaymentId)) {
+
+                                prevTransactions.delete(updatePaymentId);
+                            }
                         }
+                        updateFlag = 0;
+
                         prevTransactions.set(response.Data.paymentId, response.Data);
                         list_transactions(prevTransactions);
                         uniqueTest.clear();
@@ -223,7 +226,6 @@ function attach_data(paymentId) {
     updateFlag = 1;
     paymentId = paymentId.toString();
     let data = prevTransactions.get(paymentId);
-    console.log(data);
     global_date = data.visitDate;
     var rowhtml = '',
         rowid = 0,
@@ -302,6 +304,8 @@ $('input:radio[name=radio]').change(function() {
         $('.opd').hide();
         $('#headTitle').text('Quota');
     }
+    updateFlag = 0;
+    flag = 1;
     uniqueTest.clear();
     $('#presTableBody').empty();
     $('#fTotal').html('');
