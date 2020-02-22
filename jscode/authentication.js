@@ -17,7 +17,7 @@ $('#signin').on('submit', function(event) {
                 $('.message').show();
             }
         },
-        complete: function(response) {
+        complete: function() {
             $("#wait").css("display", "none");
         }
     });

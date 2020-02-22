@@ -12,10 +12,12 @@ $temparray = null;
 $billDetails_q = null;
 extract($_POST);
 $str = array();
+$packageUpdate = 0;
 if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST['uFlag'])) {
 
     if($uFlag['uFlag'] == 1 && $uFlag['paymentId'] != null){
         $payId = $uFlag['paymentId'];
+        $packageUpdate =1;
         mysqli_query($conn,"DELETE FROM opd_patient_payment_master WHERE paymentId=$payId");
     }
     $someArray   = json_decode($postdata, true);
@@ -34,10 +36,14 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST
     $recieptId   = getLastId($branchId)+1;
     if($packages['flag'] == 1 && !empty($packages['packageId'])){
         $isPackage = 1;
+        if($packageUpdate != 1){
         package($packages['packageId'],$patientId,$packages['packageCost'],1,$branchId,$userId,$packages['packageDuration']);
+        }
     }
-    $sql         = "INSERT INTO opd_patient_payment_master(recieptId,branchId,patientId, doctorId,originalAmt,total,discountType,discount,received,pending,visitDate,createdBy,isPackage)
-    VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount','$discountType','$discount',0,'$amount','$visitDate',$userId,$isPackage)";
+    $packageIdopd    = isset($packages['packageId'])? $packages['packageId']:'NULL';
+
+    $sql         = "INSERT INTO opd_patient_payment_master(recieptId,branchId,patientId, doctorId,originalAmt,total,discountType,discount,received,pending,visitDate,createdBy,isPackage,packageId)
+    VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount','$discountType','$discount',0,'$amount','$visitDate',$userId,$isPackage,'$packageIdopd')";
     $query       = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
@@ -46,9 +52,9 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST
         foreach ($billDetails as $key => $value) {
             $feesType = $billDetails[$key]['feesType'];
             $fees = $billDetails[$key]['fees'];
-            $sql         = "INSERT INTO Bill_Details(paymentId, feesType,fees)VALUES ($tId,'$feesType',$fees)";
+            $testId = $billDetails[$key]['testId'];
+            $sql         = "INSERT INTO Bill_Details(paymentId,testId,feesType,fees)VALUES ($tId,'$testId','$feesType',$fees)";
             $query       = mysqli_query($conn, $sql);
-           
         }
         $sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.visitDate,
         opm.doctorId,opm.discountType,opm.total,opm.received,opm.isPackage FROM opd_patient_payment_master opm 
@@ -61,7 +67,7 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST
             if ($academicAffected > 0) {
                 $academicResults = mysqli_fetch_assoc($jobQuery);
                
-                $query = "SELECT fees,feesType,paymentId FROM Bill_Details pm WHERE paymentId = $tId";
+                $query = "SELECT fees,feesType,paymentId,testId FROM Bill_Details pm WHERE paymentId = $tId";
             $jobQuery_1 = mysqli_query($conn, $query);
             if ($jobQuery_1 != null) {
                 $academicAffected_1 = mysqli_num_rows($jobQuery_1);

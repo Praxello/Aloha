@@ -372,6 +372,10 @@ function renameCall(callId) {
 }
 
 function newCall() {
+    clientId = null;
+    up_callId = null;
+    $('#new').show();
+    $('#update').hide();
     $('.select2').val('').trigger('change');
     $('#callForm').trigger('reset');
     $('#fullwindowModal').modal('show');

@@ -6,10 +6,12 @@ var totalDiscount = 0;
 var updateFlag = 0;
 var updatePaymentId = null;
 var global_date = moment().format('YYYY-MM-DD');
+var flag = 0;
 getDiscounts(data.branchId);
 
 function addrow() {
     var T = $('#test').val();
+    console.log(T);
     if (T != '') {
         T = T.toString();
         if (uniqueTest.has(T)) {
@@ -20,6 +22,7 @@ function addrow() {
             rowid += 1;
             rowhtml = "";
             rowhtml += '<tr id="row' + rowid + '">';
+            rowhtml += '<td style="display:none;">' + tests.testId + '</td>';
             rowhtml += '<td>';
             rowhtml += tests.testName;
             rowhtml += '</td>';
@@ -47,10 +50,10 @@ function deleterow(id, testId) {
     uniqueTest.delete(testId);
     $("#row" + id).remove();
     tAmt = tAmt - parseFloat(tests.fees);
+    $('#fTotal').html(tAmt.toLocaleString());
     $('#tAmt').val(tAmt);
     $('#pAmt').val();
 }
-
 
 function getSelectedText() {
     var a = $("#paymentFor option:selected").text();
@@ -97,10 +100,12 @@ function storeDetails() {
     var TableData = [];
 
     $('#presTable tr').each(function(row, tr) {
-        var feesType = $(tr).find('td:eq(0)').text();
-        var fees = $(tr).find('td:eq(1)').text();
+        var testId = $(tr).find('td:eq(0)').text();
+        var feesType = $(tr).find('td:eq(1)').text();
+        var fees = $(tr).find('td:eq(2)').text();
 
         TableData[row] = {
+            "testId": testId,
             "feesType": feesType,
             "fees": parseFloat(fees),
         };
@@ -123,8 +128,8 @@ function GeneratePayment() {
             if (discountType == '') {
                 discountType = 'NULL';
             }
-            var packageId = null,
-                flag = 0;
+            var packageId = null;
+
             if ($('#packageIds').val() != '') {
                 packageId = $('#packageIds').val();
                 flag = 1;
@@ -153,6 +158,7 @@ function GeneratePayment() {
                 paymentId: updatePaymentId
             };
             details = JSON.stringify(details);
+            console.log(details);
             $.ajax({
                 url: url + 'generatePayment.php',
                 type: 'POST',
@@ -167,6 +173,11 @@ function GeneratePayment() {
                             button: false,
                             timer: 1500
                         });
+                        updateFlag = 0;
+                        if (prevTransactions.has(updateDetails.updatePaymentId)) {
+                            console.log(prevTransactions);
+                            prevTransactions.delete();
+                        }
                         prevTransactions.set(response.Data.paymentId, response.Data);
                         list_transactions(prevTransactions);
                         uniqueTest.clear();
@@ -208,10 +219,11 @@ function GeneratePayment() {
 }
 
 function attach_data(paymentId) {
-    updateFlag = 1;
     updatePaymentId = paymentId;
+    updateFlag = 1;
     paymentId = paymentId.toString();
     let data = prevTransactions.get(paymentId);
+    console.log(data);
     global_date = data.visitDate;
     var rowhtml = '',
         rowid = 0,
@@ -220,22 +232,35 @@ function attach_data(paymentId) {
     if (data.billdetails != null) {
         var count = data.billdetails.length;
         for (var i = 0; i < count; i++) {
-            T = 0;
+            T = data.billdetails[i].testId;
+            uniqueTest.add(T);
             rowid += 1;
             rowhtml += '<tr id="row' + rowid + '">';
+            rowhtml += '<td style="display:none;">' + data.billdetails[i].testId + '</td>';
             rowhtml += '<td>';
             rowhtml += data.billdetails[i].feesType;
             rowhtml += '</td>';
             rowhtml += '<td>';
             rowhtml += data.billdetails[i].fees;
             rowhtml += '</td>';
-            rowhtml += '<td>';
-            rowhtml += '<button type="button" class="btn btn-icon btn-danger" onclick="deleterow(' + rowid + ',' + (T) + ')" ><i class="ik ik-minus"></i></button>';
-            rowhtml += '</td>';
+            if (data.isPackage == 1) {
+                rowhtml += '<td></td>';
+            } else {
+                rowhtml += '<td><button type="button" class="btn btn-icon btn-danger" onclick="deleterow(' + rowid + ',' + (T) + ')" ><i class="ik ik-minus"></i></button></td>';
+            }
             rowhtml += '</tr>';
             tAmt = parseFloat(data.billdetails[i].fees) + tAmt;
         }
         originalAmt = tAmt;
+        if (data.isPackage == 1) {
+            flag = 1;
+            tAmt = data.originalAmt;
+            $('#headTitle').text('Quota');
+            $('.opd').hide();
+            $('#chP').prop('checked', true);
+            $('.package').show();
+            $('#packageIds').val(data.packageId).trigger('change');
+        }
         $("#presTableBody").html(rowhtml);
         $('#discountType').val(data.discountType).trigger('change');
         $('#dAmt').val(data.discount).trigger('change');
@@ -271,22 +296,21 @@ $('input:radio[name=radio]').change(function() {
         $('.package').hide();
         $('.opd').show();
         $('#headTitle').text('Amount');
-        $('#presTableBody').empty();
-        $('#fTotal').html('');
-        $('#paymentFor').val('').trigger('change');
         tAmt = 0;
-        $('#dAmt').val('');
-        $('#pAmt').val('');
-        $('#tAmt').val('');
     } else if (this.value == '0') {
         $('.package').show();
         $('.opd').hide();
         $('#headTitle').text('Quota');
-        $('#presTableBody').empty();
-        $('#fTotal').html('');
-        $('#packageIds').val('').trigger('change');
-        $('#dAmt').val('');
-        $('#pAmt').val('');
-        $('#tAmt').val('');
     }
+    uniqueTest.clear();
+    $('#presTableBody').empty();
+    $('#fTotal').html('');
+    $('#paymentFor').val('').trigger('change');
+    $('#dAmt').val('');
+    $('#pAmt').val('');
+    $('#tAmt').val('');
+    $('#total').html('');
+    $('#packageIds').val('').trigger('change');
+    $('#discountType').val('').trigger('change');
+    $('#maxDiscount').html('');
 });

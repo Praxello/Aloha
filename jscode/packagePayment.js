@@ -14,6 +14,7 @@ packagedropdownsecond();
 
 function payment(packageId) {
     let package = packageList.get(packageId);
+    console.log(package);
     if (packageList.has(packageId)) {
         tAmt = parseFloat(package.cost);
         var rowhtml = '',
@@ -23,6 +24,7 @@ function payment(packageId) {
             for (var i = 0; i < count; i++) {
                 rowid += 1;
                 rowhtml += '<tr id="row' + rowid + '">';
+                rowhtml += '<td style="display:none;">' + package.packagedetails[i].testId + '</td>';
                 rowhtml += '<td>';
                 rowhtml += package.packagedetails[i].testName;
                 rowhtml += '</td>';
@@ -33,7 +35,6 @@ function payment(packageId) {
                 rowhtml += '<button type="button" class="btn btn-icon btn-danger"><i class="ik ik-minus"></i></button>';
                 rowhtml += '</td>';
                 rowhtml += '</tr>';
-                // tAmt = parseFloat(package.packagedetails[i].fees) + tAmt;
             }
         }
         originalAmt = tAmt;

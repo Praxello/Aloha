@@ -10,7 +10,7 @@ $temparray = null;
 extract($_POST);
 if(isset($_POST['patientId'])){
     $today = date('Y-m-d');
-$sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.doctorId,opm.discountType,opm.received,opm.visitDate,opm.isPackage
+$sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.doctorId,opm.discountType,opm.received,opm.visitDate,opm.isPackage,opm.packageId
 FROM opd_patient_payment_master opm 
 INNER JOIN user_master um ON um.userId = opm.doctorId 
 WHERE opm.patientId = $patientId AND opm.visitDate = '$today' AND isDeleted = 1";
@@ -22,7 +22,7 @@ if ($jobQuery != null) {
             $paymentId = $academicResults['paymentId'];
 
             $billDetails = null;
-            $query = "SELECT fees,feesType,paymentId FROM Bill_Details pm WHERE paymentId = $paymentId";
+            $query = "SELECT fees,feesType,paymentId,testId FROM Bill_Details pm WHERE paymentId = $paymentId";
             $jobQuery_1 = mysqli_query($conn, $query);
             if ($jobQuery_1 != null) {
                 $academicAffected_1 = mysqli_num_rows($jobQuery_1);
