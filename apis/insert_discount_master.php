@@ -9,7 +9,7 @@ extract($_POST);
 if (isset($_POST['discountType']) && isset($_POST['discount']) && isset($_POST['branchId'])) {
     
     
-    $sql = "INSERT INTO discountmaster(discountType,discount,branchId) 
+    $sql = "INSERT INTO DiscountMaster(discountType,discount,branchId) 
      VALUES ('$discountType','$discount','$branchId')";
     
     $query = mysqli_query($conn, $sql);
@@ -19,7 +19,7 @@ if (isset($_POST['discountType']) && isset($_POST['discount']) && isset($_POST['
     
     if ($rowsAffected == 1) {
         $discountId  = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT * FROM discountmaster where discountId = $discountId");
+        $academicQuery = mysqli_query($conn, "SELECT * FROM DiscountMaster where discountId = $discountId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
