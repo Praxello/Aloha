@@ -11,10 +11,10 @@ var loadMedicineDetails = details => {
     $('#days').val(details.days);
     //$('#isImportant').val(details.isImportant).trigger('change');
   
-    if(details.isImportant == 1){
-        $('#isImportant').prop('checked',true);
+    if(details.isActive == 1){
+        $('#isImportant1').prop('checked',true);
     }else{
-        $('#notImportant').prop('checked',true); 
+        $('#notImportant1').prop('checked',true); 
     }
  
 };

@@ -1,5 +1,7 @@
 $('#refferedByForm').on('submit', function(e) {
     e.preventDefault();
+    var returnVal = $("#refferedByForm").valid();
+    if (returnVal) {
     var fData = new FormData(this);
     $.ajax({
         url: url + 'insertReferringMaster.php',
@@ -19,7 +21,7 @@ $('#refferedByForm').on('submit', function(e) {
                     timer: 1500
 
                 });
-                $('#addRefNameForm').trigger('reset');
+                $('#refferedByForm').trigger('reset');
                 $('#exampleModal').modal('hide');
                 refName.set(response.Data.refferId, response.Data);
                 loadReffName(refName);
@@ -36,4 +38,5 @@ $('#refferedByForm').on('submit', function(e) {
             }
         }
     });
+}
 });

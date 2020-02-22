@@ -99,14 +99,14 @@
                                     <div class="col-sm-3" style="margin-top: 35px;" >
                                         <div class="checkbox-fade fade-in-success check">
                                             <label>
-                                                <input type="radio" value="1" name="isImportant" id="isImportant">
+                                                <input type="radio" value="1" name="isImportant" id="isImportant1">
                                                 <span class="cr">
                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                 </span>
                                                 <span>Yes</span>
                                             </label>
                                             <label>
-                                                <input type="radio" value="0" name="isImportant" id="notImportant">
+                                                <input type="radio" value="0" name="isImportant" id="notImportant1">
                                                 <span class="cr">
                                              <i class="cr-icon ik ik-check txt-success"></i>
                                               </span>

@@ -1,4 +1,5 @@
 var loadPatientDetails = details => {
+    console.log(details);
     $('#uname').html(details.firstName + ' ' + details.surname);
     $('#uemailId').html(details.email);
     $('#uphone').html(details.mobile1);
@@ -12,7 +13,7 @@ var loadPatientDetails = details => {
     $('#surname').val(details.surname);
     $('#maritalstatus').val(details.maritalstatus).trigger('change');
     $('#religion').val(details.religion).trigger('change');
-
+    $('#remarks1').val(details.remarks);
 
     $('#country1').val(details.country).trigger('change');
 

@@ -13,10 +13,10 @@ var loadUserDetails = details => {
   
 
 
-    if(details.active == 1){
-        $('#active').prop('checked',true);
+    if(details.isActive == 1){
+        $('#active1').prop('checked',true);
     }else{
-        $('#inactive').prop('checked',true); 
+        $('#inactive1').prop('checked',true); 
     }
 };
 console.log(userroleList);

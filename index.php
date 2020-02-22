@@ -26,7 +26,16 @@ if(!isset($_SESSION['userId'])){
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
+<style>
+    .auth-wrapper .lavalite-bg {
 
+height: 100vh;
+position: relative;
+width: 100%;
+-webkit-background-size: cover;
+background-size: contain;
+background-repeat: no-repeat;
+    </style>
     <body>
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

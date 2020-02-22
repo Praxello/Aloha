@@ -7,10 +7,10 @@ $response = null;
 $records  = null;
 extract($_POST);
 if (isset($_POST['branchId']) && isset($_POST['branchName']) && isset($_POST['latitude']) && isset($_POST['longitude']) && isset($_POST['mapURL']) && isset($_POST['mobile1']) 
-&& isset($_POST['mobile2']) && isset($_POST['branchAddress'])) {
+&& isset($_POST['mobile2']) ) {
     
     $sql = "UPDATE hospital_branch_master SET branchName='$branchName',latitude='$latitude',longitude='$longitude',mapURL='$mapURL',mobile1='$mobile1',
-    mobile2='$mobile2',country='$country',state='$state',city='$city' branchAddress='$branchAddress' WHERE branchId = $branchId";
+    mobile2='$mobile2',country='$country',state='$state',city='$city', branchAddress='$branchAddress' WHERE branchId = $branchId";
   
     
     $query = mysqli_query($conn, $sql);

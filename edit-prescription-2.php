@@ -434,7 +434,7 @@
 <!-- prentillness -->
 <div class="tab-pane fade" id="present" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-<button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#presentIllness">Add Present Illness</button>
+<button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#presentIllnessId">Add Present Illness</button>
 <div class="container-fluid">
 
     <div class="card">

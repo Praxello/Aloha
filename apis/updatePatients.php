@@ -8,7 +8,7 @@ $records  = null;
 extract($_POST);
 $dir = '../upload/patients/';
 if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birthDate']) && isset($_POST['address']) && isset($_POST['gender'])
- && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode']) && isset($_POST['remarks'])) {
+ && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode'])) {
     
     $middleName     = isset($_POST['middleName']) ? $_POST['middleName'] : 'NULL';
  
@@ -23,7 +23,7 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
     $referredby     = isset($_POST['referredby']) ? $_POST['referredby'] : 'NULL';
     $firstVisitDate = isset($_POST['firstVisitDate']) ? $_POST['firstVisitDate'] : 'NULL';
     $lastVisitDate  = isset($_POST['lastVisitDate']) ? $_POST['lastVisitDate'] : 'NULL';
-    $nextVisitDate  = isset($_POST['nextVisitDate']) ? $_POST['nextVisitDate'] : 'NULL';
+ 
     $smoking        = isset($_POST['smoking']) ? $_POST['smoking'] : 'NULL';
     $alcohol        = isset($_POST['alcohol']) ? $_POST['alcohol'] : 'NULL';
     $tobacco        = isset($_POST['tobacco']) ? $_POST['tobacco'] : 'NULL';
@@ -33,17 +33,17 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
     $history        = isset($_POST['history']) ? $_POST['history'] : 'NULL';
     $occupation     = isset($_POST['occupation']) ? $_POST['occupation'] : 'NULL';
     $hardDrink     = isset($_POST['hardDrink']) ? $_POST['hardDrink'] : 'NULL';
-    
+    $hardDrink     = isset($_POST['hardDrink']) ? $_POST['hardDrink'] : 'NULL';
+    $remarks = isset($_POST['remarks']) ? $_POST['remarks'] : 'NULL';
     $economicStrata = isset($_POST['economicStrata']) ? $_POST['economicStrata'] : 'NULL';
-    
     $address = mysqli_real_escape_string($conn, $address);
     
     $sql = "UPDATE  patient_master SET firstName='$firstName',middleName='$middleName',surname='$surname',gender='$gender',height='$height',
     weight='$weight',birthDate='$birthDate',religion='$religion',allergy='$allergy',email='$email',
-     landline='$landline',city='$city',address='$address',referredby='$referredby',firstVisitDate='$firstVisitDate',lastVisitDate='$lastVisitDate',
-     nextVisitDate='$nextVisitDate',smoking='$smoking',alcohol='$alcohol',tobacco='$tobacco',HTN='$HTN',diabetes='$diabetes', 
+     landline='$landline',city='$city',address='$address',referredby='$referredby',firstVisitDate='$firstVisitDate',lastVisitDate='$lastVisitDate'
+    ,smoking='$smoking',alcohol='$alcohol',tobacco='$tobacco',HTN='$HTN',diabetes='$diabetes', 
      cholestrol='$cholestrol',history='$history',occupation='$occupation',economicStrata='$economicStrata',
-     country='$country',state='$state',maritalstatus='$maritalstatus',pincode='$pincode',remarks='$remarks',hardDrink='$hardDrink' WHERE patientId='$patientId'";
+     country='$country',state='$state',maritalstatus='$maritalstatus',pincode='$pincode',remarks ='$remarks',hardDrink='$hardDrink' WHERE patientId='$patientId'";
   
     
     $query = mysqli_query($conn, $sql);

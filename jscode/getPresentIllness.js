@@ -57,21 +57,22 @@ var editPreserntillness = (onAssesmentId) => {
 };
 
 function  fill_presentIllness(presentill) {
- console.log(presentill);
+ console.log(presentill.pulse);
     
     $('#chiefcomplaints').val(presentill.chiefcomplaints);
     $('#history').val(presentill.history);
     $('#bp1').val(presentill.bp);
     $('#waist').val(presentill.waist);
-    $('#pulse').val(presentill.pulse);
-    $('#hip').val(presentill.hip);
-    $('#spo2').val(presentill.spo2);
+    $('#pulse1').val(presentill.pulse);
+    $('#hip1').val(presentill.hip);
+    $('#spo21').val(presentill.spo2);
     $('#hb1c').val(presentill.hb1c);
     $('#temperature').val(presentill.temperature);
     $('#fbs').val(presentill.fbs);
-    $('#weight').val(presentill.weight);
+    $('#weight1').val(presentill.weight);
+  
     $('#ppbs').val(presentill.ppbs);
-    $('#height').val(presentill.height);
+    $('#height1').val(presentill.height);
     $('#gfr').val(presentill.gfr);
     $('#goalweight').val(presentill.goalweight);
     $('#waisthip').val(presentill.waisthip);
@@ -97,5 +98,5 @@ function  fill_presentIllness(presentill) {
     $('#type').val(presentill.type);
     $('#itching').val(presentill.itching);
 
-    $('#presentIllness').modal('show');
+    $('#presentIllnessId').modal('show');
 }
