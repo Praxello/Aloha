@@ -80,7 +80,7 @@ function fill_Cervical(details) {
     if (json != null) {
         obj = JSON.parse(json);
         if (obj.p1 != null) {
-            $('#cerPresentSince1').val(obj.p1);
+            $('#cerPresentSincenew').val(obj.p1);
         }
         values = Object.keys(obj).map(function(key) {
             return obj[key];
@@ -176,6 +176,25 @@ function fill_Cervical(details) {
         });
     }
 
+    json = details.cerRelFactor;
+    if (json != null) {
+        obj = JSON.parse(json);
+        if (obj.rf1 != null) {
+            $('#cerRelFactor1').val(obj.rf1);
+        }
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='cerRelFactor']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
 
 
 
@@ -351,6 +370,23 @@ function fill_Cervical(details) {
         });
     }
 
+    json = details.carSymptoms;
+    if (json != null) {
+        obj = JSON.parse(json);
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='carSymptoms']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
     json = details.protrudedHead;
     if (json != null) {
         obj = JSON.parse(json);
@@ -372,10 +408,10 @@ function fill_Cervical(details) {
         obj = JSON.parse(json);
 
         if (obj.d2 != null) {
-            $('#cerderagement2').val(obj.p10);
+            $('#cerderagement2').val(obj.d1);
         }
         if (obj.d1 != null) {
-            $('#cerderagement1').val(obj.p10);
+            $('#cerderagement1').val(obj.d2);
         }
         values = Object.keys(obj).map(function(key) {
             return obj[key];

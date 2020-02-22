@@ -113,4 +113,5 @@
 </div>
 
 <script src="jscode/referringMaster.js"></script>
+<script src="js/jquery.validate.js"></script>
 <script src="jscode/referring_validation.js"></script>

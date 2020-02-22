@@ -147,14 +147,14 @@
                         <label for="firmName">Active</label>
                             <div class="checkbox-fade fade-in-success check">
                                 <label>
-                                    <input type="radio" value="1" name="active" id="active">
+                                    <input type="radio" value="1" name="active" id="active1">
                                     <span class="cr">
                                       <i class="cr-icon ik ik-check txt-success"></i>
                                       </span>
                                     <span>Yes</span>
                                 </label>
                                 <label>
-                                    <input type="radio" value="0" name="inactive" id="inactive">
+                                    <input type="radio" value="0" name="active" id="inactive1">
                                     <span class="cr">
                                       <i class="cr-icon ik ik-check txt-success"></i>
                                       </span>

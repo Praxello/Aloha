@@ -164,7 +164,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="birthDate">Birth Date</label>
+                                            <label for="birthDate" class="required">Birth Date</label>
                                             <input type="date" placeholder="123 456 7890" class="form-control" name="birthDate" id="birthDate">
                                         </div>
                                     </div>
@@ -199,13 +199,13 @@
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
-                                            <label for="occupation" class="required">Occupation</label>
+                                            <label for="occupation">Occupation</label>
                                             <input type="text" placeholder="Enginner" class="form-control" name="occupation" id="occupation" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="referredby">Referred By</label>
+                                            <label for="referredby" class="required">Referred By</label>
                                             <select id="referredby" name="referredby" class="form-control"></select>
                                         </div>
 
@@ -391,7 +391,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="remarks">Remark</label>
-                                    <textarea name="remarks" id="remarks" rows="1" class="form-control col-md-4"></textarea>
+                                    <textarea name="remarks" id="remarks1" rows="1" class="form-control col-md-4"></textarea>
                                 </div>
                                 <button class="btn btn-success" type="submit">Update Profile</button>
                             </form>
@@ -485,5 +485,7 @@
 <script src="jscode/patientPackage.js"></script>
 <script src="jscode/loadFile.js"></script>
 <script src="jscode/uploadProfile.js"></script>
+
+<script src="jscode/patient_validation.js"></script>
 <?php include 'add_reffName.php';?>
 <?php include 'assign_package.php';?>

@@ -82,7 +82,7 @@ var inactivate = packageId => {
         package.isActive = 0;
         msg = 'Do you really want to in activate this package?';
         btn = 'Deactivate Now';
-        msg1 = 'Package Deactvated';
+        msg1 = 'Package Deactivated';
     } else {
         package.isActive = 1;
         msg = 'Do you really want to  activate this package?';

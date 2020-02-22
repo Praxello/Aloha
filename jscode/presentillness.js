@@ -32,6 +32,7 @@ $(document).on('submit','#presentillnessform',function(e){
                         timer: 1500
                     });
                     $('#presentillnessform').trigger('reset');
+                    $('#presentIllnessId').modal('hide');
                     presentill.set(response.Data.onAssesmentId, response.Data);
                 showPresentillness(presentill);
 

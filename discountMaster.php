@@ -128,13 +128,10 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="jscode/loader.js"></script>
         <?php include 'addNewDiscount.php';?>
  
-        <script src="js/charts.js"></script>
+        <script src="js/charts.js"></script>    
         <script src="dist/js/theme.min.js"></script>
-     
-
         <script src="jscode/get_discountType.js"></script>
-     
-        <script src="jscode/discountTypeDropdown.js"></script>
+        <!-- <script src="jscode/discountTypeDropdown.js"></script> -->
         <script src="jscode/getBranches.js"></script>
         <script src="jscode/userbranch.js"></script>
         <script src="jscode/getDiscountMaster.js"></script>
