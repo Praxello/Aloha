@@ -36,10 +36,12 @@
                                                                 <th></th>
                                                                 <th></th>
                                                                 <th></th>
+                                                                <th></th>
                                                                 <th>Total</th>
                                                                 <th id="totalP"></th>
                                                                 <th id="pendingTotal"></th>
                                                                 <th></th>
+                                                               
                                                             </tr>
                                                         </tfoot>
                                                     </table>
@@ -65,7 +67,7 @@
                                                     </div>
                                                     <div class="radio radio-outline radio-inline">
                                                         <label>
-                                                            <input type="radio" name="radio" value="0">
+                                                            <input type="radio" name="radio" value="0" id="chP">
                                                             <i class="helper"></i>Package Payment
                                                         </label>
                                                     </div>
@@ -129,6 +131,7 @@
                                                         <table id="presTable" class="table table-bordered nowrap">
                                                             <thead>
                                                                 <tr>
+                                                                    <th style="display: none;">testId</th>
                                                                     <th>Fees Type</th>
                                                                     <th id="headTitle">Amount</th>
                                                                     <th>Action</th>

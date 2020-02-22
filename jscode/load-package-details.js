@@ -180,7 +180,8 @@ function addTest() {
             },
             packageQuota: {
                 required: true,
-                number: true
+                number: true,
+                min: 0
             },
         },
         messages: {
@@ -189,7 +190,8 @@ function addTest() {
             },
             packageQuota: {
                 required: "Please enter quota",
-                number: 'Enter only digits'
+                number: 'Enter only digits',
+                min: 'Enter valid quota'
             },
         }
     });

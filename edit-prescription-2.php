@@ -176,12 +176,12 @@
                                                     <thead>
                                                         <tr>
                                                             <th style="width: 10%;">Type</th>
-                                                            <th style="width: 30%;">Medicine</th>
-                                                            <th style="width: 10%;">Morning</th>
-                                                            <th style="width: 10%;">Evening</th>
-                                                            <th style="width: 10%;">Night</th>
-                                                            <th style="width: 10%;">Duration</th>
-                                                            <th style="width: 15%;">Notes/Inst</th>
+                                                            <th style="width: 35%;">Medicine</th>
+                                                            <th style="width: 5%;">Morning</th>
+                                                            <th style="width: 5%;">Evening</th>
+                                                            <th style="width: 5%;">Night</th>
+                                                            <th style="width: 5%;">Duration</th>
+                                                            <th style="width: 30%;">Notes/Inst</th>
                                                             <th style="width: 5%;">Action</th>
                                                         </tr>
                                                     </thead>

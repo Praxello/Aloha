@@ -14,7 +14,7 @@ if ($jobQuery != null) {
         while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
             $temp = null;
             $packageId = $academicResults['packageId'];
-            $sql = "SELECT pdm.quota,dtm.testName,dtm.fees FROM package_details_master pdm 
+            $sql = "SELECT pdm.quota,dtm.testName,dtm.fees,pdm.testId FROM package_details_master pdm 
             LEFT JOIN diagnostic_tests_master dtm ON dtm.testId = pdm.testId WHERE pdm.packageId = $packageId";
             $jobQuery_1 = mysqli_query($conn,$sql);
             $academicAffected_1=mysqli_num_rows($jobQuery_1);
