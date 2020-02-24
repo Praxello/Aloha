@@ -36,6 +36,7 @@ if ($jobQuery != null) {
     $response = array(
         'Message' => "Please Logout and login again",
         "Data" => $records,
+        'Sql'=>$sql,
         'Responsecode' => 300
     ); 
 }

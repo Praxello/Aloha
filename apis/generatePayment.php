@@ -15,9 +15,13 @@ $str = array();
 $packageUpdate = 0;
 if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST['uFlag'])) {
 
+    $recieved = 0;
     if($uFlag['uFlag'] == 1 && $uFlag['paymentId'] != null){
         $payId = $uFlag['paymentId'];
         $packageUpdate =1;
+        if(!empty($uFlag['recieved'])){
+            $recieved = $uFlag['recieved'];
+        }
         mysqli_query($conn,"DELETE FROM opd_patient_payment_master WHERE paymentId=$payId");
     }
     $someArray   = json_decode($postdata, true);
@@ -43,7 +47,7 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST
     $packageIdopd    = isset($packages['packageId'])? $packages['packageId']:'NULL';
 
     $sql         = "INSERT INTO opd_patient_payment_master(recieptId,branchId,patientId, doctorId,originalAmt,total,discountType,discount,received,pending,visitDate,createdBy,isPackage,packageId)
-    VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount','$discountType','$discount',0,'$amount','$visitDate',$userId,$isPackage,'$packageIdopd')";
+    VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount','$discountType','$discount','$recieved','$amount','$visitDate',$userId,$isPackage,'$packageIdopd')";
     $query       = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {

@@ -6,7 +6,9 @@ $(function() {
                 required: true
             },
             dAmt: {
-                number: true
+                number: true,
+                min: 1,
+                max: 99.99,
             }
 
         },
@@ -15,7 +17,7 @@ $(function() {
                 required: "Select doctor from list",
             },
             dAmt: {
-                number: "Enter valid amount"
+                number: "Enter valid amount",
             }
         }
     });

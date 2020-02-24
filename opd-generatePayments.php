@@ -118,7 +118,7 @@ color: #212121;
                                                        <strong>Total :</strong><span id="total"></span>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <strong>Received :</strong><span id="received"></span>
+                                                        <strong>Received :</strong><span id="receivedP"></span>
                                                     </div>
 
                                                     <div class="col-sm-2"></div>

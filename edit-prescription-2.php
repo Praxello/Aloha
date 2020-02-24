@@ -1,3 +1,8 @@
+<style>
+    .notes{
+        width:158px;
+    }
+</style>
 <div class="main-content">
     <div class="container-fluid">
         <div class="page-header">

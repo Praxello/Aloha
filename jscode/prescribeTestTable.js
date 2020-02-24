@@ -68,7 +68,7 @@ function calculateAmt(amount) {
             $('#pAmt').val('');
         } else {
             if (amount > totalDiscount) {
-                swal('You need to seek approval ' + amount);
+                swal('Please seek approval for exceeded discount ' + amount);
                 $('#dAmt').val(amount);
                 formula = (tAmt * amount) / 100;
                 $('#tAmt').val(tAmt - formula);
@@ -154,7 +154,8 @@ function GeneratePayment() {
             };
             var updateDetails = {
                 uFlag: updateFlag,
-                paymentId: updatePaymentId
+                paymentId: updatePaymentId,
+                recieved: parseFloat($('#receivedP').text())
             };
             details = JSON.stringify(details);
             $.ajax({
@@ -226,6 +227,7 @@ function attach_data(paymentId) {
     updateFlag = 1;
     paymentId = paymentId.toString();
     let data = prevTransactions.get(paymentId);
+    console.log(data);
     global_date = data.visitDate;
     var rowhtml = '',
         rowid = 0,
@@ -270,7 +272,7 @@ function attach_data(paymentId) {
         $('#tAmt').val(data.total);
         $('#paymentFor').val(data.doctorId).trigger('change');
         $('#total').html(data.total);
-        $('#received').html(data.received);
+        $('#receivedP').html(data.received);
     }
 }
 

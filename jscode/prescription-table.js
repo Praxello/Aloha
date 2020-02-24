@@ -12,7 +12,7 @@ function addrow() {
     rowhtml = "";
     rowhtml += '<tr id="row' + rowid + '">';
     rowhtml += '<td style="width:10%">';
-    rowhtml += '<select class="form-control" id="typeId' + rowid + '" name="typeId' + rowid + '" style="width:100%;">';
+    rowhtml += '<select class="form-control " id="typeId' + rowid + '" name="typeId' + rowid + '" style="width:100%;">';
     rowhtml += '</select>';
     rowhtml += '</td>';
     rowhtml += '<td style="width:25%">';
@@ -35,7 +35,7 @@ function addrow() {
     rowhtml += '<input type="text" class="form-control" id="duration' + rowid + '" name="duration' + rowid + '"/>';
     rowhtml += '</td>';
     rowhtml += '<td style="width:25%">';
-    rowhtml += '<select  class="form-control" id="inst' + rowid + '" name="inst' + rowid + '" style="width:100%;">';
+    rowhtml += '<select  class="form-control notes" id="inst' + rowid + '" name="inst' + rowid + '">';
     rowhtml += '</select></td>';
     rowhtml += '<td style="width:5%">';
     rowhtml += '<button type="button" class="btn btn-icon btn-danger" onclick="deleterow(' + rowid + ')" title="Remove Medicine"><i class="ik ik-minus"></i></button>';
