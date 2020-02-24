@@ -12,9 +12,10 @@ $patientId = $_GET['patientId'];
 $visitDate = $_GET['visitDate'];
 $lang_flag = $_GET['flag'];
 $sign      = '';
-$advice;
+$advice='';
 $patientName;
-$nextVisitDate;
+$nextVisitDate='';
+$mCount = 0;
 function doctor_details($doctorId)
 {
     include 'connection.php';
@@ -38,6 +39,8 @@ function fetchPrescriptiondata($patientId, $visitDate, $doctorId)
 {
     include 'connection.php';
     $output = '';
+    $complaint='';
+    $diagnosis = '';
     $sql    = "SELECT pm.nextVisitDate,pm.advice,pt.firstName,pom.weight,pt.surname,pt.birthDate,pt.address,pt.mobile1,DATE_FORMAT(pt.firstVisitDate,'%a-%d %b %Y') firstVisitDate
     ,pt.gender,pom.pulse ,pom.bp,pom.height,YEAR(CURDATE()) - YEAR(pt.birthDate) AS age,DATE_FORMAT(pm.nextVisitDate,'%a-%d %b %Y') nextVisitDate,pm.complaint,pm.diagnosis,DATE_FORMAT(pm.visitDate,'%a-%d %b %Y') visitDate
     FROM patient_medication pm LEFT JOIN patient_master pt ON pt.patientId = pm.patientId
@@ -47,15 +50,65 @@ function fetchPrescriptiondata($patientId, $visitDate, $doctorId)
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_array($result);
         global $advice, $patientName, $nextVisitDate;
-        $nextVisitDate = $row['nextVisitDate'];
         $patientName   = $patientId . '_' . $row['firstName'] . '_' . $row['surname'] . '_' . $visitDate;
-        $advice        = $row['advice'];
-        $bmi           = '';
-        $height        = '';
+        if(!empty($row['nextVisitDate'])){
+            $nextVisitDate = '<div class="row ">
+            <div class="col-xs-2 ">
+          <strong>Next visit date:</strong>
+          </div>
+          <div class="col-xs-8 ">
+            <p class="font-weight-bold mb-4 ">' . $row['nextVisitDate'] . '/ as necessary [Please confirm appointment 10 days prior]</p>
+            </div>
+         </div>';
+        }
+        if(!empty($row['advice'])){
+            $advice = ' <div class="row ">
+            <div class="col-xs-2">
+          <strong>Advice:</strong>
+          </div>
+          <div class="col-xs-8 ">
+            <p class="font-weight-bold mb-4 ">' .$row['advice'] . '</p>
+            </div>
+         </div>';
+        }
+        $bmiStr           = '';
+        $weight          = '';
+        $pulse = '';
+        $bp = '';
         if (!empty($row['weight']) && !empty($row['height'])) {
             $height = $row['height'] / 100;
             $bmi    = floatval($row['weight']) / ($height * $height);
             $bmi    = number_format($bmi, 2);
+            $bmiStr = '<p class="font-weight-bold mb-4 ">BMI:<span>' . $bmi . '</span></p>';
+        }
+        if(!empty($row['weight'])){
+            $weight = '<p class="font-weight-bold mb-4 ">Weight:<span>' . $row['weight'] . '</span></p>';
+        }
+        if(!empty($row['bp'])){
+            $bp = '<p class="font-weight-bold mb-4 ">BP:<span>' . $row['bp'] . '</span></p>';
+        }
+        if(!empty($row['pulse'])){
+            $pulse= '<p class="font-weight-bold mb-4 ">Pulse:<span>' . $row['pulse'] . '</span></p>';
+        }
+        if(!empty($row['complaint'])){
+            $complaint .='<div class="row ">
+            <div class="col-xs-3">
+            <strong><u>Clinical Notes</u>:</strong>
+            </div>
+            <div class="col-xs-9">
+            <p class="font-weight-bold mb-4 ">' . $row['complaint'] . '</p>
+            </div>
+            </div>';
+        }
+        if(!empty($row['diagnosis'])){
+            $diagnosis .='<div class="row ">
+            <div class="col-xs-3">
+            <strong><u>Clinical Diagnosis</u>:</strong>
+            </div>
+            <div class="col-xs-9">
+            <p class="font-weight-bold mb-4 ">' . $row['diagnosis'] . '</p>
+            </div>
+            </div>';
         }
         
         $output .= '<div class="row">
@@ -87,45 +140,32 @@ function fetchPrescriptiondata($patientId, $visitDate, $doctorId)
    <p class="font-weight-bold mb-4 ">Age:<span>' . $row['age'] . '</span></p>
 </div>
 <div class="col-xs-2">
-   <p class="font-weight-bold mb-4 ">Weight:<span>' . $row['weight'] . '</span></p>
+   '.$weight.'
 </div>
 <div class="col-xs-2">
-   <p class="font-weight-bold mb-4 ">BP:<span>' . $row['bp'] . '</span></p>
+  '.$bp.'
 </div>
 <div class="col-xs-2">
-<p class="font-weight-bold mb-4 ">Pulse:<span>' . $row['pulse'] . '</span></p>
+'.$pulse.'
 </div>
 <div class="col-xs-2">
-<p class="font-weight-bold mb-4 ">BMI:<span>' . $bmi . '</span></p>
+'.$bmiStr.'
 </div>
 <div class="col-xs-3">
 </div>
 </div>
 <hr class="my-5 ">
-<div class="row ">
-<div class="col-xs-2">
-<strong><u>Clinical Notes</u>:</strong>
-</div>
-<div class="col-xs-10">
-<p class="font-weight-bold mb-4 ">' . $row['complaint'] . '</p>
-</div>
-</div>
-<div class="row ">
-<div class="col-xs-2">
-<strong><u>Clinical Diagnosis</u>:</strong>
-</div>
-<div class="col-xs-10">
-<p class="font-weight-bold mb-4 ">' . $row['diagnosis'] . '</p>
-</div>
-</div>';
+'.$complaint.'
+'.$diagnosis.'
+';
     }
     return $output;
 }
-function fetchmedicinedata($patientId, $visitDate, $doctorId,$flag)
+function fetchmedicinedata($patientId, $visitDate, $doctorId, $flag)
 {
     include 'connection.php';
     $output = '';
-    $sql = "SELECT mm.genName,ppm.type,ppm.name,ppm.morning,ppm.evining,ppm.night,ppm.period,ppm.patientId,ppm.visitDate,
+    $sql    = "SELECT mm.genName,ppm.type,ppm.name,ppm.morning,ppm.evining,ppm.night,ppm.period,ppm.patientId,ppm.visitDate,
     ppm.doctorId,(CASE WHEN 2=$flag THEN (SELECT im.hindi FROM instruction_master im WHERE im.instruction = ppm.instruction) WHEN 3=$flag 
     THEN (SELECT im.marathi FROM instruction_master im WHERE im.instruction = ppm.instruction)
     ELSE ppm.instruction END) instruction
@@ -137,6 +177,19 @@ function fetchmedicinedata($patientId, $visitDate, $doctorId,$flag)
     $result = mysqli_query($conn, $sql);
     $i      = 0;
     if (mysqli_num_rows($result) > 0) {
+        $output .= '<div class="col-xs-12">
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th class="text-uppercase small font-weight-bold ">Medicine</th>
+                    <th style="width:10%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Morning</th>
+                    <th style="width:10%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Afternoon</th>
+                    <th style="width:10%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Night</th>
+                    <th style="width:5%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Days</th>
+                    <th class="text-uppercase small font-weight-bold" style="text-align:center;">Remarks</th>
+                </tr>
+            </thead>
+            <tbody>';
         while ($row = mysqli_fetch_array($result)) {
             $i++;
             $output .= ' <tr>
@@ -148,9 +201,9 @@ function fetchmedicinedata($patientId, $visitDate, $doctorId,$flag)
         <td style="width:40%;text-align:center">' . $row['instruction'] . '</td>
     </tr>';
         }
+        $output .= '</tbody></table></div>';
     }
     return $output;
-    
 }
 
 $html = '<link rel="stylesheet" href="dompdf/style.css">
@@ -174,40 +227,10 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
 
                 ' . fetchPrescriptiondata($patientId, $visitDate, $doctorId) . '
                     <div class="row p-5 ">
-                        <div class="col-xs-12 ">
-                            <table class="table ">
-                                <thead>
-                                    <tr>
-                                        <th class="text-uppercase small font-weight-bold ">Medicine</th>
-                                        <th style="width:10%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Morning</th>
-                                        <th style="width:10%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Afternoon</th>
-                                        <th style="width:10%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Night</th>
-                                        <th style="width:5%;text-align:center" class="border-1 text-uppercase small font-weight-bold ">Days</th>
-                                        <th class="text-uppercase small font-weight-bold" style="text-align:center;">Remarks</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   ' . fetchmedicinedata($patientId, $visitDate, $doctorId,$lang_flag) . '
-                                </tbody>
-                            </table>
-                        </div>
+                                   ' . fetchmedicinedata($patientId, $visitDate, $doctorId, $lang_flag) . '
                     </div>
-                    <div class="row ">
-                    <div class="col-xs-2 ">
-                  <strong>Advice:</strong>
-                  </div>
-                  <div class="col-xs-8 ">
-                    <p class="font-weight-bold mb-4 ">' . $advice . '</p>
-                    </div>
-                 </div>
-                 <div class="row ">
-                    <div class="col-xs-2 ">
-                  <strong>Next visit date:</strong>
-                  </div>
-                  <div class="col-xs-8 ">
-                    <p class="font-weight-bold mb-4 ">' . $nextVisitDate . '/ as necessary [Please confirm appointment 10 days prior]</p>
-                    </div>
-                 </div>
+                   '.$advice.'
+                '.$nextVisitDate.'
         </div>
     </div>
 
