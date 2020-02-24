@@ -14,7 +14,6 @@ packagedropdownsecond();
 
 function payment(packageId) {
     let package = packageList.get(packageId);
-    console.log(package);
     if (packageList.has(packageId)) {
         tAmt = parseFloat(package.cost);
         var rowhtml = '',

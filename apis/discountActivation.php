@@ -7,7 +7,7 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['discountId'])){
-$sql = "UPDATE discountmaster SET isActive = CASE WHEN isActive = 1 THEN  isActive = 0 WHEN 
+$sql = "UPDATE DiscountMaster SET isActive = CASE WHEN isActive = 1 THEN  isActive = 0 WHEN 
 isActive = 0 THEN  isActive = 0 END WHERE discountId= $discountId";
 
 $jobQuery = mysqli_query($conn, $sql);

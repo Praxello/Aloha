@@ -5,8 +5,8 @@ function getUserRole() {
         url: url + 'getUserRoleType.php',
         type: 'POST',
         dataType: 'json',
+        async: false,
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
                 if (response.Data != null) {
                     var n = response.Data.length;

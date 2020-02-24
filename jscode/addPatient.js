@@ -2,9 +2,9 @@ $('#patientform').on('submit', function(e) {
     e.preventDefault();
     var returnVal = $("#patientform").valid();
     if (returnVal) {
-        var birthdate = moment($('#dropper-max-year').val()).format('YYYY-MM-DD');
+        // var birthdate = moment($('#dropper-max-year').val()).format('YYYY-MM-DD');
         var fData = new FormData(this);
-        fData.append('birthdate', birthdate);
+        // fData.append('birthdate', birthdate);
         $.ajax({
             url: url + 'addPatient.php',
             type: 'POST',
@@ -27,7 +27,7 @@ $('#patientform').on('submit', function(e) {
                     $('#cButton').click();
                     patients.set(response.Data.patientId, response.Data);
                     listPatients(patients);
-                 
+
 
                 } else {
                     swal({

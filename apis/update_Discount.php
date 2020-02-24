@@ -8,14 +8,13 @@ $records  = null;
 extract($_POST);
 if (isset($_POST['discountId']) && isset($_POST['discountType']) && isset($_POST['branchId']) && isset($_POST['discount']) ) {
     
-    $sql = "UPDATE discountmaster SET discountType='$discountType',branchId='$branchId',discount='$discount' WHERE discountId = $discountId";
-  
+    $sql = "UPDATE DiscountMaster SET discountType='$discountType',branchId='$branchId',discount='$discount' WHERE discountId = $discountId";
     
     $query = mysqli_query($conn, $sql);
     if($query!=null){
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-     $sql = "SELECT * FROM discountmaster  where discountId = $discountId";
+     $sql = "SELECT * FROM DiscountMaster  where discountId = $discountId";
         $academicQuery = mysqli_query($conn,$sql);
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);

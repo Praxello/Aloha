@@ -15,26 +15,26 @@ function addrow() {
     rowhtml += '<select class="form-control" id="typeId' + rowid + '" name="typeId' + rowid + '" style="width:100%;">';
     rowhtml += '</select>';
     rowhtml += '</td>';
-    rowhtml += '<td style="width:35%">';
+    rowhtml += '<td style="width:25%">';
     rowhtml += '<select class="form-control" id="medicineId' + rowid + '" name="medicineId' + rowid + '" style="width:100%;" onchange="fetchMedicine(this.value,' + rowid + ')">';
     rowhtml += '</select>';
     rowhtml += '</td>';
-    rowhtml += '<td style="width:5%">';
+    rowhtml += '<td style="width:10%">';
     rowhtml += '<select class="form-control" id="morning' + rowid + '" name="morning' + rowid + '"  style="width:100%;">';
     rowhtml += '</select>';
     rowhtml += '</td>';
-    rowhtml += '<td style="width:5%">';
+    rowhtml += '<td style="width:10%">';
     rowhtml += '<select class="form-control" id="evining' + rowid + '" name="evining' + rowid + '"  style="width:100%;">';
     rowhtml += '</select>';
     rowhtml += '</td>';
-    rowhtml += '<td style="width:5%">';
+    rowhtml += '<td style="width:10%">';
     rowhtml += '<select class="form-control" id="night' + rowid + '" name="night' + rowid + '"  style="width:100%;">';
     rowhtml += '</select>';
     rowhtml += '</td>';
     rowhtml += '<td style="width:5%">';
     rowhtml += '<input type="text" class="form-control" id="duration' + rowid + '" name="duration' + rowid + '"/>';
     rowhtml += '</td>';
-    rowhtml += '<td style="width:30%">';
+    rowhtml += '<td style="width:25%">';
     rowhtml += '<select  class="form-control" id="inst' + rowid + '" name="inst' + rowid + '" style="width:100%;">';
     rowhtml += '</select></td>';
     rowhtml += '<td style="width:5%">';
@@ -48,32 +48,32 @@ function addrow() {
     loadMedicineDosage(rowid);
     loadInstructions(rowid);
     $("#typeId" + rowid).select2({
-        placeholder: 'select type of medicine',
+        placeholder: 'Select type of medicine',
         allowClear: true,
         tags: true
     });
     $("#medicineId" + rowid).select2({
-        placeholder: 'select medicine',
+        placeholder: 'Select medicine',
         allowClear: true,
         tags: true
     });
     $("#morning" + rowid).select2({
-        placeholder: 'select from list',
+        placeholder: 'Select from list',
         allowClear: true,
         tags: true
     });
     $("#evining" + rowid).select2({
-        placeholder: 'select from list',
+        placeholder: 'Select from list',
         allowClear: true,
         tags: true
     });
     $("#night" + rowid).select2({
-        placeholder: 'select from list',
+        placeholder: 'Select from list',
         allowClear: true,
         tags: true
     });
     $("#inst" + rowid).select2({
-        placeholder: 'select instruction',
+        placeholder: 'Select instruction',
         allowClear: true,
         tags: true
     });

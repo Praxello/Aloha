@@ -8,7 +8,7 @@ $records  = null;
 $medication = null;
 extract($_POST);
 if(isset($_POST['patientId']) && isset($_POST['visitDate'])){
-$sql = "SELECT * FROM patient_medication pm INNER JOIN patient_prescription_medicine ppm ON ppm.patientId = pm.patientId
+$sql = "SELECT * FROM patient_medication pm LEFT JOIN patient_prescription_medicine ppm ON ppm.patientId = pm.patientId
 WHERE pm.patientId = $patientId AND pm.visitDate = '$visitDate' AND ppm.visitDate = '$visitDate'";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {

@@ -1,6 +1,5 @@
 function storeTblValues() {
     var TableData = [];
-
     $('#prescriptionTbl tr').each(function(row, tr) {
         var typeId = $(tr).find('td:eq(0) select').val();
         var medicineId = $(tr).find('td:eq(1) select option:selected').text();
@@ -46,6 +45,7 @@ function savePrescription() {
         bp: $('#bp').val()
     };
     prescriptionData = JSON.stringify(prescriptionData);
+    console.log(prescriptionData);
     $.ajax({
         url: url + 'addPrescription.php',
         type: 'POST',
@@ -72,7 +72,6 @@ function savePrescription() {
             }
         }
     });
-
 }
 
 function print_prscription(patientId, doctorId, visitDate) {

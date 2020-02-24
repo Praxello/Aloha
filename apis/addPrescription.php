@@ -16,9 +16,9 @@ if (isset($_POST['postdata'])) {
     $complaints       = isset($someArray['complaints']) ? $someArray['complaints']:'NULL';
     $diagnosis        = isset($someArray['diagnosis']) ? $someArray['diagnosis']:'NULL';
 
-    $remarks          = mysqli_escape_string($conn, $someArray['remarks']);
-    $complaints       = mysqli_escape_string($conn, $someArray["complaints"]);
-    $diagnosis        = mysqli_escape_string($conn, $someArray["diagnosis"]);
+    $remarks          = mysqli_escape_string($conn, $remarks);
+    $complaints       = mysqli_escape_string($conn, $complaints);
+    $diagnosis        = mysqli_escape_string($conn, $diagnosis);
     $patientId        = $someArray["patientId"];
     $doctorId         = $someArray["doctorId"];
     $nextVisitDate    = $someArray["nextvisit"];
@@ -37,31 +37,30 @@ if (isset($_POST['postdata'])) {
         $last_id = mysqli_insert_id($conn);
         $tId     = strval($last_id);
         foreach ($medicinesDetails as $key => $value) {
-            
             $typeId       = mysqli_escape_string($conn, $medicinesDetails[$key]['typeId']);
             $medicineId   = mysqli_escape_string($conn, $medicinesDetails[$key]['medicineId']);
-            $morning      = $medicinesDetails[$key]['morning'];
-            $evining      = $medicinesDetails[$key]['evining'];
-            $night        = $medicinesDetails[$key]['night'];
-            $duration     = $medicinesDetails[$key]['duration'];
+            $morning      = mysqli_escape_string($conn,$medicinesDetails[$key]['morning']);
+            $evining      = mysqli_escape_string($conn,$medicinesDetails[$key]['evining']);
+            $night        = mysqli_escape_string($conn,$medicinesDetails[$key]['night']);
+            $duration     = mysqli_escape_string($conn,$medicinesDetails[$key]['duration']);
             $inst         = mysqli_escape_string($conn, $medicinesDetails[$key]['inst']);
             $query        = mysqli_query($conn, "INSERT INTO patient_prescription_medicine(patientId,visitDate,type,name,morning,evining,night,instruction,period,doctorId) 
             values ($patientId,'$visitDate','$typeId','$medicineId','$morning','$evining','$night','$inst','$duration','$doctorId')");
-            $rowsAffected = mysqli_affected_rows($conn);
-            if ($rowsAffected == 1) {
-                $response = array(
-                    'Message' => "Prescription saved successfully",
-                    'patientId'=>$patientId,
-                    'doctorId'=>$doctorId,
-                    'vdate'=>$visitDate,
-                    'Responsecode' => 200
-                );
-            } else {
-                $response = array(
-                    'Message' => mysqli_error($conn) . "Message failed",
-                    'Responsecode' => 403
-                );
-            }
+        }
+        $rowsAffected = mysqli_affected_rows($conn);
+        if ($rowsAffected >0) {
+            $response = array(
+                'Message' => "Prescription saved successfully",
+                'patientId'=>$patientId,
+                'doctorId'=>$doctorId,
+                'vdate'=>$visitDate,
+                'Responsecode' => 200
+            );
+        } else {
+            $response = array(
+                'Message' => mysqli_error($conn) . "Message failed",
+                'Responsecode' => 403
+            );
         }
     } else {
         $response = array(
