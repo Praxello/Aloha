@@ -1,7 +1,100 @@
 <style>
+/* laptop */
+@media only screen   and (min-device-width : 768px)   and (max-device-width : 1024px) {
+    .notes{
+        width:100px;
+    }
+    .medicine{
+        width:180px;    
+    }
+    .dura{
+        width:30px;
+    }
+    .type{
+        width:70px;
+    }
+    .mor{
+        width:70px;
+    }
+    .eve{
+        width:70px;
+    }
+    .nig{
+        width:70px;
+    }
+    }
+
+    @media only screen   and (min-device-width : 1030px)   and (max-device-width : 1224px){
+        .notes{
+        width:150px;
+    }
+    .medicine{
+        width:200px;    
+    }
+    .dura{
+        width:50px;
+    }
+    .type{
+        width:120px;
+    }
+    .mor{
+        width:90px;
+    }
+    .eve{
+        width:90px;
+    }
+    .nig{
+        width:90px;
+    }
+    }
+    /* desktop */
+    @media only screen   and (min-width: 1370px)  and (max-width: 1605px) {
+        .notes{
+        width:200px;
+    }
+    .medicine{
+        width:400px;    
+    }
+    .dura{
+        width:60px;
+    }
+    .type{
+        width:200px;
+    }
+    .mor{
+        width:100px;
+    }
+    .eve{
+        width:100px;
+    }
+    .nig{
+        width:100px;
+    }
+}
+/* mobile */
+/* @media only screen and (min-device-width : 320px) and (max-device-width : 480px){
     .notes{
         width:158px;
     }
+    .medicine{
+        width:300px;    
+    }   
+    .dura{
+        width:30px;
+    }
+    .type{
+        width:100px;
+    }
+    .mor{
+        width:80px;
+    }
+    .eve{
+        width:80px;
+    }
+    .nig{
+        width:80px;
+    }
+} */
 </style>
 <div class="main-content">
     <div class="container-fluid">
@@ -186,7 +279,7 @@
                                                             <th style="width: 10%;">Evening</th>
                                                             <th style="width: 10%;">Night</th>
                                                             <th style="width: 5%;">Duration</th>
-                                                            <th style="width: 25%;">Notes/Inst</th>
+                                                            <th style="width: 15%;">Notes/Inst</th>
                                                             <th style="width: 5%;">Action</th>
                                                         </tr>
                                                     </thead>
@@ -345,7 +438,7 @@
                         </div>
                         <div class="tab-pane fade" id="cervical" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#cervicalSpine" onclick="addcerviacl()">Add Cervical Spine Assessment</button>
+                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" id="btn" data-toggle="modal" data-target="#cervicalSpine" onclick="addcerviacl()">Add Cervical Spine Assessment</button>
                             <div class="container-fluid">
 
                                 <div class="card">
@@ -561,18 +654,30 @@ function newPresentIllness() {
     $('#presentIllnessId').modal('show');
 }
 function addBack(){
+    $('input:radio').removeAttr('checked');
     $('#backPainForm').trigger('reset');
     $('#backPain').modal('show');
 }
 function addNeck(){
+    $('input:checkbox').removeAttr('checked');
     $('#neckForm').trigger('reset');
     $('#neckDis').modal('show');
 }
 function addcerviacl(){
+    $('input:checkbox').removeAttr('checked');
+ 
     $('#cervicalSpineForm').trigger('reset');
     $('#cervicalSpine').modal('show');
 }
+// $("#cerMomentLoss tbody tr td").empty();
+// $('#btn').on('click',function(e){
+// var tbl = $("table#tblManifest > tbody > tr");
+//  $(tbl).each(function(index,value){
+//    $(value).find('td').empty()
+//  })
+// })
 function addlumbarspin(){
+    $('input:checkbox').removeAttr('checked');
     $('#lumbarSpineForm').trigger('reset');
     $('#fullwindowModal2').modal('show');
 }
