@@ -24,7 +24,7 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
     $firstVisitDate = date('Y-m-d');
     $lastVisitDate  = date('Y-m-d');
     // $nextVisitDate  = date('y-m-d');
-    $nextVisitDate        = isset($_POST['nextVisitDate']) ? $_POST['nextVisitDate'] : 'NULL';
+    $nextVisitDate  = isset($_POST['nextVisitDate']) ? $_POST['nextVisitDate'] : 'NULL';
     $smoking        = isset($_POST['smoking']) ? $_POST['smoking'] : 'NULL';
     $alcohol        = isset($_POST['alcohol']) ? $_POST['alcohol'] : 'NULL';
     $tobacco        = isset($_POST['tobacco']) ? $_POST['tobacco'] : 'NULL';
