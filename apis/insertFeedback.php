@@ -30,7 +30,7 @@ if (isset($_POST['callId']) && isset($_POST['feedback']) && isset($_POST['userId
             }
         
         $response = array(
-            'Message' => "insert feedback Successfull",
+            'Message' => "Feedback Logged",
             "Data" => $records,
             "sql" => $sql,
             'Responsecode' => 200
