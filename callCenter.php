@@ -273,8 +273,7 @@ today:'<?php echo date('Y-m-d');?>'
 };
        </script>
         <?php include 'add-call.php';?>
-    
-        <?php include 'search-modal.php'?>
+    <?php include 'search-modal.php'?>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -291,12 +290,12 @@ today:'<?php echo date('Y-m-d');?>'
         <script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
         <script src="plugins/d3/dist/d3.min.js"></script>
         <script src="plugins/c3/c3.min.js"></script>
+
         <script src="js/tables.js"></script>
         <script src="jscode/loader.js"></script>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="js/jquery.validate.js"></script>
-    
        <script src="jscode/apis.js"></script>
        <script src="jscode/getBranches.js"></script>
         <script src="jscode/getUsers.js"></script>

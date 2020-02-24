@@ -8,6 +8,10 @@ $records  = null;
 extract($_POST);
 if (isset($_POST['paymentId'])) {
     $sql = "UPDATE opd_patient_payment_master SET isDeleted = 0 WHERE paymentId = $paymentId";
+    if(!empty($_POST['packageId']) && $_POST['packageId']>0){
+        $patientId = isset($_POST['patientId']) ? $_POST['patientId']:'NULL';
+        $delete = mysqli_query($conn,"DELETE FROM PackageAccount WHERE packageId=$packageId AND patientId = $patientId");
+    }
     $query = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {

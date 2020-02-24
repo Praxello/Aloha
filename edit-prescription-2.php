@@ -664,18 +664,21 @@ function addNeck(){
     $('#neckDis').modal('show');
 }
 function addcerviacl(){
+    console.log('fine');
     $('input:checkbox').removeAttr('checked');
  
     $('#cervicalSpineForm').trigger('reset');
+  
+var tbl = $("table#cerMomentLoss > tbody > tr");
+ $(tbl).each(function(index,value){
+     console.log('h');
+   $(value).find('td').empty()
+ });
+
     $('#cervicalSpine').modal('show');
+
 }
-// $("#cerMomentLoss tbody tr td").empty();
-// $('#btn').on('click',function(e){
-// var tbl = $("table#tblManifest > tbody > tr");
-//  $(tbl).each(function(index,value){
-//    $(value).find('td').empty()
-//  })
-// })
+
 function addlumbarspin(){
     $('input:checkbox').removeAttr('checked');
     $('#lumbarSpineForm').trigger('reset');
