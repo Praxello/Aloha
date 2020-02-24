@@ -71,7 +71,7 @@ $(function() {
             },
             messages: {
                 firstName: {
-                    required: "Please enter Last name",
+                    required: "Please enter First name",
                     maxlength: "Length Exceed upto 50 characters",
                     lettersonly: "Enter only characters"
                 },

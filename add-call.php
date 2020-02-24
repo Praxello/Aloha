@@ -14,7 +14,7 @@
         <form id="callForm" method="POST">
         <div class="modal-content">
             <div class="modal-header" style="background-color: aliceblue;">
-                <h5 class="modal-title" id="fullwindowModalLabel"><strong>Call Information</strong></h5>
+                <h3 class="modal-title" id="fullwindowModalLabel"><strong><u>Create New Call Entry</u></strong></h3>
                 <div class="template-demo" id="s2">
                 <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter"><i class="ik ik-search" style="font-size: 20px;color: blueviolet;" ></i></button>
                 </div>

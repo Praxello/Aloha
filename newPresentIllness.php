@@ -25,7 +25,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <textarea placeholder="Cheif Complaint" class="form-control" id="chiefcomplaints" name="chiefcomplaints"></textarea>
+                                                    <textarea placeholder="Cheif Complaint" class="form-control" id="chiefcomplaints" name=""></textarea>
                                                 </div>
 
                                             </div>
@@ -41,7 +41,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <textarea placeholder="History" class="form-control" id="history" name="history"></textarea>
+                                                    <textarea placeholder="History" class="form-control" id="history" name=""></textarea>
                                                 </div>
 
                                             </div>
@@ -61,84 +61,84 @@
                                                                 <div class="form-group row">
                                                                     <label for="bp" class="col-sm-2 col-form-label">BP</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="bp1" placeholder="BP" name="bp1">
+                                                                        <input type="text" class="form-control" id="bp1" placeholder="BP" name="">
                                                                     </div>
 
                                                                     <label for="waist" class="col-sm-2 col-form-label">Waist</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="waist" placeholder="Waist" name="waist">
+                                                                        <input type="text" class="form-control" id="waist" placeholder="Waist" name="">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="Pulse" class="col-sm-2 col-form-label">Pulse</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="pulse1" placeholder="pulse" name="pulse">
+                                                                        <input type="text" class="form-control" id="pulse1" placeholder="pulse" name="">
                                                                     </div>
 
                                                                     <label for="hip" class="col-sm-2 col-form-label">Hip</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="hip1" placeholder="Hip" name="hip">
+                                                                        <input type="text" class="form-control" id="hip1" placeholder="Hip" name="">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="spo2" class="col-sm-2 col-form-label">SPO2</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="spo21" placeholder="SPO2" name="spo2">
+                                                                        <input type="text" class="form-control" id="spo21" placeholder="SPO2" name="">
                                                                     </div>
 
                                                                     <label for="hb1c" class="col-sm-2 col-form-label">HB1C</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="hb1c" placeholder="HB1C" name="hb1c">
+                                                                        <input type="text" class="form-control" id="hb1c" placeholder="HB1C" name="">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="temp" class="col-sm-2 col-form-label">Temp</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="temperature" placeholder="temperature" name="temperature">
+                                                                        <input type="text" class="form-control" id="temperature" placeholder="" name="temperature">
                                                                     </div>
 
                                                                     <label for="fbs" class="col-sm-2 col-form-label">FBS</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="fbs" placeholder="FBS" name="fbs">
+                                                                        <input type="text" class="form-control" id="fbs" placeholder="" name="fbs">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="weight" class="col-sm-2 col-form-label">Weight</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="weight1" placeholder="weight" name="weight">
+                                                                        <input type="text" class="form-control" id="weight1" placeholder="" name="weight">
                                                                     </div>
 
                                                                     <label for="ppbs" class="col-sm-2 col-form-label">PPBS</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="ppbs" placeholder="PPBS" name="ppbs">
+                                                                        <input type="text" class="form-control" id="ppbs" placeholder="" name="ppbs">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="height" class="col-sm-2 col-form-label">Height</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="height1" placeholder="Height" name="height">
+                                                                        <input type="text" class="form-control" id="height1" placeholder="" name="height">
                                                                     </div>
 
                                                                     <label for="gfr" class="col-sm-2 col-form-label">GFR</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="gfr" placeholder="GFR" name="gfr">
+                                                                        <input type="text" class="form-control" id="gfr" placeholder="" name="gfr">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="bmi" class="col-sm-2 col-form-label">BMI</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="bmi" placeholder="NAN">
+                                                                        <input type="text" class="form-control" id="bmi" placeholder="">
                                                                     </div>
 
                                                                     <label for="goal wt" class="col-sm-2 col-form-label">Goal Wt</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="goalweight" placeholder="Goal wt" name="goalweight">
+                                                                        <input type="text" class="form-control" id="goalweight" placeholder=" " name="goalweight">
                                                                     </div>
                                                                 </div>
 
@@ -180,28 +180,28 @@
                                                                 <div class="form-group row">
                                                                     <label for="chest" class="col-sm-5 col-form-label">Chest</label>
                                                                     <div class="col-sm-7">
-                                                                        <input type="text" class="form-control" id="chest" placeholder="10" name="chest">
+                                                                        <input type="text" class="form-control" id="chest" placeholder="" name="chest">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="Added Sound" class="col-sm-5 col-form-label">Added Sound</label>
                                                                     <div class="col-sm-7">
-                                                                        <input type="text" class="form-control" id="addedSound" placeholder="10" name="addedSound">
+                                                                        <input type="text" class="form-control" id="addedSound" placeholder="" name="addedSound">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="Wheeze Rhonchi" class="col-sm-5 col-form-label">Wheeze Rhonchi</label>
                                                                     <div class="col-sm-7">
-                                                                        <input type="text" class="form-control" id="wheezeRhonchi" placeholder="10" name="wheezeRhonchi">
+                                                                        <input type="text" class="form-control" id="wheezeRhonchi" placeholder="" name="wheezeRhonchi">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="Dyspnoea" class="col-sm-5 col-form-label">Dyspnoea</label>
                                                                     <div class="col-sm-7">
-                                                                        <input type="text" class="form-control" id="dyspoea" placeholder="10" name="dyspoea">
+                                                                        <input type="text" class="form-control" id="dyspoea" placeholder="" name="dyspoea">
                                                                     </div>  
                                                                 </div>
 
@@ -223,28 +223,28 @@
                                                                 <div class="form-group row">
                                                                     <label for="conciousness" class="col-sm-5 col-form-label">Conciousness</label>
                                                                     <div class="col-sm-7">
-                                                                        <input type="text" class="form-control" id="conciousness" placeholder="10" name="conciousness">
+                                                                        <input type="text" class="form-control" id="conciousness" placeholder="" name="conciousness">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="umnreflex" class="col-sm-5 col-form-label">U.M.N Reflex</label>
                                                                     <div class="col-sm-7">
-                                                                        <input type="text" class="form-control" id="umnreflex" placeholder="10" name="umnreflex">
+                                                                        <input type="text" class="form-control" id="umnreflex" placeholder="" name="umnreflex">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="lmnreflex" class="col-sm-5 col-form-label">L.M.N Reflex</label>
                                                                     <div class="col-sm-7">
-                                                                        <input type="text" class="form-control" id="lmnreflex" placeholder="10" name="lmnreflex">
+                                                                        <input type="text" class="form-control" id="lmnreflex" placeholder="" name="lmnreflex">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="reflexes" class="col-sm-5 col-form-label">Reflexes</label>
                                                                     <div class="col-sm-7">
-                                                                        <input type="text" class="form-control" id="reflexes" placeholder="10" name="reflexes">
+                                                                        <input type="text" class="form-control" id="reflexes" placeholder="" name="reflexes">
                                                                     </div>
                                                                 </div>
 
@@ -270,14 +270,14 @@
                                                                 <div class="form-group row">
                                                                     <label for="s1s2heard" class="col-sm-6 col-form-label">s1,s2 heard</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="s1s2heard" placeholder="10" name="s1s2heard">
+                                                                        <input type="text" class="form-control" id="s1s2heard" placeholder="" name="s1s2heard">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="murmur" class="col-sm-6 col-form-label">Murmur</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="murmur" placeholder="10" name="murmur">
+                                                                        <input type="text" class="form-control" id="murmur" placeholder="" name="murmur">
                                                                     </div>
                                                                 </div>
                                                                 <hr>
@@ -285,42 +285,42 @@
                                                                 <div class="form-group row">
                                                                     <label for="oralMucosa" class="col-sm-6 col-form-label">Oral Mucosa</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="oralMucosa" placeholder="10" name="oralMucosa">
+                                                                        <input type="text" class="form-control" id="oralMucosa" placeholder="" name="oralMucosa">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="scalp" class="col-sm-6 col-form-label">Scalp</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="scalp" placeholder="10" name="scalp">
+                                                                        <input type="text" class="form-control" id="scalp" placeholder="" name="scalp">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="nodules" class="col-sm-6 col-form-label">Nodules</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="nodules" placeholder="10" name="nodules">
+                                                                        <input type="text" class="form-control" id="nodules" placeholder="" name="nodules">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="eyes" class="col-sm-6 col-form-label">Eyes</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="eyes" placeholder="10" name="eyes">
+                                                                        <input type="text" class="form-control" id="eyes" placeholder="" name="eyes">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="raynaud" class="col-sm-6 col-form-label">Raynaud's</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="raynaud" placeholder="10" name="raynaud">
+                                                                        <input type="text" class="form-control" id="raynaud" placeholder="" name="raynaud">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="telangiectasia" class="col-sm-6 col-form-label">Telangiectasia</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="telangiectasia" placeholder="10" name="telangiectasia">
+                                                                        <input type="text" class="form-control" id="telangiectasia" placeholder="" name="telangiectasia">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -341,35 +341,35 @@
                                                                 <div class="form-group row">
                                                                     <label for="photosensivity" class="col-sm-6 col-form-label">Photosensivity</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="photosensivity" placeholder="10" name="photosensivity">
+                                                                        <input type="text" class="form-control" id="photosensivity" placeholder="" name="photosensivity">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="rash" class="col-sm-6 col-form-label">Rash</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="rash" placeholder="10" name="rash">
+                                                                        <input type="text" class="form-control" id="rash" placeholder="" name="rash">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="site" class="col-sm-6 col-form-label">Site</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="site" placeholder="10" name="site">
+                                                                        <input type="text" class="form-control" id="site" placeholder="" name="site">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="type" class="col-sm-6 col-form-label">Type</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="type" placeholder="10" name="type">
+                                                                        <input type="text" class="form-control" id="type" placeholder="" name="type">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="itching" class="col-sm-6 col-form-label">Itching</label>
                                                                     <div class="col-sm-6">
-                                                                        <input type="text" class="form-control" id="itching" placeholder="10" name="itching">
+                                                                        <input type="text" class="form-control" id="itching" placeholder="" name="itching">
                                                                     </div>
                                                                 </div>
 

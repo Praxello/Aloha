@@ -1,8 +1,19 @@
+<style>
+.card .card-header h3 {
+
+margin: 0;
+font-size: 20px;
+font-weight: bold;
+color: #212121;
+
+}
+
+</style>
 <div class="modal fade full-window-modal" id="opd-payment-generate" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="fullwindowModalLabel"><strong>Today’s invoice</strong></h5>
+                <h3 class="modal-title" id="fullwindowModalLabel"><strong><u>Generate Invoice</u></strong></h3>
                 <button type="button" class="close " data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <form id="paymentForm">
@@ -11,6 +22,8 @@
                         <div class="row">
                             <div class="col-sm-6" style="margin-top: 10px;">
                                 <div class="card">
+                                <div class="card-header"  style="background: aliceblue;"><b><h3>Today's Invoice</h3></b>
+                                </div>
                                     <div class="card-body" style="background: aliceblue;">
                                         <div class="dt-responsive">
                                             <div class="row">
