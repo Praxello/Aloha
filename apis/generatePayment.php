@@ -29,6 +29,9 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST
     $isPackage   = 0;
     $originalAmt = $someArray['originalAmt'];
     $amount      = $someArray["amount"];
+    if($recieved <= $amount){
+        $amount      = $amount-$recieved;
+    }
     $discount    = isset($someArray["discount"])? $someArray["discount"]:'NULL';
     $patientId   = $someArray["patientId"];
     $doctorId    = $someArray["doctorId"];

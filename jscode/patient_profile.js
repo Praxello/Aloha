@@ -50,7 +50,7 @@ var loadPatientDetails = details => {
     $('#height').val(details.height);
     $('#weight').val(details.weight);
     $('#occupation').val(details.occupation);
-    $('#referredby').val(details.referredby).trigger('change');
+    $('#referredbye').val(details.referredby).trigger('change');
     $('#economicStrata').val(details.economicStrata);
     $('#patientId').val(details.patientId);
     //for open profile pictire in edit mode

@@ -194,9 +194,8 @@
     </div>
 </div>
 </div>
-
+<script src="jscode/refferList.js"></script>
 <script src="jscode/patient_validation.js"></script>
 <script src="jscode/addPatient.js"></script>
-<script src="jscode/getReffName.js"></script>
 <script src="jscode/getCountryStateCity.js"></script>
 <?php include 'add_reffName.php';?>

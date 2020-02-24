@@ -256,6 +256,7 @@ function attach_data(paymentId) {
             tAmt = parseFloat(data.billdetails[i].fees) + tAmt;
         }
         originalAmt = tAmt;
+        console.log(originalAmt);
         if (data.isPackage == 1) {
             flag = 1;
             tAmt = data.originalAmt;

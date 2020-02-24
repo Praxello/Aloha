@@ -8,7 +8,7 @@ $records  = null;
 extract($_POST);
 $dir = '../upload/patients/';
 if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birthDate']) && isset($_POST['address']) && isset($_POST['gender'])
- && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode']) && isset($_POST['referredby'])) {
+ && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode']) && isset($_POST['referredbye'])) {
     
     $middleName     = isset($_POST['middleName']) ? $_POST['middleName'] : 'NULL';
  
@@ -20,7 +20,7 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
     $mobile1        = isset($_POST['mobile1']) ? $_POST['mobile1'] : 'NULL';
     $landline       = isset($_POST['landline']) ? $_POST['landline'] : 'NULL';
     $city           = isset($_POST['city']) ? $_POST['city'] : 'NULL';
-    $referredby     = isset($_POST['referredby']) ? $_POST['referredby'] : 'NULL';
+    $referredby     = isset($_POST['referredbye']) ? $_POST['referredbye'] : 'NULL';
     $firstVisitDate = isset($_POST['firstVisitDate']) ? $_POST['firstVisitDate'] : 'NULL';
     $lastVisitDate  = isset($_POST['lastVisitDate']) ? $_POST['lastVisitDate'] : 'NULL';
  

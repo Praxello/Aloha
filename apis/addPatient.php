@@ -83,7 +83,7 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
         
     } else {
         $response = array(
-            'Message' => mysqli_error($conn) . " failed",
+            'Message' => $mobile1." Contact number already exists",
             'Responsecode' => 500,
             "sql" => $sql
         );

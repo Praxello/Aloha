@@ -1,6 +1,6 @@
 <div class="app-sidebar colored">
     <div class="sidebar-header">
-        <a class="header-brand" href="index.php">
+        <a class="header-brand" href="#">
             <div class="logo-img">
                 <img src="src/img/logo1.jpg"  alt="lavalite" width="30px" class="rounded-circle">
             </div>
@@ -27,6 +27,8 @@
                 <div class="nav-item">
                     <a href="appointments.php"><i class="ik ik-file-text"></i><span>Appointments</span> <span class="badge badge-success"></span></a>
                 </div>
+                <?php 
+                if($_SESSION['role'] !=3){?>
                 <div class="nav-item">
                     <a href="package-master.php"><i class="ik ik-menu"></i><span>Package Master</span> <span class="badge badge-success"></span></a>
                 </div>
@@ -66,7 +68,9 @@
                 <div class="nav-item">
                     <a href="discountMaster.php"><i class="ik ik-user"></i><span>Discount Master</span> <span class="badge badge-success"></span></a>
                 </div>
-                <?php }
+                <?php 
+                }
+                }
                 ?>
             </nav>
         </div>

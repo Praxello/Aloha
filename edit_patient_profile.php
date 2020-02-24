@@ -205,8 +205,8 @@
                                     </div>
                                     <div class="col-md-5">
                                         <div class="form-group">
-                                            <label for="referredby" class="required">Referred By</label>
-                                            <select id="referredby" name="referredby" class="form-control"></select>
+                                            <label for="referredbye" class="required">Referred By</label>
+                                            <select id="referredbye" name="referredbye" class="form-control"></select>
                                         </div>
 
                                     </div>
@@ -475,12 +475,12 @@
 
     });
 </script>
+<script src="jscode/refferList.js"></script>
 <script src="jscode/load.js"></script>
 <script src="jscode/cancel-appointment.js"></script>
 <script src="jscode/patient_profile.js"></script>
 <script type="text/javascript" src="js/dropzone.js"></script>
 <script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
-<script src="jscode/getReffName.js"></script>
 <script src="jscode/updatePatientsJs.js"></script>
 <script src="jscode/patientPackage.js"></script>
 <script src="jscode/loadFile.js"></script>

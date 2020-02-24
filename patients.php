@@ -123,6 +123,8 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="js/jquery.validate.js"></script>
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
+        <script src="jscode/getReffName.js"></script>
+      
        <?php include 'add_patient.php';?>
        <?php include 'take-appointment.php';?>
        <?php include 'opd-payments.php';?>
@@ -146,6 +148,7 @@ username:'<?php echo $_SESSION['username'];?>'
        <script src="jscode/getDiscount.js"></script>
        <script src="jscode/prescribeTestTable.js"></script>
        <script src="jscode/packagePayment.js"></script>
+      
     </body>
 </html>
 <?php
