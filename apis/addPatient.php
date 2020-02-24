@@ -75,7 +75,7 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
             }
         }
         $response = array(
-            'Message' => "Patient Added Successfull",
+            'Message' => "Patient Registration Completed",
             "Data" => $records,
             "sql" => $sql,
             'Responsecode' => 200
