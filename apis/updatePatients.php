@@ -8,7 +8,7 @@ $records  = null;
 extract($_POST);
 $dir = '../upload/patients/';
 if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birthDate']) && isset($_POST['address']) && isset($_POST['gender'])
- && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode'])) {
+ && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode']) && isset($_POST['referredby'])) {
     
     $middleName     = isset($_POST['middleName']) ? $_POST['middleName'] : 'NULL';
  
@@ -33,7 +33,7 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
     $history        = isset($_POST['history']) ? $_POST['history'] : 'NULL';
     $occupation     = isset($_POST['occupation']) ? $_POST['occupation'] : 'NULL';
     $hardDrink     = isset($_POST['hardDrink']) ? $_POST['hardDrink'] : 'NULL';
-    $hardDrink     = isset($_POST['hardDrink']) ? $_POST['hardDrink'] : 'NULL';
+
     $remarks = isset($_POST['remarks']) ? $_POST['remarks'] : 'NULL';
     $economicStrata = isset($_POST['economicStrata']) ? $_POST['economicStrata'] : 'NULL';
     $address = mysqli_real_escape_string($conn, $address);

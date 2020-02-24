@@ -25,7 +25,7 @@
                 <?php 
                 if($_SESSION['role'] !=2){?>
                 <div class="nav-item">
-                    <a href="appointments.php"><i class="ik ik-file-text"></i><span>Appointmets</span> <span class="badge badge-success"></span></a>
+                    <a href="appointments.php"><i class="ik ik-file-text"></i><span>Appointments</span> <span class="badge badge-success"></span></a>
                 </div>
                 <div class="nav-item">
                     <a href="package-master.php"><i class="ik ik-menu"></i><span>Package Master</span> <span class="badge badge-success"></span></a>
