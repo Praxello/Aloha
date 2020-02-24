@@ -64,7 +64,7 @@ if (isset($_SESSION['userId'])) {
                                         </div>
                                         <div class="col col-sm-4">
 
-                                            <div class=" template-demo " id="">
+                                            <div class="template-demo" id="">
                                                 <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 16px;">
                                                     <button type="button" class="btn btn-warning">Total Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="totalPatient"></span></button>
                                                     <button type="button" class="btn btn-primary">New Patients: &nbsp; &nbsp;&nbsp;&nbsp;<span id="newPatients"></span></button>
@@ -144,6 +144,7 @@ if (isset($_SESSION['userId'])) {
         <script src="js/tables.js"></script>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
+    
         <script src="plugins/select2/dist/js/select2.min.js"></script>
         <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
         <script>

@@ -25,7 +25,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <textarea placeholder="Cheif Complaint" class="form-control" id="chiefcomplaints" name=""></textarea>
+                                                    <textarea placeholder="" class="form-control" id="chiefcomplaints" name="chiefcomplaints"></textarea>
                                                 </div>
 
                                             </div>
@@ -41,7 +41,7 @@
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <textarea placeholder="History" class="form-control" id="history" name=""></textarea>
+                                                    <textarea placeholder="" class="form-control" id="history" name="history"></textarea>
                                                 </div>
 
                                             </div>
@@ -61,36 +61,36 @@
                                                                 <div class="form-group row">
                                                                     <label for="bp" class="col-sm-2 col-form-label">BP</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="bp1" placeholder="BP" name="">
+                                                                        <input type="text" class="form-control" id="bp1" placeholder="" name="bp1">
                                                                     </div>
 
                                                                     <label for="waist" class="col-sm-2 col-form-label">Waist</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="waist" placeholder="Waist" name="">
+                                                                        <input type="text" class="form-control" id="waist" placeholder="" name="waist">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="Pulse" class="col-sm-2 col-form-label">Pulse</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="pulse1" placeholder="pulse" name="">
+                                                                        <input type="text" class="form-control" id="pulse1" placeholder="" name="pulse">
                                                                     </div>
 
                                                                     <label for="hip" class="col-sm-2 col-form-label">Hip</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="hip1" placeholder="Hip" name="">
+                                                                        <input type="text" class="form-control" id="hip1" placeholder="" name="hip">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="spo2" class="col-sm-2 col-form-label">SPO2</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="spo21" placeholder="SPO2" name="">
+                                                                        <input type="text" class="form-control" id="spo21" placeholder="" name="spo2">
                                                                     </div>
 
                                                                     <label for="hb1c" class="col-sm-2 col-form-label">HB1C</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="hb1c" placeholder="HB1C" name="">
+                                                                        <input type="text" class="form-control" id="hb1c" placeholder="" name="hb1c">
                                                                     </div>
                                                                 </div>
 
@@ -138,7 +138,7 @@
 
                                                                     <label for="goal wt" class="col-sm-2 col-form-label">Goal Wt</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="goalweight" placeholder=" " name="goalweight">
+                                                                        <input type="text" class="form-control" id="goalweight" placeholder="" name="goalweight">
                                                                     </div>
                                                                 </div>
 
@@ -398,5 +398,6 @@
 
 
 <script src="js/jquery.validate.js"></script>
+<script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
 <script src="jscode/presentillness_validation.js"></script>
 <script src="jscode/presentillness.js"></script>

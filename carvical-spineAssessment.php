@@ -28,7 +28,7 @@
 
                                             <label for="vasScore" class="col-sm-1 col-form-label">VAS Score:</label>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" id="cerVasScore" name="cerVasScore" placeholder="0-10">
+                                                <input type="text" class="form-control" id="cerVasScore" name="cerVasScore" placeholder="">
                                             </div>
 
                                         </div>
@@ -85,7 +85,7 @@
 
                                             <label for="symptomsAtOnset" class="col-sm-1 col-form-label">Symptoms at onset:</label>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="cerSymptomsAtOnset1" name="cerSymptomsAtOnset1" placeholder="0-10">
+                                                <input type="text" class="form-control" id="cerSymptomsAtOnset1" name="cerSymptomsAtOnset1" placeholder="">
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="checkbox-fade fade-in-success check">
@@ -163,7 +163,7 @@
 
                                             <label for="" class="col-sm-1 col-form-label">Disturbed Sleep:</label>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="disturbedSleep1" name="disturbedSleep1" placeholder="0-10">
+                                                <input type="text" class="form-control" id="disturbedSleep1" name="disturbedSleep1" placeholder="">
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="checkbox-fade fade-in-success check">
@@ -417,7 +417,7 @@
                                          
                                             <span class="col-sm-1 mb-13">Other</span>
                                             <div class="col-sm-6 ">
-                                                <input type="text" class="form-control" id="cerMedications1" name="cerMedications1" placeholder="Good">
+                                                <input type="text" class="form-control" id="cerMedications1" name="cerMedications1" placeholder="">
                                             </div>
                                         </div>
 
@@ -455,7 +455,7 @@
 
                                             <label for="imaging" class="col-sm-1 col-form-label">Imaging:</label>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="cerImaging1" name="cerImaging1" placeholder="0-10">
+                                                <input type="text" class="form-control" id="cerImaging1" name="cerImaging1" placeholder="">
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="checkbox-fade fade-in-success check">
@@ -482,7 +482,7 @@
                                         <div class="form-group row">
                                             <label for="recentsurgery" class="col-sm-1 col-form-label">Recent or major surgery:</label>
                                             <div class="col-sm-2 ">
-                                                <input type="text" class="form-control" id="cerResurgery1" name="cerResurgery1" placeholder="No">
+                                                <input type="text" class="form-control" id="cerResurgery1" name="cerResurgery1" placeholder="">
                                             </div>
 
                                             <div class="col-sm-2">
@@ -507,7 +507,7 @@
 
                                             <label for="nightPain" class="col-sm-1 col-form-label">Night Pain:</label>
                                             <div class="col-sm-1">
-                                                <input type="text" class="form-control" id="cerNightPain1" name="cerNightPain1" placeholder="No">
+                                                <input type="text" class="form-control" id="cerNightPain1" name="cerNightPain1" placeholder="">
                                             </div>
                                             <div class="col-sm-2">
                                                 <div class="checkbox-fade fade-in-success check">
@@ -534,7 +534,7 @@
                                         <div class="form-group row">
                                             <label for="accidents" class="col-sm-1 col-form-label">Accidents:</label>
                                             <div class="col-sm-2 ">
-                                                <input type="text" class="form-control" id="cerAccidents1" name="cerAccidents1" placeholder="No">
+                                                <input type="text" class="form-control" id="cerAccidents1" name="cerAccidents1" placeholder="">
                                             </div>
 
                                             <div class="col-sm-2">
@@ -559,7 +559,7 @@
 
                                             <label for="weightLoss" class="col-sm-1 col-form-label">Unexplained weight loss:</label>
                                             <div class="col-sm-1">
-                                                <input type="text" class="form-control" id="cerWeightLoss1" name="cerWeightLoss1" placeholder="No">
+                                                <input type="text" class="form-control" id="cerWeightLoss1" name="cerWeightLoss1" placeholder="">
                                             </div>
                                             <div class="col-sm-2 c">
                                                 <div class="checkbox-fade fade-in-success">
@@ -582,7 +582,7 @@
                                             </div>
                                             <span class="d">Other</span>
                                             <div class="col-sm-2 ">
-                                                <input type="text" class="form-control" id="cerWeightLoss2" name="cerWeightLoss2" placeholder="Yes">
+                                                <input type="text" class="form-control" id="cerWeightLoss2" name="cerWeightLoss2" placeholder="">
                                             </div>
 
                                         </div>
@@ -803,21 +803,21 @@
                                                                     <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success" >
                                                                         <label>
-                                                                            <input type="checkbox" value="Derangement"  name="cerderagement" >
+                                                                            <input type="checkbox" value="Derangement"  name="cerderagement" class="form-control" >
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                         <span>Derangement</span>
                                                     </label>
                                                     <label>
-                                                        <input type="checkbox" value="Dysfunction" name="cerderagement">
+                                                        <input type="checkbox" value="Dysfunction" name="cerderagement" class="form-control">
                                                         <span class="cr">
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                         <span>Dysfunction</span>
                                                     </label>
                                                     <label class="a">
-                                                        <input type="checkbox" value="Posture" name="cerderagement">
+                                                        <input type="checkbox" value="Posture" name="cerderagement" class="form-control">
                                                         <span class="cr">
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>

@@ -12,8 +12,7 @@ $(function() {
            
             },
             history: {
-                //required: true,
-                //lettersonly: true,
+               
                 maxlength: 100
               
             },
@@ -39,41 +38,41 @@ $(function() {
                 number:true
             },
             conciousness:{
-                number:true
+                lettersonly: true
             },
             umnreflex:{
-                number:true
+                lettersonly: true
             },
             lmnreflex:{
-                number:true
+                lettersonly: true
             },
             reflexes:{
-                number:true
+                lettersonly: true
             },
             s1s2heard:{
-                number:true
+                lettersonly: true
             },
             murmur:{
-                number:true
+                lettersonly: true
             },
             oralMucosa:{
-                number:true
+                lettersonly: true
             },
             scalp:{
-                number:true
+                lettersonly: true
             },
        
             nodules:{
-                number:true
+                lettersonly: true
             },
             eyes:{
-                number:true
+                lettersonly: true
             },
             raynaud:{
-                number:true
+                lettersonly: true
             },
             telangiectasia:{
-                number:true
+                lettersonly: true
             },
             Waist:{
                 number:true
@@ -142,41 +141,41 @@ $(function() {
                 number: "enter valid number"
             },
             conciousness :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
             umnreflex :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
             lmnreflex :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
             reflexes :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
             s1s2heard :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
             murmur :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
             oralMucosa :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
 
             scalp :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
             nodules :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
             eyes :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
             raynaud :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
             telangiectasia :{
-                number: "enter valid number"
+                lettersonly: "enter only characters"
             },
             Waist :{
                 number: "enter valid number"

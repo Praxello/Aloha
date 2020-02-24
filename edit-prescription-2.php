@@ -313,7 +313,7 @@
                         </div>
                         <div class="tab-pane fade" id="fullwindowModal1" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#fullwindowModal2">Add Lumbar Spine Assessment</button>
+                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#fullwindowModal2" onclick="addlumbarspin()">Add Lumbar Spine Assessment</button>
                             <div class="container-fluid">
 
                                 <div class="card">
@@ -340,7 +340,7 @@
                         </div>
                         <div class="tab-pane fade" id="cervical" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#cervicalSpine">Add Cervical Spine Assessment</button>
+                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#cervicalSpine" onclick="addcerviacl()">Add Cervical Spine Assessment</button>
                             <div class="container-fluid">
 
                                 <div class="card">
@@ -370,7 +370,7 @@
                         </div>
                         <div class="tab-pane fade" id="neck" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#neckDis"> Add Neck Disability Index</button>
+                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#neckDis" onclick="addNeck()"> Add Neck Disability Index</button>
                             <div class="container-fluid">
 
                                 <div class="card">
@@ -400,7 +400,7 @@
 
                         <div class="tab-pane fade" id="ques" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#backPain"> Add Back Pain Question</button>
+                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#backPain" onclick="addBack()"> Add Back Pain Question</button>
                             <div class="container-fluid">
 
                                 <div class="card">
@@ -432,7 +432,7 @@
 <!-- prentillness -->
 <div class="tab-pane fade" id="present" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-<button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#presentIllnessId">Add Present Illness</button>
+<button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#presentIllnessId" onclick="newPresentIllness()">Add Present Illness</button>
 <div class="container-fluid">
 
     <div class="card">
@@ -549,3 +549,26 @@
 <?php include 'low-backPainQues.php';?>
 <?php include 'carvical-spineAssessment.php';?>
 <?php include 'newPresentIllness.php';?>
+<script>
+function newPresentIllness() {
+    // $('.select2').val('').trigger('change');
+    $('#presentillnessform').trigger('reset');
+    $('#presentIllnessId').modal('show');
+}
+function addBack(){
+    $('#backPainForm').trigger('reset');
+    $('#backPain').modal('show');
+}
+function addNeck(){
+    $('#neckForm').trigger('reset');
+    $('#neckDis').modal('show');
+}
+function addcerviacl(){
+    $('#cervicalSpineForm').trigger('reset');
+    $('#cervicalSpine').modal('show');
+}
+function addlumbarspin(){
+    $('#lumbarSpineForm').trigger('reset');
+    $('#fullwindowModal2').modal('show');
+}
+</script>

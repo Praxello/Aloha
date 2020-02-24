@@ -21,9 +21,9 @@
                                                 <label for="exampleInputUsername1"><b>SECTION 1 - PAIN INTESITY</b></label>
                                                 <br>
 
-                                                <div class="checkbox-fade fade-in-success ">
+                                                <div class="checkbox-fade fade-in-success">
                                                     <label>
-                                                        <input type="radio" value="1" name="painIntensity">
+                                                        <input type="radio" value="1" name="painIntensity" id="painIntensity" class="form-control">
                                                         <span class="cr">
                                                       <i class="cr-icon ik ik-check txt-success"></i>
                                                         </span>
@@ -31,7 +31,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="radio" value="2" name="painIntensity">
+                                                        <input type="radio" value="2" name="painIntensity" class="form-control">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -39,7 +39,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="radio" value="3" name="painIntensity">
+                                                        <input type="radio" value="3" name="painIntensity" >
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -80,7 +80,7 @@
 
                                                 <div class="checkbox-fade fade-in-success ">
                                                     <label>
-                                                        <input type="radio" value="1" name="personalCare">
+                                                        <input type="radio" value="1" name="personalCare" class="form-control">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -88,7 +88,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="radio" value="2" name="personalCare">
+                                                        <input type="radio" value="2" name="personalCare" class="form-control">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -96,7 +96,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="radio" value="3" name="personalCare">
+                                                        <input type="radio" value="3" name="personalCare" class="form-control">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -104,7 +104,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="radio" value="4" name="personalCare">
+                                                        <input type="radio" value="4" name="personalCare" class="form-control">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -112,7 +112,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="radio" value="5" name="personalCare">
+                                                        <input type="radio" value="5" name="personalCare" class="form-control">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>
@@ -120,7 +120,7 @@
                                                     </label>
                                                     <br>
                                                     <label>
-                                                        <input type="radio" value="6" name="personalCare">
+                                                        <input type="radio" value="6" name="personalCare" class="form-control">
                                                         <span class="cr">
                                                                                     <i class="cr-icon ik ik-check txt-success"></i>
                                                                                 </span>

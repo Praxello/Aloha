@@ -43,7 +43,7 @@
 
                                                                 <label for="vasScore" class="col-sm-1 col-form-label">VAS Score:</label>
                                                                 <div class="col-sm-6">
-                                                                    <input type="text" class="form-control" id="vasScore" name="vasScore" placeholder="0-10">
+                                                                    <input type="text" class="form-control" id="vasScore" name="vasScore" placeholder="">
                                                                 </div>
 
                                                             </div>
@@ -516,7 +516,7 @@
 
                                                                 <label for="imaging" class="col-sm-1 col-form-label">Imaging:</label>
                                                                 <div class="col-sm-3">
-                                                                    <input type="text" class="form-control" id="imaging1" name="imaging1" placeholder="Yes">
+                                                                    <input type="text" class="form-control" id="imaging1" name="imaging1" placeholder="">
                                                                 </div>
                                                                 <div class="col-sm-3">
                                                                     <div class="checkbox-fade fade-in-success check" >
@@ -544,7 +544,7 @@
                                                             <div class="form-group row">
                                                                 <label for="recentsurgery" class="col-sm-1 col-form-label">Recent or major surgery:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="recentsurgery1" name="recentsurgery1" placeholder="No">
+                                                                    <input type="text" class="form-control" id="recentsurgery1" name="recentsurgery1" placeholder="">
                                                                 </div>
                                                              
                                                                     <div class="col-sm-2">
@@ -570,7 +570,7 @@
 
                                                                 <label for="nightPain" class="col-sm-1 col-form-label">Night Pain:</label>
                                                                 <div class="col-sm-1">
-                                                                    <input type="text" class="form-control" id="nightPain1" name="nightPain1" placeholder="No">
+                                                                    <input type="text" class="form-control" id="nightPain1" name="nightPain1" placeholder="">
                                                                 </div>
                                                                 <div class="col-sm-2">
                                                                     <div class="checkbox-fade fade-in-success check" >
@@ -598,7 +598,7 @@
                                                             <div class="form-group row">
                                                                 <label for="accidents" class="col-sm-1 col-form-label">Accidents:</label>
                                                                 <div class="col-sm-2 ">
-                                                                    <input type="text" class="form-control" id="accidents1" name="accidents1" placeholder="No">
+                                                                    <input type="text" class="form-control" id="accidents1" name="accidents1" placeholder="">
                                                                 </div>
                                                              
                                                                     <div class="col-sm-2">
@@ -624,7 +624,7 @@
 
                                                                 <label for="weightLoss" class="col-sm-1 col-form-label">Unexplained weight loss:</label>
                                                                 <div class="col-sm-1">
-                                                                    <input type="text" class="form-control" id="weightLoss1" name="weightLoss1" placeholder="No">
+                                                                    <input type="text" class="form-control" id="weightLoss1" name="weightLoss1" placeholder="">
                                                                 </div>
                                                                 <div class="col-sm-2 c">
                                                                     <div class="checkbox-fade fade-in-success">
