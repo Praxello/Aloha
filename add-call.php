@@ -290,17 +290,19 @@
 <script>
 $(document).ready(function() {
   $(function() {
-    $("#my_date_picker1").datepicker({
-        showButtonPanel: true,
-        appendText:"(Full - DD, d MM, yy)",
-        dateFormat:"DD, d MM, yy",
-        showOn: "button",
-      buttonImage: "/images/calendar-icon.png",
-      buttonImageOnly: true,
-      buttonText: "Select date"
-    });
+    // $("#my_date_picker1").datepicker({
+    //     showButtonPanel: true,
+    //     appendText:"(Full - DD, d MM, yy)",
+    //     dateFormat:"DD, d MM, yy",
+    //     showOn: "button",
+    //   buttonImage: "/images/calendar-icon.png",
+    //   buttonImageOnly: true,
+    //   buttonText: "Select date"
+    // });
+    jQuery('#my_date_picker1').datetimepicker();
 
   });
+
 });
 
 </script>

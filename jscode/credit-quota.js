@@ -21,18 +21,17 @@ $('#creditQuotaForm').on('submit', function(e) {
                     timer: 1500
                 });
                 $('#creditQuota').modal('hide');
-                $('#creditQuotaForm').trigger('reset');
+
                 let transaction = transactions.get(detailId_u);
                 let originalQuota = parseInt(transaction.originalQuota);
-                console.log(originalQuota);
                 originalQuota = originalQuota + parseInt($('#typeCount').val());
                 transaction.originalQuota = originalQuota;
                 transactions.set(detailId_u, transaction);
-                console.log(transactions);
                 if (response.Data != null) {
                     exchangeT.set(response.Data.transactionId, response.Data);
                     exchange_list(exchangeT);
                 }
+                $('#creditQuotaForm').trigger('reset');
                 listTransactions(transactions);
             } else {
                 swal({

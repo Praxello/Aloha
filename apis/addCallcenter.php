@@ -118,7 +118,7 @@ if ($rowsAffected == 1) {
 } else {
     $response = array(
         'Message' => mysqli_error($conn) . " failed",
-        'Responsecode' => 500
+        'Responsecode' => 504
     );
 }
     }

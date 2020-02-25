@@ -13,7 +13,7 @@ function branches() {
     $("#branch").select2({
         placeholder: 'Select branch',
         allowClear: true
-        
+
     });
     $('#branchA').html(dropdownList);
     $("#branchA").select2({
