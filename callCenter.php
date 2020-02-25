@@ -333,6 +333,7 @@ today:'<?php echo date('Y-m-d');?>'
         });
        </script>
            <?php include 'take-feedback.php';?>
+           
            <script>
 $(document).ready(function() {
   $(function() {
