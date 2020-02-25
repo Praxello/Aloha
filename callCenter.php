@@ -273,9 +273,9 @@ if(isset($_SESSION['branchId'])){
                         <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="https://praxello.com/" class="text-dark" target="_blank">Praxello</a></span>
                     </div>
                 </footer>
-
+  
             </div>
-        </div>
+        </div>  
       
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
