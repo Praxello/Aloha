@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: aliceblue;">
-                <h5 class="modal-title" id="fullwindowModalLabel"><strong>Back Pain Questionnaire</strong></h5>
+                <h5 class="modal-title" id="fullwindowModalLabel"><strong><u>Back Pain Questionnaire</u></strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <form id="backPainForm" method="POST" class="forms-sample" enctype="multipart/form-data">

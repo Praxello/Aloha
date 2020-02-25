@@ -79,8 +79,9 @@ function fill_Cervical(details) {
     json = details.cerPresentSince;
     if (json != null) {
         obj = JSON.parse(json);
+        console.log(obj.p1);
         if (obj.p1 != null) {
-            $('#cerPresentSincenew').val(obj.p1);
+            $('#cerpresentSinceNew').val(obj.p1);
         }
         values = Object.keys(obj).map(function(key) {
             return obj[key];
@@ -127,6 +128,26 @@ function fill_Cervical(details) {
         });
         i = 0;
         $.each($("input[name='cerSymptAtOnset']"), function() {
+            if (values[i] == 1) {
+                $(this).attr("checked", true);
+            } else {
+                $(this).attr("checked", false);
+            }
+            i++;
+        });
+    }
+
+    json = details.cerMedications;
+    if (json != null) {
+        obj = JSON.parse(json);
+        if (obj.p5 != null) {
+            $('#cerMedications1').val(obj.p5);
+        }
+        values = Object.keys(obj).map(function(key) {
+            return obj[key];
+        });
+        i = 0;
+        $.each($("input[name='cerMedications']"), function() {
             if (values[i] == 1) {
                 $(this).attr("checked", true);
             } else {

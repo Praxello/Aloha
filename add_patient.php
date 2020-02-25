@@ -13,7 +13,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="demoModalLabel">Patient details:</h5>
+                <h4 class="modal-title" id="demoModalLabel"><strong><u>Patient details:</u></strong></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">

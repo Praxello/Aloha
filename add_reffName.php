@@ -14,7 +14,7 @@
         <form class="forms-sample" id="refferedByForm" method="POST" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="demoModalLabel">Enter New Referring Source</h5>
+                    <h5 class="modal-title" id="demoModalLabel"><strong><u>Enter new referring source</u></strong></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
