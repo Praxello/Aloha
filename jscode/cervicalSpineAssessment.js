@@ -10,10 +10,10 @@ $('#cervicalSpineForm').on('submit', function(e) {
         var cerComObj = $('#cerCommencedAsResult').val();
 
         var cerPresObj = getcerPresentSince();
-        cerPresObj.p1 = $('#cerpresentSincenew').val();
+        cerPresObj.p1 = $('#cerpresentSinceNew').val();
    
         var symObj1 = getcerSymptAtOnset();
-        symObj1.p2 = $('#cerSymptomsAtOnset1').val();
+        symObj1.p2 = $('#cerSymptAtOnset1').val();
 
         var constObj = getcerConstSympt();
         constObj.p3 = $('#cerConstSympt1').val();

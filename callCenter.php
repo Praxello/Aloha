@@ -34,8 +34,6 @@ if(isset($_SESSION['branchId'])){
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
         <link href= 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-darkness/jquery-ui.css'  rel='stylesheet'> 
-        <!-- <link rel="stylesheet" href="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     </head>
 <style>
    .error{
@@ -73,7 +71,9 @@ if(isset($_SESSION['branchId'])){
                                         <label for="">From</label>
                                         <input type="date" class="form-control" name="fromDate" id="fromDate" value="<?php echo date ('Y-m-d');?>">
                                     </div>
-                                </div>
+                                </div>      
+
+
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">Upto</label>
@@ -303,13 +303,12 @@ today:'<?php echo date('Y-m-d');?>'
         <script src="jscode/getUsers.js"></script>
         <script src="jscode/login.js"></script>
         <script src="jscode/loadUsers.js"></script>
+        <!-- <script src="jscode/getNewUser.js"></script> -->
        <script src="jscode/getDateFormat.js"></script>
        <script src="jscode/getAge.js"></script>
        <script src="jscode/cities.js"></script>
        <script src="jscode/getcallFollowup.js"></script>
        <script src="jscode/call-center.js"></script>
-       <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
-       <script src="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/js/bootstrap-datetimepicker.min.js"></script> -->
        <script>
            $('.collapse').on('show.bs.collapse', function () {
             $('.collapse.show').each(function(){

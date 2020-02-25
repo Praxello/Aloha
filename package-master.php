@@ -47,7 +47,7 @@ if(isset($_SESSION['branchId'])){
                                     <div class="page-header-title">
                                         <i class="ik ik-package bg-blue"></i>
                                         <div class="d-inline">
-                                            <h5>Package Master</h5>
+                                            <h5><u>Package Master</u></h5>
                                             <span>create an package</span>
                                         </div>
                                     </div>

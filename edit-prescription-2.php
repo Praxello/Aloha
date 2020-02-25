@@ -105,7 +105,7 @@
                         <!-- <img src="upload/patients/12.jpg" class="avatar" alt="Upload"> -->
                         <i class="ik ik-file-text bg-blue"></i>
                         <div class="d-inline">
-                            <h5>Prescription</h5>
+                            <h4><u>Prescription</u></h4>
                             <span id="patientName"></span>
                            
                         </div>
@@ -350,7 +350,7 @@
                                                         <div class="card-body">
                                                             <div class="card-body form-group">
 
-                                                                <h5><center><b>CONSENT FORM</b></center></h5>
+                                                                <h5><center><b><u>CONSENT FORM</u></b></center></h5>
 
                                                                 <p style="font-size: 17px; margin-left:10px">I
                                                                     <input type="text"  id="pname1"> am a patient of
@@ -664,9 +664,9 @@ function addNeck(){
     $('#neckDis').modal('show');
 }
 function addcerviacl(){
-    console.log('fine');
+  
     $('input:checkbox').removeAttr('checked');
- 
+    $('input:radio').removeAttr('checked');
     $('#cervicalSpineForm').trigger('reset');
   
 var tbl = $("table#cerMomentLoss > tbody > tr");
@@ -681,6 +681,7 @@ var tbl = $("table#cerMomentLoss > tbody > tr");
 
 function addlumbarspin(){
     $('input:checkbox').removeAttr('checked');
+    $('input:radio').removeAttr('checked');
     $('#lumbarSpineForm').trigger('reset');
     $('#fullwindowModal2').modal('show');
 }

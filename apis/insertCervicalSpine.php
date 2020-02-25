@@ -15,10 +15,10 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['ce
         mysqli_query($conn, "DELETE FROM cervical_spine_assessment WHERE patientId = $patientId AND visitDate= '$visitDate'");
     $sql = "INSERT INTO cervical_spine_assessment (patientId,visitDate,cerFunDisabilityScore,cerVasScore,cerPresentSymptoms,cerPresentSince,cerCommencedAsResult,cerSymptAtOnset,cerConstSympt,cerAggrFactor
     ,cerRelFactor,carSymptoms,cerMedications,cerGenHealth,cerImaging,cerResurgery,cerNightPain,cerAccidents,cerWeightLoss,cerSitting,cerStanding,protrudedHead,cerderagement,
-    cerTestMovement,cerMomentLoss) 
+    cerTestMovement,cerMomentLoss,disturbedSleep) 
      VALUES ('$patientId','$visitDate','$cerFunDisabilityScore','$cerVasScore','$cerPresentSymptoms','$cerPresentSince','$cerCommencedAsResult','$cerSymptAtOnset','$cerConstSympt','$cerAggrFactor',
      '$cerRelFactor','$carSymptoms','$cerMedications','$cerGenHealth','$cerImaging','$cerResurgery','$cerNightPain','$cerAccidents','$cerWeightLoss','$cerSitting','$cerStanding'
-     ,'$protrudedHead','$cerderagement','$cerTestMovement','$cerMomentLoss')";
+     ,'$protrudedHead','$cerderagement','$cerTestMovement','$cerMomentLoss','$disturbedSleep')";
     
     $query = mysqli_query($conn, $sql);
     

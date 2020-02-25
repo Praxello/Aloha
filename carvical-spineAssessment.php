@@ -2,7 +2,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header" style="background-color: aliceblue;">
-                <h5 class="modal-title" id="fullwindowModalLabel"><strong>Cervical Spine Assessment</strong></h5>
+                <h5 class="modal-title" id="fullwindowModalLabel"><strong><u>Cervical Spine Assessment</u></strong></h5>
 
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 
@@ -44,7 +44,7 @@
 
                                             <label for="presentSince" class="col-sm-1 col-form-label">Present Since:</label>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="cerpresentSincenew" name="cerpresentSince1" placeholder="">
+                                                <input type="text" class="form-control" id="cerpresentSinceNew" name="cerpresentSinceNew" placeholder="">
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="checkbox-fade fade-in-success check">
@@ -85,7 +85,7 @@
 
                                             <label for="symptomsAtOnset" class="col-sm-1 col-form-label">Symptoms at onset:</label>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" id="cerSymptomsAtOnset1" name="cerSymptomsAtOnset1" placeholder="">
+                                                <input type="text" class="form-control" id="cerSymptAtOnset1" name="cerSymptAtOnset1" placeholder="">
                                             </div>
                                             <div class="col-sm-3">
                                                 <div class="checkbox-fade fade-in-success check">

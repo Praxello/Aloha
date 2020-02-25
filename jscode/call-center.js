@@ -13,6 +13,7 @@ function branches() {
     $("#branch").select2({
         placeholder: 'Select branch',
         allowClear: true
+        
     });
     $('#branchA').html(dropdownList);
     $("#branchA").select2({
@@ -36,6 +37,7 @@ $("#callStatus").select2({
     allowClear: true,
     dropdownParent: $('#fullwindowModal')
 });
+
 const getAllClients = () => {
     $.ajax({
         url: url + 'getAllcustomers.php',

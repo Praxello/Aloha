@@ -3,7 +3,7 @@
     <form id="presentillnessform" method="POST" class="forms-sample" enctype="multipart/form-data">
         <div class="modal-content">
             <div class="modal-header" style="background-color: aliceblue;">
-                <h5 class="modal-title" id="fullwindowModalLabel"><strong>Present illness</strong></h5>
+                <h5 class="modal-title" id="fullwindowModalLabel"><strong><u>Present illness</u></strong></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
@@ -107,33 +107,33 @@
                                                                 </div>
 
                                                                 <div class="form-group row">
-                                                                    <label for="weight" class="col-sm-2 col-form-label">Weight</label>
+                                                                    <label for="weight" class="col-sm-2 col-form-label">Weight(KG)</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="weight1" placeholder="" name="weight">
+                                                                        <input type="number" class="form-control bmi1" id="weight1"  name="weight">
                                                                     </div>
 
                                                                     <label for="ppbs" class="col-sm-2 col-form-label">PPBS</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="ppbs" placeholder="" name="ppbs">
+                                                                        <input type="text" class="form-control" id="ppbs"  name="ppbs">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
-                                                                    <label for="height" class="col-sm-2 col-form-label">Height</label>
+                                                                    <label for="height" class="col-sm-2 col-form-label">Height(CM)</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="height1" placeholder="" name="height">
+                                                                        <input type="number" class="form-control bmi1" id="height1" name="height">
                                                                     </div>
 
                                                                     <label for="gfr" class="col-sm-2 col-form-label">GFR</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="gfr" placeholder="" name="gfr">
+                                                                        <input type="text" class="form-control " id="gfr" placeholder="" name="gfr">
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="form-group row">
                                                                     <label for="bmi" class="col-sm-2 col-form-label">BMI</label>
                                                                     <div class="col-sm-4">
-                                                                        <input type="text" class="form-control" id="bmi" placeholder="">
+                                                                        <input type="number" class="form-control" id="bmi1"  readonly>
                                                                     </div>
 
                                                                     <label for="goal wt" class="col-sm-2 col-form-label">Goal Wt</label>
@@ -396,7 +396,17 @@
     </div>
 </div>
 
+<script>
+    $('#bp1').mask('000/000',{placeholder: "___/___"});
 
+$('.bmi1').on('change',function(){
+    var height1 = parseFloat($('#height1').val());
+    var weight1 = parseFloat($('#weight1').val());
+    var meter = height1/100;
+    var bmi1 = parseFloat(weight1/(meter*meter));
+    $('#bmi1').val(bmi1.toFixed(2));
+});
+</script>
 <script src="js/jquery.validate.js"></script>
 <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
 <script src="jscode/presentillness_validation.js"></script>
