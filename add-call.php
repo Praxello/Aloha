@@ -295,7 +295,4 @@
 <script src="jscode/call-center-validation.js"></script>
 <script src="jscode/addCall.js"></script>
 <script src="jscode/updateCall.js"></script>
-<<<<<<< HEAD
-=======
 <?php include 'callRef.php';?>
->>>>>>> 60e402a95fceb39608c8935cbcc6ee000e2a03de
