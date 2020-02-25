@@ -238,7 +238,7 @@
                                     <input type="hidden" id="clientId" name="clientId">
                                     <div class="form-group">
                 <div class='input-group date' id="foDate1">
-                    <input type='text' class="form-control datepicker" name="follwupdate" id='follwupdate'/>
+                    <input type='local-datetime' class="form-control datepicker" name="follwupdate" id='follwupdate'/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -246,11 +246,7 @@
             </div>
                                 </div>
                             </div>
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                <input type="text" id="my_date_picker1" class="form-control">  
-                                </div>
-                            </div>
+                           
 
                         </div>
                         <hr>
@@ -287,22 +283,3 @@
 <script src="jscode/call-center-validation.js"></script>
 <script src="jscode/addCall.js"></script>
 <script src="jscode/updateCall.js"></script>
-<script>
-$(document).ready(function() {
-  $(function() {
-    // $("#my_date_picker1").datepicker({
-    //     showButtonPanel: true,
-    //     appendText:"(Full - DD, d MM, yy)",
-    //     dateFormat:"DD, d MM, yy",
-    //     showOn: "button",
-    //   buttonImage: "/images/calendar-icon.png",
-    //   buttonImageOnly: true,
-    //   buttonText: "Select date"
-    // });
-    jQuery('#my_date_picker1').datetimepicker();
-
-  });
-
-});
-
-</script>
