@@ -27,7 +27,8 @@
                     <th>Remaining</th>
                     <th>Consumed</th>
                     <th>Last used</th>
-                    <th class="nosort">Action</th>
+                    <th>Consume</th>
+                    <th>Credit</th>
                 </tr>
             </thead>
             <tbody id="packageTestData">
@@ -41,8 +42,9 @@
         <table class="table table-bordered" id="exchangeT">
             <thead>
                 <tr>
-                    <th>Transaction Type</th>
-                    <th>Created by</th>
+                    <th>Test</th>
+                    <th>Transaction Type(C-credit,D-Debit)</th>
+                    <th>Marked by</th>
                     <th>Transaction Date</th>
                 </tr>
             </thead>
@@ -51,4 +53,5 @@
             </tbody>
         </table>
     </div>
-    <script src="jscode/consumption.js"></script>
+<?php include 'credit-quota.php';?>
+<script src="jscode/consumption.js"></script>

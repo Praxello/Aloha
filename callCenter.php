@@ -33,6 +33,7 @@ if(isset($_SESSION['branchId'])){
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
+        <link href= 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-darkness/jquery-ui.css'  rel='stylesheet'> 
         <!-- <link rel="stylesheet" href="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     </head>
@@ -122,7 +123,7 @@ if(isset($_SESSION['branchId'])){
                                 <div class="col-sm-2" style="margin-top: 16px;">
                                     <div class="form-group" style="margin-top: 20px;">
                                        
-                                    <button class="btn  btn-success" type="button"  onclick="followupList()">Search Follow up list</button>
+                                    <button class="btn  btn-success" type="button"  onclick="followupList()">Search</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -157,7 +158,7 @@ if(isset($_SESSION['branchId'])){
                                 <div class="col-sm-2" >
                                     <div class="form-group" style="margin-top: 20px;">
                                        
-                                    <button class="btn  btn-default" type="button"  onclick="absentList()">Search absent Call list</button>
+                                    <button class="btn  btn-default" type="button"  onclick="absentList()">Search</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -191,7 +192,7 @@ if(isset($_SESSION['branchId'])){
                                 </div>
                                 <div class="col-sm-2" >
                                     <div class="form-group" style="margin-top: 20px;">
-                                    <button class="btn  btn-warning" type="button"  onclick="myWork()">Search My Work</button>
+                                    <button class="btn  btn-warning" type="button"  onclick="myWork()">Search</button>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -208,10 +209,10 @@ if(isset($_SESSION['branchId'])){
                                     <thead>
                                         <tr>
                                             <th style="width: 15%;">Name</th>
-                                            <th>Email</th>
+                                            <th style="width: 15%;">Doctor</th>
+                                            <th>Branch</th>
                                             <th>Age</th>
                                             <th>Contact Number</th>
-                                            <th style="width: 20%;">Address</th>
                                             <th>Appointment Date</th>
                                             <th>Follow up Need</th>
                                             <th>Status</th>
@@ -260,6 +261,7 @@ if(isset($_SESSION['branchId'])){
         </div>
       
         <script src="js/jquery-3.3.1.min.js"></script>
+        <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
         <script>
        // $.fn.modal.Constructor.prototype.enforceFocus = function() {};
             window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
@@ -290,7 +292,6 @@ today:'<?php echo date('Y-m-d');?>'
         <script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
         <script src="plugins/d3/dist/d3.min.js"></script>
         <script src="plugins/c3/c3.min.js"></script>
-
         <script src="js/tables.js"></script>
         <script src="jscode/loader.js"></script>
         <script src="js/charts.js"></script>

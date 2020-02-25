@@ -18,7 +18,7 @@
                       </div>
                 </div>
 
-<div class="row">
+                <div class="row">
                 <div class="dt-responsive tbl col-md-12" >
                                 <table id="followTable" class="table">
                                     <thead>

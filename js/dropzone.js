@@ -133,7 +133,7 @@
             thumbnailWidth: 120,
             thumbnailHeight: 120,
             filesizeBase: 1000,
-            maxFiles: 3,
+            maxFiles: 100,
             params: {},
             clickable: true,
             ignoreHiddenFiles: true,

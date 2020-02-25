@@ -123,6 +123,7 @@ const listCalls = calls => {
     var tblData = '';
     for (let k of calls.keys()) {
         let call = calls.get(k);
+        console.log(call);
         var badge = '',
             st = '';
         if (call.folowupNeeded == 1) {
@@ -138,10 +139,10 @@ const listCalls = calls => {
             st = '<td><span class="badge badge-success">Idle</span></td>';
         }
         tblData += '<tr><td>' + call.firstName + ' ' + call.lastName + '</td>';
-        tblData += '<td>' + call.email + '</td>';
+        tblData += '<td>' + call.username + '</td>';
+        tblData += '<td>' + call.branchName + '</td>';
         tblData += '<td>' + getAge(call.dateOfBirth) + '</td>';
         tblData += '<td>' + call.mobile + '</td>';
-        tblData += '<td>' + call.stateName + ',' + call.cityName + '</td>';
         tblData += '<td>' + getDate(call.appointmentDate) + '</td>';
         tblData += badge;
         tblData += st;
@@ -170,6 +171,8 @@ const editCall = (callId) => {
     up_callId = callId;
     let call = calls.get(callId);
     clientId = call.clientId;
+    $('.ud').show();
+    getAllCallFollowup(up_callId);
     $('#s2').hide();
     fill_data(call);
 };
@@ -277,7 +280,6 @@ function followupList() {
 }
 
 function fill_data(call) {
-    console.log(call);
     $('#firstName').val(call.firstName);
     $('#middleName').val(call.middleName);
     $('#lastName').val(call.lastName);
@@ -376,6 +378,7 @@ function newCall() {
     up_callId = null;
     $('#new').show();
     $('#update').hide();
+    $('.ud').hide();
     $('.select2').val('').trigger('change');
     $('#callForm').trigger('reset');
     $('#fullwindowModal').modal('show');

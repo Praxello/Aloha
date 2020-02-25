@@ -14,9 +14,9 @@
         <form id="callForm" method="POST">
         <div class="modal-content">
             <div class="modal-header" style="background-color: aliceblue;">
-                <h3 class="modal-title" id="fullwindowModalLabel"><strong><u>Create new call entry</u></strong></h3>
+               <center> <h3 class="modal-title" id="fullwindowModalLabel"><strong><u>Create new call entry</u></strong></h3></center>
                 <div class="template-demo" id="s2">
-                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter"><i class="ik ik-search" style="font-size: 20px;color: blueviolet;" ></i></button>
+                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter"><i class="ik ik-search" style="font-size: 20px;color: blueviolet;" title="Quick Look up"></i></button>
                 </div>
                
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -235,10 +235,10 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Follow up Date/Time</label>
-                                   
+                                    <input type="hidden" id="clientId" name="clientId">
                                     <div class="form-group">
                 <div class='input-group date' id="foDate1">
-                    <input type='text' class="form-control" name="follwupdate" id='follwupdate'/>
+                    <input type='text' class="form-control datepicker" name="follwupdate" id='follwupdate'/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -246,21 +246,31 @@
             </div>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="row">
-
-                        <div class="col-md-4">
-                        <div class="form-group">
-                                    <label for="feedback">Feedback</label>
-                                    <textarea name="feedback" id="feedback" rows="2" class="form-control "></textarea>
+                            <div class="col-md3">
+                                <div class="form-group">
+                                <input type="text" id="my_date_picker1" class="form-control">  
                                 </div>
-                                </div>
-                            <div class="col-md-4">
-                               <input type="hidden" id="clientId" name="clientId">
                             </div>
-                        </div>
 
+                        </div>
+                        <hr>
+                        <div class="row ud" style="display: none;">
+                <div class="dt-responsive tbl col-md-6" >
+                                <table id="followTablee" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th >Id</th>
+                                            <th>Followup</th>
+                                            <th>Date</th>
+                                            <th>AttendedBy</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="callFollDatae">
+                                       
+                                    </tbody>
+                                </table>
+                             </div>
+          </div>
                     </div>
                 </div>
 
@@ -274,21 +284,21 @@
         </form>
     </div>
 </div>
-
 <script src="jscode/call-center-validation.js"></script>
 <script src="jscode/addCall.js"></script>
 <script src="jscode/updateCall.js"></script>
-
 <script>
 $(document).ready(function() {
   $(function() {
-    $('#apDate').datetimepicker({
-        format:"YYYY-MM-DD"
+    $("#my_date_picker1").datepicker({
+        showButtonPanel: true,
+        appendText:"(Full - DD, d MM, yy)",
+        dateFormat:"DD, d MM, yy",
+        showOn: "button",
+      buttonImage: "/images/calendar-icon.png",
+      buttonImageOnly: true,
+      buttonText: "Select date"
     });
-$('#foDate1').datetimepicker({
-    sideBySide: true,
-    format:"YYYY-MM-DD HH:mm:ss"
-});
 
   });
 });

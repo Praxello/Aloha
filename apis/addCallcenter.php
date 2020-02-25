@@ -24,7 +24,7 @@ if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['bir
     $attendedBy            = isset($_POST['attendedBy']) ? $_POST['attendedBy'] : 'NULL';
     $branchId              = isset($_POST['branchId']) ? $_POST['branchId'] : 'NULL';
     $doctorId              = isset($_POST['userId']) ? $_POST['userId'] : 'NULL';
-    $feedback              = isset($_POST['feedback']) ? $_POST['feedback'] : 'NULL';
+   // $feedback              = isset($_POST['feedback']) ? $_POST['feedback'] : 'NULL';
     $callStatus            = isset($_POST['callStatus']) ? $_POST['callStatus'] : '1';
     $appointmentDate       = isset($_POST['appointmentDate']) ? $_POST['appointmentDate']:'NULL';
 
@@ -37,15 +37,16 @@ $query = mysqli_query($conn, $sql);
 $rowsAffected = mysqli_affected_rows($conn);
 if ($rowsAffected >0 || $rowsAffected == 0 ) {
     $sql = "INSERT INTO call_center(clientId,callDateTime,branchId,doctorId,disease,appointmentDate,remarks,folowupNeeded,
-    folowupNeededDateTime,attendedBy,feedback,callStatus) VALUES ($clientId,'$callDateTime',$branchId,$doctorId,'$disease', 
-    '$appointmentDate', '$remarks', '$folowupNeeded', '$folowupNeededDateTime', '$attendedBy','$feedback','$callStatus')";
+    folowupNeededDateTime,attendedBy,callStatus) VALUES ($clientId,'$callDateTime',$branchId,$doctorId,'$disease', 
+    '$appointmentDate', '$remarks', '$folowupNeeded', '$folowupNeededDateTime', '$attendedBy','$callStatus')";
     $query = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $callId        = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT *,st.name AS stateName,ct.name AS cityName,DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s') folowupNeededDateTime FROM call_center cc 
+        $academicQuery = mysqli_query($conn, "SELECT cc.callId,cc.clientId,cc.callDateTime,cc.branchId,cc.doctorId,cc.disease,cc.appointmentDate,cc.remarks,cc.folowupNeeded,cc.attendedBy,cc.callStatus,cc.feedback,st.name AS stateName,ct.name AS cityName,cc.folowupNeededDateTime follow,DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s') folowupNeededDateTime,um.username,hb.branchName,ccp.firstName,ccp.middleName,ccp.lastName,ccp.email,ccp.mobile,ccp.landline,ccp.nearByArea,ccp.city,ccp.city,ccp.state,ccp.country,ccp.pincode,ccp.reference,ccp.gender,ccp.dateOfBirth
+        FROM call_center cc 
         INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state 
-        LEFT JOIN cities ct ON ct.id = ccp.city WHERE cc.callId = $callId");
+        LEFT JOIN cities ct ON ct.id = ccp.city LEFT JOIN user_master um ON um.userId = cc.doctorId LEFT JOIN hospital_branch_master hb ON hb.branchId = cc.branchId WHERE cc.callId = $callId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
@@ -89,9 +90,10 @@ if ($rowsAffected == 1) {
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $callId        = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT *,st.name AS stateName,ct.name AS cityName,cc.folowupNeededDateTime follow,DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s') folowupNeededDateTime FROM call_center cc 
+        $academicQuery = mysqli_query($conn, "SELECT cc.callId,cc.clientId,cc.callDateTime,cc.branchId,cc.doctorId,cc.disease,cc.appointmentDate,cc.remarks,cc.folowupNeeded,cc.attendedBy,cc.callStatus,cc.feedback,st.name AS stateName,ct.name AS cityName,cc.folowupNeededDateTime follow,DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s') folowupNeededDateTime,um.username,hb.branchName,ccp.firstName,ccp.middleName,ccp.lastName,ccp.email,ccp.mobile,ccp.landline,ccp.nearByArea,ccp.city,ccp.city,ccp.state,ccp.country,ccp.pincode,ccp.reference,ccp.gender,ccp.dateOfBirth
+        FROM call_center cc 
         INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state 
-        LEFT JOIN cities ct ON ct.id = ccp.city WHERE cc.callId = $callId");
+        LEFT JOIN cities ct ON ct.id = ccp.city LEFT JOIN user_master um ON um.userId = cc.doctorId LEFT JOIN hospital_branch_master hb ON hb.branchId = cc.branchId WHERE cc.callId = $callId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {

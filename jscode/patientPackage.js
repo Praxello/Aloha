@@ -43,7 +43,7 @@ var listPackages = packages => {
         tblData += badge;
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" class="ik edit"  onclick="editPackage(' + (package.pId) + ')" title="View Package Details"><i class="fas fa-window-restore text-purple"></i></a>';
-        tblData += '<a href="#" class="ik edit"  onclick="inactivate(' + (package.packageId) + ')" title="Active/inactive package"><i class="ik ik-trash text-danger"></i></a>';
+        // tblData += '<a href="#" class="ik edit"  onclick="inactivate(' + (package.packageId) + ')" title="Active/inactive package"><i class="ik ik-trash text-danger"></i></a>';
         tblData += '</div></td></tr>';
     });
     $('#packageData').html(tblData);

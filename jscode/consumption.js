@@ -1,5 +1,6 @@
 var transactions = new Map();
 var exchangeT = new Map();
+var detailId_u = null;
 
 function loadConsumption(details) {
     $('#pNamee').html(details.title);
@@ -53,7 +54,7 @@ function exchange_list(exchangeT) {
     $('#exchangeData').empty();
     var tbldata = '';
     exchangeT.forEach(element => {
-        tbldata += '<tr><td>' + element.transactionType + '</td>';
+        tbldata += '<tr><td>' + element.testName + '</td><td>' + element.transactionType + '</td>';
         tbldata += '<td>' + element.username + '</td>';
         tbldata += '<td>' + element.created_at + '</td></tr>';
     });
@@ -71,7 +72,8 @@ function listTransactions(transactions) {
         tbldata += '<td>' + (parseInt(element.originalQuota) - parseInt(element.consumed)) + '</td>';
         tbldata += '<td>' + element.consumed + '</td>';
         tbldata += '<td>' + element.lastUsed + '</td>';
-        tbldata += '<td style="width:5%;"><button type="button" class="btn btn-icon btn-success" onclick="consumeNow(' + element.DetailId + ')" title="Click to consume"><i class="ik ik-plus"></i></button></td></tr>';
+        tbldata += '<td style="width:5%;"><button type="button" class="btn btn-icon btn-danger" onclick="consumeNow(' + element.DetailId + ')" title="Click to consume"><i class="ik ik-minus"></i></button></td>';
+        tbldata += '<td style="width:5%;"><button type="button" class="btn btn-icon btn-success" onclick="creditQuota(' + element.DetailId + ')" title="Click to Credit Quota"><i class="ik ik-plus"></i></button></td></tr>';
     });
     $('#packageTestData').html(tbldata);
     $('#packageTest').dataTable();
@@ -88,14 +90,12 @@ function consumeNow(detailId) {
             data: { detailId: detailId, userId: data.userId },
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
                     consume = consume + 1;
                     transaction.consumed = consume;
                     transactions.set(detailId, transaction);
                     if (response.Data != null) {
                         exchangeT.set(response.Data.transactionId, response.Data);
-                        console.log(exchangeT);
                         exchange_list(exchangeT);
                     }
                 }
@@ -108,4 +108,12 @@ function consumeNow(detailId) {
 function fromBack() {
     $('.load-pack').empty();
     $('.s').show();
+}
+
+function creditQuota(detailId) {
+    detailId = detailId.toString();
+    detailId_u = detailId;
+    if (transactions.has(detailId)) {
+        $('#creditQuota').modal('show');
+    }
 }
