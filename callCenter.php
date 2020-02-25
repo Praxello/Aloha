@@ -33,7 +33,7 @@ if(isset($_SESSION['branchId'])){
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
-        <link href= 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-darkness/jquery-ui.css'  rel='stylesheet'> 
+        <link href= 'js/jquery.datetimepicker.min.css'  rel='stylesheet'> 
     </head>
 <style>
    .error{
@@ -261,7 +261,8 @@ if(isset($_SESSION['branchId'])){
         </div>
       
         <script src="js/jquery-3.3.1.min.js"></script>
-        <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
+        <!-- <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>  -->
+        <script src="js/jquery.datetimepicker.full.js"></script>
         <script>
        // $.fn.modal.Constructor.prototype.enforceFocus = function() {};
             window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')

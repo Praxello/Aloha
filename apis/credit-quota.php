@@ -16,9 +16,10 @@ if (isset($_POST['detailId']) && isset($_POST['typeCount']) && isset($_POST['rem
         mysqli_query($conn, $insert);
         if ($academicAffected == 1) {
             $did      = $conn->insert_id;
-            $sql      = "SELECT pt.transactionId,pt.transactionType,pt.userId,DATE_FORMAT(pt.created_at,'%d %b %Y') created_at,um.username 
-FROM PackageTransaction pt INNER JOIN PackageCustomerDetails pd ON pd.DetailId = pt.detailId LEFT JOIN user_master um ON um.userId = pt.userId
-WHERE pt.transactionId =  $did";
+            $sql      = "SELECT pt.transactionId,pt.transactionType,pt.userId,DATE_FORMAT(pt.created_at,'%d %b %Y') created_at,um.username,dt.testName
+            FROM PackageTransaction pt INNER JOIN PackageCustomerDetails pd ON pd.DetailId = pt.detailId LEFT JOIN user_master um ON um.userId = pt.userId
+            LEFT JOIN diagnostic_tests_master dt ON dt.testId = pd.TestId
+            WHERE pt.transactionId=  $did";
             $jobQuery = mysqli_query($conn, $sql);
             if ($jobQuery != null) {
                 $academicAffected = mysqli_num_rows($jobQuery);
