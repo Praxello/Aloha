@@ -44,7 +44,7 @@ if(isset($_SESSION['branchId'])){
     overflow-x:auto;
   }
 }
- .ui-datepicker-trigger { position:relative;top:{}px ;right:{}px ; width:33px } /* {} is the value according to your need */ 
+ .ui-datepicker-trigger { position:relative; width:33px } /* {} is the value according to your need */ 
 </style>
     <body>
         <div class="wrapper">
