@@ -33,8 +33,8 @@ if(isset($_SESSION['branchId'])){
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
-        <link rel="stylesheet" href="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     </head>
 <style>
    .error{
@@ -70,13 +70,13 @@ if(isset($_SESSION['branchId'])){
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">From</label>
-                                        <input type="date" class="form-control" name="fromDate" id="fromDate">
+                                        <input type="date" class="form-control" name="fromDate" id="fromDate" value="<?php echo date ('Y-m-d');?>">
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">Upto</label>
-                                        <input type="date" class="form-control" name="uptoDate" id="uptoDate">
+                                        <input type="date" class="form-control" name="uptoDate" id="uptoDate" value="<?php echo date ('Y-m-d');?>">
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -104,13 +104,13 @@ if(isset($_SESSION['branchId'])){
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">From</label>
-                                        <input type="date" class="form-control" name="folDate" id="folDate">
+                                        <input type="date" class="form-control" name="folDate" id="folDate" value="<?php echo date ('Y-m-d');?>">
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">Upto</label>
-                                        <input type="date" class="form-control" name="foluDate" id="foluDate">
+                                        <input type="date" class="form-control" name="foluDate" id="foluDate" value="<?php echo date ('Y-m-d');?>">
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -139,13 +139,13 @@ if(isset($_SESSION['branchId'])){
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">From</label>
-                                        <input type="date" class="form-control" name="foDate" id="foDate">
+                                        <input type="date" class="form-control" name="foDate" id="foDate" value="<?php echo date ('Y-m-d');?>">
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">Upto</label>
-                                        <input type="date" class="form-control" name="upDate" id="upDate">
+                                        <input type="date" class="form-control" name="upDate" id="upDate" value="<?php echo date ('Y-m-d');?>">
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -174,13 +174,13 @@ if(isset($_SESSION['branchId'])){
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">From</label>
-                                        <input type="date" class="form-control" name="mfoDate" id="mfoDate">
+                                        <input type="date" class="form-control" name="mfoDate" id="mfoDate" value="<?php echo date ('Y-m-d');?>">
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">Upto</label>
-                                        <input type="date" class="form-control" name="mupDate" id="mupDate">
+                                        <input type="date" class="form-control" name="mupDate" id="mupDate" value="<?php echo date ('Y-m-d');?>">
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -296,6 +296,7 @@ today:'<?php echo date('Y-m-d');?>'
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="js/jquery.validate.js"></script>
+    <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
        <script src="jscode/apis.js"></script>
        <script src="jscode/getBranches.js"></script>
         <script src="jscode/getUsers.js"></script>
@@ -306,8 +307,8 @@ today:'<?php echo date('Y-m-d');?>'
        <script src="jscode/cities.js"></script>
        <script src="jscode/getcallFollowup.js"></script>
        <script src="jscode/call-center.js"></script>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
-       <script src="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/js/bootstrap-datetimepicker.min.js"></script>
+       <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+       <script src="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/js/bootstrap-datetimepicker.min.js"></script> -->
        <script>
            $('.collapse').on('show.bs.collapse', function () {
             $('.collapse.show').each(function(){

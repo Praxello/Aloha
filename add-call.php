@@ -100,7 +100,7 @@
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="" class="required">Contact Number</label>
-                                                <input type="text" class="form-control" name="mobile" id="mobile">
+                                                <input type="text" class="form-control" name="mobile" id="mobile"  onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
                                             </div>
                                         </div>
                                         <div class="col-md-2">
