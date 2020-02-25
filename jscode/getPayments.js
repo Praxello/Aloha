@@ -91,7 +91,7 @@ var showPatientInfo = patientId => {
     $('#pname').html(details.firstName + ' ' + details.middleName + ' ' + details.surname);
     $('#pmobile').html(details.mobile1);
     $('#pemail').html(details.email);
-    $('#pcity').html(details.cityName);
+    $('#pcity').html(details.cityName + ' ' + details.stateName);
     $('#paddress').html(details.address);
 };
 
@@ -170,6 +170,7 @@ function check(input) {
 function removeReciept(receiptId) {
     receiptId = receiptId.toString();
     let package = payments.get(receiptId);
+    console.log(package);
     swal({
             title: "Are you sure?",
             text: 'Remove this reciept',
@@ -182,7 +183,7 @@ function removeReciept(receiptId) {
                 $.ajax({
                     url: url + 'recieptRemove.php',
                     type: 'POST',
-                    data: { paymentId: receiptId },
+                    data: { paymentId: receiptId, packageId: package.packageId, patientId: package.patientId },
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {

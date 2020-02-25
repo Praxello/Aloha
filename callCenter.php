@@ -33,8 +33,13 @@ if(isset($_SESSION['branchId'])){
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
+<<<<<<< HEAD
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+=======
+        <!-- <link rel="stylesheet" href="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+>>>>>>> 222a58feb79302fd3ab1864e30a4601f6d57a8da
     </head>
 <style>
    .error{
@@ -275,8 +280,7 @@ today:'<?php echo date('Y-m-d');?>'
 };
        </script>
         <?php include 'add-call.php';?>
-    
-        <?php include 'search-modal.php'?>
+    <?php include 'search-modal.php'?>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -293,6 +297,7 @@ today:'<?php echo date('Y-m-d');?>'
         <script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
         <script src="plugins/d3/dist/d3.min.js"></script>
         <script src="plugins/c3/c3.min.js"></script>
+
         <script src="js/tables.js"></script>
         <script src="jscode/loader.js"></script>
         <script src="js/charts.js"></script>
@@ -310,8 +315,8 @@ today:'<?php echo date('Y-m-d');?>'
        <script src="jscode/cities.js"></script>
        <script src="jscode/getcallFollowup.js"></script>
        <script src="jscode/call-center.js"></script>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+       <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+       <script src="https://rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/js/bootstrap-datetimepicker.min.js"></script> -->
        <script>
            $('.collapse').on('show.bs.collapse', function () {
             $('.collapse.show').each(function(){

@@ -29,7 +29,7 @@
                                         <div class="col-md-12 tbl">
 
                                             <div class="row">
-                                                <div class="col-md-1">
+                                                <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label><b>Patient Id :</b></label>
                                                         <span  id="pid"></span>
@@ -62,7 +62,7 @@
                                                         <span id="pcity"></span>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for=""><b>Address :</b></label>
                                                         <span id="paddress"></span>

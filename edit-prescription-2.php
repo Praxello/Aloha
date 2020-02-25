@@ -668,7 +668,15 @@ function addcerviacl(){
     $('input:checkbox').removeAttr('checked');
     $('input:radio').removeAttr('checked');
     $('#cervicalSpineForm').trigger('reset');
+  
+var tbl = $("table#cerMomentLoss > tbody > tr");
+ $(tbl).each(function(index,value){
+     console.log('h');
+   $(value).find('td').empty()
+ });
+
     $('#cervicalSpine').modal('show');
+
 }
 
 function addlumbarspin(){

@@ -9,7 +9,7 @@ $(".dropzone").dropzone({
             var anchorEl = document.createElement('a');
             anchorEl.setAttribute('href', link);
             anchorEl.setAttribute('target', '_blank');
-            anchorEl.innerHTML = "Download";
+            anchorEl.innerHTML = "<i class='fa fa-download' aria-hidden='true'></i>";
             file.previewTemplate.appendChild(anchorEl);
         }
     },
@@ -33,7 +33,7 @@ $(".dropzone").dropzone({
                     a = document.createElement('a');
                     a.setAttribute('href', "upload/patientDocs/" + value.name);
                     a.setAttribute('target', '_blank');
-                    a.innerHTML = "Download";
+                    a.innerHTML = "<i class='fa fa-download' aria-hidden='true'>Download</i>";
                     mockFile.previewTemplate.appendChild(a);
 
                 });
