@@ -208,8 +208,9 @@ function callRegister() {
     var returnVal = $("#callRegister").valid();
     if (returnVal) {
         var branch = null;
-        var fromDate = $('#fromDate').val();
-        var uptoDate = $('#uptoDate').val();
+        var fromDate =  moment($('#fromDate').val()).format('YYYY-MM-DD');
+        var uptoDate =  moment($('#uptoDate').val()).format('YYYY-MM-DD');
+     
         if ($('#branch').val() != '') {
             branch = $('#branch').val();
         }
@@ -240,8 +241,8 @@ function myWork() {
     var returnVal = $("#myWork").valid();
     if (returnVal) {
         var branch = null;
-        var fromDate = $('#mfoDate').val();
-        var uptoDate = $('#mupDate').val();
+        var fromDate = moment($('#mfoDate').val()).format('YYYY-MM-DD');
+        var uptoDate = moment($('#mupDate').val()).format('YYYY-MM-DD');
         if ($('#mbranch').val() != '') {
             branch = $('#mbranch').val();
         }
@@ -271,8 +272,8 @@ function followupList() {
     });
     var returnVal = $("#followuplist").valid();
     if (returnVal) {
-        var fromDate = $('#folDate').val();
-        var uptoDate = $('#foluDate').val();
+        var fromDate = moment($('#folDate').val()).format('YYYY-MM-DD');
+        var uptoDate = moment($('#foluDate').val()).format('YYYY-MM-DD');
         var branchId = null;
         if ($('#branchA').val() != '') {
             branchId = $('#branchA').val();
@@ -409,8 +410,8 @@ function absentList() {
     });
     var returnVal = $("#absentList").valid();
     if (returnVal) {
-        var fromDate = $('#foDate').val();
-        var uptoDate = $('#upDate').val();
+        var fromDate = moment($('#foDate').val()).format('YYYY-MM-DD');
+        var uptoDate = moment($('#upDate').val()).format('YYYY-MM-DD');
         var branchId = null;
         if ($('#branchA').val() != '') {
             branchId = $('#branchA').val();

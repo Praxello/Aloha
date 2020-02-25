@@ -44,6 +44,7 @@ if(isset($_SESSION['branchId'])){
     overflow-x:auto;
   }
 }
+ .ui-datepicker-trigger { position:relative;top:{}px ;right:{}px ; width:33px } /* {} is the value according to your need */ 
 </style>
     <body>
         <div class="wrapper">
@@ -67,17 +68,20 @@ if(isset($_SESSION['branchId'])){
                         <div class="card-header row">
                           
                                 <div class="col-sm-2">
-                                    <div class="form-group">
+                                     <div class="form-group">
                                         <label for="">From</label>
-                                        <input type="date" class="form-control" name="fromDate" id="fromDate" value="<?php echo date ('Y-m-d');?>">
+                                         <div class="input-group">
+                                        <input type="text" class="form-control" name="fromDate" id="fromDate" value="<?php echo date ('Y-m-d');?>">
                                     </div>
-                                </div>      
-
+                                </div>          
+                          </div>
 
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">Upto</label>
-                                        <input type="date" class="form-control" name="uptoDate" id="uptoDate" value="<?php echo date ('Y-m-d');?>">
+                                        <div class="input-group">
+                                        <input type="text" class="form-control" name="uptoDate" id="uptoDate" value="<?php echo date ('Y-m-d');?>">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -104,14 +108,19 @@ if(isset($_SESSION['branchId'])){
                           
                                 <div class="col-sm-2">
                                     <div class="form-group">
+
                                         <label for="">From</label>
-                                        <input type="date" class="form-control" name="folDate" id="folDate" value="<?php echo date ('Y-m-d');?>">
+                                        <div class="input-group">
+                                        <input type="text" class="form-control" name="folDate" id="folDate" value="<?php echo date ('Y-m-d');?>">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">Upto</label>
-                                        <input type="date" class="form-control" name="foluDate" id="foluDate" value="<?php echo date ('Y-m-d');?>">
+                                        <div class="input-group">
+                                        <input type="text" class="form-control" name="foluDate" id="foluDate" value="<?php echo date ('Y-m-d');?>">
+</div>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -140,13 +149,17 @@ if(isset($_SESSION['branchId'])){
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">From</label>
-                                        <input type="date" class="form-control" name="foDate" id="foDate" value="<?php echo date ('Y-m-d');?>">
+                                        <div class="input-group">
+                                        <input type="text" class="form-control" name="foDate" id="foDate" value="<?php echo date ('Y-m-d');?>">
+                                            </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">Upto</label>
-                                        <input type="date" class="form-control" name="upDate" id="upDate" value="<?php echo date ('Y-m-d');?>">
+                                        <div class="input-group">
+                                        <input type="text" class="form-control" name="upDate" id="upDate" value="<?php echo date ('Y-m-d');?>"> 
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -175,13 +188,17 @@ if(isset($_SESSION['branchId'])){
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">From</label>
-                                        <input type="date" class="form-control" name="mfoDate" id="mfoDate" value="<?php echo date ('Y-m-d');?>">
+                                        <div class="input-group">
+                                        <input type="text" class="form-control" name="mfoDate" id="mfoDate" value="<?php echo date ('Y-m-d');?>">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="form-group">
                                         <label for="">Upto</label>
-                                        <input type="date" class="form-control" name="mupDate" id="mupDate" value="<?php echo date ('Y-m-d');?>">
+                                        <div class="input-group">
+                                        <input type="text" class="form-control" name="mupDate" id="mupDate" value="<?php echo date ('Y-m-d');?>">
+                                    </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
@@ -318,6 +335,140 @@ today:'<?php echo date('Y-m-d');?>'
         });
        </script>
            <?php include 'take-feedback.php';?>
+           <script>
+$(document).ready(function() {
+  $(function() {
+    $("#fromDate").datepicker({
+        showButtonPanel: true,
+        // appendText:"(Full - DD, d MM, yy)",
+        // dateFormat:"DD, d MM, yy",
+        showOn: "button",
+      buttonImage: "src/img/index.jpg",
+      buttonImageOnly: true,
+      
+      
+    //   buttonText: "Select date"
+    });
+
+  });
+});
+$(document).ready(function() {
+  $(function() {
+    $("#uptoDate").datepicker({
+        showButtonPanel: true,
+        // appendText:"(Full - DD, d MM, yy)",
+        // dateFormat:"DD, d MM, yy",
+        showOn: "button",
+        buttonImage: "src/img/index.jpg",
+      buttonImageOnly: true,
+    
+    //   buttonText: "Select date"
+    });
+
+  });
+});
+
+
+$(document).ready(function() {
+  $(function() {
+    $("#folDate").datepicker({
+        showButtonPanel: true,
+        // appendText:"(Full - DD, d MM, yy)",
+        // dateFormat:"DD, d MM, yy",
+        showOn: "button",
+        buttonImage: "src/img/index.jpg",
+      buttonImageOnly: true,
+    
+    //   buttonText: "Select date"
+    });
+
+  });
+});
+
+$(document).ready(function() {
+  $(function() {
+    $("#foluDate").datepicker({
+        showButtonPanel: true,
+        // appendText:"(Full - DD, d MM, yy)",
+        // dateFormat:"DD, d MM, yy",
+        showOn: "button",
+        buttonImage: "src/img/index.jpg",
+      buttonImageOnly: true,
+    
+    //   buttonText: "Select date"
+    });
+
+  });
+});
+
+
+
+$(document).ready(function() {
+  $(function() {
+    $("#mfoDate").datepicker({
+        showButtonPanel: true,
+        // appendText:"(Full - DD, d MM, yy)",
+        // dateFormat:"DD, d MM, yy",
+        showOn: "button",
+        buttonImage: "src/img/index.jpg",
+      buttonImageOnly: true,
+    
+    //   buttonText: "Select date"
+    });
+
+  });
+});
+
+$(document).ready(function() {
+  $(function() {
+    $("#mupDate").datepicker({
+        showButtonPanel: true,
+        // appendText:"(Full - DD, d MM, yy)",
+        // dateFormat:"DD, d MM, yy",
+        showOn: "button",
+        buttonImage: "src/img/index.jpg",
+      buttonImageOnly: true,
+    
+    //   buttonText: "Select date"
+    });
+
+  });
+});
+
+
+$(document).ready(function() {
+  $(function() {
+    $("#foDate").datepicker({
+        showButtonPanel: true,
+        // appendText:"(Full - DD, d MM, yy)",
+        // dateFormat:"DD, d MM, yy",
+        showOn: "button",
+        buttonImage: "src/img/index.jpg",
+      buttonImageOnly: true,
+    
+    //   buttonText: "Select date"
+    });
+
+  });
+});
+
+
+$(document).ready(function() {
+  $(function() {
+    $("#upDate").datepicker({
+        showButtonPanel: true,
+        // appendText:"(Full - DD, d MM, yy)",
+        // dateFormat:"DD, d MM, yy",
+        showOn: "button",
+        buttonImage: "src/img/index.jpg",
+      buttonImageOnly: true,
+    
+    //   buttonText: "Select date"
+    });
+
+  });
+});
+</script>
     </body>
 
 </html>

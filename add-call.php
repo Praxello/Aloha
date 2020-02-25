@@ -246,7 +246,7 @@
             </div>
                                 </div>
                             </div>
-                            <div class="col-md3">
+                            <div class="col-md-5">
                                 <div class="form-group">
                                 <input type="text" id="my_date_picker1" class="form-control">  
                                 </div>
