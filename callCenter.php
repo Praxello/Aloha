@@ -33,7 +33,7 @@ if(isset($_SESSION['branchId'])){
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
         <link rel="stylesheet" href="dist/css/loader.css">
-        <link href= 'js/jquery.datetimepicker.min.css'  rel='stylesheet'> 
+        <link href= 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-darkness/jquery-ui.css'  rel='stylesheet'> 
     </head>
 <style>
    .error{
@@ -273,13 +273,12 @@ if(isset($_SESSION['branchId'])){
                         <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="https://praxello.com/" class="text-dark" target="_blank">Praxello</a></span>
                     </div>
                 </footer>
-  
+ 
             </div>
         </div>  
       
         <script src="js/jquery-3.3.1.min.js"></script>
-        <!-- <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>  -->
-        <script src="js/jquery.datetimepicker.full.js"></script>
+        <script src= "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> 
         <script>
        // $.fn.modal.Constructor.prototype.enforceFocus = function() {};
             window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
