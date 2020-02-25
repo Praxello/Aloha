@@ -131,24 +131,36 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <div class="col-md-1">
                                             <div class="form-group">
                                                 <label for="">Zip Code</label>
                                                 <input type="text" class="form-control" name="zipcode" id="zipcode">
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-1">
                                             <div class="form-group">
                                                 <label for="">Near by area</label>
                                                 <input type="text" class="form-control" name="nearByArea" id="nearByArea">
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <!-- <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="" class="required">Reference</label>
                                                 <select  class="form-control select2" name="reference" id="reference" style="width: 100%;"></select>
                                             </div>
-                                        </div>
+                                        </div> -->
+                            <div class="col-md-2">
+                            <div class="form-group">
+                                <label for="referredby" class="required">Reference</label>
+                                <select  class="form-control select2" name="reference" id="reference" style="width: 100%;"></select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-1">
+                            <div class="form-group">
+                                <button class="btn btn-success" style="margin-top:30px" type="button" data-toggle="modal" data-target="#exampleModalNew">+</button>
+                            </div>
+                        </div>
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="" class="required">Call Status</label>
@@ -287,22 +299,4 @@
 <script src="jscode/call-center-validation.js"></script>
 <script src="jscode/addCall.js"></script>
 <script src="jscode/updateCall.js"></script>
-<script>
-$(document).ready(function() {
-  $(function() {
-    // $("#my_date_picker1").datepicker({
-    //     showButtonPanel: true,
-    //     appendText:"(Full - DD, d MM, yy)",
-    //     dateFormat:"DD, d MM, yy",
-    //     showOn: "button",
-    //   buttonImage: "/images/calendar-icon.png",
-    //   buttonImageOnly: true,
-    //   buttonText: "Select date"
-    // });
-    jQuery('#my_date_picker1').datetimepicker();
-
-  });
-
-});
-
-</script>
+<?php include 'callRef.php';?>
