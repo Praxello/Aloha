@@ -385,7 +385,6 @@
                                                                     <p style="font-size: 17px; margin-left:10px">Relation to Patient:
 
                                                                         <p style="font-size: 17px; margin-left:10px">Signature of Attendant:
-
                                                             </div>
                                                         </div>
 
@@ -397,11 +396,8 @@
                                         </div>
 
                                     </div>
-                               
-
-                            
-                                            
-                                        </div>
+      
+                            </div>
                                    
                                     <button class="btn btn-secondary" onclick="downloadForm();"><i class="fa fa-download"></i>Download concent form</button>
                                     <button type="button" class="btn btn-primary" value="submit" onClick="fun()">Save changes</button>

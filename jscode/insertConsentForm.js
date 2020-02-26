@@ -3,7 +3,7 @@ function demo(u_appointmentId) {
     let patient = appointments.get(u_appointmentId);
     document.getElementById('pname1').value = patient.firstName + '  ' + patient.surname;
     document.getElementById('pname2').value = patient.firstName + '  ' + patient.surname;
-    // document.getElementById('branchName').value =u_BranchName.branchName;
+ 
 }
 demo(u_appointmentId);
 
@@ -17,7 +17,7 @@ function loadBranchs() {
         }
     }
     document.getElementById('branchName').value =branchName;
-    console.log(branchName);
+   
 }
 loadBranchs();
 
@@ -58,7 +58,7 @@ function fun() {
                 $('#pname1').empty();
                 $('#pname2').empty();
                 $('#branchName').empty();
-
+                $('#treatmentName').empty();
             } else {
                 swal({
                     position: 'top-end',

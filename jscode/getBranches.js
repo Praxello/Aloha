@@ -1,5 +1,5 @@
 var branch = new Map();
-console.log('in branch');
+
 function getBranch() {
     $.ajax({
         url: url + 'getAllBranch.php',
@@ -7,7 +7,7 @@ function getBranch() {
         async: false,
         dataType: 'json',
         success: function(response) {
-            console.log(response);
+            
             if (response.Responsecode == 200) {
                 if (response.Data != null) {
                     var n = response.Data.length;

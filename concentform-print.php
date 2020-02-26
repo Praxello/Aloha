@@ -29,10 +29,10 @@ $jobQuery = mysqli_query($conn, $sql);
             $relativeName = $academicResults['relativeName'];
             $medicalTreatment = $academicResults['medicalTreatment'];
             $treatmentName = $academicResults['treatmentName'];
-            $hospitalCenterName = $academicResults['branchName'];
+            $hospitalCenterName = $academicResults['hospitalCenterName'];
             $output.='  <p style="font-size: 20px; margin-left:10px">I <b><u>'.$academicResults['patientName'].'
                     </u></b> am a patient of <b> <u>'.$deseaseNew.'</u></b>
-                     since <b>'.$sinceDays.'</b> </p>';
+                     since <b><u>'.$sinceDays.'</u></b> </p>';
                     
              $output.='  <p  style="font-size: 18px; margin-left:10px"> I have appraoached 360 Spinal Wellness  and Rehabilitation for the treament of the same.</p>';  
              $output.=' <p style="font-size: 18px; margin-left:10px">I am aware that my complaints is lifestyle based / degenerative in nature that has accumulated over time due to a wrong lifestyle / posture / age factors, etc.
@@ -49,12 +49,12 @@ $jobQuery = mysqli_query($conn, $sql);
                 $output.='<p style="font-size: 18px; margin-left:10px">I also agree to use my treatment reports for R & D Study purposes for the betterment and humankind.</p>';
                 $output.='<p style="font-size: 18px; margin-left:10px">Signature of Patient:<input type="text" style="margin-top:20px"></p> ';
                 $output.=' <h3><center><b>PATIENT ATTENDANT CONSENT</b></center></h3>';
-                $output.= '<p style="font-size: 18px; margin-left:10px">I <b>'.$relativeName.'</b>  am a relative / friend to the patient <b>'.$academicResults['patientName'].'</b>';
-                $output.=' We have been explained about the therapy and we agree for <b>'.$medicalTreatment.'</b>';
-                $output.=' to undergo <b>'.$treatmentName.'</b>. We will not hold any doctor / therapist / staff of the hospital / medicle centre regarding the treatment regarding the treatment results.</p>
+                $output.= '<p style="font-size: 18px; margin-left:10px">I <b><u>'.$relativeName.'</u></b>  am a relative / friend to the patient <b><u>'.$academicResults['patientName'].'</u></b>';
+                $output.=' We have been explained about the therapy and we agree for <b><u>'.$medicalTreatment.'</u></b>';
+                $output.=' to undergo <b><u>'.$treatmentName.'</u></b>. We will not hold any doctor / therapist / staff of the hospital / medicle centre regarding the treatment regarding the treatment results.</p>
                  
                 </p>';
-                $output.='<p style="font-size: 18px; margin-left:10px"> The Doctor at  <b>'.$hospitalCenterName.'</b> centre have Explained myself and My Relatives in detail the Nature of the said Treatment and is  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; & myself ready to undergo the said Rx </p>';
+                $output.='<p style="font-size: 18px; margin-left:10px"> The Doctor at  <b><u>'.$hospitalCenterName.'</u></b> centre have Explained myself and My Relatives in detail the Nature of the said Treatment and is  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; & myself ready to undergo the said Rx </p>';
                 $output.='<p style="font-size: 18px; margin-left:10px">Relation to Patient:<input type="text" style="margin-top:18px"></p>';
                 $output.='<p style="font-size: 18px; margin-left:10px">Signature of Attendant:<input type="text" style="margin-top:18px"></p>';
             }
