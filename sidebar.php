@@ -51,10 +51,10 @@
                     <a href="complaintMaster.php"><i class="fas fa-users"></i></i><span>Complaint Master</span> <span class="badge badge-success"></span></a>
                 </div>
                 <div class="nav-item">
-                    <a href="adviceMaster.php"><i class="ik ik-user"></i><span>Advice Master</span> <span class="badge badge-success"></span></a>
+                    <a href="adviceMaster.php"><i class="fa fa-font"></i><span>Advice Master</span> <span class="badge badge-success"></span></a>
                 </div>
                 <div class="nav-item">
-                    <a href="instructionMaster.php"><i class="ik ik-user"></i><span>Instruction Master</span> <span class="badge badge-success"></span></a>
+                    <a href="instructionMaster.php"><i class="fa fa-list-alt"></i><span>Instruction Master</span> <span class="badge badge-success"></span></a>
                 </div>
                 <div class="nav-item">
                     <a href="medicinesMaster.php"><i class="fa fa-medkit"></i></i><span>Medicines Master</span> <span class="badge badge-success"></span></a>
