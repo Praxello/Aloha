@@ -56,7 +56,8 @@ function exchange_list(exchangeT) {
     exchangeT.forEach(element => {
         tbldata += '<tr><td>' + element.testName + '</td><td>' + element.transactionType + '</td>';
         tbldata += '<td>' + element.username + '</td>';
-        tbldata += '<td>' + element.created_at + '</td></tr>';
+        tbldata += '<td>' + element.created_at + '</td>';
+        tbldata += '<td style="width:5%;"><button type="button" class="btn btn-icon btn-danger" onclick="deleteQuota(' + element.transactionId + ')" title="Click to revert transaction"><i class="ik ik-minus"></i></button></td></tr>';
     });
     $('#exchangeData').html(tbldata);
     $('#exchangeT').dataTable();
@@ -115,5 +116,43 @@ function creditQuota(detailId) {
     detailId_u = detailId;
     if (transactions.has(detailId)) {
         $('#creditQuota').modal('show');
+    }
+}
+
+function deleteQuota(transactionId) {
+    transactionId = transactionId.toString();
+    if (exchangeT.has(transactionId)) {
+        let tran = exchangeT.get(transactionId);
+        $.ajax({
+            url: url + 'revertTransaction.php',
+            type: 'POST',
+            data: {
+                detailId: tran.detailId,
+                typeCount: tran.typeCount,
+                transactionId: transactionId
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response.Responsecode == 200) {
+                    swal({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: response.Message,
+                        button: false,
+                        timer: 1500
+                    });
+                    exchangeT.delete(transactionId);
+                    exchange_list(exchangeT);
+                } else {
+                    swal({
+                        position: 'top-end',
+                        icon: 'warning',
+                        title: response.Message,
+                        button: false,
+                        timer: 1500
+                    });
+                }
+            }
+        });
     }
 }
