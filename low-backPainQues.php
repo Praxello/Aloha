@@ -595,7 +595,15 @@
                                                     <br>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="form-group forms-sample  col-sm-3">
+                                            
+                                                <span style="font-size: 19px;">0%-20% : Minimal disability</span><br>
+                                                <span  style="font-size: 19px;">21%-40% : Moderate disability</span><br>
+                                                <span  style="font-size: 19px;">41%-60% : Severe disability</span><br>
+                                                <span  style="font-size: 19px;">61%-80% : Crippling back pain</span></br>
+                                                <span  style="font-size: 19px;">81%-100% : These patients are either bed-bound or have an exaggeration of their symptoms.</span>
+                                            </div>
+                                            <div class="form-group forms-sample  col-sm-3">
                                                 <h3><strong id="per"></strong></h3>
                                             </div>
                                         </div>

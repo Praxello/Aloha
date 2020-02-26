@@ -110,7 +110,9 @@ function getToday() {
 }
 
 function fetch(today) {
+    console.log(today); 
     var search_date = moment(today).format('YYYY-MM-DD');
+    console.log(search_date);
     listAppointments(appointments, search_date);
 }
 

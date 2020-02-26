@@ -61,7 +61,7 @@ if (isset($_SESSION['userId'])) {
                                     <div class="card-header row">
                                         <div class="col col-sm-3">
                                             <label for="">Appointment Date</label>
-                                            <input id="dropper-max-year" class="form-control" type="date" placeholder="select date" onchange="fetch(this.value);" />
+                                            <input id="dropper-max-year" class="form-control" type="text" placeholder="select date" onchange="fetch(this.value);" />
                                         </div>
                                         <div class="col col-sm-4">
 
@@ -75,7 +75,7 @@ if (isset($_SESSION['userId'])) {
                                         </div>
 
                                         <div class="col col-sm-3">
-                                        <input id="datetimepicker" type="text" class="form-control">
+                                                                                                                                        
                                         </div>
 
                                         <div class="card-body table-responsive">
@@ -169,7 +169,10 @@ if (isset($_SESSION['userId'])) {
         <script src="jscode/getBranches.js"></script>
         <script>
             $.datetimepicker.setLocale('en');
-            jQuery('#datetimepicker').datetimepicker();
+            jQuery('#dropper-max-year').datetimepicker({
+                timepicker:false,
+                format:'Y-m-d'
+            })
         </script>
     </body>
 

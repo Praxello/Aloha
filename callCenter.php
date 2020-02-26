@@ -29,9 +29,10 @@ if(isset($_SESSION['branchId'])){
         <link rel="stylesheet" href="plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
-        <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
+        <!-- <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css"> -->
         <link rel="stylesheet" href="dist/css/loader.css">
         <link href= 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-darkness/jquery-ui.css'  rel='stylesheet'> 
+      
     </head>
 <style>
    .error{
@@ -298,8 +299,8 @@ today:'<?php echo date('Y-m-d');?>'
         <script src="plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
         <script src="plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
         <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-        <script src="plugins/datedropper/datedropper.min.js"></script>
-        <script src="js/form-picker.js"></script>
+        <!-- <script src="plugins/datedropper/datedropper.min.js"></script>
+        <script src="js/form-picker.js"></script> -->
         <script src="plugins/moment/moment.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
         <script src="plugins/select2/dist/js/select2.min.js"></script>
@@ -312,6 +313,7 @@ today:'<?php echo date('Y-m-d');?>'
         <script src="dist/js/theme.min.js"></script>
         <script src="js/jquery.validate.js"></script>
     <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
+   
        <script src="jscode/apis.js"></script>
        <script src="jscode/getBranches.js"></script>
         <script src="jscode/getUsers.js"></script>
