@@ -104,4 +104,4 @@
 
 <script src="jscode/callReffered.js"></script>
 <script src="js/jquery.validate.js"></script>
-<script src="jscode/referring_validation.js"></script>
+<script src="jscode/call_ref_validation,js"></script>

@@ -149,18 +149,7 @@
                                                 <select  class="form-control select2" name="reference" id="reference" style="width: 100%;"></select>
                                             </div>
                                         </div> -->
-                            <div class="col-md-2">
-                            <div class="form-group">
-                                <label for="referredby" class="required">Reference</label>
-                                <select  class="form-control select2" name="reference" id="reference" style="width: 100%;"></select>
-                            </div>
-                        </div>
-
-                        <div class="col-md-1">
-                            <div class="form-group">
-                                <button class="btn btn-success" style="margin-top:30px" type="button" data-toggle="modal" data-target="#exampleModalNew">+</button>
-                            </div>
-                        </div>
+                           
                                         <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="" class="required">Call Status</label>
@@ -187,6 +176,18 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="referredby" class="required">Reference</label>
+                                <select  class="form-control select2" name="reference" id="reference" style="width: 100%;"></select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-1">
+                            <div class="form-group">
+                                <button class="btn btn-success" style="margin-top:30px" type="button" data-toggle="modal" data-target="#exampleModalNew">+</button>
+                            </div>
+                        </div>
 
                                     </div>
                                 </div>
