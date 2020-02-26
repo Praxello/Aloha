@@ -12,7 +12,7 @@ if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
     FROM call_center cc 
     INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state 
     LEFT JOIN cities ct ON ct.id = ccp.city LEFT JOIN user_master um ON um.userId = cc.doctorId LEFT JOIN hospital_branch_master hb ON hb.branchId = cc.branchId
-    WHERE ccp.mobile NOT IN(SELECT mobile1 FROM patient_master)";
+    WHERE ccp.mobile NOT IN(SELECT mobile1 FROM patient_master) AND DATE(cc.appointmentDate) BETWEEN '$fromDate' AND '$uptoDate'";
   if(isset($_POST['branchId']) && !empty($_POST['branchId'])){
     $sql .= " AND cc.branchId = $branchId";
 }

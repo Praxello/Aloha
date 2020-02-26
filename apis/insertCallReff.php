@@ -8,7 +8,7 @@ $records  = null;
 extract($_POST);
 
 if ( isset($_POST['reference'])) {
-    
+
  
     $sql = "INSERT INTO call_reference_master(reference) 
      VALUES ('$reference')";
@@ -21,7 +21,7 @@ if ( isset($_POST['reference'])) {
     if ($rowsAffected == 1) {
         $callRefId     = $conn->insert_id;
       
-        $academicQuery = mysqli_query($conn, "SELECT * FROM call_reference_master where  callRefId  = $callRefId");
+        $academicQuery = mysqli_query($conn, "SELECT reference FROM call_reference_master where  callRefId  = $callRefId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {

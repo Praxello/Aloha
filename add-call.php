@@ -216,7 +216,7 @@
                                 
                                     <div class="form-group">
                 <div class='input-group date' id="apDate">
-                    <input type='text' class="form-control" id='appointmentDate' name="appointmentDate"/>
+                    <input type='datetime-local' class="form-control" id='appointmentDate' name="appointmentDate"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -251,7 +251,7 @@
                                     <input type="hidden" id="clientId" name="clientId">
                                     <div class="form-group">
                 <div class='input-group date' id="foDate1">
-                    <input type='text' class="form-control datepicker" name="follwupdate" id='follwupdate'/>
+                    <input type='datetime-local' class="form-control datepicker" name="follwupdate" id='follwupdate'/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -259,11 +259,7 @@
             </div>
                                 </div>
                             </div>
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                <input type="text" id="my_date_picker1" class="form-control">  
-                                </div>
-                            </div>
+                           
 
                         </div>
                         <hr>
