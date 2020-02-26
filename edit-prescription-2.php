@@ -375,11 +375,11 @@
 
                                                                         <p style="font-size: 17px; margin-left:10px">I
                                                                             <input type="text" style="margin-top:20px" id="relativeName"> am a relative / friend to the patient
-                                                                            <input type="text" id="treatmentName">We have been explained about the therapy and agree for
-                                                                            <input type="text" style="margin-top:50px" id="medicalTreatment"> to undergo 3D Spinal Decompression Mobilization & Correction therapy / program. We will not hold any doctor / therapist / staff of the hospital / medicle centre regarding the treatment regarding the treatment results.</p>
+                                                                            <input type="text" id="pname2">We have been explained about the therapy and agree for
+                                                                         <input type="text" style="margin-top:50px" id="medicalTreatment"> to undergo  <input type="text" style="margin-top:9px" id="treatmentName"> . We will not hold any doctor / therapist / staff of the hospital / medicle centre regarding the treatment regarding the treatment results.</p>
                                                                     </p>
-                                                                    <p style="font-size: 17px; margin-left:10px"> The Doctor at
-                                                                        <input type="text" style="margin-top:20px" id="hospitalCenterName">centre have Explained myself and My Relatives in detail the Nature of the said Treatment and is &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; & myself ready to undergo the said Rx.
+                                                                    <p style="font-size: 17px; margin-left:10px"> The Doctor at &nbsp;
+                                                                        <input type="text" style="margin-top:20px" id="branchName">&nbsp;centre have Explained myself and My Relatives in detail the Nature of the said Treatment and is &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; & myself ready to undergo the said Rx.
                                                                     </p>
 
                                                                     <p style="font-size: 17px; margin-left:10px">Relation to Patient:
@@ -629,10 +629,11 @@
 <script src="jscode/getConsentForm.js"></script>
 <script src="jscode/getAllPrescriptiondata.js"></script>
 <script src="jscode/prescription-table.js"></script>
-<script src="jscode/check-prescription.js"></script>
+<script src="jscode/check-prescription.js"></script>                                                    
 <script src="jscode/addPrescription.js"></script>
 <script src="jscode/insertConsentForm.js"></script>
 <script src="jscode/getPresentIllness.js"></script>
+<!-- <script src="jscode/loadBranch.js"></script> -->
 
 
 <script>
@@ -669,11 +670,11 @@ function addcerviacl(){
     $('input:radio').removeAttr('checked');
     $('#cervicalSpineForm').trigger('reset');
   
-var tbl = $("table#cerMomentLoss > tbody > tr");
- $(tbl).each(function(index,value){
-     console.log('h');
-   $(value).find('td').empty()
- });
+// var tbl = $("table#cerMomentLoss > tbody > tr");
+//  $(tbl).each(function(index,value){
+//      console.log('h');
+//    $(value).find('td').empty()
+//  });
 
     $('#cervicalSpine').modal('show');
 
