@@ -149,7 +149,8 @@ if (isset($_SESSION['userId'])) {
         <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
         <script>
             const data = {
-                userId: <?php echo $_SESSION['userId']; ?>
+                userId: <?php echo $_SESSION['userId']; ?>,
+                branchId:<?php echo $_SESSION['branchId']; ?>
             };
         </script>
         <script src="jscode/loader.js"></script>
@@ -163,6 +164,7 @@ if (isset($_SESSION['userId'])) {
         <script src="jscode/getComplaints.js"></script>
         <script src="jscode/getAdvice.js"></script>
         <script src="jscode/getAllDiagnosis.js"></script>
+        <script src="jscode/getBranches.js"></script>
     </body>
 
     </html>

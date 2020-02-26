@@ -428,11 +428,11 @@ function fill_Cervical(details) {
     if (json != null) {
         obj = JSON.parse(json);
 
-        if (obj.d2 != null) {
-            $('#cerderagement2').val(obj.d1);
-        }
         if (obj.d1 != null) {
-            $('#cerderagement1').val(obj.d2);
+            $('#cerderagement1').val(obj.d1);
+        }
+        if (obj.d2 != null) {
+            $('#cerderagement2').val(obj.d2);
         }
         values = Object.keys(obj).map(function(key) {
             return obj[key];
