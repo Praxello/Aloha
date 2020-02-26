@@ -27,9 +27,8 @@ $('#callForm').on('submit', function(e) {
                     $('.select2').val('').trigger('change');
                     $('#callForm').trigger('reset');
                     $('#fullwindowModal').modal('hide');
-              
-                    calls.set(response.Data.callId, response.Data);
 
+                    calls.set(response.Data.callId, response.Data);
                     listCalls(calls);
                 } else {
                     swal({

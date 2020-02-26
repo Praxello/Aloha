@@ -1,5 +1,7 @@
 var spines = new Map();
 var spine_details = {};
+var editS = 0;
+var uSpineId = null;
 var getLumbarSpine = (patientId) => {
     $.ajax({
         url: url + 'getAllLumbarSpine.php',
@@ -14,7 +16,6 @@ var getLumbarSpine = (patientId) => {
                 for (var i = 0; i < count; i++) {
                     spines.set(response.Data[i].lsAId, response.Data[i]);
                 }
-
             }
             showLumbarSpine(spines);
         }
@@ -52,6 +53,8 @@ var showLumbarSpine = spines => {
 var editLumbarSpine = (spineId) => {
     spineId = spineId.toString();
     spine_details = spines.get(spineId);
+    editS = 1;
+    uSpineId = spineId;
     fill_lumbar(spine_details);
 };
 

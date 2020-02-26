@@ -1,6 +1,7 @@
 var cervicals = new Map();
 var cervical_details = {};
-// var patientId_ap = null;
+var editC = 0;
+var uCerv = null;
 var getCervicalSpine = (patientId) => {
     $.ajax({
         url: url + 'getAllCervicalSpine.php',
@@ -52,14 +53,15 @@ var showCervicalSpine = cervicals => {
 
 var editCervicalSpine = (cerSpineId) => {
     cerSpineId = cerSpineId.toString();
-
+    uCerv = cerSpineId;
+    editC = 1;
     cervical_details = cervicals.get(cerSpineId);
+    global_date = cervical_details.visitDate;
     fill_Cervical(cervical_details);
 
 };
 
 function fill_Cervical(details) {
-    console.log(details);
     if (details.cerVasScore != null) {
         $('#cerVasScore').val(details.cerVasScore);
     }

@@ -11,7 +11,7 @@ $('#cervicalSpineForm').on('submit', function(e) {
 
         var cerPresObj = getcerPresentSince();
         cerPresObj.p1 = $('#cerpresentSinceNew').val();
-   
+
         var symObj1 = getcerSymptAtOnset();
         symObj1.p2 = $('#cerSymptAtOnset1').val();
 
@@ -89,7 +89,6 @@ $('#cervicalSpineForm').on('submit', function(e) {
             data: {
                 patientId: global_patientId,
                 visitDate: global_date,
-
                 cerFunDisabilityScore: fun,
                 cerVasScore: carVas,
                 cerPresentSymptoms: pres,
@@ -114,9 +113,6 @@ $('#cervicalSpineForm').on('submit', function(e) {
                 cerderagement: deObj,
                 cerMomentLoss: momentLoss,
                 cerTestMovement: testMovement
-
-
-
             },
             dataType: 'json',
             success: function(response) {
@@ -128,6 +124,14 @@ $('#cervicalSpineForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
+                    console.log(editC);
+                    if (editC == 1) {
+                        if (cervicals.has(uCerv)) {
+                            cervicals.delete(uCerv);
+                            console.log(editC);
+                            editC = 0;
+                        }
+                    }
                     cervicals.set(response.Data.cerSpineId, response.Data);
                     $('#cervicalSpine').modal('hide');
                     $('#cervicalSpineForm').trigger('reset');

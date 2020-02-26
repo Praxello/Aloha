@@ -15,7 +15,7 @@ if (isset($_SESSION['userId'])) {
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="dist/css/bootstrap-datetimepicker.min.css">
+        <!-- <link rel="stylesheet" href="dist/css/bootstrap-datetimepicker.min.css"> -->
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
         <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
@@ -31,8 +31,9 @@ if (isset($_SESSION['userId'])) {
         <link rel="stylesheet" href="dist/css/jquery-ui.css">
         <link rel="stylesheet" href="plugins/bootstrap-tagsinput/dist/tagsinput.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
-        <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
+        <!-- <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css"> -->
         <link rel="stylesheet" href="dist/css/loader.css">
+        <link rel="stylesheet" href="picker.css">
     </head>
     <style>
         .card .card-header .card-search .form-control {
@@ -74,7 +75,7 @@ if (isset($_SESSION['userId'])) {
                                         </div>
 
                                         <div class="col col-sm-3">
-
+                                        <input id="datetimepicker" type="text" class="form-control">
                                         </div>
 
                                         <div class="card-body table-responsive">
@@ -124,6 +125,7 @@ if (isset($_SESSION['userId'])) {
         </div>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/jquery-ui.min.js"></script>
+        
         <script src="js/jquery.mask.min.js"></script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -134,8 +136,8 @@ if (isset($_SESSION['userId'])) {
         <script src="plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
         <script src="plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
         <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-        <script src="plugins/datedropper/datedropper.min.js"></script>
-        <script src="js/form-picker.js"></script>
+        <!-- <script src="plugins/datedropper/datedropper.min.js"></script> -->
+        <!-- <script src="js/form-picker.js"></script> -->
         <script src="plugins/moment/moment.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
         <script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
@@ -144,7 +146,7 @@ if (isset($_SESSION['userId'])) {
         <script src="js/tables.js"></script>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-    
+        <script src="picker.js"></script>
         <script src="plugins/select2/dist/js/select2.min.js"></script>
         <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
         <script>
@@ -165,6 +167,10 @@ if (isset($_SESSION['userId'])) {
         <script src="jscode/getAdvice.js"></script>
         <script src="jscode/getAllDiagnosis.js"></script>
         <script src="jscode/getBranches.js"></script>
+        <script>
+            $.datetimepicker.setLocale('en');
+            jQuery('#datetimepicker').datetimepicker();
+        </script>
     </body>
 
     </html>

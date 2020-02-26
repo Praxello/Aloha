@@ -1,5 +1,7 @@
 var backPain = new Map();
 var back_details = {};
+var editB = 0;
+var ubackPainId = null;
 // var patientId_ap = null;
 var getLowBackPain = (patientId) => {
     $.ajax({
@@ -55,6 +57,8 @@ var editBack = (lbackpId) => {
     lbackpId = lbackpId.toString();
     back_details = backPain.get(lbackpId);
     global_date = back_details.visitDate;
+    editB = 1;
+    ubackPainId = lbackpId;
     fill_back(back_details);
 };
 var tp = 0;
