@@ -46,6 +46,7 @@
                     <th>Transaction Type(C-credit,D-Debit)</th>
                     <th>Marked by</th>
                     <th>Transaction Date</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="exchangeData">

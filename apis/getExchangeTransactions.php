@@ -8,7 +8,7 @@ $records  = null;
 $result = null;
 extract($_POST);
 if(isset($_POST['pId'])){
-$sql = "SELECT pt.transactionId,pt.transactionType,pt.userId,DATE_FORMAT(pt.created_at,'%d %b %Y') created_at,um.username,dt.testName
+$sql = "SELECT pt.transactionId,pt.transactionType,pt.userId,DATE_FORMAT(pt.created_at,'%d %b %Y') created_at,um.username,dt.testName,pt.typeCount,pt.detailId
 FROM PackageTransaction pt INNER JOIN PackageCustomerDetails pd ON pd.DetailId = pt.detailId LEFT JOIN user_master um ON um.userId = pt.userId
 LEFT JOIN diagnostic_tests_master dt ON dt.testId = pd.TestId
 WHERE pt.transactionId= $pId";
