@@ -53,6 +53,12 @@ $('#neckForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
+                    if (editN == 1) {
+                        if (neckDisiblity.has(uNeck)) {
+                            neckDisiblity.delete(uNeck);
+                            editN = 0;
+                        }
+                    }
                     $('#neckDis').modal('hide');
                     neckDisiblity.set(response.Data.ndisabilityId, response.Data);
                     $('#neckForm').trigger('reset');

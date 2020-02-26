@@ -1,5 +1,7 @@
 var neckDisiblity = new Map();
 var neck_details = {};
+var editN = 0;
+var uNeck = null;
 // var patientId_ap = null;
 var getNeckDisblity = (patientId) => {
     $.ajax({
@@ -53,6 +55,8 @@ var editneck = (neckId) => {
     neckId = neckId.toString();
     neck_details = neckDisiblity.get(neckId);
     global_date = neck_details.visitDate;
+    editN = 1;
+    uNeck = neckId;
     fill_neck(neck_details);
 };
 

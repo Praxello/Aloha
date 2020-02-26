@@ -51,6 +51,12 @@ $('#backPainForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
+                    if (editB == 1) {
+                        if (backPain.has(ubackPainId)) {
+                            backPain.delete(ubackPainId);
+                            editB = 0;
+                        }
+                    }
                     $('#backPainForm').trigger('reset');
                     $('#backPain').modal('hide');
                     backPain.set(response.Data.lbackpId, response.Data);

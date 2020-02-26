@@ -173,10 +173,8 @@ function GeneratePayment() {
                             timer: 1500
                         });
                         if (updateFlag == 1) {
-
                             updatePaymentId = updatePaymentId.toString();
                             if (prevTransactions.has(updatePaymentId)) {
-
                                 prevTransactions.delete(updatePaymentId);
                             }
                         }

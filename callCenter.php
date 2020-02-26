@@ -55,7 +55,7 @@ if(isset($_SESSION['branchId'])){
                 <div class="main-content template-demo" id="tData">
                 <div class="btn-group" role="group" aria-label="Basic example" style="margin-left: 16px;">
                 <button type="button" class="btn btn-warning" data-toggle="collapse" href="#content3" role="button" aria-expanded="false" aria-controls="collapseExample">My work</button>
-                <button type="button" class="btn btn-primary" data-toggle="collapse" href="#content"  role="button" aria-expanded="false" aria-controls="collapseExample">Appointment</button>
+                <button type="button" class="btn btn-primary" data-toggle="collapse" href="#content"  role="button" aria-expanded="false" aria-controls="collapseExample" onclick="listCalls(appointments);">Appointment</button>
   <button type="button" class="btn btn-success" data-toggle="collapse" href="#content1" role="button" aria-expanded="false" aria-controls="collapseExample">Follow up List</button>
   <button type="button" class="btn btn-default" data-toggle="collapse" href="#content2" role="button" aria-expanded="false" aria-controls="collapseExample">Absent Patients</button>
 </div>

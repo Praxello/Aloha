@@ -3,6 +3,8 @@ var existCall = new Map();
 var clientId = null,
     up_callId = null;
 var customers = new Map();
+var appointments = new Map();
+var follwups = new Map();
 
 function branches() {
     var dropdownList = '<option></option>';
@@ -82,6 +84,23 @@ const listCustomers = customers => {
         destroy: true
     });
 };
+const getAppointments = (fromDate, uptoDate, branchId) => {
+    $.ajax({
+        url: url + 'getAllCalls.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branchId },
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                    appointments.set(response.Data[i].callId, response.Data[i]);
+                }
+            }
+            listCalls(appointments);
+        }
+    });
+};
 const getAllCalls = (fromDate, uptoDate, branchId) => {
     calls.clear();
     $.ajax({
@@ -120,12 +139,12 @@ const getFollowuplist = (fromDate, uptoDate, branchId) => {
 };
 
 const listCalls = calls => {
+    console.log(calls);
     $('#cTable').dataTable().fnDestroy();
     $('#callData').empty();
     var tblData = '';
     for (let k of calls.keys()) {
         let call = calls.get(k);
-        console.log(call);
         var badge = '',
             st = '';
         if (call.folowupNeeded == 1) {
@@ -208,9 +227,9 @@ function callRegister() {
     var returnVal = $("#callRegister").valid();
     if (returnVal) {
         var branch = null;
-        var fromDate =  moment($('#fromDate').val()).format('YYYY-MM-DD');
-        var uptoDate =  moment($('#uptoDate').val()).format('YYYY-MM-DD');
-     
+        var fromDate = moment($('#fromDate').val()).format('YYYY-MM-DD');
+        var uptoDate = moment($('#uptoDate').val()).format('YYYY-MM-DD');
+
         if ($('#branch').val() != '') {
             branch = $('#branch').val();
         }

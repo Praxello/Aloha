@@ -125,6 +125,13 @@ $('#lumbarSpineForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
+
+                    if (editS == 1) {
+                        if (spines.has(uSpineId)) {
+                            spines.delete(uSpineId);
+                            editS = 0;
+                        }
+                    }
                     spines.set(response.Data.lsAId, response.Data);
                     $('#fullwindowModal2').modal('hide');
                     $('#lumbarSpineForm').trigger('reset');
