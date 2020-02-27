@@ -10,7 +10,7 @@ $sql = "SELECT pm.patientId,COALESCE(pm.firstName,'') firstName,COALESCE(pm.midd
 COALESCE(pm.gender,'') gender,COALESCE(pm.height,'') height,COALESCE(pm.weight,'') weight,COALESCE(pm.birthDate,'') birthDate,
 COALESCE(pm.religion,'') religion,COALESCE(pm.landline,'') landline,COALESCE(pm.remarks,'') remarks,pm.email,pm.mobile1,
 pm.mobile2,pm.referredby,pm.country,pm.pincode,pm.maritalstatus,pm.state,pm.city,pm.cholestrol,pm.diabetes,pm.firstVisitDate,
-pm.lastVisitDate,pm.smoking,pm.alcohol,pm.tobacco,pm.HTN,pm.diabetes,pm.tobacco,
+pm.lastVisitDate,pm.smoking,pm.alcohol,pm.tobacco,pm.HTN,pm.diabetes,pm.tobacco,COALESCE(DATE_FORMAT(pm.nextVisitDate,'%d %b %Y'),'-') nextVisitDate,
 st.name stateName,ct.name cityName,pm.address FROM patient_master pm 
 LEFT JOIN states st ON st.id = pm.state LEFT JOIN cities ct ON ct.id = pm.city";
 $jobQuery = mysqli_query($conn, $sql);

@@ -26,7 +26,7 @@ function doctor_details($doctorId)
         $row = mysqli_fetch_array($result);
         global $sign;
         $sign = $row['username'];
-        $output .= '<div class="col-xs-8 ">
+        $output .= '<div class="col-xs-7">
 <h3><p class="font-weight-bold mb-1 "><strong>' . $row['username'] . '</strong></p></h3>
 <p class="text-muted ">' . $row['sign'] . '</p>
 <p class="text-muted ">Mobile no:' . $row['mobile'] . '  </p>
@@ -122,17 +122,9 @@ function fetchPrescriptiondata($patientId, $visitDate, $doctorId)
    <p class="font-weight-bold mb-4">Date:<strong>' . $row['visitDate'] . '</strong></p>
 </div>
 </div>
-<div class="row ">
-<div class="col-xs-2">
-   <p class="font-weight-bold mb-4 "><strong class="text-uppercase">' . $row['firstName'] . ' ' . $row['surname'] . '</strong></p>
-</div>
-<div class="col-xs-2">
-   <p class="font-weight-bold mb-4 ">Reg No:<span>' . $patientId . '</span></p>
-</div>
-<div class="col-xs-3">
-   <p class="font-weight-bold mb-4 ">Cell No:<span>' . $row['mobile1'] . '</span></p>
-</div>
-<div class="col-xs-5">
+<div class="row">
+<div class="col-xs-12">
+   <p class="font-weight-bold mb-4"><strong class="text-uppercase">' . $row['firstName'] . ' ' . $row['surname'] . '</strong>     Reg No:<span>' . $patientId . '</span>      Cell No:<span>' . $row['mobile1'] . '</span></p>
 </div>
 </div>
 <div class="row ">
@@ -169,7 +161,7 @@ function fetchmedicinedata($patientId, $visitDate, $doctorId, $flag)
     ppm.doctorId,(CASE WHEN 2=$flag THEN (SELECT im.hindi FROM instruction_master im WHERE im.instruction = ppm.instruction) WHEN 3=$flag 
     THEN (SELECT im.marathi FROM instruction_master im WHERE im.instruction = ppm.instruction)
     ELSE ppm.instruction END) instruction
-    FROM patient_prescription_medicine ppm LEFT JOIN medicine_master mm ON mm.name = ppm.name
+    FROM patient_prescription_medicine ppm LEFT JOIN medicine_master mm ON mm.name = ppm.name AND mm.type = ppm.type 
     WHERE ppm.patientId = $patientId AND ppm.visitDate = '$visitDate' AND ppm.doctorId = $doctorId";
     // $sql    = "SELECT mm.genName,ppm.type,ppm.name,ppm.morning,ppm.evining,ppm.night,ppm.instruction,ppm.period,ppm.patientId,ppm.visitDate,ppm.doctorId 
     // FROM patient_prescription_medicine ppm LEFT JOIN medicine_master mm ON mm.name = ppm.name
@@ -223,6 +215,7 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                         </div>
                        ' . doctor_details($doctorId) . '
                     </div>
+                    <div class="col-xs-1"></div>
                     <hr class="my-5 ">
 
                 ' . fetchPrescriptiondata($patientId, $visitDate, $doctorId) . '

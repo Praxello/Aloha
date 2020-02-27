@@ -33,7 +33,7 @@ var listPatients = patients => {
         tblData += '<td>' + patient.mobile1 + '</td>';
         tblData += '<td>' + patient.address + ' ' + patient.cityName + '</td>';
         tblData += '<td>' + getDate(patient.lastVisitDate) + '</td>';
-        tblData += '<td>' + getDate(patient.nextVisitDate) + '</td>';
+        tblData += '<td>' + patient.nextVisitDate + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="Edit patients details"><i class="fas fa-user-injured" style="color:red"></i></a>';
         tblData += '<a href="#" class="list-delete" onclick="takeAppointment(' + (k) + ')" title="Take appointment"><i class="fas fa-book-medical" style="color:purple"></i></a>';
