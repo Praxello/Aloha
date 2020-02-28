@@ -46,8 +46,23 @@ function updateCall() {
                     $('#fullwindowModal').modal('hide');
                     $('.select2').val('').trigger('change');
                     $('#callForm').trigger('reset');
-                    calls.set(response.Data.callId, response.Data);
-                    listCalls(calls);
+                    switch (caseParam) {
+                        case 1:
+                            appointments.set(response.Data.callId, response.Data);
+                            listAppointment(appointments);
+                            break;
+                        case 2:
+                            calls.set(response.Data.callId, response.Data);
+                            listCalls(calls);
+                            break;
+                        case 3:
+                            day = "Tuesday";
+                            break;
+                        case 4:
+                            day = "Wednesday";
+                            break;
+                    }
+
                 } else {
                     swal({
                         position: 'top-end',

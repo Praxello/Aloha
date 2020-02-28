@@ -1,3 +1,4 @@
+var concent = new Map();
 var getAllConsentDetails = (u_patientId) => {
     $.ajax({
         url: url + 'getConsentMaster.php',
@@ -6,18 +7,39 @@ var getAllConsentDetails = (u_patientId) => {
         dataType: 'json',
         success: function(response) {
             if (response.Data != null) {
-          console.log(response.Data);
-                document.getElementById('deseaseNew').value = response.Data.deseaseNew;
-                document.getElementById('sinceDays').value = response.Data.sinceDays;
-                document.getElementById('relativeName').value = response.Data.relativeName;
-                document.getElementById('medicalTreatment').value = response.Data.medicalTreatment;
-                document.getElementById('branchName').value = response.Data.branchName;
-                document.getElementById('treatmentName').value = response.Data.treatmentName;
-            }
+                var n = response.Data.length;
+                for (var i = 0; i < n; i++) {
+                    concent.set(response.Data[i].visitDate, response.Data[i]);
+                }
 
+            }
+            loadConcent(concent);
+            fill_concent(global_date);
         }
     });
 };
-
-
 getAllConsentDetails(u_patientId);
+
+function loadConcent(concent) {
+    var dropdownList = '<option></option>';
+    for (let k of concent.keys()) {
+        var user = concent.get(k);
+        dropdownList += '<option value="' + k + '">' + user.visitDate + '</option>';
+    }
+    $('#concentId').html(dropdownList);
+    $("#concentId").select2({
+        placeholder: 'Select date'
+    });
+}
+
+function fill_concent(visitDate) {
+    if (concent.has(visitDate)) {
+        var user = concent.get(visitDate);
+        document.getElementById('deseaseNew').value = user.deseaseNew;
+        document.getElementById('sinceDays').value = user.sinceDays;
+        document.getElementById('relativeName').value = user.relativeName;
+        document.getElementById('medicalTreatment').value = user.medicalTreatment;
+        document.getElementById('branchName').value = user.hospitalCenterName;
+        document.getElementById('treatmentName').value = user.treatmentName;
+    }
+}

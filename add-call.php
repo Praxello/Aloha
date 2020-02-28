@@ -9,7 +9,6 @@
   }
 
 </style>
-<link rel="stylesheet" href="picker.css">
 <div class="modal fade full-window-modal" id="fullwindowModal" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <form id="callForm" method="POST">
@@ -138,7 +137,7 @@
                                                 <input type="text" class="form-control" name="zipcode" id="zipcode">
                                             </div>
                                         </div>
-                                        <div class="col-md-1">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label for="">Near by area</label>
                                                 <input type="text" class="form-control" name="nearByArea" id="nearByArea">
@@ -177,7 +176,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-md-2">
                             <div class="form-group">
                                 <label for="referredby" class="required">Reference</label>
                                 <select  class="form-control select2" name="reference" id="reference" style="width: 100%;"></select>
@@ -214,11 +213,10 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label for="" class="required">Appointment Date</label>
-                                       <div class="form-group">
-                                       <div class='input-group date' id="apDate">
-                                          <input type='text' class="form-control" id='appointmentDate' name="appointmentDate"/>
-                                       </div>
-                                 </div>                
+                                    <div class="input-group input-group-primary"  id="apDate">
+                                    <input type='text' class="form-control" id='appointmentDate' name="appointmentDate" autocomplete="off"/>
+                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
+                                                </div>
                                 </div>
                             </div>
    
@@ -264,9 +262,11 @@
                                     <label for="" class="">Follow up Date/Time</label>
                                     <input type="hidden" id="clientId" name="clientId">
                                        <div class="form-group">
-                                       <div class='input-group date' id="foDate1">
-                                          <input type='text' class="form-control" id='follwupdate' name="foDate1"/>
+                                       <div class="input-group input-group-primary"  id="apDate">
+                                       <input type='text' class="form-control" id='follwupdate' name="foDate1" autocomplete="off"/>
+                                       <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
                                        </div>
+                                       
                                  </div>                
                                 </div>
                             </div>
@@ -306,13 +306,8 @@
 <script src="jscode/addCall.js"></script>
 <script src="jscode/updateCall.js"></script>
 <?php include 'callRef.php';?>
-<script src="picker.js"></script>
   <script>
-            $.datetimepicker.setLocale('en');
+         
             jQuery('#appointmentDate').datetimepicker();
-
-            $.datetimepicker.setLocale('en');
             jQuery('#follwupdate').datetimepicker();
-
-
         </script>

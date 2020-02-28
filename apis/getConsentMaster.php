@@ -7,14 +7,14 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['patientId'])){
-   $visitDate = date('Y-m-d'); 
-$sql = "SELECT * FROM consent_form_master where u_patientId = $patientId and visitDate = '$visitDate'";
+//    $visitDate = date('Y-m-d'); 
+$sql = "SELECT * FROM consent_form_master where u_patientId = $patientId";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
     if ($academicAffected > 0) {
         while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
-            $records = $academicResults;
+            $records[] = $academicResults;
         }
         
         $response = array(

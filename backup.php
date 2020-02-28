@@ -31,8 +31,8 @@ if(isset($_SESSION['branchId'])){
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <!-- <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css"> -->
         <link rel="stylesheet" href="dist/css/loader.css">
+        <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-darkness/jquery-ui.css' rel='stylesheet'>
         <link href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="picker.css">
     </head>
     <style>
@@ -85,21 +85,18 @@ if(isset($_SESSION['branchId'])){
                                                     <div class="col-sm-2">
                                                         <div class="form-group">
                                                             <label for="">From</label>
-                                                            <div class="input-group input-group-primary">
-                                                            <input type="text" class="form-control" name="fromDate" id="fromDate" value="<?php echo date ('Y-m-d');?>">
-                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
-                                                </div>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="fromDate" id="fromDate" value="<?php echo date ('Y-m-d');?>">
+                                                            </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-sm-2">
                                                         <div class="form-group">
                                                             <label for="">Upto</label>
-                                                <div class="input-group input-group-primary">
-                                                <input type="text" class="form-control" name="uptoDate" id="uptoDate" value="<?php echo date ('Y-m-d');?>">
-                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
-                                                </div>
-                                           
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="uptoDate" id="uptoDate" value="<?php echo date ('Y-m-d');?>">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-2">
@@ -150,19 +147,17 @@ if(isset($_SESSION['branchId'])){
                                                     <div class="col-sm-2">
                                                         <div class="form-group">
                                                             <label for="">From</label>
-                                                            <div class="input-group input-group-primary">
-                                                            <input type="text" class="form-control" name="mfoDate" id="mfoDate" value="<?php echo date ('Y-m-d');?>">
-                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
-                                                </div>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="mfoDate" id="mfoDate" value="<?php echo date ('Y-m-d');?>">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <div class="form-group">
                                                             <label for="">Upto</label>
-                                                            <div class="input-group input-group-primary">
-                                                            <input type="text" class="form-control" name="mupDate" id="mupDate" value="<?php echo date ('Y-m-d');?>">
-                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
-                                                </div>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="mupDate" id="mupDate" value="<?php echo date ('Y-m-d');?>">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-2">
@@ -173,7 +168,7 @@ if(isset($_SESSION['branchId'])){
                                                     </div>
                                                     <div class="col-sm-2" style="margin-top: 16px;">
                                                         <div class="form-group" style="margin-top: 20px;">
-                                                            <button class="btn  btn-primary" type="button" onclick="myWork()">Search</button>
+                                                            <button class="btn  btn-warning" type="button" onclick="myWork()">Search</button>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
@@ -214,19 +209,17 @@ if(isset($_SESSION['branchId'])){
                                                         <div class="form-group">
 
                                                             <label for="">From</label>
-                                                            <div class="input-group input-group-primary">
-                                                            <input type="text" class="form-control" name="folDate" id="folDate" value="<?php echo date ('Y-m-d');?>">
-                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
-                                                </div>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="folDate" id="folDate" value="<?php echo date ('Y-m-d');?>">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <div class="form-group">
                                                             <label for="">Upto</label>
-                                                            <div class="input-group input-group-primary">
-                                                            <input type="text" class="form-control" name="foluDate" id="foluDate" value="<?php echo date ('Y-m-d');?>">
-                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
-                                                </div>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="foluDate" id="foluDate" value="<?php echo date ('Y-m-d');?>">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-2">
@@ -238,7 +231,7 @@ if(isset($_SESSION['branchId'])){
                                                     <div class="col-sm-2" style="margin-top: 16px;">
                                                         <div class="form-group" style="margin-top: 20px;">
 
-                                                            <button class="btn  btn-primary" type="button" onclick="followupList()">Search</button>
+                                                            <button class="btn  btn-success" type="button" onclick="followupList()">Search</button>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
@@ -278,20 +271,17 @@ if(isset($_SESSION['branchId'])){
                                                     <div class="col-sm-2">
                                                         <div class="form-group">
                                                             <label for="">From</label>
-                                                            <div class="input-group input-group-primary">
-                                                            <input type="text" class="form-control" name="foDate" id="foDate" value="<?php echo date ('Y-m-d');?>">
-                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
-                                                </div>
-                                                            
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="foDate" id="foDate" value="<?php echo date ('Y-m-d');?>">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <div class="form-group">
                                                             <label for="">Upto</label>
-                                                            <div class="input-group input-group-primary">
-                                                            <input type="text" class="form-control" name="upDate" id="upDate" value="<?php echo date ('Y-m-d');?>">
-                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
-                                                </div>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="upDate" id="upDate" value="<?php echo date ('Y-m-d');?>">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-2">
@@ -303,7 +293,7 @@ if(isset($_SESSION['branchId'])){
                                                     <div class="col-sm-2" style="margin-top: 16px;">
                                                         <div class="form-group" style="margin-top: 20px;">
 
-                                                            <button class="btn  btn-primary" type="button" onclick="absentList()">Search</button>
+                                                            <button class="btn  btn-default" type="button" onclick="absentList()">Search</button>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
@@ -352,6 +342,7 @@ if(isset($_SESSION['branchId'])){
         </div>
 
         <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
         <script>
             var data = {
@@ -383,6 +374,8 @@ if(isset($_SESSION['branchId'])){
                 <script src="plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
                 <script src="plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
                 <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+                <!-- <script src="plugins/datedropper/datedropper.min.js"></script>
+        <script src="js/form-picker.js"></script> -->
                 <script src="plugins/moment/moment.js"></script>
                 <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
                 <script src="plugins/select2/dist/js/select2.min.js"></script>
@@ -404,7 +397,9 @@ if(isset($_SESSION['branchId'])){
                 <script src="jscode/apis.js"></script>
                 <script src="jscode/getBranches.js"></script>
                 <script src="jscode/getUsers.js"></script>
-                <script src="jscode/callCenterData.js"></script>
+                <script src="jscode/login.js"></script>
+                <script src="jscode/loadUsers.js"></script>
+                <!-- <script src="jscode/getNewUser.js"></script> -->
                 <script src="jscode/getDateFormat.js"></script>
                 <script src="jscode/getAge.js"></script>
                 <script src="jscode/cities.js"></script>

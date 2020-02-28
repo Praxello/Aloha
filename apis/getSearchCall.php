@@ -7,7 +7,7 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['mobile'])){
-    $sql = "SELECT * FROM call_center cc INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId WHERE ccp.mobile = '$mobile'";
+    $sql = "SELECT * FROM call_center cc LEFT JOIN call_center_patients ccp ON ccp.clientId = cc.clientId WHERE ccp.mobile = '$mobile'";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

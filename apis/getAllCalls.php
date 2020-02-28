@@ -7,14 +7,25 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
-    $sql = "SELECT cc.callId,cc.clientId,cc.callDateTime,cc.branchId,cc.doctorId,cc.disease,cc.appointmentDate,cc.remarks,cc.folowupNeeded,cc.attendedBy,cc.callStatus,cc.feedback,st.name AS stateName,ct.name AS cityName,cc.folowupNeededDateTime follow,DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s') folowupNeededDateTime,um.username,hb.branchName,ccp.firstName,ccp.middleName,ccp.lastName,ccp.email,ccp.mobile,ccp.landline,ccp.nearByArea,ccp.city,ccp.city,ccp.state,ccp.country,ccp.pincode,ccp.reference,ccp.gender,ccp.dateOfBirth
+    $flag = isset($_POST['flag']) ? $_POST['flag']:0;
+    $s = '';
+    if($flag == 1){
+        $s =  " WHERE DATE(cc.appointmentDate) BETWEEN '$fromDate' AND '$uptoDate'";
+    }else{
+        $s =  " WHERE cc.appointmentDate BETWEEN '$fromDate' AND '$uptoDate'";
+    }
+    $sql = "SELECT cc.callId,cc.clientId,cc.callDateTime,cc.branchId,cc.doctorId,cc.disease,
+    DATE_FORMAT(cc.appointmentDate,'%W %d %b %Y-%H:%i:%s') appointment,cc.appointmentDate,cc.remarks,cc.folowupNeeded,
+    cc.attendedBy,cc.callStatus,cc.feedback,st.name AS stateName,ct.name AS cityName,cc.folowupNeededDateTime follow,
+    COALESCE(DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s'),'-') folowupNeededDateTime,um.username,hb.branchName,ccp.firstName,ccp.middleName,ccp.lastName,ccp.email,ccp.mobile,ccp.landline,ccp.nearByArea,ccp.city,ccp.city,ccp.state,ccp.country,ccp.pincode,ccp.reference,ccp.gender,ccp.dateOfBirth
     FROM call_center cc 
     INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state 
-    LEFT JOIN cities ct ON ct.id = ccp.city LEFT JOIN user_master um ON um.userId = cc.doctorId LEFT JOIN hospital_branch_master hb ON hb.branchId = cc.branchId
-    WHERE DATE(cc.appointmentDate) BETWEEN '$fromDate' AND '$uptoDate'";
-     if(isset($_POST['branchId']) && !empty($_POST['branchId'])){
+    LEFT JOIN cities ct ON ct.id = ccp.city LEFT JOIN user_master um ON um.userId = cc.doctorId LEFT JOIN hospital_branch_master hb ON hb.branchId = cc.branchId";
+    $sql .=$s;
+     if(isset($_POST['branchId']) && !empty($_POST['branchId']) && $_POST['branchId'] != 0){
         $sql .= " AND cc.branchId = $branchId";
     }
+    $sql .= " ORDER BY cc.appointmentDate DESC";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

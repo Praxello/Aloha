@@ -36,11 +36,14 @@ if (isset($_POST['callId']) && isset($_POST['clientId']) && isset($_POST['firstN
     $query_1 = mysqli_query($conn, $sql1) or die(mysqli_error($conn));
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected > 0) {
-            $academicQuery = mysqli_query($conn, "SELECT cc.callId,cc.clientId,cc.callDateTime,cc.branchId,cc.doctorId,cc.disease,cc.appointmentDate,cc.remarks,cc.folowupNeeded,cc.attendedBy,cc.callStatus,cc.feedback,st.name AS stateName,ct.name AS cityName,cc.folowupNeededDateTime follow,DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s') folowupNeededDateTime,um.username,hb.branchName,ccp.firstName,ccp.middleName,ccp.lastName,ccp.email,ccp.mobile,ccp.landline,ccp.nearByArea,ccp.city,ccp.city,ccp.state,ccp.country,ccp.pincode,ccp.reference,ccp.gender,ccp.dateOfBirth
-            FROM call_center cc 
-            INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state 
-            LEFT JOIN cities ct ON ct.id = ccp.city LEFT JOIN user_master um ON um.userId = cc.doctorId LEFT JOIN hospital_branch_master hb ON hb.branchId = cc.branchId
-            WHERE cc.callId = $callId");
+        $query = "SELECT cc.callId,cc.clientId,cc.callDateTime,cc.branchId,cc.doctorId,cc.disease,
+        DATE_FORMAT(cc.appointmentDate,'%W %d %b %Y-%H:%i:%s') appointment,cc.appointmentDate,cc.remarks,cc.folowupNeeded,cc.attendedBy,cc.callStatus,cc.feedback,st.name AS stateName,ct.name AS cityName,cc.folowupNeededDateTime follow,DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s') folowupNeededDateTime,um.username,hb.branchName,ccp.firstName,ccp.middleName,ccp.lastName,ccp.email,ccp.mobile,ccp.landline,ccp.nearByArea,ccp.city,ccp.city,ccp.state,ccp.country,ccp.pincode,ccp.reference,ccp.gender,ccp.dateOfBirth
+        FROM call_center cc 
+        INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state 
+        LEFT JOIN cities ct ON ct.id = ccp.city
+         LEFT JOIN user_master um ON um.userId = cc.doctorId 
+         LEFT JOIN hospital_branch_master hb ON hb.branchId = cc.branchId WHERE cc.callId = $callId";
+            $academicQuery = mysqli_query($conn,$query);
             if ($academicQuery != null) {
                 $academicAffected = mysqli_num_rows($academicQuery);
                 if ($academicAffected > 0) {

@@ -124,7 +124,7 @@ function fetchPrescriptiondata($patientId, $visitDate, $doctorId)
 </div>
 <div class="row">
 <div class="col-xs-12">
-   <p class="font-weight-bold mb-4"><strong class="text-uppercase">' . $row['firstName'] . ' ' . $row['surname'] . '</strong>     Reg No:<span>' . $patientId . '</span>      Cell No:<span>' . $row['mobile1'] . '</span></p>
+   <p class="font-weight-bold mb-4"><strong class="text-uppercase">' . $row['firstName'] . ' ' . $row['surname'] . '</strong>&nbsp;&nbsp;Reg No:<span>' . $patientId . '</span>&nbsp;&nbsp;Cell No:<span>' . $row['mobile1'] . '</span></p>
 </div>
 </div>
 <div class="row ">

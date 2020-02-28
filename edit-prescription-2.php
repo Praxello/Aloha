@@ -337,9 +337,17 @@
                         <div class="tab-pane fade" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
                             <div class="card-body">
                                 <div class="container-fluid">
-                                    
-                                        <div class="row">
-                                         
+                                    <div class="row">
+                                        <div class="col-md-10"></div>
+                                    <div class="col-md-2 float-right">
+                                            <div class="form-group">
+                                                <label>Select Date</label>
+                                                <select  class="form-control select2" name="concentId" id="concentId" style="width: 100%;" onchange="fill_concent(this.value);"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                       
                                 <form class="forms-sample" id="consentMasterForm" method="POST" enctype="multipart/form-data">
                                     <div class="container-fluid">
                                         <div class="">

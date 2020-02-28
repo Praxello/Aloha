@@ -61,7 +61,11 @@ if (isset($_SESSION['userId'])) {
                                     <div class="card-header row">
                                         <div class="col col-sm-3">
                                             <label for="">Appointment Date</label>
-                                            <input id="dropper-max-year" class="form-control" type="text" placeholder="select date" onchange="fetch(this.value);" />
+                                            <div class="input-group input-group-primary">
+                                            <input id="dropper-max-year" class="form-control" type="text" placeholder="select date" onchange="fetch(this.value);"  autocomplete="off"/>
+                                                    <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
+                                                </div>
+                                           
                                         </div>
                                         <div class="col col-sm-4">
 

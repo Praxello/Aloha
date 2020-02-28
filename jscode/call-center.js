@@ -2,9 +2,11 @@ var calls = new Map();
 var existCall = new Map();
 var clientId = null,
     up_callId = null;
-var customers = new Map();
+// var customers = new Map();
 var appointments = new Map();
 var follwups = new Map();
+var caseParam = null;
+var work = new Map();
 
 function branches() {
     var dropdownList = '<option></option>';
@@ -40,75 +42,126 @@ $("#callStatus").select2({
     dropdownParent: $('#fullwindowModal')
 });
 
-const getAllClients = () => {
-    $.ajax({
-        url: url + 'getAllcustomers.php',
-        type: 'POST',
-        dataType: 'json',
-        success: function(response) {
-            if (response.Responsecode == 200) {
-                const cust = response.Data;
-                cust.forEach(customer => {
-                    customers.set(customer.clientId, customer);
-                });
-            }
-        }
-    });
-};
+// const getAllClients = () => {
+//     $.ajax({
+//         url: url + 'getAllcustomers.php',
+//         type: 'POST',
+//         dataType: 'json',
+//         success: function(response) {
+//             if (response.Responsecode == 200) {
+//                 const cust = response.Data;
+//                 cust.forEach(customer => {
+//                     customers.set(customer.clientId, customer);
+//                 });
+//             }
+//         }
+//     });
+// };
 // getAllClients();
-const listCustomers = customers => {
-    $('#appT').hide();
-    $('#customerT').show();
-    $('#customerTable').dataTable().fnDestroy();
-    $('#customerData').empty();
-    var tblData = '';
-    customers.forEach(customer => {
-        tblData += '<tr><td>' + customer.firstName + ' ' + customer.lastName + '</td>';
-        tblData += '<td>' + customer.email + '</td>';
-        tblData += '<td>' + getAge(customer.dateOfBirth) + '</td>';
-        tblData += '<td>' + customer.mobile + '</td>';
-        tblData += '<td>' + customer.stateName + ',' + customer.cityName + '</td>';
-        tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editCustomer(' + (customer.clientId) + ')" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
-        tblData += '</div></td></tr>';
-    });
-    $('#customerData').html(tblData);
-    $('#customerTable').dataTable({
-        searching: true,
-        retrieve: true,
-        bPaginate: $('tbody tr').length > 10,
-        order: [],
-        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5] }],
-        dom: 'Bfrtip',
-        buttons: ['copy', 'csv', 'excel', 'pdf'],
-        destroy: true
-    });
-};
-const getAppointments = (fromDate, uptoDate, branchId) => {
+// const listCustomers = customers => {
+//     $('#appT').hide();
+//     $('#customerT').show();
+//     $('#customerTable').dataTable().fnDestroy();
+//     $('#customerData').empty();
+//     var tblData = '';
+//     customers.forEach(customer => {
+//         tblData += '<tr><td>' + customer.firstName + ' ' + customer.lastName + '</td>';
+//         tblData += '<td>' + customer.email + '</td>';
+//         tblData += '<td>' + getAge(customer.dateOfBirth) + '</td>';
+//         tblData += '<td>' + customer.mobile + '</td>';
+//         tblData += '<td>' + customer.stateName + ',' + customer.cityName + '</td>';
+//         tblData += '<td><div class="table-actions" style="text-align: left;">';
+//         tblData += '<a href="#" onclick="editCustomer(' + (customer.clientId) + ')" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
+//         tblData += '</div></td></tr>';
+//     });
+//     $('#customerData').html(tblData);
+//     $('#customerTable').dataTable({
+//         searching: true,
+//         retrieve: true,
+//         bPaginate: $('tbody tr').length > 10,
+//         order: [],
+//         columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5] }],
+//         dom: 'Bfrtip',
+//         buttons: ['copy', 'csv', 'excel', 'pdf'],
+//         destroy: true
+//     });
+// };
+const getAppointments = (fromDate, uptoDate, branchId, flag) => {
     $.ajax({
         url: url + 'getAllCalls.php',
         type: 'POST',
         dataType: 'json',
-        data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branchId },
+        data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branchId, flag: flag },
         success: function(response) {
+            appointments.clear();
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
                     appointments.set(response.Data[i].callId, response.Data[i]);
                 }
             }
-            listCalls(appointments);
+            listAppointment(appointments);
         }
     });
 };
+
+const listAppointment = calls => {
+    $('#appointmentT').dataTable().fnDestroy();
+    $('#appointmentD').empty();
+    var tblData = '';
+    for (let k of calls.keys()) {
+        let call = calls.get(k);
+        var badge = '',
+            st = '';
+        if (call.folowupNeeded == 1) {
+            badge = '<td><span class="badge badge-success">Yes</span></td>';
+        } else {
+            badge = '<td></td>';
+        }
+        if (call.callStatus == 1) {
+            st = '<td><span class="badge badge-success">Idle</span></td>';
+        } else if (call.callStatus == 2) {
+            st = '<td><span class="badge badge-warning">Close</span></td>';
+        } else {
+            st = '<td><span class="badge badge-success">Idle</span></td>';
+        }
+        tblData += '<tr><td>' + call.firstName + ' ' + call.lastName + '</td>';
+        tblData += '<td>' + call.username + '</td>';
+        tblData += '<td>' + call.branchName + '</td>';
+        tblData += '<td>' + getAge(call.dateOfBirth) + '</td>';
+        tblData += '<td>' + call.mobile + '</td>';
+        tblData += '<td>' + call.appointment + '</td>';
+        tblData += badge;
+        tblData += st;
+        tblData += '<td>' + call.folowupNeededDateTime + '</td>';
+        tblData += '<td><div class="table-actions" style="text-align: left;">';
+        tblData += '<a href="#" onclick="editCall(\'' + (k) + '\',1)" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="takeFeedback(\'' + (k) + '\',1)" title="Take Feedback"><i class="ik ik-message-circle" style="color:purple"></i></a>';
+        tblData += '</div></td></tr>';
+    }
+    $('#appointmentD').html(tblData);
+    $('#appointmentT').dataTable({
+        searching: true,
+        retrieve: true,
+        bPaginate: $('tbody tr').length > 10,
+        order: [],
+        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7] }],
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf'],
+        destroy: true
+    });
+};
+getAppointments(data.today, data.today, 0, 1);
+$('#myAppointments').click();
+
 const getAllCalls = (fromDate, uptoDate, branchId) => {
-    calls.clear();
     $.ajax({
-        url: url + 'getAllCalls.php',
+        url: url + 'getAbsentCallList.php',
         type: 'POST',
         dataType: 'json',
         data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branchId },
         success: function(response) {
+            calls.clear();
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
@@ -120,28 +173,27 @@ const getAllCalls = (fromDate, uptoDate, branchId) => {
     });
 };
 const getFollowuplist = (fromDate, uptoDate, branchId) => {
-    calls.clear();
     $.ajax({
         url: url + 'getFollowupcall.php',
         type: 'POST',
         dataType: 'json',
         data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branchId },
         success: function(response) {
+            follwups.clear();
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
-                    calls.set(response.Data[i].callId, response.Data[i]);
+                    follwups.set(response.Data[i].callId, response.Data[i]);
                 }
             }
-            listCalls(calls);
+            listfollowup(follwups);
         }
     });
 };
-
-const listCalls = calls => {
-    console.log(calls);
-    $('#cTable').dataTable().fnDestroy();
-    $('#callData').empty();
+getFollowuplist(data.today, data.today);
+const listfollowup = calls => {
+    $('#folloT').dataTable().fnDestroy();
+    $('#folloD').empty();
     var tblData = '';
     for (let k of calls.keys()) {
         let call = calls.get(k);
@@ -169,12 +221,12 @@ const listCalls = calls => {
         tblData += st;
         tblData += '<td>' + call.folowupNeededDateTime + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editCall(' + (k) + ')" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
-        tblData += '<a href="#" onclick="takeFeedback(' + (k) + ')" title="Take Feedback"><i class="ik ik-message-circle" style="color:purple"></i></a>';
+        tblData += '<a href="#" onclick="editCall(\'' + (k) + '\',3)" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="takeFeedback(\'' + (k) + '\',3)" title="Take Feedback"><i class="ik ik-message-circle" style="color:purple"></i></a>';
         tblData += '</div></td></tr>';
     }
-    $('#callData').html(tblData);
-    $('#cTable').dataTable({
+    $('#folloD').html(tblData);
+    $('#folloT').dataTable({
         searching: true,
         retrieve: true,
         bPaginate: $('tbody tr').length > 10,
@@ -185,12 +237,74 @@ const listCalls = calls => {
         destroy: true
     });
 };
-getAllCalls(data.today, data.today);
+const listCalls = calls => {
+    $('#absentT').dataTable().fnDestroy();
+    $('#absentD').empty();
+    var tblData = '';
+    for (let k of calls.keys()) {
+        let call = calls.get(k);
+        var badge = '',
+            st = '';
+        if (call.folowupNeeded == 1) {
+            badge = '<td><span class="badge badge-success">Yes</span></td>';
+        } else {
+            badge = '<td></td>';
+        }
+        if (call.callStatus == 1) {
+            st = '<td><span class="badge badge-success">Idle</span></td>';
+        } else if (call.callStatus == 2) {
+            st = '<td><span class="badge badge-warning">Close</span></td>';
+        } else {
+            st = '<td><span class="badge badge-success">Idle</span></td>';
+        }
+        tblData += '<tr><td>' + call.firstName + ' ' + call.lastName + '</td>';
+        tblData += '<td>' + call.username + '</td>';
+        tblData += '<td>' + call.branchName + '</td>';
+        tblData += '<td>' + getAge(call.dateOfBirth) + '</td>';
+        tblData += '<td>' + call.mobile + '</td>';
+        tblData += '<td>' + getDate(call.appointmentDate) + '</td>';
+        tblData += badge;
+        tblData += st;
+        tblData += '<td>' + call.folowupNeededDateTime + '</td>';
+        tblData += '<td><div class="table-actions" style="text-align: left;">';
+        tblData += '<a href="#" onclick="editCall(\'' + (k) + '\',4)" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="takeFeedback(\'' + (k) + '\',4)" title="Take Feedback"><i class="ik ik-message-circle" style="color:purple"></i></a>';
+        tblData += '</div></td></tr>';
+    }
+    $('#absentD').html(tblData);
+    $('#absentT').dataTable({
+        searching: true,
+        retrieve: true,
+        bPaginate: $('tbody tr').length > 10,
+        order: [],
+        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7] }],
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf'],
+        destroy: true
+    });
+};
 
-const editCall = (callId) => {
+
+const editCall = (callId, param) => {
     callId = callId.toString();
     up_callId = callId;
-    let call = calls.get(callId);
+    var call;
+    caseParam = param;
+    switch (param) {
+        case 1:
+            call = appointments.get(callId);
+            break;
+        case 2:
+            call = work.get(callId);
+            break;
+        case 3:
+            call = follwups.get(callId);
+            break;
+        case 4:
+            call = calls.get(callId);
+            break;
+    }
+    console.log(call);
     clientId = call.clientId;
     $('.ud').show();
     getAllCallFollowup(up_callId);
@@ -227,13 +341,13 @@ function callRegister() {
     var returnVal = $("#callRegister").valid();
     if (returnVal) {
         var branch = null;
-        var fromDate = moment($('#fromDate').val()).format('YYYY-MM-DD');
-        var uptoDate = moment($('#uptoDate').val()).format('YYYY-MM-DD');
+        var fromDate = moment($('#fromDate').val()).format('YYYY-MM-DDTHH:mm:ss');
+        var uptoDate = moment($('#uptoDate').val()).format('YYYY-MM-DDTHH:mm:ss');
 
         if ($('#branch').val() != '') {
             branch = $('#branch').val();
         }
-        getAllCalls(fromDate, uptoDate, branch);
+        getAppointments(fromDate, uptoDate, branch);
     }
 }
 
@@ -407,7 +521,6 @@ function newCall() {
 }
 
 function absentList() {
-    calls.clear();
     $("#absentList").validate({
         ignore: [],
         rules: {
@@ -435,23 +548,11 @@ function absentList() {
         if ($('#branchA').val() != '') {
             branchId = $('#branchA').val();
         }
-        $.ajax({
-            url: url + 'getAbsentCallList.php',
-            type: 'POST',
-            dataType: 'json',
-            data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branchId },
-            success: function(response) {
-                if (response.Responsecode == 200) {
-                    const count = response.Data.length;
-                    for (var i = 0; i < count; i++) {
-                        calls.set(response.Data[i].callId, response.Data[i]);
-                    }
-                }
-                listCalls(calls);
-            }
-        });
+        getAllCalls(fromDate, uptoDate, branchId);
+
     }
 }
+getAllCalls(data.today, data.today);
 
 function fill_search_data(call) {
     $('#firstName').val(call.firstName);
@@ -478,21 +579,67 @@ function fill_search_data(call) {
     $('#fullwindowModal').modal('show');
 }
 const getMyWork = (fromDate, uptoDate, branchId) => {
-    calls.clear();
     $.ajax({
         url: url + 'getMywork.php',
         type: 'POST',
         dataType: 'json',
         data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branchId },
         success: function(response) {
-            calls.clear();
+            work.clear();
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
-                    calls.set(response.Data[i].callId, response.Data[i]);
+                    work.set(response.Data[i].callId, response.Data[i]);
                 }
             }
-            listCalls(calls);
+            listWork(work);
         }
+    });
+};
+getMyWork(data.today, data.today);
+const listWork = calls => {
+    $('#workT').dataTable().fnDestroy();
+    $('#workD').empty();
+    var tblData = '';
+    for (let k of calls.keys()) {
+        let call = calls.get(k);
+        var badge = '',
+            st = '';
+        if (call.folowupNeeded == 1) {
+            badge = '<td><span class="badge badge-success">Yes</span></td>';
+        } else {
+            badge = '<td></td>';
+        }
+        if (call.callStatus == 1) {
+            st = '<td><span class="badge badge-success">Idle</span></td>';
+        } else if (call.callStatus == 2) {
+            st = '<td><span class="badge badge-warning">Close</span></td>';
+        } else {
+            st = '<td><span class="badge badge-success">Idle</span></td>';
+        }
+        tblData += '<tr><td>' + call.firstName + ' ' + call.lastName + '</td>';
+        tblData += '<td>' + call.username + '</td>';
+        tblData += '<td>' + call.branchName + '</td>';
+        tblData += '<td>' + getAge(call.dateOfBirth) + '</td>';
+        tblData += '<td>' + call.mobile + '</td>';
+        tblData += '<td>' + call.appointment + '</td>';
+        tblData += badge;
+        tblData += st;
+        tblData += '<td>' + call.folowupNeededDateTime + '</td>';
+        tblData += '<td><div class="table-actions" style="text-align: left;">';
+        tblData += '<a href="#" onclick="editCall(\'' + (k) + '\',2)" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
+        tblData += '<a href="#" onclick="takeFeedback(\'' + (k) + '\',2)" title="Take Feedback"><i class="ik ik-message-circle" style="color:purple"></i></a>';
+        tblData += '</div></td></tr>';
+    }
+    $('#workD').html(tblData);
+    $('#workT').dataTable({
+        searching: true,
+        retrieve: true,
+        bPaginate: $('tbody tr').length > 10,
+        order: [],
+        columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7] }],
+        dom: 'Bfrtip',
+        buttons: ['copy', 'csv', 'excel', 'pdf'],
+        destroy: true
     });
 };

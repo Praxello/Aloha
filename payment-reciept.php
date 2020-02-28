@@ -10,13 +10,31 @@ extract($_GET);
 $paymentId = isset($_GET['paymentId']) ? $_GET['paymentId']:1;
 
 $sign = '-';
+$clinic = '';
+function getBranchName($paymentId){
+    include 'connection.php';
+    $sql   = "SELECT hb.branchAddress FROM opd_patient_payment_master opm LEFT JOIN hospital_branch_master hb ON hb.branchId = opm.branchId
+    WHERE opm.paymentId = $paymentId";
+    $jobQuery  = mysqli_query($conn, $sql);
+    if ($jobQuery != null) {
+        $academicAffected = mysqli_num_rows($jobQuery);
+        if ($academicAffected > 0) {
+            $academicResults = mysqli_fetch_assoc($jobQuery);
+            global $clinic;
+            $clinic = $academicResults['branchAddress'];
+        }
+    }
+}
+getBranchName($paymentId);
 function patientDetails($paymentId)
 {
   $output  = '';
     include 'connection.php';
-    $sql       = "SELECT opm.recieptId,pm.firstName,pm.surname,pm.mobile1,opm.patientId,DATE_FORMAT(opm.visitDate,'%d %b %Y') visitDate,pm.address,um.username  
-FROM opd_patient_payment_master opm LEFT JOIN patient_master pm ON pm.patientId = opm.patientId LEFT JOIN user_master um ON um.userId = opm.createdBy
-WHERE opm.paymentId =  $paymentId";
+    $sql   = "SELECT opm.recieptId,pm.firstName,pm.surname,pm.mobile1,opm.patientId,DATE_FORMAT(opm.visitDate,'%d %b %Y') visitDate,pm.address,um.username
+    FROM opd_patient_payment_master opm 
+    LEFT JOIN patient_master pm ON pm.patientId = opm.patientId 
+    LEFT JOIN user_master um ON um.userId = opm.createdBy
+    WHERE opm.paymentId =  $paymentId";
     $jobQuery  = mysqli_query($conn, $sql);
     if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
@@ -35,19 +53,10 @@ WHERE opm.paymentId =  $paymentId";
             </div>
                         </div>
                         <div class="row pb-5 p-5 ">
-                        <div class="col-xs-2">
-                        <p class="mb-1 "><span class="text-muted ">Reciept number: </span>'.$academicResults['recieptId'].'</p>
-                     
+                        <div class="col-xs-12">
+                        <p class="mb-1 "><span class="text-muted ">Reciept number: </span>'.$academicResults['recieptId'].'&nbsp;&nbsp;<span class="text-muted ">Reg no: </span> '.$patientId.'
+                        &nbsp;&nbsp;<span class="text-muted ">Patient Name: </span><strong><u>'.$patientName.'</u></strong>&nbsp;&nbsp;<span class="text-muted ">Cell: </span> '.$mobile.'</p>
                         </div>
-                        <div class="col-xs-2">
-                        <p class="mb-1 "><span class="text-muted ">Reg no: </span> '.$patientId.'</p>
-                        </div>
-                        <div class="col-xs-4">
-                        <p class="mb-1"><span class="text-muted ">Patient Name: </span><strong><u>'.$patientName.'</u></strong></p>
-                        </div>
-                        <div class="col-xs-4">
-                        <p class="mb-1 "><span class="text-muted ">Cell: </span> '.$mobile.'</p>
-                    </div>
                     </div>
                     <div class="row pb-5 p-5">
                         <div class="col-xs-12">
@@ -56,6 +65,7 @@ WHERE opm.paymentId =  $paymentId";
                     </div>';
         }
     }
+    mysqli_close($conn);
     return $output;
 }
 
@@ -115,6 +125,7 @@ $output .= '<div class="row p-5">
 </div>';
         }
     }
+    mysqli_close($conn);
     return $output;
 }
 function paymentHistory($paymentId)
@@ -157,12 +168,12 @@ $output .= ' <center>
 </div>';
         }
     }
+    mysqli_close($conn);
     return $output;
 }
 $html = '<link rel="stylesheet" href="dompdf/style.css">
 <head>
     <title>Payment Reciept</title>
-    <link rel="icon" href="../img/medical.jpg" type="image/x-icon" />
 </head>
 <div class="container">
     <div class=" row ">
@@ -170,12 +181,12 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
             <div class="card ">
                 <div class="card-body p-0 ">
                     <div class="row p-5 ">
-                        <div class="col-xs-4 ">
-                            <img class="img-fluid " src="img/medical.jpg" width="20% " height="20% ">
+                        <div class="col-xs-4">
+                            <img class="img-fluid" src="img/auth/mybrand.png" width="40% " height="40%">
                         </div>
 
-                        <div class="col-xs-6 ">
-                            <strong><p class="font-weight-bold mb-1 ">S.NO.46,Vartak Pride,D.P.Road,KarveNagar,Maharashtra, Pune 411004</p></strong>
+                        <div class="col-xs-6">
+                            <strong><p class="font-weight-bold mb-1 ">'.$clinic.'</p></strong>
                         </div>
                     </div>
                    
@@ -193,7 +204,7 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
     </div>
     <footer style="text-align:right;position:fixed;right:0;bottom:0; "><strong>'.$sign.'</strong></footer>
 </div>';
-
+set_time_limit(600);
 $dompdf->setPaper('A4', 'portrait');
 
 $dompdf->loadHtml($html);
