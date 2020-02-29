@@ -1,6 +1,7 @@
 var presentill = new Map();
 var present_details = {};
-// var patientId_ap = null;
+var uPresent = null;
+var editP = 0;
 var getPresentDetails = (patientId) => {
     $.ajax({
         url: url + 'getpresentillness.php',
@@ -28,7 +29,7 @@ var showPresentillness = presentill => {
     for (let k of presentill.keys()) {
         let present = presentill.get(k);
 
-        tblData += '<tr><td>' + getDate(present.visitDate) + '</td>';
+        tblData += '<tr><td>' + present.vDate + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editPreserntillness(' + (k) + ')" title="Edit presentillness details "><i class="ik ik-edit text-blue"></i></a>';
         tblData += '</div></td></tr>';
@@ -53,12 +54,13 @@ var editPreserntillness = (onAssesmentId) => {
     onAssesmentId = onAssesmentId.toString();
     present_details = presentill.get(onAssesmentId);
     global_date = present_details.visitDate;
+    editP = 1;
+    uPresent = onAssesmentId;
     fill_presentIllness(present_details);
 };
 
-function  fill_presentIllness(presentill) {
- console.log(presentill.pulse);
-    
+function fill_presentIllness(presentill) {
+
     $('#chiefcomplaints').val(presentill.chiefcomplaints);
     $('#history').val(presentill.history);
     $('#bp1').val(presentill.bp);
@@ -70,7 +72,7 @@ function  fill_presentIllness(presentill) {
     $('#temperature').val(presentill.temperature);
     $('#fbs').val(presentill.fbs);
     $('#weight1').val(presentill.weight);
-  
+
     $('#ppbs').val(presentill.ppbs);
     $('#height1').val(presentill.height);
     $('#gfr').val(presentill.gfr);

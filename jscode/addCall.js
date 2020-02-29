@@ -4,9 +4,12 @@ $('#callForm').on('submit', function(e) {
     if (returnVal) {
         var fdata = new FormData(this);
         var folloDate = $('#follwupdate').val();
+        var follo = moment(folloDate).format("YYYY-MM-DD");
         folloDate = moment(folloDate).format("YYYY-MM-DD HH:mm:ss");
         fdata.append('follwupdate', folloDate);
         fdata.append('attendedBy', data.userId);
+        var appointmentDate = moment($('#appointmentDate').val()).format("YYYY-MM-DD");
+
         $.ajax({
             url: url + 'addCallcenter.php',
             type: 'POST',
@@ -27,6 +30,14 @@ $('#callForm').on('submit', function(e) {
                     $('.select2').val('').trigger('change');
                     $('#callForm').trigger('reset');
                     $('#fullwindowModal').modal('hide');
+                    if (appointmentDate == global_date) {
+                        work.set(response.Data.callId, response.Data);
+                        listWork(work);
+                    }
+                    if (follo == global_date) {
+                        follwups.set(response.Data.callId, response.Data);
+                        listfollowup(follwups);
+                    }
                     appointments.set(response.Data.callId, response.Data);
                     listAppointment(appointments);
                 } else {

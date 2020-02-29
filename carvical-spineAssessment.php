@@ -770,17 +770,15 @@
                                                                          <th scope="col"></th>
                                                                          <th scope="col">Symptoms During Testing</th>
                                                                          <th scope="col">Symptoms After Testing</th>
-                                                                        <!-- <th scope="colgroup" colspan="3">/th> -->
                                                                          <th scope="colgroup" colspan="3">Mechanical Response
-                                                                         <thead > 
+                                                                         <thead> 
                                                                              <th></th> <th></th> <th></th>
                                                                          <th>
                                                                              <div colspan="3"><i class="ik ik-arrow-up"></i>Rom</div> 
                                                                          </th>  
                                                                          <th> <i class="ik ik-arrow-down"></i>Rom</th>
-                                                                         <th>No Effect</th></th>
-                                                                         </thead>
-                                                                       
+                                                                         <th>No Effect</th>
+                                                                         </thead></th>
                                                                        </tr>
                                                                      </thead>
                                                                      <tbody >

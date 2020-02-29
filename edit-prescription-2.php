@@ -415,7 +415,7 @@
                         </div>
                         <div class="tab-pane fade" id="fullwindowModal1" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#fullwindowModal2" onclick="addlumbarspin()">Add Lumbar Spine Assessment</button>
+                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" onclick="addlumbarspin()">Add Lumbar Spine Assessment</button>
                             <div class="container-fluid">
 
                                 <div class="card">
@@ -442,7 +442,7 @@
                         </div>
                         <div class="tab-pane fade" id="cervical" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" id="btn" data-toggle="modal" data-target="#cervicalSpine" onclick="addcerviacl()">Add Cervical Spine Assessment</button>
+                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" id="btn"  onclick="addcerviacl()">Add Cervical Spine Assessment</button>
                             <div class="container-fluid">
 
                                 <div class="card">
@@ -472,7 +472,7 @@
                         </div>
                         <div class="tab-pane fade" id="neck" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#neckDis" onclick="addNeck()"> Add Neck Disability Index</button>
+                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;"  onclick="addNeck()"> Add Neck Disability Index</button>
                             <div class="container-fluid">
 
                                 <div class="card">
@@ -502,7 +502,7 @@
 
                         <div class="tab-pane fade" id="ques" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#backPain" onclick="addBack()"> Add Back Pain Question</button>
+                            <button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;"  onclick="addBack()"> Add Back Pain Question</button>
                             <div class="container-fluid">
 
                                 <div class="card">
@@ -534,7 +534,7 @@
 <!-- prentillness -->
 <div class="tab-pane fade" id="present" role="tabpanel" aria-labelledby="pills-profile-tab">
 
-<button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;" data-toggle="modal" data-target="#presentIllnessId" onclick="newPresentIllness()">Add Present Illness</button>
+<button class="btn btn-success" type="button" style="float: right;margin-top: 10px;margin-right: 22px;"  onclick="newPresentIllness()">Add Present Illness</button>
 <div class="container-fluid">
 
     <div class="card">
@@ -605,18 +605,20 @@
         $('#nextVisitDate').val(birthDate);
         $('#dayOfDate').html(moment(birthDate).format('dddd'));
     }
-
+//print the reciept
     function downloadForm() {
         window.open('concentform-print.php?patientId='+u_patientId, '_blank');
     }
     display(details);
+    //display the details of patient fees,name,refferance
     function display(details){
         $('#detailPName').html(details.firstName+' '+details.surname);
         $('#detailsReff').html(details.doctorName);
         $('#detailsFees').html(fStatus);
     }
+    //mask input for bp
     $('#bp').mask('000/000',{placeholder: "___/___"});
-
+//bmi calculation
     $('.bmi').on('change',function(){
         var height = parseFloat($('#height').val());
         var weight = parseFloat($('#weight').val());
@@ -637,9 +639,6 @@
 <script src="jscode/addPrescription.js"></script>
 <script src="jscode/insertConsentForm.js"></script>
 <script src="jscode/getPresentIllness.js"></script>
-<!-- <script src="jscode/loadBranch.js"></script> -->
-
-
 <script>
     getLumbarSpine(u_patientId);
     getNeckDisblity(u_patientId);
@@ -652,42 +651,4 @@
 <?php include 'low-backPainQues.php';?>
 <?php include 'carvical-spineAssessment.php';?>
 <?php include 'newPresentIllness.php';?>
-<script>
-function newPresentIllness() {
-    // $('.select2').val('').trigger('change');
-    $('#presentillnessform').trigger('reset');
-    $('#presentIllnessId').modal('show');
-}
-function addBack(){
-    $('input:radio').removeAttr('checked');
-    $('#backPainForm').trigger('reset');
-    $('#backPain').modal('show');
-}
-function addNeck(){
-    $('input:checkbox').removeAttr('checked');
-    $('#neckForm').trigger('reset');
-    $('#neckDis').modal('show');
-}
-function addcerviacl(){
-  
-    $('input:checkbox').removeAttr('checked');
-    $('input:radio').removeAttr('checked');
-    $('#cervicalSpineForm').trigger('reset');
-  
-// var tbl = $("table#cerMomentLoss > tbody > tr");
-//  $(tbl).each(function(index,value){
-//      console.log('h');
-//    $(value).find('td').empty()
-//  });
-
-    $('#cervicalSpine').modal('show');
-
-}
-
-function addlumbarspin(){
-    $('input:checkbox').removeAttr('checked');
-    $('input:radio').removeAttr('checked');
-    $('#lumbarSpineForm').trigger('reset');
-    $('#fullwindowModal2').modal('show');
-}
-</script>
+<script src="jscode/allModals.js"></script>

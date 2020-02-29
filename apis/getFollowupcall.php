@@ -12,7 +12,9 @@ if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
     um.username,hb.branchName,ccp.firstName,ccp.middleName,ccp.lastName,ccp.email,ccp.mobile,ccp.landline,ccp.nearByArea,ccp.city,ccp.city,ccp.state,ccp.country,ccp.pincode,ccp.reference,ccp.gender,ccp.dateOfBirth
     FROM call_center cc 
     INNER JOIN call_center_patients ccp ON ccp.clientId = cc.clientId LEFT JOIN states st ON st.id = ccp.state 
-    LEFT JOIN cities ct ON ct.id = ccp.city LEFT JOIN user_master um ON um.userId = cc.doctorId LEFT JOIN hospital_branch_master hb ON hb.branchId = cc.branchId WHERE cc.folowupNeededDateTime BETWEEN '$fromDate' AND '$uptoDate'";
+    LEFT JOIN cities ct ON ct.id = ccp.city LEFT JOIN user_master um ON um.userId = cc.doctorId 
+    LEFT JOIN hospital_branch_master hb ON hb.branchId = cc.branchId 
+    WHERE DATE(cc.folowupNeededDateTime) BETWEEN '$fromDate' AND '$uptoDate'";
     if(isset($_POST['branchId']) && !empty($_POST['branchId'])){
         $sql .= " AND cc.branchId = $branchId";
     }

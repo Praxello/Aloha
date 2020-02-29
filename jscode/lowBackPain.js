@@ -81,7 +81,6 @@ var getpainIntensity = () => {
     $.each($("input[name='painIntensity']"), function() {
         var flag = 0;
         var value = $(this).val();
-        console.log(value);
         if (this.checked) {
             flag = 1;
             painObj[value] = flag;

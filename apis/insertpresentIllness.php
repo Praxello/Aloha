@@ -6,12 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-
-if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['chiefcomplaints']) && 
-isset($_POST['history'])) {
-    
-
- 
+if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['chiefcomplaints']) && isset($_POST['history'])) {
  
     $pulse       = isset($_POST['pulse']) ? $_POST['pulse'] : 'NULL';
     $spo2        = isset($_POST['spo2']) ? $_POST['spo2'] : 'NULL';
@@ -53,21 +48,18 @@ isset($_POST['history'])) {
     $type      = isset($_POST['type']) ? $_POST['type'] : 'NULL';
     $itching      = isset($_POST['itching']) ? $_POST['itching'] : 'NULL';
 
-
+    mysqli_query($conn, "DELETE FROM patient_onassessment_master WHERE patientId = $patientId AND visitDate= '$visitDate'");
     $sql = "INSERT INTO patient_onassessment_master (patientId,visitDate,pulse,spo2,bp,temperature,weight,chiefcomplaints,history,waist,hip,hb1c,fbs,ppbs,gfr,goalweight,height,chest,addedSound,
     wheezeRhonchi,dyspoea,conciousness,umnreflex,lmnreflex,reflexes,s1s2heard,murmur,oralMucosa,scalp,nodules,eyes,raynaud,telangiectasia,photosensivity,rash,site,type,itching) 
      VALUES ('$patientId','$visitDate','$pulse', '$spo2','$bp1','$temperature', '$weight','$chiefcomplaints','$history','$waist','$hip','$hb1c','$fbs','$ppbs','$gfr','$goalweight','$height','$chest',
      '$addedSound','$wheezeRhonchi','$dyspoea','$conciousness','$umnreflex','$lmnreflex','$reflexes','$s1s2heard','$murmur','$oralMucosa','$scalp','$nodules','$eyes','$raynaud',
      '$telangiectasia','$photosensivity','$rash','$site','$type','$itching')";
-    
+
     $query = mysqli_query($conn, $sql);
-    
     $rowsAffected = mysqli_affected_rows($conn);
-
-
     if ($rowsAffected == 1) {
-        $patientId = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT * FROM patient_onassessment_master where onAssesmentId = $patientId");
+        $Id = $conn->insert_id;
+        $academicQuery = mysqli_query($conn, "SELECT *,DATE_FORMAT(visitDate,'%d %b %Y') vDate FROM patient_onassessment_master where onAssesmentId = $Id");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {
@@ -97,5 +89,4 @@ isset($_POST['history'])) {
 }
 mysqli_close($conn);
 print json_encode($response);
-
 ?> 

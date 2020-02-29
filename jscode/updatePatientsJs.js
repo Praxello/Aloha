@@ -21,10 +21,10 @@ $('#epatientDetails').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    $('#editProfile').empty();
-                    $('#tData').show();
+                    // $('#editProfile').empty();
+                    // $('#tData').show();
                     patients.set(response.Data.patientId, response.Data);
-                    listPatients(patients);
+                    //listPatients(patients);
                 } else {
                     swal({
                         position: 'top-end',

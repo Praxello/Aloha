@@ -1,18 +1,10 @@
-
-$(document).on('submit','#presentillnessform',function(e){
-// $('#presentillnessform').on('submit', function(e) {
- 
-
+$(document).on('submit', '#presentillnessform', function(e) {
     e.preventDefault();
     var returnVal = $("#presentillnessform").valid();
     if (returnVal) {
-    
         var fData = new FormData(this);
-        fData.append('patientId',global_patientId);
-        fData.append('visitDate',global_date)
-         console.log(global_patientId);
-         console.log(global_date);
-
+        fData.append('patientId', global_patientId);
+        fData.append('visitDate', global_date);
         $.ajax({
             url: url + 'insertpresentIllness.php',
             type: 'POST',
@@ -22,8 +14,8 @@ $(document).on('submit','#presentillnessform',function(e){
             processData: false,
             dataType: 'json',
             success: function(response) {
+                console.log(response);
                 if (response.Responsecode == 200) {
-                    // alert(response.Message);
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -31,11 +23,16 @@ $(document).on('submit','#presentillnessform',function(e){
                         button: false,
                         timer: 1500
                     });
+                    if (editP == 1) {
+                        if (presentill.has(uPresent)) {
+                            presentill.delete(uPresent);
+                            editP = 0;
+                        }
+                    }
                     $('#presentillnessform').trigger('reset');
                     $('#presentIllnessId').modal('hide');
                     presentill.set(response.Data.onAssesmentId, response.Data);
-                showPresentillness(presentill);
-
+                    showPresentillness(presentill);
                 } else {
                     swal({
                         position: 'top-end',
@@ -44,7 +41,6 @@ $(document).on('submit','#presentillnessform',function(e){
                         button: false,
                         timer: 1500
                     });
-                    // alert(response.Message);
                 }
             }
         });

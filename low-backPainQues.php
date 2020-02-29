@@ -1,3 +1,8 @@
+<style>
+    .b{
+        font-weight: bold;
+    }
+</style>
 <div class="modal fade full-window-modal" id="backPain" tabindex="-1" role="dialog" aria-labelledby="fullwindowModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -595,16 +600,16 @@
                                                     <br>
                                                 </div>
                                             </div>
-                                            <div class="form-group forms-sample  col-sm-3">
+                                            <div class="form-group forms-sample  col-sm-3" style="border: 1px solid;">
                                             
-                                                <span style="font-size: 19px;">0%-20% : Minimal disability</span><br>
-                                                <span  style="font-size: 19px;">21%-40% : Moderate disability</span><br>
-                                                <span  style="font-size: 19px;">41%-60% : Severe disability</span><br>
-                                                <span  style="font-size: 19px;">61%-80% : Crippling back pain</span></br>
-                                                <span  style="font-size: 19px;">81%-100% : These patients are either bed-bound or have an exaggeration of their symptoms.</span>
+                                                <span class="b" style="font-size: 15px;">0%-20% : Minimal disability</span><br>
+                                                <span class="b" style="font-size: 15px;">21%-40% : Moderate disability</span><br>
+                                                <span  class="b" style="font-size: 15px;">41%-60% : Severe disability</span><br>
+                                                <span class="b" style="font-size: 15px;">61%-80% : Crippling back pain</span></br>
+                                                <span class="b" style="font-size: 15px;">81%-100% : These patients are either bed-bound or have an exaggeration of their symptoms.</span>
                                             </div>
                                             <div class="form-group forms-sample  col-sm-3">
-                                                <h3><strong id="per"></strong></h3>
+                                                <h4><strong id="per"></strong></h4>
                                             </div>
                                         </div>
 

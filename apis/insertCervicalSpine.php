@@ -27,7 +27,7 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['ce
 
     if ($rowsAffected == 1) {
         $patientId = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT * FROM cervical_spine_assessment where cerSpineId = $patientId");
+        $academicQuery = mysqli_query($conn, "SELECT *,DATE_FORMAT(visitDate,'%d %b %Y') visitD FROM cervical_spine_assessment where cerSpineId = $patientId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {

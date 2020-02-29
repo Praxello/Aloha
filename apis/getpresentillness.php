@@ -7,7 +7,7 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['patientId'])){
-$sql = "SELECT * FROM patient_onassessment_master WHERE patientId = $patientId";
+$sql = "SELECT *,DATE_FORMAT(visitDate,'%d %b %Y') vDate FROM patient_onassessment_master WHERE patientId = $patientId";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

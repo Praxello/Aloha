@@ -19,7 +19,12 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="date">Consulting Date</label>
-                                <input type="date"  class="form-control" name="date" id="dropper-min-year" required>
+                                <div class="input-group input-group-primary">
+                                <input type="text"  class="form-control" name="date" id="dropper-min-year" required autocomplete="off">
+                                       <!-- <input type='text' class="form-control" id='follwupdate' name="foDate1" autocomplete="off"/> -->
+                                       <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
+                                       </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -34,3 +39,7 @@
     </div>
 </div>
 <script src="jscode/addAppointment.js"></script>
+<script>
+            $.datetimepicker.setLocale('en');
+            jQuery('#dropper-min-year').datetimepicker();
+        </script>

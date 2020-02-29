@@ -14,24 +14,14 @@ extract($_POST);
 $str = array();
 $packageUpdate = 0;
 if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST['uFlag'])) {
-
+    $payId = null;
     $recieved = 0;
-    if($uFlag['uFlag'] == 1 && $uFlag['paymentId'] != null){
-        $payId = $uFlag['paymentId'];
-        $packageUpdate =1;
-        if(!empty($uFlag['recieved'])){
-            $recieved = $uFlag['recieved'];
-        }
-        mysqli_query($conn,"DELETE FROM opd_patient_payment_master WHERE paymentId=$payId");
-    }
+    $u = 0;//check for update or insert
     $someArray   = json_decode($postdata, true);
     $packages    = $_POST['packageDetails'];
     $isPackage   = 0;
     $originalAmt = $someArray['originalAmt'];
     $amount      = $someArray["amount"];
-    if($recieved <= $amount){
-        $amount      = $amount-$recieved;
-    }
     $discount    = isset($someArray["discount"])? $someArray["discount"]:'NULL';
     $patientId   = $someArray["patientId"];
     $doctorId    = $someArray["doctorId"];
@@ -39,23 +29,47 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST
     $branchId    = $someArray["branchId"];
     $visitDate   = $someArray["visitDate"];//date('Y-m-d');
     $billDetails = $someArray["billDetails"];
-    $discountType = $someArray["discountType"];
+    $discountType = ($someArray["discountType"]==0) ? "NULL":$someArray["discountType"];
     $recieptId   = getLastId($branchId)+1;
+
+    if($uFlag['uFlag'] == 1 && $uFlag['paymentId'] != null){
+        $payId = $uFlag['paymentId'];
+        $packageUpdate =1;
+        if(!empty($uFlag['recieved'])){
+            $recieved = $uFlag['recieved'];
+        }
+        $u = 1;
+        mysqli_query($conn,"DELETE FROM Bill_Details WHERE paymentId=$payId");
+    }
+    if($recieved <= $amount){
+        $amount      = $amount-$recieved;
+    }
     if($packages['flag'] == 1 && !empty($packages['packageId'])){
         $isPackage = 1;
         if($packageUpdate != 1){
         package($packages['packageId'],$patientId,$packages['packageCost'],1,$branchId,$userId,$packages['packageDuration']);
         }
     }
-    $packageIdopd    = isset($packages['packageId'])? $packages['packageId']:'NULL';
+    $packageIdopd    = !empty($packages['packageId'])? $packages['packageId']:'NULL';
 
-    $sql         = "INSERT INTO opd_patient_payment_master(recieptId,branchId,patientId, doctorId,originalAmt,total,discountType,discount,received,pending,visitDate,createdBy,isPackage,packageId)
-    VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount','$discountType','$discount','$recieved','$amount','$visitDate',$userId,$isPackage,'$packageIdopd')";
+    if($u == 1){
+        $sql         = "UPDATE opd_patient_payment_master SET branchId=$branchId,patientId=$patientId, doctorId=$doctorId,originalAmt='$originalAmt',
+        total='$amount',discountType=$discountType,discount='$discount',received='$recieved',pending='$amount',
+        visitDate='$visitDate',createdBy=$userId,isPackage=$isPackage,packageId=$packageIdopd WHERE paymentId = $payId";
+        //VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount',$discountType,'$discount','$recieved','$amount','$visitDate',$userId,$isPackage,$packageIdopd)";
+    }else{
+        $sql         = "INSERT INTO opd_patient_payment_master(recieptId,branchId,patientId, doctorId,originalAmt,total,discountType,discount,received,pending,visitDate,createdBy,isPackage,packageId)
+        VALUES ($recieptId,$branchId,$patientId,$doctorId,'$originalAmt','$amount',$discountType,'$discount','$recieved','$amount','$visitDate',$userId,$isPackage,$packageIdopd)";
+    }
     $query       = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-        $last_id  = mysqli_insert_id($conn);
-        $tId      = strval($last_id);
+        if($u==1){
+            $tId      = $payId;
+        }else{
+            $last_id  = mysqli_insert_id($conn);
+            $tId      = strval($last_id);
+        }
         foreach ($billDetails as $key => $value) {
             $feesType = $billDetails[$key]['feesType'];
             $fees = $billDetails[$key]['fees'];

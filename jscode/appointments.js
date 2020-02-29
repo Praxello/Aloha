@@ -4,7 +4,7 @@ var u_appointmentId = null;
 var global_patientId = null; //for lumbar neck,and back pain
 var details = {};
 var fStatus = null;
-var u_BranchName=null;
+var u_BranchName = null;
 var lang_flag = 1;
 var global_date = moment().format('YYYY-MM-DD');
 $('#dropper-max-year').val(moment().format('YYYY-MM-DD'));
@@ -30,6 +30,7 @@ const getAllAppointments = (doctorId) => {
 const listAppointments = (appointments, today) => {
     $('#aTable').dataTable().fnDestroy();
     $('#aptData').empty();
+    var appointmentDate, appoitmentTime;
     var tblData = '',
         i = 0,
         patientType = '',
@@ -38,7 +39,9 @@ const listAppointments = (appointments, today) => {
         feesSt = null;
     for (let k of appointments.keys()) {
         let patient = appointments.get(k);
-        if (patient.appointmentDate == today) {
+        appointmentDate = moment(patient.appointmentDate).format('YYYY-MM-DD');
+        appoitmentTime = moment(patient.appointmentDate).format('HH:mm:ss');
+        if (appointmentDate == today) {
             i++;
             if (patient.firstVisitDate == today) {
                 patientType = '<td><span class="badge badge-success">New</span></td>';
@@ -48,13 +51,14 @@ const listAppointments = (appointments, today) => {
             }
             tblData += '<tr><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
             tblData += '<td>' + patient.firstName + ' ' + patient.surname + '</td>';
-            if (getConsultingStatus(patient.patientId, patient.doctorId, patient.appointmentDate) == 1) {
+            tblData += '<td>' + appoitmentTime + '</td>';
+            if (getConsultingStatus(patient.patientId, patient.doctorId, appointmentDate) == 1) {
                 cType = cType + 1;
                 tblData += '<td><span class="badge badge-success">Consulted</span></td>';
             } else {
                 tblData += '<td><span class="badge badge-default">Pending</span></td>';
             }
-            feesSt = fees_status(patient.patientId, patient.doctorId, patient.appointmentDate);
+            feesSt = fees_status(patient.patientId, patient.doctorId, appointmentDate);
             if (feesSt == 0) {
                 feesSt = 'unmarked';
             }
@@ -110,9 +114,7 @@ function getToday() {
 }
 
 function fetch(today) {
-    console.log(today); 
     var search_date = moment(today).format('YYYY-MM-DD');
-    console.log(search_date);
     listAppointments(appointments, search_date);
 }
 

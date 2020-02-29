@@ -6,7 +6,7 @@ function check_prescription(patientId, appointmentId) {
         url: url + 'get-todayPrescription.php',
         type: 'POST',
         dataType: 'json',
-        data: { patientId: patientId, visitDate: patient.appointmentDate },
+        data: { patientId: patientId, visitDate: patient.appointment },
         success: function(response) {
             if (response.Responsecode == 200) {
                 fill_exist_data(response.Data);

@@ -56,10 +56,12 @@ function updateCall() {
                             listCalls(calls);
                             break;
                         case 3:
-                            day = "Tuesday";
+                            follwups.set(response.Data.callId, response.Data);
+                            listfollowup(follwups);
                             break;
                         case 4:
-                            day = "Wednesday";
+                            calls.set(response.Data.callId, response.Data);
+                            listCalls(calls);
                             break;
                     }
 

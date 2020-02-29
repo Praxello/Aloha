@@ -55,7 +55,7 @@ function patientDetails($paymentId)
                         <div class="row pb-5 p-5 ">
                         <div class="col-xs-12">
                         <p class="mb-1 "><span class="text-muted ">Reciept number: </span>'.$academicResults['recieptId'].'&nbsp;&nbsp;<span class="text-muted ">Reg no: </span> '.$patientId.'
-                        &nbsp;&nbsp;<span class="text-muted ">Patient Name: </span><strong><u>'.$patientName.'</u></strong>&nbsp;&nbsp;<span class="text-muted ">Cell: </span> '.$mobile.'</p>
+                        &nbsp;&nbsp;<span class="text-muted ">Patient Name: </span><strong>'.$patientName.'</strong>&nbsp;&nbsp;<span class="text-muted ">Cell: </span> '.$mobile.'</p>
                         </div>
                     </div>
                     <div class="row pb-5 p-5">
@@ -182,7 +182,7 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                 <div class="card-body p-0 ">
                     <div class="row p-5 ">
                         <div class="col-xs-4">
-                            <img class="img-fluid" src="img/auth/mybrand.png" width="40% " height="40%">
+                            <img class="img-fluid" src="img/auth/mybrand.png" width="60% " height="70%">
                         </div>
 
                         <div class="col-xs-6">

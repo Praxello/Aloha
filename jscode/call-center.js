@@ -7,6 +7,7 @@ var appointments = new Map();
 var follwups = new Map();
 var caseParam = null;
 var work = new Map();
+var global_date = moment().format('YYYY-MM-DD');
 
 function branches() {
     var dropdownList = '<option></option>';
@@ -515,6 +516,7 @@ function newCall() {
     $('#new').show();
     $('#update').hide();
     $('.ud').hide();
+    $('#s2').show();
     $('.select2').val('').trigger('change');
     $('#callForm').trigger('reset');
     $('#fullwindowModal').modal('show');

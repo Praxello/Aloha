@@ -125,7 +125,7 @@ function GeneratePayment() {
             }
             var discountType = $('#discountType').val();
             if (discountType == '') {
-                discountType = 'NULL';
+                discountType = 0;
             }
             var packageId = null;
 
@@ -225,7 +225,6 @@ function attach_data(paymentId) {
     updateFlag = 1;
     paymentId = paymentId.toString();
     let data = prevTransactions.get(paymentId);
-    console.log(data);
     global_date = data.visitDate;
     var rowhtml = '',
         rowid = 0,
@@ -254,7 +253,6 @@ function attach_data(paymentId) {
             tAmt = parseFloat(data.billdetails[i].fees) + tAmt;
         }
         originalAmt = tAmt;
-        console.log(originalAmt);
         if (data.isPackage == 1) {
             flag = 1;
             tAmt = data.originalAmt;
@@ -266,7 +264,11 @@ function attach_data(paymentId) {
         }
         $("#presTableBody").html(rowhtml);
         $('#discountType').val(data.discountType).trigger('change');
-        $('#dAmt').val(data.discount).trigger('change');
+        if (data.discount > 0) {
+            $('#dAmt').val(data.discount).trigger('change');
+        } else {
+            $('#dAmt').val('');
+        }
         $('#fTotal').html(tAmt.toLocaleString());
         $('#tAmt').val(data.total);
         $('#paymentFor').val(data.doctorId).trigger('change');

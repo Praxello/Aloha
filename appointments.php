@@ -13,9 +13,9 @@ if (isset($_SESSION['userId'])) {
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link href="dist/css/font.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
-        <!-- <link rel="stylesheet" href="dist/css/bootstrap-datetimepicker.min.css"> -->
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
         <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
@@ -31,7 +31,7 @@ if (isset($_SESSION['userId'])) {
         <link rel="stylesheet" href="dist/css/jquery-ui.css">
         <link rel="stylesheet" href="plugins/bootstrap-tagsinput/dist/tagsinput.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
-        <!-- <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css"> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="dist/css/loader.css">
         <link rel="stylesheet" href="picker.css">
     </head>
@@ -89,6 +89,7 @@ if (isset($_SESSION['userId'])) {
                                                         <tr>
                                                             <th class="nosort">Profile</th>
                                                             <th>Patient Name</th>
+                                                            <th>appointment time</th>
                                                             <th>Status</th>
                                                             <th>Reffered by</th>
                                                             <th>Fees status</th>

@@ -237,3 +237,73 @@ var getrecreation = () => {
     });
     return recObj;
 };
+var w = 0,
+    m = 0,
+    n = 0,
+    o = 0,
+    p = 0,
+    q = 0,
+    r = 0,
+    s = 0,
+    t = 0,
+    u = 0;
+var v = 0;
+
+$("input[name='painIntensity1']").on('change', function() {
+    w = parseInt($(this).val());
+    w = w - 1;
+    neckCal(w + m + n + o + p + q + r + s + t + u);
+});
+$("input[name='personalCare1']").on('change', function() {
+    m = parseInt($(this).val());
+    m = m - 1;
+    neckCal(w + m + n + o + p + q + r + s + t + u);
+});
+$("input[name='lifting1']").on('change', function() {
+    n = parseInt($(this).val());
+    n = n - 1;
+    neckCal(w + m + n + o + p + q + r + s + t + u);
+});
+$("input[name='work1']").on('change', function() {
+    o = parseInt($(this).val());
+    o = o - 1;
+    neckCal(w + m + n + o + p + q + r + s + t + u);
+});
+$("input[name='headaches1']").on('change', function() {
+    p = parseInt($(this).val());
+    p = p - 1;
+    neckCal(w + m + n + o + p + q + r + s + t + u);
+});
+
+$("input[name='concentration1']").on('change', function() {
+    q = parseInt($(this).val());
+    q = q - 1;
+    neckCal(w + m + n + o + p + q + r + s + t + u);
+});
+$("input[name='sleeping1']").on('change', function() {
+    r = parseInt($(this).val());
+    r = r - 1;
+    neckCal(w + m + n + o + p + q + r + s + t + u);
+});
+$("input[name='driving1']").on('change', function() {
+    s = parseInt($(this).val());
+    s = s - 1;
+    neckCal(w + m + n + o + p + q + r + s + t + u);
+});
+$("input[name='reading1']").on('change', function() {
+    t = parseInt($(this).val());
+    t = t - 1;
+    neckCal(w + m + n + o + p + q + r + s + t + u);
+});
+$("input[name='recreation1']").on('change', function() {
+    u = parseInt($(this).val());
+    u = u - 1;
+    neckCal(l + m + n + o + p + q + r + s + t + u);
+});
+
+function neckCal(param) {
+    if (param != 0) {
+        v = (param / 50) * 100;
+        $('#neckPer').html("Percentage " + v.toFixed(2));
+    }
+}

@@ -30,7 +30,7 @@ var showCervicalSpine = cervicals => {
     var tblData = '';
     for (let k of cervicals.keys()) {
         let cervical = cervicals.get(k);
-        tblData += '<tr><td>' + getDate(cervical.visitDate) + '</td>';
+        tblData += '<tr><td>' + cervical.visitD + '</td>';
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editCervicalSpine(' + (k) + ')" title="Edit patients details"><i class="ik ik-edit text-blue"></i></a>';
         tblData += '</div></td></tr>';
@@ -46,7 +46,6 @@ var showCervicalSpine = cervicals => {
             targets: [0, 1]
         }],
         dom: 'Bfrtip',
-        buttons: ['copy', 'csv', 'excel', 'pdf'],
         destroy: true
     });
 };
@@ -81,7 +80,6 @@ function fill_Cervical(details) {
     json = details.cerPresentSince;
     if (json != null) {
         obj = JSON.parse(json);
-        console.log(obj.p1);
         if (obj.p1 != null) {
             $('#cerpresentSinceNew').val(obj.p1);
         }
@@ -454,6 +452,8 @@ function fill_Cervical(details) {
         m, count;
     json = details.cerMomentLoss;
     if (json != null) {
+        content += '<thead><tr><th scope="col"></th><th scope="col">Maj</th><th scope="col">Mod</th><th scope="col">Min</th>';
+        content += '<th scope="col">Nil</th><th scope="col">Pain</th></tr></thead>';
         obj = JSON.parse(json);
         count = Object.keys(obj).length;
         var arr = ['Flexion', 'Extension', 'Side Gliding R', 'Side Gliding L', 'Rotation R', 'Rotation L'];
@@ -474,6 +474,9 @@ function fill_Cervical(details) {
     obj = JSON.parse(json);
     if (Object.keys(obj).length === 0) {} else {
         content = '';
+        content += '<thead><tr><th scope="col"></th><th scope="col">Symptoms During Testing</th><th scope="col">Symptoms After Testing</th>';
+        content += '<th scope="colgroup" colspan="3">Mechanical Response<thead> <th></th> <th></th> <th></th><th><div colspan="3"><i class="ik ik-arrow-up"></i>Rom</div></th>';
+        content += '<th> <i class="ik ik-arrow-down"></i>Rom</th><th>No Effect</th></thead></th></tr></thead>';
         content += '<tr>';
         content += ' <th scope="row">Rep EIL</th>';
         content += '<td><input type="text" class="form-control"  value="' + obj[0]['During-test'] + '"></td>';

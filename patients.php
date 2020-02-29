@@ -31,10 +31,11 @@ if(isset($_SESSION['branchId'])){
         <link rel="stylesheet" href="plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="dist/css/theme.min.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
-        <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css">
+        <!-- <link rel="stylesheet" href="plugins/datedropper/datedropper.min.css"> -->
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="dist/css/loader.css">
+<link rel="stylesheet" href="picker.css">
     </head>
 <Style>
    
@@ -94,9 +95,6 @@ if(isset($_SESSION['branchId'])){
         </div>
       
         <script src="js/jquery-3.3.1.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
-        </script>
          <script>
        var data = {
 userId:<?php echo $_SESSION['userId'];?>,
@@ -112,8 +110,8 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
         <script src="plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
         <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-        <script src="plugins/datedropper/datedropper.min.js"></script>
-        <script src="js/form-picker.js"></script>
+        <!-- <script src="plugins/datedropper/datedropper.min.js"></script>
+        <script src="js/form-picker.js"></script> -->
         <script src="plugins/moment/moment.js"></script>
         <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
         <script src="plugins/select2/dist/js/select2.min.js"></script>
@@ -124,7 +122,7 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
         <script src="jscode/getReffName.js"></script>
-      
+        <script src="picker.js"></script>
        <?php include 'add_patient.php';?>
        <?php include 'take-appointment.php';?>
        <?php include 'opd-payments.php';?>
@@ -136,7 +134,7 @@ username:'<?php echo $_SESSION['username'];?>'
        <script src="jscode/getAge.js"></script>
        <script src="jscode/patients.js"></script>
        <script src="jscode/getUsers.js"></script>
-       <script src="jscode/loadUsers.js"></script>
+       <script src="jscode/appointmentUsers.js"></script>
        <script src="jscode/branchUsers.js"></script>
        <script src="jscode/getPayments.js"></script>
        <script src="jscode/getAllTests.js"></script>

@@ -79,16 +79,16 @@ function fetchPrescriptiondata($patientId, $visitDate, $doctorId)
             $height = $row['height'] / 100;
             $bmi    = floatval($row['weight']) / ($height * $height);
             $bmi    = number_format($bmi, 2);
-            $bmiStr = '<p class="font-weight-bold mb-4 ">BMI:<span>' . $bmi . '</span></p>';
+            $bmiStr = '<span class="font-weight-bold mb-4">BMI:<span>' . $bmi . '</span></span>';
         }
         if(!empty($row['weight'])){
-            $weight = '<p class="font-weight-bold mb-4 ">Weight:<span>' . $row['weight'] . '</span></p>';
+            $weight = '<span class="font-weight-bold mb-4">Weight:<span>' . $row['weight'] . '</span></span>';
         }
         if(!empty($row['bp'])){
-            $bp = '<p class="font-weight-bold mb-4 ">BP:<span>' . $row['bp'] . '</span></p>';
+            $bp = '<span class="font-weight-bold mb-4">BP:<span>' . $row['bp'] . '</span></span>';
         }
         if(!empty($row['pulse'])){
-            $pulse= '<p class="font-weight-bold mb-4 ">Pulse:<span>' . $row['pulse'] . '</span></p>';
+            $pulse= '<span class="font-weight-bold mb-4">Pulse:<span>' . $row['pulse'] . '</span></span>';
         }
         if(!empty($row['complaint'])){
             $complaint .='<div class="row ">
@@ -128,23 +128,10 @@ function fetchPrescriptiondata($patientId, $visitDate, $doctorId)
 </div>
 </div>
 <div class="row ">
-<div class="col-xs-1">
-   <p class="font-weight-bold mb-4 ">Age:<span>' . $row['age'] . '</span></p>
+<div class="col-xs-12">
+   <p class="font-weight-bold mb-4 ">Age:<span>' . $row['age'] . '</span>&nbsp;&nbsp;'.$weight.'&nbsp;&nbsp; '.$bp.'&nbsp;&nbsp;'.$pulse.'&nbsp;&nbsp;'.$bmiStr.'</p>
 </div>
-<div class="col-xs-2">
-   '.$weight.'
-</div>
-<div class="col-xs-2">
-  '.$bp.'
-</div>
-<div class="col-xs-2">
-'.$pulse.'
-</div>
-<div class="col-xs-2">
-'.$bmiStr.'
-</div>
-<div class="col-xs-3">
-</div>
+
 </div>
 <hr class="my-5 ">
 '.$complaint.'
@@ -163,9 +150,6 @@ function fetchmedicinedata($patientId, $visitDate, $doctorId, $flag)
     ELSE ppm.instruction END) instruction
     FROM patient_prescription_medicine ppm LEFT JOIN medicine_master mm ON mm.name = ppm.name AND mm.type = ppm.type 
     WHERE ppm.patientId = $patientId AND ppm.visitDate = '$visitDate' AND ppm.doctorId = $doctorId";
-    // $sql    = "SELECT mm.genName,ppm.type,ppm.name,ppm.morning,ppm.evining,ppm.night,ppm.instruction,ppm.period,ppm.patientId,ppm.visitDate,ppm.doctorId 
-    // FROM patient_prescription_medicine ppm LEFT JOIN medicine_master mm ON mm.name = ppm.name
-    //  WHERE ppm.patientId = $patientId AND ppm.visitDate = '$visitDate' AND ppm.doctorId = $doctorId";
     $result = mysqli_query($conn, $sql);
     $i      = 0;
     if (mysqli_num_rows($result) > 0) {
@@ -211,7 +195,7 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
         <div class="col-12 ">
                     <div class="row p-5 " id="header">
                         <div class="col-xs-4 ">
-                        <img class="img-fluid " src="medical.jpeg" height="30% " width="30% ">
+                        <img class="img-fluid" src="img/auth/mybrand.png" width="60% " height="70%">
                         </div>
                        ' . doctor_details($doctorId) . '
                     </div>

@@ -66,14 +66,22 @@ function exchange_list(exchangeT) {
 function listTransactions(transactions) {
     $('#packageTest').dataTable().fnDestroy();
     $('#packageTestData').empty();
-    var tbldata = '';
+    var tbldata = '',
+        consume = 0,
+        str = '';
     transactions.forEach(element => {
+        consume = (parseInt(element.originalQuota) - parseInt(element.consumed));
+        if (consume >= 1) {
+            str = '<td style="width:5%;"><button type="button" class="btn btn-icon btn-danger" onclick="consumeNow(' + element.DetailId + ')" title="Click to consume"><i class="ik ik-minus"></i></button></td>';
+        } else {
+            str = '<td></td>';
+        }
         tbldata += '<tr><td>' + element.testName + '</td>';
         tbldata += '<td>' + element.originalQuota + '</td>';
         tbldata += '<td>' + (parseInt(element.originalQuota) - parseInt(element.consumed)) + '</td>';
         tbldata += '<td>' + element.consumed + '</td>';
         tbldata += '<td>' + element.lastUsed + '</td>';
-        tbldata += '<td style="width:5%;"><button type="button" class="btn btn-icon btn-danger" onclick="consumeNow(' + element.DetailId + ')" title="Click to consume"><i class="ik ik-minus"></i></button></td>';
+        tbldata += str;
         tbldata += '<td style="width:5%;"><button type="button" class="btn btn-icon btn-success" onclick="creditQuota(' + element.DetailId + ')" title="Click to Credit Quota"><i class="ik ik-plus"></i></button></td></tr>';
     });
     $('#packageTestData').html(tbldata);

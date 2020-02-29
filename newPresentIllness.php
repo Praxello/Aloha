@@ -142,12 +142,12 @@
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="form-group row">
+                                                                <!-- <div class="form-group row">
                                                                     <label for="waist/hip" class="col-sm-2 col-form-label" id="waisthip"><b>Waist/Hip</b></label>
                                                                     <div class="col-sm-4">
                                                                         <label name="waitHipRatio" id="waitHipRatio"></label>
                                                                     </div>
-                                                                </div>
+                                                                </div> -->
 
                                                             </div>
                                                         </div>

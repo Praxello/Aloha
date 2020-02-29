@@ -3,6 +3,7 @@ var back_details = {};
 var editB = 0;
 var ubackPainId = null;
 // var patientId_ap = null;
+var tp = 0;
 var getLowBackPain = (patientId) => {
     $.ajax({
         url: url + 'getBackPainQues.php',
@@ -61,7 +62,7 @@ var editBack = (lbackpId) => {
     ubackPainId = lbackpId;
     fill_back(back_details);
 };
-var tp = 0;
+
 
 function fill_back(back) {
     var json, obj, values, i;
@@ -72,6 +73,7 @@ function fill_back(back) {
             return obj[key];
         });
         i = 0;
+        tp = 0;
         $.each($("input[name='painIntensity']"), function() {
             if (values[i] == 1) {
                 tp = tp + i;

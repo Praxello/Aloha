@@ -484,7 +484,6 @@ function storeT() {
             "m-rom-d": nil,
             "m-noefect": pain
         };
-        console.log(TableData);
     });
 
     TableData.shift();

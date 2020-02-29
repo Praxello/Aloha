@@ -3,6 +3,7 @@ var neck_details = {};
 var editN = 0;
 var uNeck = null;
 // var patientId_ap = null;
+var gn = 0;
 var getNeckDisblity = (patientId) => {
     $.ajax({
         url: url + 'getNeckDisblity.php',
@@ -69,8 +70,10 @@ function fill_neck(details) {
             return obj[key];
         });
         i = 0;
+        gn = 0;
         $.each($("input[name='painIntensity1']"), function() {
             if (values[i] == 1) {
+                gn = gn + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -88,6 +91,7 @@ function fill_neck(details) {
         i = 0;
         $.each($("input[name='personalCare1']"), function() {
             if (values[i] == 1) {
+                gn = gn + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -105,6 +109,7 @@ function fill_neck(details) {
         i = 0;
         $.each($("input[name='lifting1']"), function() {
             if (values[i] == 1) {
+                gn = gn + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -122,6 +127,7 @@ function fill_neck(details) {
         i = 0;
         $.each($("input[name='work1']"), function() {
             if (values[i] == 1) {
+                gn = gn + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -139,6 +145,7 @@ function fill_neck(details) {
         i = 0;
         $.each($("input[name='headaches1']"), function() {
             if (values[i] == 1) {
+                gn = gn + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -156,6 +163,7 @@ function fill_neck(details) {
         i = 0;
         $.each($("input[name='concentration1']"), function() {
             if (values[i] == 1) {
+                gn = gn + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -173,6 +181,7 @@ function fill_neck(details) {
         i = 0;
         $.each($("input[name='sleeping1']"), function() {
             if (values[i] == 1) {
+                gn = gn + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -190,6 +199,7 @@ function fill_neck(details) {
         i = 0;
         $.each($("input[name='driving1']"), function() {
             if (values[i] == 1) {
+                gn = gn + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -207,6 +217,7 @@ function fill_neck(details) {
         i = 0;
         $.each($("input[name='reading1']"), function() {
             if (values[i] == 1) {
+                gn = gn + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -224,6 +235,7 @@ function fill_neck(details) {
         i = 0;
         $.each($("input[name='recreation1']"), function() {
             if (values[i] == 1) {
+                gn = gn + i;
                 $(this).attr("checked", true);
             } else {
                 $(this).attr("checked", false);
@@ -231,6 +243,6 @@ function fill_neck(details) {
             i++;
         });
     }
-
     $('#neckDis').modal('show');
+    neckCal(parseInt(gn));
 }

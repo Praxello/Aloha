@@ -1,7 +1,7 @@
 $('#take-appointment').on('submit', function(e) {
     e.preventDefault();
     var fData = {
-        appointmentDate: moment($('#dropper-min-year').val()).format('YYYY-MM-DD'),
+        appointmentDate: moment($('#dropper-min-year').val()).format('YYYY-MM-DD HH:mm:ss'),
         userId: $('#userId').val(),
         patientId: patientId_ap,
         scheduledBy: data.username
