@@ -108,14 +108,11 @@ if(isset($_SESSION['branchId'])){
                                                                 <th>Visit Date</th>
                                                                 <th>Patient Name</th>
                                                                 <th>Doctor Name</th>
-                                                                <th>Branch Name</th>
+                                                                <th>Discount Type</th>
                                                                 <th>Payment</th>
                                                                 <th>Amount</th>
-                                                                <th>Total</th>
-                                                                <th>Discount(%)</th>
-                                                                <th>Type</th>
-                                                                <th>Recieved</th>
-                                                                <th>Pending</th>
+                                                                <th>Payment Mode</th>
+                                                                <th>Recieved by</th>
                                                                 <th>Created at</th>
                                                                 <th class="nosort"></th>
                                                             </tr>
@@ -124,19 +121,14 @@ if(isset($_SESSION['branchId'])){
 
                                                         </tbody>
                                                         <tfoot>
-                                                        <th></th>
                                                                 <th></th>
                                                                 <th></th>
                                                                 <th></th>
                                                                 <th></th>
-                                                               
+                                                               <th></th>
                                                                 <th>Total</th>
                                                                 <th id="amtO"></th>
-                                                                <th id="amtT"></th>
                                                                 <th></th>
-                                                                <th></th>
-                                                                <th id="amtR"></th>
-                                                                <th id="amtP"></th>
                                                                 <th></th>
                                                                 <th class="nosort"></th>
                                                         </tfoot>
