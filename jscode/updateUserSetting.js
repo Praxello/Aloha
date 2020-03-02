@@ -7,6 +7,8 @@ $('#usersettingForm').on('submit', function(e) {
 
         fData.append('userId', data.userId);
 
+
+
         $.ajax({
             url: url + 'userSettingUpdate.php',
             type: 'POST',
