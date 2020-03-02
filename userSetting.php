@@ -50,7 +50,7 @@ if(isset($_SESSION['branchId'])){
                             <div class="main-content">
                                 <div class="container-fluid">
 
-                                    <div class="col-lg-12 col-md-7">
+                                    <div class="col-lg-10 col-md-7">
                                         <div class="card">
                                             <ul class="nav nav-pills custom-pills t1" id="pills-tab" role="tablist">
 
@@ -61,16 +61,16 @@ if(isset($_SESSION['branchId'])){
                                                     <div class="card-body">
                                                         <form class="forms-sample" id="usersettingForm" method="POST" enctype="multipart/form-data">
                                            
-                                <div class="row">      
+                                <div class="row col-md-12">      
                                      <div class=col-md-6>           
                                             <div class="form-group row">
-                                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">User Name</label>
+                                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label" style="margin-top: -6px;">User Name</label>
                                                     <div class="col-sm-4">
                                                         <b><span id="username1"></span></b>     
                                                 </div>
-                                                <label for="exampleInputUsername2" class="col-sm-2 col-form-label">Mobile No.</label>
+                                                <label for="exampleInputUsername2" class="col-sm-2 col-form-label" style="margin-top: -6px;">Mobile No.</label>
                                                     <div class="col-sm-3">
-                                                        <span id="mobile"></span>
+                                                       <b> <span id="mobile"></span></b>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -96,10 +96,11 @@ if(isset($_SESSION['branchId'])){
                                  
                                      <div class=col-md-6 >  
 
-                                     <div class="profiletimeline mt-0">
+                                     <div class=" mt-0">
 
                                             <div class="text-center">
-                                            <img src="img/user.jpg" class="rounded-circle img-fluid mb-20" width="150" height="150" id="userJpg" style="padding-block-end: 10px;">
+                                           
+                                            <img src="upload/user/<?php echo $_SESSION['userId'];?>.jpg" class="rounded-circle img-fluid mb-20" width="150" height="150" id="userJpg" style="padding-block-end: 10px;">
 
                                         <div class="row text-center justify-content-md-center">
                                            <div class="form-group">
@@ -108,97 +109,12 @@ if(isset($_SESSION['branchId'])){
                                              </div>
                                         </div>
 
-                                        <!-- <button class="btn btn-success" type="submit">Update profile picture</button> -->
                                             </div>
                                      </div>
                                 </div>
-                                                         
-                                                            <!-- <div class="row">
+                                                
 
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="longitude">Mobile Number </label>
-                                                                        <input type="text" id="mobile" name="mobile" class="form-control" placeholder="mobile" ng-pattern="/^[0-9]*$/" onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="usertype">Aadhar Number</label>
-                                                                        <input type="text" id="addharId" name="addharId" class="form-control" placeholder="Aadhar Number" ng-pattern="/^[0-9]*$/" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="usertype" class="required">User Type</label>
-                                                                        <select class="form-control select2" id="roleIde" name="usertype" style="width: 100%;" placeholder="role Name">
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div> -->
-
-                                                            <!-- <div class="row">
-
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="designation">Designation</label>
-                                                                        <input id="designation" class="form-control" type="text" name="designation" placeholder="Designation" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="branchName" class="required">Branch Name </label>
-                                                                        <select class="form-control select2" id="branchIde" name="branchName" style="width: 100%;" placeholder="Branch Name">
-
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="firmName">firm Name</label>
-                                                                        <input id="firmName" class="form-control" type="text" name="firmName" placeholder="firm Name" />
-                                                                    </div>
-                                                                </div>
-
-                                                            </div> -->
-                                                            <!-- <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="address">Sign</label>
-                                                                        <textarea id="sign" class="form-control" type="text" name="sign" placeholder="sign"></textarea>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="address">Address</label>
-                                                                        <textarea id="address" class="form-control" type="text" name="address" placeholder="address"></textarea>
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm-4" style="margin-top: 33px;">
-                                                                    <label for="firmName">Active</label>
-                                                                    <div class="checkbox-fade fade-in-success check">
-                                                                        <label>
-                                                                            <input type="radio" value="1" name="active" id="active1">
-                                                                            <span class="cr">
-                                      <i class="cr-icon ik ik-check txt-success"></i>
-                                      </span>
-                                                                            <span>Yes</span>
-                                                                        </label>
-                                                                        <label>
-                                                                            <input type="radio" value="0" name="active" id="inactive1">
-                                                                            <span class="cr">
-                                      <i class="cr-icon ik ik-check txt-success"></i>
-                                      </span>
-                                                                            <span>No</span>
-                                                                        </label>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div> -->
-
-                                                            <button class="btn btn-success" type="submit">Update User</button>
+                                                            <button class="btn btn-success" type="submit">Update</button>
                                                             <button class="btn btn-success" type="button" onclick="gobackN()">Cancel</button>
 
                                                         </form>
@@ -258,12 +174,13 @@ if(isset($_SESSION['branchId'])){
             <script src="jscode/userSetting_validation.js"></script>
             <script src="jscode/loadFile.js"></script>
             <script src="jscode/getUserSetting.js"></script>
-            <script src="jscode/uploadUserPic.js"></script>
-            <script src="jscode/updateUserSetting.js"></script>
+          
+        <script src="jscode/updateUserSetting.js"></script>
             <script>
                 function gobackN(){
                     $('#pills-tabContent').hide();
                 }
+                
                 </script>
            
     </body>

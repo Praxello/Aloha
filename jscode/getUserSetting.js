@@ -11,7 +11,7 @@ const getAllUsers = (userId) => {
         success: function(response) {
           
             if (response.Responsecode == 200) {
-                console.log(response);
+               
                 users.set(response.Data.userId, response.Data);
                 $('#username1').html(response.Data.username);
                 $('#mobile').html(response.Data.mobile);
