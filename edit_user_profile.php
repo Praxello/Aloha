@@ -34,7 +34,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="latitude" class="required">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                <input type="password" id="upassword" name="upassword" class="form-control" placeholder="Password">
                             </div>
                         </div>
                         <div class="col-md-4">

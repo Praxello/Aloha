@@ -6,7 +6,7 @@ $(function() {
                     required: true,
                     maxlength: 50
                 },
-                password :{
+                upassword :{
                     required :true
                 },
                 
@@ -20,7 +20,7 @@ $(function() {
                     required :true
                 },
                 conpassword :{
-                    equalTo: "#password",
+                    equalTo: "#upassword",
                     required:true
                 },
                 usertype:{
@@ -35,7 +35,7 @@ $(function() {
                     required: "Please Enter User Name",
                     maxlength: "Length Exceed upto 50 characters"
                 },
-                password :{
+                upassword :{
                     required : "Please Enter the Password"
                 },
                 mobile:{

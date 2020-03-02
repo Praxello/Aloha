@@ -22,13 +22,13 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="username" class="required">User Name</label>
-                                <input type="text" id="username" name="username" class="form-control" placeholder="User Name" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
+                                <input type="text" id="username" name="username" class="form-control" placeholder="User Name" >
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="latitude" class="required">Password</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                <input type="password" id="upassword" name="upassword" class="form-control" placeholder="Password">
                             </div>
                         </div>
                         <div class="col-md-4">

@@ -7,13 +7,13 @@ $response = null;
 $records  = null;
 extract($_POST);
 
-if (isset($_POST['userId']) && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['mobile']) && isset($_POST['addharId']) && isset($_POST['usertype'])
+if (isset($_POST['userId']) && isset($_POST['username']) && isset($_POST['upassword']) && isset($_POST['mobile']) && isset($_POST['addharId']) && isset($_POST['usertype'])
     && isset($_POST['designation']) && isset($_POST['address']) && isset($_POST['firmName'])) {
     
 
     $address = mysqli_real_escape_string($conn, $address);
     
-    $sql = "UPDATE  user_master SET username='$username',password='$password',mobile='$mobile',addharId='$addharId',usertype ='$usertype',designation = '$designation',
+    $sql = "UPDATE  user_master SET username='$username',upassword='$upassword',mobile='$mobile',addharId='$addharId',usertype ='$usertype',designation = '$designation',
     address='$address',firmName = '$firmName',sign='$sign' WHERE userId='$userId'";
   
     

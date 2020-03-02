@@ -18,7 +18,7 @@ $('#usersettingForm').on('submit', function(e) {
             dataType: 'json',
             success: function(response) {
                 if (response.Responsecode == 200) {
-                     alert(response);
+                  
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -29,6 +29,7 @@ $('#usersettingForm').on('submit', function(e) {
                 if(response.Data!=null){
                     users.set(response.Data.userId, response.Data);
                 }
+                $('#usersettingForm').trigger('reset');
 
                 } else {
                     swal({

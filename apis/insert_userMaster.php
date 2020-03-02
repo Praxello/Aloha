@@ -6,12 +6,12 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['mobile']) && isset($_POST['addharId']) && isset($_POST['usertype']) && isset($_POST['designation'])
+if (isset($_POST['username']) && isset($_POST['upassword']) && isset($_POST['mobile']) && isset($_POST['addharId']) && isset($_POST['usertype']) && isset($_POST['designation'])
 && isset($_POST['address']) && isset($_POST['firmName']) && isset($_POST['branchName']) ) {
     
     
-    $sql = "INSERT INTO user_master(username,password,mobile,addharId,usertype,designation,address,firmName,branchId,sign) 
-     VALUES ('$username','$password','$mobile','$addharId','$usertype','$designation','$address','$firmName','$branchName','$sign')";
+    $sql = "INSERT INTO user_master(username,upassword,mobile,addharId,usertype,designation,address,firmName,branchId,sign) 
+     VALUES ('$username','$upassword','$mobile','$addharId','$usertype','$designation','$address','$firmName','$branchName','$sign')";
     
     $query = mysqli_query($conn, $sql);
     

@@ -7,10 +7,10 @@ $response = null;
 $records  = null;
 extract($_POST);
 $dir = '../upload/user/';
-if (isset($_POST['userId']) && isset($_FILES["imgProfile"]["type"])) {
+if (isset($_POST['userId']) && isset($_FILES["userPic"]["type"])) {
     
-    $imgname    = $_FILES["imgProfile"]["name"];
-    $sourcePath = $_FILES['imgProfile']['tmp_name']; // Storing source path of the file in a variable
+    $imgname    = $_FILES["userPic"]["name"];
+    $sourcePath = $_FILES['userPic']['tmp_name']; // Storing source path of the file in a variable
     $targetPath = $dir . $userId . ".jpg"; // Target path where file is to be stored
     if (move_uploaded_file($sourcePath, $targetPath)) {
         $response = array(

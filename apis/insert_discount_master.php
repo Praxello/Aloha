@@ -6,11 +6,11 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['discountType']) && isset($_POST['discount']) && isset($_POST['branchId'])) {
+if (isset($_POST['discountType']) && isset($_POST['discount'])) {
     
     
-    $sql = "INSERT INTO DiscountMaster(discountType,discount,branchId) 
-     VALUES ('$discountType','$discount','$branchId')";
+    $sql = "INSERT INTO DiscountMaster(discountType,discount) 
+     VALUES ('$discountType','$discount')";
     
     $query = mysqli_query($conn, $sql);
     

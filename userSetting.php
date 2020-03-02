@@ -66,7 +66,7 @@ if(isset($_SESSION['branchId'])){
                                             <div class="form-group row">
                                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label">User Name</label>
                                                     <div class="col-sm-4">
-                                                        <span id="username1"></span>
+                                                        <b><span id="username1"></span></b>     
                                                 </div>
                                                 <label for="exampleInputUsername2" class="col-sm-2 col-form-label">Mobile No.</label>
                                                     <div class="col-sm-3">
@@ -76,19 +76,19 @@ if(isset($_SESSION['branchId'])){
                                             <div class="form-group row">
                                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label"> Old Password</label>
                                                     <div class="col-sm-9">
-                                                    <input type="password" id="oldpassword" name="oldpassword" class="form-control" placeholder="Password">
+                                                    <input type="password" id="oldpassword" name="oldpassword" class="form-control" >
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label">New Password</label>
                                                     <div class="col-sm-9">
-                                                    <input type="password" id="upassword" name="upassword" class="form-control" placeholder="Password">
+                                                    <input type="password" id="upassword" name="upassword" class="form-control" >
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Confirm Password</label>
                                                     <div class="col-sm-9">
-                                                    <input type="password" id="conpassword1" name="conpassword" class="form-control" placeholder="Password">
+                                                    <input type="password" id="conpassword1" name="conpassword" class="form-control" >
                                                 </div>
                                             </div>
                                     </div>
@@ -103,7 +103,7 @@ if(isset($_SESSION['branchId'])){
 
                                         <div class="row text-center justify-content-md-center">
                                            <div class="form-group">
-                                        <input type="file" name="imgProfile" id="imgProfile" class="form-control" onchange="loadFile(event)" accept="image/x-png,image/gif,image/jpeg">
+                                        <input type="file" name="userPic" id="userPic" class="form-control" onchange="loadFile(event)" accept="image/x-png,image/gif,image/jpeg">
                                              </div>
                                              </div>
                                         </div>
@@ -254,7 +254,7 @@ if(isset($_SESSION['branchId'])){
                 <script src="js/charts.js"></script>
                 <script src="dist/js/theme.min.js"></script>
            
-                <script src="js/jquery.validate.js"></script>
+            <script src="js/jquery.validate.js"></script>
             <script src="jscode/userSetting_validation.js"></script>
             <script src="jscode/loadFile.js"></script>
             <script src="jscode/getUserSetting.js"></script>

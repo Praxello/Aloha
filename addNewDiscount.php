@@ -23,30 +23,19 @@
                     <div class="col-md-6">
                             <div class="form-group">
                                 <label for="discountType"  class="required">Discount Type</label>
-                                <select class="form-control select2" id="discountType" name="discountType" style="width: 100%">
-                                </select>
+                                <input id="discountType" class="form-control" type="text" name="discountType" />
                             </div>
                         </div>
                        
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for=""  class="required">Branch</label>
-                                <select class="form-control select2" id="branchId" name="branchId" style="width: 100%">
-                                </select>
+                                <label for="discount">Discount(%)</label>
+                                <input id="discount" class="form-control" type="text" name="discount" />
                             </div>
                         </div>
 
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="discount">Discount</label>
-                                <input id="discount" class="form-control" type="text" name="discount" placeholder="Fees Type" />
-                            </div>
-                        </div>
-                       
-                       
-                    </div>
+                 
                  
                 </div>
                 <div class="modal-footer">

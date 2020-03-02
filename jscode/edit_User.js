@@ -1,7 +1,7 @@
 var loadUserDetails = details => {
     console.log(details);
     $('#username').val(details.username);
-    $('#password').val(details.password); 
+    $('#upassword').val(details.upassword); 
     $('#mobile').val(details.mobile);
     $('#addharId').val(details.addharId);
     $('#designation').val(details.designation);

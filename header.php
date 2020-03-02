@@ -10,7 +10,7 @@
                                 <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="img/user.png" alt=""></a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="logout.php"><i class="ik ik-power dropdown-icon"></i> Logout</a>
-                                <a class="dropdown-item" href="userSetting.php"><i class="ik ik-settings dropdown-icon"></i> Setting</a>
+                                <a class="dropdown-item" href="userSetting.php"><i class="ik ik-settings dropdown-icon"></i> Settings</a>
                                 </div>
                                 
                             </div>

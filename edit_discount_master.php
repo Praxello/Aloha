@@ -24,36 +24,24 @@
                         <form class="forms-sample" id="discountMasterForm" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                             <div class="form-group">
                                 <label for="discountType" class="required">Discount Type</label>
-                                <select class="form-control select2" id="discountTypee" name="discountType" style="width: 100%">
-                                </select>
+                                <input id="discountTypee" class="form-control" type="text" name="discountType" />
                             </div>
                         </div>
                        
-                        <div class="col-md-6">
+                       
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="" class="required">Branch</label>
-                                <select class="form-control select2" id="branchIde" name="branchId" style="width: 100%">
-                                </select>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="discount">Discount</label>
+                                <label for="discount">Discount(%)</label>
                                 <input id="discount" class="form-control" type="text" name="discount" placeholder="Fees Type" />
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            
-                        </div>
-                       
+                        <div class="col-md-4"></div>
+
                     </div>
-                             
+                   
                                 <button class="btn btn-success" type="submit">Update</button>
                                 <button class="btn btn-success" type="button" onclick="gobackDiscount()">Cancel</button>
                                 </form>
