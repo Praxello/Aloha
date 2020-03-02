@@ -1,4 +1,5 @@
 var discount = new Map();
+var discounts = new Map();
 var udiscount = null;
 
 function getDiscounts() {
@@ -80,4 +81,23 @@ function mapBranches() {
     }
     $('#branchId').html(dropdownList);
 }
-var discounts = new Map();
+
+getDiscountList();
+
+function getDiscountList() {
+    $.ajax({
+        url: url + 'getAllDiscount.php',
+        type: 'POST',
+        dataType: 'json',
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                if (response.Data != null) {
+                    var n = response.Data.length;
+                    for (var i = 0; i < n; i++) {
+                        discounts.set(response.Data[i].discountId, response.Data[i]);
+                    }
+                }
+            }
+        }
+    });
+}

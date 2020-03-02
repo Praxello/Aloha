@@ -38,13 +38,9 @@
                                     <br>
                                  <select name="discountType" id="discountType" class="form-control" style="width: 100%;"></select>
                                 </div>
-                                <div class="col-md-3 col-6"> <strong>Package quota</strong>
-                                    <br>
-                                  <input type="number" class="form-control" id="packageQuota" name="packageQuota">
-                                </div>
                                 <div class="col-md-3 col-6">
                                     <br>
-                                   <button class="btn btn-success" type="button" onclick="addTest()">Add procedures</button>
+                                   <button class="btn btn-success" type="button" onclick="addTest()">Map discount</button>
                                 </div>
                                 
                             </div>

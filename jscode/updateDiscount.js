@@ -3,7 +3,7 @@ $('#updatePackage').on('submit', function(e) {
     var fdata = new FormData(this);
     fdata.append('Id', udiscount);
     $.ajax({
-        url: url + 'updatePackage.php',
+        url: url + 'updateDiscount.php',
         type: 'POST',
         data: fdata,
         cache: false,

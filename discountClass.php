@@ -120,7 +120,6 @@ if(isset($_SESSION['branchId'])){
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
         <script src="jscode/getBranches.js"></script>
-        <script src="jscode/getDiscount.js"></script>
         <script src="jscode/class-discount.js"></script>
         <?php include 'add-discount.php';?>
     </body>

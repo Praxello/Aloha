@@ -3,7 +3,7 @@ $('#packageForm').on('submit', function(e) {
     $("#packageForm").validate({
         ignore: [],
         rules: {
-            dicountTitle: {
+            discountTitle: {
                 required: true
 
             },
@@ -13,7 +13,7 @@ $('#packageForm').on('submit', function(e) {
 
         },
         messages: {
-            dicountTitle: {
+            discountTitle: {
                 required: "Please enter Discount Title"
 
             },
@@ -43,10 +43,10 @@ $('#packageForm').on('submit', function(e) {
                         timer: 1500
                     });
                     $('#packageForm').trigger('reset');
+                    $('#discountTitle').val('').trigger('change');
                     $('#demoModal').modal('hide');
                     discount.set(response.Data.Id, response.Data);
                     listDiscount(discount);
-
                 } else {
                     swal({
                         position: 'top-end',

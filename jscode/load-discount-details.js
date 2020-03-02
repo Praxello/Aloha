@@ -15,7 +15,20 @@ $("#branch").select2({
     allowClear: true
 });
 show_details(udiscount);
+mapDiscounts(discounts);
 
+function mapDiscounts(discounts) {
+    var dropdownList = '<option></option>';
+    for (let k of discounts.keys()) {
+        let discount = discounts.get(k);
+        dropdownList += '<option value="' + k + '">' + discount.discountType + ' (' + discount.discount + '%)</option>';
+    }
+    $('#discountType').html(dropdownList);
+    $("#discountType").select2({
+        placeholder: 'Select discount type',
+        allowClear: true
+    });
+}
 
 function listDetails(details) {
     $('#packageTest').dataTable().fnDestroy();
@@ -43,97 +56,30 @@ function listDetails(details) {
 }
 
 
-function addPackagetoBranch() {
-    $("#addpackagebranch").validate({
-        ignore: [],
-        rules: {
-            branchId: {
-                required: true,
-            },
-            packageDiscount: {
-                required: true,
-                number: true,
-                min: 0,
-                max: 99
-            },
-        },
-        messages: {
-            branchId: {
-                required: "Select from list"
-            },
-            packageDiscount: {
-                required: "Please enter quota",
-                number: 'Enter only digits',
-                min: 'Minimum discount is 0%',
-                max: 'Maximum discount can not exceed 99%'
-            },
-        }
-    });
-    var returnVal = $("#addpackagebranch").valid();
-    if (returnVal) {
-        const details = {
-            branchId: $('#branchId').val(),
-            packageDiscount: $('#packageDiscount').val(),
-            packageId: packageId_u
-        };
-        $.ajax({
-            url: url + 'addPackage-branchMapping.php',
-            type: 'POST',
-            data: details,
-            dataType: 'json',
-            success: function(response) {
-                swal({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: response.Message,
-                    button: false,
-                    timer: 1500
-                });
-                if (response.Responsecode == 200) {
-                    package_branches.set(response.Data.mapId, response.Data);
-                    $('#branchId').val('').trigger('change');
-                    $('#packageDiscount').val('');
-                }
-                list_package_branches(package_branches);
-            }
-        });
-    }
-}
 
 
 function addTest() {
     $("#addPackageDetails").validate({
         ignore: [],
         rules: {
-            test: {
+            discountType: {
                 required: true,
-            },
-            packageQuota: {
-                required: true,
-                number: true,
-                min: 0
-            },
+            }
         },
         messages: {
-            test: {
+            discountType: {
                 required: "Select from list"
-            },
-            packageQuota: {
-                required: "Please enter quota",
-                number: 'Enter only digits',
-                min: 'Enter valid quota'
-            },
+            }
         }
     });
     var returnVal = $("#addPackageDetails").valid();
     if (returnVal) {
         const details = {
-            testId: $('#test').val(),
-            quota: $('#packageQuota').val(),
-            packageId: packageId_u
+            discountId: $('#discountType').val(),
+            classId: udiscount
         };
         $.ajax({
-            url: url + 'addPackage-test.php',
+            url: url + 'addDiscountmap.php',
             type: 'POST',
             data: details,
             dataType: 'json',
@@ -146,11 +92,12 @@ function addTest() {
                     timer: 1500
                 });
                 if (response.Responsecode == 200) {
-                    package_tests.set(response.Data.itemId, response.Data);
-                    $('#test').val('').trigger('change');
-                    $('#packageQuota').val('');
+                    let package = discount.get(udiscount);
+                    package.details = response.Data.details;
+                    discount.set(udiscount, package);
+                    listDetails(package.details);
+                    $('#discountType').val('').trigger('change');
                 }
-                list_package_test(package_tests);
             }
         });
     }

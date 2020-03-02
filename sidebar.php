@@ -71,6 +71,9 @@
                 <div class="nav-item">
                     <a href="discountMaster.php"><i class="fa fa-percent"></i><span>Discount Master</span></a>
                 </div>
+                <div class="nav-item">
+                    <a href="discountClass.php"><i class="fa fa-percent"></i><span>Discount Class</span></a>
+                </div>
                 <?php 
                 }
                 }
