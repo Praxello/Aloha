@@ -13,8 +13,6 @@ if (isset($_POST['userId']) && isset($_POST['upassword']) && isset($_POST['oldpa
   
     
     $query = mysqli_query($conn, $sql);
-    
-    $rowsAffected = mysqli_affected_rows($conn);
     if ($query!=null) {
         if (isset($_FILES["imgname"]["type"])) {
             $imgname    = $_FILES["imgname"]["name"];

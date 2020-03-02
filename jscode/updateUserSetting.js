@@ -4,17 +4,17 @@ $('#usersettingForm').on('submit', function(e) {
     var returnVal = $("#usersettingForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-   
-        fData.append('userId',data.userId);
-   
-   
+
+        fData.append('userId', data.userId);
+
+
 
         $.ajax({
             url: url + 'userSettingUpdate.php',
             type: 'POST',
             data: fData,
             processData: false,
-           contentType: false,
+            contentType: false,
             dataType: 'json',
             success: function(response) {
                 if (response.Responsecode == 200) {
