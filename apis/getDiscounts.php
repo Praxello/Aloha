@@ -7,7 +7,8 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['branchId'])){
-$sql = "SELECT * FROM DiscountMaster WHERE branchId = $branchId";
+$sql = "SELECT dm.discountType,dm.discountId,dm.discount FROM classDiscountMapping cd INNER JOIN DiscountMaster dm ON dm.discountId = cd.discountId INNER JOIN DiscountMapping dmm
+ON dmm.Id = cd.classId WHERE dmm.branchId = $branchId";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

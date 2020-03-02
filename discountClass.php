@@ -30,9 +30,6 @@ if(isset($_SESSION['branchId'])){
     </head>
 
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
         <div class="wrapper">
           <?php include 'header.php';?>
@@ -47,8 +44,7 @@ if(isset($_SESSION['branchId'])){
                                     <div class="page-header-title">
                                         <i class="ik ik-package bg-blue"></i>
                                         <div class="d-inline">
-                                            <h5><u>Package Master</u></h5>
-                                            <span>create an package</span>
+                                            <h5><u>Discount</u></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -59,7 +55,7 @@ if(isset($_SESSION['branchId'])){
                                                 <a href="index.php"><i class="ik ik-home"></i></a>
                                             </li>
                                             <li class="breadcrumb-item">
-                                                <a href="#">Package</a>
+                                                <a href="#">Discount Class</a>
                                             </li>
                                            
                                         </ol>
@@ -73,7 +69,7 @@ if(isset($_SESSION['branchId'])){
                             <button type="button" class="btn  btn-success" style="float: right;" onclick="addPackage()">Add New</button>
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3>Packages</h3>
+                                        <h3>Discount</h3>
                                     </div>
                                     <div class="card-block table-responsive">
                                     <div class="dt-responsive tbl" >
@@ -81,10 +77,8 @@ if(isset($_SESSION['branchId'])){
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Package</th>
-                                            <th>Cost</th>
-                                            <th>Package Details</th>
-                                            <th>Status</th>
+                                            <th>Discount Class</th>
+                                            <th>Branch</th>
                                             <th class="nosort"> Action</th>
                                         </tr>
                                     </thead>
@@ -126,9 +120,9 @@ if(isset($_SESSION['branchId'])){
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
         <script src="jscode/getBranches.js"></script>
-        <script src="jscode/getAllTests.js"></script>
-        <script src="jscode/package-master.js"></script>
-        <?php include 'addPackage.php';?>
+        <script src="jscode/getDiscount.js"></script>
+        <script src="jscode/class-discount.js"></script>
+        <?php include 'add-discount.php';?>
     </body>
 
 </html>

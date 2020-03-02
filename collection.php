@@ -162,7 +162,7 @@ if(isset($_SESSION['branchId'])){
                 today: '<?php echo date('Y-m-d');?>',
                 role:'<?php echo $_SESSION['role'];?>'
             };
-            if(role == 1){
+            if(data.role == 1){
                 $('#bshow').show();
             }
 

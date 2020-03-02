@@ -7,7 +7,7 @@ $response = null;
 $records  = null;
 $temparray = null;
 $tempMedicines = null;
-$sql = "SELECT dm.Id,dm.ClassType,hb.branchName FROM DiscountMapping dm INNER JOIN hospital_branch_master hb ON hb.branchId = dm.branchId";
+$sql = "SELECT dm.Id,dm.ClassType,hb.branchName,dm.branchId FROM DiscountMapping dm INNER JOIN hospital_branch_master hb ON hb.branchId = dm.branchId";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
