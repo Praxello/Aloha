@@ -4,21 +4,19 @@ $('#usersettingForm').on('submit', function(e) {
     var returnVal = $("#usersettingForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-   
-        fData.append('userId',userId_np);
-   
-   
+
+        fData.append('userId', data.userId);
 
         $.ajax({
             url: url + 'userSettingUpdate.php',
             type: 'POST',
             data: fData,
             processData: false,
-           contentType: false,
+            contentType: false,
             dataType: 'json',
             success: function(response) {
                 if (response.Responsecode == 200) {
-                     alert(response);
+                    alert(response);
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -26,9 +24,9 @@ $('#usersettingForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                if(response.Data!=null){
-                    users.set(response.Data.userId, response.Data);
-                }
+                    if (response.Data != null) {
+                        users.set(response.Data.userId, response.Data);
+                    }
 
                 } else {
                     swal({

@@ -7,14 +7,11 @@ $response = null;
 $records  = null;
 extract($_POST);
 $dir = '../upload/user/';
-if (isset($_POST['userId']) && isset($_POST['password']) ) {
+if (isset($_POST['userId']) && isset($_POST['password']) && isset($_POST['newpassword'])) {
    
-    $sql = "UPDATE  user_master SET password='$password' WHERE userId='$userId'";
-  
+    $sql = "UPDATE user_master SET password='$password' WHERE userId='$userId' AND password = '$newpassword'";
     
     $query = mysqli_query($conn, $sql);
-    
-    $rowsAffected = mysqli_affected_rows($conn);
     if ($query!=null) {
     
         if (isset($_FILES["imgname"]["type"])) {
@@ -34,6 +31,7 @@ if (isset($_POST['userId']) && isset($_POST['password']) ) {
         $response = array(
             'Message' => "User Details updated successfully",
             "Data" => $records,
+            'Sql'=>$sql,
             'Responsecode' => 200
         );
         

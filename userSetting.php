@@ -76,7 +76,7 @@ if(isset($_SESSION['branchId'])){
                                             <div class="form-group row">
                                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label"> Old Password</label>
                                                     <div class="col-sm-9">
-                                                    <input type="password" id="newpassword" name="password" class="form-control" placeholder="Password">
+                                                    <input type="password" id="newpassword" name="newpassword" class="form-control" placeholder="Password">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
