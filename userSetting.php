@@ -64,21 +64,25 @@ if(isset($_SESSION['branchId'])){
                                 <div class="row">      
                                      <div class=col-md-4>           
                                             <div class="form-group row">
-                                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">User Name <span id="username"></span></label>
-                                                    <!-- <div class="col-sm-9">
-                                                    <input type="text" id="username" name="username" class="form-control" placeholder="User Name" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
-                                                </div> -->
+                                                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">User Name</label>
+                                                    <div class="col-sm-4">
+                                                        <span id="username1"></span>
+                                                </div>
+                                                <label for="exampleInputUsername2" class="col-sm-2 col-form-label">Mobile</label>
+                                                    <div class="col-sm-3">
+                                                        <span id="mobile"></span>
+                                                </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label"> Old Password</label>
                                                     <div class="col-sm-9">
-                                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                                    <input type="password" id="newpassword" name="password" class="form-control" placeholder="Password">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label">New Password</label>
                                                     <div class="col-sm-9">
-                                                    <input type="password" id="newpassword" name="password" class="form-control" placeholder="Password">
+                                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -90,42 +94,25 @@ if(isset($_SESSION['branchId'])){
                                     </div>
                              
                                  
-                                     <div class=col-md-6>  
+                                     <div class=col-md-6 >  
 
+                                     <div class="profiletimeline mt-0" id="uploadProfile">
 
-                                     <img src="" class="rounded-circle img-fluid mb-20" width="150" height="150" id="reffredJpg" style="padding-block-end: 10px;">
+                                            <div class="text-center">
+                                                         <img src="img/user.jpg" class="rounded-circle img-fluid mb-20" width="150" height="150" id="userJpg" style="padding-block-end: 10px;">
 
                                         <div class="row text-center justify-content-md-center">
-                                                <div class="form-group">
-                                                       <input type="file" name="imgProfile" id="imgProfile" class="form-control" onchange="loadpic(event)">
-                                                        </div>
-                                                </div>
-                                    
+                                           <div class="form-group">
+                                        <input type="file" name="imgProfile" id="imgProfile" class="form-control" onchange="loadFile(event)" accept="image/x-png,image/gif,image/jpeg">
+                                             </div>
+                                             </div>
+                                        </div>
+
+                                        <!-- <button class="btn btn-success" type="submit">Update profile picture</button> -->
+                                            </div>
                                      </div>
                                 </div>
-                                                            <!-- <div class="row">
-
-                                                                <div class="col-md-4">
-                                                                <div class="form-group">
-                                                                     <label for="username" >User Name</label>
-                                                                     <input type="text" id="username" name="username" class="form-control" placeholder="User Name" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="latitude">Password</label>
-                                                                        <input type="password" id="password" name="password" class="form-control" placeholder="Password">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <div class="form-group">
-                                                                        <label for="latitude"   >Confirm Password</label>
-                                                                        <input type="password" id="conpassword1" name="conpassword" class="form-control" placeholder="Password">
-                                                                    </div>
-                                                                </div>
-
-                                                            </div> -->
+                                                         
                                                             <!-- <div class="row">
 
                                                                 <div class="col-md-4">
@@ -211,8 +198,8 @@ if(isset($_SESSION['branchId'])){
                                                                 </div>
                                                             </div> -->
 
-                                                            <!-- <button class="btn btn-success" type="submit">Update User</button>
-                                                            <button class="btn btn-success" type="button" onclick="gobackUser()">Cancel</button> -->
+                                                            <button class="btn btn-success" type="submit">Update User</button>
+                                                            <button class="btn btn-success" type="button" onclick="gobackUser()">Cancel</button>
 
                                                         </form>
                                                     </div>
@@ -269,9 +256,11 @@ if(isset($_SESSION['branchId'])){
            
                 <script src="js/jquery.validate.js"></script>
             <script src="jscode/userSetting_validation.js"></script>
-         
+            <script src="jscode/loadFile.js"></script>
             <script src="jscode/getUserSetting.js"></script>
-
+            <script src="jscode/uploadProfile.js"></script>
+            <script src="jscode/updateUserSetting.js"></script>
+           
     </body>
 
     </html>
