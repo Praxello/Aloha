@@ -82,13 +82,13 @@ if(isset($_SESSION['branchId'])){
                                            
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-2">
+                                                    <div class="col-sm-2" style="display: none;" id="bshow">
                                                         <div class="form-group">
                                                             <label for="">Branch</label>
                                                             <select name="branch" id="branch" style="width: 100%;" class="form-control"></select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-2" style="margin-top: 16px;">
+                                                    <div class="col-sm-2" style="margin-top: 16px;" >
                                                         <div class="form-group" style="margin-top: 20px;">
                                                             <button class="btn  btn-primary" type="button" id="searchCollection">Search</button>
                                                         </div>
@@ -159,8 +159,12 @@ if(isset($_SESSION['branchId'])){
                 userId: <?php echo $_SESSION['userId'];?>,
                 branchId: <?php echo $_SESSION['branchId'];?>,
                 username: '<?php echo $_SESSION['username'];?>',
-                today: '<?php echo date('Y-m-d');?>'
+                today: '<?php echo date('Y-m-d');?>',
+                role:'<?php echo $_SESSION['role'];?>'
             };
+            if(role == 1){
+                $('#bshow').show();
+            }
 
             $.datetimepicker.setLocale('en');
             jQuery('#fromDate').datetimepicker({
