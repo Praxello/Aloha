@@ -62,13 +62,13 @@ if(isset($_SESSION['branchId'])){
                                                         <form class="forms-sample" id="usersettingForm" method="POST" enctype="multipart/form-data">
                                            
                                 <div class="row">      
-                                     <div class=col-md-4>           
+                                     <div class=col-md-6>           
                                             <div class="form-group row">
                                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label">User Name</label>
                                                     <div class="col-sm-4">
                                                         <span id="username1"></span>
                                                 </div>
-                                                <label for="exampleInputUsername2" class="col-sm-2 col-form-label">Mobile</label>
+                                                <label for="exampleInputUsername2" class="col-sm-2 col-form-label">Mobile No.</label>
                                                     <div class="col-sm-3">
                                                         <span id="mobile"></span>
                                                 </div>
@@ -76,13 +76,13 @@ if(isset($_SESSION['branchId'])){
                                             <div class="form-group row">
                                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label"> Old Password</label>
                                                     <div class="col-sm-9">
-                                                    <input type="password" id="newpassword" name="password" class="form-control" placeholder="Password">
+                                                    <input type="password" id="oldpassword" name="oldpassword" class="form-control" placeholder="Password">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="exampleInputUsername2" class="col-sm-3 col-form-label">New Password</label>
                                                     <div class="col-sm-9">
-                                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                                                    <input type="password" id="upassword" name="upassword" class="form-control" placeholder="Password">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -96,10 +96,10 @@ if(isset($_SESSION['branchId'])){
                                  
                                      <div class=col-md-6 >  
 
-                                     <div class="profiletimeline mt-0" id="uploadProfile">
+                                     <div class="profiletimeline mt-0">
 
                                             <div class="text-center">
-                                                         <img src="img/user.jpg" class="rounded-circle img-fluid mb-20" width="150" height="150" id="userJpg" style="padding-block-end: 10px;">
+                                            <img src="img/user.jpg" class="rounded-circle img-fluid mb-20" width="150" height="150" id="userJpg" style="padding-block-end: 10px;">
 
                                         <div class="row text-center justify-content-md-center">
                                            <div class="form-group">
@@ -199,7 +199,7 @@ if(isset($_SESSION['branchId'])){
                                                             </div> -->
 
                                                             <button class="btn btn-success" type="submit">Update User</button>
-                                                            <button class="btn btn-success" type="button" onclick="gobackUser()">Cancel</button>
+                                                            <button class="btn btn-success" type="button" onclick="gobackN()">Cancel</button>
 
                                                         </form>
                                                     </div>
@@ -258,8 +258,13 @@ if(isset($_SESSION['branchId'])){
             <script src="jscode/userSetting_validation.js"></script>
             <script src="jscode/loadFile.js"></script>
             <script src="jscode/getUserSetting.js"></script>
-            <script src="jscode/uploadProfile.js"></script>
+            <script src="jscode/uploadUserPic.js"></script>
             <script src="jscode/updateUserSetting.js"></script>
+            <script>
+                function gobackN(){
+                    $('#pills-tabContent').hide();
+                }
+                </script>
            
     </body>
 

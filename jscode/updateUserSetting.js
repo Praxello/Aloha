@@ -5,7 +5,7 @@ $('#usersettingForm').on('submit', function(e) {
     if (returnVal) {
         var fData = new FormData(this);
    
-        fData.append('userId',userId_np);
+        fData.append('userId',data.userId);
    
    
 

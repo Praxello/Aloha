@@ -3,18 +3,18 @@ $(function() {
         ignore: [],
         rules: {
      
-            password :{
+            upassword :{
                 required :true
             },
             conpassword :{
-                equalTo: "#password",
+                equalTo: "#upassword",
                 required:true
             }
           
         },
         messages: {
           
-            password :{
+            upassword :{
                 required : "Please Enter the Password"
             },
             conpassword :{
