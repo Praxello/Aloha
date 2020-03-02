@@ -5,10 +5,12 @@ include "../connection.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
+$temparray  = null;
+$tempMedicines = null;
 extract($_POST);
 if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
 $sql = "SELECT opm.paymentId,opm.recieptId,opm.originalAmt,opm.total,opm.discount,opm.received,opm.pending,DATE_FORMAT(opm.visitDate,'%d %b %Y') visitDate,opm.isPackage,opm.packageId,opm.isDeleted,
-pm.firstName,pm.surname,um.username,hp.branchName,DATE_FORMAT(opt.paymentDate,'%d %b %Y') createdAt,COALESCE(dm.discountType,'-') discountType,opt.amount,opt.paymentDate,opt.receivedBy,opt.paymentMode
+pm.firstName,pm.surname,um.username,hp.branchName,DATE_FORMAT(opt.paymentDate,'%d %b %Y') createdAt,COALESCE(CONCAT(dm.discountType,'(',opm.discount,')'),'-') discountType,opt.amount,opt.paymentDate,opt.receivedBy,opt.paymentMode
 FROM opd_payment_transaction_master opt INNER JOIN opd_patient_payment_master opm  ON opt.paymentId = opm.paymentId LEFT JOIN patient_master pm ON pm.patientId = opm.patientId
 LEFT JOIN user_master um ON um.userId = opm.doctorId
 LEFT JOIN hospital_branch_master hp ON hp.branchId = opm.branchId
@@ -23,7 +25,23 @@ if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
     if ($academicAffected > 0) {
         while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
-            $records[] = $academicResults;
+            $paymentId = $academicResults['paymentId'];
+        
+            $billDetails = [];
+            $query = "SELECT bd.feesType FROM Bill_Details bd WHERE paymentId = $paymentId";
+            $jobQuery_1 = mysqli_query($conn, $query);
+            if ($jobQuery_1 != null) {
+                $academicAffected_1 = mysqli_num_rows($jobQuery_1);
+                if ($academicAffected_1 > 0) {
+                    while ($academicResults_1 = mysqli_fetch_assoc($jobQuery_1)) {
+                        $billDetails[] = $academicResults_1['feesType'];
+                    }
+                }
+            }
+            $str = implode(',',$billDetails);
+            $temparray =  array("billdetails"=>$str);
+            $tempMedicines =  array_merge($academicResults,$temparray);	
+            $records[] = $tempMedicines;
         }
         
         $response = array(

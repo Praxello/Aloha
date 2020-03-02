@@ -105,11 +105,12 @@ if(isset($_SESSION['branchId'])){
                                                         <thead>
                                                             <tr>
                                                                 <th>Reciept Id</th>
-                                                                <th>Visit Date</th>
+                                                                <th>Payment Date</th>
                                                                 <th>Patient Name</th>
                                                                 <th>Doctor Name</th>
                                                                 <th>Discount Type</th>
-                                                                <th>Payment</th>
+                                                                <th>Payment Type</th>
+                                                                <th>Bill Details</th>
                                                                 <th>Amount</th>
                                                                 <th>Payment Mode</th>
                                                                 <th>Recieved by</th>
@@ -125,6 +126,7 @@ if(isset($_SESSION['branchId'])){
                                                                 <th></th>
                                                                 <th></th>
                                                                 <th></th>
+                                                               <th></th>
                                                                <th></th>
                                                                 <th>Total</th>
                                                                 <th id="amtO"></th>

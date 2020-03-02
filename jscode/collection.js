@@ -30,6 +30,7 @@ const getCollection = (fromDate, uptoDate, branch) => {
                     tblData += '<td>' + collect.username + '</td>';
                     tblData += '<td>' + collect.discountType + '</td>';
                     tblData += '<td>' + badge + '</td>';
+                    tblData += '<td>' + collect.billdetails + '</td>';
                     tblData += '<td>' + parseFloat(collect.amount).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) + '</td>';
                     tblData += '<td>' + collect.paymentMode + '</td>';
                     tblData += '<td>' + collect.receivedBy + '</td>';
