@@ -630,21 +630,21 @@
                                                         <span class="cr">
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
-                                                        <span>Red</span>
+                                                        <span>Good</span>
                                                     </label>
                                                     <label>
                                                         <input type="checkbox" value="Fair" name="cerStanding">
                                                         <span class="cr">
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
-                                                        <span>Acc</span>
+                                                        <span>Fair</span>
                                                     </label>
                                                     <label>
                                                         <input type="checkbox" value="poor" name="cerStanding">
                                                         <span class="cr">
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
-                                                        <span>Normal</span>
+                                                        <span>Poor</span>
                                                     </label>
 
                                                 </div>

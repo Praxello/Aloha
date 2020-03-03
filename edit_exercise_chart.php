@@ -11,7 +11,7 @@
 <div class="main-content">
     <div class="container-fluid">
    
-        <div class="col-lg-6 col-md-7">
+        <div class="col-lg-8 col-md-7">
             <div class="card">
                 <ul class="nav nav-pills custom-pills t1" id="pills-tab" role="tablist">
                     <!-- <li class="nav-item">
