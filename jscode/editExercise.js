@@ -1,4 +1,5 @@
 var loadexeDetails = details => {
+    console.log(details);
     $('#title1').val(details.title);
     $('#details1').val(details.details);
 

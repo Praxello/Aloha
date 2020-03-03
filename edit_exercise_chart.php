@@ -57,7 +57,7 @@
                         <div class="col-md-4">
                         <div class="text-center">
                                            
-                                           <img src="upload/exercise/<?php echo $_SESSION['id'];?>.jpg" class="rounded-circle img-fluid mb-20" width="150" height="150" id="userJpg" style="padding-block-end: 10px;">
+                                           <img alt="No image" class="rounded-circle img-fluid mb-20" width="150" height="150" id="userJpg" style="padding-block-end: 10px;">
 
                                        <div class="row text-center justify-content-md-center">
                                           <div class="form-group">
