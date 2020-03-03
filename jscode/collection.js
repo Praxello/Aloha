@@ -193,9 +193,6 @@ function chart_consult(seriesData, categories) {
         },
         yAxis: {
             min: 0,
-            title: {
-                text: 'Rainfall (mm)'
-            }
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -229,9 +226,6 @@ function chart_package(seriesData, categories) {
         },
         yAxis: {
             min: 0,
-            title: {
-                text: 'Rainfall (mm)'
-            }
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',

@@ -19,8 +19,13 @@ $('#updatePackage').on('submit', function(e) {
                     button: false,
                     timer: 1500
                 });
-                discount.set(response.Data.Id, response.Data);
-                listDiscount(discount);
+                if (discount.has(udiscount)) {
+                    let package = discount.get(udiscount);
+                    package.ClassType = response.Data.ClassType;
+                    package.branchName = response.Data.branchName;
+                    discount.set(udiscount, package);
+                    listDiscount(discount);
+                }
             } else {
                 swal({
                     position: 'top-end',

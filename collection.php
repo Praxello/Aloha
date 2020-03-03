@@ -132,6 +132,7 @@ if(isset($_SESSION['branchId'])){
                                                     <th id="amtO"></th>
                                                     <th></th>
                                                     <th></th>
+                                                    <th></th>
                                                     <th class="nosort"></th>
                                                 </tfoot>
                                             </table>

@@ -1,6 +1,5 @@
 function show_details(discountId) {
     let package = discount.get(discountId);
-    console.log(package);
     $('#pName').html(package.ClassType);
     $('#pCost').html(package.branchName);
     $('#disTitle').val(package.ClassType);
@@ -31,15 +30,16 @@ function mapDiscounts(discounts) {
 }
 
 function listDetails(details) {
+    console.log(details);
     $('#packageTest').dataTable().fnDestroy();
     $('#packageTestData').empty();
     var tblData = '';
     var count = details.length;
     for (var i = 0; i < count; i++) {
-        tblData += '<tr><td>' + (i + 1) + '</td><td>' + details[i].discountType + '</td>';
+        tblData += '<tr id="' + details[i].Id + '"><td>' + (i + 1) + '</td><td>' + details[i].discountType + '</td>';
         tblData += '<td>' + details[i].discount + '</td>';
         tblData += '<td><div class="table-actions">';
-        tblData += '<a href="#" onclick="removeTest(' + details[i].classId + ')" title="Remove Discount"><i class="ik ik-trash"></i></a>';
+        tblData += '<a href="#" onclick="removeTest(' + details[i].Id + ')" title="Remove Discount"><i class="ik ik-trash"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#packageTestData').html(tblData);
@@ -106,7 +106,7 @@ function addTest() {
 function removeTest(classId) {
     swal({
             title: "Are you sure?",
-            text: 'To remove procedures from this package',
+            text: 'To remove discount type from this class',
             icon: "warning",
             buttons: ["Cancel", 'Remove Now'],
             dangerMode: true,
@@ -115,7 +115,7 @@ function removeTest(classId) {
             if (willDelete) {
                 classId = classId.toString();
                 $.ajax({
-                    url: url + 'removePackageTest.php',
+                    url: url + 'removeDiscountMap.php',
                     type: 'POST',
                     data: { Id: classId },
                     dataType: 'json',
@@ -127,10 +127,7 @@ function removeTest(classId) {
                             button: false,
                             timer: 1500
                         });
-                        if (response.Responsecode == 200) {
-                            package_tests.delete(classId);
-                        }
-                        list_package_test(package_tests);
+                        $("#packageTest tr#" + classId + "").remove();
                     }
                 });
             }

@@ -14,8 +14,7 @@ if (isset($_POST['disTitle']) && isset($_POST['branch']) && isset($_POST['Id']))
     
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-        $Id = $conn->insert_id;
-       $query = "SELECT dm.Id,dm.ClassType,hb.branchName FROM DiscountMapping dm INNER JOIN hospital_branch_master hb ON hb.branchId = dm.branchId WHERE dm.Id= $Id";
+       $query = "SELECT dm.Id,dm.ClassType,hb.branchName,dm.branchId FROM DiscountMapping dm INNER JOIN hospital_branch_master hb ON hb.branchId = dm.branchId WHERE dm.Id= $Id";
         $academicQuery = mysqli_query($conn, $query);
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);

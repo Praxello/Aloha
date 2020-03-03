@@ -16,7 +16,7 @@ if ($jobQuery != null) {
             $Id = $academicResults['Id'];
         
             $billDetails = null;
-            $query = "SELECT dm.discountType,dm.discount,cd.classId FROM classDiscountMapping cd INNER JOIN DiscountMaster dm ON dm.discountId = cd.discountId WHERE cd.classId = $Id";
+            $query = "SELECT dm.discountType,dm.discount,cd.classId,cd.Id FROM classDiscountMapping cd INNER JOIN DiscountMaster dm ON dm.discountId = cd.discountId WHERE cd.classId = $Id";
             $jobQuery_1 = mysqli_query($conn, $query);
             if ($jobQuery_1 != null) {
                 $academicAffected_1 = mysqli_num_rows($jobQuery_1);
