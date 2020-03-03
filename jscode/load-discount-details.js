@@ -39,7 +39,7 @@ function listDetails(details) {
         tblData += '<tr><td>' + (i + 1) + '</td><td>' + details[i].discountType + '</td>';
         tblData += '<td>' + details[i].discount + '</td>';
         tblData += '<td><div class="table-actions">';
-        tblData += '<a href="#" onclick="removeBranchPackage(' + details[i].classId + ')" title="Remove Branch"><i class="ik ik-trash"></i></a>';
+        tblData += '<a href="#" onclick="removeTest(' + details[i].classId + ')" title="Remove Discount"><i class="ik ik-trash"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#packageTestData').html(tblData);
@@ -103,7 +103,7 @@ function addTest() {
     }
 }
 
-function removeTest(testId) {
+function removeTest(classId) {
     swal({
             title: "Are you sure?",
             text: 'To remove procedures from this package',
@@ -113,11 +113,11 @@ function removeTest(testId) {
         })
         .then((willDelete) => {
             if (willDelete) {
-                testId = testId.toString();
+                classId = classId.toString();
                 $.ajax({
                     url: url + 'removePackageTest.php',
                     type: 'POST',
-                    data: { itemId: testId },
+                    data: { Id: classId },
                     dataType: 'json',
                     success: function(response) {
                         swal({
@@ -128,7 +128,7 @@ function removeTest(testId) {
                             timer: 1500
                         });
                         if (response.Responsecode == 200) {
-                            package_tests.delete(testId);
+                            package_tests.delete(classId);
                         }
                         list_package_test(package_tests);
                     }
