@@ -23,7 +23,7 @@
                     <a href="callCenter.php"><i class="ik ik-phone-forwarded"></i><span>Call Center</span></a>
                 </div>
                 <div class="nav-item">
-                    <a href="collection.php"><i class="fa fa-money"></i><span>Collection</span></a>
+                    <a href="collection.php"><i class="fas fa-money-bill"></i><span>Collection</span></a>
                 </div>
                 <?php 
                 if($_SESSION['role'] !=2){?>
@@ -75,7 +75,7 @@
                     <a href="discountClass.php"><i class="fa fa-percent"></i><span>Discount Class</span></a>
                 </div>
                 <div class="nav-item">
-                    <a href="exerciseChart.php"><i class="fa fa-percent"></i><span>Exercise Chart</span></a>
+                    <a href="exerciseChart.php"><i class="fas fa-running"></i><span>Exercise Chart</span></a>
                 </div>
                
                 <?php 
