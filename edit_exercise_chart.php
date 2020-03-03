@@ -61,7 +61,7 @@
 
                                        <div class="row text-center justify-content-md-center">
                                           <div class="form-group">
-                                       <input type="file" name="imgPic" id="imgPic1" class="form-control" onchange="loadFile(event)" accept="image/x-png,image/gif,image/jpeg">
+                                       <input type="file" name="userPic" id="userPic" class="form-control" onchange="loadFile(event)" accept="image/x-png,image/gif,image/jpeg">
                                             </div>
                                             </div>
                                        </div>

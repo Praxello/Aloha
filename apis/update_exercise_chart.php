@@ -6,15 +6,25 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
+$dir = '../upload/patients/';
 if (isset($_POST['id'])) {
     
     $sql = "UPDATE exercise_photo_master SET title='$title',details='$details' WHERE id = $id";
-  
-    
+ 
     $query = mysqli_query($conn, $sql);
     if($query!=null){
+        
+   if (isset($_FILES["userPic"]["type"])) {
+    
+    $imgname    = $_FILES["userPic"]["name"];
+    $sourcePath = $_FILES['userPic']['tmp_name']; // Storing source path of the file in a variable
+    $targetPath = $dir . $id . ".jpg"; // Target path where file is to be stored
+    move_uploaded_file($sourcePath, $targetPath);
+      
+   }
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
+
      $sql = "SELECT * FROM  exercise_photo_master  where id = $id";
         $academicQuery = mysqli_query($conn,$sql);
         if ($academicQuery != null) {
@@ -25,7 +35,7 @@ if (isset($_POST['id'])) {
             }
         
         $response = array(
-            'Message' => "Update Complaints Successfull",
+            'Message' => "Update exercise Successfull",
             "Data" => $records,
             "sql" => $sql,
             'Responsecode' => 200

@@ -20,9 +20,9 @@ if ( isset($_POST['title'])) {
     
     if ($rowsAffected == 1) {
         $id     = $conn->insert_id;
-        if (isset($_FILES["imgPic"]["type"])) {
-            $imgname    = $_FILES["imgPic"]["name"];
-            $sourcePath = $_FILES['imgPic']['tmp_name']; // Storing source path of the file in a variable
+        if (isset($_FILES["userPic"]["type"])) {
+            $imgname    = $_FILES["userPic"]["name"];
+            $sourcePath = $_FILES['userPic']['tmp_name']; // Storing source path of the file in a variable
             $targetPath = $dir . $id . ".jpg"; // Target path where file is to be stored
             move_uploaded_file($sourcePath, $targetPath); // Moving Uploaded file
         }
