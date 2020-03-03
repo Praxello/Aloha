@@ -12,7 +12,7 @@ COALESCE(pm.religion,'') religion,COALESCE(pm.landline,'') landline,COALESCE(pm.
 pm.mobile2,pm.referredby,pm.country,pm.pincode,pm.maritalstatus,pm.state,pm.city,pm.cholestrol,pm.diabetes,pm.firstVisitDate,
 pm.lastVisitDate,pm.smoking,pm.alcohol,pm.tobacco,pm.HTN,pm.diabetes,pm.tobacco,COALESCE(DATE_FORMAT(pm.nextVisitDate,'%d %b %Y'),'-') nextVisitDate,
 st.name stateName,ct.name cityName,pm.address FROM patient_master pm 
-LEFT JOIN states st ON st.id = pm.state LEFT JOIN cities ct ON ct.id = pm.city";
+LEFT JOIN states st ON st.id = pm.state LEFT JOIN cities ct ON ct.id = pm.city ORDER BY pm.firstVisitDate DESC";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

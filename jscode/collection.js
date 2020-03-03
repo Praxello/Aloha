@@ -1,3 +1,13 @@
+var category = [];
+var consultData = [];
+var Tamt = [];
+var Ramt = [];
+var newR = [];
+var bPatient = [];
+var pTamt = [];
+var packageT = [];
+var pRamt = [];
+var consultP = [];
 const getCollection = (fromDate, uptoDate, branch) => {
     $.ajax({
         url: url + 'getCollection.php',
@@ -55,8 +65,64 @@ const getCollection = (fromDate, uptoDate, branch) => {
         }
     });
 };
-
-
+const getConsultaion = (fromDate, uptoDate) => {
+    Tamt = [];
+    Ramt = [];
+    newR = [];
+    category = [];
+    bPatient = [];
+    consultData = [];
+    $.ajax({
+        url: url + 'getConsultation.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { fromDate: fromDate, uptoDate: uptoDate },
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                    category.push(response.Data[i].paymentDate);
+                    Tamt.push(parseFloat(response.Data[i].total));
+                    Ramt.push(parseFloat(response.Data[i].amount));
+                    newR.push(parseInt(response.Data[i].newR));
+                    bPatient.push(parseInt(response.Data[i].billedP));
+                }
+                consultData.push({ name: 'New Registration', data: newR });
+                consultData.push({ name: 'Billed Patient', data: bPatient });
+                consultData.push({ name: 'Total Amount', data: Tamt });
+                consultData.push({ name: 'Recieved Amount', data: Ramt });
+            }
+            chart_consult(consultData, category);
+        }
+    });
+};
+const getPackageCollection = (fromDate, uptoDate) => {
+    pTamt = [];
+    packageT = [];
+    pRamt = [];
+    consultP = [];
+    $.ajax({
+        url: url + 'getPackageCollection.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { fromDate: fromDate, uptoDate: uptoDate },
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                    packageT.push(response.Data[i].paymentDate);
+                    pTamt.push(parseFloat(response.Data[i].total));
+                    pRamt.push(parseFloat(response.Data[i].amount));
+                }
+                consultP.push({ name: 'Total Amount', data: pTamt });
+                consultP.push({ name: 'Recieved Amount', data: pRamt });
+            }
+            chart_package(consultP, packageT);
+        }
+    });
+};
+getPackageCollection(data.today, data.today);
+getConsultaion(data.today, data.today);
 $('#searchCollection').on('click', function(e) {
     e.preventDefault();
     $("#callRegister").validate({
@@ -87,6 +153,8 @@ $('#searchCollection').on('click', function(e) {
             branch = $('#branch').val();
         }
         getCollection(fromDate, uptoDate, branch);
+        getConsultaion(fromDate, uptoDate);
+        getPackageCollection(fromDate, uptoDate);
     }
 });
 
@@ -110,3 +178,75 @@ $(document).ready(function() {
         allowClear: true
     });
 });
+
+function chart_consult(seriesData, categories) {
+    Highcharts.chart('high', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'OPD Payment'
+        },
+        xAxis: {
+            categories: categories,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Rainfall (mm)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: seriesData
+    });
+}
+
+function chart_package(seriesData, categories) {
+    Highcharts.chart('package', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Package Collection'
+        },
+        xAxis: {
+            categories: categories,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Rainfall (mm)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: seriesData
+    });
+}

@@ -29,6 +29,12 @@ if (isset($_POST['userId']) && isset($_POST['passwrd']) && isset($_POST['branchI
                 'Responsecode' => 401
             );
         }
+    }else{
+        $response = array(
+            'Message' => mysqli_error($conn),
+            "Data" => $records,
+            'Responsecode' => 500
+        );
     }
 } else {
     $response = array(
