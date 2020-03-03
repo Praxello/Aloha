@@ -1,22 +1,24 @@
-$('#usersettingForm').on('submit', function(e) {
+$('#exerciseForm').on('submit', function(e) {
     // console.log(e);
     e.preventDefault();
-    var returnVal = $("#usersettingForm").valid();
+  
+    var returnVal = $("#exerciseForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-
-        fData.append('userId', data.userId);
-
+        fData.append('id',exercise_ap);
+        console.log( exercise_ap);
         $.ajax({
-            url: url + 'userSettingUpdate.php',
+            url: url + 'update_exercise_chart.php',
             type: 'POST',
             data: fData,
-            processData: false,
+            cache: false,
             contentType: false,
+            processData: false,
             dataType: 'json',
             success: function(response) {
+                console.log(response);
                 if (response.Responsecode == 200) {
-                  
+                
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -24,11 +26,10 @@ $('#usersettingForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                if(response.Data!=null){
-                    users.set(response.Data.userId, response.Data);
-                }
-                $('#usersettingForm').trigger('reset');
-
+                    $('#idEXE').empty();
+                    $('#exData').show();
+                    exercise.set(response.Data.id,response.Data);
+                    listexercise(exercise);
                 } else {
                     swal({
                         position: 'top-end',
@@ -37,7 +38,6 @@ $('#usersettingForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    // alert(response.Message);
                 }
             }
         });

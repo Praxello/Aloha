@@ -74,6 +74,10 @@
                 <div class="nav-item">
                     <a href="discountClass.php"><i class="fa fa-percent"></i><span>Discount Class</span></a>
                 </div>
+                <div class="nav-item">
+                    <a href="exerciseChart.php"><i class="fa fa-percent"></i><span>Exercise Chart</span></a>
+                </div>
+               
                 <?php 
                 }
                 }

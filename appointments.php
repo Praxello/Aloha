@@ -31,7 +31,7 @@ if (isset($_SESSION['userId'])) {
         <link rel="stylesheet" href="dist/css/jquery-ui.css">
         <link rel="stylesheet" href="plugins/bootstrap-tagsinput/dist/tagsinput.css">
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" /> -->
         <link rel="stylesheet" href="dist/css/loader.css">
         <link rel="stylesheet" href="picker.css">
     </head>
