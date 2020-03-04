@@ -159,7 +159,33 @@ if(isset($_SESSION['branchId'])){
                                         </div>
                                     </div>
                                 </div>
+                                <!-- <div class="card">
+                                   <div class="card-body">
+                                        <div class="dt-responsive tbl">
+                                            <table id="allT" class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Reciept Id</th>
+                                                        <th>Payment Date</th>
+                                                        <th>Patient Name</th>
+                                                        <th>Doctor Name</th>
+                                                        <th>Discount Type</th>
+                                                        <th>Payment Type</th>
+                                                        <th>Bill Details</th>
+                                                        <th>Amount</th>
+                                                        <th>Payment Mode</th>
+                                                        <th>Recieved by</th>
+                                                        <th>Created at</th>
+                                                        <th class="nosort"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="allD">
 
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div> -->
                             </div>
                         </div>
                         <div id="loader"></div>

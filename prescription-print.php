@@ -174,7 +174,7 @@ function fetchmedicinedata($patientId, $visitDate, $doctorId, $flag)
         <td style="width:5%;text-align:center">' . $row['evining'] . '</td>
         <td style="width:5%;text-align:center">' . $row['night'] . '</td>
         <td style="width:5%;text-align:center">' . $row['period'] . '</td>
-        <td style="width:40%;text-align:center">' . $row['instruction'] . '</td>
+        <td style="width:40%;text-align:center">' . strtoupper($row['instruction']) . '</td>
     </tr>';
         }
         $output .= '</tbody></table></div>';
