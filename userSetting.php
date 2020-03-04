@@ -115,7 +115,7 @@ if(isset($_SESSION['branchId'])){
                                                 
 
                                                             <button class="btn btn-success" type="submit">Update</button>
-                                                            <button class="btn btn-success" type="button" onclick="gobackN()">Cancel</button>
+                                                            <!-- <button class="btn btn-success" type="button" onclick="gobackN()">Cancel</button> -->
 
                                                         </form>
                                                     </div>

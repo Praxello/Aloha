@@ -1,4 +1,5 @@
 var concent = new Map();
+var consent_date = moment().format('YYYY-MM-DD');
 var getAllConsentDetails = (u_patientId) => {
     $.ajax({
         url: url + 'getConsentMaster.php',
@@ -33,8 +34,9 @@ function loadConcent(concent) {
 }
 
 function fill_concent(visitDate) {
-    if (concent.has(visitDate)) {
-        var user = concent.get(visitDate);
+    consent_date=visitDate;
+    if (concent.has(consent_date)) {
+        var user = concent.get(consent_date);
         document.getElementById('deseaseNew').value = user.deseaseNew;
         document.getElementById('sinceDays').value = user.sinceDays;
         document.getElementById('relativeName').value = user.relativeName;

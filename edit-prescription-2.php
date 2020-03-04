@@ -609,9 +609,15 @@
         $('#dayOfDate').html(moment(birthDate).format('dddd'));
     }
 //print the reciept
+    // function downloadForm() {
+    //     var visitDate;
+    //     window.open('concentform-print.php?visitDate='+visitDate, '_blank');
+    // }
+
     function downloadForm() {
-        window.open('concentform-print.php?patientId='+u_patientId, '_blank');
-    }
+     
+    window.open('concentform-print.php?patientId='+u_patientId + '&visitDate='+consent_date);
+}
     display(details);
     //display the details of patient fees,name,refferance
     function display(details){

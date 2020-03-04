@@ -9,7 +9,7 @@ $dompdf = new Dompdf();
 
 extract($_GET);
 
-$visitDate = date('Y-m-d');
+$visitDate =$_GET['visitDate'];
 $patientId=  $_GET['patientId'];
 
 function fetchConsentData($patientId,$visitDate)
