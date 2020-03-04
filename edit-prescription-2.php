@@ -649,6 +649,7 @@
 <script src="jscode/insertConsentForm.js"></script>
 <script src="jscode/getPresentIllness.js"></script>
 <script src="jscode/exercise-table.js"></script>
+<script src="jscode/check-exercise.js"></script>
 <script>
     getLumbarSpine(u_patientId);
     getNeckDisblity(u_patientId);

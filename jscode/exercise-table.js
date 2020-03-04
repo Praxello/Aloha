@@ -6,7 +6,6 @@ function initial_exercise() {
         addExercise();
     }
 }
-initial_exercise();
 
 function addExercise() {
     exerciseRow += 1;
@@ -85,30 +84,30 @@ function saveExercise() {
     };
     exerciseData = JSON.stringify(exerciseData);
     console.log(exerciseData);
-    // $.ajax({
-    //     url: url + 'addPrescription.php',
-    //     type: 'POST',
-    //     data: { postdata: exerciseData },
-    //     dataType: 'json',
-    //     success: function(response) {
-    //         if (response.Responsecode == 200) {
-    //             swal({
-    //                 position: 'top-end',
-    //                 icon: 'success',
-    //                 title: response.Message,
-    //                 button: false,
-    //                 timer: 1500
-    //             });
-    //             window.open('prescription-print.php?flag=' + lang_flag + '&patientId=' + response.patientId + '&doctorId=' + response.doctorId + '&visitDate=' + response.vdate);
-    //         } else {
-    //             swal({
-    //                 position: 'top-end',
-    //                 icon: 'warning',
-    //                 title: response.Message,
-    //                 button: false,
-    //                 timer: 1500
-    //             });
-    //         }
-    //     }
-    // });
+    $.ajax({
+        url: url + 'addExercise-prescription.php',
+        type: 'POST',
+        data: { postdata: exerciseData },
+        dataType: 'json',
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                swal({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: response.Message,
+                    button: false,
+                    timer: 1500
+                });
+                //window.open('prescription-print.php?flag=' + lang_flag + '&patientId=' + response.patientId + '&doctorId=' + response.doctorId + '&visitDate=' + response.vdate);
+            } else {
+                swal({
+                    position: 'top-end',
+                    icon: 'warning',
+                    title: response.Message,
+                    button: false,
+                    timer: 1500
+                });
+            }
+        }
+    });
 }
