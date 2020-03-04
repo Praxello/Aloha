@@ -158,6 +158,9 @@
                         <li class="nav-item">
                             <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#present" role="tab" aria-controls="pills-setting" aria-selected="false">Present illness</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#exercise" role="tab" aria-controls="pills-setting" aria-selected="false">Exercise chart</a>
+                        </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
@@ -331,8 +334,8 @@
                             <div id="prevData"></div>
                            
                         </div>
-                        <div class="tab-pane fade" id="last-month" role="tabpanel" aria-labelledby="pills-profile-tab">
-
+                        <div class="tab-pane fade" id="exercise" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <?php include 'exercise-prescription.php';?>
                         </div>
                         <div class="tab-pane fade" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
                             <div class="card-body">
@@ -639,6 +642,7 @@
 <script src="jscode/addPrescription.js"></script>
 <script src="jscode/insertConsentForm.js"></script>
 <script src="jscode/getPresentIllness.js"></script>
+<script src="jscode/exercise-table.js"></script>
 <script>
     getLumbarSpine(u_patientId);
     getNeckDisblity(u_patientId);

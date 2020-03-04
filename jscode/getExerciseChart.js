@@ -1,6 +1,6 @@
 var exercise = new Map();
 var exercise_details = {};
-var  exercise_ap = null;
+var exercise_ap = null;
 
 const getAllExercise = () => {
     $.ajax({
@@ -13,7 +13,7 @@ const getAllExercise = () => {
                 for (var i = 0; i < count; i++) {
                     exercise.set(response.Data[i].id, response.Data[i]);
                 }
-         
+
                 listexercise(exercise);
             }
         }
@@ -24,7 +24,7 @@ const listexercise = exercise => {
     $('#exeTable').dataTable().fnDestroy();
     $('#exeData').empty();
     var tblData = '';
-    for (let k of exercise.keys())   {
+    for (let k of exercise.keys()) {
         let exe = exercise.get(k);
         badge = '';
         if (exe.isActive == 1) {
@@ -32,9 +32,9 @@ const listexercise = exercise => {
         } else {
             badge1 = '<td><span class="badge badge-warning">inactive</span></td>';
         }
-    
+
         // tblData += '<tr><td>' + exe.id + '</td>';
-        tblData += '<tr><td><img src="upload/patients/' + exe.id + '.jpg" class="img-rounded" alt="Upload" style="height:60px; width:120px"></td>';
+        tblData += '<tr><td><img src="upload/exercise/' + exe.id + '.jpg" class="img-rounded" alt="Upload" style="height:60px; width:120px"></td>';
         tblData += '<td>' + exe.title + '</td>';
         tblData += '<td>' + exe.details + '</td>';
         tblData += badge1;
@@ -61,7 +61,7 @@ var editExercise = (id) => {
     id = id.toString();
     exercise_details = exercise.get(id);
     exercise_ap = id;
-    console.log( exercise_ap );
+    console.log(exercise_ap);
     $('#exData').hide();
     $('#idEXE').load('edit_exercise_chart.php');
 
@@ -97,12 +97,12 @@ var inactivateExcercise = id => {
                 $.ajax({
                     url: url + 'exerciseActivation.php',
                     type: 'POST',
-                    data: {id: id},
+                    data: { id: id },
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {
-                            exercise.set(id, exe);  
-                             listexercise(exercise);
+                            exercise.set(id, exe);
+                            listexercise(exercise);
                             swal({
                                 text: msg1,
                                 icon: "success"
@@ -114,7 +114,8 @@ var inactivateExcercise = id => {
             }
         });
 };
-function gobackCo(){
+
+function gobackCo() {
     $('#exData').show();
     $('#idEXE').empty();
 }
