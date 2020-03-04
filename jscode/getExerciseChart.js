@@ -34,7 +34,7 @@ const listexercise = exercise => {
         }
     
         // tblData += '<tr><td>' + exe.id + '</td>';
-        tblData += '<tr><td><img src="upload/patients/' + exe.id + '.jpg" class="img-rounded" alt="Upload" style="height:60px; width:120px"></td>';
+        tblData += '<tr><td><img src="upload/exercise/' + exe.id + '.jpg" class="img-rounded" alt="Upload" style="height:60px; width:120px"></td>';
         tblData += '<td>' + exe.title + '</td>';
         tblData += '<td>' + exe.details + '</td>';
         tblData += badge1;
