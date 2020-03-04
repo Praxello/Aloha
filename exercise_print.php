@@ -63,7 +63,7 @@ function exexcise_details($id){
         $row=mysqli_fetch_array($result);
         $output.='
         <div class="table-responsive">
-        <table class="table table-condensed">
+        <table class="table">
             <thead>
                 <tr>
                   
@@ -76,13 +76,13 @@ function exexcise_details($id){
             <tbody>
    
         <tr>
-                                <td class="text-left"></td>
-                                <td class="text-center">'.$row['title'].'</td>
-                                <td class="text-right">'.$row['details'].'</td>
-                                <td class="text-right"></td>
+                                <td></td>
+                                <td>'.$row['title'].'</td>
+                                <td>'.$row['details'].'</td>
+                                <td></td>
                             </tr>
                             </tbody>
-                            </table>'
+                            </table></div>'
                             
                             ;
     }
@@ -90,8 +90,7 @@ function exexcise_details($id){
 
 }
 $html = '
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html>
 
 <head>
 <link rel="stylesheet" href="dompdf/style.css">
@@ -99,23 +98,6 @@ $html = '
 </head>
 
 <body>
-<style>
-.invoice-title h2, .invoice-title h3 {
-display: inline-block;
-}
-
-.table > tbody > tr > .no-line {
-border-top: none;
-}
-
-.table > thead > tr > .no-line {
-border-bottom: none;
-}
-
-.table > tbody > tr > .thick-line {
-border-top: 2px solid;
-}
-</style>
 <div class="container">
 <div class="row">
     <div class="col-md-12">
@@ -144,7 +126,7 @@ border-top: 2px solid;
                            
                           
                    
-                </div>
+               
             
         
     </div>
