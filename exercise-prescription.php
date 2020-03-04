@@ -13,7 +13,7 @@
         width:100px;
     }
     }
-    @media only screen   and (min-device-width : 1030px)   and (max-device-width : 1224px){
+    /* @media only screen   and (min-device-width : 1030px)   and (max-device-width : 1224px){
      .exercise{
         width:100px;
     }
@@ -26,7 +26,7 @@
     .exesteps{
         width:100px;
     }   
-    }
+    } */
 </style>
 <div class="row">
     <div class="col-md-12">
@@ -70,12 +70,12 @@
             <div class="col-md-2">
                 <div class="form-group">
                     <label style="margin-top: 10px;">Next Visit Date</label>
-                    <input type="date" class="form-control">
+                    <input type="date" id="exerciseDate" class="form-control">
                 </div>
             </div>
 
             <div class="col-md-5" style="margin-top: 38px;">
-                <button type="button" class="btn  btn-success">Save</button>
+                <button type="button" class="btn  btn-success" onclick="saveExercise()">Save</button>
                 <button type="button" class="btn  btn-default">Cancel</button>
             </div>
         </div>

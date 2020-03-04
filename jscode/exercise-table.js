@@ -13,10 +13,10 @@ function addExercise() {
     exerciseHtml = "";
     exerciseHtml += '<tr id="rowExer' + exerciseRow + '">';
     exerciseHtml += '<td>';
-    exerciseHtml += '<select class="form-control exercise" id="exerciseTitle' + exerciseRow + '" name="exerciseTitle' + exerciseRow + '">';
+    exerciseHtml += '<select class="form-control exercise" id="exerciseTitle' + exerciseRow + '" name="exerciseTitle' + exerciseRow + '" onchange="fillExercise(this.value,' + exerciseRow + ')">';
     exerciseHtml += '</select>';
     exerciseHtml += '</td>';
-    exerciseHtml += '<td style="width: 8px;"><img src="upload/exercise/2.jpg" class="img-rounded img" alt="Upload" style="height:80px; width:120px"></td>';
+    exerciseHtml += '<td style="width: 8px;"><img src="upload/exercise/2.jpg" id="exercisePic' + exerciseRow + '" class="img-rounded img" alt="Upload" style="height:80px; width:120px"></td>';
     exerciseHtml += '<td>';
     exerciseHtml += '<input type="text" class="form-control exrow" id="exerciseDetails' + exerciseRow + '" name="exerciseDetails' + exerciseRow + '"/>';
     exerciseHtml += '</td>';
@@ -32,7 +32,7 @@ function addExercise() {
     loadExercise(exerciseRow);
     $("#exerciseTitle" + exerciseRow).select2({
         placeholder: 'Select exercise',
-        width:"100%",
+        width: "100%",
         allowClear: true
     });
 }
@@ -47,4 +47,68 @@ function loadExercise(id) {
         dropDownList += "<option value=" + key + ">" + value.title + "</option>";
     });
     $('#exerciseTitle' + id).html(dropDownList);
+}
+
+function fillExercise(exerciseId, rowId) {
+    if (exercise.has(exerciseId)) {
+        let data = exercise.get(exerciseId);
+        let src = "upload/exercise/" + exerciseId + ".jpg";
+        $('#exercisePic' + rowId).attr("src", src);
+        $('#exerciseDetails' + rowId).val(data.details);
+    }
+}
+
+function storeExercise() {
+    var TableData = [];
+    $('#exerciseTable tr').each(function(row, tr) {
+        var exerciseId = $(tr).find('td:eq(0) select option:selected').text();
+        var details = $(tr).find('td:eq(2) input').val();
+        var steps = $(tr).find('td:eq(2) input').val();
+        if (exerciseId != '') {
+            TableData[row] = {
+                "exerciseId": exerciseId,
+                "details": details,
+                "steps": steps
+            };
+        }
+    });
+    TableData.shift();
+    return TableData;
+}
+
+function saveExercise() {
+    var exerciseData = {
+        exercise: storeExercise(),
+        patientId: u_patientId,
+        doctorId: data.userId,
+        nextvisit: $('#exerciseDate').val()
+    };
+    exerciseData = JSON.stringify(exerciseData);
+    console.log(exerciseData);
+    // $.ajax({
+    //     url: url + 'addPrescription.php',
+    //     type: 'POST',
+    //     data: { postdata: exerciseData },
+    //     dataType: 'json',
+    //     success: function(response) {
+    //         if (response.Responsecode == 200) {
+    //             swal({
+    //                 position: 'top-end',
+    //                 icon: 'success',
+    //                 title: response.Message,
+    //                 button: false,
+    //                 timer: 1500
+    //             });
+    //             window.open('prescription-print.php?flag=' + lang_flag + '&patientId=' + response.patientId + '&doctorId=' + response.doctorId + '&visitDate=' + response.vdate);
+    //         } else {
+    //             swal({
+    //                 position: 'top-end',
+    //                 icon: 'warning',
+    //                 title: response.Message,
+    //                 button: false,
+    //                 timer: 1500
+    //             });
+    //         }
+    //     }
+    // });
 }
