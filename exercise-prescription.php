@@ -32,7 +32,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <button type="button" class="btn btn-icon btn-success" style="float: right;" onclick="addrow()" title="Add Exercise"><i class="ik ik-plus"></i></button>
+                <button type="button" class="btn btn-icon btn-success" style="float: right;" onclick="addExercise()" title="Add Exercise"><i class="ik ik-plus"></i></button>
             </div>
             <div class="card-body">
                 <div class="dt-responsive">

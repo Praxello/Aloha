@@ -172,6 +172,7 @@ if (isset($_SESSION['userId'])) {
         <script src="jscode/getAdvice.js"></script>
         <script src="jscode/getAllDiagnosis.js"></script>
         <script src="jscode/getBranches.js"></script>
+        <script src="jscode/getExercise.js"></script>
         <script>
             $.datetimepicker.setLocale('en');
             jQuery('#dropper-max-year').datetimepicker({

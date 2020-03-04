@@ -29,7 +29,7 @@ function addExercise() {
     exerciseHtml += '</tr>';
 
     $("#exerciseData").prepend(exerciseHtml);
-    // loadMedicine(exerciseRow);
+    loadExercise(exerciseRow);
     $("#exerciseTitle" + exerciseRow).select2({
         placeholder: 'Select exercise',
         width:"100%",
@@ -39,4 +39,12 @@ function addExercise() {
 
 function removeExercise(id) {
     $("#rowExer" + id).remove();
+}
+
+function loadExercise(id) {
+    var dropDownList = '<option></option>';
+    exercise.forEach((value, key) => {
+        dropDownList += "<option value=" + key + ">" + value.title + "</option>";
+    });
+    $('#exerciseTitle' + id).html(dropDownList);
 }
