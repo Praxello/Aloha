@@ -1,3 +1,33 @@
+<style>
+@media only screen   and (min-device-width : 768px)   and (max-device-width : 1024px) {
+    .exercise{
+        width:100px;
+    }
+    .img{
+        width:180px;    
+    }
+    .exrow{
+        width:180px;
+    }
+    .exesteps{
+        width:100px;
+    }
+    }
+    @media only screen   and (min-device-width : 1030px)   and (max-device-width : 1224px){
+     .exercise{
+        width:100px;
+    }
+    .img{
+        width:180px;    
+    }
+    .exrow{
+        width:180px;
+    }
+    .exesteps{
+        width:100px;
+    }   
+    }
+</style>
 <div class="row">
     <div class="col-md-12">
         <div class="card">
