@@ -7,7 +7,8 @@ use Dompdf\Dompdf;
 
 /* instantiate and use the dompdf class */
 $dompdf = new Dompdf();
-
+$patientId = $_GET['patientId'];
+$visitDate = $_GET['visitDate'];
 function doctor_details($doctorId)
 {
     include 'connection.php';
@@ -30,7 +31,7 @@ function doctor_details($doctorId)
 function patients_details($patientId){
     include 'connection.php';
     $output ='';
-    $sql ="SELECT pom.visitDate,pom.patientId,pom.pulse,pom.bp,pom.weight,pom.height,pm.firstName,pm.surname,pm.mobile1 FROM patient_onassessment_master pom LEFT JOIN patient_master pm ON pm.patientId=pom.patientId where pm.patientId = $patientId ";
+    $sql ="SELECT pm.patientId,pm.firstName,pm.surname,pm.mobile1  from patient_master pm  where pm.patientId = $patientId ";
     $result=mysqli_query($conn,$sql);
     if(mysqli_num_rows($result)>0){
         $row=mysqli_fetch_array($result);
@@ -39,52 +40,82 @@ function patients_details($patientId){
         <div class="col-md-12">
         <address>
             <div style="margin-left:550px">
-            <strong >Date:</strong>'.$row['visitDate'].'   
             </div><br>
-            <strong >Reg No:</strong>'.$row['patientId'].'    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong >Reg No:</strong>'.$row['patientId'].'    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
             <strong >Name:</strong>'.$row['firstName'].' '.$row['surname'].'    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong >Contact No:</strong>'.$row['mobile1'].' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </address>
         </div>
-    </div>
-  
-        ';
+    </div> ';
     }
     return $output;
 
 }
 
-function exexcise_details($id){
+// function exexcise_details($id){
+//     include 'connection.php';
+//     $output ='';
+//     $sql ="SELECT em.title,em.details FROM exercise_photo_master em where id=$id";
+//     $result=mysqli_query($conn,$sql);
+//     if (mysqli_num_rows($result) > 0) {
+//         $output .= '<div class="col-xs-12">
+//         <table class="table ">
+//             <thead>
+//                 <tr>
+//                     <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Photo</th>
+//                     <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Title</th>
+//                     <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Details</th>
+                  
+                  
+//                 </tr>
+//             </thead>
+//             <tbody>';
+//         while ($row = mysqli_fetch_array($result)) {
+       
+//             $output .= ' <tr>
+
+//         <td style="width="100%">  <img class="img-fluid" src="upload/exercise/2.jpg" width="500% " height="600%"></td>
+//         <td style="text-align:left">'.$row['title'].' </td>
+//         <td style="text-align:left">'.$row['details'].' </td>
+      
+//     </tr>';
+//         }
+//         $output .= '</tbody></table></div>';
+//     }
+//     return $output;     
+
+// }
+
+function exexcise_details($patientId,$visitDate){
     include 'connection.php';
     $output ='';
-    $sql ="SELECT em.title,em.details FROM exercise_photo_master em where id=$id";
+    $sql ="SELECT ex.title,ex.details,ex.patientId,ex.doctorId,ex.steps FROM patient_prescribed_exercise  ex 
+    INNER JOIN  exercise_photo_master ec ON ec.title = ex.title where ex.patientId = $patientId AND ex.visitDate = '$visitDate'";
     $result=mysqli_query($conn,$sql);
-    if(mysqli_num_rows($result)>0){
-        $row=mysqli_fetch_array($result);
-        $output.='
-        <div class="table-responsive">
-        <table class="table">
+    if (mysqli_num_rows($result) > 0) {
+        $output .= '<div class="col-xs-12">
+        <table class="table ">
             <thead>
                 <tr>
+                    <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Photo</th>
+                    <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Title</th>
+                    <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Details</th>
+                    <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Steps</th>
                   
-                    <td><strong>Photo</strong></td>
-                    <td><strong>Title</strong></td>
-                    <td><strong>Details</strong></td>
-                    <td><strong>Steps</strong></td>
                 </tr>
             </thead>
-            <tbody>
-   
-        <tr>
-                                <td></td>
-                                <td>'.$row['title'].'</td>
-                                <td>'.$row['details'].'</td>
-                                <td></td>
-                            </tr>
-                            </tbody>
-                            </table></div>'
-                            
-                            ;
+            <tbody>';
+        while ($row = mysqli_fetch_array($result)) {
+       
+            $output .= ' <tr>
+
+        <td style="width="100%">  <img class="img-fluid" src="upload/exercise/2.jpg" width="500% " height="600%"></td>
+        <td style="text-align:left">'.$row['title'].' </td>
+        <td style="text-align:left">'.$row['details'].' </td>
+        <td style="text-align:left">'.$row['steps'].' </td>
+    </tr>';
+        }
+        $output .= '</tbody></table></div>';
     }
     return $output;     
 
@@ -98,7 +129,7 @@ $html = '
 </head>
 
 <body>
-<div class="container">
+
 <div class="row">
     <div class="col-md-12">
     <div class="row p-5 " id="header">
@@ -113,25 +144,17 @@ $html = '
        '. patients_details(1).'
     </div>
 </div>
+<h3><center>Exercise Details</center></h3>
 
 <div class="row">
     <div class="col-md-12">
-      
-          
-        
-             
-                      
                            
-                       '.exexcise_details(1).'
-                           
-                          
-                   
-               
-            
+                       '.exexcise_details(1,'2020-03-04').'
+
         
     </div>
 </div>
-</div>
+
 </body>
 
 </html>';
