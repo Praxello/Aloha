@@ -23,7 +23,7 @@ if (isset($_POST['postdata'])) {
     $patientId        = $someArray["patientId"];
     $doctorId         = $someArray["doctorId"];
     $nextVisitDate    = $someArray["nextvisit"];
-    $visitDate        = date('Y-m-d');
+    $visitDate        =  $someArray["visitDate"];//date('Y-m-d');
     $medicinesDetails = $someArray["medicinesDetails"];
     if(!empty($someArray["bp"]) || !empty($someArray["pulse"]) || !empty($someArray["height"]) || !empty($someArray["weight"]) || !empty($someArray["west"]) || !empty($someArray["hip"]) || !empty($someArray["temp"]) || !empty($someArray["spo2"])){
         $wital = get_witals($someArray["bp"],$someArray["temp"],$someArray["spo2"],$someArray["pulse"],$someArray["height"],$someArray["weight"],$someArray["west"],$someArray["hip"],$someArray["patientId"],$visitDate,$someArray["doctorId"]);

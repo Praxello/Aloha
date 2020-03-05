@@ -114,7 +114,7 @@ if(isset($_SESSION['branchId'])){
                                                         <th>Amount</th>
                                                         <th>Payment Mode</th>
                                                         <th>Recieved by</th>
-                                                        <th>Created at</th>
+                                                        <th>Bill date</th>
                                                         <th class="nosort"></th>
                                                     </tr>
                                                 </thead>

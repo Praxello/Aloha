@@ -11,30 +11,33 @@ $paymentId = isset($_GET['paymentId']) ? $_GET['paymentId']:1;
 
 $sign = '-';
 $clinic = '';
+$branch = '';
 function getBranchName($paymentId){
     include 'connection.php';
-    $sql   = "SELECT hb.branchAddress FROM opd_patient_payment_master opm LEFT JOIN hospital_branch_master hb ON hb.branchId = opm.branchId
+    $sql   = "SELECT hb.branchAddress,hb.branchName FROM opd_patient_payment_master opm LEFT JOIN hospital_branch_master hb ON hb.branchId = opm.branchId
     WHERE opm.paymentId = $paymentId";
     $jobQuery  = mysqli_query($conn, $sql);
     if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
             $academicResults = mysqli_fetch_assoc($jobQuery);
-            global $clinic;
+            global $clinic,$branch;
             $clinic = $academicResults['branchAddress'];
+            $branch = $academicResults['branchName'];
         }
     }
 }
 getBranchName($paymentId);
-function patientDetails($paymentId)
+function patientDetails($paymentId,$branch)
 {
   $output  = '';
     include 'connection.php';
-    $sql   = "SELECT opm.recieptId,pm.firstName,pm.surname,pm.mobile1,opm.patientId,DATE_FORMAT(opm.visitDate,'%d %b %Y') visitDate,pm.address,um.username
-    FROM opd_patient_payment_master opm 
-    LEFT JOIN patient_master pm ON pm.patientId = opm.patientId 
-    LEFT JOIN user_master um ON um.userId = opm.createdBy
-    WHERE opm.paymentId =  $paymentId";
+    $sql   = "SELECT opm.recieptId,pm.firstName,pm.surname,pm.mobile1,opm.patientId,DATE_FORMAT(opm.visitDate,'%d %b %Y') visitDate,pm.address,um.username, (CASE WHEN MONTH(opm.visitDate)>=4 THEN
+    concat(YEAR(opm.visitDate), '-',YEAR(opm.visitDate)+1) ELSE concat(YEAR(opm.visitDate)-1,'-', YEAR(opm.visitDate)) END) fyear
+FROM opd_patient_payment_master opm 
+LEFT JOIN patient_master pm ON pm.patientId = opm.patientId 
+LEFT JOIN user_master um ON um.userId = opm.createdBy
+WHERE opm.paymentId =  $paymentId";
     $jobQuery  = mysqli_query($conn, $sql);
     if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
@@ -46,6 +49,7 @@ function patientDetails($paymentId)
             $mobile = $academicResults['mobile1'];
             global $sign;
             $sign = $academicResults['username'];
+            $rId = $branch.'/'.$academicResults['fyear'].'/000'.$academicResults['recieptId'];
             $output .= '<div class="row">
             <div class="col-xs-9"></div>
             <div class="col-xs-3">
@@ -54,8 +58,8 @@ function patientDetails($paymentId)
                         </div>
                         <div class="row pb-5 p-5 ">
                         <div class="col-xs-12">
-                        <p class="mb-1 "><span class="text-muted ">Reciept number: </span>'.$academicResults['recieptId'].'&nbsp;&nbsp;<span class="text-muted ">Reg no: </span> '.$patientId.'
-                        &nbsp;&nbsp;<span class="text-muted ">Patient Name: </span><strong>'.$patientName.'</strong>&nbsp;&nbsp;<span class="text-muted ">Cell: </span> '.$mobile.'</p>
+                        <p class="mb-1 "><span class="text-muted ">Reciept No. </span>'.$rId.'&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-muted ">Reg No. </span> '.$patientId.'
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-muted ">Patient Name: </span><strong>'.$patientName.'</strong>&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-muted ">Cell: </span> '.$mobile.'</p>
                         </div>
                     </div>
                     <div class="row pb-5 p-5">
@@ -139,7 +143,7 @@ function paymentHistory($paymentId)
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
 $output .= ' <center>
-<h3>Payment History</h3>
+<h4>Payment History</h4>
 </center>
 <div class="row">
 
@@ -194,8 +198,8 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                     <center>
                     <h3>Reciept</h3>
                 </center>
-                    '.patientDetails($paymentId).'
-                 
+                    '.patientDetails($paymentId,$branch).'
+                    <center><h4>Bill Details</h4></center>
                     '.billDetails($paymentId).'
                    '.paymentHistory($paymentId).'
                 </div>
@@ -216,6 +220,5 @@ $dompdf->render();
 $dompdf->stream("payment.pdf", array(
     "Attachment" => false
 ));
-
 exit(0);
 ?> 

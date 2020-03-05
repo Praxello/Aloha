@@ -1,5 +1,6 @@
 var exerciseRow = 0;
 var exerciseHtml = "";
+var global_exercise = moment().format('YYYY-MM-DD');
 
 function initial_exercise() {
     for (var i = 0; i < 3; i++) {
@@ -63,7 +64,7 @@ function storeExercise() {
     $('#exerciseTable tr').each(function(row, tr) {
         var exerciseId = $(tr).find('td:eq(0) select option:selected').text();
         var details = $(tr).find('td:eq(2) input').val();
-        var steps = $(tr).find('td:eq(2) input').val();
+        var steps = $(tr).find('td:eq(3) textarea').val();
         if (exerciseId != '') {
             TableData[row] = {
                 "exerciseId": exerciseId,
@@ -81,9 +82,11 @@ function saveExercise() {
         exercise: storeExercise(),
         patientId: u_patientId,
         doctorId: data.userId,
-        nextvisit: $('#exerciseDate').val()
+        nextvisit: $('#exerciseDate').val(),
+        visitDate: global_exercise
     };
     exerciseData = JSON.stringify(exerciseData);
+    console.log(exerciseData);
     $.ajax({
         url: url + 'addExercise-prescription.php',
         type: 'POST',
