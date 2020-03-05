@@ -19,7 +19,6 @@ function check_exercise(patientId, appointmentId) {
 }
 
 function fill_exist_exercise(response) {
-    console.log(response);
     var count = response.length;
     var rowid = 1,
         medical = null,

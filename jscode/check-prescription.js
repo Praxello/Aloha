@@ -19,7 +19,6 @@ function check_prescription(patientId, appointmentId) {
 }
 
 function fill_exist_data(response) {
-    console.log(fill_exist_data);
     var count = response.length;
     var rowid = 1,
         medical = null,

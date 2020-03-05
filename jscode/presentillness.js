@@ -5,8 +5,8 @@ $(document).on('submit', '#presentillnessform', function(e) {
         var fData = new FormData(this);
         fData.append('patientId', global_patientId);
         fData.append('visitDate', global_date);
-        fData.append('doctorId',data.userId);
-      
+        fData.append('doctorId', data.userId);
+
         $.ajax({
             url: url + 'insertpresentIllness.php',
             type: 'POST',
@@ -16,7 +16,6 @@ $(document).on('submit', '#presentillnessform', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
                     swal({
                         position: 'top-end',
