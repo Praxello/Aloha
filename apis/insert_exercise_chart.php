@@ -8,11 +8,16 @@ $records  = null;
 extract($_POST);
 $dir = '../upload/exercise/';
 if ( isset($_POST['title'])) {
+  
+
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $details = mysqli_real_escape_string($conn, $_POST['details']);
     
- 
     $sql = "INSERT INTO exercise_photo_master(title,details) 
      VALUES ('$title','$details')";
     
+ 
+ 
     $query = mysqli_query($conn, $sql);
     
     $rowsAffected = mysqli_affected_rows($conn);

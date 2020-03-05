@@ -66,10 +66,10 @@ function exexcise_details($patientId,$visitDate){
         <table class="table ">
             <thead>
                 <tr>
-                    <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Photo</th>
-                    <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Title</th>
-                    <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Details</th>
-                    <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Steps</th>
+                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Photo</th>
+                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Title</th>
+                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Details</th>
+                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Steps</th>
                   
                 </tr>
             </thead>

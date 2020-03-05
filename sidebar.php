@@ -41,11 +41,11 @@
                 <div class="nav-item">
                     <a href="userMaster.php"><i class="fa fa-user-md"></i></i><span>User Master</span></a>
                 </div>
+                <!-- <div class="nav-item">
+                    <a href="feesMaster.php"><i class="fa fa-money-check"></i></i><span>Doctor Fees Master</span></a>
+                </div> -->
                 <div class="nav-item">
-                    <a href="feesMaster.php"><i class="fa fa-money-check"></i></i><span>Fees Master</span></a>
-                </div>
-                <div class="nav-item">
-                    <a href="newTestMaster.php"><i class="fa fa-x-ray"></i></i><span>Test Master</span></a>
+                    <a href="newTestMaster.php"><i class="fa fa-x-ray"></i></i><span>Procedure Master</span></a>
                 </div>
                 <div class="nav-item">
                     <a href="diagnosisMaster.php"><i class="fa fa-diagnoses"></i><span>Diagnosis Master</span> </a>
