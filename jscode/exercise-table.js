@@ -33,7 +33,8 @@ function addExercise() {
     $("#exerciseTitle" + exerciseRow).select2({
         placeholder: 'Select exercise',
         width: "100%",
-        allowClear: true
+        allowClear: true,
+        tags:true
     });
 }
 
