@@ -59,7 +59,8 @@ function savePrescription() {
                     button: false,
                     timer: 1500
                 });
-                window.open('prescription-print.php?flag=' + lang_flag + '&patientId=' + response.patientId + '&doctorId=' + response.doctorId + '&visitDate=' + response.vdate);
+                $('<form action="prescription-print.php" method="POST" target="_blank"><input type="hidden" name="pflag" value="' + lang_flag + '" /><input type="hidden" name="ppatientId" value="' + response.patientId + '" /><input type="hidden" name="pdoctorId" value="' + response.doctorId + '" /><input type="hidden" name="pvisitDate" value="' + response.vdate + '" /></form>').appendTo('body').submit();
+                // window.open('prescription-print.php?flag=' + lang_flag + '&patientId=' + response.patientId + '&doctorId=' + response.doctorId + '&visitDate=' + response.vdate);
             } else {
                 swal({
                     position: 'top-end',
@@ -74,5 +75,6 @@ function savePrescription() {
 }
 
 function print_prscription(patientId, doctorId, visitDate) {
-    window.open('prescription-print.php?flag=' + lang_flag + '&patientId=' + patientId + '&doctorId=' + doctorId + '&visitDate=' + visitDate);
+    $('<form action="prescription-print.php" method="POST" target="_blank"><input type="hidden" name="pflag" value="' + lang_flag + '" /><input type="hidden" name="ppatientId" value="' + patientId + '" /><input type="hidden" name="pdoctorId" value="' + doctorId + '" /><input type="hidden" name="pvisitDate" value="' + visitDate + '" /></form>').appendTo('body').submit();
+    //window.open('prescription-print.php?flag=' + lang_flag + '&patientId=' + patientId + '&doctorId=' + doctorId + '&visitDate=' + visitDate);
 }

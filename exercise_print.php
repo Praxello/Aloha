@@ -7,9 +7,10 @@ use Dompdf\Dompdf;
 
 /* instantiate and use the dompdf class */
 $dompdf = new Dompdf();
-$patientId = $_GET['patientId'];
-$doctorId =  $_GET['doctorId'];
-$visitDate = $_GET['visitDate'];
+extract($_POST);
+$patientId = $_POST['patientId'];
+$doctorId =  $_POST['doctorId'];
+$visitDate = $_POST['visitDate'];
 
 function doctor_details($doctorId)
 {

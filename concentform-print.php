@@ -7,10 +7,10 @@ use Dompdf\Dompdf;
 /* instantiate and use the dompdf class */
 $dompdf = new Dompdf();
 
-extract($_GET);
+extract($_POST);
 
-$visitDate =$_GET['visitDate'];
-$patientId=  $_GET['patientId'];
+$visitDate =$_POST['cvisitDate'];
+$patientId=  $_POST['cpatientId'];
 
 function fetchConsentData($patientId,$visitDate)
 {

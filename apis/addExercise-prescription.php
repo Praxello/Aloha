@@ -11,7 +11,6 @@ if (isset($_POST['postdata'])) {
 
     $patientId        = $someArray["patientId"];
     $doctorId         = $someArray["doctorId"];
-    $nextVisitDate    = $someArray["nextvisit"];
     $exercise         = $someArray["exercise"];
     $visitDate        = $someArray["visitDate"];
 

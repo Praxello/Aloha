@@ -8,6 +8,7 @@ var pTamt = [];
 var packageT = [];
 var pRamt = [];
 var consultP = [];
+var penamt = [];
 const getCollection = (fromDate, uptoDate, branch) => {
     $.ajax({
         url: url + 'getCollection.php',
@@ -28,9 +29,9 @@ const getCollection = (fromDate, uptoDate, branch) => {
                 for (var i = 0; i < count; i++) {
                     let collect = response.Data[i];
                     if (collect.isPackage == 0) {
-                        badge = '<span class="badge badge-success">OPD</span>';
+                        badge = 'OPD';
                     } else {
-                        badge = '<span class="badge badge-primary">Package</span>';
+                        badge = 'Package';
                     }
                     amtO = amtO + parseFloat(collect.amount);
                     amtR = amtR + parseFloat(collect.received);
@@ -42,6 +43,7 @@ const getCollection = (fromDate, uptoDate, branch) => {
                     tblData += '<td>' + badge + '</td>';
                     tblData += '<td>' + collect.billdetails + '</td>';
                     tblData += '<td>' + parseFloat(collect.amount).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) + '</td>';
+                    tblData += '<td>' + parseFloat(collect.pending).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) + '</td>';
                     tblData += '<td>' + collect.paymentMode + '</td>';
                     tblData += '<td>' + collect.receivedBy + '</td>';
                     tblData += '<td>' + collect.createdAt + '</td>';
@@ -69,7 +71,7 @@ const getCollection = (fromDate, uptoDate, branch) => {
                             });
 
                         column.data().unique().sort().each(function(d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>')
+                            select.append('<option value="' + d + '">' + d + '</option>');
                         });
                     });
                 },
@@ -91,6 +93,7 @@ const getConsultaion = (fromDate, uptoDate) => {
     newR = [];
     category = [];
     bPatient = [];
+    penamt = [];
     consultData = [];
     $.ajax({
         url: url + 'getConsultation.php',
@@ -106,11 +109,13 @@ const getConsultaion = (fromDate, uptoDate) => {
                     Ramt.push(parseFloat(response.Data[i].amount));
                     newR.push(parseInt(response.Data[i].newR));
                     bPatient.push(parseInt(response.Data[i].billedP));
+                    penamt.push(parseInt(response.Data[i].pending));
                 }
                 consultData.push({ name: 'New Registration', data: newR });
                 consultData.push({ name: 'Billed Patient', data: bPatient });
                 consultData.push({ name: 'Total Amount', data: Tamt });
                 consultData.push({ name: 'Recieved Amount', data: Ramt });
+                consultData.push({ name: 'Pending Amount', data: penamt });
             }
             chart_consult(consultData, category);
         }
@@ -179,8 +184,9 @@ $('#searchCollection').on('click', function(e) {
 });
 
 function printReciept(paymentId) {
-    var link = 'payment-reciept.php?paymentId=' + paymentId;
-    window.open(link, '_blank');
+    // var link = 'payment-reciept.php?paymentId=' + paymentId;
+    // window.open(link, '_blank');
+    $('<form action="payment-reciept.php" method="POST" target="_blank"><input type="hidden" name="ppaymentId" value="' + paymentId + '" /></form>').appendTo('body').submit();
 }
 getCollection(data.today, data.today);
 

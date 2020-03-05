@@ -99,8 +99,8 @@ if(isset($_SESSION['branchId'])){
 
                                         </div>
                                     </form>
-                                    <div class="card-body">
-                                        <div class="dt-responsive tbl">
+                                    <div class="card-body table-responsive">
+                                        <div class="dt-responsive">
                                             <table id="collectionT" class="table table-bordered">
                                                 <thead>
                                                     <tr>
@@ -112,6 +112,7 @@ if(isset($_SESSION['branchId'])){
                                                         <th>Payment Type</th>
                                                         <th>Bill Details</th>
                                                         <th>Amount</th>
+                                                        <th>Pending Amount</th>
                                                         <th>Payment Mode</th>
                                                         <th>Recieved by</th>
                                                         <th>Bill date</th>
@@ -130,6 +131,7 @@ if(isset($_SESSION['branchId'])){
                                                     <th></th>
                                                     <th>Total</th>
                                                     <th id="amtO"></th>
+                                                    <th></th>
                                                     <th></th>
                                                     <th></th>
                                                     <th></th>
