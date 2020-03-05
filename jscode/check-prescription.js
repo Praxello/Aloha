@@ -19,10 +19,12 @@ function check_prescription(patientId, appointmentId) {
 }
 
 function fill_exist_data(response) {
+    console.log(fill_exist_data);
     var count = response.length;
     var rowid = 1,
         medical = null,
         newOption = null;
+    pres_date = response[0].visitDate;
     $('#complaintsId').importTags(response[0].complaint);
     for (var i = 0; i < count; i++) {
         addrow();

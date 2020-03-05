@@ -7,6 +7,7 @@ var fStatus = null;
 var u_BranchName = null;
 var lang_flag = 1;
 var global_date = moment().format('YYYY-MM-DD');
+var pres_date = moment().format('YYYY-MM-DD');
 $('#dropper-max-year').val(moment().format('YYYY-MM-DD'));
 const getAllAppointments = (doctorId) => {
     $.ajax({

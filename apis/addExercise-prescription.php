@@ -13,7 +13,7 @@ if (isset($_POST['postdata'])) {
     $doctorId         = $someArray["doctorId"];
     $nextVisitDate    = $someArray["nextvisit"];
     $exercise         = $someArray["exercise"];
-    $visitDate        = date('Y-m-d');
+    $visitDate        = $someArray["visitDate"];
 
     $sql = "DELETE FROM patient_prescribed_exercise WHERE visitDate = '$visitDate' AND patientId = $patientId";
     mysqli_query($conn,$sql); 

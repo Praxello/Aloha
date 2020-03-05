@@ -34,7 +34,7 @@ function savePrescription() {
         patientId: u_patientId,
         doctorId: data.userId,
         nextvisit: $('#nextVisitDate').val(),
-        vdate: '2019-01-03',
+        visitDate: pres_date,
         pulse: $('#pulse').val(),
         height: $('#height').val(),
         weight: $('#weight').val(),
