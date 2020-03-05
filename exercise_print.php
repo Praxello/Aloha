@@ -8,7 +8,9 @@ use Dompdf\Dompdf;
 /* instantiate and use the dompdf class */
 $dompdf = new Dompdf();
 $patientId = $_GET['patientId'];
+$doctorId =  $_GET['doctorId'];
 $visitDate = $_GET['visitDate'];
+
 function doctor_details($doctorId)
 {
     include 'connection.php';
@@ -52,44 +54,11 @@ function patients_details($patientId){
 
 }
 
-// function exexcise_details($id){
-//     include 'connection.php';
-//     $output ='';
-//     $sql ="SELECT em.title,em.details FROM exercise_photo_master em where id=$id";
-//     $result=mysqli_query($conn,$sql);
-//     if (mysqli_num_rows($result) > 0) {
-//         $output .= '<div class="col-xs-12">
-//         <table class="table ">
-//             <thead>
-//                 <tr>
-//                     <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Photo</th>
-//                     <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Title</th>
-//                     <th style="text-align:center" class="border-1 text-uppercase small font-weight-bold ">Details</th>
-                  
-                  
-//                 </tr>
-//             </thead>
-//             <tbody>';
-//         while ($row = mysqli_fetch_array($result)) {
-       
-//             $output .= ' <tr>
-
-//         <td style="width="100%">  <img class="img-fluid" src="upload/exercise/2.jpg" width="500% " height="600%"></td>
-//         <td style="text-align:left">'.$row['title'].' </td>
-//         <td style="text-align:left">'.$row['details'].' </td>
-      
-//     </tr>';
-//         }
-//         $output .= '</tbody></table></div>';
-//     }
-//     return $output;     
-
-// }
 
 function exexcise_details($patientId,$visitDate){
     include 'connection.php';
     $output ='';
-    $sql ="SELECT ex.title,ex.details,ex.patientId,ex.doctorId,ex.steps FROM patient_prescribed_exercise  ex 
+    $sql ="SELECT ex.title,ex.details,ex.patientId,ex.doctorId,ex.steps,ec.Id FROM patient_prescribed_exercise  ex 
     INNER JOIN  exercise_photo_master ec ON ec.title = ex.title where ex.patientId = $patientId AND ex.visitDate = '$visitDate'";
     $result=mysqli_query($conn,$sql);
     if (mysqli_num_rows($result) > 0) {
@@ -109,7 +78,7 @@ function exexcise_details($patientId,$visitDate){
        
             $output .= ' <tr>
 
-        <td style="width="100%">  <img class="img-fluid" src="upload/exercise/2.jpg" width="500% " height="600%"></td>
+        <td style="width="100%">  <img class="img-fluid" src="upload/exercise/'.$row['Id'].'.jpg" width="500% " height="600%"></td>
         <td style="text-align:left">'.$row['title'].' </td>
         <td style="text-align:left">'.$row['details'].' </td>
         <td style="text-align:left">'.$row['steps'].' </td>
@@ -136,12 +105,12 @@ $html = '
     <div class="col-xs-4 ">
     <img class="img-fluid" src="img/auth/mybrand.png" width="60% " height="70%">
     </div>
-    '.doctor_details(1).'
+    '.doctor_details($doctorId).'
 </div>
     
         <hr>
    
-       '. patients_details(1).'
+       '. patients_details($patientId).'
     </div>
 </div>
 <h3><center>Exercise Details</center></h3>
@@ -149,7 +118,7 @@ $html = '
 <div class="row">
     <div class="col-md-12">
                            
-                       '.exexcise_details(1,'2020-03-04').'
+                       '.exexcise_details($patientId,$visitDate).'
 
         
     </div>

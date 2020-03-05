@@ -14,7 +14,7 @@ if (isset($_POST['postdata'])) {
     $nextVisitDate    = $someArray["nextvisit"];
     $exercise         = $someArray["exercise"];
     $visitDate        = date('Y-m-d');
-    
+
     $sql = "DELETE FROM patient_prescribed_exercise WHERE visitDate = '$visitDate' AND patientId = $patientId";
     mysqli_query($conn,$sql); 
         foreach ($exercise as $key => $value) {
@@ -31,6 +31,7 @@ if (isset($_POST['postdata'])) {
                 'Message' => "Exercise saved successfully",
                 'patientId'=>$patientId,
                 'vdate'=>$visitDate,
+                'doctorId'=> $doctorId,
                 'Responsecode' => 200
             );
         } else {

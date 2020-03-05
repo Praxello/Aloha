@@ -83,7 +83,6 @@ function saveExercise() {
         nextvisit: $('#exerciseDate').val()
     };
     exerciseData = JSON.stringify(exerciseData);
-    console.log(exerciseData);
     $.ajax({
         url: url + 'addExercise-prescription.php',
         type: 'POST',
@@ -98,7 +97,7 @@ function saveExercise() {
                     button: false,
                     timer: 1500
                 });
-                //window.open('prescription-print.php?flag=' + lang_flag + '&patientId=' + response.patientId + '&doctorId=' + response.doctorId + '&visitDate=' + response.vdate);
+                window.open('exercise_print.php?patientId=' + response.patientId + '&doctorId=' + response.doctorId + '&visitDate=' + response.vdate);
             } else {
                 swal({
                     position: 'top-end',
