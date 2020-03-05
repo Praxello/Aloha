@@ -145,8 +145,9 @@ function checkPaymentMode(mode) {
 }
 
 function printRecieptTbl(Id) {
-    var link = 'payment-reciept.php?paymentId=' + Id;
-    window.open(link, '_blank');
+    // var link = 'payment-reciept.php?paymentId=' + Id;
+    // window.open(link, '_blank');
+    $('<form action="payment-reciept.php" method="POST" target="_blank"><input type="hidden" name="ppaymentId" value="' + Id + '" /></form>').appendTo('body').submit();
 }
 
 function printReciept(sendPaymentId) {

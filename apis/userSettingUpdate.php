@@ -7,14 +7,11 @@ $response = null;
 $records  = null;
 extract($_POST);
 $dir = '../upload/user/';
-
-
-if (isset($_POST['userId']) && isset($_POST['upassword']) && isset($_POST['oldpassword'])  ) {
+if (isset($_POST['userId']) && isset($_POST['upassword']) && isset($_POST['oldpassword'])) {
     if(!empty($_POST['userId']) &&  !empty($_POST['upassword']) && !empty($_POST['oldpassword'])){
-   
+
     $sql = "UPDATE user_master SET upassword='$upassword' WHERE userId='$userId' AND upassword='$oldpassword'";
-  
-    
+
     $query = mysqli_query($conn, $sql);
 
     $rowsAffected = mysqli_affected_rows($conn);
@@ -53,24 +50,18 @@ if (isset($_POST['userId']) && isset($_POST['upassword']) && isset($_POST['oldpa
             'Responsecode' => 500
         );
     }
-
-
-    if( isset($_FILES["userPic"]["type"])){
+    if(isset($_FILES["userPic"]["type"])){
         $imgname    = $_FILES["userPic"]["name"];
         $sourcePath = $_FILES['userPic']['tmp_name']; // Storing source path of the file in a variable
         $targetPath = $dir . $userId . ".jpg"; // Target path where file is to be stored
         move_uploaded_file($sourcePath, $targetPath);
-    
+
         $response = array(
             'Message' => "Profile updated successfully",
             "Data" => $records,
             'Responsecode' => 200
         );
         }
-        
-
 mysqli_close($conn);
 print json_encode($response);
-?> 
-
-
+?>

@@ -59,21 +59,6 @@
 <div class="card">
     <div class="card-body">
         <div class="row">
-
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label style="margin-top: 10px;">Enter Days</label>
-                    <input type="number" class="form-control">
-                </div>
-
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label style="margin-top: 10px;">Next Visit Date</label>
-                    <input type="date" id="exerciseDate" class="form-control">
-                </div>
-            </div>
-
             <div class="col-md-5" style="margin-top: 38px;">
                 <button type="button" class="btn  btn-success" onclick="saveExercise()">Save</button>
                 <button type="button" class="btn  btn-default">Cancel</button>
@@ -81,6 +66,3 @@
         </div>
     </div>
 </div>
-<hr>
-<h5>Previous Exercise</h5>
-<div id="prevExercise"></div>

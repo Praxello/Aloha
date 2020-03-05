@@ -10,7 +10,7 @@ $tempMedicines = null;
 extract($_POST);
 if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
 $sql = "SELECT opm.paymentId,opm.recieptId,opm.originalAmt,opm.total,opm.discount,opm.received,opm.pending,DATE_FORMAT(opm.visitDate,'%d %b %Y') visitDate,opm.isPackage,opm.packageId,opm.isDeleted,
-pm.firstName,pm.surname,um.username,hp.branchName,DATE_FORMAT(opt.paymentDate,'%d %b %Y') createdAt,COALESCE(CONCAT(dm.discountType,'(',opm.discount,')'),'-') discountType,opt.amount,opt.paymentDate,opt.receivedBy,opt.paymentMode
+pm.firstName,pm.surname,um.username,hp.branchName,DATE_FORMAT(opt.paymentDate,'%d %b %Y') createdAt,COALESCE(CONCAT(dm.discountType,'(',opm.discount,'%)'),'-') discountType,opt.amount,opt.paymentDate,opt.receivedBy,opt.paymentMode
 FROM opd_payment_transaction_master opt INNER JOIN opd_patient_payment_master opm  ON opt.paymentId = opm.paymentId LEFT JOIN patient_master pm ON pm.patientId = opm.patientId
 LEFT JOIN user_master um ON um.userId = opm.doctorId
 LEFT JOIN hospital_branch_master hp ON hp.branchId = opm.branchId

@@ -50,7 +50,7 @@ if(isset($_SESSION['branchId'])){
                             <div class="main-content">
                                 <div class="container-fluid">
 
-                                    <div class="col-lg-10 col-md-7">
+                                    <div class="col-lg-12 col-md-7">
                                         <div class="card">
                                             <ul class="nav nav-pills custom-pills t1" id="pills-tab" role="tablist">
 
@@ -100,7 +100,7 @@ if(isset($_SESSION['branchId'])){
 
                                             <div class="text-center">
                                            
-                                            <img src="upload/user/<?php echo $_SESSION['userId'];?>.jpg" class="rounded-circle img-fluid mb-20" width="150" height="150" id="userJpg" style="padding-block-end: 10px;">
+                                            <img src="upload/user/<?php echo $_SESSION['userId'];?>.jpg" class="img-fluid mb-20" width="175" height="175" id="userJpg" style="padding-block-end: 10px;">
 
                                         <div class="row text-center justify-content-md-center">
                                            <div class="form-group">

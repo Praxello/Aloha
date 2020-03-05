@@ -615,8 +615,8 @@
     // }
 
     function downloadForm() {
-     
-    window.open('concentform-print.php?patientId='+u_patientId + '&visitDate='+consent_date);
+    // window.open('concentform-print.php?patientId='+u_patientId + '&visitDate='+consent_date);
+    $('<form action="concentform-print.php" method="POST" target="_blank"><input type="hidden" name="cpatientId" value="'+u_patientId+'" /><input type="hidden" name="cvisitDate" value="'+consent_date+'" /></form>').appendTo('body').submit();
 }
     display(details);
     //display the details of patient fees,name,refferance
