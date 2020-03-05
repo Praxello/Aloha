@@ -6,73 +6,69 @@ $(function() {
         ignore: [],
         rules: {
             chiefcomplaints: {
-                // required: true,
-                // lettersonly: true,
-                maxlength: 100
+                alphanumeric: true
            
             },
             history: {
-               
-                maxlength: 100
+                alphanumeric: true
               
             },
 
             bp: {
                 //required: true,
-                number :true               
-
+                alphanumeric: true
             },
             chest:{
-                number:true
+                alphanumeric: true
 
             },
             addedSound:{
-                number:true
+                alphanumeric: true
             },
 
             wheezeRhonchi:{
-                number:true
+                alphanumeric: true
             },
 
             dyspoea:{
-                number:true
+                alphanumeric: true
             },
             conciousness:{
-                lettersonly: true
+                alphanumeric: true
             },
             umnreflex:{
-                lettersonly: true
+                alphanumeric: true
             },
             lmnreflex:{
-                lettersonly: true
+                alphanumeric: true
             },
             reflexes:{
-                lettersonly: true
+                alphanumeric: true
             },
             s1s2heard:{
-                lettersonly: true
+                alphanumeric: true
             },
             murmur:{
-                lettersonly: true
+                alphanumeric: true
             },
             oralMucosa:{
-                lettersonly: true
+                alphanumeric: true
             },
             scalp:{
-                lettersonly: true
+                alphanumeric: true
             },
        
             nodules:{
-                lettersonly: true
+                alphanumeric: true
             },
             eyes:{
-                lettersonly: true
+                alphanumeric: true
             },
             raynaud:{
-                lettersonly: true
+                alphanumeric: true
             },
             telangiectasia:{
-                lettersonly: true
+                alphanumeric: true
             },
             Waist:{
                 number:true
@@ -103,79 +99,85 @@ $(function() {
             },
 
             photosensivity:{
-                number:true
+                alphanumeric: true
             },
             rash:{
-                number:true
+                alphanumeric: true
             },
             site:{
-                number:true
+                alphanumeric: true
             },
             type:{
-                number:true
+                alphanumeric: true
             },
             itching:{
-                number:true
+                alphanumeric: true
             }
 
         },
         messages: {
             
             chiefcomplaints: {
+                alphanumeric:"enter alphanumeric characters",
                 required: "Please enter  Chief complaints",
                 maxlength: "Length Exceed upto 100 characters"
             },
             history: {
+                alphanumeric:"enter alphanumeric characters",
                 required: "Please enter history",
                 maxlength: "Length Exceed upto 100 characters"
             },
-            bp:  msg,
-            chest :msg,
+            bp:  {
+                alphanumeric:"enter alphanumeric characters"
+            },
+            chest :{
+                alphanumeric:"enter alphanumeric characters"
+            },
             addedSound :{
-                number: "enter valid number"
+                alphanumeric:"enter alphanumeric characters"
             },
             wheezeRhonchi :{
-                number: "enter valid number"
+                alphanumeric:"enter alphanumeric characters"
             },
             dyspoea :{
-                number: "enter valid number"
+                alphanumeric:"enter alphanumeric characters"
             },
             conciousness :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
             umnreflex :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
             lmnreflex :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
             reflexes :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
             s1s2heard :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
             murmur :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
             oralMucosa :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
 
             scalp :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
             nodules :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
             eyes :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
             raynaud :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
             telangiectasia :{
-                lettersonly: "enter only characters"
+                alphanumeric:"enter alphanumeric characters"
             },
             Waist :{
                 number: "enter valid number"
@@ -193,19 +195,19 @@ $(function() {
                 number: "enter valid number"
             },
             photosensivity:{
-                number: "enter valid number"
+                alphanumeric:"enter alphanumeric characters"
             },
             rash:{
-                number: "enter valid number"
+                alphanumeric:"enter alphanumeric characters"
             },
             site:{
-                 number: "enter valid number"
+                alphanumeric:"enter alphanumeric characters"
             },
             type:{
-                number: "enter valid number"
+                alphanumeric:"enter alphanumeric characters"
             },
             itching:{
-                number: "enter valid number"
+                alphanumeric:"enter alphanumeric characters"
             }
         }
     });

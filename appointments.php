@@ -141,6 +141,8 @@ if (isset($_SESSION['userId'])) {
         <script src="plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
         <script src="plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
         <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+        <script src="js/jquery.validate.js"></script>
+        <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
         <!-- <script src="plugins/datedropper/datedropper.min.js"></script> -->
         <!-- <script src="js/form-picker.js"></script> -->
         <script src="plugins/moment/moment.js"></script>

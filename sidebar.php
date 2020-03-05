@@ -16,22 +16,26 @@
                 <div class="nav-lavel">
                     <?php echo $_SESSION['username'].' ( '.$_SESSION['roleName'].')';?>
                 </div>
-                <div class="nav-item active">
-                    <a href="patients.php"><i class="ik ik-user"></i><span>Reception</span></a>
+
+                <?php
+                
+
+
+switch ($_SESSION['role']) {
+    case 1:
+        ?>
+                    <div class="nav-item active">
+                   <a href="patients.php"><i class="ik ik-user"></i><span>Reception</span></a>
+                 </div>
+              <div class="nav-item">
+                <a href="callCenter.php"><i class="ik ik-phone-forwarded"></i><span>Call Center</span></a>
                 </div>
-                <div class="nav-item">
-                    <a href="callCenter.php"><i class="ik ik-phone-forwarded"></i><span>Call Center</span></a>
-                </div>
-                <div class="nav-item">
-                    <a href="collection.php"><i class="fas fa-money-bill"></i><span>Collection</span></a>
-                </div>
-                <?php 
-                if($_SESSION['role'] !=2){?>
-                <div class="nav-item">
+               <div class="nav-item">
+                  <a href="collection.php"><i class="fas fa-money-bill"></i><span>Collection</span></a>
+                 </div>
+                 <div class="nav-item">
                     <a href="appointments.php"><i class="ik ik-file-text"></i><span>Appointments</span></a>
                 </div>
-                <?php 
-                if($_SESSION['role'] !=3){?>
                 <div class="nav-item">
                     <a href="package-master.php"><i class="ik ik-menu"></i><span>Package Master</span></a>
                 </div>
@@ -41,6 +45,43 @@
                 <div class="nav-item">
                     <a href="userMaster.php"><i class="fa fa-user-md"></i></i><span>User Master</span></a>
                 </div>
+                <div class="nav-item">
+                    <a href="discountMaster.php"><i class="fa fa-percent"></i><span>Discount Master</span></a>
+                </div>
+                <div class="nav-item">
+                    <a href="discountClass.php"><i class="fa fa-percent"></i><span>Discount Class</span></a>
+                </div>
+                 <?php
+        break;
+      
+        case 2 :?>
+        
+        <div class="nav-item active">
+                   <a href="patients.php"><i class="ik ik-user"></i><span>Reception</span></a>
+                 </div>
+              <div class="nav-item">
+                <a href="callCenter.php"><i class="ik ik-phone-forwarded"></i><span>Call Center</span></a>
+                </div>
+               <div class="nav-item">
+                  <a href="collection.php"><i class="fas fa-money-bill"></i><span>Collection</span></a>
+                 </div>
+                 
+  <?php
+          break;
+          case 3 :?>
+  <div class="nav-item active">
+                   <a href="patients.php"><i class="ik ik-user"></i><span>Reception</span></a>
+                 </div>
+              <div class="nav-item">
+                <a href="callCenter.php"><i class="ik ik-phone-forwarded"></i><span>Call Center</span></a>
+                </div>
+               <div class="nav-item">
+                  <a href="collection.php"><i class="fas fa-money-bill"></i><span>Collection</span></a>
+                 </div>
+                 <div class="nav-item">
+                    <a href="appointments.php"><i class="ik ik-file-text"></i><span>Appointments</span></a>
+                </div>
+               
                 <!-- <div class="nav-item">
                     <a href="feesMaster.php"><i class="fa fa-money-check"></i></i><span>Doctor Fees Master</span></a>
                 </div> -->
@@ -68,20 +109,35 @@
                 <div class="nav-item">
                     <a href="medicineType.php"><i class="fa fa-pills"></i></i><span>Medicine Type</span></a>
                 </div>
-                <div class="nav-item">
-                    <a href="discountMaster.php"><i class="fa fa-percent"></i><span>Discount Master</span></a>
-                </div>
-                <div class="nav-item">
-                    <a href="discountClass.php"><i class="fa fa-percent"></i><span>Discount Class</span></a>
-                </div>
+             
                 <div class="nav-item">
                     <a href="exerciseChart.php"><i class="fas fa-running"></i><span>Exercise Chart</span></a>
                 </div>
-               
-                <?php 
-                }
-                }
                 ?>
+                <?php
+                  break;
+                  case 4 :?>
+                        <div class="nav-item active">
+                   <a href="patients.php"><i class="ik ik-user"></i><span>Reception</span></a>
+                 </div>
+              <div class="nav-item">
+                <a href="callCenter.php"><i class="ik ik-phone-forwarded"></i><span>Call Center</span></a>
+                </div>
+               <div class="nav-item">
+                  <a href="collection.php"><i class="fas fa-money-bill"></i><span>Collection</span></a>
+                 </div>
+                 
+  <?php
+          break;
+    default:
+   
+}
+?>
+
+
+
+              
+              
             </nav>
         </div>
     </div>

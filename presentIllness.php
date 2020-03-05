@@ -497,7 +497,8 @@
         <script src="plugins/screenfull/dist/screenfull.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="jscode/apis.js"></script>
-        <script src="js/jquery.validate.js"></script>
+        <!-- <script src="js/jquery.validate.js"></script>
+        <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script> -->
         <script src="jscode/presentillness_validation.js"></script>
         <script src="jscode/presentillness.js"></script>
           

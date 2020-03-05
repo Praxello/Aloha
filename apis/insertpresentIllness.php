@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['chiefcomplaints']) && isset($_POST['history'])) {
+if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['doctorId']) && isset($_POST['chiefcomplaints']) && isset($_POST['history'])) {
  
     $pulse       = isset($_POST['pulse']) ? $_POST['pulse'] : 'NULL';
     $spo2        = isset($_POST['spo2']) ? $_POST['spo2'] : 'NULL';
@@ -49,9 +49,9 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['ch
     $itching      = isset($_POST['itching']) ? $_POST['itching'] : 'NULL';
 
     mysqli_query($conn, "DELETE FROM patient_onassessment_master WHERE patientId = $patientId AND visitDate= '$visitDate'");
-    $sql = "INSERT INTO patient_onassessment_master (patientId,visitDate,pulse,spo2,bp,temperature,weight,chiefcomplaints,history,waist,hip,hb1c,fbs,ppbs,gfr,goalweight,height,chest,addedSound,
+    $sql = "INSERT INTO patient_onassessment_master (patientId,visitDate,doctorId,pulse,spo2,bp,temperature,weight,chiefcomplaints,history,waist,hip,hb1c,fbs,ppbs,gfr,goalweight,height,chest,addedSound,
     wheezeRhonchi,dyspoea,conciousness,umnreflex,lmnreflex,reflexes,s1s2heard,murmur,oralMucosa,scalp,nodules,eyes,raynaud,telangiectasia,photosensivity,rash,site,type,itching) 
-     VALUES ('$patientId','$visitDate','$pulse', '$spo2','$bp1','$temperature', '$weight','$chiefcomplaints','$history','$waist','$hip','$hb1c','$fbs','$ppbs','$gfr','$goalweight','$height','$chest',
+     VALUES ('$patientId','$visitDate','$doctorId','$pulse', '$spo2','$bp1','$temperature', '$weight','$chiefcomplaints','$history','$waist','$hip','$hb1c','$fbs','$ppbs','$gfr','$goalweight','$height','$chest',
      '$addedSound','$wheezeRhonchi','$dyspoea','$conciousness','$umnreflex','$lmnreflex','$reflexes','$s1s2heard','$murmur','$oralMucosa','$scalp','$nodules','$eyes','$raynaud',
      '$telangiectasia','$photosensivity','$rash','$site','$type','$itching')";
 
