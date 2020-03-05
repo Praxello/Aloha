@@ -20,10 +20,10 @@ function doctor_details($doctorId)
         global $sign;
         $sign = $row['username'];
         $output .= '<div class="col-xs-7">
-<h3><p class="font-weight-bold mb-1 "><strong>' . $row['username'] . '</strong></p></h3>
-<p class="text-muted ">' . $row['sign'] . '</p>
-<p class="text-muted ">Mobile no:' . $row['mobile'] . '  </p>
-</div>';
+        <h3><p class="font-weight-bold mb-1 "><strong>' . $row['username'] . '</strong></p></h3>
+        <p class="text-muted ">' . $row['sign'] . '</p>
+        <p class="text-muted ">Mobile no:' . $row['mobile'] . '  </p>
+        </div>';
     }
     return $output;
 }
