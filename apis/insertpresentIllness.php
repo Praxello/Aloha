@@ -69,7 +69,7 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['do
         }
         $response = array(
             'Message' => "Added Successfull",
-            "Data" => $sql,
+            "Data" => $records,
             'Responsecode' => 200
         );
         
@@ -77,7 +77,7 @@ if (isset($_POST['patientId']) && isset($_POST['visitDate']) && isset($_POST['do
         $response = array(
             'Message' => mysqli_error($conn) . " failed",
             'Responsecode' => 500,
-            "Data" => $sql
+            "Data" =>$records
         );
     }
 } else {
