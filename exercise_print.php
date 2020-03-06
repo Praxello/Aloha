@@ -64,25 +64,24 @@ function exexcise_details($patientId,$visitDate){
     $result=mysqli_query($conn,$sql);
     if (mysqli_num_rows($result) > 0) {
         $output .= '<div class="col-xs-12">
-        <table class="table ">
+        <table class="table">
             <thead>
                 <tr>
-                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Photo</th>
-                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Title</th>
-                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Details</th>
-                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Steps</th>
+                    <th style="text-align:left;width:15%;" class="border-1 text-uppercase small font-weight-bold ">Photo</th>
+                    <th style="text-align:left;width:15%;" class="border-1 text-uppercase small font-weight-bold ">Title</th>
+                    <th style="text-align:left;width:35%;" class="border-1 text-uppercase small font-weight-bold ">Details</th>
+                    <th style="text-align:left;width:35%;" class="border-1 text-uppercase small font-weight-bold ">Steps</th>
                   
                 </tr>
             </thead>
             <tbody>';
         while ($row = mysqli_fetch_array($result)) {
        
-            $output .= ' <tr>
-
-        <td style="width="100%">  <img class="img-fluid" src="upload/exercise/'.$row['Id'].'.jpg" width="500% " height="600%"></td>
-        <td style="text-align:left">'.$row['title'].' </td>
-        <td style="text-align:left">'.$row['details'].' </td>
-        <td style="text-align:left">'.$row['steps'].' </td>
+            $output .= '<tr>
+        <td style="width="15%;">  <img class="img-fluid" src="upload/exercise/'.$row['Id'].'.jpg" width="500% " height="600%"></td>
+        <td style="text-align:left;width:15%;">'.$row['title'].' </td>
+        <td style="text-align:left;width:35%;">'.$row['details'].' </td>
+        <td style="text-align:left;width:35%;">'.$row['steps'].' </td>
     </tr>';
         }
         $output .= '</tbody></table></div>';
@@ -90,14 +89,13 @@ function exexcise_details($patientId,$visitDate){
     return $output;     
 
 }
-$html = '
-<html>
-
+$html = '<link rel="stylesheet" href="dompdf/style.css">
 <head>
-<link rel="stylesheet" href="dompdf/style.css">
-    
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <style>
+  *{ font-family: DejaVu Sans !important;}
+</style>
 </head>
-
 <body>
 
 <div class="row">
@@ -118,17 +116,12 @@ $html = '
 
 <div class="row">
     <div class="col-md-12">
-                           
-                       '.exexcise_details($patientId,$visitDate).'
-
-        
+    '.exexcise_details($patientId,$visitDate).' 
     </div>
 </div>
-
 </body>
-
 </html>';
-$dompdf->setPaper('A4', 'portrait');
+
 $dompdf->loadHtml($html);
 
 /* Render the HTML as PDF */
@@ -136,7 +129,6 @@ $dompdf->render();
 
 /* Output the generated PDF to Browser */
 // $dompdf->stream();
-$dompdf->stream("dompdf_out.pdf", array("Attachment" => false));
-
+$dompdf->stream("exercise.pdf", array("Attachment" => false));
 exit(0);
 ?>

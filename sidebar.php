@@ -113,7 +113,6 @@ switch ($_SESSION['role']) {
                 <div class="nav-item">
                     <a href="exerciseChart.php"><i class="fas fa-running"></i><span>Exercise Chart</span></a>
                 </div>
-                ?>
                 <?php
                   break;
                   case 4 :?>
