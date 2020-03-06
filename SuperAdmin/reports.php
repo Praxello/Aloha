@@ -15,20 +15,20 @@ if(isset($_SESSION['branchId'])){
 
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <link href="dist/css/font.css" rel="stylesheet">
-        <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-        <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
-        <link rel="stylesheet" href="plugins/ionicons/dist/css/ionicons.min.css">
-        <link rel="stylesheet" href="plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-        <link rel="stylesheet" href="plugins/perfect-scrollbar/css/perfect-scrollbar.css">
-        <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
-        <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
-        <link rel="stylesheet" href="plugins/weather-icons/css/weather-icons.min.css">
-        <link rel="stylesheet" href="plugins/c3/c3.min.css">
-        <link rel="stylesheet" href="plugins/owl.carousel/dist/assets/owl.carousel.min.css">
-        <link rel="stylesheet" href="plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
-        <link rel="stylesheet" href="dist/css/theme.min.css">
-        <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="../plugins/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+        <link rel="stylesheet" href="../plugins/icon-kit/dist/css/iconkit.min.css">
+        <link rel="stylesheet" href="../plugins/ionicons/dist/css/ionicons.min.css">
+        <link rel="stylesheet" href="../plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="../plugins/perfect-scrollbar/css/perfect-scrollbar.css">
+        <link rel="stylesheet" href="../plugins/select2/dist/css/select2.min.css">
+        <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
+        <link rel="stylesheet" href="../plugins/weather-icons/css/weather-icons.min.css">
+        <link rel="stylesheet" href="../plugins/c3/c3.min.css">
+        <link rel="stylesheet" href="../plugins/owl.carousel/dist/assets/owl.carousel.min.css">
+        <link rel="stylesheet" href="../plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="../dist/css/theme.min.css">
+        <script src="../src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="dist/css/loader.css">
         <link href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" rel="stylesheet">
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" /> -->
@@ -55,7 +55,7 @@ if(isset($_SESSION['branchId'])){
         <div class="wrapper">
             <div class="page-wrap">
                 <?php include 'header.php';?>
-                    <?php include 'sidebar.php';?>
+                    <?php include 'AdminSidebar.php';?>
                         <div class="main-content template-demo">
                             <div class="container-fluid" style="margin-top: 10px;">
                                 <div class="card">
@@ -201,7 +201,7 @@ if(isset($_SESSION['branchId'])){
             </div>
         </div>
 
-        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="../js/jquery-3.3.1.min.js"></script>
         <script src="picker.js"></script>
         <script>
             var data = {
@@ -225,25 +225,25 @@ if(isset($_SESSION['branchId'])){
                 format: 'Y-m-d'
             });
         </script>
-        <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
-        <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-        <script src="plugins/screenfull/dist/screenfull.js"></script>
-        <script src="plugins/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-        <script src="plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-        <script src="plugins/moment/moment.js"></script>
-        <script src="plugins/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="plugins/select2/dist/js/select2.min.js"></script>
-        <script src="plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
-        <script src="plugins/d3/dist/d3.min.js"></script>
-        <script src="plugins/c3/c3.min.js"></script>
-        <script src="js/tables.js"></script>
-        <script src="jscode/loader.js"></script>
-        <script src="js/charts.js"></script>
-        <script src="dist/js/theme.min.js"></script>
-        <script src="js/jquery.validate.js"></script>
+        <script src="../plugins/popper.js/dist/umd/popper.min.js"></script>
+        <script src="../plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
+        <script src="../plugins/screenfull/dist/screenfull.js"></script>
+        <script src="../plugins/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="../plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+        <script src="../plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="../plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+        <script src="../plugins/moment/moment.js"></script>
+        <script src="../plugins/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="../plugins/select2/dist/js/select2.min.js"></script>
+        <script src="../plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
+        <script src="../plugins/d3/dist/d3.min.js"></script>
+        <script src="../plugins/c3/c3.min.js"></script>
+        <script src="../js/tables.js"></script>
+        <script src="../jscode/loader.js"></script>
+        <script src="../js/charts.js"></script>
+        <script src="../dist/js/theme.min.js"></script>
+        <script src="../js/jquery.validate.js"></script>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
@@ -255,9 +255,9 @@ if(isset($_SESSION['branchId'])){
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
-        <script src="jscode/apis.js"></script>
-        <script src="jscode/getBranches.js"></script>
-        <script src="jscode/collection.js"></script>
+        <script src="../jscode/apis.js"></script>
+        <script src="../jscode/getBranches.js"></script>
+        <script src="../jscode/collection.js"></script>
      
     </body>
 
