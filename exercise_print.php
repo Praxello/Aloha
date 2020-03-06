@@ -67,10 +67,10 @@ function exexcise_details($patientId,$visitDate){
         <table class="table">
             <thead>
                 <tr>
-                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Photo</th>
-                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Title</th>
-                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Details</th>
-                    <th style="text-align:left" class="border-1 text-uppercase small font-weight-bold ">Steps</th>
+                    <th style="text-align:left;width:15%;" class="border-1 text-uppercase small font-weight-bold ">Photo</th>
+                    <th style="text-align:left;width:15%;" class="border-1 text-uppercase small font-weight-bold ">Title</th>
+                    <th style="text-align:left;width:35%;" class="border-1 text-uppercase small font-weight-bold ">Details</th>
+                    <th style="text-align:left;width:35%;" class="border-1 text-uppercase small font-weight-bold ">Steps</th>
                   
                 </tr>
             </thead>
@@ -78,10 +78,10 @@ function exexcise_details($patientId,$visitDate){
         while ($row = mysqli_fetch_array($result)) {
        
             $output .= '<tr>
-        <td style="width="100%">  <img class="img-fluid" src="upload/exercise/'.$row['Id'].'.jpg" width="500% " height="600%"></td>
-        <td style="text-align:left">'.$row['title'].' </td>
-        <td style="text-align:left">'.$row['details'].' </td>
-        <td style="text-align:left">'.$row['steps'].' </td>
+        <td style="width="15%;">  <img class="img-fluid" src="upload/exercise/'.$row['Id'].'.jpg" width="500% " height="600%"></td>
+        <td style="text-align:left;width:15%;">'.$row['title'].' </td>
+        <td style="text-align:left;width:35%;">'.$row['details'].' </td>
+        <td style="text-align:left;width:35%;">'.$row['steps'].' </td>
     </tr>';
         }
         $output .= '</tbody></table></div>';
