@@ -133,11 +133,8 @@ switch ($_SESSION['role']) {
                    <a href="reports.php"><i class="ik ik-user"></i><span>Reports</span></a>
                  </div>
                  <div class="nav-item active">
-<<<<<<< HEAD
                    <a href="opd_reports.php"><i class="ik ik-user"></i><span>OPD</span></a>
-=======
                    <a href="callCenterReport.php"><i class="ik ik-user"></i><span>Call Center</span></a>
->>>>>>> 1760863bc2c1ada592fa1ef09ff6e45c21b0068d
                  </div>
   <?php
           break;
