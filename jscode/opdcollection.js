@@ -21,7 +21,6 @@ const donutresult = (fromDate, uptoDate) => {
                 }
             }
             chartdonut(donut);
-
         }
     });
 };
@@ -81,6 +80,7 @@ $('#searchCollection').on('click', function(e) {
         if ($('#branch').val() != '') {
             branch = $('#branch').val();
         }
+        donutresult(fromDate, uptoDate);
     }
 });
 

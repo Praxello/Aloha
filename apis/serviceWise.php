@@ -10,6 +10,9 @@ $tempMedicines = null;
 extract($_POST);
 
 $sql = "SELECT bd.feesType,SUM(bd.fees) test FROM Bill_Details bd";
+if(!empty($_POST['fromDate']) && !empty($_POST['uptoDate'])){
+    $sql .= " INNER JOIN opd_payment_transaction_master opd ON opd.paymentId = bd.paymentId WHERE opd.paymentDate BETWEEN '$fromDate' AND '$uptoDate'";
+}
 if(isset($_POST['branchId']) && !empty($_POST['branchId']) && $_POST['branchId'] != 0){
     $sql .= " AND opm.branchId = $branchId";
 }
