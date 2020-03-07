@@ -6,7 +6,7 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT * FROM exercise_photo_master ORDER BY id DESC";
+$sql = "SELECT * FROM exercise_photo_master where isActive = 1  ORDER BY id DESC";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -16,7 +16,7 @@ if ($jobQuery != null) {
         }
         
         $response = array(
-            'Message' => "All Data Fetched successfully",
+            'Message' => "All Data Fetched successfully",   
             "Data" => $records,
             'Responsecode' => 200
         );

@@ -71,7 +71,7 @@
 
                     
                     <button class="btn btn-success" type="submit">Update Exercise</button>
-                    <button class="btn btn-success" type="button" onClick="gobackCo()">Cancel</button>
+                    <!-- <button class="btn btn-success" type="button" onClick="gobackCo()">Cancel</button> -->
                 </form>
                         </div>
                     </div>
