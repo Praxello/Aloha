@@ -14,7 +14,7 @@ if(isset($_SESSION['branchId'])){
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <link href="dist/css/font.css" rel="stylesheet">
+        <link href="../dist/css/font.css" rel="stylesheet">
         <link rel="stylesheet" href="../plugins/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="../plugins/icon-kit/dist/css/iconkit.min.css">
@@ -29,10 +29,10 @@ if(isset($_SESSION['branchId'])){
         <link rel="stylesheet" href="../plugins/owl.carousel/dist/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="../dist/css/theme.min.css">
         <script src="../src/js/vendor/modernizr-2.8.3.min.js"></script>
-        <link rel="stylesheet" href="dist/css/loader.css">
+        <link rel="stylesheet" href="../dist/css/loader.css">
         <link href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" rel="stylesheet">
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" /> -->
-        <link rel="stylesheet" href="picker.css">
+        <link rel="stylesheet" href="../picker.css">
     </head>
     <style>
         .error {
@@ -49,6 +49,39 @@ if(isset($_SESSION['branchId'])){
             position: relative;
             width: 33px
         }
+        .highcharts-figure, .highcharts-data-table table {
+    min-width: 320px; 
+    max-width: 660px;
+    margin: 1em auto;
+}
+
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
     </style>
 
     <body>
@@ -82,7 +115,7 @@ if(isset($_SESSION['branchId'])){
 
                                                 </div>
                                             </div>
-                                            <div class="col-sm-2" style="display: none;" id="bshow">
+                                            <div class="col-sm-2">
                                                 <div class="form-group">
                                                     <label for="">Branch</label>
                                                     <select name="branch" id="branch" style="width: 100%;" class="form-control"></select>
@@ -99,54 +132,13 @@ if(isset($_SESSION['branchId'])){
 
                                         </div>
                                     </form>
-                                    <div class="card-body table-responsive">
-                                        <div class="dt-responsive">
-                                            <table id="collectionT" class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Reciept Id</th>
-                                                        <th>Payment Date</th>
-                                                        <th>Patient Name</th>
-                                                        <th>Doctor Name</th>
-                                                        <th>Discount Type</th>
-                                                        <th>Payment Type</th>
-                                                        <th>Bill Details</th>
-                                                        <th>Amount</th>
-                                                        <th>Pending Amount</th>
-                                                        <th>Payment Mode</th>
-                                                        <th>Recieved by</th>
-                                                        <th>Bill date</th>
-                                                        <th class="nosort"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="collectionD">
-
-                                                </tbody>
-                                                <tfoot>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th>Total</th>
-                                                    <th id="amtO"></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th class="nosort"></th>
-                                                </tfoot>
-                                            </table>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
-                                                    <div id="high"></div>
+                                                    <div id="opd"></div>
                                                 </figure>
                                             </div>
                                         </div>
@@ -155,7 +147,7 @@ if(isset($_SESSION['branchId'])){
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
-                                                    <div id="package"></div>
+                                                    <div id="donut"></div>
                                                 </figure>
                                             </div>
                                         </div>
@@ -202,7 +194,7 @@ if(isset($_SESSION['branchId'])){
         </div>
 
         <script src="../js/jquery-3.3.1.min.js"></script>
-        <script src="picker.js"></script>
+        <script src="../picker.js"></script>
         <script>
             var data = {
                 userId: <?php echo $_SESSION['userId'];?>,
@@ -211,10 +203,6 @@ if(isset($_SESSION['branchId'])){
                 today: '<?php echo date('Y-m-d ');?>',
                 role: '<?php echo $_SESSION['role'];?>'
             };
-            if (data.role == 1) {
-                $('#bshow').show();
-            }
-
             $.datetimepicker.setLocale('en');
             jQuery('#fromDate').datetimepicker({
                 timepicker: false,
@@ -255,9 +243,9 @@ if(isset($_SESSION['branchId'])){
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
-        <script src="../jscode/apis.js"></script>
+        <script src="../jscode/adminApi.js"></script>
         <script src="../jscode/getBranches.js"></script>
-        <script src="../jscode/collection.js"></script>
+        <script src="../jscode/opdcollection.js"></script>
      
     </body>
 
