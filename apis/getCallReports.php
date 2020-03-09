@@ -9,7 +9,7 @@ $temparray  = null;
 $tempMedicines = null;
 extract($_POST);
 if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
-$sql = "SELECT cs.clientId,cs.firstName,cs.nearByArea,cs.reference,cs.state,hp.branchName,hp.branchId,DATE_FORMAT(cc.appointmentDate,'%d %b %Y') createdAt,cc.attendedBy,cc.feedback
+$sql = "SELECT cs.clientId,cs.firstName,cs.lastName,cs.nearByArea,cs.reference,cs.state,hp.branchName,hp.branchId,DATE_FORMAT(cc.appointmentDate,'%d %b %Y') createdAt,cc.attendedBy,cc.feedback
 FROM call_center cc INNER JOIN call_center_patients cs  ON cs.clientId = cc.clientId 
 LEFT JOIN hospital_branch_master hp ON hp.branchId = cc.branchId
 WHERE  cc.appointmentDate BETWEEN '$fromDate' AND '$uptoDate' ";

@@ -132,7 +132,7 @@ if(isset($_SESSION['branchId'])){
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
-                                                    <div id="high"></div>
+                                                    <div id="callfeedback"></div>
                                                 </figure>
                                             </div>
                                         </div>
@@ -141,7 +141,7 @@ if(isset($_SESSION['branchId'])){
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
-                                                    <div id="package"></div>
+                                                    <div id="refer"></div>
                                                 </figure>
                                             </div>
                                         </div>
