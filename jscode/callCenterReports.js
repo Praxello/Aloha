@@ -71,67 +71,45 @@ const getCallCenterReports = (fromDate, uptoDate, branch) => {
         }
     });
 };
-// const getConsultaion = (fromDate, uptoDate) => {
-//     Tamt = [];
-//     Ramt = [];
-//     newR = [];
-//     category = [];
-//     bPatient = [];
-//     penamt = [];
-//     consultData = [];
-//     $.ajax({
-//         url: url + 'getConsultation.php',
-//         type: 'POST',
-//         dataType: 'json',
-//         data: { fromDate: fromDate, uptoDate: uptoDate },
-//         success: function(response) {
-//             if (response.Responsecode == 200) {
-//                 const count = response.Data.length;
-//                 for (var i = 0; i < count; i++) {
-//                     category.push(response.Data[i].paymentDate);
-//                     Tamt.push(parseFloat(response.Data[i].total));
-//                     Ramt.push(parseFloat(response.Data[i].amount));
-//                     newR.push(parseInt(response.Data[i].newR));
-//                     bPatient.push(parseInt(response.Data[i].billedP));
-//                     penamt.push(parseInt(response.Data[i].pending));
-//                 }
-//                 consultData.push({ name: 'New Registration', data: newR });
-//                 consultData.push({ name: 'Billed Patient', data: bPatient });
-//                 consultData.push({ name: 'Total Amount', data: Tamt });
-//                 consultData.push({ name: 'Recieved Amount', data: Ramt });
-//                 consultData.push({ name: 'Pending Amount', data: penamt });
-//             }
-//             chart_consult(consultData, category);
-//         }
-//     });
-// };
-// const getPackageCollection = (fromDate, uptoDate) => {
-//     pTamt = [];
-//     packageT = [];
-//     pRamt = [];
-//     consultP = [];
-//     $.ajax({
-//         url: url + 'getPackageCollection.php',
-//         type: 'POST',
-//         dataType: 'json',
-//         data: { fromDate: fromDate, uptoDate: uptoDate },
-//         success: function(response) {
-//             if (response.Responsecode == 200) {
-//                 const count = response.Data.length;
-//                 for (var i = 0; i < count; i++) {
-//                     packageT.push(response.Data[i].paymentDate);
-//                     pTamt.push(parseFloat(response.Data[i].total));
-//                     pRamt.push(parseFloat(response.Data[i].amount));
-//                 }
-//                 consultP.push({ name: 'Total Amount', data: pTamt });
-//                 consultP.push({ name: 'Recieved Amount', data: pRamt });
-//             }
-//             chart_package(consultP, packageT);
-//         }
-//     });
-// };
-// getPackageCollection(data.today, data.today);
-// getConsultaion(data.today, data.today);
+var ref=[];
+const refresult = (fromDate, uptoDate) => {
+    ref = [];
+    $.ajax({
+        url: url + 'referenceWise.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { fromDate: fromDate, uptoDate: uptoDate },
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                    let obj = {
+                        name: response.Data[i].reference,
+                        y: parseInt(response.Data[i].reference1)
+                    };
+                    ref.push(obj);
+                }
+            }
+            chartref(ref);
+        }
+    });
+};
+function mapBranches() {
+    var dropdownList = '<option></option>';
+    for (let k of branch.keys()) {
+        dropdownList += '<option value="' + k + '">' + branch.get(k) + '</option>';
+    }
+    $('#branch').html(dropdownList);
+}
+$(document).ready(function() {
+    mapBranches();
+    $("#branch").select2({
+        placeholder: 'Select branch',
+        allowClear: true
+    });
+});
+
+
 $('#searchCollection1').on('click', function(e) {
     e.preventDefault();
     $("#callRegister1").validate({
@@ -162,7 +140,7 @@ $('#searchCollection1').on('click', function(e) {
             branch = $('#branch').val();
         }
         getCallCenterReports(fromDate, uptoDate, branch);
-        // getConsultaion(fromDate, uptoDate);
+        refresult(fromDate, uptoDate);
         // getPackageCollection(fromDate, uptoDate);
     }
 });
@@ -173,83 +151,58 @@ $('#searchCollection1').on('click', function(e) {
 // }
 getCallCenterReports(data.today, data.today);
 
-function mapBranches() {
-    var dropdownList = '<option></option>';
-    for (let k of branch.keys()) {
-        dropdownList += '<option value="' + k + '">' + branch.get(k) + '</option>';
-    }
-    $('#branch').html(dropdownList);
-}
-$(document).ready(function() {
-    mapBranches();
-    $("#branch").select2({
-        placeholder: 'Select branch',
-        allowClear: true
+refresult(fromDate, uptoDate);
+
+function chartref(ref) {
+    Highcharts.setOptions({
+        colors: Highcharts.map(Highcharts.getOptions().colors, function(color) {
+            return {
+                radialGradient: {
+                    cx: 0.5,
+                    cy: 0.3,
+                    r: 0.7
+                },
+                stops: [
+                    [0, color],
+                    [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
+                ]
+            };
+        })
     });
-});
 
-// function chart_consult(seriesData, categories) {
-//     Highcharts.chart('high', {
-//         chart: {
-//             type: 'column'
-//         },
-//         title: {
-//             text: 'OPD Payment'
-//         },
-//         xAxis: {
-//             categories: categories,
-//             crosshair: true
-//         },
-//         yAxis: {
-//             min: 0,
-//         },
-//         tooltip: {
-//             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-//             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-//                 '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-//             footerFormat: '</table>',
-//             shared: true,
-//             useHTML: true
-//         },
-//         plotOptions: {
-//             column: {
-//                 pointPadding: 0.2,
-//                 borderWidth: 0
-//             }
-//         },
-//         series: seriesData
-//     });
-// }
-
-// function chart_package(seriesData, categories) {
-//     Highcharts.chart('package', {
-//         chart: {
-//             type: 'column'
-//         },
-//         title: {
-//             text: 'Package Collection'
-//         },
-//         xAxis: {
-//             categories: categories,
-//             crosshair: true
-//         },
-//         yAxis: {
-//             min: 0,
-//         },
-//         tooltip: {
-//             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-//             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-//                 '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-//             footerFormat: '</table>',
-//             shared: true,
-//             useHTML: true
-//         },
-//         plotOptions: {
-//             column: {
-//                 pointPadding: 0.2,
-//                 borderWidth: 0
-//             }
-//         },
-//         series: seriesData
-//     });
-// }
+    // Build the chart
+    Highcharts.chart('ref', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Refrence wise(%) Sales'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        accessibility: {
+            point: {
+                valueSuffix: '%'
+            }
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    connectorColor: 'silver'
+                }
+            }
+        },
+        series: [{
+            name: 'Reference',
+            data: ref
+        }]
+    });
+}
