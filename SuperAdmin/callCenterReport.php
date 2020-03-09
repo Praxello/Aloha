@@ -59,7 +59,7 @@ if(isset($_SESSION['branchId'])){
                         <div class="main-content template-demo">
                             <div class="container-fluid" style="margin-top: 10px;">
                                 <div class="card">
-                                    <form id="callRegister">
+                                    <form id="callRegister1">
                                         <div class="card-header row">
 
                                             <div class="col-sm-2">
@@ -90,7 +90,7 @@ if(isset($_SESSION['branchId'])){
                                             </div>
                                             <div class="col-sm-2" style="margin-top: 16px;">
                                                 <div class="form-group" style="margin-top: 20px;">
-                                                    <button class="btn  btn-primary" type="button" id="searchCollection">Search</button>
+                                                    <button class="btn  btn-primary" type="button" id="searchCollection1">Search</button>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
@@ -104,17 +104,19 @@ if(isset($_SESSION['branchId'])){
                                             <table id="callReportT" class="table table-bordered">
                                                 <thead>
                                                     <tr>
-                                                    <th style="width: 15%;">Name</th>
-                                                     <th style="width: 15%;">Doctor</th>
+                                                    <th >Id</th>
+                                                     <th >Name</th>
                                                     <th>Branch</th>
-                                                     <th>Age</th>
-                                                     <th>Contact Number</th>
-                                                      <th>Appointment Date</th>
-                                                     <th>Follow up Need</th>
-                                                     <th>Status</th>
-                                                     <th>Follow up date</th>
+                                                    <th>Near By Area</th>
+                                                     <th>Reference</th>
+                                                     <th>Appointment Date</th>
+                                                     <th>AttendedBy</th>
+                                                  
+                                                     <th>feedback</th>
+                                                     <th>CreatedAt</th>
+                                                  
                                                     <th>Action</th>
-                                                        <th class="nosort"></th>
+                                                     
                                                     </tr>
                                                 </thead>
                                                 <tbody id="callReportD">

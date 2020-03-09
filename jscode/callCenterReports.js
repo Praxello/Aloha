@@ -9,17 +9,18 @@ var packageT = [];
 var pRamt = [];
 var consultP = [];
 var penamt = [];
-const getCollection = (fromDate, uptoDate, branch) => {
+const getCallCenterReports = (fromDate, uptoDate, branch) => {
     $.ajax({
-        url: url + 'getCollection.php',
+        url: url + 'getCallReports.php',
         type: 'POST',
         dataType: 'json',
         data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branch },
         success: function(response) {
+            console.log(response);
             $('#callReportT').dataTable().fnDestroy();
             $('#callReportD').empty();
             var tblData = '',
-                badge = '',
+                badge = '',                                                                                         
                 amtO = 0,
                 amtR = 0,
                 amtT = 0,
@@ -27,54 +28,37 @@ const getCollection = (fromDate, uptoDate, branch) => {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
-                    let collect = response.Data[i];
-                    if (collect.isPackage == 0) {
-                        badge = 'OPD';
-                    } else {
-                        badge = 'Package';
-                    }
-                    amtO = amtO + parseFloat(collect.amount);
-                    amtR = amtR + parseFloat(collect.received);
-                    amtP = amtP + parseFloat(collect.pending);
-                    amtT = amtT + parseFloat(collect.total);
-                    tblData += '<tr><td>' + collect.recieptId + ' </td><td>' + collect.visitDate + ' </td><td>' + collect.firstName + ' ' + collect.surname + '</td>';
-                    tblData += '<td>' + collect.username + '</td>';
-                    tblData += '<td>' + collect.discountType + '</td>';
-                    tblData += '<td>' + badge + '</td>';
-                    tblData += '<td>' + collect.billdetails + '</td>';
-                    tblData += '<td>' + parseFloat(collect.amount).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) + '</td>';
-                    tblData += '<td>' + parseFloat(collect.pending).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) + '</td>';
-                    tblData += '<td>' + collect.paymentMode + '</td>';
-                    tblData += '<td>' + collect.receivedBy + '</td>';
-                    tblData += '<td>' + collect.createdAt + '</td>';
+                    let callR = response.Data[i];
+                    // if (callR.isPackage == 0) {
+                    //     badge = 'OPD';
+                    // } else {
+                    //     badge = 'Package';
+                    // }
+                    // amtO = amtO + parseFloat(collect.amount);
+                    // amtR = amtR + parseFloat(collect.received);
+                    // amtP = amtP + parseFloat(collect.pending);
+                    // amtT = amtT + parseFloat(collect.total);
+                    // tblData += '<tr><td>' + collect.recieptId + ' </td><td>' + collect.visitDate + ' </td><td>' + collect.firstName + ' ' + collect.surname + '</td>';
+                    tblData += '<tr><td>' + callR.clientId + '</td>';
+                    tblData += '<td>' + callR.firstName + '</td>';
+                    tblData += '<td>' + callR.branchName + '</td>';
+                    tblData += '<td>' + callR.nearByArea + '</td>';
+                    
+                    tblData += '<td>' + callR.reference + '</td>';
+                  
+                    tblData += '<td>' + callR.appointmentDate + '</td>';
+                    tblData += '<td>' + callR.attendedBy + '</td>';
+                    tblData += '<td>' + callR.feedback + '</td>';
+                    tblData += '<td>' + callR.createdAt + '</td>';
+                    
                     tblData += '<td><div class="table-actions" style="text-align: left;">';
-                    tblData += '<a href="#" onclick="printReciept(' + (collect.paymentId) + ')" title="print reciept"><i class="fa fa-download text-blue"></i></a>';
+                     tblData += '<a href="#" onclick="printReciept(' + (callR.clientId) + ')" title="print reciept"><i class="fa fa-download text-blue"></i></a>';
                     tblData += '</div></td></tr>';
                 }
             }
             $('#callReportD').html(tblData);
            
             $('#callReportT').dataTable({
-                // initComplete: function() {
-                //     this.api().columns().every(function() {
-                //         var column = this;
-                //         var select = $('<select><option value=""></option></select>')
-                //             .appendTo($(column.footer()).empty())
-                //             .on('change', function() {
-                //                 var val = $.fn.dataTable.util.escapeRegex(
-                //                     $(this).val()
-                //                 );
-
-                //                 column
-                //                     .search(val ? '^' + val + '$' : '', true, false)
-                //                     .draw();
-                //             });
-
-                //         column.data().unique().sort().each(function(d, j) {
-                //             select.append('<option value="' + d + '">' + d + '</option>');
-                //         });
-                //     });
-                // },
                 searching: true,
                 retrieve: true,
                 bPaginate: $('tbody tr').length > 10,
@@ -148,9 +132,9 @@ const getCollection = (fromDate, uptoDate, branch) => {
 // };
 // getPackageCollection(data.today, data.today);
 // getConsultaion(data.today, data.today);
-$('#searchCollection').on('click', function(e) {
+$('#searchCollection1').on('click', function(e) {
     e.preventDefault();
-    $("#callRegister").validate({
+    $("#callRegister1").validate({
         ignore: [],
         rules: {
             uptoDate: {
@@ -169,7 +153,7 @@ $('#searchCollection').on('click', function(e) {
             },
         }
     });
-    var returnVal = $("#callRegister").valid();
+    var returnVal = $("#callRegister1").valid();
     if (returnVal) {
         var branch = null;
         var fromDate = moment($('#fromDate').val()).format('YYYY-MM-DD');
@@ -177,9 +161,9 @@ $('#searchCollection').on('click', function(e) {
         if ($('#branch').val() != '') {
             branch = $('#branch').val();
         }
-        getCollection(fromDate, uptoDate, branch);
-        getConsultaion(fromDate, uptoDate);
-        getPackageCollection(fromDate, uptoDate);
+        getCallCenterReports(fromDate, uptoDate, branch);
+        // getConsultaion(fromDate, uptoDate);
+        // getPackageCollection(fromDate, uptoDate);
     }
 });
 
@@ -187,22 +171,22 @@ $('#searchCollection').on('click', function(e) {
    
 //     $('<form action="payment-reciept.php" method="POST" target="_blank"><input type="hidden" name="ppaymentId" value="' + paymentId + '" /></form>').appendTo('body').submit();
 // }
-getCollection(data.today, data.today);
+getCallCenterReports(data.today, data.today);
 
-// function mapBranches() {
-//     var dropdownList = '<option></option>';
-//     for (let k of branch.keys()) {
-//         dropdownList += '<option value="' + k + '">' + branch.get(k) + '</option>';
-//     }
-//     $('#branch').html(dropdownList);
-// }
-// $(document).ready(function() {
-//     mapBranches();
-//     $("#branch").select2({
-//         placeholder: 'Select branch',
-//         allowClear: true
-//     });
-// });
+function mapBranches() {
+    var dropdownList = '<option></option>';
+    for (let k of branch.keys()) {
+        dropdownList += '<option value="' + k + '">' + branch.get(k) + '</option>';
+    }
+    $('#branch').html(dropdownList);
+}
+$(document).ready(function() {
+    mapBranches();
+    $("#branch").select2({
+        placeholder: 'Select branch',
+        allowClear: true
+    });
+});
 
 // function chart_consult(seriesData, categories) {
 //     Highcharts.chart('high', {
