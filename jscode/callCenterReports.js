@@ -38,7 +38,7 @@ const getCallCenterReports = (fromDate, uptoDate, branch) => {
                     tblData += '<td>' + callR.reference + '</td>';
                   
                     tblData += '<td>' + callR.appointmentDate + '</td>';
-                    tblData += '<td>' + callR.attendedBy + '</td>';
+                    tblData += '<td>' + callR.username + '</td>';
                     tblData += '<td>' + callR.feedback + '</td>';
                     tblData += '<td>' + callR.createdAt + '</td>';
                     
@@ -59,29 +59,6 @@ const getCallCenterReports = (fromDate, uptoDate, branch) => {
                 buttons: ['copy', 'csv', 'excel', 'pdf'],
                 destroy: true
             });
-        }
-    });
-};
-
-const refresult = (fromDate, uptoDate) => {
-    ref = [];
-    $.ajax({
-        url: url + 'referenceWise.php',
-        type: 'POST',
-        dataType: 'json',
-        data: { fromDate: fromDate, uptoDate: uptoDate },
-        success: function(response) {
-            if (response.Responsecode == 200) {
-                const count = response.Data.length;
-                for (var i = 0; i < count; i++) {
-                    let obj = {
-                        name: response.Data[i].reference,
-                        y: parseInt(response.Data[i].reference1)
-                    };
-                    ref.push(obj);
-                }
-            }
-            chartref(ref);
         }
     });
 };
@@ -119,6 +96,32 @@ const callfollowupRecord = (fromDate, uptoDate) => {
         }
     });
 };
+const callReference = (fromDate, uptoDate) => {
+    ref = [];
+   
+    consultData = [];
+    $.ajax({
+        url: url + 'referenceWise.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { fromDate: fromDate, uptoDate: uptoDate },
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                    category.push(response.Data[i].reference);
+                //    Tamt.push(parseInt(response.Data[i].attendedBy));
+           
+                }
+                consultData.push({ name: 'Reference', data: category });
+             
+            }
+            chart_ref(consultData, category);
+        }
+    });
+};
+
+
 
 function mapBranches() {
     var dropdownList = '<option></option>';
@@ -166,8 +169,9 @@ $('#searchCollection1').on('click', function(e) {
             branch = $('#branch').val();
         }
         getCallCenterReports(fromDate, uptoDate, branch);
-        refresult(fromDate, uptoDate);
-        callfollowupRecord(data.today, data.today);
+     
+        // callfollowupRecord(fromDate,uptoDate);
+        // callReference(fromDate, uptoDate);
     }
 });
 
@@ -177,61 +181,8 @@ $('#searchCollection1').on('click', function(e) {
 // }
 getCallCenterReports(data.today, data.today);
 
-refresult(fromDate, uptoDate);
-getConsultaion(data.today, data.today);
-function chartref(ref) {
-    Highcharts.setOptions({
-        colors: Highcharts.map(Highcharts.getOptions().colors, function(color) {
-            return {
-                radialGradient: {
-                    cx: 0.5,
-                    cy: 0.3,
-                    r: 0.7
-                },
-                stops: [
-                    [0, color],
-                    [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
-                ]
-            };
-        })
-    });
-
-    // Build the chart
-    Highcharts.chart('refer', {
-        chart: {
-            plotBackgroundColor: null,
-            plotBorderWidth: null,
-            plotShadow: false,
-            type: 'pie'
-        },
-        title: {
-            text: 'Refrence wise(%) Sales'
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        accessibility: {
-            point: {
-                valueSuffix: '%'
-            }
-        },
-        plotOptions: {
-            pie: {
-                allowPointSelect: true,
-                cursor: 'pointer',
-                dataLabels: {
-                    enabled: true,
-                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                    connectorColor: 'silver'
-                }
-            }
-        },
-        series: [{
-            name: 'Reference',
-            data: ref
-        }]
-    });
-}
+callfollowupRecord(fromDate, uptoDate);
+callReference(fromDate, uptoDate);
 
 function chart_consult(seriesData, categories) {
     Highcharts.chart('callfeedback', {
@@ -240,6 +191,38 @@ function chart_consult(seriesData, categories) {
         },
         title: {
             text: 'Employee wise followup'
+        },
+        xAxis: {
+            categories: categories,
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: seriesData
+    });
+}
+function chart_ref(seriesData, categories) {
+    Highcharts.chart('refer', {
+        chart: {
+            type: 'column'                  
+        },
+        title: {
+            text: 'Refrence'
         },
         xAxis: {
             categories: categories,
