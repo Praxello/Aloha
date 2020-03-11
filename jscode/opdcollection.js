@@ -147,7 +147,7 @@ function chartdonut(donut) {
             }
         },
         series: [{
-            name: 'Share',
+            name: 'Total Amount',
             data: donut
         }]
     });
@@ -197,7 +197,7 @@ function opdinvoice(discount) {
             }
         }, {
             type: 'pie',
-            name: 'Total consumption',
+            name: 'Total discount',
             data: discount,
             center: [100, 80],
             size: 100,
