@@ -51,7 +51,7 @@ if ($jobQuery != null) {
     }
 }else{
     $response = array(
-        'Message' => "Please Logout and login again",
+        'Message' => mysqli_error($conn),
         "Data" => $records,
         'Responsecode' => 300
     ); 
