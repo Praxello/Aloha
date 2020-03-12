@@ -7,15 +7,21 @@ $response = null;
 $records  = null;
 
 extract($_POST);
+if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
+$sql = "SELECT COUNT(ccf.callFollowupsId) callf,um.username FROM call_center_followups ccf 
+LEFT JOIN user_master um on um.userId = ccf.attendedBy  where date(ccf.followUpDateTime) BETWEEN '$fromDate' AND '$uptoDate'  GROUP BY ccf.attendedBy";
 
-$sql = "SELECT cs.clientId,sum(cs.reference) reference1,cs.reference FROM call_center_patients cs";
-if(!empty($_POST['fromDate']) && !empty($_POST['uptoDate'])){
-    $sql .= " INNER JOIN call_center cc ON  cc.clientId = cs.clientId WHERE cc.appointmentDate BETWEEN '$fromDate' AND '$uptoDate'";
-}
-if(isset($_POST['branchId']) && !empty($_POST['branchId']) && $_POST['branchId'] != 0){
-    $sql .= " AND cc.branchId = $branchId";
-}
-$sql .= " GROUP BY cs.clientId";
+
+// $sql = "SELECT cs.clientId,sum(cs.reference) reference1,cs.reference FROM call_center_patients cs";
+// if(!empty($_POST['fromDate']) && !empty($_POST['uptoDate'])){
+//     $sql .= " SELECT COUNT(ccf.callFollowupsId) callf,um.username,ccf.followup FROM call_center_followups ccf LEFT JOIN user_master um on um.userId=ccf.attendedBy GROUP BY ccf.followUp ";
+// }
+// if(isset($_POST['branchId']) && !empty($_POST['branchId']) && $_POST['branchId'] != 0){
+//     $sql .= " AND cc.branchId = $branchId";
+// }
+// $sql .= " GROUP BY cs.clientId";
+
+
 
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
@@ -43,6 +49,7 @@ if ($jobQuery != null) {
         "Data" => $records,
         'Responsecode' => 300
     ); 
+}
 }
 mysqli_close($conn);
 exit(json_encode($response));

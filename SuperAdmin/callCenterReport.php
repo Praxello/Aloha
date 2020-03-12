@@ -226,6 +226,7 @@ if(isset($_SESSION['branchId'])){
         <script src="../js/charts.js"></script>
         <script src="../dist/js/theme.min.js"></script>
         <script src="../js/jquery.validate.js"></script>
+     
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>

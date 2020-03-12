@@ -46,7 +46,7 @@ var listMedicines = medicines => {
         tblData += badge1;
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editMedicines(' + (key) + ')" title="Edit Medicines details"><i class="ik ik-edit text-blue"></i></a>';
-        tblData += '<a href="#" class="ik edit"  onclick="inactivateMedicine(' + (key) + ')" title="Active/inactive User"><i class="ik ik-trash text-danger"></i></a>';
+        tblData += '<a href="#" class="ik edit"  onclick="inactivateMedicine(' + (key) + ')" title="Active/inactive Medicine"><i class="ik ik-trash text-danger"></i></a>';
         tblData += '</div></td></tr>';
         
     });

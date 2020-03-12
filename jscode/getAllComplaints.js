@@ -40,7 +40,7 @@ const listcomplaint = complaint => {
       
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editComplaints(' + (k) + ')" title="Edit complaints details"><i class="ik ik-edit text-blue"></i></a>';
-        tblData += '<a href="#" class="ik edit"  onclick="inactivateComplaint(' + (k) + ')" title="Active/inactive User"><i class="ik ik-trash text-danger"></i></a>';
+        tblData += '<a href="#" class="ik edit"  onclick="inactivateComplaint(' + (k) + ')" title="Active/inactive Complaint"><i class="ik ik-trash text-danger"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#complaintData').html(tblData);

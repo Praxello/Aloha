@@ -395,6 +395,7 @@ if(isset($_SESSION['branchId'])){
                 <script src="dist/js/theme.min.js"></script>
                 <script src="js/jquery.validate.js"></script>
                 <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
+                
                 <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
                 <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>

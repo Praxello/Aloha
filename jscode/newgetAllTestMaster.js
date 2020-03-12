@@ -40,7 +40,7 @@ const listTest = testes => {
         tblData += badge1;
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editTest(' + (k) + ')" title="Edit Test details"><i class="ik ik-edit text-blue"></i></a>';
-        tblData += '<a href="#" class="ik edit"  onclick="inactivateTest(' + (k) + ')" title="Active/inactive User"><i class="ik ik-trash text-danger"></i></a>';
+        tblData += '<a href="#" class="ik edit"  onclick="inactivateTest(' + (k) + ')" title="Active/inactive Procedure"><i class="ik ik-trash text-danger"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#diaTestData').html(tblData);

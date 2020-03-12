@@ -10,9 +10,9 @@ $(function() {
                 branchId: {
                     required: true
                 },
-                appointmentDate: {
-                    required: true
-                },
+                // appointmentDate: {
+                //     required: true
+                // },
                 userId: {
                     required: true
                 },
@@ -127,9 +127,9 @@ $(function() {
                 follwupdate: {
                     required: "Select Follow up date and time"
                 },
-                appointmentDate: {
-                    required: "Select appointment date"
-                },
+                // appointmentDate: {
+                //     required: "Select appointment date"
+                // },
             }
         });
     }
