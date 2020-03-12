@@ -12,7 +12,7 @@ if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
 // $sql = "SELECT count(*),ccf.attendedBy,ccf.followUpDateTime FROM call_center_followups ccf WHERE ccf.followUpDateTime    
 //   GROUP by ccf.attendedBy";
 
-$sql = "SELECT count(*),cc.attendedBy,cc.folowupNeededDateTime FROM call_center cc WHERE cc.folowupNeededDateTime GROUP by cc.attendedBy";
+$sql = "SELECT COUNT(cc.callId) cnt,um.username FROM call_center cc LEFT JOIN user_master um on um.userId=cc.callId where cc.appointmentDate GROUP BY cc.attendedBy;";
 
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {

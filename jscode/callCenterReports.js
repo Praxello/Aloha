@@ -79,20 +79,20 @@ const callfollowupRecord = (fromDate, uptoDate) => {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
-                    category.push(response.Data[i].followUpDateTime);
-                   Tamt.push(parseInt(response.Data[i].attendedBy));
+                    category.push(response.Data[i].cnt);
+                   Tamt.push(response.Data[i].username);
                     // Ramt.push(parseFloat(response.Data[i].amount));
                     // newR.push(parseInt(response.Data[i].newR));
                     // bPatient.push(parseInt(response.Data[i].billedP));
                     // penamt.push(parseInt(response.Data[i].pending));
                 }
-                consultData.push({ name: 'attentedBy', data: Tamt });
+                consultData.push({ name: 'call attended', data: Tamt });
                 // consultData.push({ name: 'Billed Patient', data: bPatient });
                 // consultData.push({ name: 'Total Amount', data: Tamt });
                 // consultData.push({ name: 'Recieved Amount', data: Ramt });
                 // consultData.push({ name: 'Pending Amount', data: penamt });
             }
-            chart_consult(consultData, category);
+            chart_consult(consultData, Tamt);
         }
     });
 };
@@ -170,8 +170,8 @@ $('#searchCollection1').on('click', function(e) {
         }
         getCallCenterReports(fromDate, uptoDate, branch);
      
-        // callfollowupRecord(fromDate,uptoDate);
-        // callReference(fromDate, uptoDate);
+        callfollowupRecord(fromDate, uptoDate);
+        callReference(fromDate, uptoDate);
     }
 });
 
@@ -181,8 +181,7 @@ $('#searchCollection1').on('click', function(e) {
 // }
 getCallCenterReports(data.today, data.today);
 
-callfollowupRecord(fromDate, uptoDate);
-callReference(fromDate, uptoDate);
+
 
 function chart_consult(seriesData, categories) {
     Highcharts.chart('callfeedback', {
@@ -197,7 +196,11 @@ function chart_consult(seriesData, categories) {
             crosshair: true
         },
         yAxis: {
-            min: 0,
+            allowDecimals: true,
+        min: 0,
+        title: {
+            text: 'Number of count'
+        }
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
