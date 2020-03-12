@@ -1,4 +1,4 @@
-var ref=[];
+var ref = [];
 
 const getCallCenterReports = (fromDate, uptoDate, branch) => {
     $.ajax({
@@ -11,7 +11,7 @@ const getCallCenterReports = (fromDate, uptoDate, branch) => {
             $('#callReportT').dataTable().fnDestroy();
             $('#callReportD').empty();
             var tblData = '',
-                badge = '',                                                                                         
+                badge = '',
                 amtO = 0,
                 amtR = 0,
                 amtT = 0,
@@ -34,21 +34,21 @@ const getCallCenterReports = (fromDate, uptoDate, branch) => {
                     tblData += '<td>' + callR.firstName + ' ' + callR.lastName + '</td>';
                     tblData += '<td>' + callR.branchName + '</td>';
                     tblData += '<td>' + callR.nearByArea + '</td>';
-                    
+
                     tblData += '<td>' + callR.reference + '</td>';
-                  
+
                     tblData += '<td>' + callR.appointmentDate + '</td>';
                     tblData += '<td>' + callR.username + '</td>';
                     tblData += '<td>' + callR.feedback + '</td>';
                     tblData += '<td>' + callR.createdAt + '</td>';
-                    
+
                     tblData += '<td><div class="table-actions" style="text-align: left;">';
-                     tblData += '<a href="#" onclick="printReciept(' + (callR.clientId) + ')" title="print reciept"><i class="fa fa-download text-blue"></i></a>';
+                    tblData += '<a href="#" onclick="printReciept(' + (callR.clientId) + ')" title="print reciept"><i class="fa fa-download text-blue"></i></a>';
                     tblData += '</div></td></tr>';
                 }
             }
             $('#callReportD').html(tblData);
-           
+
             $('#callReportT').dataTable({
                 searching: true,
                 retrieve: true,
@@ -79,8 +79,8 @@ const callfollowupRecord = (fromDate, uptoDate) => {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
-                    category.push(response.Data[i].cnt);
-                   Tamt.push(response.Data[i].username);
+                    category.push(response.Data[i].followUpDateTime);
+                    Tamt.push(parseInt(response.Data[i].attendedBy));
                     // Ramt.push(parseFloat(response.Data[i].amount));
                     // newR.push(parseInt(response.Data[i].newR));
                     // bPatient.push(parseInt(response.Data[i].billedP));
@@ -98,7 +98,7 @@ const callfollowupRecord = (fromDate, uptoDate) => {
 };
 const callReference = (fromDate, uptoDate) => {
     ref = [];
-   
+
     consultData = [];
     $.ajax({
         url: url + 'referenceWise.php',
@@ -110,11 +110,11 @@ const callReference = (fromDate, uptoDate) => {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
                     category.push(response.Data[i].reference);
-                //    Tamt.push(parseInt(response.Data[i].attendedBy));
-           
+                    //    Tamt.push(parseInt(response.Data[i].attendedBy));
+
                 }
                 consultData.push({ name: 'Reference', data: category });
-             
+
             }
             chart_ref(consultData, category);
         }
@@ -169,24 +169,35 @@ $('#searchCollection1').on('click', function(e) {
             branch = $('#branch').val();
         }
         getCallCenterReports(fromDate, uptoDate, branch);
+<<<<<<< HEAD
      
         callfollowupRecord(fromDate, uptoDate);
         callReference(fromDate, uptoDate);
+=======
+
+        // callfollowupRecord(fromDate,uptoDate);
+        // callReference(fromDate, uptoDate);
+>>>>>>> f7fdb0f693580b8201358395c3f183d5d9d69b7c
     }
 });
 
 // function printReciept(paymentId) {
-   
+
 //     $('<form action="payment-reciept.php" method="POST" target="_blank"><input type="hidden" name="ppaymentId" value="' + paymentId + '" /></form>').appendTo('body').submit();
 // }
 getCallCenterReports(data.today, data.today);
 
+<<<<<<< HEAD
 
+=======
+callfollowupRecord(data.today, data.today);
+callReference(data.today, data.today);
+>>>>>>> f7fdb0f693580b8201358395c3f183d5d9d69b7c
 
 function chart_consult(seriesData, categories) {
     Highcharts.chart('callfeedback', {
         chart: {
-            type: 'column'                  
+            type: 'column'
         },
         title: {
             text: 'Employee wise followup'
@@ -219,10 +230,11 @@ function chart_consult(seriesData, categories) {
         series: seriesData
     });
 }
+
 function chart_ref(seriesData, categories) {
     Highcharts.chart('refer', {
         chart: {
-            type: 'column'                  
+            type: 'column'
         },
         title: {
             text: 'Refrence'
