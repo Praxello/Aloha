@@ -138,10 +138,54 @@ if(isset($_SESSION['branchId'])){
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                    <div class="checkbox-fade fade-in-success check"  >
+                                                                        <label>
+                                                                            <input type="checkbox" value="1" id="1"  onclick="callFunction(this.value)" >
+                                                                            <span class="cr" >
+                                                                                <i class="cr-icon ik ik-check txt-success"></i>
+                                                                            </span>
+                                                                            <span>City</span>
+                                                                        </label>
+                                                                        <label>
+                                                                            <input type="checkbox" value="2" id="2"  onclick="callFunction(this.value)">
+                                                                            <span class="cr">
+                                                                                <i class="cr-icon ik ik-check txt-success"></i>
+                                                                            </span>
+                                                                            <span>State</span>
+                                                                        </label>
+                                                                        <label>
+                                                                            <input type="checkbox" value="3" id="3"  onclick="callFunction(this.value)">
+                                                                            <span class="cr" >
+                                                                                <i class="cr-icon ik ik-check txt-success"></i>
+                                                                            </span>
+                                                                            <span>Country</span>
+                                                                        </label>
+                                                                    </div>
+
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
-                                                    <div id="refer"></div>
+                                                    <div id="cityes"></div>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <figure class="highcharts-figure">
+                                                    <div id="states"></div>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <figure class="highcharts-figure">
+                                                    <div id="countries"></div>
                                                 </figure>
                                             </div>
                                         </div>
@@ -240,6 +284,7 @@ if(isset($_SESSION['branchId'])){
         <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
         <script src="../jscode/adminApi.js"></script>
         <script src="../jscode/getBranches.js"></script>
+        <script src="../jscode/getCity.js"></script>
         <script src="../jscode/callCenterReports.js"></script>
      
     </body>
