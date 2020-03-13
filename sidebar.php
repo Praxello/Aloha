@@ -81,7 +81,9 @@ switch ($_SESSION['role']) {
                  <div class="nav-item">
                     <a href="appointments.php"><i class="ik ik-file-text"></i><span>Appointments</span></a>
                 </div>
-               
+                <div class="nav-item">
+                    <a href="package-master.php"><i class="ik ik-menu"></i><span>Package Master</span></a>
+                </div>
                 <!-- <div class="nav-item">
                     <a href="feesMaster.php"><i class="fa fa-money-check"></i></i><span>Doctor Fees Master</span></a>
                 </div> -->

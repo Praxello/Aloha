@@ -63,12 +63,10 @@ const getCallCenterReports = (fromDate, uptoDate, branch) => {
     });
 };
 const callfollowupRecord = (fromDate, uptoDate) => {
-    Tamt = [];
+    titleArray = [];
     Ramt = [];
-    newR = [];
     category = [];
-    bPatient = [];
-    penamt = [];
+    follow = [];
     consultData = [];
     $.ajax({
         url: url + 'callfollowup.php',
@@ -79,47 +77,21 @@ const callfollowupRecord = (fromDate, uptoDate) => {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
-                    category.push(response.Data[i].followUpDateTime);
-                    Tamt.push(parseInt(response.Data[i].attendedBy));
-                    // Ramt.push(parseFloat(response.Data[i].amount));
-                    // newR.push(parseInt(response.Data[i].newR));
-                    // bPatient.push(parseInt(response.Data[i].billedP));
-                    // penamt.push(parseInt(response.Data[i].pending));
+                 
+                    category.push(parseInt(response.Data[i].cnt));
+                    titleArray.push(response.Data[i].username);
+                    follow.push(parseInt(response.Data[i].followUps));
                 }
-                consultData.push({ name: 'attentedBy', data: Tamt });
-                // consultData.push({ name: 'Billed Patient', data: bPatient });
-                // consultData.push({ name: 'Total Amount', data: Tamt });
-                // consultData.push({ name: 'Recieved Amount', data: Ramt });
-                // consultData.push({ name: 'Pending Amount', data: penamt });
+                consultData.push({ name: 'Calls attended', data: category });
+              consultData.push({ name: 'Total Followups', data: follow });
+            
+        
             }
-            chart_consult(consultData, category);
+            chart_consult(consultData,titleArray);
         }
     });
 };
-const callReference = (fromDate, uptoDate) => {
-    ref = [];
 
-    consultData = [];
-    $.ajax({
-        url: url + 'referenceWise.php',
-        type: 'POST',
-        dataType: 'json',
-        data: { fromDate: fromDate, uptoDate: uptoDate },
-        success: function(response) {
-            if (response.Responsecode == 200) {
-                const count = response.Data.length;
-                for (var i = 0; i < count; i++) {
-                    category.push(response.Data[i].reference);
-                    //    Tamt.push(parseInt(response.Data[i].attendedBy));
-
-                }
-                consultData.push({ name: 'Reference', data: category });
-
-            }
-            chart_ref(consultData, category);
-        }
-    });
-};
 
 
 
@@ -170,8 +142,8 @@ $('#searchCollection1').on('click', function(e) {
         }
         getCallCenterReports(fromDate, uptoDate, branch);
 
-        // callfollowupRecord(fromDate,uptoDate);
-        // callReference(fromDate, uptoDate);
+        callfollowupRecord(fromDate,uptoDate);
+        
     }
 });
 
@@ -181,8 +153,8 @@ $('#searchCollection1').on('click', function(e) {
 // }
 getCallCenterReports(data.today, data.today);
 
-callfollowupRecord(data.today, data.today);
-callReference(data.today, data.today);
+callfollowupRecord(fromDate,uptoDate);
+
 
 function chart_consult(seriesData, categories) {
     Highcharts.chart('callfeedback', {
@@ -190,53 +162,26 @@ function chart_consult(seriesData, categories) {
             type: 'column'
         },
         title: {
-            text: 'Employee wise followup'
+            text: 'Employee wise calls & followup'
         },
         xAxis: {
             categories: categories,
             crosshair: true
         },
         yAxis: {
-            min: 0,
-        },
-        tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-            footerFormat: '</table>',
-            shared: true,
-            useHTML: true
-        },
-        plotOptions: {
-            column: {
-                pointPadding: 0.2,
-                borderWidth: 0
-            }
-        },
-        series: seriesData
-    });
-}
-
-function chart_ref(seriesData, categories) {
-    Highcharts.chart('refer', {
-        chart: {
-            type: 'column'
-        },
+            allowDecimals: true,
+        min: 0,
         title: {
-            text: 'Refrence'
-        },
-        xAxis: {
-            categories: categories,
-            crosshair: true
-        },
-        yAxis: {
-            min: 0,
+            text: 'Number of count'
+        }
         },
         tooltip: {
-            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+
+            headerFormat: '<span style="font-size:10px">{point.x}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
                 '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
             footerFormat: '</table>',
+            
             shared: true,
             useHTML: true
         },

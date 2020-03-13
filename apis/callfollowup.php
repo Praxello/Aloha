@@ -9,18 +9,56 @@ $temparray  = null;
 $tempMedicines = null;
 extract($_POST);
 if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
-// $sql = "SELECT count(*),ccf.attendedBy,ccf.followUpDateTime FROM call_center_followups ccf WHERE ccf.followUpDateTime    
-//   GROUP by ccf.attendedBy";
 
-$sql = "SELECT count(*),cc.attendedBy,cc.folowupNeededDateTime FROM call_center cc WHERE cc.folowupNeededDateTime GROUP by cc.attendedBy";
+      //patch followup record to this
+        $followUpRecord = null;
+      $followsql = "SELECT COUNT(ccf.callFollowupsId) callf,um.username FROM call_center_followups ccf 
+      LEFT JOIN user_master um on um.userId = ccf.attendedBy  where date(ccf.followUpDateTime) BETWEEN '$fromDate' AND '$uptoDate'  GROUP BY ccf.attendedBy";
 
+    $jobQuery = mysqli_query($conn, $followsql);
+    if ($jobQuery != null) {
+     $academicAffected = mysqli_num_rows($jobQuery);
+     if ($academicAffected > 0) {
+      while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
+          $userName = $academicResults['username'];
+          $followUpRecord[$userName] = $academicResults['callf'];
+      }
+  }
+  }
+
+
+
+
+
+
+$sql = "SELECT COUNT(cc.callId) cnt,um.username FROM call_center cc left join user_master um on um.userId=cc.attendedBy 
+where date(cc.appointmentDate) BETWEEN '$fromDate' AND '$uptoDate' GROUP BY cc.attendedBy";
+
+// $sql ="SELECT COUNT(cc.callId) cnt,um.username FROM call_center cc left join user_master um on um.userId=cc.attendedBy GROUP BY cc.attendedBy ";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
     if ($academicAffected > 0) {
         while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
-            $records[] = $academicResults;
+            
+            $tempRecord = $academicResults;
+            //check if this key exists in followup data
+           $userName =  $academicResults['username'];
+            if(array_key_exists($userName,$followUpRecord))
+            {
+                $tempRecord['followUps'] = $followUpRecord[$userName];
+            }
+            else
+            {
+                $tempRecord['followUps'] = 0;
+            }
+
+            $records[] = $tempRecord;
         }
+
+
+  
+
         $response = array(
             'Message' => "All collection Data Fetched successfully",
             "Data" => $records,

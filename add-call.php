@@ -212,7 +212,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="" class="required">Appointment Date</label>
+                                    <label for="">Appointment Date</label>
                                     <div class="input-group input-group-primary"  id="apDate">
                                     <input type='text' class="form-control" id='appointmentDate' name="appointmentDate" autocomplete="off"/>
                                                     <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
