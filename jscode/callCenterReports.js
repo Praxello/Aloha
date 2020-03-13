@@ -1,5 +1,6 @@
 var ref = [];
 
+
 const getCallCenterReports = (fromDate, uptoDate, branch) => {
     $.ajax({
         url: url + 'getCallReports.php',
@@ -92,9 +93,98 @@ const callfollowupRecord = (fromDate, uptoDate) => {
     });
 };
 
+const citiesRecord = (fromDate, uptoDate) => {
+    cityname = [];
+    Ramt = [];
+    callsCity = [];
+    cityName = [];
+    cityData = [];
+    $.ajax({
+        url: url + 'citiesWiseRecords.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { fromDate: fromDate, uptoDate: uptoDate },
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                 
+                    callsCity.push(parseInt(response.Data[i].cnt1));
+                    cityName.push(response.Data[i].name);
+         
+                }
+                cityData.push({ name: 'City', data: callsCity });
+            //   consultData.push({ name: 'Total Followups', data: follow });
+            
+        
+            }
+            city_chart(cityData,cityName);
+        }
+    });
+};
 
 
 
+const stateRecord = (fromDate, uptoDate) => {
+    statename = [];
+    Ramt = [];
+    callsState = [];
+    stateName = [];
+    stateData = [];
+    $.ajax({
+        url: url + 'statewiserecord.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { fromDate: fromDate, uptoDate: uptoDate },
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                 
+                    callsState.push(parseInt(response.Data[i].cnt2));
+                    stateName.push(response.Data[i].name);
+                    //follow.push(parseInt(response.Data[i].followUps));
+                }
+                stateData.push({ name: 'State', data: callsState });
+            //   consultData.push({ name: 'Total Followups', data: follow });
+            
+        
+            }
+           state_chart(stateData,stateName);
+        }
+    });
+};
+
+
+
+const countryRecord = (fromDate, uptoDate) => {
+  
+    callsCountry = [];
+    countryName = [];
+    countryData = [];
+    $.ajax({
+        url: url + 'countryWiseRecord.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { fromDate: fromDate, uptoDate: uptoDate },
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                 
+                    callsCountry.push(parseInt(response.Data[i].cnt3));
+                    countryName.push(response.Data[i].name);
+                    //follow.push(parseInt(response.Data[i].followUps));
+                }
+                countryData.push({ name: 'Country', data: callsCountry });
+            //   consultData.push({ name: 'Total Followups', data: follow });
+            
+        
+            }
+            country_chart(countryData,countryName);
+        }
+    });
+};
 function mapBranches() {
     var dropdownList = '<option></option>';
     for (let k of branch.keys()) {
@@ -106,6 +196,22 @@ $(document).ready(function() {
     mapBranches();
     $("#branch").select2({
         placeholder: 'Select branch',
+        allowClear: true
+    });
+});
+
+function mapCity() {
+    var dropdownList = '<option></option>';
+    for (let key of city.keys()) {
+        dropdownList += '<option value="' + key + '">' + city.get(key) + '</option>';
+    }
+    $('#city').html(dropdownList);
+    console.log(dropdownList);
+}
+$(document).ready(function() {
+    mapCity();
+    $("#city").select2({
+        placeholder: 'Select city',
         allowClear: true
     });
 });
@@ -143,8 +249,15 @@ $('#searchCollection1').on('click', function(e) {
         getCallCenterReports(fromDate, uptoDate, branch);
 
         callfollowupRecord(fromDate,uptoDate);
-        
+        // citiesRecord(fromDate,uptoDate); 
+        // stateRecord(fromDate,uptoDate); 
+        // countryRecord(fromDate,uptoDate); 
     }
+});
+
+$('#cityselect').on('click', function(e) {
+    e.preventDefault();
+    stateRecord(fromDate,uptoDate); 
 });
 
 // function printReciept(paymentId) {
@@ -154,7 +267,9 @@ $('#searchCollection1').on('click', function(e) {
 getCallCenterReports(data.today, data.today);
 
 callfollowupRecord(fromDate,uptoDate);
-
+citiesRecord(fromDate,uptoDate); 
+stateRecord(fromDate,uptoDate); 
+countryRecord(fromDate,uptoDate); 
 
 function chart_consult(seriesData, categories) {
     Highcharts.chart('callfeedback', {
@@ -193,4 +308,140 @@ function chart_consult(seriesData, categories) {
         },
         series: seriesData
     });
+}
+
+
+function city_chart(seriesData, categories) {
+    Highcharts.chart('cityes', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'city wise'
+        },
+        xAxis: {
+          
+            categories: categories,
+            crosshair: true
+        },
+        yAxis: {
+            allowDecimals: true,
+        min: 0,
+        title: {
+            text: 'Number of count'
+        }
+        },
+        tooltip: {
+
+            headerFormat: '<span style="font-size:10px">{point.x}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: seriesData
+    });
+}
+
+
+function state_chart(seriesData, categories) {
+                                                    
+    Highcharts.chart('states', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'State wise'
+        },
+        xAxis: {
+            categories: categories,
+            crosshair: true
+        },
+        yAxis: {
+            allowDecimals: true,
+        min: 0,
+        title: {
+            text: 'Number of count'
+        }
+        },
+        tooltip: {
+
+            headerFormat: '<span style="font-size:10px">{point.x}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: seriesData
+    });
+}
+
+function country_chart(seriesData, categories) {
+                                                    
+    Highcharts.chart('countries', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Country wise'
+        },
+        xAxis: {
+            categories: categories,
+            crosshair: true
+        },
+        yAxis: {
+            allowDecimals: true,
+        min: 0,
+        title: {
+            text: 'Number of count'
+        }
+        },
+        tooltip: {
+
+            headerFormat: '<span style="font-size:10px">{point.x}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: seriesData
+    });
+}
+function callFunction(params){
+    if(params==1){
+        console.log("hiii");
+        citiesRecord(fromDate,uptoDate); 
+    }
+    else if(params==2){
+
+    }
+    else{
+        
+    }
+
+    
 }
