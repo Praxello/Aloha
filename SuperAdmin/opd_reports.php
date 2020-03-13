@@ -134,11 +134,20 @@ if(isset($_SESSION['branchId'])){
                                     </form>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
                                                     <div id="opd"></div>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <figure class="highcharts-figure">
+                                                    <div id="donut"></div>
                                                 </figure>
                                             </div>
                                         </div>
@@ -159,7 +168,18 @@ if(isset($_SESSION['branchId'])){
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
-                                                    <div id="donut"></div>
+                                                    <div id="packcards"></div>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <figure class="highcharts-figure">
+                                                    <div id="packwise"></div>
                                                 </figure>
                                             </div>
                                         </div>
