@@ -138,29 +138,29 @@ if(isset($_SESSION['branchId'])){
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                    <!-- <div class="checkbox-fade fade-in-success check"  >
+                                    <div class="checkbox-fade fade-in-success check"  >
                                                                         <label>
-                                                                            <input type="checkbox" value="1" id="1"  onclick="callFunction(this.value)" >
+                                                                            <input type="checkbox" value="1" id="1"  onclick="callFunction(1)" >
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>City</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="2" id="2"  onclick="callFunction(this.value)">
+                                                                            <input type="checkbox" value="2" id="2"  onclick="callFunction(2)">
                                                                             <span class="cr">
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>State</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="3" id="3"  onclick="callFunction(this.value)">
+                                                                            <input type="checkbox" value="3" id="3"  onclick="callFunction(3)">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>Country</span>
                                                                         </label>
-                                                                    </div> -->
+                                                                    </div>
 
                                         <div class="card">
                                             <div class="card-body">

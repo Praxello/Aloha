@@ -434,7 +434,7 @@ function country_chart(seriesData, categories) {
 function callFunction(params){
     if(params==1){
         console.log("hiii");
-        citiesRecord(fromDate,uptoDate); 
+        citiesRecord(data.today,data.today); 
     }
     else if(params==2){
 
