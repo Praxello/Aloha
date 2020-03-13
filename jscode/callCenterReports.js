@@ -249,9 +249,9 @@ $('#searchCollection1').on('click', function(e) {
         getCallCenterReports(fromDate, uptoDate, branch);
 
         callfollowupRecord(fromDate,uptoDate);
-        // citiesRecord(fromDate,uptoDate); 
-        // stateRecord(fromDate,uptoDate); 
-        // countryRecord(fromDate,uptoDate); 
+        citiesRecord(fromDate,uptoDate); 
+        stateRecord(fromDate,uptoDate); 
+        countryRecord(fromDate,uptoDate); 
     }
 });
 

@@ -138,7 +138,7 @@ if(isset($_SESSION['branchId'])){
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                    <div class="checkbox-fade fade-in-success check"  >
+                                    <!-- <div class="checkbox-fade fade-in-success check"  >
                                                                         <label>
                                                                             <input type="checkbox" value="1" id="1"  onclick="callFunction(this.value)" >
                                                                             <span class="cr" >
@@ -160,7 +160,7 @@ if(isset($_SESSION['branchId'])){
                                                                             </span>
                                                                             <span>Country</span>
                                                                         </label>
-                                                                    </div>
+                                                                    </div> -->
 
                                         <div class="card">
                                             <div class="card-body">
