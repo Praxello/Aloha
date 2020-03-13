@@ -4,6 +4,7 @@ $('#lumbarSpineForm').on('submit', function(e) {
     if (returnVal) {
 
         var momentLoss = storemomentLoss();
+        console.log(momentLoss);
         var testMovement = storeTest();
         var ob = getAgg();
         ob.otherA = $('#aggravatingFactor1').val();
@@ -449,15 +450,15 @@ var getlateralshift = () => {
     return lshift;
 };
 
+
 function storemomentLoss() {
     var TableData = [];
-
     $('#momentLoss tr').each(function(row, tr) {
-        var maj = $(tr).find('td:eq(0) input').val();
-        var mod = $(tr).find('td:eq(1) input').val();
-        var min = $(tr).find('td:eq(2) input').val();
-        var nil = $(tr).find('td:eq(3) input').val();
-        var pain = $(tr).find('td:eq(4) input').val();
+        var maj = $(tr).find('td:eq(0) input').is(':checked') ? 1 : 0;
+        var mod = $(tr).find('td:eq(1) input').is(':checked') ? 1 : 0;
+        var min = $(tr).find('td:eq(2) input').is(':checked') ? 1 : 0;
+        var nil = $(tr).find('td:eq(3) input').is(':checked') ? 1 : 0;
+        var pain = $(tr).find('td:eq(4) input').is(':checked') ? 1 : 0;
 
         TableData[row] = {
             "maj": maj,

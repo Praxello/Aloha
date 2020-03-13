@@ -486,11 +486,31 @@ function fill_lumbar(details) {
         for (var j = 0; j < count; j++) {
             content += '<tr>';
             content += ' <th scope="row">' + arr[j] + '</th>';
-            content += '<td><input type="text" class="form-control" id="maj" value="' + obj[j].maj + '"></td>';
-            content += '<td><input type="text" class="form-control" id="mod" value="' + obj[j].mod + '"></td>';
-            content += '<td><input type="text" class="form-control" id="min" value="' + obj[j].min + '"></td>';
-            content += '<td><input type="text" class="form-control" id="nil" value="' + obj[j].nil + '"></td>';
-            content += '<td><input type="text" class="form-control" id="pain" value="' + obj[j].pain + '"></td>';
+            if (obj[j].maj == 1) {
+                content += '<td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1" Checked><span class="cr"><i class="cr-icon ik ik-check txt-success"></i></span> </label></div></td>';
+            } else {
+                content += '<td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1"><span class="cr"><i class="cr-icon ik ik-check txt-success"></i></span> </label></div></td>';
+            }
+            if (obj[j].mod == 1) {
+                content += '<td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1" Checked><span class="cr"><i class="cr-icon ik ik-check txt-success"></i></span> </label></div></td>';
+            } else {
+                content += '<td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1"><span class="cr"><i class="cr-icon ik ik-check txt-success"></i></span> </label></div></td>';
+            }
+            if (obj[j].min == 1) {
+                content += '<td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1" Checked><span class="cr"><i class="cr-icon ik ik-check txt-success"></i></span> </label></div></td>';
+            } else {
+                content += '<td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1"><span class="cr"><i class="cr-icon ik ik-check txt-success"></i></span> </label></div></td>';
+            }
+            if (obj[j].nil == 1) {
+                content += '<td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1" Checked><span class="cr"><i class="cr-icon ik ik-check txt-success"></i></span> </label></div></td>';
+            } else {
+                content += '<td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1"><span class="cr"><i class="cr-icon ik ik-check txt-success"></i></span> </label></div></td>';
+            }
+            if (obj[j].pain == 1) {
+                content += '<td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1" Checked><span class="cr"><i class="cr-icon ik ik-check txt-success"></i></span> </label></div></td>';
+            } else {
+                content += '<td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1"><span class="cr"><i class="cr-icon ik ik-check txt-success"></i></span> </label></div></td>';
+            }
             content += '</tr>';
         }
         $('#momentData').html(content);

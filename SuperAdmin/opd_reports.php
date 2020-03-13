@@ -50,7 +50,7 @@ if(isset($_SESSION['branchId'])){
             width: 33px
         }
         .highcharts-figure, .highcharts-data-table table {
-    min-width: 320px; 
+    min-width: 500px; 
     max-width: 660px;
     margin: 1em auto;
 }
@@ -134,11 +134,23 @@ if(isset($_SESSION['branchId'])){
                                     </form>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
                                                     <div id="opd"></div>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <figure class="highcharts-figure">
+                                                    <div id="cashcard"></div>
                                                 </figure>
                                             </div>
                                         </div>
@@ -153,33 +165,6 @@ if(isset($_SESSION['branchId'])){
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="card">
-                                   <div class="card-body">
-                                        <div class="dt-responsive tbl">
-                                            <table id="allT" class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Reciept Id</th>
-                                                        <th>Payment Date</th>
-                                                        <th>Patient Name</th>
-                                                        <th>Doctor Name</th>
-                                                        <th>Discount Type</th>
-                                                        <th>Payment Type</th>
-                                                        <th>Bill Details</th>
-                                                        <th>Amount</th>
-                                                        <th>Payment Mode</th>
-                                                        <th>Recieved by</th>
-                                                        <th>Created at</th>
-                                                        <th class="nosort"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="allD">
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                         <div id="loader"></div>
@@ -246,6 +231,7 @@ if(isset($_SESSION['branchId'])){
         <script src="../jscode/adminApi.js"></script>
         <script src="../jscode/getBranches.js"></script>
         <script src="../jscode/opdcollection.js"></script>
+        <script src="../jscode/opd-cashwise.js"></script>
      
     </body>
 

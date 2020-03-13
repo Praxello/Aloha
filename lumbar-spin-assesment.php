@@ -741,7 +741,7 @@
                                                                         <span class="cr" >
                                                                             <i class="cr-icon ik ik-check txt-success"></i>
                                                                         </span>
-                                                                        <span>Nil </span>
+                                                                        <span>Nil</span>
                                                                     </label>
                                                                    
                                                                 </div>
@@ -777,38 +777,98 @@
                                                                 <tbody id="momentData">
                                                                   <tr>
                                                                     <th scope="row">Flexion</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                   
+                                                                    <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
                                                                   </tr>
                                                                   <tr>
                                                                     <th scope="row">Extension</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_2">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_2">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_2">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_2">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_2">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
                                                                   </tr>
-                                                                  </tr>
+                                                                
                                                                   <tr>
                                                                     <th scope="row">Side Gliding R</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_3">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_3">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_3">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_3">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_3">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
                                                                   </tr>
-                                                                  </tr>
+                                                               
                                                                   <tr>
-                                                                    <th scope="row">Side Gliding L</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                  </tr>
+                                                                  <th scope="row">Side Gliding L</th>
+                                                                  <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_4">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_4">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_4">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_4">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                        <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1"  name="movement_4">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
                                                                   </tr>
                                                                 </tbody>
                                                               </table>

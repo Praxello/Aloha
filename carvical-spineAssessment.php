@@ -691,72 +691,145 @@
                                                                   </tr>
                                                                 </thead>
                                                                 <tbody >
-                                                                  <!-- <tr>
-                                                                    <th scope="row">Protrusion</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                  </tr> -->
+                                                                
                                                                   <tr>
                                                                     <th scope="row">Flexion</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
                                                                   </tr>
-                                                                  </tr>
-                                                                  <!-- <tr>
-                                                                    <th scope="row">Retraction</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                  </tr> -->
-                                                                  </tr>
+                                                                 
                                                                   <tr>
                                                                     <th scope="row">Extension</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" placeholder=""></td>
+                                                                    <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
                                                                   </tr>
                                                                   <tr>
                                                                     <th scope="row">Lateral Flexion R</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control" placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
                                                                   </tr>
                                                                   <tr>
                                                                     <th scope="row">Lateral Flexion L</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
                                                                   </tr>
                                                                   <tr>
                                                                     <th scope="row">Rotation R</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
+                                                                    <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
                                                                   </tr>
                                                                   <tr>
                                                                     <th scope="row">Rotation L</th>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                    <td><input type="text" class="form-control"  placeholder=""></td>
-                                                                  </tr>
+                                                                    <td> <div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span> </label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
+                                                                    <td><div class="checkbox-fade fade-in-success"><label><input type="checkbox" value="1">
+                                                                        <span class="cr">
+                                                                            <i class="cr-icon ik ik-check txt-success"></i>
+                                                                        </span></label></div></td>
                                                                   </tr>
                                                                 </tbody>
                                                               </table>
