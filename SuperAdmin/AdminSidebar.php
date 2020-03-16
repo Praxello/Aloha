@@ -128,13 +128,20 @@ switch ($_SESSION['role']) {
                  </div>
                  <?php
                   break;
+
                   case 5 :?>
+                  
                    <div class="nav-item active">
-                   <a href="reports.php"><i class="ik ik-user"></i><span>Reports</span></a>
+                   <a href="reports.php"><i class="fa fa-file"></i><span>Reports</span></a>
                  </div>
-                 <div class="nav-item active">
-                   <a href="opd_reports.php"><i class="ik ik-user"></i><span>OPD</span></a>
-                   <a href="callCenterReport.php"><i class="ik ik-user"></i><span>Call Center</span></a>
+                 <div class="nav-item">
+                   <a href="opd_reports.php"><i class="fas fa-hospital"></i></i><span>OPD</span></a>
+                 </div>
+                 <div class="nav-item">
+                   <a href="callCenterReport.php"><i class="ik ik-phone-forwarded"></i><span>Call Center</span></a>
+                 </div>
+                 <div class="nav-item">
+                   <a href="receptionReports.php"><i class="ik ik-user"></i><span>Reception</span></a>
                  </div>
   <?php
           break;

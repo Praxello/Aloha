@@ -77,9 +77,9 @@ background-repeat: no-repeat;
                                             <span class="custom-control-label">&nbsp;Remember Me</span>
                                         </label>
                                     </div>
-                                    <!-- <div class="col text-right">
-                                        <a href="forgot-password.html">Forgot Password ?</a>
-                                    </div> -->
+                                    <div class="col text-right">
+                                        <a href="../index.php" style="color:blue"><b>Normal User Login</b></a>
+                                    </div>
                                 </div>
                                 <div class="sign-btn text-center">
                                     <button type="submit" class="btn btn-theme">Sign In</button>
