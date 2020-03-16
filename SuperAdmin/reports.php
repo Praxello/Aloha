@@ -136,6 +136,21 @@ if(isset($_SESSION['branchId'])){
                                     <div class="card-body table-responsive">
                                         <div class="dt-responsive">
                                             <table id="collectionT" class="table table-bordered">
+                                            <thead>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th>Total</th>
+                                                    <th id="amtO"></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th class="nosort"></th>
+                                                </thead>
                                                 <thead>
                                                     <tr>
                                                         <th>Reciept Id</th>
@@ -156,22 +171,9 @@ if(isset($_SESSION['branchId'])){
                                                 <tbody id="collectionD">
 
                                                 </tbody>
-                                                <tfoot>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th>Total</th>
-                                                    <th id="amtO"></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th class="nosort"></th>
-                                                </tfoot>
+                                               
                                             </table>
+                                            
                                         </div>
                                     </div>
                                 </div>

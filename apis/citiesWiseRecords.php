@@ -13,7 +13,7 @@ left JOIN call_center_patients ccp on
 cc.clientId=ccp.clientId
 left JOIN cities c on 
 ccp.city=c.id
- where date(cc.appointmentDate) BETWEEN '$fromDate' AND '$uptoDate'  group BY c.name";
+ where date(cc.appointmentDate) BETWEEN '$fromDate' AND '$uptoDate' AND c.name IS NOT NULL group BY c.name";
 
 
 

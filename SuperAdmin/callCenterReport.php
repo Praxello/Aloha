@@ -103,27 +103,39 @@ if(isset($_SESSION['branchId'])){
                                         <div class="dt-responsive">
                                             <table id="callReportT" class="table table-bordered">
                                                 <thead>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                    <th></th>
+                                                 
+                                                    <th style="display:none"></th>
+                                                </thead>
+                                                <thead>
                                                     <tr>
                                                     <th >Id</th>
-                                                     <th >Name</th>
+                                                    <th >Name</th>
                                                     <th>Branch</th>
                                                     <th>Near By Area</th>
                                                      <th>Reference</th>
                                                      <th>Appointment Date</th>
                                                      <th>AttendedBy</th>
-                                                  
                                                      <th>feedback</th>
                                                      <th>CreatedAt</th>
-                                                  
-                                                    <th>Action</th>
+                                                     <!-- <th>Action</th> -->
                                                      
                                                     </tr>
                                                 </thead>
                                                 <tbody id="callReportD">
-
                                                 </tbody>
-                                              
+                                           
+                                                
                                             </table>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -137,87 +149,51 @@ if(isset($_SESSION['branchId'])){
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                    <div class="checkbox-fade fade-in-success check"  >
+                                <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <figure class="highcharts-figure">
+                                                                     <div class="checkbox-fade fade-in-success check"  >
                                                                         <label>
-                                                                            <input type="checkbox" value="1" id="1"  onclick="callFunction(1)" >
+                                                                            <input type="checkbox" id="City" >
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>City</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="2" id="2"  onclick="callFunction(2)">
+                                                                            <input type="checkbox"  id="State">
                                                                             <span class="cr">
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>State</span>
                                                                         </label>
                                                                         <label>
-                                                                            <input type="checkbox" value="3" id="3"  onclick="callFunction(3)">
+                                                                            <input type="checkbox" id="Country">
                                                                             <span class="cr" >
                                                                                 <i class="cr-icon ik ik-check txt-success"></i>
                                                                             </span>
                                                                             <span>Country</span>
                                                                         </label>
                                                                     </div>
-
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <figure class="highcharts-figure">
-                                                    <div id="cityes"></div>
+                                                    <div id="MyCharts"></div>
                                                 </figure>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
-                                                    <div id="states"></div>
+                                                    <div id="callRefer"></div>
                                                 </figure>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <figure class="highcharts-figure">
-                                                    <div id="countries"></div>
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="card">
-                                   <div class="card-body">
-                                        <div class="dt-responsive tbl">
-                                            <table id="allT" class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Reciept Id</th>
-                                                        <th>Payment Date</th>
-                                                        <th>Patient Name</th>
-                                                        <th>Doctor Name</th>
-                                                        <th>Discount Type</th>
-                                                        <th>Payment Type</th>
-                                                        <th>Bill Details</th>
-                                                        <th>Amount</th>
-                                                        <th>Payment Mode</th>
-                                                        <th>Recieved by</th>
-                                                        <th>Created at</th>
-                                                        <th class="nosort"></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="allD">
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div> -->
+                               
                             </div>
                         </div>
                         <div id="loader"></div>
