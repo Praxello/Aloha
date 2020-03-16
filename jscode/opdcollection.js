@@ -50,7 +50,7 @@ const invoiceResult = (fromDate, uptoDate) => {
     });
 };
 donutresult(fromDate, uptoDate);
-invoiceResult(fromDate, uptoDate);
+// invoiceResult(fromDate, uptoDate);
 $('#searchCollection').on('click', function(e) {
     e.preventDefault();
     $("#callRegister").validate({
