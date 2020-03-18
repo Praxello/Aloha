@@ -50,6 +50,8 @@ if(isset($_SESSION['branchId'])){
             position: relative;
             width: 33px
         }
+
+        
         /* {} is the value according to your need */
     </style>
 
