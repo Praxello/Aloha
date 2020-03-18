@@ -10,26 +10,13 @@ const getCallCenterReports = (fromDate, uptoDate, branch) => {
             console.log(response);
             $('#callReportT').dataTable().fnDestroy();
             $('#callReportD').empty();
-            var tblData = '',
-                badge = '',
-                amtO = 0,
-                amtR = 0,
-                amtT = 0,
-                amtP = 0;
+            var tblData = '';
+              
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
                     let callR = response.Data[i];
-                    // if (callR.isPackage == 0) {
-                    //     badge = 'OPD';
-                    // } else {
-                    //     badge = 'Package';
-                    // }
-                    // amtO = amtO + parseFloat(collect.amount);
-                    // amtR = amtR + parseFloat(collect.received);
-                    // amtP = amtP + parseFloat(collect.pending);
-                    // amtT = amtT + parseFloat(collect.total);
-                    // tblData += '<tr><td>' + collect.recieptId + ' </td><td>' + collect.visitDate + ' </td><td>' + collect.firstName + ' ' + collect.surname + '</td>';
+                    
                     tblData += '<tr><td>' + callR.clientId + '</td>';
                     tblData += '<td>' + callR.firstName + ' ' + callR.lastName + '</td>';
                     tblData += '<td>' + callR.branchName + '</td>';
@@ -40,7 +27,7 @@ const getCallCenterReports = (fromDate, uptoDate, branch) => {
                     tblData += '<td>' + callR.appointmentDate + '</td>';
                     tblData += '<td>' + callR.username + '</td>';
                     tblData += '<td>' + callR.feedback + '</td>';
-                    tblData += '<td>' + callR.createdAt + '</td>';
+                    tblData += '<td>' + callR.callDateTime + '</td>';
 
                     tblData += '<td><div class="table-actions" style="display:none;">';
                   //  tblData += '<a href="#" onclick="printReciept(' + (callR.clientId) + ')" title="print reciept"><i class="fa fa-download text-blue"></i></a>';
@@ -75,7 +62,7 @@ const getCallCenterReports = (fromDate, uptoDate, branch) => {
                 retrieve: true,
                 bPaginate: $('tbody tr').length > 10,
                 order: [],
-                columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] }],
+                columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7, 8] }],
                 dom: 'Bfrtip',
                 buttons: ['copy', 'csv', 'excel', 'pdf'],
                 destroy: true
@@ -83,7 +70,7 @@ const getCallCenterReports = (fromDate, uptoDate, branch) => {
         }
     });
 };
-const callfollowupRecord = (fromDate, uptoDate) => {
+const callfollowupRecord = (fromDate, uptoDate,branch) => {
     titleArray = [];
     Ramt = [];
     category = [];
@@ -93,10 +80,14 @@ const callfollowupRecord = (fromDate, uptoDate) => {
         url: url + 'callfollowup.php',
         type: 'POST',
         dataType: 'json',
-        data: { fromDate: fromDate, uptoDate: uptoDate },
+        data: { fromDate: fromDate, uptoDate: uptoDate,branchId: branch },
         success: function(response) {
             if (response.Responsecode == 200) {
+                console.log("inside");
+                console.log(branch);
                 const count = response.Data.length;
+                console.log(response.Data.length);
+              
                 for (var i = 0; i < count; i++) {
                  
                     category.push(parseInt(response.Data[i].cnt));
@@ -105,15 +96,15 @@ const callfollowupRecord = (fromDate, uptoDate) => {
                 }
                 consultData.push({ name: 'Calls attended', data: category });
               consultData.push({ name: 'Total Followups', data: follow });
-            
+                }
         
-            }
+            
             chart_consult(consultData,titleArray);
         }
     });
 };
 
-const citiesRecord = (fromDate, uptoDate) => {
+const citiesRecord = (fromDate, uptoDate,branch) => {
     cityname = [];
     Ramt = [];
     callsCity = [];
@@ -123,7 +114,7 @@ const citiesRecord = (fromDate, uptoDate) => {
         url: url + 'citiesWiseRecords.php',
         type: 'POST',
         dataType: 'json',
-        data: { fromDate: fromDate, uptoDate: uptoDate },
+        data: { fromDate: fromDate, uptoDate: uptoDate , branchId: branch },
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
@@ -145,7 +136,7 @@ const citiesRecord = (fromDate, uptoDate) => {
 
 
 
-const stateRecord = (fromDate, uptoDate) => {
+const stateRecord = (fromDate, uptoDate,branch) => {
     statename = [];
     Ramt = [];
     callsState = [];
@@ -155,7 +146,7 @@ const stateRecord = (fromDate, uptoDate) => {
         url: url + 'statewiserecord.php',
         type: 'POST',
         dataType: 'json',
-        data: { fromDate: fromDate, uptoDate: uptoDate },
+        data: { fromDate: fromDate, uptoDate: uptoDate ,branchId:branch},
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
@@ -163,11 +154,10 @@ const stateRecord = (fromDate, uptoDate) => {
                  
                     callsState.push(parseInt(response.Data[i].cnt2));
                     stateName.push(response.Data[i].name);
-                    //follow.push(parseInt(response.Data[i].followUps));
+                    
                 }
                 stateData.push({ name: 'State', data: callsState });
-            //   consultData.push({ name: 'Total Followups', data: follow });
-            
+           
         
             }
            state_chart(stateData,stateName);
@@ -177,7 +167,7 @@ const stateRecord = (fromDate, uptoDate) => {
 
 
 
-const countryRecord = (fromDate, uptoDate) => {
+const countryRecord = (fromDate, uptoDate,branch) => {
   
     callsCountry = [];
     countryName = [];
@@ -186,7 +176,7 @@ const countryRecord = (fromDate, uptoDate) => {
         url: url + 'countryWiseRecord.php',
         type: 'POST',
         dataType: 'json',
-        data: { fromDate: fromDate, uptoDate: uptoDate },
+        data: { fromDate: fromDate, uptoDate: uptoDate ,branchId:branch},
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
@@ -197,16 +187,14 @@ const countryRecord = (fromDate, uptoDate) => {
        
                 }
                 countryData.push({ name: 'Country', data: callsCountry });
-
-            
-        
             }
+            console.log();
             country_chart(countryData,countryName);
         }
     });
 };
-
-const callReference = (fromDate, uptoDate) => {
+//test
+const callReference = (fromDate, uptoDate,branch) => {
   
     callRefCnt = [];
     referName = [];
@@ -215,7 +203,7 @@ const callReference = (fromDate, uptoDate) => {
         url: url + 'callReferRecord.php',
         type: 'POST',
         dataType: 'json',
-        data: { fromDate: fromDate, uptoDate: uptoDate },
+        data: { fromDate: fromDate, uptoDate: uptoDate,branchId: branch },
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
@@ -253,7 +241,7 @@ $(document).ready(function() {
 
 $('#searchCollection1').on('click', function(e) {
     e.preventDefault();
-    console.log('hrrrrrr');
+ 
     $("#callRegister1").validate({
         ignore: [],
         rules: {
@@ -282,16 +270,20 @@ $('#searchCollection1').on('click', function(e) {
             branch = $('#branch').val();
         }
         getCallCenterReports(fromDate, uptoDate, branch);
+    
 
-        callfollowupRecord(fromDate,uptoDate);
-        citiesRecord(fromDate,uptoDate); 
-        callReference(data.today,data.today)
+        callfollowupRecord(fromDate,uptoDate,branch);
+      
+        citiesRecord(fromDate,uptoDate,branch); 
+        console.log(branch);
+        callReference(fromDate,uptoDate,branch)
         // stateRecord(fromDate,uptoDate); 
         // countryRecord(fromDate,uptoDate); 
     }
 });
 getCallCenterReports(data.today,data.today);
-citiesRecord(data.today,data.today); 
+citiesRecord(data.today,data.today,data.branchId);
+callReference(data.today,data.today,data.branchId); 
 $('#City').on('click', function(e) {
     e.preventDefault();
  
@@ -323,7 +315,7 @@ $('#City').on('click', function(e) {
             branch = $('#branch').val();
         }
        
-        citiesRecord(fromDate,uptoDate); 
+        citiesRecord(fromDate,uptoDate,branch); 
         
         
      
@@ -361,7 +353,7 @@ $('#State').on('click', function(e) {
         }
         
 
-        stateRecord(fromDate,uptoDate); 
+        stateRecord(fromDate,uptoDate,branch); 
         
      
     }
@@ -396,7 +388,7 @@ $('#Country').on('click', function(e) {
         if ($('#branch').val() != '') {
             branch = $('#branch').val();
         }
-        countryRecord(fromDate,uptoDate); 
+        countryRecord(fromDate,uptoDate,branch); 
         
      
     }
@@ -447,13 +439,7 @@ function city_chart(seriesData, categories) {
     Highcharts.chart('MyCharts', {
         chart: {
             type: 'column',
-            // backgroundColor: {
-            //     linearGradient: [0, 0, 450, 500],
-            //     stops: [
-            //       [0, 'rgb(255, 255, 255)'],
-            //       [1, 'rgb(200, 200, 255)']
-            //     ]
-            //   },
+          
             polar: true,
             //type: 'line'
             
@@ -681,7 +667,7 @@ function  ref_chart(seriesData, categories) {
             //     ]
             //   },
             polar: true,
-            type: 'line'
+            //type: 'line'
             
         },
 
@@ -767,8 +753,8 @@ function  ref_chart(seriesData, categories) {
             series: {
                 colors: [
                    
-                    '#76448A',
-                    '#2874A6',
+                    '#892E2E',
+                    '#25AC2A',
                     '#9C640C', 
                        ],
                 colorByPoint: true,

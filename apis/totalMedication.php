@@ -8,16 +8,8 @@ $records  = null;
 
 extract($_POST);
 if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
-$sql = "SELECT cc.branchId,COUNT(ccp.clientId) refCnt,ccp.reference
-FROM  call_center_patients ccp 
-INNER JOIN call_center cc on cc.callId=ccp.clientId
- LEFT JOIN hospital_branch_master hb  on hb.branchId=cc.branchId 
- where date(cc.callDateTime) BETWEEN '$fromDate' AND '$uptoDate'"; 
-  if(isset($_POST['branchId']) && !empty($_POST['branchId']) && $_POST['branchId'] != 0){
-    $sql .= "AND cc.branchId = $branchId";
-      }
-  $sql .=" GROUP BY ccp.reference";
-
+$sql = "SELECT COUNT(pm.patientId) cnt,um.username FROM patient_medication pm 
+LEFT JOIN user_master um on um.userId=pm.doctorId GROUP BY pm.doctorId";
  
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {

@@ -9,11 +9,17 @@ $temparray  = null;
 $tempMedicines = null;
 extract($_POST);
 if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
-
       //patch followup record to this
-        $followUpRecord = null;
-      $followsql = "SELECT COUNT(ccf.callFollowupsId) callf,um.username FROM call_center_followups ccf 
-      LEFT JOIN user_master um on um.userId = ccf.attendedBy  where date(ccf.followUpDateTime) BETWEEN '$fromDate' AND '$uptoDate'  GROUP BY ccf.attendedBy";
+      $followUpRecord = null;
+    //   $followsql = "SELECT COUNT(ccf.callFollowupsId) callf,um.username FROM call_center_followups ccf 
+    //   INNER join call_center cc 
+    //   on cc.callId=ccf.callId
+    //   LEFT JOIN hospital_branch_master hb  
+    //   on hb.branchId=cc.branchId 
+    //   INNER JOIN user_master um 
+    //   on um.userId = ccf.attendedBy
+    //    WHERE date(cc.callDateTime) BETWEEN '$fromDate' AND '$uptoDate' AND cc.branchId = $branchId GROUP BY ccf.attendedBy";
+
 
     $jobQuery = mysqli_query($conn, $followsql);
     if ($jobQuery != null) {
@@ -27,15 +33,20 @@ if(isset($_POST['fromDate']) && isset($_POST['uptoDate'])){
   }
 
 
+//   "SELECT COUNT(ccf.callFollowupsId) callf,um.username FROM call_center_followups ccf 
+//   LEFT JOIN user_master um on um.userId = ccf.attendedBy  where date(ccf.followUpDateTime) BETWEEN '$fromDate' AND '$uptoDate'  GROUP BY ccf.attendedBy";
+
+// $sql = "SELECT COUNT(cc.callId) cnt,um.username,hb.branchId FROM call_center cc
+//  left join user_master um on um.userId=cc.attendedBy 
+//  LEFT JOIN hospital_branch_master hb  on hb.branchId=cc.branchId 
+//  WHERE date(cc.callDateTime) BETWEEN '$fromDate' AND '$uptoDate'";
+//   if(isset($_POST['branchId']) && !empty($_POST['branchId']) && $_POST['branchId'] != 0){
+//     $sql .= "AND cc.branchId = $branchId";
+//  }
+//  $sql .=" GROUP BY cc.attendedBy";
 
 
 
-
-$sql = "SELECT COUNT(cc.callId) cnt,um.username FROM call_center cc left join user_master um on um.userId=cc.attendedBy 
-where date(cc.appointmentDate) BETWEEN '$fromDate' AND '$uptoDate' GROUP BY cc.attendedBy";
-
-// $sql ="SELECT COUNT(cc.callId) cnt,um.username FROM call_center cc left join user_master um on um.userId=cc.attendedBy GROUP BY cc.attendedBy ";
-$jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
     if ($academicAffected > 0) {
@@ -62,12 +73,14 @@ if ($jobQuery != null) {
         $response = array(
             'Message' => "All collection Data Fetched successfully",
             "Data" => $records,
+            "sql"=>$sql,
             'Responsecode' => 200
         );
     } else {
         $response = array(
             'Message' => "No data present",
             "Data" => $records,
+            "sql"=>$sql,
             'Responsecode' => 401
         );
     }
@@ -75,6 +88,7 @@ if ($jobQuery != null) {
     $response = array(
         'Message' => mysqli_error($conn),
         "Data" => $records,
+        "sql"=>$sql,
         'Responsecode' => 300
     ); 
 }

@@ -143,10 +143,12 @@ switch ($_SESSION['role']) {
                  <div class="nav-item">
                    <a href="receptionReports.php"><i class="ik ik-user"></i><span>Reception</span></a>
                  </div>
+                 <div class="nav-item">
+                   <a href="doctorReports.php"><i class="ik ik-user"></i><span>Doctor</span></a>
+                 </div>
   <?php
           break;
     default:
-   
 }
 ?>
 

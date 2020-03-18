@@ -13,7 +13,13 @@ left JOIN call_center_patients ccp on
 cc.clientId=ccp.clientId
 left JOIN countries c on 
 ccp.country=c.id
- where date(cc.appointmentDate) BETWEEN '$fromDate' AND '$uptoDate' AND c.name IS NOT NULL group BY c.name";
+LEFT JOIN hospital_branch_master hb  on hb.branchId=cc.branchId 
+ where date(cc.callDateTime) BETWEEN '$fromDate' AND '$uptoDate' ";
+  if(isset($_POST['branchId']) && !empty($_POST['branchId']) && $_POST['branchId'] != 0){
+    $sql .= "AND cc.branchId = $branchId";
+      }
+  $sql .=" GROUP BY c.name";
+
 
 
 
