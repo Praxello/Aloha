@@ -160,7 +160,7 @@ if(isset($_SESSION['branchId'])){
                                                         <th>first visit date</th>
                                                         <th>Last visit date</th>
                                                         <th>Next visit date</th>
-                                                        <th>Action</th>
+                                                        <th>created At</th>
                                                         
                                                     </tr>
                                                 </thead>

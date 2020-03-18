@@ -3,11 +3,14 @@ var patient_details = {};
 var patientId_ap = null;
 var global_patientId = null; //for lumbar neck,and back pain
 var global_date = moment().format('YYYY-MM-DD');
-var getAllPatients = () => {
+var getAllPatients = (branchId) => {
     $.ajax({
         url: url + 'getAllPatients.php',
         type: 'POST',
         dataType: 'json',
+        data:{
+            branchId:branchId
+        },
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
@@ -50,10 +53,18 @@ var listPatients = patients => {
         columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7] }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
-        destroy: true
+        destroy: true,
+        
     });
+    
+    oTable = $('#pTable').DataTable();
+
+    $('#mobileNo').on('keyup change', function(){
+      oTable.search($(this).val()).draw();
+    })
+
 };
-getAllPatients();
+getAllPatients(data.branchId);
 
 var editPatient = (patientId) => {
     patientId = patientId.toString();

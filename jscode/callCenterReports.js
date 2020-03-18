@@ -83,8 +83,8 @@ const callfollowupRecord = (fromDate, uptoDate,branch) => {
         data: { fromDate: fromDate, uptoDate: uptoDate,branchId: branch },
         success: function(response) {
             if (response.Responsecode == 200) {
-                console.log("inside");
-                console.log(branch);
+              
+                if(response.Data!=null){
                 const count = response.Data.length;
                 console.log(response.Data.length);
               
@@ -100,6 +100,7 @@ const callfollowupRecord = (fromDate, uptoDate,branch) => {
         
             
             chart_consult(consultData,titleArray);
+            }
         }
     });
 };
@@ -282,6 +283,7 @@ $('#searchCollection1').on('click', function(e) {
     }
 });
 getCallCenterReports(data.today,data.today);
+callfollowupRecord(data.today,data.today,data.branchId);
 citiesRecord(data.today,data.today,data.branchId);
 callReference(data.today,data.today,data.branchId); 
 $('#City').on('click', function(e) {

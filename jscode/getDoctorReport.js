@@ -105,15 +105,15 @@ const spineReport = (fromDate, uptoDate) => {
         data: { fromDate: fromDate, uptoDate: uptoDate },
         success: function(response) {
             if (response.Responsecode == 200) {
+
                 const count = response.medication.length;
             
-                for (var i = 0; i < count; i++) {
-                 
+                for (var i = 0; i < count; i++) {   
                     spineCnt.push(parseInt(response.cnt));
                     doctorName.push(response.username);
        
                 }
-                const count1 = response.spine.length;
+             
                 for (var i = 0; i < count1; i++) {
                  
                     spineCnt.push(parseInt(response.cnt));
