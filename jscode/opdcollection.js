@@ -80,7 +80,8 @@ $('#searchCollection').on('click', function(e) {
         if ($('#branch').val() != '') {
             branch = $('#branch').val();
         }
-        donutresult(fromDate, uptoDate);
+        collectionopd(fromDate, uptoDate, branch);
+        // donutresult(fromDate, uptoDate);
     }
 });
 

@@ -144,7 +144,7 @@ function collectionbypackagewise(donut) {
     });
 }
 
-const collectionopd = () => {
+const collectionopd = (fromDate, uptoDate, branch) => {
     var opdcollection = [];
     var cat = [];
     var pcat = [];
@@ -154,7 +154,7 @@ const collectionopd = () => {
         url: url + 'collectionbyopd.php',
         type: 'POST',
         dataType: 'json',
-        data: { fromDate: fromDate, uptoDate: uptoDate },
+        data: { fromDate: fromDate, uptoDate: uptoDate, branch: branch },
         success: function(response) {
             if (response.Responsecode == 200) {
                 let first = [],
@@ -207,4 +207,4 @@ const collectionopd = () => {
         }
     });
 };
-collectionopd();
+collectionopd(data.today, data.today, 0);

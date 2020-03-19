@@ -126,10 +126,15 @@ color: #212121;
 
                                                 <div class="row opd">
                                                     <!-- <div class="col-sm-3"></div> -->
-                                                    <div class="col-sm-11">
+                                                    <div class="col-sm-9">
                                                         <div class="form-group" style="text-align: center;">
                                                             <select class="form-control select2" id="test" style="width:100%;">
                                                             </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <div class="form-group" style="text-align: center;">
+                                                           <input type="number" id="testQuantity" name="testQuantity" class="form-control" placeholder="Quantity" value="1" min="1" max="100">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-1">

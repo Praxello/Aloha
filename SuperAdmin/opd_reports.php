@@ -93,7 +93,7 @@ if(isset($_SESSION['branchId'])){
                             <div class="container-fluid" style="margin-top: 10px;">
                                 <div class="card">
                                     <form id="callRegister">
-                                        <!-- <div class="card-header row">
+                                        <div class="card-header row">
 
                                             <div class="col-sm-2">
                                                 <div class="form-group">
@@ -130,11 +130,11 @@ if(isset($_SESSION['branchId'])){
 
                                             </div>
 
-                                        </div> -->
+                                        </div>
                                     </form>
                                 </div>
                                 <div class="row">
-                                    <!-- <div class="col-md-6">
+                                    <div class="col-md-6">
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
@@ -142,7 +142,7 @@ if(isset($_SESSION['branchId'])){
                                                 </figure>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="card">
                                             <div class="card-body">
