@@ -3,11 +3,15 @@ var patient_details = {};
 var patientId_ap = null;
 var global_patientId = null; //for lumbar neck,and back pain
 var global_date = moment().format('YYYY-MM-DD');
-var getAllPatients = () => {
+var contactNo;
+var getAllPatients = (branchId) => {
     $.ajax({
         url: url + 'getAllPatients.php',
         type: 'POST',
         dataType: 'json',
+        data:{
+            branchId:branchId
+        },
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
@@ -19,6 +23,11 @@ var getAllPatients = () => {
         }
     });
 };
+$('#searchContact').on('click', function(e) {
+    e.preventDefault();
+ contactNo = document.getElementById("mobileNo").value;
+    console.log('dddddd'+contactNo);
+});
 
 var listPatients = patients => {
     $('#pTable').dataTable().fnDestroy();
@@ -27,19 +36,42 @@ var listPatients = patients => {
     for (let k of patients.keys()) {
         let patient = patients.get(k);
 
-        tblData += '<tr><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
-        tblData += '<td>' + patient.firstName + ' ' + patient.surname + '</td>';
-        tblData += '<td>' + getAge(patient.birthDate) + '</td>';
-        tblData += '<td>' + patient.mobile1 + '</td>';
-        tblData += '<td>' + patient.address + ' ' + patient.cityName + '</td>';
-        tblData += '<td>' + getDate(patient.lastVisitDate) + '</td>';
-        tblData += '<td>' + patient.nextVisitDate + '</td>';
-        tblData += '<td><div class="table-actions" style="text-align: left;">';
-        tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="Edit patients details"><i class="fas fa-user-injured" style="color:red"></i></a>';
-        tblData += '<a href="#" class="list-delete" onclick="takeAppointment(' + (k) + ')" title="Take appointment"><i class="fas fa-book-medical" style="color:purple"></i></a>';
-        tblData += '<a href="#"  onclick="opdPayment(' + (k) + ')" title="Opd Payment"><i class="fas fa-receipt" style="color:blue"></i></a>';
-        tblData += '<a href="#"  onclick="acceptPayment(' + (k) + ')" title="Generate Payment"><i class="fas fa-rupee-sign" style="color:green"></i></a>';
-        tblData += '</div></td></tr>';
+        
+        //var mob=patient.mobile1;
+        if (contactNo==patient.mobile1) {
+            tblData += '<tr bgcolor="#BB8FCE"><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
+            tblData += '<td bgcolor="#BB8FCE">' + patient.firstName + ' ' + patient.surname + '</td>';
+            tblData += '<td bgcolor="#BB8FCE">' + getAge(patient.birthDate) + '</td>';
+            tblData += '<td bgcolor="#BB8FCE">' + patient.mobile1+ '</td>';
+            tblData += '<td bgcolor="#BB8FCE">' + patient.address + ' ' + patient.cityName + '</td>';
+            tblData += '<td bgcolor="#BB8FCE">' + getDate(patient.lastVisitDate) + '</td>';
+            tblData += '<td bgcolor="#BB8FCE">' + patient.nextVisitDate + '</td>';
+            tblData += '<td bgcolor="#BB8FCE"><div class="table-actions" style="text-align: left;">';
+            tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="Edit patients details"><i class="fas fa-user-injured" style="color:red"></i></a>';
+            tblData += '<a href="#" class="list-delete" onclick="takeAppointment(' + (k) + ')" title="Take appointment"><i class="fas fa-book-medical" style="color:purple"></i></a>';
+            tblData += '<a href="#"  onclick="opdPayment(' + (k) + ')" title="Opd Payment"><i class="fas fa-receipt" style="color:blue"></i></a>';
+            tblData += '<a href="#"  onclick="acceptPayment(' + (k) + ')" title="Generate Payment"><i class="fas fa-rupee-sign" style="color:green"></i></a>';
+            
+
+            console.log('Iamhere');
+          } else {
+            
+            tblData += '<tr><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
+            tblData += '<td>' + patient.firstName + ' ' + patient.surname + '</td>';
+            tblData += '<td>' + getAge(patient.birthDate) + '</td>';
+            tblData += '<td >' + patient.mobile1+ '</td>';
+            tblData += '<td>' + patient.address + ' ' + patient.cityName + '</td>';
+            tblData += '<td>' + getDate(patient.lastVisitDate) + '</td>';
+            tblData += '<td>' + patient.nextVisitDate + '</td>';
+            tblData += '<td><div class="table-actions" style="text-align: left;">';
+            tblData += '<a href="#" onclick="editPatient(' + (k) + ')" title="Edit patients details"><i class="fas fa-user-injured" style="color:red"></i></a>';
+            tblData += '<a href="#" class="list-delete" onclick="takeAppointment(' + (k) + ')" title="Take appointment"><i class="fas fa-book-medical" style="color:purple"></i></a>';
+            tblData += '<a href="#"  onclick="opdPayment(' + (k) + ')" title="Opd Payment"><i class="fas fa-receipt" style="color:blue"></i></a>';
+            tblData += '<a href="#"  onclick="acceptPayment(' + (k) + ')" title="Generate Payment"><i class="fas fa-rupee-sign" style="color:green"></i></a>';
+}
+            tblData += '</div></td></tr>';
+        //tblData += '<td>' + patient.mobile1 + '</td>';
+        
     }
     $('#patientData').html(tblData);
     $('#pTable').dataTable({
@@ -50,10 +82,18 @@ var listPatients = patients => {
         columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7] }],
         dom: 'Bfrtip',
         buttons: ['copy', 'csv', 'excel', 'pdf'],
-        destroy: true
+        destroy: true,
+        
     });
+    
+    oTable = $('#pTable').DataTable();
+
+    $('#mobileNo').on('keyup change', function(){
+      oTable.search($(this).val()).draw();
+    })
+
 };
-getAllPatients();
+getAllPatients(data.branchId);
 
 var editPatient = (patientId) => {
     patientId = patientId.toString();

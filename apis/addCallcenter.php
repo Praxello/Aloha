@@ -81,8 +81,13 @@ if ($rowsAffected >0 || $rowsAffected == 0 ) {
     $sql = "INSERT INTO call_center_patients(firstName,middleName,lastName,email,mobile,landline,nearByArea,city,state,country, 
     pincode,reference,gender,dateOfBirth) VALUES ('$firstName', '$middleName', '$lastName', '$email', '$mobile', 
     '$landline','$nearByArea', '$city', '$state', '$country', '$pincode', '$reference', '$gender', '$birthdate')";
-
-$query = mysqli_query($conn, $sql);
+ 
+//  $sql = "INSERT INTO patient_master (firstName,middleName,surname,gender,birthdate,email,mobile1,
+//  landline,city,referredby,country,state,pincode,branchId) 
+//  VALUES ('$firstName', '$middleName', '$lastName', '$gender',  
+//  '$birthdate','$email', '$mobile', '$landline', '$city', '$reference','$country',
+//  '$state','$pincode','$branchId')";
+// $query = mysqli_query($conn, $sql);
     
 $rowsAffected = mysqli_affected_rows($conn);
 if ($rowsAffected == 1) {

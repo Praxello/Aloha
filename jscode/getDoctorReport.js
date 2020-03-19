@@ -1,14 +1,14 @@
 
 
-const getPatients = (fromDate, uptoDate, branch) => {
+const getPatientMedication = (fromDate, uptoDate, branch) => {
     $.ajax({
-        url: url + 'getPatientsforAdmin.php',
+        url: url + 'getPatientsMedication.php',
         type: 'POST',
         dataType: 'json',
         data: { fromDate: fromDate, uptoDate: uptoDate, branchId: branch },
         success: function(response) {
-            $('#getpatientT').dataTable().fnDestroy();
-            $('#getpatientD').empty();
+            $('#doctorT').dataTable().fnDestroy();
+            $('#doctorD').empty();
             var tblData = '';
             
             if (response.Responsecode == 200) {
@@ -16,24 +16,20 @@ const getPatients = (fromDate, uptoDate, branch) => {
                 for (var i = 0; i < count; i++) {
 
                     let patient = response.Data[i];
-                    tblData += '<tr><td style="display:none"><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
-                    tblData += '<td>' + patient.firstName + ' ' + patient.surname + '</td>';
-                    tblData += '<td>' + patient.mobile1 + '</td>';
-                    tblData += '<td>' + patient.cityName + '</tdstate>';
-                    tblData += '<td>' + patient.stateName+ '</td>';
-                    tblData += '<td>' + patient.countryName+ '</td>';
-                    tblData += '<td>' + patient.firstVisitDate+ '</td>';
-                    tblData += '<td>' + patient.lastVisitDate + '</td>';
-                    tblData += '<td>' + patient.nextVisitDate + '</td>';
-
-                    tblData += '<td>' + patient.createdAt +''
-    
-                    tblData += '</td></tr>';
+                      tblData += '<tr><td' +patient.patientId +'></td>';
+                 
+                    tblData += '<td>' + patient.visitDate + '</td>';
+                    tblData += '<td>' + patient.complaint + '</td>';
+                    tblData += '<td>' + patient.advice + '</td>';
+                    tblData += '<td>' + patient.diagnosis + '</td>';
+                    tblData += '<td>' + patient.doctorId + '</td>';
+                 
                 }
             }
-            $('#getpatientD').html(tblData);
-          
-            $('#getpatientT').dataTable({
+            $('#doctorD').html(tblData);
+
+          //dropdown filter code
+            $('#doctorT').dataTable({
                 initComplete: function() {
                     this.api().columns().every(function() {
                         var column = this;
@@ -58,7 +54,7 @@ const getPatients = (fromDate, uptoDate, branch) => {
                 retrieve: true,
                 bPaginate: $('tbody tr').length > 10,
                 order: [],
-                columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] }],
+                columnDefs: [{ orderable: false, targets: [0, 1, 2, 3, 4] }],
                 dom: 'Bfrtip',
                 buttons: ['copy', 'csv', 'excel', 'pdf'],
                 destroy: true
@@ -66,13 +62,14 @@ const getPatients = (fromDate, uptoDate, branch) => {
         }
     });
 };
-const patientRef = (fromDate, uptoDate) => {
+
+const patientMedication = (fromDate, uptoDate) => {
   
-    patientRefCnt = [];
-    refName = [];
-    patientsData = [];
+    totaMedicationCnt = [];
+    docName = [];
+    patientsMedicationData = [];
     $.ajax({
-        url: url + 'patientsRefCnt.php',
+        url: url + 'totalMedication.php',
         type: 'POST',
         dataType: 'json',
         data: { fromDate: fromDate, uptoDate: uptoDate },
@@ -81,51 +78,59 @@ const patientRef = (fromDate, uptoDate) => {
                 const count = response.Data.length;
                 for (var i = 0; i < count; i++) {
                  
-                    patientRefCnt.push(parseInt(response.Data[i].cnt));
-                    refName.push(response.Data[i].doctorName);
+                    totaMedicationCnt.push(parseInt(response.Data[i].cnt));
+                    docName.push(response.Data[i].username);
        
                 }
-                patientsData.push({ name: 'Referance', data: patientRefCnt });
+                patientsMedicationData.push({ name: 'Total Medication', data: totaMedicationCnt });
 
             
         
             }
-            patient_chart(patientsData,refName);
+            patient_chart(patientsMedicationData,docName);
         }
     });
 };
 
 
-const totalPatients = (fromDate, uptoDate) => {
+const spineReport = (fromDate, uptoDate) => {
   
-    totaPatientCnt = [];
-    refName = [];
-    totalPatient = [];
-
+    spineCnt = [];
+    doctorName = [];
+    patientsnData = [];
     $.ajax({
-        url: url + 'totalPatientCnt.php',
+        url: url + 'doctorPerformance.php',
         type: 'POST',
         dataType: 'json',
         data: { fromDate: fromDate, uptoDate: uptoDate },
         success: function(response) {
             if (response.Responsecode == 200) {
-                const count = response.Data.length;
-                for (var i = 0; i < count; i++) {
-                 
-                    totaPatientCnt.push(parseInt(response.Data[i].pCnt));
-                    // refName.push("Total Count");
+
+                const count = response.medication.length;
+            
+                for (var i = 0; i < count; i++) {   
+                    spineCnt.push(parseInt(response.cnt));
+                    doctorName.push(response.username);
        
                 }
-                totalPatient.push({ name: 'Total Patients', data: totaPatientCnt });
-
-            
-        
+             
+                for (var i = 0; i < count1; i++) {
+                 
+                    spineCnt.push(parseInt(response.cnt));
+                    doctorName.push(response.username);
+       
+                }
+                patientsnData.push({ name: 'Total Spine', data: spineCnt });
             }
-            total_patient_chart(totalPatient);
+         
+            spine_chart(patientsnData,doctorName);
         }
     });
 };
-$('#searchPatients').on('click', function(e) {
+
+
+
+$('#searchDoctor').on('click', function(e) {
     e.preventDefault();
     $("#callRegister").validate({
         ignore: [],
@@ -154,18 +159,15 @@ $('#searchPatients').on('click', function(e) {
         if ($('#branch').val() != '') {
             branch = $('#branch').val();
         }
-        getPatients(fromDate, uptoDate, branch);
-        patientRef(fromDate, uptoDate);
-        totalPatients(fromDate, uptoDate);
+        getPatientMedication(fromDate, uptoDate, branch);
+        patientMedication(fromDate,uptoDate);
+        spineReport(fromDate,uptoDate);
+     
     }
 });
 
-function printReciept(paymentId) {
-    // var link = 'payment-reciept.php?paymentId=' + paymentId;
-    // window.open(link, '_blank');
-  //  $('<form action="payment-reciept.php" method="POST" target="_blank"><input type="hidden" name="ppaymentId" value="' + paymentId + '" /></form>').appendTo('body').submit();
-}
-getPatients(data.today, data.today);
+
+getPatientMedication(data.today, data.today);
 
 function mapBranches() {
     var dropdownList = '<option></option>';
@@ -186,7 +188,7 @@ $(document).ready(function() {
 
 
 function  patient_chart(seriesData, categories) {
-    Highcharts.chart('patentsRef', {
+    Highcharts.chart('patentMedicatn', {
         chart: {
             type: 'column',
         
@@ -214,7 +216,7 @@ function  patient_chart(seriesData, categories) {
                 }
             },
             title: {
-                text: 'Pateints references',
+                text: 'Medication',
                 style: {
                     color: '#00664b',
                     font: 'bold 12px Verdana, serif',    
@@ -231,7 +233,7 @@ function  patient_chart(seriesData, categories) {
             }
         },
         title: {
-            text: 'Number of Reference',
+            text: 'Total Medication',
             style: {
                 color: '#00664b',
                 font: 'bold 12px Verdana, serif',
@@ -253,7 +255,7 @@ function  patient_chart(seriesData, categories) {
             } 
         },
 
-        // This code is for changeing the color of bar
+        //This code is for changeing the color of bar
         plotOptions: {
             series: {
                 colors: [     
@@ -271,23 +273,23 @@ function  patient_chart(seriesData, categories) {
                 },
             }
         },
-        //*********************************************** */
+      //  *********************************************** */
         series: seriesData
     });
 }
 
 
-function  total_patient_chart(seriesData, categories) {
-    Highcharts.chart('totalPatient', {
+function  spine_chart(seriesData, categories) {
+    Highcharts.chart('totaldoctor', {
         chart: {
             type: 'column',
+        
             polar: true,
             //type: 'line'
-        
             
         },
         legend: {
-           enabled: false,
+           enabled: true,
         },
         title: {
             text: '',
@@ -306,7 +308,7 @@ function  total_patient_chart(seriesData, categories) {
                 }
             },
             title: {
-                text: 'Total patients',
+                text: 'Medication',
                 style: {
                     color: '#00664b',
                     font: 'bold 12px Verdana, serif',    
@@ -323,7 +325,7 @@ function  total_patient_chart(seriesData, categories) {
             }
         },
         title: {
-            text: 'Number of Patients',
+            text: 'Total Medication',
             style: {
                 color: '#00664b',
                 font: 'bold 12px Verdana, serif',
@@ -345,12 +347,11 @@ function  total_patient_chart(seriesData, categories) {
             } 
         },
 
-        // This code is for changeing the color of bar
+        //This code is for changeing the color of bar
         plotOptions: {
             series: {
-              
                 colors: [     
-                    '#e600e6',
+                    '#76448A',
                     '#2874A6',
                     '#9C640C', 
                        ],
@@ -364,7 +365,9 @@ function  total_patient_chart(seriesData, categories) {
                 },
             }
         },
-        //*********************************************** */
-        series: seriesData  
+      //  *********************************************** */
+        series: seriesData
     });
 }
+
+

@@ -55,7 +55,21 @@ if(isset($_SESSION['branchId'])){
                 
                 <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#demoModal">Add New Patient</button>
                     <div class="container-fluid">
-                   
+                    <form id="contactSearch">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                              <!-- <label for="address">Mobile No.</label> -->
+                                <input type="text" class="form-control" id="mobileNo" name="mobile1" placeholder="Contact No" ng-pattern="/^[0-9]*$/" onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <button class="btn btn-primary" id="searchContact" name="search" >Search</button>
+                            </div>
+                        </div>
+                        </div>
+                        </form>
                         <div class="card">
                         
                             <div class="card-body table-responsive">
@@ -146,7 +160,11 @@ username:'<?php echo $_SESSION['username'];?>'
        <script src="jscode/getDiscount.js"></script>
        <script src="jscode/prescribeTestTable.js"></script>
        <script src="jscode/packagePayment.js"></script>
+       <script src="jscode/getPatientContactFilter.js"></script>
       
+       <script>
+     
+</script>
     </body>
 </html>
 <?php

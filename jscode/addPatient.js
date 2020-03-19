@@ -4,7 +4,7 @@ $('#patientform').on('submit', function(e) {
     if (returnVal) {
         // var birthdate = moment($('#dropper-max-year').val()).format('YYYY-MM-DD');
         var fData = new FormData(this);
-        // fData.append('birthdate', birthdate);
+        fData.append('branchId', data.branchId);
         $.ajax({
             url: url + 'addPatient.php',
             type: 'POST',

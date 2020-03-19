@@ -43,11 +43,11 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
     
     $sql = "INSERT INTO patient_master (firstName,middleName,surname,gender,height,weight,birthdate,religion ,allergy,email,mobile1,mobile2,
      landline,city,address,referredby,firstVisitDate,lastVisitDate,nextVisitDate,smoking,alcohol,tobacco,HTN,diabetes, 
-     cholestrol,history,occupation,lifestyle,urban,economicStrata,country,state,maritalstatus,pincode,remarks,hardDrink) 
+     cholestrol,history,occupation,lifestyle,urban,economicStrata,country,state,maritalstatus,pincode,remarks,hardDrink,branchId) 
      VALUES ('$firstName', '$middleName', '$surname', '$gender', '$height', '$weight', '$birthdate', '$religion', '$allergy',
       '$email', '$mobile1', '$mobile2', '$landline', '$city', '$address', '$referredby', '$firstVisitDate', '$lastVisitDate', '$nextVisitDate',
        '$smoking', '$alcohol', '$tobacco', '$HTN', '$diabetes', '$cholestrol', '$history', '$occupation', '$lifestyle', '$urban', '$economicStrata','$country','$state',
-       '$maritalstatus','$pincode','$remarks','$hardDrink')";
+       '$maritalstatus','$pincode','$remarks','$hardDrink','$branchId')";
     
     $query = mysqli_query($conn, $sql);
     

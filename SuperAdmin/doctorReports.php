@@ -124,7 +124,7 @@ if(isset($_SESSION['branchId'])){
                                             </div>
                                             <div class="col-sm-2" style="margin-top: 16px;">
                                                 <div class="form-group" style="margin-top: 20px;">
-                                                    <button class="btn  btn-primary" type="button" id="searchPatients">Search</button>
+                                                    <button class="btn  btn-primary" type="button" id="searchDoctor">Search</button>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
@@ -135,36 +135,32 @@ if(isset($_SESSION['branchId'])){
                                     </form>
                                     <div class="card-body table-responsive">
                                         <div class="dt-responsive">
-                                            <table id="getpatientT" class="table table-bordered">
-                                                <thead>
-                                                    <th style="display:none"></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>
-                                                    <th></th>   
-                                                    <th></th>  
-                                                    <th></th> 
+                                            <table id="doctorT" class="table table-bordered tbl">
+
+                                            <!-- for column dropdown filter -->
+                                                <thead> 
+                                                 
+                                                    <th style="width:10%"> </th>
+                                                    <th style="width:20%"></th>
+                                                    <th style="width:20%"></th>
+                                                    <th style="width:20%"></th>
+                                                    <th style="width:20%"></th>
+                                                    
                                                 </thead>
 
                                                 <thead>
                                                     <tr>
-                                                        <th style="display:none"></th>
-                                                        <th>Patient Name</th>
-                                                        <th>Mobile</th>
-                                                        <th>City</th>
-                                                        <th>State</th>
-                                                        <th>Country</th>
-                                                        <th>first visit date</th>
-                                                        <th>Last visit date</th>
-                                                        <th>Next visit date</th>
-                                                        <th>created At</th>
+                                                        <!-- <th>patient Id</th> -->
+                                                        <th>Visit Date</th>
+                                                        <th>Complaint</th>
+                                                        <th>Advice</th>
+                                                        <th>Diagnosis</th>
+                                                        <th>doctorId</th>
+                                                 
                                                         
                                                     </tr>
                                                 </thead>
-                                                <tbody id="getpatientD">
+                                                <tbody id="doctorD">
 
                                                 </tbody>
                                                
@@ -177,7 +173,7 @@ if(isset($_SESSION['branchId'])){
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
-                                                    <div id="patentsRef"></div>
+                                                    <div id="patentMedicatn"></div>
                                                 </figure>
                                             </div>
                                         </div>
@@ -186,7 +182,7 @@ if(isset($_SESSION['branchId'])){
                                         <div class="card">
                                             <div class="card-body">
                                                 <figure class="highcharts-figure">
-                                                    <div id="totalPatient"></div>
+                                                    <div id="totaldoctor"></div>
                                                 </figure>
                                             </div>
                                         </div>
@@ -258,7 +254,7 @@ if(isset($_SESSION['branchId'])){
         <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
         <script src="../jscode/adminApi.js"></script>
         <script src="../jscode/getBranches.js"></script>
-        <script src="../jscode/getAdminRecReports.js"></script>
+        <script src="../jscode/getDoctorReport.js"></script>
      
     </body>
 
