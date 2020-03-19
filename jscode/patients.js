@@ -3,6 +3,7 @@ var patient_details = {};
 var patientId_ap = null;
 var global_patientId = null; //for lumbar neck,and back pain
 var global_date = moment().format('YYYY-MM-DD');
+var contactNo;
 var getAllPatients = (branchId) => {
     $.ajax({
         url: url + 'getAllPatients.php',
@@ -22,6 +23,11 @@ var getAllPatients = (branchId) => {
         }
     });
 };
+$('#searchContact').on('click', function(e) {
+    e.preventDefault();
+ contactNo = document.getElementById("mobileNo").value;
+    console.log('dddddd'+contactNo);
+});
 
 var listPatients = patients => {
     $('#pTable').dataTable().fnDestroy();
@@ -33,7 +39,16 @@ var listPatients = patients => {
         tblData += '<tr><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
         tblData += '<td>' + patient.firstName + ' ' + patient.surname + '</td>';
         tblData += '<td>' + getAge(patient.birthDate) + '</td>';
-        tblData += '<td>' + patient.mobile1 + '</td>';
+        //var mob=patient.mobile1;
+        if (contactNo==patient.mobile1) {
+            tblData += '<td>' +'<mark>'+ patient.mobile1+'</mark>'+ '</td>';
+            console.log('Iamhere');
+          } else {
+            tblData += '<td>' + patient.mobile1 + '</td>';
+            console.log('Iwowowowowo'+contactNo+'='+patient.mobile1);
+}
+
+        //tblData += '<td>' + patient.mobile1 + '</td>';
         tblData += '<td>' + patient.address + ' ' + patient.cityName + '</td>';
         tblData += '<td>' + getDate(patient.lastVisitDate) + '</td>';
         tblData += '<td>' + patient.nextVisitDate + '</td>';
