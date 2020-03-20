@@ -72,9 +72,10 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST
         }
         foreach ($billDetails as $key => $value) {
             $feesType = $billDetails[$key]['feesType'];
+            $Quantity = $billDetails[$key]['Quantity'];
             $fees = $billDetails[$key]['fees'];
             $testId = $billDetails[$key]['testId'];
-            $sql         = "INSERT INTO Bill_Details(paymentId,testId,feesType,fees)VALUES ($tId,'$testId','$feesType',$fees)";
+            $sql         = "INSERT INTO Bill_Details(paymentId,testId,feesType,fees,Quantity)VALUES ($tId,'$testId','$feesType','$fees',$Quantity)";
             $query       = mysqli_query($conn, $sql);
         }
         $sql = "SELECT opm.recieptId,opm.originalAmt,opm.discount,opm.paymentId,opm.patientId,opm.total,opm.pending,um.username,opm.visitDate,

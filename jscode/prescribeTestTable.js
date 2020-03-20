@@ -18,22 +18,25 @@ function addrow() {
         } else {
             uniqueTest.add(T);
             var tests = test.get(T);
+            var quantity = parseInt($('#testQuantity').val());
+            var fees = parseFloat(tests.fees);
+            fees = fees * quantity;
             rowid += 1;
             rowhtml = "";
             rowhtml += '<tr id="row' + rowid + '">';
             rowhtml += '<td style="display:none;">' + tests.testId + '</td>';
             rowhtml += '<td>';
-            rowhtml += tests.testName;
+            rowhtml += tests.testName + ' * ' + quantity;
             rowhtml += '</td>';
             rowhtml += '<td>';
-            rowhtml += tests.fees.toLocaleString();
+            rowhtml += fees;
             rowhtml += '</td>';
             rowhtml += '<td>';
             rowhtml += '<button type="button" class="btn btn-icon btn-danger" onclick="deleterow(' + rowid + ',' + (T) + ')" ><i class="ik ik-minus"></i></button>';
             rowhtml += '</td>';
             rowhtml += '</tr>';
             $("#presTableBody").prepend(rowhtml);
-            tAmt = parseFloat(tests.fees) + tAmt;
+            tAmt = parseFloat(fees) + tAmt;
             $('#fTotal').html(tAmt.toLocaleString());
             originalAmt = tAmt;
             $('#tAmt').val(tAmt);
@@ -102,11 +105,12 @@ function storeDetails() {
         var testId = $(tr).find('td:eq(0)').text();
         var feesType = $(tr).find('td:eq(1)').text();
         var fees = $(tr).find('td:eq(2)').text();
-
+        feesType = feesType.split('*');
         TableData[row] = {
             "testId": testId,
-            "feesType": feesType,
-            "fees": parseFloat(fees),
+            "feesType": feesType[0],
+            "Quantity": feesType[1],
+            "fees": fees,
         };
     });
     TableData.shift();
@@ -158,6 +162,7 @@ function GeneratePayment() {
                 recieved: parseFloat($('#receivedP').text())
             };
             details = JSON.stringify(details);
+            console.log(details);
             $.ajax({
                 url: url + 'generatePayment.php',
                 type: 'POST',
@@ -239,7 +244,7 @@ function attach_data(paymentId) {
             rowhtml += '<tr id="row' + rowid + '">';
             rowhtml += '<td style="display:none;">' + data.billdetails[i].testId + '</td>';
             rowhtml += '<td>';
-            rowhtml += data.billdetails[i].feesType;
+            rowhtml += data.billdetails[i].feesType + '*' + data.billdetails[i].Quantity;
             rowhtml += '</td>';
             rowhtml += '<td>';
             rowhtml += data.billdetails[i].fees;

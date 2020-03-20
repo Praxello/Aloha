@@ -9,8 +9,16 @@ $discount      = null;
 $packages = null;
 $records = null;
 $packagewise = null;
+if(!empty($_POST['fromDate']) && !empty($_POST['uptoDate'])){
+
 $sql_1  = "SELECT SUM(opd.total) total,SUM(opd.received) received,SUM(opd.pending) pending,DATE_FORMAT(opd.createdAt,'%M') createdAt
-FROM opd_patient_payment_master opd WHERE opd.isDeleted = 1 AND opd.isPackage = 0 GROUP BY MONTH(opd.createdAt)";
+FROM opd_patient_payment_master opd WHERE opd.isDeleted = 1 AND opd.isPackage = 0 AND opd.createdAt BETWEEN '$fromDate' AND '$uptoDate'";
+}
+if(isset($_POST['branchId']) && !empty($_POST['branchId']) && $_POST['branchId'] != 0){
+    $sql_1 .= " AND opm.branchId = $branchId";
+}
+
+$sql_1 .= " GROUP BY MONTH(opd.createdAt)";
 $academicQuery = mysqli_query($conn, $sql_1);
 if ($academicQuery != null) {
     $academicAffected = mysqli_num_rows($academicQuery);
@@ -19,7 +27,6 @@ if ($academicQuery != null) {
             $discount[] = $academicResults;
         }
     }
-    
 }
 $sql_2  = "SELECT SUM(opd.total) total,SUM(opd.received) received,SUM(opd.pending) pending,DATE_FORMAT(opd.createdAt,'%M') createdAt
 FROM opd_patient_payment_master opd WHERE opd.isDeleted = 1 AND opd.isPackage = 1 GROUP BY MONTH(opd.createdAt)";

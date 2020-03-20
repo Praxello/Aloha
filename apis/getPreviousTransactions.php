@@ -22,7 +22,7 @@ if ($jobQuery != null) {
             $paymentId = $academicResults['paymentId'];
 
             $billDetails = null;
-            $query = "SELECT fees,feesType,paymentId,testId FROM Bill_Details pm WHERE paymentId = $paymentId";
+            $query = "SELECT fees,feesType,paymentId,testId,Quantity FROM Bill_Details  WHERE paymentId = $paymentId";
             $jobQuery_1 = mysqli_query($conn, $query);
             if ($jobQuery_1 != null) {
                 $academicAffected_1 = mysqli_num_rows($jobQuery_1);
