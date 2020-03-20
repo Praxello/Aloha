@@ -4,7 +4,6 @@ header('Content-Type: application/json');
 include "../connection.php";
 include "updateCall.php";
 include "addPatientInCall.php";
-
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -90,16 +89,15 @@ if ($rowsAffected >0 || $rowsAffected == 0 ) {
     pincode,reference,gender,dateOfBirth) VALUES ('$firstName', '$middleName', '$lastName', '$email', '$mobile', 
     '$landline','$nearByArea', '$city', '$state', '$country', '$pincode', '$reference', '$gender', '$birthdate')";
     
-    
     $R = addPatientCall($_POST);
-        if($R == 1){
-           
-            $response = array(
-                'Message' => "Patient added successfully",
-                "Data" => $records,
-                'Responsecode' => 200
-            );
-        }
+    if($R == 1){
+       
+        $response = array(
+            'Message' => "Patient added successfully",
+            "THIS HAS ADDED" => $records,
+            'Responsecode' => 200
+        );
+    }
     
  
  
@@ -134,6 +132,9 @@ if ($rowsAffected == 1) {
             "Data" => $records,
             'Responsecode' => 200
         );
+
+       
+    
 
         
 
