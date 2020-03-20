@@ -43,6 +43,7 @@ $('#callForm').on('submit', function(e) {
                         follwups.set(response.Data.callId, response.Data);
                         listfollowup(follwups);
                     }
+               
                     appointments.set(response.Data.callId, response.Data);
                     listAppointment(appointments);
                 } else {

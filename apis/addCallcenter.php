@@ -3,12 +3,16 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
 include "updateCall.php";
+include "addPatientInCall.php";
+
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 date_default_timezone_set('Asia/Kolkata');
 extract($_POST);
-if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['birthdate']) && isset($_POST['gender']) && isset($_POST['mobile']) && isset($_POST['city']) && isset($_POST['state'])) {
+if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['birthdate']) 
+&& isset($_POST['gender']) && isset($_POST['mobile']) && isset($_POST['city']) 
+&& isset($_POST['state'])) {
     
     $middleName            = isset($_POST['middleName']) ? $_POST['middleName'] : 'NULL';
     $email                 = isset($_POST['emailId']) ? $_POST['emailId'] : 'NULL';
@@ -32,7 +36,6 @@ if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['bir
     if(isset($_POST['clientId']) && !empty($_POST['clientId'])){
         $sql = "UPDATE call_center_patients SET firstName = '$firstName',middleName = '$middleName',lastName = '$lastName',email='$email',mobile = '$mobile' ,landline ='$landline' ,nearByArea = '$nearByArea',city = '$city',state = '$state',country = '$country',
         pincode = '$pincode',reference = '$reference',gender = '$gender',dateOfBirth = '$birthdate' WHERE clientId = $clientId";
-
 $query = mysqli_query($conn, $sql);
     
 $rowsAffected = mysqli_affected_rows($conn);
@@ -40,6 +43,8 @@ if ($rowsAffected >0 || $rowsAffected == 0 ) {
     $sql = "INSERT INTO call_center(clientId,callDateTime,branchId,doctorId,disease,appointmentDate,remarks,folowupNeeded,
     folowupNeededDateTime,attendedBy,callStatus) VALUES ($clientId,'$callDateTime',$branchId,$doctorId,'$disease', 
     '$appointmentDate', '$remarks', '$folowupNeeded', '$folowupNeededDateTime', '$attendedBy','$callStatus')";
+
+
     $query = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
@@ -77,24 +82,35 @@ if ($rowsAffected >0 || $rowsAffected == 0 ) {
         'Responsecode' => 500
     );
 }
-    }else{
+    }
+    
+    else{
+
     $sql = "INSERT INTO call_center_patients(firstName,middleName,lastName,email,mobile,landline,nearByArea,city,state,country, 
     pincode,reference,gender,dateOfBirth) VALUES ('$firstName', '$middleName', '$lastName', '$email', '$mobile', 
     '$landline','$nearByArea', '$city', '$state', '$country', '$pincode', '$reference', '$gender', '$birthdate')";
+    
+    
+    $R = addPatientCall($_POST);
+        if($R == 1){
+           
+            $response = array(
+                'Message' => "Patient added successfully",
+                "Data" => $records,
+                'Responsecode' => 200
+            );
+        }
+    
  
-//  $sql = "INSERT INTO patient_master (firstName,middleName,surname,gender,birthdate,email,mobile1,
-//  landline,city,referredby,country,state,pincode,branchId) 
-//  VALUES ('$firstName', '$middleName', '$lastName', '$gender',  
-//  '$birthdate','$email', '$mobile', '$landline', '$city', '$reference','$country',
-//  '$state','$pincode','$branchId')";
-// $query = mysqli_query($conn, $sql);
+ 
+$query = mysqli_query($conn, $sql);
     
 $rowsAffected = mysqli_affected_rows($conn);
 if ($rowsAffected == 1) {
     $clientId        = $conn->insert_id;
     $sql = "INSERT INTO call_center(clientId,callDateTime,branchId,doctorId,disease,appointmentDate,remarks,folowupNeeded,
     folowupNeededDateTime,attendedBy) VALUES ($clientId,'$callDateTime',$branchId,$doctorId,'$disease', '$appointmentDate', '$remarks', '$folowupNeeded', '$folowupNeededDateTime', '$attendedBy')";
-    $query = mysqli_query($conn, $sql);
+   $query = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $callId        = $conn->insert_id;
@@ -110,12 +126,17 @@ if ($rowsAffected == 1) {
                 $academicResults = mysqli_fetch_assoc($academicQuery);
                 $records         = $academicResults;
             }
+           
         }
+
         $response = array(
             'Message' => "Call Added Successfull",
             "Data" => $records,
             'Responsecode' => 200
         );
+
+        
+
     }else{
         $response = array(
             'Message' => mysqli_error($conn),
@@ -124,7 +145,7 @@ if ($rowsAffected == 1) {
         ); 
     }
     
-    
+
 } else {
     $f = updateCall($_POST);
     if($f == 1){
@@ -139,6 +160,7 @@ if ($rowsAffected == 1) {
     );
 }
 }
+
 }  
 } else {
     $response = array(
@@ -148,4 +170,5 @@ if ($rowsAffected == 1) {
 }
 mysqli_close($conn);
 print json_encode($response);
+
 ?> 

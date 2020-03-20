@@ -16,6 +16,7 @@ if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['bir
     mobile = '$mobile' ,landline ='$landline' ,nearByArea = '$nearByArea',city = '$city',state = '$state',country = '$country',
     pincode = '$pincode',reference = '$reference',gender = '$gender',dateOfBirth = '$birthdate' WHERE mobile = '$mobile'";
     $query = mysqli_query($conn, $sql);
+    
     if ($query !=  null) {
         $rowsAffected = mysqli_affected_rows($conn);
         if($rowsAffected > 0){
