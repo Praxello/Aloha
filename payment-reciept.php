@@ -14,7 +14,8 @@ $clinic = '';
 $branch = '';
 function getBranchName($paymentId){
     include 'connection.php';
-    $sql   = "SELECT hb.branchAddress,hb.branchName FROM opd_patient_payment_master opm LEFT JOIN hospital_branch_master hb ON hb.branchId = opm.branchId
+    $sql   = "SELECT hb.branchAddress,hb.branchName FROM opd_patient_payment_master opm 
+    LEFT JOIN hospital_branch_master hb ON hb.branchId = opm.branchId
     WHERE opm.paymentId = $paymentId";
     $jobQuery  = mysqli_query($conn, $sql);
     if ($jobQuery != null) {
@@ -157,7 +158,7 @@ $output .= ' <center>
             </tr>
         </thead>
         <tbody>';
-        while($academicResults = mysqli_fetch_assoc($jobQuery)){
+        while($academicResults = mysqli_fetch_assoc($jobQuery)){    
             $output .='<tr>
             <td >'.$academicResults['paymentMode'].' <small>'.$academicResults['paymentModeDetail'].'</small></td>
             <td>'.number_format($academicResults['amount'],2).'</td>

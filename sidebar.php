@@ -51,6 +51,12 @@ switch ($_SESSION['role']) {
                 <div class="nav-item">
                     <a href="discountClass.php"><i class="fa fa-percent"></i><span>Discount Class</span></a>
                 </div>
+                <div class="nav-item">
+                    <a href="test_result.php"><i class="fas fa-running"></i><span>Test result</span></a>
+                </div>
+                <div class="nav-item">
+                    <a href="report1.php"><i class="fas fa-running"></i><span>Branch Reports</span></a>
+                </div>
                  <?php
         break;
       
