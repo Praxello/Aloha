@@ -70,13 +70,13 @@ if (isset($_SESSION['userId'])) {
                                         <div class="col col-sm-3">
                                         <label for="">To Date</label>
                                             <div class="input-group input-group-primary">
-                                            <input id="toDate" class="form-control" type="text" placeholder="select date" onchange="fetch(this.value);"  autocomplete="off"/>
+                                            <input id="toDate" class="form-control" type="text" placeholder="select date" onchange="fetch(this.value);"  autocomplete="off" />
                                                     <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
                                                 </div>
                                         </div>
 
                                         <div class="col col-sm-3">
-                                        <button type="button" class="btn  btn-success" onclick="downloadReport()">Save</button>                                                                                               
+                                        <button type="button" class="btn  btn-success" onclick="downloadReport(fromDate,toDate)">Reports</button>                                                                                               
                                         </div>
                                         <div class="col col-sm-3"></div>
                                     </div>
@@ -155,8 +155,14 @@ if (isset($_SESSION['userId'])) {
                 format:'Y-m-d'
             })
             function downloadReport(fromDate,toDate) {
-    // window.open('spine_reports.php?fromDate='+fromDate + '&toDate='+toDate);
-    window.open('spine_reports.php?fromDate= '+ fromDate + '&toDate=' + toDate);
+                var fromdate=document.getElementById("fromDate").value; 
+                var todate=document.getElementById("toDate").value;
+    
+   window.open('spine_reports.php?fromDate='+fromdate + '&toDate='+todate);
+   
+  //window.open('Test.php?fromDate='+fromdate + '&toDate='+todate);
+    
+
 }
         </script>
     </body>
