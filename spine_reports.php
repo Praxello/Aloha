@@ -12,8 +12,16 @@ extract($_GET);
 $fromDate=($_GET['fromDate']);
 $toDate=($_GET['toDate']);
 
+
+
+
 function branchSalesSummary($fromDate,$toDate)
 {
+    //$date=date_create($fromDate);
+    $fd=date_format(date_create($fromDate),"d-M-Y");
+    $td=date_format(date_create($toDate),"d-M-Y");
+
+
   $output  = '';
 
     include 'connection.php';
@@ -109,7 +117,7 @@ group by week('$fromDate'),hbm.branchName) a group by a.week";
   
                     </tr>
                     <tr>
-                        <th colspan="4"><center>Week '.$Week.': '.$fromDate.' to '.$toDate.'</center></th>
+                        <th colspan="4"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #D2B4DE ">
@@ -152,6 +160,9 @@ group by week('$fromDate'),hbm.branchName) a group by a.week";
 
 function procedureConsumptionDetail($fromDate,$toDate)
 {
+
+    $fd=date_format(date_create($fromDate),"d-M-Y");
+    $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
     include 'connection.php';
     
@@ -200,14 +211,14 @@ function procedureConsumptionDetail($fromDate,$toDate)
 
                     <tr>
                   
-                    <th colspan="3" style="background-color: #BB8FCE"><center>Procedure Consumption Detail</center></th> 
+                    <th colspan="3" style="background-color: #388E8E"><center>Procedure Consumption Detail</center></th> 
   
                     </tr>
                     <tr>
-                        <th colspan="3"><center>Week  '.$Week.': '.$fromDate.' to '.$toDate.'</center></th>
+                        <th colspan="3"><center>Week  '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
-                <tr style="background-color: #D2B4DE ">
+                <tr style="background-color: #64C2C2 ">
                 <th></th> 
                 <th>Count</th>
                 <th>Income</th>
@@ -236,6 +247,9 @@ function procedureConsumptionDetail($fromDate,$toDate)
 
 function consultantWiseCollection($fromDate,$toDate)
 {
+
+    $fd=date_format(date_create($fromDate),"d-M-Y");
+    $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
     include 'connection.php';
     
@@ -266,14 +280,14 @@ function consultantWiseCollection($fromDate,$toDate)
 
                     <tr>
                   
-                    <th colspan="2" style="background-color: #BB8FCE"><center>Consultant Wise Collection Summary</center></th> 
+                    <th colspan="2" style="background-color: #8ac026"><center>Consultant Wise Collection Summary</center></th> 
   
                     </tr>
                     <tr>
-                        <th colspan="2"><center>Week '.$Week.': '.$fromDate.' to '.$toDate.'</center></th>
+                        <th colspan="2"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
-                <tr style="background-color: #D2B4DE ">
+                <tr style="background-color: #ccea94 ">
                 <th></th> 
                 <th>Income</th>
                 </tr>   
@@ -302,6 +316,9 @@ function consultantWiseCollection($fromDate,$toDate)
 
 function patientSummary($fromDate,$toDate)
 {
+
+    $fd=date_format(date_create($fromDate),"d-M-Y");
+    $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
     include 'connection.php';
     
@@ -352,14 +369,14 @@ function patientSummary($fromDate,$toDate)
 
                     <tr>
                   
-                    <th colspan="2" style="background-color: #BB8FCE"><center>Patient Summary</center></th> 
+                    <th colspan="2" style="background-color: #CD8500"><center>Patient Summary</center></th> 
   
                     </tr>
                     <tr>
-                        <th colspan="2"><center>Week '.$Week.': '.$fromDate.' to '.$toDate.'</center></th>
+                        <th colspan="2"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
-                <tr style="background-color: #D2B4DE ">
+                <tr style="background-color: #FFD588 ">
                 <th></th> 
                 <th>Count</th>
                 </tr>   
@@ -387,6 +404,9 @@ function patientSummary($fromDate,$toDate)
 
 function packageProcedureConsumptionSummary($fromDate,$toDate)
 {
+
+    $fd=date_format(date_create($fromDate),"d-M-Y");
+    $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
     include 'connection.php';
     
@@ -442,14 +462,14 @@ function packageProcedureConsumptionSummary($fromDate,$toDate)
 
                     <tr>
                   
-                    <th colspan="3" style="background-color: #BB8FCE"><center>Package & Procedure Consumption Summary</center></th> 
+                    <th colspan="3" style="background-color: #388E8E"><center>Package & Procedure Consumption Summary</center></th> 
   
                     </tr>
                     <tr>
-                        <th colspan="3"><center>Week '.$Week.': '.$fromDate.' to '.$toDate.'</center></th>
+                        <th colspan="3"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
-                <tr style="background-color: #D2B4DE ">
+                <tr style="background-color: #64C2C2 ">
                 <th></th> 
                 <th>Count</th>
                 <th>Income</th>
@@ -478,6 +498,9 @@ function packageProcedureConsumptionSummary($fromDate,$toDate)
 }
 function packageConsumptionDetail($fromDate,$toDate)
 {
+
+    $fd=date_format(date_create($fromDate),"d-M-Y");
+    $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
     include 'connection.php';
     
@@ -518,14 +541,14 @@ function packageConsumptionDetail($fromDate,$toDate)
 
                     <tr>
                   
-                    <th colspan="3" style="background-color: #BB8FCE"><center>Package Consumption Detail</center></th> 
+                    <th colspan="3" style="background-color: #388E8E"><center>Package Consumption Detail</center></th> 
   
                     </tr>
                     <tr>
-                        <th colspan="4"><center>Week '.$Week.': '.$fromDate.' to '.$toDate.'</center></th>
+                        <th colspan="3"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
-                <tr style="background-color: #D2B4DE ">
+                <tr style="background-color: #64C2C2 ">
                 <th></th> 
                 <th>Count</th>
                 <th>Income</th>
@@ -555,6 +578,9 @@ function packageConsumptionDetail($fromDate,$toDate)
 
 function dayWisePatientCount($fromDate,$toDate)
 {
+
+    $fd=date_format(date_create($fromDate),"d-M-Y");
+    $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
     include 'connection.php';
     
@@ -580,14 +606,14 @@ function dayWisePatientCount($fromDate,$toDate)
 
                     <tr>
                   
-                    <th colspan="2" style="background-color: #BB8FCE"><center>Day Wise Patient Count</center></th> 
+                    <th colspan="2" style="background-color: #CD8500"><center>Day Wise Patient Count</center></th> 
   
                     </tr>
                     <tr>
-                        <th colspan="2"><center>Week '.$Week.': '.$fromDate.' to '.$toDate.'</center></th>
+                        <th colspan="2"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
-                <tr style="background-color: #D2B4DE ">
+                <tr style="background-color: #FFD588 ">
                 <th></th> 
                 <th>Count</th>
               
@@ -615,7 +641,8 @@ function dayWisePatientCount($fromDate,$toDate)
 
 function newPatientAcquisitionTrend($fromDate,$toDate)
 {
-   
+    $fd=date_format(date_create($fromDate),"d-M-Y");
+    $td=date_format(date_create($toDate),"d-M-Y");  
     $output  = '';
     include 'connection.php';
     
@@ -641,14 +668,14 @@ function newPatientAcquisitionTrend($fromDate,$toDate)
 
                     <tr>
                   
-                    <th colspan="2" style="background-color: #BB8FCE"><center>New Patient Acquisition Trend (New patients registered every week)</center></th> 
+                    <th colspan="2" style="background-color: #CD8500"><center>New Patient Acquisition Trend (New patients registered every week)</center></th> 
   
                     </tr>
                     <tr>
                         <th colspan="2"><center>'.$year.'</center></th>
      
                     </tr>
-                <tr style="background-color: #D2B4DE ">
+                <tr style="background-color: #FFD588 ">
                 <th></th> 
                 <th>Count</th>
               
@@ -677,6 +704,8 @@ function newPatientAcquisitionTrend($fromDate,$toDate)
 }
 function patientDropoutTrend($fromDate,$toDate)
 {
+    $fd=date_format(date_create($fromDate),"d-M-Y");
+    $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
     include 'connection.php';
     
@@ -703,14 +732,14 @@ function patientDropoutTrend($fromDate,$toDate)
 
                     <tr>
                   
-                    <th colspan="2" style="background-color: #BB8FCE"><center>Patient Dropout Trend (Single Visit Patients – came once and never returned)</center></th> 
+                    <th colspan="2" style="background-color: #CD8500"><center>Patient Dropout Trend (Single Visit Patients – came once and never returned)</center></th> 
   
                     </tr>
                     <tr>
                         <th colspan="2"><center>'.$year.'</center></th>
      
                     </tr>
-                <tr style="background-color: #D2B4DE ">
+                <tr style="background-color: #FFD588 ">
                 <th></th> 
                 <th>Count</th>
               

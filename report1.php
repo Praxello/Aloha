@@ -158,7 +158,7 @@ if (isset($_SESSION['userId'])) {
                 var fromdate=document.getElementById("fromDate").value; 
                 var todate=document.getElementById("toDate").value;
     
-   window.open('spine_reports.php?fromDate='+fromdate + '&toDate='+todate);
+  window.open('spine_reports.php?fromDate='+fromdate + '&toDate='+todate);
    
   //window.open('Test.php?fromDate='+fromdate + '&toDate='+todate);
     
