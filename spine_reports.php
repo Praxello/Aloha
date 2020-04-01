@@ -14,11 +14,17 @@ $toDate=($_GET['toDate']);*/
 
 //****************************************************//
 include 'connection.php';
-$sql="SELECT ADDDATE(CURRENT_DATE, INTERVAL -8 DAY) fromDate,ADDDATE(CURRENT_DATE, INTERVAL -1 DAY) toDate";
+$sql="SELECT ADDDATE(CURRENT_DATE, INTERVAL -8 DAY) fromDate,ADDDATE(CURRENT_DATE, INTERVAL -1 DAY) toDate,
+ DATE_FORMAT(concat(year(CURRENT_DATE),'-04-1'), '%Y-%m-%d') FinancialYearStart, 
+ DATE_FORMAT(concat(year(CURRENT_DATE)+1,'-03-31'), '%Y-%m-%d') FinancialYearEnd";
+
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $fromDate=$row["fromDate"];
 $toDate= $row["toDate"];
+$FinancialYearStart=$row["FinancialYearStart"];
+$FinancialYearEnd= $row["FinancialYearEnd"];
+
 mysqli_close($conn);
 //****************************************************//
 
@@ -514,7 +520,7 @@ function packageConsumptionDetail($fromDate,$toDate)
     inner join 
     
     (SELECT week('$fromDate'),pm.title,sum(bd.fees) income,'pkgIncome' as flag FROM opd_patient_payment_master oppm
-    inner join bill_details bd on
+    inner join bill_details bd on 
     oppm.paymentId=bd.paymentId
     INNER join package_master pm on 
     pm.packageId=oppm.packageId
@@ -639,28 +645,28 @@ function dayWisePatientCount($fromDate,$toDate)
     return $output;
 }
 
-function newPatientAcquisitionTrend($fromDate,$toDate)
+function newPatientAcquisitionTrend($FinancialYearStart,$FinancialYearEnd)
 {
-    $fd=date_format(date_create($fromDate),"d-M-Y");
-    $td=date_format(date_create($toDate),"d-M-Y");  
+  $fd=date_format(date_create($FinancialYearStart),"d-M-Y");
+  $td=date_format(date_create($FinancialYearEnd),"d-M-Y");
     $output  = '';
     include 'connection.php';
     
-    $sql ="SELECT year(CURRENT_DATE) Year, CONCAT('week',' ',week(pm.createdAt)) week,COUNT(pm.patientId) count FROM patient_master pm 
-    WHERE year(createdAt)=year(CURRENT_DATE) GROUP BY week(pm.`createdAt`),year(CURRENT_DATE)";
+    $sql ="SELECT  CONCAT('week',' ',week(pm.createdAt)) week,COUNT(pm.patientId) count FROM patient_master pm 
+    WHERE (pm.createdAt) >= '$FinancialYearStart' and (pm.createdAt) <= '$FinancialYearEnd'
+    GROUP BY week(pm.createdAt)";
 
    
 
     $jobQuery  = mysqli_query($conn, $sql);
-    $YearData= mysqli_query($conn, $sql);
+
   
 
         if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
             
-            $academicResults1 = mysqli_fetch_assoc($YearData);          
-            $year = $academicResults1['Year'];
+          
          
             $output .= '
                         
@@ -672,7 +678,7 @@ function newPatientAcquisitionTrend($fromDate,$toDate)
   
                     </tr>
                     <tr>
-                        <th colspan="2"><center>'.$year.'</center></th>
+                        <th colspan="2"><center>'.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #FFD588 ">
@@ -702,29 +708,28 @@ function newPatientAcquisitionTrend($fromDate,$toDate)
     mysqli_close($conn);
     return $output;
 }
-function patientDropoutTrend($fromDate,$toDate)
+function patientDropoutTrend($FinancialYearStart,$FinancialYearEnd)
 {
-    $fd=date_format(date_create($fromDate),"d-M-Y");
-    $td=date_format(date_create($toDate),"d-M-Y");
+    $fd=date_format(date_create($FinancialYearStart),"d-M-Y");
+    $td=date_format(date_create($FinancialYearEnd),"d-M-Y");
   $output  = '';
     include 'connection.php';
     
-    $sql ="SELECT COUNT(pm.patientId) count,CONCAT('week',' ',week(pm.`firstVisitDate`)) week,
-    year(CURRENT_DATE) year
+    $sql ="SELECT COUNT(pm.patientId) count,CONCAT('week',' ',week(pm.`firstVisitDate`)) week 
     FROM patient_master pm
       WHERE   pm.firstVisitDate=pm.lastVisitDate and pm.nextVisitDate < CURRENT_DATE
-       AND year(pm.firstVisitDate)= year(CURRENT_DATE)";
+       AND  (pm.firstVisitDate) >= '$FinancialYearStart' and (pm.firstVisitDate) <= '$FinancialYearEnd'
+       group by week(pm.`firstVisitDate`)";
 
     $jobQuery  = mysqli_query($conn, $sql);
-    $WeekData= mysqli_query($conn, $sql);
+  
   
 
         if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
             
-            $academicResults1 = mysqli_fetch_assoc($WeekData);          
-            $year = $academicResults1['year'];
+           
          
             $output .= '
                         
@@ -736,7 +741,7 @@ function patientDropoutTrend($fromDate,$toDate)
   
                     </tr>
                     <tr>
-                        <th colspan="2"><center>'.$year.'</center></th>
+                        <th colspan="2"><center>'.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #FFD588 ">
@@ -842,14 +847,16 @@ function StaffAllocation()
     mysqli_close($conn);
     return $output;
 }
-function peakVolumeDay()
+function peakVolumeDay($FinancialYearStart,$FinancialYearEnd)
 {
-    
+  $fd=date_format(date_create($FinancialYearStart),"d-M-Y");
+  $td=date_format(date_create($FinancialYearEnd),"d-M-Y");
   $output  = '';
     include 'connection.php';
     
     $sql ="SELECT COUNT(pm.patientId) count,DAYNAME(pm.createdAt) day FROM `patient_master` pm
-    GROUP by DAYNAME(pm.createdAt)";
+    WHERE (pm.`createdAt`) >= '$FinancialYearStart' and (pm.`createdAt`) <= '$FinancialYearEnd'
+        GROUP by DAYNAME(pm.createdAt)";
 
   
     $jobQuery  = mysqli_query($conn, $sql);
@@ -872,7 +879,7 @@ function peakVolumeDay()
   
                     </tr>
                     <tr>
-                        <th colspan="2"><center>2020</center></th>
+                        <th colspan="2"><center>'.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #DAE1E0 ">
@@ -903,9 +910,10 @@ function peakVolumeDay()
     mysqli_close($conn);
     return $output;
 }
-function peakVolumeHour()
+function peakVolumeHour($FinancialYearStart,$FinancialYearEnd)
 {
-    
+  $fd=date_format(date_create($FinancialYearStart),"d-M-Y");
+  $td=date_format(date_create($FinancialYearEnd),"d-M-Y"); 
   $output  = '';
     include 'connection.php';
     
@@ -948,7 +956,9 @@ function peakVolumeHour()
     TIME_FORMAT(pm.createdAt, '%h') Hour,
     TIME_FORMAT(pm.createdAt, '%i') Min,
     TIME_FORMAT(pm.createdAt, '%p') AMPM
-    FROM `patient_master` pm)a)b GROUP  BY b.Bucket";
+    FROM `patient_master` pm
+    WHERE (pm.`createdAt`) >= '$FinancialYearStart' and (pm.`createdAt`) <= '$FinancialYearEnd'
+    )a)b GROUP  BY b.Bucket";
 
   
     $jobQuery  = mysqli_query($conn, $sql);
@@ -967,7 +977,7 @@ function peakVolumeHour()
   
                     </tr>
                     <tr>
-                        <th colspan="2"><center>2020</center></th>
+                        <th colspan="2"><center>'.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #DAE1E0 ">
@@ -1055,21 +1065,21 @@ $html = '<link rel="stylesheet" href="dompdf/style.css">
                                        </div>
 
                                        <div class="row">
-                                      '.newPatientAcquisitionTrend($fromDate,$toDate).'
+                                      '.newPatientAcquisitionTrend($FinancialYearStart,$FinancialYearEnd).'
                                        </div>
                                       
                                        
                                        <div class="row">
-                                      '.patientDropoutTrend($fromDate,$toDate).'
+                                      '.patientDropoutTrend($FinancialYearStart,$FinancialYearEnd).'
                                        </div>
                                        <div class="row">
                                       '.StaffAllocation().'
                                        </div>
                                        <div class="row">
-                                       '.peakVolumeDay().'
+                                       '.peakVolumeDay($FinancialYearStart,$FinancialYearEnd).'
                                         </div>
                                         <div class="row">
-                                        '.peakVolumeHour().'
+                                        '.peakVolumeHour($FinancialYearStart,$FinancialYearEnd).'
                                          </div>
                                         
                                 </div>
