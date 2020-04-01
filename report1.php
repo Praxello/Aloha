@@ -59,7 +59,7 @@ if (isset($_SESSION['userId'])) {
                             <div class="container-fluid">
                                 <div class="card">
                                     <div class="card-header row">
-                                        <div class="col col-sm-3">
+                                        <!-- <div class="col col-sm-3">
                                             <label for="">From Date</label>
                                             <div class="input-group input-group-primary">
                                             <input id="fromDate" class="form-control" type="text" placeholder="select date" onchange="fetch(this.value);"  autocomplete="off"/>
@@ -73,10 +73,10 @@ if (isset($_SESSION['userId'])) {
                                             <input id="toDate" class="form-control" type="text" placeholder="select date" onchange="fetch(this.value);"  autocomplete="off" />
                                                     <span class="input-group-prepend"><label class="input-group-text"><i class="ik ik-calendar"></i></label></span>
                                                 </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="col col-sm-3">
-                                        <button type="button" class="btn  btn-success" onclick="downloadReport(fromDate,toDate)">Reports</button>                                                                                               
+                                        <button type="button" class="btn  btn-success" onclick="downloadReport()"> Download Reports</button>                                                                                               
                                         </div>
                                         <div class="col col-sm-3"></div>
                                     </div>
@@ -154,12 +154,12 @@ if (isset($_SESSION['userId'])) {
                 timepicker:false,
                 format:'Y-m-d'
             })
-            function downloadReport(fromDate,toDate) {
-                var fromdate=document.getElementById("fromDate").value; 
-                var todate=document.getElementById("toDate").value;
+            function downloadReport() {
+                // var fromdate=document.getElementById("fromDate").value; 
+                // var todate=document.getElementById("toDate").value;
     
-  window.open('spine_reports.php?fromDate='+fromdate + '&toDate='+todate);
-   
+//   window.open('spine_reports.php?fromDate='+fromdate + '&toDate='+todate);
+window.open('spine_reports.php');
   //window.open('Test.php?fromDate='+fromdate + '&toDate='+todate);
     
 
