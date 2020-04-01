@@ -8,19 +8,10 @@ use Dompdf\Dompdf;
 /* instantiate and use the dompdf class */
 $dompdf = new Dompdf();
 
-/*extract($_GET);
+extract($_GET);
 $fromDate=($_GET['fromDate']);
-$toDate=($_GET['toDate']);*/
+$toDate=($_GET['toDate']);
 
-//****************************************************//
-include 'connection.php';
-$sql="SELECT ADDDATE(CURRENT_DATE, INTERVAL -8 DAY) fromDate,ADDDATE(CURRENT_DATE, INTERVAL -1 DAY) toDate";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
-$fromDate=$row["fromDate"];
-$toDate= $row["toDate"];
-mysqli_close($conn);
-//****************************************************//
 
 
 
@@ -95,7 +86,7 @@ where opm.paymentDate BETWEEN ('$fromDate') and ('$toDate')
 group by week('$fromDate'),hbm.branchName) a group by a.week";
 
     $jobQuery  = mysqli_query($conn, $sql);
-    // $WeekData= mysqli_query($conn, $sql);
+    $WeekData= mysqli_query($conn, $sql);
     $CTotal= mysqli_query($conn, $sql2);
 
     
@@ -104,13 +95,20 @@ group by week('$fromDate'),hbm.branchName) a group by a.week";
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
             
-            // $academicResults1 = mysqli_fetch_assoc($WeekData);          
-            // $Week = $academicResults1['week'];
+            $academicResults1 = mysqli_fetch_assoc($WeekData);          
+            $Week = $academicResults1['week'];
 
             $academicResults2 = mysqli_fetch_assoc($CTotal);          
-     
-            $output .= '
    
+           
+
+
+            
+           
+            $output .= '
+                        
+                
+
     <table id="BSS" class="table table-bordered">
 
                     <tr>
@@ -119,7 +117,7 @@ group by week('$fromDate'),hbm.branchName) a group by a.week";
   
                     </tr>
                     <tr>
-                        <th colspan="4"><center> '.$fd.' to '.$td.'</center></th>
+                        <th colspan="4"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #D2B4DE ">
@@ -194,16 +192,18 @@ function procedureConsumptionDetail($fromDate,$toDate)
 
 
     $jobQuery  = mysqli_query($conn, $sql);
-    // $WeekData= mysqli_query($conn, $sql);
+    $WeekData= mysqli_query($conn, $sql);
   
 
         if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
             
-            // $academicResults1 = mysqli_fetch_assoc($WeekData);          
-            // $Week = $academicResults1['week'];
+            $academicResults1 = mysqli_fetch_assoc($WeekData);          
+            $Week = $academicResults1['week'];
 
+                     
+   
            
             $output .= '
                         
@@ -215,7 +215,7 @@ function procedureConsumptionDetail($fromDate,$toDate)
   
                     </tr>
                     <tr>
-                        <th colspan="3"><center> '.$fd.' to '.$td.'</center></th>
+                        <th colspan="3"><center>Week  '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #64C2C2 ">
@@ -264,15 +264,15 @@ function consultantWiseCollection($fromDate,$toDate)
 
 
     $jobQuery  = mysqli_query($conn, $sql);
-    // $WeekData= mysqli_query($conn, $sql);
+    $WeekData= mysqli_query($conn, $sql);
   
 
         if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
             
-            // $academicResults1 = mysqli_fetch_assoc($WeekData);          
-            // $Week = $academicResults1['week'];
+            $academicResults1 = mysqli_fetch_assoc($WeekData);          
+            $Week = $academicResults1['week'];
 
             $output .= '
                         
@@ -284,7 +284,7 @@ function consultantWiseCollection($fromDate,$toDate)
   
                     </tr>
                     <tr>
-                        <th colspan="2"><center>'.$fd.' to '.$td.'</center></th>
+                        <th colspan="2"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #ccea94 ">
@@ -350,15 +350,15 @@ function patientSummary($fromDate,$toDate)
 
 
     $jobQuery  = mysqli_query($conn, $sql);
-    // $WeekData= mysqli_query($conn, $sql);
+    $WeekData= mysqli_query($conn, $sql);
   
 
         if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
             
-            // $academicResults1 = mysqli_fetch_assoc($WeekData);          
-            // $Week = $academicResults1['week'];
+            $academicResults1 = mysqli_fetch_assoc($WeekData);          
+            $Week = $academicResults1['week'];
 
                      
    
@@ -373,7 +373,7 @@ function patientSummary($fromDate,$toDate)
   
                     </tr>
                     <tr>
-                        <th colspan="2"><center> '.$fd.' to '.$td.'</center></th>
+                        <th colspan="2"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #FFD588 ">
@@ -446,15 +446,15 @@ function packageProcedureConsumptionSummary($fromDate,$toDate)
 
 
     $jobQuery  = mysqli_query($conn, $sql);
-    // $WeekData= mysqli_query($conn, $sql);
+    $WeekData= mysqli_query($conn, $sql);
   
 
         if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
             
-            // $academicResults1 = mysqli_fetch_assoc($WeekData);          
-            // $Week = $academicResults1['week'];
+            $academicResults1 = mysqli_fetch_assoc($WeekData);          
+            $Week = $academicResults1['week'];
          
             $output .= '
                         
@@ -466,7 +466,7 @@ function packageProcedureConsumptionSummary($fromDate,$toDate)
   
                     </tr>
                     <tr>
-                        <th colspan="3"><center>'.$fd.' to '.$td.'</center></th>
+                        <th colspan="3"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #64C2C2 ">
@@ -525,15 +525,15 @@ function packageConsumptionDetail($fromDate,$toDate)
 
 
     $jobQuery  = mysqli_query($conn, $sql);
-    // $WeekData= mysqli_query($conn, $sql);
+    $WeekData= mysqli_query($conn, $sql);
   
 
         if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
             
-            // $academicResults1 = mysqli_fetch_assoc($WeekData);          
-            // $Week = $academicResults1['week'];
+            $academicResults1 = mysqli_fetch_assoc($WeekData);          
+            $Week = $academicResults1['week'];
          
             $output .= '
                         
@@ -545,7 +545,7 @@ function packageConsumptionDetail($fromDate,$toDate)
   
                     </tr>
                     <tr>
-                        <th colspan="3"><center> '.$fd.' to '.$td.'</center></th>
+                        <th colspan="3"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #64C2C2 ">
@@ -590,15 +590,15 @@ function dayWisePatientCount($fromDate,$toDate)
     GROUP BY date(pm.lastVisitDate)";
 
     $jobQuery  = mysqli_query($conn, $sql);
-    // $WeekData= mysqli_query($conn, $sql);
+    $WeekData= mysqli_query($conn, $sql);
   
 
         if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
         if ($academicAffected > 0) {
             
-            // $academicResults1 = mysqli_fetch_assoc($WeekData);          
-            // $Week = $academicResults1['week'];
+            $academicResults1 = mysqli_fetch_assoc($WeekData);          
+            $Week = $academicResults1['week'];
          
             $output .= '
                         
@@ -610,7 +610,7 @@ function dayWisePatientCount($fromDate,$toDate)
   
                     </tr>
                     <tr>
-                        <th colspan="2"><center> '.$fd.' to '.$td.'</center></th>
+                        <th colspan="2"><center>Week '.$Week.': '.$fd.' to '.$td.'</center></th>
      
                     </tr>
                 <tr style="background-color: #FFD588 ">

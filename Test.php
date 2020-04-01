@@ -1,25 +1,11 @@
-
 <?php
-/* include autoloader */
-require_once 'dompdf/autoload.inc.php';
-/* reference the Dompdf namespace */
+include 'connection.php';
 
-use Dompdf\Dompdf;
-
-/* instantiate and use the dompdf class */
-$dompdf = new Dompdf();
-
-extract($_GET);
-$fromDate=($_GET['fromDate']);
-$toDate=($_GET['toDate']);
-
-$date=date_create($fromDate);
-$fd=date_format($date,"Y-M-d");
-echo ($fd);
-echo ($toDate);
-$fromDate=($_GET['fromDate']);
-
-
-
-
-?> 
+echo "Connected Successfully";
+$sql="SELECT ADDDATE(CURRENT_DATE, INTERVAL -8 DAY) fromDate,ADDDATE(CURRENT_DATE, INTERVAL -1 DAY) toDate";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+echo $row["fromDate"];
+echo $row["toDate"];
+CloseCon($conn);
+?>
