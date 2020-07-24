@@ -13,12 +13,18 @@ function loadUsers(branchId) {
         placeholder: 'Choose from list',
         dropdownParent: $('#fullwindowModal')
     });
+    $('#doctorid').html(dropdownList);
+    $("#doctorid").select2({
+        placeholder: 'Choose from list',
+        dropdownParent: $('#appointment')
+    });
 }
 
 function mapBranches() {
     var dropdownList = '<option></option>';
     for (let k of branch.keys()) {
-        dropdownList += '<option value="' + k + '">' + branch.get(k) + '</option>';
+        let b = branch.get(k);
+        dropdownList += '<option value="' + k + '">' + b.branchName + '</option>';
     }
     $('#branchId').html(dropdownList);
 }

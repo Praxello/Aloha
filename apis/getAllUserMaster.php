@@ -5,8 +5,10 @@ include "../connection.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
-
-$sql = "SELECT * FROM user_master";
+extract($_POST);
+if(isset($_POST['franchiseid'])){
+$sql = "SELECT hp.branchName,um.userId,um.username,um.upassword,um.mobile,um.addharId,um.usertype,um.designation,um.branchId,um.address,um.firmName,um.isActive,um.sign,um.createdAt FROM user_master um INNER JOIN hospital_branch_master hp ON hp.branchId = um.branchId INNER JOIN franchise_master fm
+ON fm.franchiseid = hp.franchiseid WHERE hp.franchiseid = $franchiseid";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -23,15 +25,19 @@ if ($jobQuery != null) {
     } else {
         $response = array(
             'Message' => "No user present/ Invalid username or password",
-            "Data" => $records,
             'Responsecode' => 401
         );
     }
 }else{
     $response = array(
         'Message' => "Please Logout and login again",
-        "Data" => $records,
         'Responsecode' => 300
+    ); 
+}
+}else{
+    $response = array(
+        'Message' => "Parameter missing",
+        'Responsecode' => 404
     ); 
 }
 mysqli_close($conn);

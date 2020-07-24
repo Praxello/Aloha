@@ -6,11 +6,12 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['branchName']) && isset($_POST['mobile1'])) {
+if (isset($_POST['branchName']) && isset($_POST['mobile1']) && isset($_POST['franchiseid'])) {
     
-    
-    $sql = "INSERT INTO hospital_branch_master(branchName,mobile1,latitude,longitude,mapURL,mobile2,branchAddress,country,state,city) 
-     VALUES ('$branchName','$mobile1','$latitude','$longitude','$mapURL','$mobile2','$branchAddress','$country','$state','$city')";
+    $sql = "INSERT INTO hospital_branch_master(branchName,mobile1,latitude,longitude,mapURL,mobile2,branchAddress,
+    country,state,city,franchiseid) 
+     VALUES ('$branchName','$mobile1','$latitude','$longitude','$mapURL','$mobile2','$branchAddress','$country',
+     '$state','$city',$franchiseid)";
     
     $query = mysqli_query($conn, $sql);
     

@@ -41,4 +41,4 @@
     </div>
 </div>
 </div>
-<script src="jscode/addDiscount.js"></script>
+<script src="../jscode/addDiscount.js"></script>

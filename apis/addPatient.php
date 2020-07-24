@@ -8,9 +8,10 @@ $response = null;
 $records  = null;
 extract($_POST);
 $dir = '../upload/patients/';
-if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birthdate']) && isset($_POST['mobile1']) && isset($_POST['address']) && isset($_POST['gender'])
+if (isset($_POST['firstName']) && isset($_POST['surname'])  && isset($_POST['mobile1']) && isset($_POST['address']) && isset($_POST['gender'])
  && isset($_POST['height']) && isset($_POST['country']) && isset($_POST['state']) && isset($_POST['maritalstatus']) && isset($_POST['pincode']) ) {
     
+    $birthdate     = isset($_POST['birthdate']) ? $_POST['birthdate'] : 'NULL';
     $middleName     = isset($_POST['middleName']) ? $_POST['middleName'] : 'NULL';
     $height         = isset($_POST['height']) ? $_POST['height'] : 'NULL';
     $weight         = isset($_POST['weight']) ? $_POST['weight'] : 'NULL';
@@ -77,22 +78,19 @@ if (isset($_POST['firstName']) && isset($_POST['surname']) && isset($_POST['birt
         $response = array(
             'Message' => "Patient Registration Completed",
             "Data" => $records,
-            "sql" => $sql,
             'Responsecode' => 200
         );
         
     } else {
         $response = array(
             'Message' => $mobile1." Contact number already exists",
-            'Responsecode' => 500,
-            "sql" => $sql
+            'Responsecode' => 500
         );
     }
 } else {
     $response = array(
         "Message" => "Parameters missing",
-        "Responsecode" => 403
-       
+        "Responsecode" => 403 
     );
 }
 mysqli_close($conn);

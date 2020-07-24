@@ -8,11 +8,12 @@ var follwups = new Map();
 var caseParam = null;
 var work = new Map();
 var global_date = moment().format('YYYY-MM-DD');
-
+var patientId_ap=null;
 function branches() {
     var dropdownList = '<option></option>';
     for (let k of branch.keys()) {
-        dropdownList += '<option value="' + k + '">' + branch.get(k) + '</option>';
+        let b = branch.get(k);
+        dropdownList += '<option value="' + k + '">' + b.branchName + '</option>';
     }
     $('#branch').html(dropdownList);
     $("#branch").select2({
@@ -138,6 +139,7 @@ const listAppointment = calls => {
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editCall(\'' + (k) + '\',1)" title="Edit call details"><i class="ik ik-edit-2 text-blue"></i></a>';
         tblData += '<a href="#" onclick="takeFeedback(\'' + (k) + '\',1)" title="Take Feedback"><i class="ik ik-message-circle" style="color:purple"></i></a>';
+        tblData += '<a href="#" class="list-delete" onclick="takeAppointment(' + (call.mobile) + ')" title="Take appointment"><i class="ik ik-info" style="color:purple"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#appointmentD').html(tblData);
@@ -155,6 +157,29 @@ const listAppointment = calls => {
 getAppointments(data.today, data.today, 0, 1);
 $('#myAppointments').click();
 
+
+function takeAppointment(mobile) {
+    $.ajax({
+        url: url + 'checkpatientexist.php',
+        type: 'POST',
+        dataType: 'json',
+        data: { mobile: mobile },
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                patientId_ap = response.Data.patientId;
+                $('#appointment').modal('show');
+            }else{
+                swal({
+                    position: 'top-end',
+                    icon: 'warning',
+                    title: response.Message,
+                    button: false,
+                    timer: 1500
+                });
+            }
+        }
+    }); 
+}
 const getAllCalls = (fromDate, uptoDate, branchId) => {
     $.ajax({
         url: url + 'getAbsentCallList.php',

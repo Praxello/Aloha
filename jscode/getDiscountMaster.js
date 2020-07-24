@@ -66,7 +66,7 @@ const editDiscount = (discountId) => {
     discount_details = discounts.get(discountId);
     discountId_np = discountId;
     $('#newFees').hide();
-    $('#editfeesNew').load('edit_discount_master.php');
+    $('#editfeesNew').load('../edit_discount_master.php');
 };
 function gobackDiscount(){
     $('#newFees').show();
@@ -106,7 +106,6 @@ var inactivateDiscount = discountId => {
                 
                     dataType: 'json',
                     success: function(response) {
-                        console.log(discountId);
                         if (response.Responsecode == 200) {
                             discounts.set(discountId, discount);
                             listDiscount(discounts);

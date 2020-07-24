@@ -352,9 +352,7 @@ if(isset($_SESSION['branchId'])){
 
             </div>
         </div>
-
         <script src="js/jquery-3.3.1.min.js"></script>
-
         <script>
             var data = {
                 userId: <?php echo $_SESSION['userId'];?>,
@@ -364,6 +362,7 @@ if(isset($_SESSION['branchId'])){
             };
         </script>
         <script src="picker.js"></script>
+        <?php include 'call-center-appointment.php';?>
         <script>
             $.datetimepicker.setLocale('en');
             jQuery('#fromDate').datetimepicker();
@@ -374,6 +373,7 @@ if(isset($_SESSION['branchId'])){
             jQuery('#foluDate').datetimepicker();
             jQuery('#foDate').datetimepicker();
             jQuery('#upDate').datetimepicker();
+            jQuery('#apdate').datetimepicker();
         </script>
         <?php include 'add-call.php';?>
             <?php include 'search-modal.php'?>
@@ -397,7 +397,6 @@ if(isset($_SESSION['branchId'])){
                 <script src="dist/js/theme.min.js"></script>
                 <script src="js/jquery.validate.js"></script>
                 <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
-                
                 <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
                 <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -413,6 +412,8 @@ if(isset($_SESSION['branchId'])){
                 <script src="jscode/cities.js"></script>
                 <script src="jscode/getcallFollowup.js"></script>
                 <script src="jscode/call-center.js"></script>
+               
+             <script src="jscode/branchUsers.js"></script>
                 <script>
                     $('.collapse').on('show.bs.collapse', function() {
                         $('.collapse.show').each(function() {

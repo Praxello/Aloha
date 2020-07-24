@@ -1,9 +1,8 @@
 $('#signin').on('submit', function(event) {
     event.preventDefault();
     var loginData = {
-        userId: $('#userId').val(),
-        passwrd: $('#passwrd').val(),
-        branchId: $('#branchId').val()
+        username: $('#username').val(),
+        passwrd: $('#passwrd').val()
     };
     $.ajax({
         url: url + 'authenticate.php',
@@ -12,7 +11,7 @@ $('#signin').on('submit', function(event) {
         dataType: 'json',
         success: function(response) {
             if (response.Responsecode == 200) {
-                window.location.href = 'createSession.php?userId=' + loginData.userId + '&branchId=' + loginData.branchId + '&username=' + response.Data.username + '&role=' + response.Data.usertype + '&roleName=' + response.Data.role;
+                window.location.href = 'createSession.php?userId=' + response.Data.userId + '&branchId=' + response.Data.branchId + '&username=' + response.Data.username + '&role=' + response.Data.usertype + '&roleName=' + response.Data.role;
             } else {
                 $('.message').show();
             }

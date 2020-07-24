@@ -40,7 +40,8 @@ const listexercise = exercise => {
         tblData += badge1;
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editExercise(' + (k) + ')" title="Edit Exercise details"><i class="ik ik-edit text-blue"></i></a>';
-        tblData += '<a href="#" class="ik edit"  onclick="inactivateExcercise(' + (k) + ')" title="Active/inactive User"><i class="ik ik-trash text-danger"></i></a>';
+        tblData += '<a href="#" class="ik edit"  onclick="inactivateExcercise(' + (k) + ')" title="Active/inactive exercise"><i class="ik ik-info text-purple"></i></a>';
+        tblData += '<a href="#" class="ik edit"  onclick="removeexercise(' + (k) + ')" title="remove exercise"><i class="ik ik-trash text-danger"></i></a>';
         tblData += '</div></td></tr>';
     }
     $('#exeData').html(tblData);
@@ -114,6 +115,44 @@ var inactivateExcercise = id => {
             }
         });
 };
+
+const removeexercise = productId => {
+    productId = productId.toString();
+    if (exercise.has(productId)) {
+        var product = exercise.get(productId);
+            swal({
+                    title: "Are you sure?",
+                    text: "Do you really want to delete ?",
+                    icon: "warning",
+                    buttons: ["Cancel", "Delete Now"],
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url: url + 'removeexercise.php',
+                            type: 'POST',
+                            data: { id: productId },
+                            dataType: 'json',
+                            success: function(response) {
+                                if (response.Responsecode == 200) {
+                                    exercise.delete(productId);
+                                    listexercise(exercise);
+                                    swal({
+                                        title: "Deleted",
+                                        text: response.Message,
+                                        icon: "success",
+                                    });
+                                }
+                            }
+                        })
+                    } else {
+                        swal("The exercise is not deleted!");
+                    }
+                });
+
+    }
+}
 
 function gobackCo() {
     $('#exData').show();

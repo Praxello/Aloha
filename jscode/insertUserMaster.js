@@ -6,7 +6,6 @@ $('#userMasterForm').on('submit', function(e) {
     
         var fData = new FormData(this);
 
-
         $.ajax({
             url: url + 'insert_userMaster.php',
             type: 'POST',

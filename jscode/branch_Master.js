@@ -2,11 +2,12 @@ var branches = new Map();
 var branch_details = {};
 var branchId_ap = null;
 var global_date = moment().format('YYYY-MM-DD');
-const getAllBranches = () => {
+const getAllBranches = (franchiseid) => {
     $.ajax({
         url: url + 'getAllBranchMaster.php',
         type: 'POST',
         dataType: 'json',
+        data:{franchiseid:franchiseid},
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
@@ -62,7 +63,7 @@ const listBranches = branches => {
         destroy: true
     });
 };
-getAllBranches();
+getAllBranches(data.franchiseid);
 
 const editBranch = (branchId) => {
     branchId = branchId.toString();
@@ -70,7 +71,7 @@ const editBranch = (branchId) => {
     branchId_ap = branchId;
     $('#newData').hide();
     $('#editbranchNew').empty();
-    $('#editbranchNew').load('edit_Branch_Profile.php');
+    $('#editbranchNew').load('../edit_Branch_Profile.php');
     console.log(countryList);
 };
 

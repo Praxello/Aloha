@@ -26,7 +26,6 @@ var getAllPatients = (branchId) => {
 $('#searchContact').on('click', function(e) {
     e.preventDefault();
  contactNo = document.getElementById("mobileNo").value;
-    console.log('dddddd'+contactNo);
 });
 
 var listPatients = patients => {
@@ -51,9 +50,7 @@ var listPatients = patients => {
             tblData += '<a href="#" class="list-delete" onclick="takeAppointment(' + (k) + ')" title="Take appointment"><i class="fas fa-book-medical" style="color:purple"></i></a>';
             tblData += '<a href="#"  onclick="opdPayment(' + (k) + ')" title="Opd Payment"><i class="fas fa-receipt" style="color:blue"></i></a>';
             tblData += '<a href="#"  onclick="acceptPayment(' + (k) + ')" title="Generate Payment"><i class="fas fa-rupee-sign" style="color:green"></i></a>';
-            
-
-            console.log('Iamhere');
+    
           } else {
             
             tblData += '<tr><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';

@@ -258,9 +258,7 @@ if(isset($_SESSION['branchId'])){
         <script src="jscode/apis.js"></script>
         <script src="jscode/getBranches.js"></script>
         <script src="jscode/collection.js"></script>
-     
     </body>
-
     </html>
     <?php
 }else{

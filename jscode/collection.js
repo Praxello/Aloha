@@ -176,6 +176,8 @@ $('#searchCollection').on('click', function(e) {
         var uptoDate = moment($('#uptoDate').val()).format('YYYY-MM-DD');
         if ($('#branch').val() != '') {
             branch = $('#branch').val();
+        }else{
+            branch = data.branchId;
         }
         getCollection(fromDate, uptoDate, branch);
         getConsultaion(fromDate, uptoDate);
@@ -188,7 +190,7 @@ function printReciept(paymentId) {
     // window.open(link, '_blank');
     $('<form action="payment-reciept.php" method="POST" target="_blank"><input type="hidden" name="ppaymentId" value="' + paymentId + '" /></form>').appendTo('body').submit();
 }
-getCollection(data.today, data.today);
+getCollection(data.today, data.today,data.branchId);
 
 function mapBranches() {
     var dropdownList = '<option></option>';

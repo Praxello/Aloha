@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="" class="required"> Date of Birth</label>
+                                <label for=""> Date of Birth</label>
                                 <input type="date" class="form-control" name="birthdate" id="birthdate">
                             </div>
                         </div>

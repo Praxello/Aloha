@@ -52,7 +52,7 @@ const editPackage = discountId => {
     discountId = discountId.toString();
     udiscount = discountId;
     $('#package').hide();
-    $('#loadPackage').load('edit-discount.php');
+    $('#loadPackage').load('../edit-discount.php');
 };
 
 var addPackage = () => {
@@ -77,7 +77,8 @@ $(document).ready(function() {
 function mapBranches() {
     var dropdownList = '<option></option>';
     for (let k of branch.keys()) {
-        dropdownList += '<option value="' + k + '">' + branch.get(k) + '</option>';
+        let b =  branch.get(k);
+        dropdownList += '<option value="' + k + '">' +b.branchName + '</option>';
     }
     $('#branchId').html(dropdownList);
 }

@@ -2,11 +2,12 @@ var users = new Map();
 var user_details = {};
 var  userId_np = null;
 // var global_date = moment().format('YYYY-MM-DD');
-const getAllUsers = () => {
+const getAllUsers = (franchiseid) => {
     $.ajax({
         url: url + 'getAllUserMaster.php',
         type: 'POST',
         dataType: 'json',
+        data:{franchiseid:franchiseid},
         success: function(response) {
             if (response.Responsecode == 200) {
                 const count = response.Data.length;
@@ -40,6 +41,7 @@ const listUsers = users => {
         tblData += '<td>' + user.addharId + '</td>';
         tblData += '<td>' + user.designation + '</td>';
         tblData += '<td>' + user.address + '</td>';
+        tblData += '<td>' + user.branchName + '</td>';
         tblData += badge1;
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editUser(' + (k) + ')" title="Edit Users details"><i class="ik ik-edit text-blue"></i></a>';
@@ -58,7 +60,7 @@ const listUsers = users => {
         destroy: true
     });
 };
-getAllUsers();
+getAllUsers(data.franchiseid);
 
 const editUser = (userId) => {
     userId = userId.toString();
@@ -66,7 +68,7 @@ const editUser = (userId) => {
     userId_np= userId;
     $('#newUser').hide();
     
-    $('#editUserNew').load('edit_user_profile.php');
+    $('#editUserNew').load('../edit_user_profile.php');
 
  
 };

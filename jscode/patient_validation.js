@@ -10,11 +10,6 @@ $(function() {
                     required: true,
                     maxlength: 50
                 },
-
-                birthdate: {
-                    required: true
-
-                },
                 nextVisitDate:{
                     required: true
                 },
@@ -59,10 +54,6 @@ $(function() {
                 surname: {
                     required: "Please enter Last name",
                     maxlength: "Length Exceed upto 50 characters"
-                },
-                birthdate: {
-                    required: "Please enter Date of birth"
-
                 },
                 nextVisitDate:{
                     required:  "Please Enter Consulting date"

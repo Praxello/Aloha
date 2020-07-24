@@ -14,8 +14,8 @@ if(!isset($_SESSION['userId'])){
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" href="medical.jpeg" type="image/x-icon" />
-
-        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
+        <link href="../dist/css/googlefont.css" rel="stylesheet">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet"> -->
 
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -49,22 +49,15 @@ background-repeat: no-repeat;
                     </div>
                     <div class="col-xl-4 col-lg-6 col-md-7 my-auto p-0">
                         <div class="authentication-form mx-auto">
-                            <!-- <div class="logo-centered">
-                                <a href="index.php"><img src="medical.jpeg" alt="" style="width: 100%"></a>
-                            </div> -->
                             <div class="alert bg-danger alert-danger text-white message" role="alert" style="display: none;">
-                               Choose Correct User or password
+                               Enter Correct contact number or password
                             </div>
-                            <!-- <h3>Sign In to Spine 360</h3> -->
-                            <!-- <p>Happy to see you again!</p> -->
-                            <form id="signin">
+                            <h3>Sign in for user</h3>
+                             <form id="signin">
+                          
                             <div class="form-group">
-                            <select class="form-control" id="branchId"  style="width:100%;" onchange="loadUsers(this.value);" required></select>
-                           
-                            </div>
-                                <div class="form-group">
-                                <select class="form-control" id="userId"  style="width:100%;" required></select>
-                                    
+                                    <input type="number" class="form-control" id="username" placeholder="contact number" required="">
+                                    <i class="ik ik-user"></i>
                                 </div>
                                 <div class="form-group">
                                     <input type="password" class="form-control" id="passwrd" placeholder="Password" required="">
@@ -78,7 +71,13 @@ background-repeat: no-repeat;
                                         </label>
                                     </div>
                                     <div class="col text-right">
-                                    <a href="SuperAdmin/index.php" style="color:blue"><b>Super Admin Login</b></a>
+                                    <a href="franchise/index.php" style="color:blue"><b><u>Franchise Owner<u></b></a>
+                                    </div>
+                                   
+                                </div>
+                                <div class="row">
+                                <div class="col text-right">
+                                    <a href="licensor/index.php" style="color:blue"><b><u>Licensor<u></b></a>
                                     </div>
                                 </div>
                                 <div class="sign-btn text-center">
@@ -86,9 +85,6 @@ background-repeat: no-repeat;
                                 </div>
                                 
                             </form>
-                            <!-- <div class="register">
-                                <p>Don't have an account? <a href="register.html">Create an account</a></p>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -105,10 +101,11 @@ background-repeat: no-repeat;
         <script src="plugins/select2/dist/js/select2.min.js"></script>
         <script src="dist/js/theme.js"></script>
         <script src="jscode/apis.js"></script>
+        <!-- <script src="jscode/getfranchise.js"></script>
         <script src="jscode/getBranches.js"></script>
         <script src="jscode/getUsers.js"></script>
         <script src="jscode/login.js"></script>
-        <script src="jscode/loginUsers.js"></script>
+        <script src="jscode/loginUsers.js"></script> -->
         <script src="jscode/authentication.js"></script>
     </body>
 

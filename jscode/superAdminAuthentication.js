@@ -1,9 +1,8 @@
 $('#signin').on('submit', function(event) {
     event.preventDefault();
     var loginData = {
-        userId: $('#userId').val(),
-        passwrd: $('#passwrd').val(),
-        branchId: $('#branchId').val()
+        username: $('#username').val(),
+        password: $('#passwrd').val()
     };
     $.ajax({
         url: url + 'superAdminAuthentictn.php',
@@ -12,7 +11,8 @@ $('#signin').on('submit', function(event) {
         dataType: 'json',
         success: function(response) {
             if (response.Responsecode == 200) {
-                window.location.href = 'createSuperAdminSession.php?userId=' + loginData.userId + '&branchId=' + loginData.branchId + '&username=' + response.Data.username + '&role=' + response.Data.usertype + '&roleName=' + response.Data.role;
+                console.log(response);
+               window.location.href = 'createSuperAdminSession.php?franchiseid=' + response.Data.franchiseid + '&username=' + response.Data.contactperson;
             } else {
                 $('.message').show();
             }

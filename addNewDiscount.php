@@ -49,6 +49,6 @@
     </div>
 </div>
 
-<script src="jscode/insertDiscountMaster.js"></script>
-<script src="js/jquery.validate.js"></script>
-<script src="jscode/disocunt_validation.js"></script>
+<script src="../jscode/insertDiscountMaster.js"></script>
+<script src="../js/jquery.validate.js"></script>
+<script src="../jscode/disocunt_validation.js"></script>

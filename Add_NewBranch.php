@@ -114,6 +114,6 @@
     </div>
 </div>
 
-<script src="jscode/insert_branchMaster.js"></script>
-<script src="js/jquery.validate.js"></script>
-<script src="jscode/branchMaster_validation.js"></script>
+<script src="../jscode/insert_branchMaster.js"></script>
+<script src="../js/jquery.validate.js"></script>
+<script src="../jscode/branchMaster_validation.js"></script>

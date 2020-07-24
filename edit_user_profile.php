@@ -145,7 +145,7 @@
 </div>
 
 
-<script src="jscode/edit_User.js"></script>
-<script src="jscode/update_User_Master.js"></script>
-<script src="js/jquery.validate.js"></script>
-<script src="jscode/userMaster_validation.js"></script>
+<script src="../jscode/edit_User.js"></script>
+<script src="../jscode/update_User_Master.js"></script>
+<script src="../js/jquery.validate.js"></script>
+<script src="../jscode/userMaster_validation.js"></script>

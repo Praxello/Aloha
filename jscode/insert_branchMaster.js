@@ -1,12 +1,10 @@
 $('#branchMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
            
     var returnVal = $("#branchMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-
-
+        fData.append('franchiseid',data.franchiseid);
         $.ajax({
             url: url + 'insertBranchMaster.php',
             type: 'POST',

@@ -1,10 +1,9 @@
  <?php
 session_start();
-if(isset($_SESSION['branchId'])){
+if(isset($_SESSION['franchiseid'])){
     ?>  
 <!doctype html>
 <html class="no-js" lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">

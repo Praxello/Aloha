@@ -30,7 +30,6 @@ function mapDiscounts(discounts) {
 }
 
 function listDetails(details) {
-    console.log(details);
     $('#packageTest').dataTable().fnDestroy();
     $('#packageTestData').empty();
     var tblData = '';
@@ -137,7 +136,8 @@ function removeTest(classId) {
 function Branches() {
     var dropdownList = '<option></option>';
     for (let k of branch.keys()) {
-        dropdownList += '<option value="' + k + '">' + branch.get(k) + '</option>';
+        let b = branch.get(k);
+        dropdownList += '<option value="' + k + '">' + b.branchName + '</option>';
     }
     $('#branch').html(dropdownList);
 }

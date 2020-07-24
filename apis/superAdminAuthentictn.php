@@ -6,10 +6,8 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
-if (isset($_POST['userId']) && isset($_POST['passwrd']) && isset($_POST['branchId'])) {
-    $sql      = "SELECT um.userId,um.username,um.usertype,rm.role FROM user_master um 
-    LEFT JOIN roleMaster rm ON rm.roleId = um.usertype  
-    WHERE um.userId = $userId AND um.upassword = '$passwrd' AND um.branchId = $branchId";
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $sql      = "SELECT franchiseid,emailid,contactperson FROM franchise_master WHERE pwd = '$password' AND (emailid = '$username' OR contactnumber = '$username')";
     $jobQuery = mysqli_query($conn, $sql);
     if ($jobQuery != null) {
         $academicAffected = mysqli_num_rows($jobQuery);
@@ -24,22 +22,18 @@ if (isset($_POST['userId']) && isset($_POST['passwrd']) && isset($_POST['branchI
         } else {
             $response = array(
                 'Message' => "No user present/ Invalid username or password",
-                "Data" => $records,
-                "sql"=>$sql,
                 'Responsecode' => 401
             );
         }
     }else{
         $response = array(
             'Message' => mysqli_error($conn),
-            "Data" => $records,
             'Responsecode' => 500
         );
     }
 } else {
     $response = array(
         'Message' => "Parameter Missing",
-        "Data" => $records,
         'Responsecode' => 500
     );
 }

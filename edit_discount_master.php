@@ -57,5 +57,5 @@
 </div>
 
 
-<script src="jscode/edit_discountMaster.js"></script>
-<script src="jscode/updateDiscountMaster.js"></script>
+<script src="../jscode/edit_discountMaster.js"></script>
+<script src="../jscode/updateDiscountMaster.js"></script>

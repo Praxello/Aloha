@@ -122,8 +122,8 @@
         </div>
     </div>
 </div>
-<script src="jscode/edit_branch.js"></script>
-<script src="jscode/update_Branch_Master.js"></script>
-<script src="js/jquery.validate.js"></script>
-<script src="jscode/branchMaster_validation.js"></script>
+<script src="../jscode/edit_branch.js"></script>
+<script src="../jscode/update_Branch_Master.js"></script>
+<script src="../js/jquery.validate.js"></script>
+<script src="../jscode/branchMaster_validation.js"></script>
 
