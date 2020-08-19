@@ -1,6 +1,7 @@
 <?php
+session_start();
 /* include autoloader */
-require_once '../dompdf/autoload.inc.php';
+require_once 'dompdf/autoload.inc.php';
 /* reference the Dompdf namespace */
 
 use Dompdf\Dompdf;
@@ -11,9 +12,9 @@ extract($_GET);
 /*extract($_GET);
 $fromDate=($_GET['fromDate']);
 $toDate=($_GET['toDate']);*/
-$franchiseid = isset($_GET['franchiseid']) ? $_GET['franchiseid']:1;
+$franchiseid = isset($_GET['franchiseid']) ? $_GET['franchiseid']:$_SESSION['franchiseid'];
 //****************************************************//
-include '../connection.php';
+include 'connection.php';
 $sql="SELECT ADDDATE(CURRENT_DATE, INTERVAL -8 DAY) fromDate,ADDDATE(CURRENT_DATE, INTERVAL -1 DAY) toDate,
  DATE_FORMAT(concat(year(CURRENT_DATE),'-04-1'), '%Y-%m-%d') FinancialYearStart, 
  DATE_FORMAT(concat(year(CURRENT_DATE)+1,'-03-31'), '%Y-%m-%d') FinancialYearEnd";
@@ -39,7 +40,7 @@ function branchSalesSummary($fromDate,$toDate,$franchiseid)
 
   $output  = '';
 
-    include '../connection.php';
+    include 'connection.php';
     $sql ="SELECT a.week,a.branchName,
     sum(case when a.flag = 'patient' then a.count else 0 end) patient,
     sum(case when a.flag = 'treat' then a.count else 0 end) treat,
@@ -172,7 +173,7 @@ function procedureConsumptionDetail($fromDate,$toDate,$franchiseid)
     $fd=date_format(date_create($fromDate),"d-M-Y");
     $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
-    include '../connection.php';
+    include 'connection.php';
     
     $sql ="SELECT a.week,a.testName,
     sum(case when a.flag = 'TestCount' then a.count else 0 end) TestCount,
@@ -259,7 +260,7 @@ function consultantWiseCollection($fromDate,$toDate,$franchiseid)
     $fd=date_format(date_create($fromDate),"d-M-Y");
     $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
-    include '../connection.php';
+    include 'connection.php';
     
     $sql ="SELECT SUM(opm.amount) amount,week('$fromDate') week, um.username FROM opd_payment_transaction_master opm
     inner join opd_patient_payment_master oppm on
@@ -329,7 +330,7 @@ function patientSummary($fromDate,$toDate,$franchiseid)
     $fd=date_format(date_create($fromDate),"d-M-Y");
     $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
-    include '../connection.php';
+    include 'connection.php';
     
     $sql =" SELECT week('$fromDate') week,count(pm.patientId) count,'New Registered Patients' as flag FROM patient_master pm
     INNER JOIN hospital_branch_master hbm ON hbm.branchId = pm.branchId
@@ -423,7 +424,7 @@ function packageProcedureConsumptionSummary($fromDate,$toDate,$franchiseid)
     $fd=date_format(date_create($fromDate),"d-M-Y");
     $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
-    include '../connection.php';
+    include 'connection.php';
     
     $sql ="SELECT a.week,
     sum(case when a.flag = 'pkcCnt' then a.count else 0 end) ccount,
@@ -521,7 +522,7 @@ function packageConsumptionDetail($fromDate,$toDate,$franchiseid)
     $fd=date_format(date_create($fromDate),"d-M-Y");
     $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
-    include '../connection.php';
+    include 'connection.php';
     
     $sql ="SELECT a.week,a.title,a.count,b.income from
     (SELECT week('$fromDate') week,pm.title,count(oppm.packageId) count,'pkcCnt' as flag FROM opd_patient_payment_master oppm
@@ -601,7 +602,7 @@ function dayWisePatientCount($fromDate,$toDate,$franchiseid)
     $fd=date_format(date_create($fromDate),"d-M-Y");
     $td=date_format(date_create($toDate),"d-M-Y");
   $output  = '';
-    include '../connection.php';
+    include 'connection.php';
     
     $sql ="ELECT week('$fromDate') week,COUNT(pm.patientId) count,
     DATE_FORMAT(pm.lastVisitDate, '%d-%b-%Y') date FROM patient_master pm
@@ -664,7 +665,7 @@ function newPatientAcquisitionTrend($FinancialYearStart,$FinancialYearEnd,$franc
   $fd=date_format(date_create($FinancialYearStart),"d-M-Y");
   $td=date_format(date_create($FinancialYearEnd),"d-M-Y");
     $output  = '';
-    include '../connection.php';
+    include 'connection.php';
     
     $sql ="SELECT  CONCAT('week',' ',week(pm.createdAt)) week,COUNT(pm.patientId) count FROM patient_master pm 
     INNER JOIN hospital_branch_master hbm ON hbm.branchId = pm.branchId
@@ -728,7 +729,7 @@ function patientDropoutTrend($FinancialYearStart,$FinancialYearEnd,$franchiseid)
     $fd=date_format(date_create($FinancialYearStart),"d-M-Y");
     $td=date_format(date_create($FinancialYearEnd),"d-M-Y");
   $output  = '';
-    include '../connection.php';
+    include 'connection.php';
     
     $sql ="SELECT COUNT(pm.patientId) count,CONCAT('week',' ',week(pm.`firstVisitDate`)) week 
     FROM patient_master pm
@@ -792,7 +793,7 @@ function StaffAllocation($franchiseid)
 {
     
   $output  = '';
-    include '../connection.php';
+    include 'connection.php';
     
     $sql ="SELECT COUNT(um.userId) count,hb.branchName FROM `user_master` um
     INNER JOIN hospital_branch_master hb
@@ -869,7 +870,7 @@ function peakVolumeDay($FinancialYearStart,$FinancialYearEnd,$franchiseid)
   $fd=date_format(date_create($FinancialYearStart),"d-M-Y");
   $td=date_format(date_create($FinancialYearEnd),"d-M-Y");
   $output  = '';
-    include '../connection.php';
+    include 'connection.php';
     
     $sql ="SELECT COUNT(pm.patientId) count,DAYNAME(pm.createdAt) day FROM `patient_master` pm
     INNER JOIN hospital_branch_master hbm ON hbm.branchId = pm.branchId
@@ -933,7 +934,7 @@ function peakVolumeHour($FinancialYearStart,$FinancialYearEnd,$franchiseid)
   $fd=date_format(date_create($FinancialYearStart),"d-M-Y");
   $td=date_format(date_create($FinancialYearEnd),"d-M-Y"); 
   $output  = '';
-    include '../connection.php';
+    include 'connection.php';
     
     $sql ="SELECT COUNT(PatientID)count,Bucket
     FROM
@@ -1027,7 +1028,7 @@ function peakVolumeHour($FinancialYearStart,$FinancialYearEnd,$franchiseid)
     mysqli_close($conn);
     return $output;
 }
-$html = '<link rel="stylesheet" href="../dompdf/style.css">
+$html = '<link rel="stylesheet" href="dompdf/style.css">
 <head>
   <style>
   .txt{
@@ -1045,7 +1046,7 @@ $html = '<link rel="stylesheet" href="../dompdf/style.css">
                                 <div class="card-header">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-4">
-                                        <img class="img-fluid" src="../img/auth/mybrand.png" width="40% " height="30%">
+                                        <img class="img-fluid" src="img/auth/mybrand.png" width="40% " height="30%">
                                     </div>
                                     <div class="col-md-4">
                                      

@@ -52,7 +52,7 @@ if(isset($_SESSION['branchId'])){
                 <div id="editUserNew"></div>
                 <div class="main-content template-demo " id="newUser">
                 
-                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#userModal">Add New User</button>
+                <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" onclick="addUser()">Add New User</button>
                     <div class="container-fluid">
                    
                         <div class="card">
@@ -131,21 +131,19 @@ if(isset($_SESSION['branchId'])){
                                 <table id="uTable" class="table">
                                     <thead>
                                         <tr>
-                                           
-                                            <th >Id</th>
+                                            <th>Id</th>
                                             <th>User Name</th>
                                             <th>Mobile</th>
-                                            <th>Addhar Id</th>
+                                           
                                             <th>Designation</th>
-                                            <th>Address</th>
+                                            <th>City</th>
+                                            <th>Branch</th>
+                                            <th>Franchise</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="userData">
-                                       
-                                        
-                                        
                                     </tbody>
                                 </table>
                                     </div>
@@ -164,16 +162,14 @@ if(isset($_SESSION['branchId'])){
 
             </div>
         </div>
-      
         <script src="js/jquery-3.3.1.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
-        </script>
          <script>
       var data = {
 userId:<?php echo $_SESSION['userId'];?>,
 branchId:<?php echo $_SESSION['branchId'];?>,
-username:'<?php echo $_SESSION['username'];?>'
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
 };
       </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
@@ -203,9 +199,7 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="jscode/get_Role.js"></script>
         <script src="jscode/getRoleDropdown.js"></script>
         <script src="jscode/getUserMaster.js"></script>
-    
     </body>
-
 </html>
 <?php
 }else{

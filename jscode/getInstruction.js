@@ -58,7 +58,6 @@ const editInstruction = (instructionId) => {
     instructionId = instructionId.toString();
     instruction_details = instruction.get(instructionId);
     instructionId_ap = instructionId;
-    // console.log(instructionId_ap);
     $('#itData').hide();
     $('#instrNew').load('edit_InstructionMaster.php');
 
@@ -94,7 +93,8 @@ var inactivateInstruction = instructionId => {
                 $.ajax({
                     url: url + 'instructionActivation.php',
                     type: 'POST',
-                    data: { instructionId: instructionId },
+                    data: { instructionId: instructionId,suserid:data.userId,
+                        susername:data.username },
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {

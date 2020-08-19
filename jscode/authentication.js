@@ -9,9 +9,30 @@ $('#signin').on('submit', function(event) {
         type: 'POST',
         data: loginData,
         dataType: 'json',
+        async:false,
         success: function(response) {
             if (response.Responsecode == 200) {
-                window.location.href = 'createSession.php?userId=' + response.Data.userId + '&branchId=' + response.Data.branchId + '&username=' + response.Data.username + '&role=' + response.Data.usertype + '&roleName=' + response.Data.role;
+                var page = '',user='',flag=0;
+                localStorage.clear();
+                if(response.Data.sidebar !=null){
+                    flag = 1;
+                    var count = response.Data.sidebar.length;
+                    console.log(response.Data.sidebar);
+                    page = response.Data.sidebar[0].pagename;
+                    for(var i=0;i<count;i++){
+                        localStorage.setItem(response.Data.sidebar[i].accessid, JSON.stringify(response.Data.sidebar[i]));
+                      // sidebar.set(response.Data.sidebar.accessid,response.Data.sidebar[i]);
+                    }
+                }
+                if(flag==1){
+                if(response.Data.logindetails != null){
+                    user = response.Data.logindetails;
+                    console.log(page);
+                     window.location.href = 'createSession.php?userId=' + user.userId + '&branchId=' + user.branchId + '&username=' + user.username + '&role=' + user.roleid + '&roleName=' + user.role+'&franchiseid='+user.franchiseid+'&page='+page;
+                }
+            }else{
+                $('.message').show(); 
+            }
             } else {
                 $('.message').show();
             }

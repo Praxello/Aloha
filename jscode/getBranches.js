@@ -7,7 +7,6 @@ function getBranch() {
         async: false,
         dataType: 'json',
         success: function(response) {
-            
             if (response.Responsecode == 200) {
                 if (response.Data != null) {
                     var n = response.Data.length;

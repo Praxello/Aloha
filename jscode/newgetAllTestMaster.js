@@ -100,7 +100,7 @@ var inactivateTest = testId => {
                 $.ajax({
                     url: url + 'testActivation.php',
                     type: 'POST',
-                    data: {testId: testId},
+                    data: {testId: testId,suserid:data.userId,susername:data.username},
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {

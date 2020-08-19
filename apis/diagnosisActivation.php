@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -14,22 +15,21 @@ $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_affected_rows($conn);
     if ($academicAffected ==1) {
+        $message = $susername.' has active/inactive the diagnosis ';
+        $value = auditlog('diagnosis_master','delete',$suserid,$diagnosisId,$message);
         $response = array(
             'Message' => "Diagnosis is activated successfully",
-            "Data" => $records,
             'Responsecode' => 200
         );
     } else {
         $response = array(
             'Message' => "No user present/ Invalid username or password",
-            "Data" => $records,
             'Responsecode' => 401
         );
     }
 }else{
     $response = array(
         'Message' => "Please Logout and login again",
-        "Data" => $records,
         'Responsecode' => 300
     ); 
 }

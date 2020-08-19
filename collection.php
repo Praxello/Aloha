@@ -4,7 +4,6 @@ if(isset($_SESSION['branchId'])){
     ?>
     <!doctype html>
     <html class="no-js" lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -31,7 +30,8 @@ if(isset($_SESSION['branchId'])){
         <script src="src/js/vendor/modernizr-2.8.3.min.js"></script>
         <link rel="stylesheet" href="dist/css/loader.css">
         <link href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" /> -->
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/dataTables.bootstrap4.min.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/buttons/1.3.1/css/buttons.bootstrap4.min.css"/>
         <link rel="stylesheet" href="picker.css">
     </head>
     <style>
@@ -82,7 +82,7 @@ if(isset($_SESSION['branchId'])){
 
                                                 </div>
                                             </div>
-                                            <div class="col-sm-2" style="display: none;" id="bshow">
+                                            <div class="col-sm-4"  id="bshow">
                                                 <div class="form-group">
                                                     <label for="">Branch</label>
                                                     <select name="branch" id="branch" style="width: 100%;" class="form-control"></select>
@@ -93,7 +93,7 @@ if(isset($_SESSION['branchId'])){
                                                     <button class="btn  btn-primary" type="button" id="searchCollection">Search</button>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-sm-4">
 
                                             </div>
 
@@ -209,11 +209,12 @@ if(isset($_SESSION['branchId'])){
                 branchId: <?php echo $_SESSION['branchId'];?>,
                 username: '<?php echo $_SESSION['username'];?>',
                 today: '<?php echo date('Y-m-d ');?>',
-                role: '<?php echo $_SESSION['role'];?>'
+                role: '<?php echo $_SESSION['role'];?>',
+                franchiseid:'<?php echo $_SESSION['franchiseid']; ?>'
             };
-            if (data.role == 1) {
-                $('#bshow').show();
-            }
+            // if (data.role == 9) {
+            //     $('#bshow').show();
+            // }
 
             $.datetimepicker.setLocale('en');
             jQuery('#fromDate').datetimepicker({
@@ -255,6 +256,16 @@ if(isset($_SESSION['branchId'])){
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
         <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
+        <script type="text/javascript" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.bootstrap4.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js"></script>
+<script type="text/javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+ 
         <script src="jscode/apis.js"></script>
         <script src="jscode/getBranches.js"></script>
         <script src="jscode/collection.js"></script>

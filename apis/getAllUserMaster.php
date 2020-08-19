@@ -7,8 +7,9 @@ $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['franchiseid'])){
-$sql = "SELECT hp.branchName,um.userId,um.username,um.upassword,um.mobile,um.addharId,um.usertype,um.designation,um.branchId,um.address,um.firmName,um.isActive,um.sign,um.createdAt FROM user_master um INNER JOIN hospital_branch_master hp ON hp.branchId = um.branchId INNER JOIN franchise_master fm
-ON fm.franchiseid = hp.franchiseid WHERE hp.franchiseid = $franchiseid";
+$sql = "SELECT hp.branchName,um.userId,um.username,um.upassword,um.mobile,um.addharId,um.designation,um.branchId,um.address,um.firmName,um.isActive,um.sign,um.createdAt,fm.franchisename,urm.roleid usertype FROM user_master um 
+INNER JOIN hospital_branch_master hp ON hp.branchId = um.branchId INNER JOIN franchise_master fm ON fm.franchiseid = hp.franchiseid INNER JOIN user_role_mapping urm ON urm.userid = um.userId
+WHERE hp.franchiseid = $franchiseid";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);
@@ -16,7 +17,6 @@ if ($jobQuery != null) {
         while ($academicResults = mysqli_fetch_assoc($jobQuery)) {
             $records[] = $academicResults;
         }
-        
         $response = array(
             'Message' => "All User Data Fetched successfully",
             "Data" => $records,
@@ -30,7 +30,7 @@ if ($jobQuery != null) {
     }
 }else{
     $response = array(
-        'Message' => "Please Logout and login again",
+        'Message' => mysqli_error($conn),
         'Responsecode' => 300
     ); 
 }

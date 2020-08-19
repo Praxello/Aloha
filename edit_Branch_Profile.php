@@ -103,10 +103,16 @@
 
                     <div class="row">
 
-                        <div class="col-md-4">
+                    <div class="col-md-4">
                             <div class="form-group">
-                                <label for="branchAddress" class="required">Address</label>
-                                <textarea class="form-control" id="branchAddress" name="branchAddress" rows="1"></textarea>
+                                <label for="franchiseidu"  class="required">Franchise</label>
+                                <select class="form-control select2" id="franchiseidu" name="franchiseidu"  style="width: 100%;"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="branchAddress"  class="required">Address</label>
+                                <textarea class="form-control" id="branchAddress"  name="branchAddress" rows="1"></textarea>
                             </div>
                         </div>
                     </div>
@@ -122,8 +128,9 @@
         </div>
     </div>
 </div>
-<script src="../jscode/edit_branch.js"></script>
-<script src="../jscode/update_Branch_Master.js"></script>
-<script src="../js/jquery.validate.js"></script>
-<script src="../jscode/branchMaster_validation.js"></script>
+<script src="jscode/edit_branch.js"></script>
+<script src="jscode/update_Branch_Master.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="jscode/branchMaster_validation.js"></script>
+
 

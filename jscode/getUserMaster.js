@@ -2,7 +2,23 @@ var users = new Map();
 var user_details = {};
 var  userId_np = null;
 // var global_date = moment().format('YYYY-MM-DD');
-const getAllUsers = (franchiseid) => {
+const getAllUsers = () => {
+    $.ajax({
+        url: url + 'getusers.php',
+        type: 'POST',
+        dataType: 'json',
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                    users.set(response.Data[i].userId, response.Data[i]);
+                }
+                listUsers(users);
+            }
+        }
+    });
+};
+const getFranchiseusers = (franchiseid) => {
     $.ajax({
         url: url + 'getAllUserMaster.php',
         type: 'POST',
@@ -14,12 +30,29 @@ const getAllUsers = (franchiseid) => {
                 for (var i = 0; i < count; i++) {
                     users.set(response.Data[i].userId, response.Data[i]);
                 }
-         
                 listUsers(users);
             }
         }
     });
 };
+const getBranchusers = (branchid) => {
+    $.ajax({
+        url: url + 'getbranchusers.php',
+        type: 'POST',
+        dataType: 'json',
+        data:{branchid:branchid},
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                    users.set(response.Data[i].userId, response.Data[i]);
+                }
+                listUsers(users);
+            }
+        }
+    });
+};
+
 
 const listUsers = users => {
     $('#uTable').dataTable().fnDestroy();
@@ -36,12 +69,11 @@ const listUsers = users => {
         }
         tblData += '<tr><td>' + user.userId + '</td>';
         tblData += '<td>' + user.username + '</td>';
-  
         tblData += '<td>' + user.mobile  + '</td>';
-        tblData += '<td>' + user.addharId + '</td>';
         tblData += '<td>' + user.designation + '</td>';
         tblData += '<td>' + user.address + '</td>';
-        tblData += '<td>' + user.branchName + '</td>';
+        tblData += '<td><b>' + user.branchName + '</b></td>';
+        tblData += '<td>' + user.franchisename + '</td>';
         tblData += badge1;
         tblData += '<td><div class="table-actions" style="text-align: left;">';
         tblData += '<a href="#" onclick="editUser(' + (k) + ')" title="Edit Users details"><i class="ik ik-edit text-blue"></i></a>';
@@ -60,21 +92,29 @@ const listUsers = users => {
         destroy: true
     });
 };
-getAllUsers(data.franchiseid);
+
 
 const editUser = (userId) => {
     userId = userId.toString();
     user_details = users.get(userId);
     userId_np= userId;
-    $('#newUser').hide();
-    
-    $('#editUserNew').load('../edit_user_profile.php');
-
- 
+    $('#newUser').hide();   
+    $('#editUserNew').load('edit_user_profile.php');
+};
+var addUser = () => {
+    $('#userMasterForm').trigger('reset');
+    $('#userModal').modal('show');
 };
 var inactivateUser = userId => {
     userId = userId.toString();
     let user = users.get(userId);
+
+    let fdata = {
+        userId: userId,
+        username:user.username,
+        susername:data.username,
+        suserid:data.userId
+    };
     var msg = '',
         btn = '',
         msg1 = '';
@@ -101,7 +141,7 @@ var inactivateUser = userId => {
                 $.ajax({
                     url: url + 'userActivation.php',
                     type: 'POST',
-                    data: {userId: userId},
+                    data: fdata,
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {
@@ -123,3 +163,13 @@ function gobackUser(){
     $('#newUser').show();
     $('#editUserNew').empty();
 }
+function access_role(role){
+if(role == 9 || role == 5){
+    getAllUsers();
+}else if(role == 6 || role == 8){
+    getFranchiseusers(data.franchiseid);
+}else{
+    getBranchusers(data.branchId);
+}
+}
+access_role(data.role);

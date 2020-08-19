@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -15,7 +16,8 @@ if (isset($_POST['paymentId'])) {
     $query = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-      
+        $message = $susername.' has removed the payment details ';
+        $value = auditlog('opd_patient_payment_master','delete',$suserid,$paymentId,$message);
         $response = array(
             'Message' => "Reciept  removed successfull",
             "Data" => $records,

@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -36,6 +37,8 @@ if (isset($_POST['callId']) && isset($_POST['clientId']) && isset($_POST['firstN
     $query_1 = mysqli_query($conn, $sql1) or die(mysqli_error($conn));
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected > 0) {
+        $message = $susername.' has update the details of customer '.$firstName.' '.$lastName;
+        $value = auditlog('call_center','create',$suserid,$callId,$message);
         $query = "SELECT cc.callId,cc.clientId,cc.callDateTime,cc.branchId,cc.doctorId,cc.disease,
         DATE_FORMAT(cc.appointmentDate,'%W %d %b %Y-%H:%i:%s') appointment,cc.appointmentDate,cc.remarks,cc.folowupNeeded,cc.attendedBy,cc.callStatus,cc.feedback,st.name AS stateName,ct.name AS cityName,cc.folowupNeededDateTime follow,DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s') folowupNeededDateTime,um.username,hb.branchName,ccp.firstName,ccp.middleName,ccp.lastName,ccp.email,ccp.mobile,ccp.landline,ccp.nearByArea,ccp.city,ccp.city,ccp.state,ccp.country,ccp.pincode,ccp.reference,ccp.gender,ccp.dateOfBirth
         FROM call_center cc 

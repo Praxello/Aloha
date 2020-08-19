@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -18,7 +19,8 @@ if (isset($_POST['packageId']) && isset($_POST['packageTitle']) && isset($_POST[
     $query = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-       
+        $message = $susername.' has updated the package '.$packageTitle;
+        $value = auditlog('package_master','update',$suserid,$packageId,$message);
         $academicQuery = mysqli_query($conn, "SELECT * FROM package_master where packageId = $packageId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);

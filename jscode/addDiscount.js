@@ -25,10 +25,13 @@ $('#packageForm').on('submit', function(e) {
     });
     var returnVal = $("#packageForm").valid();
     if (returnVal) {
+        var fData = new FormData(this);
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'addDiscountClass.php',
             type: 'POST',
-            data: new FormData(this),
+            data: fData,
             cache: false,
             contentType: false,
             processData: false,

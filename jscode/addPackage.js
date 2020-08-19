@@ -2,10 +2,13 @@ $('#packageForm').on('submit', function(e) {
     e.preventDefault();
     var returnVal = $("#packageForm").valid();
     if (returnVal) {
+        var fData = new FormData(this);
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'addPackage.php',
             type: 'POST',
-            data: new FormData(this),
+            data: fData,
             cache: false,
             contentType: false,
             processData: false,

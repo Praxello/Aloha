@@ -3,6 +3,8 @@
         color: red;
     }
 </style>
+<?php
+session_start();?>
  <button class="btn btn-primary" type="button" onclick="goback()" style="float: right;">Back</button>
 <div class="container-fluid">
    
@@ -165,6 +167,15 @@
     </div>
 </div>
 </div>
+<script>
+      var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
+};
+      </script>
 <script src="jscode/loadTest.js"></script>
 <script src="jscode/login.js"></script>
 <script src="jscode/load-package-details.js"></script>

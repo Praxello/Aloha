@@ -13,7 +13,6 @@ const getAlldiagnosis = () => {
                 for (var i = 0; i < count; i++) {
                     diagnosis.set(response.Data[i].diagnosisId, response.Data[i]);
                 }
-         
                 listdiagnosis(diagnosis);
             }
         }
@@ -100,7 +99,8 @@ var inactivateDiagnosis = diagnosisId => {
                 $.ajax({
                     url: url + 'diagnosisActivation.php',
                     type: 'POST',
-                    data: {diagnosisId: diagnosisId},
+                    data: {diagnosisId: diagnosisId,suserid:data.userId,
+                        susername:data.username},
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {

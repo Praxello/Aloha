@@ -4,7 +4,6 @@ if(isset($_SESSION['branchId'])){
     ?>
     <!doctype html>
     <html class="no-js" lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,7 +11,6 @@ if(isset($_SESSION['branchId'])){
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <link href="dist/css/font.css" rel="stylesheet">
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
@@ -355,10 +353,12 @@ if(isset($_SESSION['branchId'])){
         <script src="js/jquery-3.3.1.min.js"></script>
         <script>
             var data = {
-                userId: <?php echo $_SESSION['userId'];?>,
-                branchId: <?php echo $_SESSION['branchId'];?>,
-                username: '<?php echo $_SESSION['username'];?>',
-                today: '<?php echo date('Y-m-d');?>'
+                today: '<?php echo date('Y-m-d');?>',
+                userId:<?php echo $_SESSION['userId'];?>,
+                branchId:<?php echo $_SESSION['branchId'];?>,
+                username:'<?php echo $_SESSION['username'];?>',
+                franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+                role:'<?php echo $_SESSION['role'];?>'
             };
         </script>
         <script src="picker.js"></script>
@@ -396,7 +396,7 @@ if(isset($_SESSION['branchId'])){
                 <script src="js/charts.js"></script>
                 <script src="dist/js/theme.min.js"></script>
                 <script src="js/jquery.validate.js"></script>
-                <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
+                <script src="js/additional-methods.js"></script>
                 <script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
                 <script src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.flash.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -412,7 +412,6 @@ if(isset($_SESSION['branchId'])){
                 <script src="jscode/cities.js"></script>
                 <script src="jscode/getcallFollowup.js"></script>
                 <script src="jscode/call-center.js"></script>
-               
              <script src="jscode/branchUsers.js"></script>
                 <script>
                     $('.collapse').on('show.bs.collapse', function() {

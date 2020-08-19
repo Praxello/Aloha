@@ -7,9 +7,7 @@
     content:" *";
     color: red;
   }
-
 </style>
-
 <div class="main-content">
     <div class="container-fluid">
    
@@ -45,8 +43,6 @@
                                 <button class="btn btn-success" type="submit">Update</button>
                                 <button class="btn btn-success" type="button" onclick="gobackDiscount()">Cancel</button>
                                 </form>
-                        
-                         
                         </div>
                     </div>
 
@@ -55,7 +51,5 @@
         </div>
     </div>
 </div>
-
-
-<script src="../jscode/edit_discountMaster.js"></script>
-<script src="../jscode/updateDiscountMaster.js"></script>
+<script src="jscode/edit_discountMaster.js"></script>
+<script src="jscode/updateDiscountMaster.js"></script>

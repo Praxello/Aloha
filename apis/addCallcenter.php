@@ -4,6 +4,7 @@ header('Content-Type: application/json');
 include "../connection.php";
 include "updateCall.php";
 include "addPatientInCall.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -12,7 +13,6 @@ extract($_POST);
 if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['birthdate']) 
 && isset($_POST['gender']) && isset($_POST['mobile']) && isset($_POST['city']) 
 && isset($_POST['state'])) {
-    
     $middleName            = isset($_POST['middleName']) ? $_POST['middleName'] : 'NULL';
     $email                 = isset($_POST['emailId']) ? $_POST['emailId'] : 'NULL';
     $landline              = isset($_POST['landline']) ? $_POST['landline'] : 'NULL';
@@ -36,18 +36,17 @@ if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['bir
         $sql = "UPDATE call_center_patients SET firstName = '$firstName',middleName = '$middleName',lastName = '$lastName',email='$email',mobile = '$mobile' ,landline ='$landline' ,nearByArea = '$nearByArea',city = '$city',state = '$state',country = '$country',
         pincode = '$pincode',reference = '$reference',gender = '$gender',dateOfBirth = '$birthdate' WHERE clientId = $clientId";
 $query = mysqli_query($conn, $sql);
-    
 $rowsAffected = mysqli_affected_rows($conn);
 if ($rowsAffected >0 || $rowsAffected == 0 ) {
     $sql = "INSERT INTO call_center(clientId,callDateTime,branchId,doctorId,disease,appointmentDate,remarks,folowupNeeded,
     folowupNeededDateTime,attendedBy,callStatus) VALUES ($clientId,'$callDateTime',$branchId,$doctorId,'$disease', 
     '$appointmentDate', '$remarks', '$folowupNeeded', '$folowupNeededDateTime', '$attendedBy','$callStatus')";
-
-
     $query = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $callId        = $conn->insert_id;
+        $message = $susername.' has update the details and book an appointment of user '.$firstName.' '.$lastName;
+        $value = auditlog('call_center','create',$suserid,$callId,$message);
         $query = "SELECT cc.callId,cc.clientId,cc.callDateTime,cc.branchId,cc.doctorId,cc.disease,
         DATE_FORMAT(cc.appointmentDate,'%W %d %b %Y-%H:%i:%s') appointment,cc.appointmentDate,cc.remarks,cc.folowupNeeded,cc.attendedBy,cc.callStatus,cc.feedback,st.name AS stateName,ct.name AS cityName,cc.folowupNeededDateTime follow,DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s') folowupNeededDateTime,um.username,hb.branchName,ccp.firstName,ccp.middleName,ccp.lastName,ccp.email,ccp.mobile,ccp.landline,ccp.nearByArea,ccp.city,ccp.city,ccp.state,ccp.country,ccp.pincode,ccp.reference,ccp.gender,ccp.dateOfBirth
         FROM call_center cc 
@@ -112,6 +111,8 @@ if ($rowsAffected == 1) {
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $callId        = $conn->insert_id;
+        $message = $susername.' has added the new customer and book an appointment of customer '.$firstName.' '.$lastName;
+        $value = auditlog('call_center','create',$suserid,$callId,$message);
         $query = "SELECT cc.callId,cc.clientId,cc.callDateTime,cc.branchId,cc.doctorId,cc.disease,
         DATE_FORMAT(cc.appointmentDate,'%W %d %b %Y-%H:%i:%s') appointment,cc.appointmentDate,cc.remarks,cc.folowupNeeded,cc.attendedBy,cc.callStatus,cc.feedback,st.name AS stateName,ct.name AS cityName,cc.folowupNeededDateTime follow,DATE_FORMAT(cc.folowupNeededDateTime,'%W %d %b %Y-%H:%i:%s') folowupNeededDateTime,um.username,hb.branchName,ccp.firstName,ccp.middleName,ccp.lastName,ccp.email,ccp.mobile,ccp.landline,ccp.nearByArea,ccp.city,ccp.city,ccp.state,ccp.country,ccp.pincode,ccp.reference,ccp.gender,ccp.dateOfBirth
         FROM call_center cc 

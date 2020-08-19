@@ -1,11 +1,10 @@
 $('#userMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
     var returnVal = $("#userMasterForm").valid();
     if (returnVal) {
-    
         var fData = new FormData(this);
-
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'insert_userMaster.php',
             type: 'POST',
@@ -15,9 +14,7 @@ $('#userMasterForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
-                
                     swal({
                         position: 'top-end',
                         icon: 'success',

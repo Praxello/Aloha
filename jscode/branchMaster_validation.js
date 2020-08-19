@@ -6,7 +6,6 @@ $(function() {
                     required: true,
                     maxlength: 50
                 },
-               
                 mobile :{
                     number : true
                 },
@@ -20,6 +19,9 @@ $(function() {
                     required:true
                 },
                 city:{
+                    required:true
+                },
+                franchiseid:{
                     required:true
                 }
             },
@@ -43,8 +45,10 @@ $(function() {
                 },
                 city:{
                     required: "Please Select city"
+                },
+                franchiseid:{
+                    required:"Select franchise"
                 }
-
             }
         });
     }

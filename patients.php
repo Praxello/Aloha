@@ -55,19 +55,55 @@ if(isset($_SESSION['branchId'])){
                 
                 <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#demoModal">Add New Patient</button>
                     <div class="container-fluid">
+                    <div class="page-header">
+                            <div class="row align-items-end">
+                                <div class="col-lg-8">
+                                    <div class="page-header-title">
+                                        <i class="ik ik-package bg-blue"></i>
+                                        <div class="d-inline">
+                                            <h5><u>Reception</u></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <nav class="breadcrumb-container" aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.php"><i class="ik ik-home"></i></a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="#">Reception</a>
+                                            </li>
+                                           
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+        
+
                     <form id="contactSearch">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
-                              <!-- <label for="address">Mobile No.</label> -->
                                 <input type="text" class="form-control" id="mobileNo" name="mobile1" placeholder="Contact No" ng-pattern="/^[0-9]*$/" onkeypress="return event.charCode >= 48 && event.charCode <= 57" minlength="10" maxlength="10">
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <button class="btn btn-primary" id="searchContact" name="search" >Search</button>
                             </div>
                         </div>
+                        <div class="col-sm-3 bshow">
+                                                <div class="form-group">
+                                                    <select name="pbranch" id="pbranch" style="width: 100%;" class="form-control"></select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2 bshow">
+                                                <div class="form-group">
+                                                    <button class="btn  btn-primary" type="button" id="searchCollection">Search</button>
+                                                </div>
+                                            </div>
                         </div>
                         </form>
                         <div class="card">
@@ -110,11 +146,17 @@ if(isset($_SESSION['branchId'])){
       
         <script src="js/jquery-3.3.1.min.js"></script>
          <script>
-       var data = {
-userId:<?php echo $_SESSION['userId'];?>,
-branchId:<?php echo $_SESSION['branchId'];?>,
-username:'<?php echo $_SESSION['username'];?>'
-};
+        var data = {
+                userId: <?php echo $_SESSION['userId'];?>,
+                branchId: <?php echo $_SESSION['branchId'];?>,
+                username: '<?php echo $_SESSION['username'];?>',
+                today: '<?php echo date('Y-m-d ');?>',
+                role: '<?php echo $_SESSION['role'];?>',
+                franchiseid:'<?php echo $_SESSION['franchiseid']; ?>'
+            };
+            if(data.role == 9 || data.role == 5 || data.role == 6 || data.role == 8){
+                $('.bshow').show();
+            }
        </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -135,6 +177,7 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="js/jquery.validate.js"></script>
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
+        <script src="jscode/getBranches.js"></script>
         <script src="jscode/getReffName.js"></script>
         <script src="picker.js"></script>
        <?php include 'add_patient.php';?>

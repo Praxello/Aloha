@@ -6,7 +6,8 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT branchName,branchId,franchiseid FROM hospital_branch_master WHERE isActive = 1";
+$sql = "SELECT hbm.branchName,hbm.branchId,hbm.franchiseid,fm.franchisename FROM hospital_branch_master hbm 
+INNER JOIN franchise_master fm ON fm.franchiseid = hbm.franchiseid WHERE hbm.isActive = 1 ORDER BY fm.franchisename";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

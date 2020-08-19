@@ -4,6 +4,7 @@ header('Content-Type: application/json');
 include "../connection.php";
 include "getLastId.php";
 include "packageOfPatient.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -66,9 +67,13 @@ if (isset($_POST['postdata']) && isset($_POST['packageDetails']) && isset($_POST
     if ($rowsAffected == 1) {
         if($u==1){
             $tId      = $payId;
+            $message = $susername.' has update the OPD payment of a customer ';
+        $value = auditlog('opd_patient_payment_master','update',$suserid,$payId,$message);
         }else{
             $last_id  = mysqli_insert_id($conn);
             $tId      = strval($last_id);
+            $message = $susername.' has generate the OPD payment of a customer ';
+            $value = auditlog('opd_patient_payment_master','create',$suserid,$tId,$message);
         }
         foreach ($billDetails as $key => $value) {
             $feesType = $billDetails[$key]['feesType'];

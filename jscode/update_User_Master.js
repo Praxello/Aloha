@@ -1,14 +1,12 @@
 $('#userMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
     var returnVal = $("#userMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-        console.log(fData);
         fData.append('userId',userId_np);
-   
-   
-
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
+        console.log(fData);
         $.ajax({
             url: url + 'updateUserMaster.php',
             type: 'POST',
@@ -19,7 +17,6 @@ $('#userMasterForm').on('submit', function(e) {
             dataType: 'json',
             success: function(response) {
                 if (response.Responsecode == 200) {
-                    // alert(response.Message);
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -40,7 +37,6 @@ $('#userMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-                    // alert(response.Message);
                 }
             }
         });

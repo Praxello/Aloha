@@ -98,7 +98,8 @@ var inactivateExcercise = id => {
                 $.ajax({
                     url: url + 'exerciseActivation.php',
                     type: 'POST',
-                    data: { id: id },
+                    data: { id: id,suserid:data.userId,
+                        susername:data.username },
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {
@@ -132,7 +133,8 @@ const removeexercise = productId => {
                         $.ajax({
                             url: url + 'removeexercise.php',
                             type: 'POST',
-                            data: { id: productId },
+                            data: { id: productId,suserid:data.userId,
+                                susername:data.username },
                             dataType: 'json',
                             success: function(response) {
                                 if (response.Responsecode == 200) {
@@ -150,10 +152,8 @@ const removeexercise = productId => {
                         swal("The exercise is not deleted!");
                     }
                 });
-
     }
 }
-
 function gobackCo() {
     $('#exData').show();
     $('#idEXE').empty();

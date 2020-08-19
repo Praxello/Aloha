@@ -1,12 +1,11 @@
 $('#diagnosisMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-  
     var returnVal = $("#diagnosisMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
         fData.append('diagnosisId',diagnosisId_ap);
-        console.log(diagnosisId_ap);
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'updateDiagnosisMaster.php',
             type: 'POST',
@@ -16,9 +15,7 @@ $('#diagnosisMasterForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
-                    // alert(response.Message);
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -28,8 +25,6 @@ $('#diagnosisMasterForm').on('submit', function(e) {
                     });
                     $('#editdiaNew').empty();
                     $('#diagnosisData').show();
-
-                   
                     diagnosis.set(response.Data.diagnosisId,response.Data);
                     listdiagnosis(diagnosis);
                 } else {

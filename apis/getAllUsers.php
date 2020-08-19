@@ -6,7 +6,8 @@ mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 
-$sql = "SELECT userId,username,mobile,usertype,branchId,sign FROM user_master WHERE isActive = 1";
+$sql = "SELECT um.userId,um.username,um.mobile,um.branchId,um.sign,ur.roleid usertype FROM user_master um 
+INNER JOIN user_role_mapping ur ON um.userid= ur.userid WHERE isActive = 1 AND ur.roleid = 3";
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_num_rows($jobQuery);

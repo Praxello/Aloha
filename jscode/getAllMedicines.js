@@ -72,9 +72,6 @@ var editMedicines = (medicineId) => {
     $('#medicineNew').load('edit_Medicines.php');
 
     var json, obj, values, i;
-
-    
-
 };
 function loadMedicineDosage() {
     
@@ -101,14 +98,11 @@ loadMedicineDosage();
 
 function loadMedicineTypes() {
     var dropDownList = '<option></option>';
-  
     medicineTypes.forEach(medicine => {
         dropDownList += "<option>" + medicine + "</option>";
     });
     medicineTypeList=dropDownList;
-
     $('#typeId').html(dropDownList);
-    console.log(dropDownList);
     $('.select2').select2({
         placeholder:'select',
         allowClear:true,
@@ -154,7 +148,8 @@ var inactivateMedicine = medicineId => {
                 $.ajax({
                     url: url + 'medicineActivation.php',
                     type: 'POST',
-                    data: {medicineId: medicineId},
+                    data: {medicineId: medicineId,suserid:data.userId,
+                        susername:data.username},
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {

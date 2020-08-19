@@ -11,13 +11,9 @@
 <div class="main-content">
     <div class="container-fluid">
    
-        <div class="col-lg-8 col-md-7">
+        <div class="col-lg-12 col-md-7">
             <div class="card">
                 <ul class="nav nav-pills custom-pills t1" id="pills-tab" role="tablist">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link " id="pills-timeline-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-timeline" aria-selected="true"></a>
-                    </li>    -->
-                   
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                    <div class="tab-pane fade show active" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
@@ -71,7 +67,7 @@
 
                     
                     <button class="btn btn-success" type="submit">Update Exercise</button>
-                    <!-- <button class="btn btn-success" type="button" onClick="gobackCo()">Cancel</button> -->
+                    <button class="btn btn-success" type="button" onClick="gobackCo()">Cancel</button>
                 </form>
                         </div>
                     </div>

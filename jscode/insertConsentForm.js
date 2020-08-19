@@ -13,10 +13,10 @@ function loadBranchs() {
     for (let k of branch.keys()) {
         var branchs = branch.get(k);
         if (k == data.branchId){
-             branchName=branchs; 
+             branchName=branchs;
         }
     }
-    document.getElementById('branchName').value =branchName;
+    document.getElementById('branchName').value =branchName.branchName;
    
 }
 loadBranchs();

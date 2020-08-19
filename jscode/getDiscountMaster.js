@@ -66,7 +66,7 @@ const editDiscount = (discountId) => {
     discount_details = discounts.get(discountId);
     discountId_np = discountId;
     $('#newFees').hide();
-    $('#editfeesNew').load('../edit_discount_master.php');
+    $('#editfeesNew').load('edit_discount_master.php');
 };
 function gobackDiscount(){
     $('#newFees').show();
@@ -102,8 +102,8 @@ var inactivateDiscount = discountId => {
                 $.ajax({
                     url: url + 'discountActivation.php',
                     type: 'POST',
-                    data: {discountId: discountId},
-                
+                    data: {discountId: discountId, suserid:data.userId,
+                        susername:data.username},
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {
@@ -125,10 +125,8 @@ var userroleList=null;
 function mapDiscount() {
     var dropdownList = '<option></option>';
     for (let k of discountTy.keys()) {
-        // console.log(userRole.get(k));
         dropdownList += '<option>' + discountTy.get(k) + '</option>';
     }
-   
     $('#discountType').html(dropdownList);
     userroleList = dropdownList;
 }
@@ -137,7 +135,6 @@ $(document).ready(function() {
     $("#discountType").select2({
         placeholder: 'Select Discount Type',
         allowClear: true,
-        tags:true,
         dropdownParent: $('#discountMasterForm')
     });
 });

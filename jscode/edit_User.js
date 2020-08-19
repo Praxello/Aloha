@@ -1,7 +1,7 @@
 var loadUserDetails = details => {
-    console.log(details);
     $('#username').val(details.username);
     $('#upassword').val(details.upassword); 
+    $('#conpassword1').val(details.upassword);
     $('#mobile').val(details.mobile);
     $('#addharId').val(details.addharId);
     $('#designation').val(details.designation);
@@ -10,16 +10,12 @@ var loadUserDetails = details => {
     $('#sign').val(details.sign);
     $('#address').val(details.address);
     $('#firmName').val(details.firmName);
-  
-
-
     if(details.isActive == 1){
         $('#active1').prop('checked',true);
     }else{
         $('#inactive1').prop('checked',true); 
     }
 };
-console.log(userroleList);
 $('#roleIde').html(userroleList);
 $('#roleIde').select2({
 placeholder:'select',

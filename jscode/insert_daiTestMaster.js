@@ -1,12 +1,10 @@
 $('#testMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-           
     var returnVal = $("#testMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-
-
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'insert_DaiTest_Master.php',
             type: 'POST',
@@ -16,9 +14,7 @@ $('#testMasterForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
-                    //  alert(response.Message);
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -31,7 +27,6 @@ $('#testMasterForm').on('submit', function(e) {
                     $('#testMasterForm').trigger('reset');
                     testes.set(response.Data.testId, response.Data);
                     listTest(testes);
-
                 } else {
                     swal({
                         position: 'top-end',

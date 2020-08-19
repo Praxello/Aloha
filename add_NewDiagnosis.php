@@ -18,13 +18,13 @@
             <div class="modal-body">
                 <form class="forms-sample" id="diagnosisMasterForm" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="diagnosis" class="required">Diagnosis</label>
                                 <input type="text" id="diagnosis" name="diagnosis" class="form-control" placeholder="Diagnosis Name">
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="icdCode">icd Code</label>
                                 <input type="text" id="icdCode" name="icdCode" class="form-control" placeholder="icdCode">

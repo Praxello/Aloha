@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -12,6 +13,8 @@ if (isset($_POST['packageId']) && isset($_POST['testId']) && isset($_POST['quota
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $itemId = $conn->insert_id;
+        $message = $susername.' has added the package with quota '.$quota;
+        $value = auditlog('package_details_master','create',$suserid,$itemId,$message);
         $sql = "SELECT pdm.itemId,pdm.quota,dtm.testName,dtm.fees FROM package_details_master pdm 
         INNER JOIN diagnostic_tests_master dtm ON dtm.testId = pdm.testId WHERE pdm.itemId = $itemId";
         $academicQuery = mysqli_query($conn, $sql);

@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -11,7 +12,8 @@ if (isset($_POST['itemId'])) {
     $query = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
-      
+        $message = $susername.' has removed the test from package ';
+        $value = auditlog('package_details_master','update',$suserid,$itemId,$message);
         $response = array(
             'Message' => "Package test removed successfull",
             "Data" => $records,

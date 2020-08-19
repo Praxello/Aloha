@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -11,6 +12,8 @@ if (isset($_POST['id'])) {
     $query        = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected > 0) {
+        $message = $susername.' has removed the exercise';
+        $value = auditlog('exercise_photo_master','delete',$suserid,$id,$message);
         $response = array(
             'Message' => "Exercise removed successfully",
             'Responsecode' => 200

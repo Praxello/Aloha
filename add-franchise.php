@@ -2,27 +2,23 @@
     .error{
         color:red;
     }
-    .required:after {
+   
+  .required:after {
     content:" *";
     color: red;
   }
 
 </style>
 
-<div class="main-content">
-    <div class="container-fluid">
-   
-        <div class="col-lg-12 col-md-7">
-            <div class="card">
-                <ul class="nav nav-pills custom-pills t1" id="pills-tab" role="tablist">
-                  
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-               
-                 
-                    <div class="tab-pane fade show active" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
-                        <div class="card-body">
-                        <form class="forms-sample" id="branchMasterForm" method="POST" enctype="multipart/form-data">
+<div class="modal fade" id="branchModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="demoModalLabel"><strong><u>Franchise details:</u></strong></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form class="forms-sample" id="branchMasterForm" method="POST" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -57,20 +53,14 @@
                     </div>
 
                 <div class="modal-footer">
-                    <input type="submit" class="btn btn-primary mr-2" value="Update">
-                    <button class="btn btn-light" onclick="goback()">Cancel</button>
+                    <input type="submit" class="btn btn-primary mr-2" value="Submit">
+                    <button class="btn btn-light" id="cButton" data-dismiss="modal">Cancel</button>
                 </div>
                 </form>
-                        </div>
-                    </div>
-
-                </div>
             </div>
         </div>
     </div>
 </div>
-<script src="../jscode/edit-franchise.js"></script>
-<script src="../js/jquery.validate.js"></script>
-<script src="../jscode/franchise-validation.js"></script>
-
-
+<script src="jscode/add-franchise.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="jscode/franchise-validation.js"></script>

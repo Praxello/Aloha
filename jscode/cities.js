@@ -62,7 +62,9 @@ function loadCountries() {
     var dropdownList = '<option></option>';
     for (let k of countries.keys()) {
         var country = countries.get(k);
+       if(k == 101){
         dropdownList += '<option value="' + k + '">' + country + '</option>';
+       }
     }
     $('#country').html(dropdownList);
     $("#country").select2({

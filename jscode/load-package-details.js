@@ -1,7 +1,7 @@
 var package_branches = new Map();
 var package_tests = new Map();
 loadTestPackage();
-
+mapBranches(data.franchiseid);
 function show_details(packageId) {
     let package = packages.get(packageId);
     $('#pName').html(package.title);
@@ -101,7 +101,9 @@ function addPackagetoBranch() {
         const details = {
             branchId: $('#branchId').val(),
             packageDiscount: $('#packageDiscount').val(),
-            packageId: packageId_u
+            packageId: packageId_u,
+            suserid:data.userId,
+            susername:data.username
         };
         $.ajax({
             url: url + 'addPackage-branchMapping.php',
@@ -200,7 +202,9 @@ function addTest() {
         const details = {
             testId: $('#test').val(),
             quota: $('#packageQuota').val(),
-            packageId: packageId_u
+            packageId: packageId_u,
+            suserid:data.userId,
+            susername:data.username 
         };
         $.ajax({
             url: url + 'addPackage-test.php',
@@ -240,7 +244,8 @@ function removeTest(testId) {
                 $.ajax({
                     url: url + 'removePackageTest.php',
                     type: 'POST',
-                    data: { itemId: testId },
+                    data: { itemId: testId,suserid:data.userId,
+                        susername:data.username },
                     dataType: 'json',
                     success: function(response) {
                         swal({

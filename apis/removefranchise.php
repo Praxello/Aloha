@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include 'auditlog.php';
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -13,6 +14,8 @@ $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_affected_rows($conn);
     if ($academicAffected >0) {
+        $message = $susername.' has removed franchise '.$username;
+        $value = auditlog('franchise_master','delete',$suserid,$franchiseid,$message);
         $response = array(
             'Message' => "Franchise is Removed successfully",
             'Responsecode' => 200

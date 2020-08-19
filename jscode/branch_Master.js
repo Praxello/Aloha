@@ -2,9 +2,26 @@ var branches = new Map();
 var branch_details = {};
 var branchId_ap = null;
 var global_date = moment().format('YYYY-MM-DD');
-const getAllBranches = (franchiseid) => {
+var franchiselist = null;
+const getAllBranches = () => {
     $.ajax({
         url: url + 'getAllBranchMaster.php',
+        type: 'POST',
+        dataType: 'json',
+        success: function(response) {
+            if (response.Responsecode == 200) {
+                const count = response.Data.length;
+                for (var i = 0; i < count; i++) {
+                    branches.set(response.Data[i].branchId, response.Data[i]);
+                }
+                listBranches(branches);
+            }
+        }
+    });
+};
+const getfranchisebranch = (franchiseid) => {
+    $.ajax({
+        url: url + 'getfranchisebranch.php',
         type: 'POST',
         dataType: 'json',
         data:{franchiseid:franchiseid},
@@ -42,7 +59,7 @@ const listBranches = branches => {
         tblData += '<td>' + branch.branchName + '</td>';
         tblData += '<td>' + branch.branchAddress + '</td>';
         tblData += '<td>' + branch.mobile1 + '</td>';
-        // tblData += '<td>' + branch.fax + '</td>';
+        tblData += '<td><b>' + branch.franchisename  + '<b></td>';
         tblData += actbutton;
 
         tblData += '<td><div class="table-actions" style="text-align: left;">';
@@ -63,7 +80,6 @@ const listBranches = branches => {
         destroy: true
     });
 };
-getAllBranches(data.franchiseid);
 
 const editBranch = (branchId) => {
     branchId = branchId.toString();
@@ -71,14 +87,19 @@ const editBranch = (branchId) => {
     branchId_ap = branchId;
     $('#newData').hide();
     $('#editbranchNew').empty();
-    $('#editbranchNew').load('../edit_Branch_Profile.php');
-    console.log(countryList);
+    $('#editbranchNew').load('edit_Branch_Profile.php');
 };
 
 
 var inactivatebranch = branchId => {
     branchId = branchId.toString();
     let branch = branches.get(branchId);
+    let branchdetails = {
+         branchId: branchId ,
+            branchName:branch.branchName,
+            susername:data.username,
+            suserid:data.userId
+    };
     var msg = '',
         btn = '',
         msg1 = '';
@@ -105,7 +126,7 @@ var inactivatebranch = branchId => {
                 $.ajax({
                     url: url + 'branchActivation.php',
                     type: 'POST',
-                    data: { branchId: branchId },
+                    data: branchdetails,
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {
@@ -127,3 +148,11 @@ function goback1() {
     $('#newData').show();
     $('#editbranchNew').empty();
 }
+function access_role(role){
+    if(role == 9 || role == 5){
+        getAllBranches();
+    }else{
+        getfranchisebranch(data.franchiseid);
+    }
+}
+    access_role(data.role);

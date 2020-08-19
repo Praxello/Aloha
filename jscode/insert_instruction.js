@@ -1,12 +1,10 @@
 $('#instructionMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-           
     var returnVal = $("#instructionMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-
-
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'insert_Instruction_Master.php',
             type: 'POST',
@@ -16,7 +14,6 @@ $('#instructionMasterForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
                     swal({
                         position: 'top-end',
@@ -28,9 +25,7 @@ $('#instructionMasterForm').on('submit', function(e) {
                     $('#cButton').click();
                     $('#instructionMasterForm').trigger('reset');
                     instruction.set(response.Data.instructionId, response.Data);
-         
                 listInstr(instruction);
-
                 } else {
                     swal({
                         position: 'top-end',

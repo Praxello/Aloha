@@ -162,11 +162,11 @@ function GeneratePayment() {
                 recieved: parseFloat($('#receivedP').text())
             };
             details = JSON.stringify(details);
-            console.log(details);
             $.ajax({
                 url: url + 'generatePayment.php',
                 type: 'POST',
-                data: { postdata: details, packageDetails: packageDetails, uFlag: updateDetails },
+                data: { postdata: details, packageDetails: packageDetails, uFlag: updateDetails,suserid:data.userId,
+                    susername:data.username },
                 dataType: 'json',
                 success: function(response) {
                     if (response.Responsecode == 200) {

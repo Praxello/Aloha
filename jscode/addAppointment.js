@@ -4,7 +4,9 @@ $('#take-appointment').on('submit', function(e) {
         appointmentDate: moment($('#dropper-min-year').val()).format('YYYY-MM-DD HH:mm:ss'),
         userId: $('#userId').val(),
         patientId: patientId_ap,
-        scheduledBy: data.username
+        scheduledBy: data.username,
+        suserid:data.userId,
+        susername:data.username
     };
     $.ajax({
         url: url + 'addAppointment.php',

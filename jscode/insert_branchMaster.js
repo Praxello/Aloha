@@ -1,10 +1,11 @@
 $('#branchMasterForm').on('submit', function(e) {
-    e.preventDefault();
-           
+    e.preventDefault();   
     var returnVal = $("#branchMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
         fData.append('franchiseid',data.franchiseid);
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'insertBranchMaster.php',
             type: 'POST',
@@ -14,9 +15,7 @@ $('#branchMasterForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
-                   
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -44,3 +43,4 @@ $('#branchMasterForm').on('submit', function(e) {
         });
     }
 });
+

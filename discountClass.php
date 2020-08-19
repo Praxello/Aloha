@@ -44,7 +44,7 @@ if(isset($_SESSION['branchId'])){
                                     <div class="page-header-title">
                                         <i class="ik ik-package bg-blue"></i>
                                         <div class="d-inline">
-                                            <h5><u>Discount</u></h5>
+                                            <h5><u>Discount Class</u></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -104,6 +104,15 @@ if(isset($_SESSION['branchId'])){
             </div>
         </div>
         <script src="js/jquery-3.3.1.min.js"></script>
+         <script>
+      var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
+};
+      </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -117,13 +126,13 @@ if(isset($_SESSION['branchId'])){
         <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
         <script src="plugins/screenfull/dist/screenfull.js"></script>
         <script src="dist/js/theme.min.js"></script>
+        <?php include 'add-discount.php';?>
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
         <script src="jscode/getBranches.js"></script>
         <script src="jscode/class-discount.js"></script>
-        <?php include 'add-discount.php';?>
+       
     </body>
-
 </html>
 <?php
 }else{

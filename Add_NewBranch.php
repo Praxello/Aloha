@@ -2,14 +2,11 @@
     .error{
         color:red;
     }
-   
   .required:after {
     content:" *";
     color: red;
   }
-
 </style>
-
 <div class="modal fade" id="branchModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -94,7 +91,13 @@
 
                     <div class="row">
 
-                        <div class="col-md-4">
+                    <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="franchiseid"  class="required">Franchise</label>
+                                <select class="form-control select2" id="franchiseid" name="franchiseid"  style="width: 100%;"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
                             <div class="form-group">
                                 <label for="branchAddress"  class="required">Address</label>
                                 <textarea class="form-control" id="branchAddress"  name="branchAddress" rows="1"></textarea>
@@ -114,6 +117,6 @@
     </div>
 </div>
 
-<script src="../jscode/insert_branchMaster.js"></script>
-<script src="../js/jquery.validate.js"></script>
-<script src="../jscode/branchMaster_validation.js"></script>
+<script src="jscode/insert_branchMaster.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="jscode/branchMaster_validation.js"></script>

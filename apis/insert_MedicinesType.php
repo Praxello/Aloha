@@ -2,23 +2,19 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
 if (isset($_POST['type']) ) {
-    
-    
-    $sql = "INSERT INTO medicine_type(type) 
-     VALUES ('$type')";
-    
+    $sql = "INSERT INTO medicine_type(type) VALUES ('$type')";
     $query = mysqli_query($conn, $sql);
-    
     $rowsAffected = mysqli_affected_rows($conn);
-    
-    
     if ($rowsAffected == 1) {
         $medicineTypeId     = $conn->insert_id;
+        $message = $susername.' has added new medicine type '.$type;
+        $value = auditlog('medicine_type','create',$suserid,$medicineTypeId,$message);
         $academicQuery = mysqli_query($conn, "SELECT * FROM medicine_type where medicineTypeId = $medicineTypeId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
@@ -36,15 +32,13 @@ if (isset($_POST['type']) ) {
     } else {
         $response = array(
             'Message' => mysqli_error($conn) . " failed",
-            'Responsecode' => 500,
-            "Data" => $records
+            'Responsecode' => 500
         );
     }
 } else {
     $response = array(
         "Message" => "Parameters missing",
         "Responsecode" => 403
-        
     );
 }
 mysqli_close($conn);

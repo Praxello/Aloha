@@ -67,7 +67,7 @@ if(isset($_SESSION['branchId'])){
                                 </div>
                             </div>
                         </div>
-                       <div id="loadPackage"></div>
+                    
                         <div class="row" id="package">
                             <div class="col-md-12">
                             <button type="button" class="btn  btn-success" style="float: right;" onclick="addPackage()">Add New</button>
@@ -98,6 +98,7 @@ if(isset($_SESSION['branchId'])){
 
                             </div>
                         </div>
+                        <div id="loadPackage"></div>
                     </div>
                 </div>
                 <div id="loader"></div>
@@ -110,6 +111,15 @@ if(isset($_SESSION['branchId'])){
             </div>
         </div>
         <script src="js/jquery-3.3.1.min.js"></script>
+         <script>
+      var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
+};
+      </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>

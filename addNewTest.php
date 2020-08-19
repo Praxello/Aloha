@@ -18,29 +18,29 @@
             <div class="modal-body">
                 <form class="forms-sample" id="testMasterForm" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="testName"  class="required">Test Name</label>
                                 <input type="text" id="testName" name="testName" class="form-control" placeholder="Test Name">
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="form-group">
-                                <label for="testDetails">Test Details</label>
-                                <textarea id="testDetails" name="testDetails" class="form-control" placeholder="Details"></textarea>
-                            </div>
-                        </div>
-                       
-                    </div>
-                    <div class="row">
-
-                    <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group"  >
                                 <label for="fees" class="required">Fees </label>
                                 <input type="text" id="fees" name="fees" class="form-control" placeholder="Fee" >
 
                             </div>
                         </div>
+                       
+                    </div>
+                    <div class="row">
+                    <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="testDetails">Test Details</label>
+                                <textarea id="testDetails" name="testDetails" class="form-control" placeholder="Details"></textarea>
+                            </div>
+                        </div>
+                    
                         <div class="col-md-4">
                             <!-- <div class="form-group">
                             

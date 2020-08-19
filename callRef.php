@@ -29,10 +29,10 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="Name"  class="required">Name</label>
-                                        <input type="text" id="reference" name="reference" class="form-control" placeholder="Name" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
+                                        <label for="Name"  class="required">Source Name</label>
+                                        <input type="text" id="reference1" name="reference1" class="form-control" placeholder="source name" onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode <= 32'>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

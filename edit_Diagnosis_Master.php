@@ -7,8 +7,6 @@
     color: red;
   }
 </style>
-
-
 <div class="main-content">
     <div class="container-fluid">
    

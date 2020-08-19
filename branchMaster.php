@@ -68,7 +68,7 @@ if(isset($_SESSION['franchiseid'])){
                                             <th>Branch Name</th>
                                             <th>Branch Address</th>
                                             <th>Contact Number</th>
-                                           
+                                           <th>Franchise</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -95,12 +95,16 @@ if(isset($_SESSION['franchiseid'])){
 
             </div>
         </div>
-      
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
-        </script>
-         
+        <script src="js/jquery-3.3.1.min.js"></script>
+         <script>
+      var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
+};
+      </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -120,17 +124,16 @@ if(isset($_SESSION['franchiseid'])){
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
+        <script src="jscode/getfranchise.js"></script>
         <?php include 'Add_NewBranch.php';?>
         <script src="jscode/getCountryCityStateBranch.js"></script>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-   
        <script src="jscode/getDateFormat.js"></script>
        <script src="jscode/getAge.js"></script>
        <script src="jscode/branch_Master.js"></script>
-    
+       <script src="jscode/load-franchise-dropdown.js"></script>
     </body>
-
 </html>
 <?php
 }else{

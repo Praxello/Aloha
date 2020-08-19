@@ -2,18 +2,21 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
 extract($_POST);
 if(isset($_POST['discountId'])){
-$sql = "UPDATE DiscountMaster SET isActive = CASE WHEN isActive = 1 THEN  isActive = 0 WHEN 
+$sql = "UPDATE discountmaster SET isActive = CASE WHEN isActive = 1 THEN  isActive = 0 WHEN 
 isActive = 0 THEN  isActive = 0 END WHERE discountId= $discountId";
 
 $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_affected_rows($conn);
     if ($academicAffected ==1) {
+        $message = $susername.' has active/inactive the discount type ';
+        $value = auditlog('discountmaster','create',$suserid,$discountId,$message);
         $response = array(
             'Message' => "Discount is activated successfully",
             "Data" => $records,
@@ -22,14 +25,12 @@ if ($jobQuery != null) {
     } else {
         $response = array(
             'Message' => "No user present/ Invalid username or password",
-            "Data" => $records,
             'Responsecode' => 401
         );
     }
 }else{
     $response = array(
         'Message' => "Please Logout and login again",
-        "Data" => $records,
         'Responsecode' => 300
     ); 
 }

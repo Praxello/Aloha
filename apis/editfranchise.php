@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -13,6 +14,8 @@ if (isset($_POST['franchiseid']) && isset($_POST['fname']) && isset($_POST['cper
     $query = mysqli_query($conn, $sql);
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
+        $message = $susername.' has updated details of franchise '.$fname;
+        $value = auditlog('franchise_master','update',$suserid,$franchiseid,$message);
 $sql = "SELECT franchisename,franchiseid,contactperson,emailid,contactnumber,DATE_FORMAT(created,'%d-%b-%Y') created FROM franchise_master WHERE franchiseid=$franchiseid";
         $academicQuery = mysqli_query($conn, $sql);
         if ($academicQuery != null) {

@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -17,6 +18,8 @@ if (isset($_POST['discountTitle']) && isset($_POST['branchId'])) {
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $Id = $conn->insert_id;
+        $message = $susername.' has added new discount class as '.$discountTitle;
+        $value = auditlog('DiscountMapping','create',$suserid,$Id,$message);
        $query = "SELECT dm.Id,dm.ClassType,hb.branchName FROM DiscountMapping dm INNER JOIN hospital_branch_master hb ON hb.branchId = dm.branchId WHERE dm.Id= $Id";
         $academicQuery = mysqli_query($conn, $query);
         if ($academicQuery != null) {

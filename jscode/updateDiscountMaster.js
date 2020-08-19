@@ -1,12 +1,11 @@
 $('#discountMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-
     var returnVal = $("#discountMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
         fData.append('discountId', discountId_np);
-
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'update_Discount.php',
             type: 'POST',
@@ -28,7 +27,6 @@ $('#discountMasterForm').on('submit', function(e) {
                     $('#newFees').show();
                     discounts.set(response.Data.discountId, response.Data);
                     listDiscount(discounts);
-
                 } else {
                     swal({
                         position: 'top-end',

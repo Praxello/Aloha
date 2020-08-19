@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -12,6 +13,8 @@ if (isset($_POST['packageId']) && isset($_POST['packageDiscount']) && isset($_PO
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $packageId = $conn->insert_id;
+        $message = $susername.' has added/mapped the packgae discount to branch '.$packageDiscount;
+        $value = auditlog('package_branch_mapping','create',$suserid,$packageId,$message);
         $sql = "SELECT pbm.mapId,pbm.packageId,pbm.branchId,pbm.packageDiscount,bm.branchName FROM package_branch_mapping pbm  
         INNER JOIN hospital_branch_master bm ON bm.branchId = pbm.branchId WHERE pbm.mapId= $packageId";
         $academicQuery = mysqli_query($conn, $sql);

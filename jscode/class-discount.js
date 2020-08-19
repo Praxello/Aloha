@@ -52,7 +52,7 @@ const editPackage = discountId => {
     discountId = discountId.toString();
     udiscount = discountId;
     $('#package').hide();
-    $('#loadPackage').load('../edit-discount.php');
+    $('#loadPackage').load('edit-discount.php');
 };
 
 var addPackage = () => {
@@ -66,7 +66,7 @@ const goback = () => {
 };
 
 $(document).ready(function() {
-    mapBranches();
+    mapBranches(data.role,data.franchiseid,data.branchId);
     $("#branchId").select2({
         placeholder: 'Select branch',
         allowClear: true,
@@ -74,14 +74,27 @@ $(document).ready(function() {
     });
 });
 
-function mapBranches() {
+function mapBranches(role,franchiseid,branchid) {
     var dropdownList = '<option></option>';
     for (let k of branch.keys()) {
-        let b =  branch.get(k);
-        dropdownList += '<option value="' + k + '">' +b.branchName + '</option>';
+        let m =  branch.get(k);
+        if(role == 9 || role == 5){
+            dropdownList += '<option value="' + k + '"><b>'+ m.franchisename+'</b>-' + m.branchName+ '</option>';
+        }else if(role == 6 || role == 8){
+            if(franchiseid == m.franchiseid){
+            dropdownList += '<option value="' + k + '">'+ m.branchName+ '</option>';
+            }
+        }else{
+            if(branchid == m.branchId){
+            dropdownList += '<option value="' + k + '">' + m.branchName+ '</option>';
+            }
+        }
     }
     $('#branchId').html(dropdownList);
 }
+
+   
+    
 
 getDiscountList();
 

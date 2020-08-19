@@ -1,12 +1,11 @@
 $('#complaintMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-  
     var returnVal = $("#complaintMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
         fData.append('complaintId',complaintId_ap);
-        console.log(complaintId_ap);
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'updateComplaints.php',
             type: 'POST',
@@ -16,9 +15,7 @@ $('#complaintMasterForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
-                    // alert(response.Message);
                     swal({
                         position: 'top-end',
                         icon: 'success',

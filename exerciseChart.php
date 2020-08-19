@@ -44,19 +44,14 @@ if(isset($_SESSION['branchId'])){
 </Style>
     <body>
         <div class="wrapper">
-
-
             <div class="page-wrap">
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
                 <div id="idEXE"></div>
                 <div class="main-content template-demo " id="exData">
-                
                 <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#exerciseModal">Add New Exercise</button>
                     <div class="container-fluid">
-                   
                         <div class="card">
-                        
                           
                             <div class="card-body c table-responsive">
                             <!-- <div style="overflow-x:auto;"> -->
@@ -95,11 +90,16 @@ if(isset($_SESSION['branchId'])){
             </div>
         </div>
       
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
-        </script>
-         
+        <script src="js/jquery-3.3.1.min.js"></script>
+         <script>
+      var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
+};
+      </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -124,9 +124,7 @@ if(isset($_SESSION['branchId'])){
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
        <script src="jscode/getExerciseChart.js"></script>
-    
     </body>
-
 </html>
 <?php
 }else{

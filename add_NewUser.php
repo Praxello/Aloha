@@ -6,10 +6,8 @@
     content:" *";
     color: red;
   }
-
 </style>
-
-<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
+<div  class="modal fade full-window-modal show" id="userModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -83,7 +81,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="firmName">firm Name</label>
+                                <label for="firmName">Firm Name</label>
                                 <input id="firmName" class="form-control" type="text" name="firmName" placeholder="firm Name" />
                             </div>
                         </div>
@@ -100,7 +98,7 @@
                             
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="address">Address</label>
+                                    <label for="address" class="required">Address</label>
                                     <textarea id="address" class="form-control" type="text" name="address" placeholder="address"></textarea>
 
                                 </div>
@@ -140,6 +138,6 @@
         </div>
     </div>
 
-    <script src="../jscode/insertUserMaster.js"></script>
-    <script src="../js/jquery.validate.js"></script>
-    <script src="../jscode/userMaster_validation.js"></script>
+    <script src="jscode/insertUserMaster.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="jscode/userMaster_validation.js"></script>

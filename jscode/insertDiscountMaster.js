@@ -1,12 +1,10 @@
 $('#discountMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-   
     var returnVal = $("#discountMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-
-
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'insert_discount_master.php',
             type: 'POST',

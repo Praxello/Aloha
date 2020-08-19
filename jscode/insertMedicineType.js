@@ -1,12 +1,10 @@
 $('#medicineTypeMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-           
     var returnVal = $("#medicineTypeMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-
-
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'insert_MedicinesType.php',
             type: 'POST',
@@ -16,9 +14,7 @@ $('#medicineTypeMasterForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
-                  
                     swal({
                         position: 'top-end',
                         icon: 'success',
@@ -30,7 +26,6 @@ $('#medicineTypeMasterForm').on('submit', function(e) {
                     $('#medicineTypeMasterForm').trigger('reset');
                     medicineType.set(response.Data.medicineTypeId, response.Data);
                     listMType(medicineType);
-
                 } else {
                     swal({
                         position: 'top-end',
@@ -39,7 +34,6 @@ $('#medicineTypeMasterForm').on('submit', function(e) {
                         button: false,
                         timer: 1500
                     });
-               
                 }
             }
         });

@@ -14,7 +14,7 @@ if(!isset($_SESSION['userId'])){
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" href="medical.jpeg" type="image/x-icon" />
-        <link href="../dist/css/googlefont.css" rel="stylesheet">
+        <link href="dist/css/googlefont.css" rel="stylesheet">
         <!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet"> -->
 
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
@@ -52,7 +52,10 @@ background-repeat: no-repeat;
                             <div class="alert bg-danger alert-danger text-white message" role="alert" style="display: none;">
                                Enter Correct contact number or password
                             </div>
-                            <h3>Sign in for user</h3>
+                            <div class="alert bg-warning alert-warning text-white message1" role="alert" style="display: none;">
+                              for this role no pages found.add it first
+                            </div>
+                            <h3>Sign in</h3>
                              <form id="signin">
                           
                             <div class="form-group">
@@ -70,16 +73,16 @@ background-repeat: no-repeat;
                                             <span class="custom-control-label">&nbsp;Remember Me</span>
                                         </label>
                                     </div>
-                                    <div class="col text-right">
+                                    <!-- <div class="col text-right">
                                     <a href="franchise/index.php" style="color:blue"><b><u>Franchise Owner<u></b></a>
-                                    </div>
+                                    </div> -->
                                    
                                 </div>
-                                <div class="row">
+                                <!-- <div class="row">
                                 <div class="col text-right">
                                     <a href="licensor/index.php" style="color:blue"><b><u>Licensor<u></b></a>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="sign-btn text-center">
                                     <button type="submit" class="btn btn-theme">Sign In</button>
                                 </div>
@@ -91,24 +94,15 @@ background-repeat: no-repeat;
             </div>
         </div>
         <script src="js/jquery-3.3.1.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
-        </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
         <script src="plugins/screenfull/dist/screenfull.js"></script>
         <script src="plugins/select2/dist/js/select2.min.js"></script>
         <script src="dist/js/theme.js"></script>
-        <script src="jscode/apis.js"></script>
-        <!-- <script src="jscode/getfranchise.js"></script>
-        <script src="jscode/getBranches.js"></script>
-        <script src="jscode/getUsers.js"></script>
-        <script src="jscode/login.js"></script>
-        <script src="jscode/loginUsers.js"></script> -->
+        <script src="js/loginapis.js"></script>
         <script src="jscode/authentication.js"></script>
     </body>
-
 </html>
 <?php
 }else{

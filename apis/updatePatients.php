@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -50,7 +51,8 @@ if (isset($_POST['patientId']) && isset($_POST['firstName']) && isset($_POST['su
     
     $rowsAffected = mysqli_affected_rows($conn);
     if ($query!=null) {
-    
+        $message = $susername.' has update the customer details of '.$firstName.' '.$surname;
+        $value = auditlog('patient_master','update',$suserid,$patientId,$message);
         if (isset($_FILES["imgname"]["type"])) {
             $imgname    = $_FILES["imgname"]["name"];
             $sourcePath = $_FILES['imgname']['tmp_name']; // Storing source path of the file in a variable

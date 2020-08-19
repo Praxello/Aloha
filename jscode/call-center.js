@@ -154,7 +154,7 @@ const listAppointment = calls => {
         destroy: true
     });
 };
-getAppointments(data.today, data.today, 0, 1);
+getAppointments(data.today, data.today, data.branchId, 1);
 $('#myAppointments').click();
 
 
@@ -163,7 +163,8 @@ function takeAppointment(mobile) {
         url: url + 'checkpatientexist.php',
         type: 'POST',
         dataType: 'json',
-        data: { mobile: mobile },
+        data: { mobile: mobile,suserid:data.userId,
+            susername:data.username },
         success: function(response) {
             if (response.Responsecode == 200) {
                 patientId_ap = response.Data.patientId;

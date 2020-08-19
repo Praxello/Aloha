@@ -9,8 +9,14 @@ var loadBranchDetails = details => {
     $('#statee').val(details.state).trigger('change');
     $('#citye').val(details.city).trigger('change');
     $('#branchAddress').val(details.branchAddress);
-
+    $('#franchiseidu').val(details.franchiseid).trigger('change');
+    $("#franchiseidu").prop("readonly", true);
 };
+$('#franchiseidu').html(franchiselist);
+$("#franchiseidu").select2({
+    placeholder: 'Select franchise',
+    allowClear: true
+});
 loadCountriesedit();
 
 function loadCountriesedit() {

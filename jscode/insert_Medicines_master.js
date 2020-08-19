@@ -1,13 +1,10 @@
 $('#medicineMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-
-   
-
     var returnVal = $("#medicineMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-       
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'insert_Medicines.php',
             type: 'POST',
@@ -17,9 +14,7 @@ $('#medicineMasterForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-            
                 if (response.Responsecode == 200) {
-                  
                     swal({
                         position: 'top-end',
                         icon: 'success',

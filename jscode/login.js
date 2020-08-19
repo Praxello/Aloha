@@ -1,4 +1,5 @@
 function mapBranches(franchiseid) {
+    console.log('here');
     var dropdownList = '<option></option>';
     for (let k of branch.keys()) {
         let b = branch.get(k);

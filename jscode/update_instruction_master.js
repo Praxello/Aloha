@@ -1,12 +1,11 @@
 $('#instructionMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-  
     var returnVal = $("#instructionMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
         fData.append('instructionId',instructionId_ap);
-        console.log(instructionId_ap);
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'update_Instruction.php',
             type: 'POST',
@@ -16,9 +15,7 @@ $('#instructionMasterForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
-                  
                     swal({
                         position: 'top-end',
                         icon: 'success',

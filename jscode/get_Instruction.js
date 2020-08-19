@@ -6,7 +6,6 @@ function getInstruction() {
         type: 'POST',
         dataType: 'json',
         success: function(response) {
-            console.log(response);
             if (response.Responsecode == 200) {
                 if (response.Data != null) {
                     var n = response.Data.length;

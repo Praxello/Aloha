@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 include "../connection.php";
+include "auditlog.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
 $records  = null;
@@ -14,6 +15,9 @@ $jobQuery = mysqli_query($conn, $sql);
 if ($jobQuery != null) {
     $academicAffected = mysqli_affected_rows($conn);
     if ($academicAffected ==1) {
+
+        $message = $susername.' has inactive user '.$username;
+        $value = auditlog('user_master','delete',$suserid,$userId,$message);
         $response = array(
             'Message' => "User is activated successfully",
             "Data" => $records,

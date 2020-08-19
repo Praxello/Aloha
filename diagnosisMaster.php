@@ -4,7 +4,6 @@ if(isset($_SESSION['branchId'])){
     ?>  
 <!doctype html>
 <html class="no-js" lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,11 +11,8 @@ if(isset($_SESSION['branchId'])){
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
-
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
@@ -44,27 +40,21 @@ if(isset($_SESSION['branchId'])){
 </Style>
     <body>
         <div class="wrapper">
-
-
             <div class="page-wrap">
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
                 <div id="editdiaNew"></div>
                 <div class="main-content template-demo " id="diagnosisData">
-                
                 <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#diagnosisModal">Add New Diagnosis</button>
                     <div class="container-fluid">
-                   
                         <div class="card">
-                        
                             <div class="card-body c table-responsive">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
                                 <table id="diaTable" class="table">
                                     <thead>
                                         <tr>
-                                           
-                                            <th >Id</th>
+                                            <th>Id</th>
                                             <th>Diagnosis</th>
                                             <th>icdCode</th>
                                             <th>Status</th>
@@ -72,14 +62,10 @@ if(isset($_SESSION['branchId'])){
                                         </tr>
                                     </thead>
                                     <tbody id="diaData">
-                                       
-                                        
-                                        
                                     </tbody>
                                 </table>
-                                    </div>
                             </div>
-                            <!-- <div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -93,12 +79,16 @@ if(isset($_SESSION['branchId'])){
 
             </div>
         </div>
-      
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
-        </script>
-         
+        <script src="js/jquery-3.3.1.min.js"></script>
+         <script>
+      var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
+};
+      </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -118,17 +108,11 @@ if(isset($_SESSION['branchId'])){
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
-    
           <?php include 'add_NewDiagnosis.php';?>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-   
- 
-     
        <script src="jscode/getDiagnosisMaster.js"></script>
-    
     </body>
-
 </html>
 <?php
 }else{

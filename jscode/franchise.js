@@ -5,7 +5,6 @@ function getfranchise() {
     $.ajax({
         url: url + 'getfranchise.php',
         type: 'POST',
-        async: false,
         dataType: 'json',
         success: function(response) {
             if (response.Responsecode == 200) {
@@ -67,6 +66,12 @@ const editBranch = (branchId) => {
 var removefranchise = branchId => {
     branchId = branchId.toString();
     let branch = franchise.get(branchId);
+    let fdata = {
+        franchiseid: branchId,
+        username:branch.franchisename,
+        susername:data.username,
+        suserid:data.userId
+    };
     swal({
             title: "Are you sure?",
             text: 'Do you really want to remove this franchise?',
@@ -79,7 +84,7 @@ var removefranchise = branchId => {
                 $.ajax({
                     url: url + 'removefranchise.php',
                     type: 'POST',
-                    data: { franchiseid: branchId },
+                    data: fdata,
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {

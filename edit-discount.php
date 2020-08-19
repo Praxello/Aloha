@@ -86,5 +86,5 @@
     </div>
 </div>
 </div>
-<script src="../jscode/load-discount-details.js"></script>
-<script src="../jscode/updateDiscount.js"></script>
+<script src="jscode/load-discount-details.js"></script>
+<script src="jscode/updateDiscount.js"></script>

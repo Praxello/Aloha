@@ -5,6 +5,7 @@ var global_patientId = null; //for lumbar neck,and back pain
 var global_date = moment().format('YYYY-MM-DD');
 var contactNo;
 var getAllPatients = (branchId) => {
+    patients.clear();
     $.ajax({
         url: url + 'getAllPatients.php',
         type: 'POST',
@@ -18,11 +19,46 @@ var getAllPatients = (branchId) => {
                 for (var i = 0; i < count; i++) {
                     patients.set(response.Data[i].patientId, response.Data[i]);
                 }
-                listPatients(patients);
+                
             }
+            listPatients(patients);
         }
     });
 };
+function mapBranches(role,franchiseid,branchid) {
+    var dropdownList = '<option></option>';
+    for (let k of branch.keys()) {
+        let m =  branch.get(k);
+        if(role == 9 || role == 5){
+            dropdownList += '<option value="' + k + '"><b>'+ m.franchisename+'</b>-' + m.branchName+ '</option>';
+        }else if(role == 6 || role == 8){
+            if(franchiseid == m.franchiseid){
+            dropdownList += '<option value="' + k + '">'+ m.branchName+ '</option>';
+            }
+        }else{
+            if(branchid == m.branchId){
+            dropdownList += '<option value="' + k + '">' + m.branchName+ '</option>';
+            }
+        }
+    }
+    $('#pbranch').html(dropdownList);
+}
+
+    mapBranches(data.role,data.franchiseid,data.branchId);
+    $("#pbranch").select2({
+        placeholder: 'Select branch',
+        allowClear: true
+    });
+    $('#searchCollection').on('click', function(e) {
+        e.preventDefault();
+            var branch = null;
+            if ($('#pbranch').val() != '') {
+                branch = $('#pbranch').val();
+            }else{
+                branch = data.branchId;
+            }
+            getAllPatients(branch);
+    });
 $('#searchContact').on('click', function(e) {
     e.preventDefault();
  contactNo = document.getElementById("mobileNo").value;
@@ -33,10 +69,7 @@ var listPatients = patients => {
     $('#patientData').empty();
     var tblData = '';
     for (let k of patients.keys()) {
-        let patient = patients.get(k);
-
-        
-        //var mob=patient.mobile1;
+        let patient = patients.get(k);  
         if (contactNo==patient.mobile1) {
             tblData += '<tr bgcolor="#BB8FCE"><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
             tblData += '<td bgcolor="#BB8FCE">' + patient.firstName + ' ' + patient.surname + '</td>';

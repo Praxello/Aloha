@@ -44,26 +44,45 @@ if(isset($_SESSION['branchId'])){
 </Style>
     <body>
         <div class="wrapper">
-
-
             <div class="page-wrap">
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
                 <div id="instrNew"></div>
-                <div class="main-content template-demo " id="itData">
-                
+                <div class="main-content template-demo " id="itData"> 
                 <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#instModal">Add Instruction</button>
                     <div class="container-fluid">
-                   
+                    <div class="page-header">
+                            <div class="row align-items-end">
+                                <div class="col-lg-8">
+                                    <div class="page-header-title">
+                                        <i class="ik ik-package bg-blue"></i>
+                                        <div class="d-inline">
+                                            <h5><u>Instruction Master</u></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <nav class="breadcrumb-container" aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.php"><i class="ik ik-home"></i></a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="#">Instruction Master</a>
+                                            </li>
+                                           
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card">
-                 
                             <div class="card-body c table-responsive">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
                                 <table id="istrtnTable" class="table">
                                     <thead>
                                         <tr>
-                                         
                                             <th>Instruction</th>
                                             <th>Instruction Hindi</th>
                                             <th>Instruction Marathi</th>
@@ -72,9 +91,6 @@ if(isset($_SESSION['branchId'])){
                                         </tr>
                                     </thead>
                                     <tbody id="instData">
-                                       
-                                        
-                                        
                                     </tbody>
                                 </table>
                                     </div>
@@ -93,12 +109,16 @@ if(isset($_SESSION['branchId'])){
 
             </div>
         </div>
-      
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
-        </script>
-         
+        <script src="js/jquery-3.3.1.min.js"></script>
+         <script>
+      var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
+};
+      </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -118,15 +138,11 @@ if(isset($_SESSION['branchId'])){
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
-    
          <?php include 'add_NewInstruction.php';?> 
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-
        <script src="jscode/getInstruction.js"></script>
-    
     </body>
-
 </html>
 <?php
 }else{

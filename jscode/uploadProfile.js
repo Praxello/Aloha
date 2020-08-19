@@ -1,6 +1,8 @@
 $('#uploadProfile').on('submit', function(e) {
     e.preventDefault();
     var fdata = new FormData(this);
+    fdata.append('susername',data.username);
+    fdata.append('suserid',data.userId);
     fdata.append('patientId', $('#patientId').val());
     $.ajax({
         url: url + 'updateProfile.php',

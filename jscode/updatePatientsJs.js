@@ -4,6 +4,8 @@ $('#epatientDetails').on('submit', function(e) {
     if (returnVal) {
         var fData = new FormData(this);
         fData.append('patientId', global_patientId);
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'updatePatients.php',
             type: 'POST',

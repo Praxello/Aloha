@@ -2,12 +2,12 @@ $(function() {
     var jvalidate = $("#callrefferedByForm").validate({
         ignore: [],
         rules: {
-            reference: {
+            reference1: {
                 required: true 
             }
         },
         messages: {
-            reference: {
+            reference1: {
                 required: "Please Enter the reference name" 
             }
         }

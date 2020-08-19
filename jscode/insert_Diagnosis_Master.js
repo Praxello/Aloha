@@ -1,12 +1,10 @@
 $('#diagnosisMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-           
     var returnVal = $("#diagnosisMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-
-
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'insertDiagnosisMaster.php',
             type: 'POST',
@@ -18,7 +16,6 @@ $('#diagnosisMasterForm').on('submit', function(e) {
             success: function(response) {
                 console.log(response);
                 if (response.Responsecode == 200) {
-              
                     swal({
                         position: 'top-end',
                         icon: 'success',

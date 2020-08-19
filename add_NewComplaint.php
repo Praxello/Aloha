@@ -18,14 +18,11 @@
             <div class="modal-body">
                 <form class="forms-sample" id="complaintMasterForm" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="complaint" class="required">Complaints</label>
                                 <input type="text" id="complaint" name="complaint" class="form-control" placeholder="Complaint Name">
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            
                         </div>
                        
                     </div>

@@ -4,7 +4,6 @@ if(isset($_SESSION['branchId'])){
     ?>  
 <!doctype html>
 <html class="no-js" lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,11 +11,8 @@ if(isset($_SESSION['branchId'])){
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
-
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
@@ -35,7 +31,6 @@ if(isset($_SESSION['branchId'])){
         <link rel="stylesheet" href="dist/css/loader.css">
     </head>
 <Style>
-   
 @media only screen and (max-width: 600px) {
   .tbl {
     overflow-x:auto;
@@ -44,27 +39,45 @@ if(isset($_SESSION['branchId'])){
 </Style>
     <body>
         <div class="wrapper">
-
-
             <div class="page-wrap">
                 <?php include 'header.php';?>
                 <?php include 'sidebar.php';?>
                 <div id="editMedNew"></div>
                 <div class="main-content template-demo " id="meTypeRecord">
-                
                 <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#medicineTypeModal">Add New medicine Type</button>
                     <div class="container-fluid">
-                   
+                    <div class="page-header">
+                            <div class="row align-items-end">
+                                <div class="col-lg-8">
+                                    <div class="page-header-title">
+                                        <i class="ik ik-package bg-blue"></i>
+                                        <div class="d-inline">
+                                            <h5><u>Medicine Types</u></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <nav class="breadcrumb-container" aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.php"><i class="ik ik-home"></i></a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="#">Medicine Types</a>
+                                            </li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card">
                         
-                          
                             <div class="card-body c">
                             <!-- <div style="overflow-x:auto;"> -->
                             <div class="dt-responsive tbl" >
                                 <table id="mTypeTable" class="table">
                                     <thead>
                                         <tr>
-                                           
                                             <th >Id</th>
                                             <th>Type</th>
                                          <th>Status</th>
@@ -72,9 +85,6 @@ if(isset($_SESSION['branchId'])){
                                         </tr>
                                     </thead>
                                     <tbody id="mTypeData">
-                                       
-                                        
-                                        
                                     </tbody>
                                 </table>
                                     </div>
@@ -93,12 +103,16 @@ if(isset($_SESSION['branchId'])){
 
             </div>
         </div>
-      
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
-        </script>
-         
+        <script src="js/jquery-3.3.1.min.js"></script>
+         <script>
+      var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
+};
+      </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -118,15 +132,11 @@ if(isset($_SESSION['branchId'])){
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
-    
           <?php include 'add_New_Medicine_Type.php';?>
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
-   
        <script src="jscode/medicineType.js"></script>
-    
     </body>
-
 </html>
 <?php
 }else{

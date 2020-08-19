@@ -2,6 +2,8 @@ $('#updatePackage').on('submit', function(e) {
     e.preventDefault();
     var fdata = new FormData(this);
     fdata.append('Id', udiscount);
+    fdata.append('suserid',data.userId);
+    fdata.append('susername',data.username);
     $.ajax({
         url: url + 'updateDiscount.php',
         type: 'POST',

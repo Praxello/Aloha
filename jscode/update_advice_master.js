@@ -1,12 +1,11 @@
 $('#adviceMasterForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-  
     var returnVal = $("#adviceMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
         fData.append('adviceId',adviceId_ap);
-        console.log(adviceId_ap);
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'updateAdvice.php',
             type: 'POST',
@@ -16,9 +15,7 @@ $('#adviceMasterForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
-                  
                     swal({
                         position: 'top-end',
                         icon: 'success',

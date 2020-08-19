@@ -96,7 +96,8 @@ var inactivateDose = dosageId => {
                 $.ajax({
                     url: url + 'dosageActivation.php',
                     type: 'POST',
-                    data: {dosageId: dosageId},
+                    data: {dosageId: dosageId,suserid:data.userId,
+                        susername:data.username},
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {

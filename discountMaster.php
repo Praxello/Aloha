@@ -4,7 +4,6 @@ if(isset($_SESSION['branchId'])){
     ?>  
 <!doctype html>
 <html class="no-js" lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,11 +11,8 @@ if(isset($_SESSION['branchId'])){
         <meta name="description" content="">
         <meta name="keywords" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
-
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
-
         <link rel="stylesheet" href="plugins/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="plugins/icon-kit/dist/css/iconkit.min.css">
@@ -54,7 +50,31 @@ if(isset($_SESSION['branchId'])){
                 
                 <button class="btn btn-success" type="button" style="float: right;margin-bottom: 10px;" data-toggle="modal" data-target="#discountModal">Add Discount</button>
                     <div class="container-fluid">
-                   
+                    <div class="page-header">
+                            <div class="row align-items-end">
+                                <div class="col-lg-8">
+                                    <div class="page-header-title">
+                                        <i class="ik ik-package bg-blue"></i>
+                                        <div class="d-inline">
+                                            <h5><u>Discount Master</u></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <nav class="breadcrumb-container" aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.php"><i class="ik ik-home"></i></a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="#">Discount Master</a>
+                                            </li>
+                                           
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
                         <div class="card">
                         
                           
@@ -74,14 +94,10 @@ if(isset($_SESSION['branchId'])){
                                         </tr>
                                     </thead>
                                     <tbody id="discountData">
-                                       
-                                        
-                                        
                                     </tbody>
                                 </table>
-                                    </div>
+                             </div>
                             </div>
-                            <!-- <div> -->
                         </div>
                     </div>
                 </div>
@@ -92,19 +108,16 @@ if(isset($_SESSION['branchId'])){
                         <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="https://praxello.com/" class="text-dark" target="_blank">Praxello</a></span>
                     </div>
                 </footer>
-
             </div>
         </div>
-      
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
-        </script>
+        <script src="js/jquery-3.3.1.min.js"></script>
          <script>
       var data = {
 userId:<?php echo $_SESSION['userId'];?>,
 branchId:<?php echo $_SESSION['branchId'];?>,
-username:'<?php echo $_SESSION['username'];?>'
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
 };
       </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
@@ -127,19 +140,13 @@ username:'<?php echo $_SESSION['username'];?>'
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
         <?php include 'addNewDiscount.php';?>
- 
         <script src="js/charts.js"></script>    
         <script src="dist/js/theme.min.js"></script>
         <script src="jscode/get_discountType.js"></script>
-        <!-- <script src="jscode/discountTypeDropdown.js"></script> -->
         <script src="jscode/getBranches.js"></script>
         <script src="jscode/userbranch.js"></script>
         <script src="jscode/getDiscountMaster.js"></script>
-       
-       
-      
     </body>
-
 </html>
 <?php
 }else{

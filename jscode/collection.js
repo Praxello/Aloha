@@ -55,26 +55,26 @@ const getCollection = (fromDate, uptoDate, branch) => {
             $('#collectionD').html(tblData);
             $('#amtO').html(amtO.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }));
             $('#collectionT').dataTable({
-                initComplete: function() {
-                    this.api().columns().every(function() {
-                        var column = this;
-                        var select = $('<select><option value=""></option></select>')
-                            .appendTo($(column.header()).empty())
-                            .on('change', function() {
-                                var val = $.fn.dataTable.util.escapeRegex(
-                                    $(this).val()
-                                );
+                // initComplete: function() {
+                //     this.api().columns().every(function() {
+                //         var column = this;
+                //         var select = $('<select><option value=""></option></select>')
+                //             .appendTo($(column.header()).empty())
+                //             .on('change', function() {
+                //                 var val = $.fn.dataTable.util.escapeRegex(
+                //                     $(this).val()
+                //                 );
 
-                                column
-                                    .search(val ? '^' + val + '$' : '', true, false)
-                                    .draw();
-                            });
+                //                 column
+                //                     .search(val ? '^' + val + '$' : '', true, false)
+                //                     .draw();
+                //             });
 
-                        column.data().unique().sort().each(function(d, j) {
-                            select.append('<option value="' + d + '">' + d + '</option>');
-                        });
-                    });
-                },
+                //         column.data().unique().sort().each(function(d, j) {
+                //             select.append('<option value="' + d + '">' + d + '</option>');
+                //         });
+                //     });
+                // },
                 searching: true,
                 retrieve: true,
                 bPaginate: $('tbody tr').length > 10,
@@ -146,8 +146,8 @@ const getPackageCollection = (fromDate, uptoDate) => {
         }
     });
 };
-getPackageCollection(data.today, data.today);
-getConsultaion(data.today, data.today);
+// getPackageCollection(data.today, data.today);
+// getConsultaion(data.today, data.today);
 $('#searchCollection').on('click', function(e) {
     e.preventDefault();
     $("#callRegister").validate({
@@ -180,8 +180,8 @@ $('#searchCollection').on('click', function(e) {
             branch = data.branchId;
         }
         getCollection(fromDate, uptoDate, branch);
-        getConsultaion(fromDate, uptoDate);
-        getPackageCollection(fromDate, uptoDate);
+        // getConsultaion(fromDate, uptoDate);
+        // getPackageCollection(fromDate, uptoDate);
     }
 });
 
@@ -192,15 +192,26 @@ function printReciept(paymentId) {
 }
 getCollection(data.today, data.today,data.branchId);
 
-function mapBranches() {
+function mapBranches(role,franchiseid,branchid) {
     var dropdownList = '<option></option>';
     for (let k of branch.keys()) {
-        dropdownList += '<option value="' + k + '">' + branch.get(k) + '</option>';
+        let m =  branch.get(k);
+        if(role == 9 || role == 5){
+            dropdownList += '<option value="' + k + '"><b>'+ m.franchisename+'</b>-' + m.branchName+ '</option>';
+        }else if(role == 6 || role == 8){
+            if(franchiseid == m.franchiseid){
+            dropdownList += '<option value="' + k + '">'+ m.branchName+ '</option>';
+            }
+        }else{
+            if(branchid == m.branchId){
+            dropdownList += '<option value="' + k + '">' + m.branchName+ '</option>';
+            }
+        }
     }
     $('#branch').html(dropdownList);
 }
 $(document).ready(function() {
-    mapBranches();
+    mapBranches(data.role,data.franchiseid,data.branchId);
     $("#branch").select2({
         placeholder: 'Select branch',
         allowClear: true

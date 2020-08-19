@@ -37,6 +37,7 @@ function fill_concent(visitDate) {
     consent_date=visitDate;
     if (concent.has(consent_date)) {
         var user = concent.get(consent_date);
+        console.log(user);
         document.getElementById('deseaseNew').value = user.deseaseNew;
         document.getElementById('sinceDays').value = user.sinceDays;
         document.getElementById('relativeName').value = user.relativeName;

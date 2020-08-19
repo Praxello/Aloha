@@ -1,12 +1,11 @@
 $('#exerciseForm').on('submit', function(e) {
-    // console.log(e);
     e.preventDefault();
-  
     var returnVal = $("#exerciseForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
         fData.append('id',exercise_ap);
-        console.log( exercise_ap);
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'update_exercise_chart.php',
             type: 'POST',
@@ -16,9 +15,7 @@ $('#exerciseForm').on('submit', function(e) {
             processData: false,
             dataType: 'json',
             success: function(response) {
-                console.log(response);
                 if (response.Responsecode == 200) {
-                
                     swal({
                         position: 'top-end',
                         icon: 'success',

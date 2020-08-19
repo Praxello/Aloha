@@ -7,9 +7,6 @@
     color: red;
   }
 </style>
-
-<link rel="stylesheet" href="dist/css/dropzone.css">
-<link rel="stylesheet" href="dist/css/style.css">
 <div class="main-content">
     <div class="container-fluid">
    
@@ -28,14 +25,11 @@
                         <div class="card-body">
                         <form class="forms-sample" id="complaintMasterForm" method="POST" enctype="multipart/form-data">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="complaint"  class="required">Complaints</label>
                                 <input type="text" id="complaint" name="complaint" class="form-control" placeholder="Complaint Name">
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            
                         </div>
                        
                     </div>
@@ -51,9 +45,6 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript" src="js/dropzone.js"></script>
-<script type="text/javascript" src="jscode/dropzoneProduct.js"></script>
 <script src="jscode/edit_complaint.js"></script>
 <script src="jscode/update_Complaint_Master.js"></script>
 <script src="js/jquery.validate.js"></script>

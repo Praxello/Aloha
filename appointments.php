@@ -57,6 +57,33 @@ if (isset($_SESSION['userId'])) {
                         <div id="editProfile"></div>
                         <div class="main-content" id="tData">
                             <div class="container-fluid">
+                            <div class="page-header">
+                            <div class="row align-items-end">
+                                <div class="col-lg-8">
+                                    <div class="page-header-title">
+                                        <i class="ik ik-package bg-blue"></i>
+                                        <div class="d-inline">
+                                            <h5><u>Appointments</u></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <nav class="breadcrumb-container" aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="index.php"><i class="ik ik-home"></i></a>
+                                            </li>
+                                            <li class="breadcrumb-item">
+                                                <a href="#">Appointments</a>
+                                            </li>
+                                           
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+        
+
                                 <div class="card">
                                     <div class="card-header row">
                                         <div class="col col-sm-3">
@@ -142,7 +169,7 @@ if (isset($_SESSION['userId'])) {
         <script src="plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
         <script src="plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
         <script src="js/jquery.validate.js"></script>
-        <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/additional-methods.js"></script>
+        <script src="js/additional-methods.js"></script>
         <!-- <script src="plugins/datedropper/datedropper.min.js"></script> -->
         <!-- <script src="js/form-picker.js"></script> -->
         <script src="plugins/moment/moment.js"></script>
@@ -157,10 +184,13 @@ if (isset($_SESSION['userId'])) {
         <script src="plugins/select2/dist/js/select2.min.js"></script>
         <script src="plugins/bootstrap-tagsinput/dist/tagsinput.js"></script>
         <script>
-            const data = {
-                userId: <?php echo $_SESSION['userId']; ?>,
-                branchId:<?php echo $_SESSION['branchId']; ?>
-            };
+             var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
+};
         </script>
         <script src="jscode/loader.js"></script>
         <script src="jscode/apis.js"></script>

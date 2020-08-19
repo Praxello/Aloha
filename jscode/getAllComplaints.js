@@ -96,7 +96,8 @@ var inactivateComplaint = complaintId => {
                 $.ajax({
                     url: url + 'complaintActivation.php',
                     type: 'POST',
-                    data: {complaintId: complaintId},
+                    data: {complaintId: complaintId,suserid:data.userId,
+                   susername:data.username},
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {

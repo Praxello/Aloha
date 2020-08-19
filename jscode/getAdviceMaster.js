@@ -13,7 +13,6 @@ const getAllAdvice = () => {
                 for (var i = 0; i < count; i++) {
                     advice.set(response.Data[i].adviceId, response.Data[i]);
                 }
-         
                 listAdvice(advice);
             }
         }
@@ -60,7 +59,6 @@ const editAdvice = (adviceId) => {
     adviceId = adviceId.toString();
     advice_details = advice.get(adviceId);
     adviceId_ap= adviceId;
-    console.log(adviceId_ap);
     $('#adData').hide();
     $('#adviceNew').load('edit_AdviceMaster.php');
 
@@ -95,7 +93,8 @@ var inactivateAdvice = adviceId => {
                 $.ajax({
                     url: url + 'adviceActivation.php',
                     type: 'POST',
-                    data: {adviceId: adviceId},
+                    data: {adviceId: adviceId,suserid:data.userId,
+                    susername:data.username},
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {

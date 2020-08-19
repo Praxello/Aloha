@@ -7,7 +7,9 @@
     color: red;
   }
 </style>
-
+<?php
+session_start();
+?>
 
 <div class="main-content">
     <div class="container-fluid">
@@ -89,7 +91,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="firmName">firm Name</label>
+                                <label for="firmName">Firm Name</label>
                                 <input id="firmName" class="form-control" type="text" name="firmName" placeholder="firm Name" />
                             </div>
                         </div>
@@ -104,7 +106,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="address" >Address</label>
+                                    <label for="address" class="required" >Address</label>
                                     <textarea id="address" class="form-control" type="text" name="address" placeholder="address"></textarea>
 
                                 </div>
@@ -143,9 +145,16 @@
         </div>
     </div>
 </div>
-
-
-<script src="../jscode/edit_User.js"></script>
-<script src="../jscode/update_User_Master.js"></script>
-<script src="../js/jquery.validate.js"></script>
-<script src="../jscode/userMaster_validation.js"></script>
+<script>
+      var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
+};
+</script>
+<script src="jscode/edit_User.js"></script>
+<script src="jscode/update_User_Master.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="jscode/userMaster_validation.js"></script>

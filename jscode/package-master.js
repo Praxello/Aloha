@@ -98,7 +98,9 @@ var inactivate = packageId => {
                 $.ajax({
                     url: url + 'packageActivation.php',
                     type: 'POST',
-                    data: { packageId: packageId },
+                    data: { packageId: packageId,
+                        suserid:data.userId,
+                        susername:data.username },
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {

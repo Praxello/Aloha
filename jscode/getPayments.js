@@ -102,7 +102,9 @@ var recievePayment = () => {
         pending: $('#pendingAmt').val(),
         receivedBy: data.username,
         received: $('#amount').val(),
-        paymentDetails: $('#paymentDetails').val()
+        paymentDetails: $('#paymentDetails').val(),
+        suserid:data.userId,
+        susername:data.username
     };
     $.ajax({
         url: url + 'updateOpdPayment.php',
@@ -184,7 +186,8 @@ function removeReciept(receiptId) {
                 $.ajax({
                     url: url + 'recieptRemove.php',
                     type: 'POST',
-                    data: { paymentId: receiptId, packageId: package.packageId, patientId: package.patientId },
+                    data: { paymentId: receiptId, packageId: package.packageId, patientId: package.patientId,suserid:data.userId,
+                        susername:data.username },
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {

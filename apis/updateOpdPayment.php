@@ -4,6 +4,7 @@ header('Content-Type: application/json');
 include "../connection.php";
 mysqli_set_charset($conn, 'utf8');
 $response = null;
+include "auditlog.php";
 $records  = null;
 extract($_POST);
 if (isset($_POST['paymentId']) && isset($_POST['received']) && isset($_POST['pending']) && isset($_POST['receivedBy']) && isset($_POST['paymentMode'])) {
@@ -21,6 +22,8 @@ if (isset($_POST['paymentId']) && isset($_POST['received']) && isset($_POST['pen
         $query = mysqli_query($conn, $sql);
         $rowsAffected = mysqli_affected_rows($conn);
         if ($rowsAffected  == 1) {
+            $message = $susername.' has recorded the payment '.$received;
+            $value = auditlog('opd_patient_payment_master','create',$suserid,$paymentId,$message);
             $response = array(
                 'Message' => "Payment Marked Successfull",
                 'Responsecode' => 200

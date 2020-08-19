@@ -1,12 +1,10 @@
 $('#dosageMasterForm').on('submit', function(e) {
-    // console.log(e);
-    e.preventDefault();
-           
+    e.preventDefault();       
     var returnVal = $("#dosageMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
-
-
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'insert_dosage_Master.php',
             type: 'POST',
@@ -29,8 +27,7 @@ $('#dosageMasterForm').on('submit', function(e) {
                     $('#cButton').click();
                     $('#dosageMasterForm').trigger('reset');
                     dosageM.set(response.Data.dosageId, response.Data);
-                     listDosage(dosageM);
-
+                    listDosage(dosageM);
                 } else {
                     swal({
                         position: 'top-end',

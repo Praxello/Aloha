@@ -102,11 +102,16 @@ if(isset($_SESSION['branchId'])){
             </div>
         </div>
       
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')
-        </script>
-         
+        <script src="js/jquery-3.3.1.min.js"></script>
+         <script>
+      var data = {
+userId:<?php echo $_SESSION['userId'];?>,
+branchId:<?php echo $_SESSION['branchId'];?>,
+username:'<?php echo $_SESSION['username'];?>',
+franchiseid:'<?php echo $_SESSION['franchiseid']; ?>',
+role:'<?php echo $_SESSION['role'];?>'
+};
+      </script>
         <script src="plugins/popper.js/dist/umd/popper.min.js"></script>
         <script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -126,9 +131,7 @@ if(isset($_SESSION['branchId'])){
         <script src="js/tables.js"></script>
         <script src="jscode/apis.js"></script>
         <script src="jscode/loader.js"></script>
-    
           <?php include 'add_NewMedicines.php';?>
-
         <script src="js/charts.js"></script>
         <script src="dist/js/theme.min.js"></script>
         <script src="jscode/get_Instruction.js"></script>
@@ -136,7 +139,6 @@ if(isset($_SESSION['branchId'])){
        <script src="jscode/getMedicineDosage.js"></script> 
        <script src="jscode/getMedicineTypes.js"></script>
        <script src="jscode/getAllMedicines.js"></script>
-      
        <!-- <script src="jscode/medicineType.js"></script>
        <script src="jscode/getMedicinesType.js"></script> -->
      

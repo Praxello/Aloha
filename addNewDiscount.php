@@ -8,7 +8,6 @@
     color: red;
   }
 </style>
-
 <div class="modal fade" id="discountModal" tabindex="-1" role="dialog" aria-labelledby="demoModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -33,13 +32,9 @@
                                 <input id="discount" class="form-control" type="text" name="discount" />
                             </div>
                         </div>
-
                     </div>
-                 
-                 
                 </div>
                 <div class="modal-footer">
-
                     <input type="submit" class="btn btn-primary mr-2" value="Submit">
                     <button class="btn btn-light" id="cButton" data-dismiss="modal">Cancel</button>
                 </div>
@@ -48,7 +43,6 @@
         </div>
     </div>
 </div>
-
-<script src="../jscode/insertDiscountMaster.js"></script>
-<script src="../js/jquery.validate.js"></script>
-<script src="../jscode/disocunt_validation.js"></script>
+<script src="jscode/insertDiscountMaster.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="jscode/disocunt_validation.js"></script>

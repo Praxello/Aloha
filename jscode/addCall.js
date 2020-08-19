@@ -8,13 +8,12 @@ $('#callForm').on('submit', function(e) {
         folloDate = moment(folloDate).format("YYYY-MM-DD HH:mm:ss");
         fdata.append('follwupdate', folloDate);
         fdata.append('attendedBy', data.userId);
+        fdata.append('suserid',data.userId);
+        fdata.append('susername',data.username);
         var appointmentDate;
-
         if (appointmentDate != null){
          appointmentDate = moment($('#appointmentDate').val()).format("YYYY-MM-DD");
-        }
-             
-                
+        }        
         $.ajax({
             url: url + 'addCallcenter.php',
             type: 'POST',

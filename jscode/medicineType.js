@@ -13,7 +13,6 @@ const getAllMedicine = () => {
                 for (var i = 0; i < count; i++) {
                     medicineType.set(response.Data[i].medicineTypeId, response.Data[i]);
                 }
-         
                 listMType(medicineType);
             }
         }
@@ -95,7 +94,8 @@ var inactivateMType = medicineTypeId => {
                 $.ajax({
                     url: url + 'medicineTypeActivation.php',
                     type: 'POST',
-                    data: {medicineTypeId: medicineTypeId},
+                    data: {medicineTypeId: medicineTypeId,suserid:data.userId,
+                        susername:data.username},
                     dataType: 'json',
                     success: function(response) {
                         if (response.Responsecode == 200) {
@@ -105,7 +105,6 @@ var inactivateMType = medicineTypeId => {
                                 text: msg1,
                                 icon: "success"
                             });
-
                         }
                     }
                 });

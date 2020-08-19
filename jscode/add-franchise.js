@@ -3,6 +3,8 @@ $('#branchMasterForm').on('submit', function(e) {
     var returnVal = $("#branchMasterForm").valid();
     if (returnVal) {
         var fData = new FormData(this);
+        fData.append('suserid',data.userId);
+        fData.append('susername',data.username);
         $.ajax({
             url: url + 'addfranchise.php',
             type: 'POST',
