@@ -7,7 +7,9 @@ $('#takeFeedbackForm').on('submit', function(e) {
         data: {
             callId: up_callId,
             feedback: feedback,
-            userId: data.userId
+            userId: data.userId,
+            suserid:data.userId,
+            susername:data.username
         },
         dataType: 'json',
         success: function(response) {

@@ -4,7 +4,7 @@
             <div class="logo-img">
                 <img src="src/img/logo1.jpg"  alt="lavalite" width="30px" class="rounded-circle">
             </div>
-            <span class="text">Spine 360</span>
+            <span class="text" style="font-size:17px;">360 Spinal Wellness</span>
         </a>
         <button type="button" class="nav-toggle"><i id="tog" data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
         <button id="sidebarClose" class="nav-close"><i class="ik ik-x"></i></button>

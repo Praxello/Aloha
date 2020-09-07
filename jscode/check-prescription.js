@@ -9,8 +9,10 @@ function check_prescription(patientId, appointmentId) {
         data: { patientId: patientId, visitDate: patient.appointment },
         success: function(response) {
             if (response.Responsecode == 200) {
+                pres_date = patient.appointment;
                 fill_exist_data(response.Data);
             } else {
+                pres_date = patient.appointment;
                 load_initital();
             }
             fetch_previous_prescription(u_patientId);

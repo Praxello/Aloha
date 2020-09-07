@@ -37,7 +37,7 @@ const getCollection = (fromDate, uptoDate, branch) => {
                     amtR = amtR + parseFloat(collect.received);
                     amtP = amtP + parseFloat(collect.pending);
                     amtT = amtT + parseFloat(collect.total);
-                    tblData += '<tr><td>' + collect.recieptId + ' </td><td>' + collect.visitDate + ' </td><td>' + collect.firstName + ' ' + collect.surname + '</td>';
+                    tblData += '<tr><td>' + collect.recieptId + ' </td><td>' + collect.createdAt + ' </td><td>' + collect.firstName + ' ' + collect.surname + '</td>';
                     tblData += '<td>' + collect.username + '</td>';
                     tblData += '<td>' + collect.discountType + '</td>';
                     tblData += '<td>' + badge + '</td>';
@@ -46,7 +46,7 @@ const getCollection = (fromDate, uptoDate, branch) => {
                     tblData += '<td>' + parseFloat(collect.pending).toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) + '</td>';
                     tblData += '<td>' + collect.paymentMode + '</td>';
                     tblData += '<td>' + collect.receivedBy + '</td>';
-                    tblData += '<td>' + collect.createdAt + '</td>';
+                    tblData += '<td>' + collect.visitDate + '</td>';
                     tblData += '<td><div class="table-actions" style="text-align: left;">';
                     tblData += '<a href="#" onclick="printReciept(' + (collect.paymentId) + ')" title="print reciept"><i class="fa fa-download text-blue"></i></a>';
                     tblData += '</div></td></tr>';

@@ -2,9 +2,11 @@ const url = 'apis/';
 if (localStorage.length > 0) {
     var sidebardata = '';
     let keys = Object.keys(localStorage);
+    keys.sort();
     if(keys > '0'){
         for(let key of keys) {
          let side = JSON.parse(localStorage.getItem(key));
+         console.log(side);
          if(side.accessid){
              sidebardata += '<div class="nav-item">';
              sidebardata += '<a href="'+side.pagename+'"><i class="'+side.icon+'"></i><span>'+side.activity+'</span></a>';

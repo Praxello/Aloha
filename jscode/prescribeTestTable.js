@@ -106,6 +106,9 @@ function storeDetails() {
         var feesType = $(tr).find('td:eq(1)').text();
         var fees = $(tr).find('td:eq(2)').text();
         feesType = feesType.split('*');
+        if(feesType[1] == 0 || feesType[1]=='undefined' || feesType[1]==undefined){
+            feesType[1] = fees;
+        }
         TableData[row] = {
             "testId": testId,
             "feesType": feesType[0],
