@@ -192,8 +192,8 @@ color: #212121;
                                                 <div class="row">
 
                                                     <div class="col-sm-8 template-demo">
-                                                        <button type="button" class="btn btn-primary " onclick="GeneratePayment()"><i class="fa fa-inr"></i>Generate Payment</button>
-                                                        <button type="button" class="btn btn-primary" onclick="openScreen()"><i class="ik ik-pocket"></i>Accept Payment</button>
+                                                        <button type="button" class="btn btn-primary " onclick="GeneratePayment()"><i class="fa fa-inr"></i>Generate Invoice</button>
+                                                        <!-- <button type="button" class="btn btn-primary" onclick="openScreen()"><i class="ik ik-pocket"></i>Accept Payment</button> -->
                                                     </div>
                                                     <div class="col-sm-4"></div>
                                                 </div>

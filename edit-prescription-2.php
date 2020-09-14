@@ -161,9 +161,9 @@
                         <li class="nav-item">
                             <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#exercise" role="tab" aria-controls="pills-setting" aria-selected="false">Exercise chart</a>
                         </li>
-                        <!-- <li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#feedbackform" role="tab" aria-controls="pills-setting" aria-selected="false">Feedback Form</a>
-                        </li> -->
+                        </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
@@ -355,6 +355,23 @@
                                      <div class="row">
                                        
                                 <?php include 'concentform.php';?>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="feedbackform" role="tabpanel" aria-labelledby="pills-setting-tab">
+                            <div class="card-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-10"></div>
+                                    <div class="col-md-2 float-right">
+                                            <div class="form-group">
+                                                <label>Select Date</label>
+                                                <select  class="form-control select2" name="feedid" id="feedid" style="width: 100%;" onchange="fill_concent(this.value);"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="row">
+                                       
+                                <?php include 'feedbackform.php';?>
                             </div>
                         </div>
                         <!-- <div class="tab-pane fade" id="feedbackform" role="tabpanel" aria-labelledby="pills-setting-tab">
@@ -573,6 +590,7 @@
     // window.open('concentform-print.php?patientId='+u_patientId + '&visitDate='+consent_date);
     $('<form action="concentform-print.php" method="POST" target="_blank"><input type="hidden" name="cpatientId" value="'+u_patientId+'" /><input type="hidden" name="cvisitDate" value="'+consent_date+'" /></form>').appendTo('body').submit();
 }
+
     display(details);
     //display the details of patient fees,name,refferance
     function display(details){
@@ -618,3 +636,9 @@
 <?php include 'carvical-spineAssessment.php';?>
 <?php include 'newPresentIllness.php';?>
 <script src="jscode/allModals.js"></script>
+<script src="jscode/feedback-form.js"></script>
+<script>
+function downloadfeedbackForm() {
+    $('<form action="feedbackform-print.php" method="POST" target="_blank"><input type="hidden" name="patientId" value="'+u_patientId+'" /><input type="hidden" name="visitDate" value="'+consent_date+'" /></form>').appendTo('body').submit();
+}
+</script>

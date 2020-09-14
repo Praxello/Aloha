@@ -1,15 +1,14 @@
 <?php
-require_once __DIR__ . '/mpdf/vendor/autoload.php';
-
-$mpdf = new \Mpdf\Mpdf(['tempDir' => __DIR__ . '/mpdf/custom/temp/dir/path']);
-$stylesheet = file_get_contents('mpdf/style.css');
+require_once 'dompdf/autoload.inc.php';
+use Dompdf\Dompdf;
+$dompdf = new Dompdf();
 
 extract($_POST);
 
 $visitDate =$_POST['cvisitDate'];
 $patientId=  $_POST['cpatientId'];
 
-function fetchConsentData($patientId,$visitDate)
+function loaddata($patientId,$visitDate)
 {
     include 'connection.php';
     $output = '';
@@ -31,7 +30,7 @@ $jobQuery = mysqli_query($conn, $sql);
                     </u></b> am a patient of  <b> <u>'.$deseaseNew.'</u></b>
                      since <b><u>'.$sinceDays.'</u></b> .</p>';
                     
-             $output.='  <p  style="font-size: 16px; margin-left:10px">.I have approached 360° Spinal Wellness and Rehabilitation for the treatment of the same.</p>';  
+             $output.='  <p  style="font-size: 16px; margin-left:10px">I have approached 360° Spinal Wellness and Rehabilitation for the treatment of the same.</p>';  
              $output.=' <p style="font-size: 16px; margin-left:10px">I am aware that my complaints are lifestyle based / degenerative in nature that has accumulated over time due to a wrong lifestyle / posture / age factor, etc. The doctor / therapist has examined me and explained about problems and treatment options.</p>';
              $output.=' <p style="font-size: 16px; margin-left:10px"> I am aware that non-surgical and / or complementary and alternative methods require its own course of time as they offer progressive wellness and relief. I have been explained clearly and properly by the doctors / staff of the therapeutic centre, about the treatment options, indications and contra-indications. </p>
              <p style="font-size: 16px; margin-left:10px"> I shall abstain from physical and mental stress.</p>';
@@ -40,7 +39,7 @@ $jobQuery = mysqli_query($conn, $sql);
                 $output.='<p style="font-size: 16px; margin-left:10px">I also agree to use my treatment reports for patient registry documentation purposes and for clinical studies for the betterment of humankind.</p>';
                 $output.='<p style="font-size: 16px; margin-left:10px">Signature of Patient:<input type="text" style="margin-top:20px"></p> ';
                 $output.='<img class="img-fluid" src="img/concent.jpg" width="100% " height="30%">';
-                $output.=' <h3 style="margin-left:150px"><center><b>PATIENT ATTENDANT CONSENT</b></center></h3>';
+                $output.=' <h3><center><b>PATIENT ATTENDANT CONSENT</b></center></h3>';
                 $output.= '<p style="font-size: 16px; margin-left:10px">I  <b><u>'.$relativeName.'</u></b>  am a relative / friend to the patient  <b><u>'.$academicResults['patientName'].'</u>.</b>';
                 $output.=' We have been explained about the therapy and agree for <b><u>'.$medicalTreatment.'</u></b>';
                 $output.=' to undergo <b><u>'.$treatmentName.'</u></b>. We will not hold any doctor / therapist / staff of the hospital / medical centre regarding the treatment and treatment results.</p>
@@ -66,9 +65,9 @@ $html = '
             
             <div class="card-body form-group">
                
-                <h3 style="margin-left:200px"><center><b>CONSENT FORM</b></center></h3>
+                <h3><center><b>CONSENT FORM</b></center></h3>
             
-                     '.fetchConsentData($patientId,$visitDate).' 
+                     '.loaddata($patientId,$visitDate).' 
                   
                     </div>
                 </div>
@@ -78,18 +77,17 @@ $html = '
 
         </div>
 </html>';
+$dompdf->setPaper('A4', 'portrait');
 
-// $mpdf = new mPDF('utf-8', 'A4-C');
-$mpdf->WriteHTML($stylesheet, 1);
-$mpdf->WriteHTML($html);
+$dompdf->loadHtml(html_entity_decode($html));
+/* Render the HTML as PDF */
+$dompdf->render();
 
-//call watermark content aand image
-$mpdf->SetWatermarkText('   ');
-$mpdf->showWatermarkText = true;
-$mpdf->watermarkTextAlpha = 0.1;
-$mpdf->Output("concentform.pdf", 'F');
+/* Output the generated PDF to Browser */
+// $dompdf->stream();
+$dompdf->stream("payment.pdf", array(
+    "Attachment" => false
+));
 
-$mpdf->Output();
-
-exit;
+exit(0);
 ?>

@@ -13,9 +13,9 @@
                                                                 <p style="font-size: 17px; margin-left:10px">I
                                                                     <input type="text"  id="pname1"> am a patient of
                                                                     <input type="text" style="margin-top:15px;" id="deseaseNew"> since 
-                                                                    <input type="text" style="margin-top:15px;" id="sinceDays"> </p>
+                                                                    <input type="text" style="margin-top:15px;" id="sinceDays"> </p>.
 
-                                                                <p style="font-size: 17px;  margin-left:10px"> .I have approached 360° Spinal Wellness and Rehabilitation for the treatment of the same.</p>
+                                                                <p style="font-size: 17px;  margin-left:10px"> I have approached 360° Spinal Wellness and Rehabilitation for the treatment of the same.</p>
 
                                                                 <p style="font-size: 17px; margin-left:10px">I am aware that my complaints are lifestyle based / degenerative in nature that has accumulated over time due to a wrong lifestyle / posture / age factor, etc. The doctor / therapist has examined me and explained about problems and treatment options.</p>
                                                                 <p style="font-size: 17px; margin-left:10px"> I am aware that non-surgical and / or complementary and alternative methods require its own course of time as they offer progressive wellness and relief. I have been explained clearly and properly by the doctors / staff of the therapeutic centre, about the treatment options, indications and contra-indications. </p>
@@ -31,7 +31,7 @@
 
                                                                         <p style="font-size: 17px; margin-left:10px">I
                                                                             <input type="text" style="margin-top:20px" id="relativeName"> am a relative / friend to the patient 
-                                                                            <input type="text" id="pname2">.We have been explained about the therapy and agree for
+                                                                            <input type="text" id="pname2">. We have been explained about the therapy and agree for
                                                                          <input type="text" style="margin-top:50px" id="medicalTreatment"> to undergo  <input type="text" style="margin-top:9px" id="treatmentName"> . We will not hold any doctor / therapist / staff of the hospital / medical centre regarding the treatment and treatment results.</p>
                                                                     </p>
                                                                     <p style="font-size: 17px; margin-left:10px"> The Doctor at &nbsp;

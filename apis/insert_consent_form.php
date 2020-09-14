@@ -12,15 +12,11 @@ if (isset($_POST['pname1']) && isset($_POST['deseaseNew']) && isset($_POST['sinc
     
     $sql = "INSERT INTO consent_form_master(patientName,deseaseNew,sinceDays,relativeName,medicalTreatment,u_patientId,visitDate,hospitalCenterName,treatmentName) 
      VALUES ('$pname1','$deseaseNew','$sinceDays','$relativeName','$medicalTreatment','$u_patientId','$visitDate','$hospitalCenterName','$treatmentName')";
-    
     $query = mysqli_query($conn, $sql);
-    
     $rowsAffected = mysqli_affected_rows($conn);
-    
-    
     if ($rowsAffected == 1) {
         $feesId  = $conn->insert_id;
-        $academicQuery = mysqli_query($conn, "SELECT * FROM consent_form_master where consentId = $ consentId");
+        $academicQuery = mysqli_query($conn, "SELECT * FROM consent_form_master where consentId = $feesId");
         if ($academicQuery != null) {
             $academicAffected = mysqli_num_rows($academicQuery);
             if ($academicAffected > 0) {

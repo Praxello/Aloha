@@ -18,7 +18,7 @@ if (isset($_POST['paymentId']) && isset($_POST['received']) && isset($_POST['pen
     $rowsAffected = mysqli_affected_rows($conn);
     if ($rowsAffected == 1) {
         $sql   = "INSERT INTO opd_payment_transaction_master(paymentId,oldValue,newValue,amount,paymentMode,paymentModeDetail,paymentDate,receivedBy) VALUES
-        ($paymentId,$pending,$received,$received,'$paymentMode','$paymentDetails','$paymentDate','$receivedBy')";
+        ($paymentId,$pending,$pending-$received,$received,'$paymentMode','$paymentDetails','$paymentDate','$receivedBy')";
         $query = mysqli_query($conn, $sql);
         $rowsAffected = mysqli_affected_rows($conn);
         if ($rowsAffected  == 1) {

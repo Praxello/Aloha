@@ -71,7 +71,7 @@ var listPatients = patients => {
     for (let k of patients.keys()) {
         let patient = patients.get(k);  
         if (contactNo==patient.mobile1) {
-            tblData += '<tr bgcolor="#BB8FCE"><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
+            tblData += '<tr bgcolor="#BB8FCE"><div class="ikr"><td><img src="img/user.png" class="table-user-thumb" alt="Upload"></td></div>';
             tblData += '<td bgcolor="#BB8FCE">' + patient.firstName + ' ' + patient.surname + '</td>';
             tblData += '<td bgcolor="#BB8FCE">' + getAge(patient.birthDate) + '</td>';
             tblData += '<td bgcolor="#BB8FCE">' + patient.mobile1+ '</td>';
@@ -85,8 +85,7 @@ var listPatients = patients => {
             tblData += '<a href="#"  onclick="acceptPayment(' + (k) + ')" title="Generate Payment"><i class="fas fa-rupee-sign" style="color:green"></i></a>';
     
           } else {
-            
-            tblData += '<tr><td><img src="upload/patients/' + patient.patientId + '.jpg" class="table-user-thumb" alt="Upload"></td>';
+            tblData += '<tr><td><img src="img/user.png" class="table-user-thumb" alt="Upload"></td>';
             tblData += '<td>' + patient.firstName + ' ' + patient.surname + '</td>';
             tblData += '<td>' + getAge(patient.birthDate) + '</td>';
             tblData += '<td >' + patient.mobile1+ '</td>';
